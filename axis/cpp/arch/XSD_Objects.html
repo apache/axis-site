@@ -1,0 +1,471 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../../skin/print.css" type="text/css">
+<title>XSD Objects</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="../../images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="../../images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.com/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../../skin/images/spacer.gif" class="spacer"><input name="Search" value="GO" type="submit">
+<br>
+                          Search WS</td><td><img height="1" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../../index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/index.html">Introduction</a>
+</div>
+ 
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/news.html">News</a>
+</div>
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/Axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Get Involved</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/overview.html">Overview</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/cvs.html">CVS Repository</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/mail.html">Mailing Lists</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/ref.html">Reference Library</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/bugs.html">Bugs</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/howtobuild.html">HowToBuildSite</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/index.html">Documentation</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/install.html">Installation</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/user-guide.html">User's Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/developers-guide.html">Developer's Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/integration-guide.html">Integration Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/architecture-guide.html">Architecture Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/reference.html">Reference Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/reading.html">Reading Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/requirements.html">Requirements</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="../../cpp/index.html">Home</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../cpp/documentation.html">Documentation</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../cpp/download.html">Download</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki Pages</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../cpp/who.html">Who we are</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">Downloads</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/releases.html">Releases</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/interim.html">Interim Drops</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">Source Code</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Translation</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/ja/index.html">Japanese</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Related Projects</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Misc</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/who.html">Who We Are</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/contact.html">Contact</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/legal.html">Legal</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/docs.html">Notes/Docs</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>XSD Objects</h1>
+</div>
+<div class="h3">
+<div class="h3">
+<h3>XSD Objects</h3>
+</div>
+<div class="h4">
+<h4>XML Schema Part 2 : Datatypes</h4>
+</div>
+<p>The types and formatting of data transmitted in a SOAP message is defined by the XML Schema, in particular Part 2 : Datatypes. The full specification can be seen <a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/">here</a>.</p>
+<div class="h2">
+<h2>Built-in types</h2>
+</div>
+<p>Within <a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#built-in-datatypes">section 3</a> of the above specification 44 built-in datatypes are described, encompasing Strings, numeric, time and encoded binary datatypes. These datatypes are split into two groups, primitive and derived types.</p>
+<p>
+<img alt="" src="../images/c/XSD_Objects_Heirarchy.JPG"></p>
+<div class="h5">
+<h5>Primitive Types</h5>
+</div>
+<p>The XML schema provides 19 primitive types. As all data is represented in text form within XML, the value space for each datatype needs to be specified, for example numeric types cannot contain alphabetic characters. To do this, each type defines a number of contraining facets and the values within these facets allows the XML engine to validate the data. See <a href="#Constraining Facets">Constraining Facets</a> below for further information on how these are used.</p>
+<p>
+<img alt="The 19 primitive data types are: string, boolean, decimal, float, double, duration, dateTime, time, date, gYearMonth, gYear, gMonthDay, gDay, gMonth, hexBinary, base64Binary, anyURI, QName, NOTATION" src="../images/c/XSD_PrimitiveTypes.JPG"></p>
+<p>See <a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#built-in-primitive-datatypes">section 3.2</a> of the specification for full detail on each datatype.</p>
+<div class="h5">
+<h5>Derived Types</h5>
+</div>
+<p>The XML Schema allows additional types to be derived from the primitive types, and has 25 built-in derived types. 12 data types are derived from the string primitive data type.</p>
+<img alt="The 12 types derived from the string primitive data type are: normalizedString, token, language, Name, NCName, ID, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN and NMTOKENS" src="../images/c/XSD_String_DerivedTypes.JPG"><p>The remaining 13 data types are derived from the decimal primitive data type.</p>
+<p>
+<img alt="The 13 data types derived from the decimal primitive data type are: integer, nonPositiveInteger, negativeInteger, long, int, short, byte, nonNegativeInteger, unsignedLong, unsignedInt, unsignedShort, unsignedByte, positiveInteger" src="../images/c/XSD_Decimal_DerivedTypes.JPG"></p>
+<p>A derived type uses the same contraining facets as the type from which it is derived, but provides differing values for one or more facet so as to further restrict the value space. For example; the decimal allows fraction digits, while the integer derived type sets this facet to 0.</p>
+<p>See <a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#built-in-derived">section 3.3</a> of the specification for full detail on each datatype.</p>
+<div class="h5">
+<h5>User defined derived types</h5>
+</div>
+<p>In the same way as the XML Schema defines a number of built-in datatypes the user can also provide additional derived types. This can be done in the WSDL document, or an XSD referred from a WSDL document.</p>
+<p>The following shows how you can create a new type called <span class="codefrag">direction</span>, which is derived from the <span class="codefrag">NMTOKEN</span> built-in type, to only have the values <span class="codefrag">fromKey</span> and <span class="codefrag">toKey</span>, by restricting the <span class="codefrag">enumeration</span> constraining facet.</p>
+<pre>   &lt;xsd:simpleType name="direction"&gt;
+        &lt;xsd:restriction base="NMTOKEN"&gt;
+            &lt;xsd:enumeration value="fromKey"/&gt;
+            &lt;xsd:enumeration value="toKey"/&gt;
+        &lt;/xsd:restriction&gt;
+    &lt;/xsd:simpleType&gt;</pre>
+<div class="h2">
+<h2>Constraining Facets</h2>
+</div>
+<p>As mentioned above, the value spaces of each of the built-in types are controlled by constraining facets. The XML Schema provides 12 constraining facets, as described in <a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#rf-facets">section 4.3</a>.</p>
+<p>The 12 constraining facets are:</p>
+<ul>
+<li>
+<span class="codefrag">length</span>
+</li>
+<li>
+<span class="codefrag">minLength</span>
+</li>
+<li>
+<span class="codefrag">maxLength</span>
+</li>
+<li>
+<span class="codefrag">pattern</span> - describes the form of the data, typically using regular expression syntax.</li>
+<li>
+<span class="codefrag">enumeration</span> - specifies a fixed set of permitted values</li>
+<li>
+<span class="codefrag">whiteSpace</span> - how to handle whitespace characters</li>
+<li style="list-style: none">
+<ul>
+<li>
+<span class="codefrag">preserve</span> - value is unchanged</li>
+<li>
+<span class="codefrag">replace</span> - all occurances of tab, line feed and carriage return are replaced with a space</li>
+<li>
+<span class="codefrag">collapse</span> - after the process of <span class="codefrag">replace</span>, remove all contigious repeating occurances of spaces, and strip leading and trailing spaces</li>
+</ul>
+</li>
+<li>
+<span class="codefrag">maxInclusive</span>
+</li>
+<li>
+<span class="codefrag">maxExclusive</span>
+</li>
+<li>
+<span class="codefrag">minExclusive</span>
+</li>
+<li>
+<span class="codefrag">minInclusive</span>
+</li>
+<li>
+<span class="codefrag">totalDigits</span>
+</li>
+<li>
+<span class="codefrag">fractionDigits</span>
+</li>
+</ul>
+<p>Each primitive datatype uses a subset of these contraining facets, to suit the characteristics of that particular datatype. <a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#defn-coss">Section 4.1.5</a> of the XML Schema provides a table of which facets are used for each datatype.</p>
+<p>It is permitted for the value of a constraining facet to be undefined, with the exception of whitespace which must be specified as one of preserve, replace or collapse.</p>
+<hr>
+<div class="h3">
+<h3>Axis C++ Implementation of XSD built-in types</h3>
+</div>
+<div class="h4">
+<h4>C++ Objects</h4>
+</div>
+<p>In version 1.5 of Apache Axis C++, an object model was introduced to the SOAP engine for the XSD built-in types. The object heirarchy mimics the order in which the datatypes are derived from each other.</p>
+<div class="h2">
+<h2>IAnySimpleType Interface</h2>
+</div>
+<p>All the XSD type objects implement the IAnySimpleType interface, which provides the following methods, which must be implemented by all implementing classes</p>
+<div style="margin-left: 2em">
+<span class="codefrag">AxisChar* serialize() throw (AxisSoapException)</span>
+<br>
+<span class="codefrag">void deserialize(const AxisChar* valueAsChar) throw (AxisSoapException)</span>
+<br>
+<span class="codefrag">XSDTYPE getType()</span>
+<br>
+<span class="codefrag">void* getValue()</span>
+</div>
+<p>In addition each implementation of this interface must provide a parameterized constructor, such that it can be constructed and will immediately serialize the provided value.</p>
+<p>The IAnySimpleType interface provides the following utility method, which should be called by all implementing classes when serializing data.</p>
+<div style="margin-left: 2em">
+<span class="codefrag">AxisChar* serialize(const AxisChar* value) throw (AxisSoapException);</span>
+</div>
+<p>This method resolves reserved characters (eg <span class="codefrag">&amp;</span> is replaced by <span class="codefrag">&amp;amp;</span>), processes <span class="codefrag">Whitespace</span>, validates <span class="codefrag">Pattern</span> and ensures value is contained within <span class="codefrag">Enumeration</span>.</p>
+<div class="h2">
+<h2>Object Heirarchy</h2>
+</div>
+<p>Below is a portion of the C++ object heirarchy, which, as you will notice, is very similar to the <a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#built-in-datatypes">diagram of built-in datatypes</a> in the XSD Schema.</p>
+<p>
+<img alt="" src="../images/c/XSDObjects_Heirarchy.gif"></p>
+<div class="h2">
+<h2>Mapping XSD built-in types to C/C++ types</h2>
+</div>
+<p>Within the Axis engine mappings are provided between the XSD built-in types and the native C/C++ types. To aid understanding and maintain consistency, these are declared as typedefs to match the XSD type names. These typedefs should be used throughout the engine for:</p>
+<ul>
+<li>Clarity of code, making it clear which type is being handled at any point in the code</li>
+<li>Ease of maintenance, should a native type need to be altered, it need only be done in the typedef without further changes through the codebase.</li>
+</ul>
+<div class="h5">
+<h5>C++ Types</h5>
+</div>
+<p>The mapping from C++ types to the XSD built-in types is defined in <span class="codefrag">AxisUserAPI.hpp</span>. For each XSD built-in type a corresponding typedef is declared in the form <span class="codefrag">xsd__&lt;type&gt;</span>, eg: <span class="codefrag">xsd__string</span>.</p>
+<p>Note: <span class="codefrag">AxisUserAPI.hpp</span> only declares those types currenty supported within the user API.</p>
+<div class="h5">
+<h5>C Types</h5>
+</div>
+<p>Similar to the C++ API, the mapping from C types to the XSD built-in types is defined in <span class="codefrag">AxisUserAPI.h</span>. A typedef is declared for each XSD built-in type, in the form <span class="codefrag">xsdc__&lt;type&gt;</span>, eg: <span class="codefrag">xsdc__string</span>.</p>
+<div class="h2">
+<h2>IConstrainingFacet Interface</h2>
+</div>
+<p>All the Constraining Facet objects implement the IConstrainingFacet interface. This provides the following utility method, which allows the XSD objects to determine if a given facet has been defined:</p>
+<div style="margin-left: 2em">
+<span class="codefrag">bool isSet();</span>
+</div>
+<p>The following Constraining Facet objects provide utility methods to assist the serialization/deserialization of XSD built-in types:</p>
+<div style="margin-left: 2em">Enumeration <div style="margin-left: 2em">
+<span class="codefrag">void validateEnumeration(const AxisChar* value) throw (AxisSoapException);</span>
+</div>Pattern <div style="margin-left: 2em">
+<span class="codefrag">void validatePattern(const AxisChar* value) throw (AxisSoapException);</span>
+</div>WhiteSpace <div style="margin-left: 2em">
+<span class="codefrag">const AxisChar* processWhiteSpace(const AxisChar* valueToProcess);</span>
+</div>
+</div>
+<hr>
+<div class="h3">
+<h3>Current Limitations</h3>
+</div>
+<div class="h4">
+<h4>Function Limitation</h4>
+</div>
+<p>Currently, the XSD objects are completely internal to the Axis engine. In the future we may wish to expose these on the external API, such that customers (via WSDL2Ws) will be able to derive additional simple types simply by refining one or more of the constraining facets, then simply re-using the serialization/deserialization logic we have already written.</p>
+<div class="h4">
+<h4>Pattern Constraining Facet</h4>
+</div>
+<p>The implementation of the pattern constraining facet is incomplete. It needs to validate against a given regular expression, following this, the pattern for each of data types needs to be updated with the regular expression to describe their particular data type.</p>
+<hr>
+<div class="h3">
+<h3>References</h3>
+</div>
+<p>XML Schema Part 2 : Datatypes - <a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/">http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/</a>
+</p>
+<div class="h4">
+<h4>Outstanding Issues</h4>
+</div>
+<a href="http://issues.apache.org/jira/browse/AXISCPP-291">AXISCPP-291</a>
+<div id="pdf" align="right">
+<a href="XSD_Objects.pdf"><img alt="PDF" src="../../skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en] (Windows NT 5.0; U) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FFFFFF">
+&nbsp;
+<table WIDTH="100%" >
+<tr BGCOLOR="#82ADF6">
+<td><b><font size=+2>Axis FAQ</font></b></td>
+</tr>
+</table>
+
+<p>These questions seem to be frequently asked:
+<ul>
+<li>
+<a href="#faq1">What is Axis? What is its relationship to Apache SOAP?</a></li>
+
+<li>
+<a href="#faq2">Why call it "Axis"?</a></li>
+
+<li>
+<a href="#faq3">Is Axis close to a release of some kind?</a></li>
+
+<li>
+<a href="#faq4">What is Axis's status overall?</a></li>
+
+<li>
+<a href="#faq5">Why do some classes fail to load under Tomcat?</a></li>
+
+<li>
+<a href="#faq6">What if I can't find the answer to my question here?</a></li>
+
+<li>
+<a href="#faq7">How do I report bugs?</a></li>
+
+<li>
+<a href="#faq8">How does Axis create my backend service objects?&nbsp;
+Can I control this?</a></li>
+
+<li>
+<a href="#faq9">So does Axis support sessions?</a></li>
+
+<li>
+<a href="#faq10">Cool, SOAP header-based sessions?&nbsp; How do I make
+that work?</a></li>
+
+<li>
+<a href="#faq11">What else can I do with sessions?</a></li>
+
+<li>
+<a href="#faq12">How do I get access to the MessageContext in my service
+object?</a></li>
+
+<li>
+<a href="#faq13">Where do I put my &lt;typeMapping>/&lt;beanMapping> information?</a></li>
+
+<li>
+<a href="#faq14">What is the relationship between JAXM and Axis?</a></li>
+
+<li>
+<a href="#faq15">How does Axis figure out which deployed service to call?</a></li>
+
+<li>
+<a href="#faq16">How do I associate a namespace mapping with my service?</a></li>
+
+<li>
+<a href="#faq17">How do I set a timeout when using WSDL2Java stubs?</a></li>
+
+<li>
+<a href="#faq18">How do I set a header when using WSDL2Java stubs?</a></li>
+
+</ul>
+
+<hr><a NAME="faq1"></a><i>What is Axis? What is its relationship to Apache
+SOAP?</i>
+<blockquote>Axis is essentially Apache SOAP 3.0. It is a from-scratch rewrite,
+designed around a streaming model (using SAX internally rather than DOM).
+The intention is to create a more modular, more flexible, and higher-performing
+SOAP implementation (relative to Apache SOAP 2.0).</blockquote>
+<a NAME="faq2"></a><i>Why call it "Axis"?</i>
+<blockquote>The name "Axis" was chosen because, when the project started,
+the XML Protocol working group had not chosen a name for its protocol.
+The intent was for Axis to support SOAP 1+, XML-RPC, and XMLP (whatever
+it wound up being called), so calling it "Apache SOAP 3.0" would have missed
+the mark. Recently, the XML Protocol working group decided to retain the
+SOAP name, so perhaps it would have been better to keep Axis as part of
+the Apache SOAP project. C'est la vie.
+<p>(According to the README, Axis stands for "Apache eXtensible Interaction
+System", which could mean almost anything.)</blockquote>
+<a NAME="faq3"></a><i>Is Axis close to a release of some kind?</i>
+<blockquote>The first beta was released on March 15, 2002, the second
+on April 29, 2002, and the third on July 9, 2002.
+We are hoping for a 1.0 release in the Summer of 2002.</blockquote>
+<a NAME="faq4"></a><i>What is Axis's status overall?</i>
+<blockquote>To keep track of Axis's progress:
+<ul>
+<li>
+<a href="http://www.apache.org/~rubys/ApacheClientInterop.html">Sam Ruby's
+Axis/SOAP interop page</a></li>
+
+<li>
+<a href="http://cvs.apache.org/viewcvs/~checkout~/ws-axis/java/docs/requirements.html?content-type=text/html">The
+requirements &amp; status page.</a></li>
+</ul>
+</blockquote>
+<a NAME="faq5"></a><i>Why do some classes fail to load under Tomcat?</i>
+<blockquote>Tomcat will not load classes with package names starting "java."
+or "javax." from the WEB-INF directory. jars containing such classes need
+to be installed in $TOMCAT_HOME/common/lib rather than in WEB-INF/lib.
+Currently (April 25, 2002) jaxrpc.jar is such a jar.</blockquote>
+<a NAME="faq6"></a><i>What if I can't find the answer to my question here?</i>
+<blockquote>Try the <a href="mail.html" target="body">mailing lists</a>.</blockquote>
+<a NAME="faq7"></a><i>How do I report bugs?</i>
+<blockquote>See <a href="bugs.html" target="body">bugs</a>.</blockquote>
+<a NAME="faq8"></a><i>How does Axis create my backend service objects?&nbsp;
+Can I control this?</i>
+<blockquote>Axis supports a "scope" parameter on services, which can be
+set to "request" (make a new object to service each request - this is the
+default), "session" (associate a new object with each session), and "application"
+(all users share a singleton object).&nbsp; WARNING: If you set the scope
+to "session" or "application", it is possible that multiple threads of
+control may attempt to access your object's methods at the same time. It
+is your responsibility to ensure that your objects are thread-safe in these
+cases.</blockquote>
+<a NAME="faq9"></a><i>So does Axis support sessions?</i>
+<blockquote>Yes.&nbsp; We have a session abstraction which allows an extensible
+set of underlying implementations - take a look at the class org.apache.axis.session.Session
+for details.&nbsp; In particular, we currently support sessions based on
+HTTP cookies and also transport-independent sessions based on SOAP headers.&nbsp;
+It is up to some handler on the request chain to set up an appropriate
+Session implementation and attach it to the MessageContext with MessageContext.setSession()
+so that anyone who wants to use session semantics can get at it.</blockquote>
+<a NAME="faq10"></a><i>Cool, SOAP header-based sessions?&nbsp; How do I
+make that work?</i>
+<blockquote>There is a Handler class called "org.apache.axis.handlers.&nbsp;
+SimpleSessionHandler" which implements this functionality. You need to
+include this handler in the request and response flows of both your client
+and your server.&nbsp; Take a look at our session test (test.session.TestSimpleSession)
+for an example.</blockquote>
+<a NAME="faq11"></a><i>What else can I do with sessions?</i>
+<blockquote>Any time after the session context has been established, calling
+getSession() on the current messageContext will obtain you a reference
+to a Session object.&nbsp; You may use this object like a Hashtable to
+store arbitrary data associated with this Session.&nbsp; For instance,
+on one request you might extract the caller's name and address from a database
+(an expensive operation), and then cache them in the Session object for
+fast access on subsequent invocations from the same caller.&nbsp; This
+functionality can be used either by custom Handlers or by your backend
+service object itself.</blockquote>
+<a NAME="faq12"></a><i>How do I get access to the MessageContext in my
+service object?</i>
+<blockquote>Use the static MessageContext.getCurrentContext() method at
+any time during a method call on your object.</blockquote>
+<a NAME="faq13"></a><i>Where do I put my &lt;typeMapping>/&lt;beanMapping>
+information?</i>
+<blockquote>There are two places in the WSDD where type mappings are appropriate.&nbsp;
+At the top level, just under &lt;deployment>, they become <b>global</b>
+type mappings, and all services deployed in the Axis engine will be able
+to use them.&nbsp; Alternately, you can place them inside your &lt;service>
+tag, and then the mappings will only be accessible by that particular service.</blockquote>
+<a NAME="faq14"></a><i>What is the relationship between JAXM and Axis?</i>
+<blockquote>JAXM is a specification (NB. not an implementation) of two
+sets of interfaces: javax.xml.soap and javax.xml.messaging.
+Recently, the former set has been moved to its own specification, 
+"SOAP with Attachments API for Java" (SAAJ), by Sun.
+Axis implements the SAAJ (javax.xml.soap) interfaces.
+</blockquote>
+<a NAME="faq15"></a><i>How does Axis figure out which deployed service
+to call?</i>
+<blockquote>Axis has a very flexible dispatch mechanism, with three built-in
+options, and the ability to customize your own.&nbsp; Dispatch to a service
+in Axis really means setting the service field in the MessageContext as
+it flows through the various Handlers in your configuration.&nbsp; Once
+the service is set, the engine will be able to call it at the appropriate
+time.&nbsp; So who does the setting?&nbsp; Any Handler who wants to.
+<p>The default dispatch mechanism for Axis is by URL, so that if you access
+http://myhost/axis/services/WeatherReport, you will get the "WeatherReport"
+service.&nbsp; This mechanism works because the HTTP transport in Axis
+has the URLMapper (org.apache.axis.handlers.http.URLMapper) Handler deployed
+on the request chain.&nbsp; The URLMapper takes the incoming URL, extracts
+the last part of it as the service name, and attempts to look up a service
+by that name in the current EngineConfiguration.
+<p>Similarly you could deploy the HTTPActionHandler to dispatch via the
+SOAPAction HTTP header.&nbsp; You can also feel free to set the service
+in your own custom way - for instance, if you have a transport which funnels
+all messages through a single service, you can just set the service in
+the MessageContext before your transport calls the AxisEngine.&nbsp; Or
+if you dispatch based on the contents of a SOAP header, or the time of
+day, you could write a Handler which did that.
+<p>If no Handler has set the service by the time someone needs to deserialize
+the SOAP message, we will attempt to look it up using the namespace of
+the first body element.&nbsp; So for instance:
+<p>&lt;SOAP:Body>
+<br>&nbsp; &lt;ns:MyMethod xmlns:ns="./axis/Weather"/>
+<br>&lt;/SOAP:Body>
+<p>This message would look up "./axis/Weather" in the
+namespace mapping list to see if there was an associated service.</blockquote>
+<a NAME="faq16"></a><i>How do I associate a namespace mapping with my service?</i>
+<blockquote>The WSDD for your service should look something like this:
+<p>&lt;service name="MyService" provider="java:RPC">
+<br>&nbsp; &lt;namespace>http://my.com/MyServiceNamespace&lt;/namespace>
+<br>&nbsp; ...
+<br>&lt;/service>
+<br>&nbsp;&nbsp;</blockquote>
+<a name="faq17"></a><i>How do I set a timeout when using WSDL2Java stubs?</i>
+<blockquote>
+<p>There is a <em>setTimeout</em> method on the <tt>org.apache.axis.client.Stub</tt> class, which
+is the class all emitted stubs extend.
+<p>Here is how to set the timeout given a service named Foo:
+<pre>
+ FooServiceLocator loc = new FooServiceLocator();
+ FooService binding = loc.getFooService();
+ org.apache.axis.client.Stub s = (Stub) binding;
+ s.setTimeout(1000);  // 1 second, in miliseconds
+ </pre>
+<p>The default timeout in Axis 1.1 and later is 60 seconds. Axis 1.0
+did not have a default timeout (i.e. it defaulted to 0). 
+This timeout value is set on the HTTP socket and is not a connection timeout,
+which requires implementation we do not have as of Axis 1.1.
+</p>
+</blockquote>
+
+<a name="faq18"></a><i>How do I set a header when using WSDL2Java stubs?</i>
+<blockquote>
+<p>There are two styles of headers, explicit and implicit.  Explicit headers are
+defined in the WSDL of the service.  The WSDL2Java generation tool will recognize
+these headers in most cases and emit stub class methods that include the headers
+as arguments to the methods.
+<p>In other cases, you may want to set headers that are not explicitly called
+  out in the WSDL. For instance, you want to do some custom processing in a handler
+  or add security.
+In this case you can add headers to request before you invoke the stub method.
+<p>There are are two <em>setHeader</em> APIs on the <tt>org.apache.axis.client.Stub</tt> class.
+The first takes the namespace, name and value of the header.
+ <pre>setHeader(String namespace, String partName, Object headerValue)</pre>
+The second takes a SoapHeaderElement: 
+<pre>setHeader(SOAPHeaderElement header)</pre>
+<p>Here is an example of using the first API</p>
+<pre>
+ FooServiceLocator loc = new FooServiceLocator();
+ FooService binding = loc.getFooService();
+ org.apache.axis.client.Stub s = (Stub) binding;
+ s.setHeader("http://my.name.space/headers", "mysecurityheader", "This guy is OK");
+ result = binding.myOperation(...);
+</pre>
+
+</blockquote>
+
+</body>
+</html>
