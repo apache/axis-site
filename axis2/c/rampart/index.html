@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>Apache Rampart/C - The Security Module for Apache Axis2/C</title><style type="text/css" media="all">
+          @import url("./style/maven-base.css");
+          
+			    @import url("./style/maven-classic.css");</style><link rel="stylesheet" href="./style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta></head><body class="composite"><div id="banner"><a href="http://www.apache.org/" id="organizationLogo"><img alt="Apache Software Foundation" src="http://www.apache.org/images/asf-logo.gif"></img></a><a href="http://ws.apache.org/rampart/c" id="projectLogo"><img alt="Apache Rampart/C" src="http://ws.apache.org/rampart/c/images/rampartc_logo.jpg"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">
+                	Last published: 13 May 2009
+                  | Doc for 1.3.0</div><div class="xright"></div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuApache_Rampart_C"><h5>Apache Rampart/C</h5><ul><li class="none"><a href="index.html">Apache Rampart/C Home</a></li><li class="expanded"><a href="download.cgi">Download Rampart/C</a><ul><li class="none"><a href="download.cgi">Releases</a></li></ul></li><li class="expanded"><a href="docs/index.html">Documentation</a><ul><li class="none"><a href="docs/installationguide.html">Installation Guide</a></li><li class="none"><a href="docs/rampartc_manual.html">Rampart/C manual</a></li><li class="none"><a href="docs/configurations.html">Configurations guide</a></li></ul></li><li class="expanded"><a href="lists_issues.html">Get Involved</a><ul><li class="none"><a href="lists_issues.html">Mailing Lists &amp; Issue Tracking</a></li><li class="none"><a href="svn.html">Checkout Source Code</a></li></ul></li><li class="expanded"><a href="coding_conventions.html">Developer Guidelines</a><ul><li class="none"><a href="coding_conventions.html">Coding Convention</a></li><li class="none"><a href="versioning.html">Versionning</a></li></ul></li><li class="expanded"><a href="team-list.html">Project Information</a><ul><li class="none"><a href="team-list.html">Project Team</a></li><li class="none"><a href="http://svn.apache.org/viewcvs.cgi/webservices/rampart/trunk/c/" class="externalLink" title="External Link">Source Code</a></li></ul></li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="./images/logos/maven-button-1.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="Welcome_to_Apache_Rampart_C"></a><h2>Welcome to Apache Rampart/C</h2><p>Apache Rampart/C is the security module for <a href="http://ws.apache.org/axis2/c/" class="externalLink" title="External Link">Apache Axis2/C</a>. It features in many ways to protect SOAP messages exchanged. This includes SOAP message encryption and signature as specified in <a href="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf" class="externalLink" title="External Link">WS-Security Specification</a>. In addition Apache Rampart/C configurations are based on security policy assertions as per <a href="http://specs.xmlsoap.org/ws/2005/07/securitypolicy/ws-securitypolicy.pdf" class="externalLink" title="External Link">WS-Security Policy specificatoin</a></p><div class="subsection"><a name="Why_Apache_Rampart_C__"></a><h3>Why Apache Rampart/C ?</h3><p>In distributed computing, web services play a crucial role. But as many distributed systems web services are also vulnerable for security threats. Developers are always struggling to ensure the integrity, confidentiality of messages. Implementing the right security solution can be an expensive and time consuming task. Rampart/C makes the life easier for those who uses Axis2/C, by providing a configurable security module, which protect SOAP messages from such threats.
+</p></div><div class="subsection"><a name="Latest_Release"></a><h3>Latest Release</h3></div><div class="subsection"><a name="27th_May_2009_-_Apache_Rampart_C_Version_1_3_0_Released"></a><h3>27th May 2009 - Apache Rampart/C Version 1.3.0 Released</h3><p><a href="http://ws.apache.org/rampart/c/download.cgi" class="externalLink" title="External Link">Download 1.3</a></p></div><div class="subsection"><a name="Key_Features"></a><h3>Key Features</h3><ol>
+<li>Ability to send and verify UsernameTokens with
+    <ul> 
+    <li>Username and PlainText password
+    </li><li>Username and Digested password
+    </li></ul>
+</li><li>Ability to send Timestamp tokens
+</li><li>SOAP message encryption
+    <ul>
+    <li> With derived key support for improved security
+    </li><li> Symmetric and Asymmetric modes of operations
+    </li><li> Support for AES and Tripple DES encryption
+    </li><li> Signature encryption
+    </li><li> Keys encryption
+    </li></ul>
+</li><li>SOAP message signature
+    <ul>
+    <li> XML signature with RSA-SHA1
+    </li><li> Message authentication with HMAC-SHA1
+    </li><li> Signature confirmation support
+    </li><li> SOAP Header signing
+    </li></ul>
+</li><li>WS-Security Policy (spec 1.1 and spec 1.2) based configurations
+    <ul>
+    <li> Support for both Symmetric as well as Asymmetric policy bindings
+    </li><li> Support for different modes of key identifiers
+    </li><li> Support for different algorithm suites<br></br>
+        [Basic128, Basic 192, Basic256, TrippleDES, Basic128Rsa15, Basic192Rsa15,Basic256Rsa15, TripleDesRsa15]
+	</li><li> Support for IssuedToken assertion in client side
+	</li><li> Support for SAMLToken assertion
+     </li></ul>
+</li><li>Replay detection support
+    <ul>
+    <li> Easy to use built-in replay detection module
+    </li><li> Ability to deploy a customized replay detection module
+    </li></ul>
+</li><li>Different protection orders
+    <ul>
+    <li> Encrypt before signing
+    </li><li> Sign before encrypting
+    </li></ul>
+</li><li>Extensible modules
+    <ul>
+    <li> Password callback module
+    </li><li> Authentication module
+    </li><li> Credentials module
+	</li><li> Replay detection module
+	</li><li> Secure conversation token module
+    </li></ul>
+</li><li>Keys management
+    <ul>
+    <li> Support for X509 token profile
+	</li><li> Support for Key identifiers, Thumb prints, Issuer/Serial pairs, Embedded and Direct references
+	</li><li> Support for PKCS12 keystore
+    </li></ul>
+</li><li> WS-Secure Conversation Language support
+    <ul>
+    <li> Establishing Security Context and thereby maintaining a session
+    </li><li> Per message key derivation
+    </li><li> Support for stored securtiy context token
+	</li><li> Rahas module support to give STS functionality to a service
+    </li></ul>
+</li><li> WS-Trust Language support 
+    <ul>
+    <li> Security Token Services (STS)
+    </li><li> STS Client
+    </li><li> Server and Client entrophy support
+    </li></ul>
+</li><li> SAML Support
+	<ul>
+		<li> Support for Creation and Processing of SAML Core 1.1 Assertion
+		</li><li> SAML Token as Sign Supporting Token
+		</li><li> Signing and Encryption with SAML
+	</li></ul>
+</li><li>Other
+    <ul>
+    <li> Easy to use deployment scripts
+    </li><li> A comprehensive set of samples
+    </li></ul>
+</li></ol></div><div class="subsection"><a name="Major_Changes_Since_Last_Release"></a><h3>Major Changes Since Last Release</h3><p>
+<ol>
+    <li> WS-Secure Conversation Language support
+	</li><li> WS-Trust Language support
+	</li><li> Rahas module to give STS support to a service
+    </li><li> PKCS12 Keystore support
+	</li><li> Security Policy 1.2 support
+    </li><li> Memory leak fixes</li>
+    <li> Many bug fixes</li>
+ </ol>
+</p></div><div class="subsection"><a name="Archived_News"></a><h3>Archived News</h3><p>News on 
+      <a href="archived_news.html">previous Rampart/C releases</a>.
+    </p></div></div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2005-2009, Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>
