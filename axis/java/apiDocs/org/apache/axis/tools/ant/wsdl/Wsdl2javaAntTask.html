@@ -1,0 +1,1141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+Wsdl2javaAntTask (Apache Axis)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Wsdl2javaAntTask (Apache Axis)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Wsdl2javaAntTask.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/TypeMappingVersionEnum.html" title="class in org.apache.axis.tools.ant.wsdl"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;NEXT CLASS</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="Wsdl2javaAntTask.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_org.apache.tools.ant.Task">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.axis.tools.ant.wsdl</FONT>
+<BR>
+Class Wsdl2javaAntTask</H2>
+<PRE>
+<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by ">org.apache.tools.ant.ProjectComponent
+      <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by ">org.apache.tools.ant.Task
+          <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.axis.tools.ant.wsdl.Wsdl2javaAntTask</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public class <B>Wsdl2javaAntTask</B><DT>extends org.apache.tools.ant.Task</DL>
+</PRE>
+
+<P>
+Create Java classes from local or remote WSDL.
+ Mappings from namespaces to packages can be provided as nested &lt;mapping&gt;
+ elements.
+ <p>
+ Proxy settings are taken from the java runtime settings of http.ProxyHost,
+ http.ProxyPort, etc. The Ant task &lt;setProxy&gt; can set these.
+ As well as the nested mapping elements, this task uses  the file
+ <tt>NStoPkg.properties</tt> in the project base directory
+ for namespace mapping
+ <p>
+ This task does no dependency checking; files are generated whether they
+ need to be or not. The exception to this is the Impl class, which is
+ not overwritten if it exists. This is a safety measure. However, all other
+ classes are generated overwriting anything that exists.
+ <p>
+ The safe way to use this task is to have it generate the java source in
+ a build directory, then have a &lt;copy&gt task selectively copy the
+ files you need into a safe location. Again, copying into the source tree
+ is dangerous, but a separate build/src tree is safe. Then include this
+ separate tree in the &lt;javac&gt; task's src attribute to include it in the
+ build. Implement your own implementation classes of the server stub and the
+ test cases using the generated templates.
+ If you want to add methods to autogenerated data types, consider subclassing
+ them, or write helper classes.
+ <p>
+ Tip: if you &lt;get&gt; the wsdl, and use the &lt;filesmatch&gt; condition
+ to compare the fetched wsdl with a catched copy, you can make the target that
+ calls the axis-wsd2ljava task conditional on the WSDL having changed. This stops
+ spurious code regeneration and follow-on rebuilds across the java source tree.
+<P>
+
+<P>
+<DL>
+<DT><B>Author:</B></DT>
+  <DD>Davanum Srinivas (dims@yahoo.com), steve loughran</DD>
+</DL>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_org.apache.tools.ant.Task"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class org.apache.tools.ant.Task</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>description, location, target, taskName, taskType, wrapper</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_org.apache.tools.ant.ProjectComponent"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class org.apache.tools.ant.ProjectComponent</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>project</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#Wsdl2javaAntTask()">Wsdl2javaAntTask</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#addMapping(org.apache.axis.tools.ant.wsdl.NamespaceMapping)">addMapping</A></B>(<A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/NamespaceMapping.html" title="class in org.apache.axis.tools.ant.wsdl">NamespaceMapping</A>&nbsp;mapping)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add a mapping of namespaces to packages</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#addMappingSet(org.apache.axis.tools.ant.wsdl.MappingSet)">addMappingSet</A></B>(<A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/MappingSet.html" title="class in org.apache.axis.tools.ant.wsdl">MappingSet</A>&nbsp;mappingset)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add a mapping of namespaces to packages</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#addSysproperty(org.apache.tools.ant.types.Environment.Variable)">addSysproperty</A></B>(org.apache.tools.ant.types.Environment.Variable&nbsp;sysp)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adds a system property that tests can access.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;org.apache.tools.ant.types.Path</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#createClasspath()">createClasspath</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set the classpath</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#createEmitter()">createEmitter</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This factory method makes it easier to extend this Ant task
+ with a custom Emitter, if necessary.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/axis/wsdl/toJava/NamespaceSelector.html" title="class in org.apache.axis.wsdl.toJava">NamespaceSelector</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#createNsExclude()">createNsExclude</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adds an additional namespace to the list to be excluded
+ from source code generation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/axis/wsdl/toJava/NamespaceSelector.html" title="class in org.apache.axis.wsdl.toJava">NamespaceSelector</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#createNsInclude()">createNsInclude</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adds an additional namespace to the list to be included
+ in source code generation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/axis/wsdl/toJava/FactoryProperty.html" title="class in org.apache.axis.wsdl.toJava">FactoryProperty</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#createProperty()">createProperty</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adds a property name/value pair for specialized
+ JavaGeneratorFactories.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../../org/apache/axis/wsdl/toJava/NamespaceSelector.html" title="class in org.apache.axis.wsdl.toJava">NamespaceSelector</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#createSelector()">createSelector</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#execute()">execute</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The method executing the task</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setAll(boolean)">setAll</A></B>(boolean&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag to generate code for all elements, even unreferenced ones
+ default=false;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setAllowInvalidUrl(boolean)">setAllowInvalidUrl</A></B>(boolean&nbsp;b)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the allowInvalidURL flag.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setDebug(boolean)">setDebug</A></B>(boolean&nbsp;debug)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag for debug output; default=false</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setDeployScope(java.lang.String)">setDeployScope</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;scope)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add scope to deploy.xml: "Application", "Request", "Session"
+ optional;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setFactory(java.lang.String)">setFactory</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name of the Java2WSDLFactory class for
+ extending WSDL generation functions</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setFailOnNetworkErrors(boolean)">setFailOnNetworkErrors</A></B>(boolean&nbsp;failOnNetworkErrors)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;should the task fail the build if there is a network error?</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setHelperGen(boolean)">setHelperGen</A></B>(boolean&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Turn on/off Helper class generation;
+ default is false</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setImplementationClassName(java.lang.String)">setImplementationClassName</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;implementationClassName)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the name of the class implementing the web service.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setNamespaceMappingFile(java.io.File)">setNamespaceMappingFile</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A>&nbsp;namespaceMappingFile)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set the mapping file.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setNoImports(boolean)">setNoImports</A></B>(boolean&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;only generate code for the immediate WSDL document,
+ and not imports; default=false;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setNoWrapped(boolean)">setNoWrapped</A></B>(boolean&nbsp;noWrapped)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the noWrapped flag.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setOutput(java.io.File)">setOutput</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A>&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output directory for emitted files</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setPassword(java.lang.String)">setPassword</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;password)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set any password required for BASIC authenticated access to the WSDL;
+ optional; only used if username is set</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setPrintStackTraceOnFailure(boolean)">setPrintStackTraceOnFailure</A></B>(boolean&nbsp;printStackTraceOnFailure)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;should we print a stack trace on failure?</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setProtocolHandlerPkgs(java.lang.String)">setProtocolHandlerPkgs</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;handlerPkgs)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;append any protocol handler pkgs specified with the task</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setQuiet(boolean)">setQuiet</A></B>(boolean&nbsp;quiet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag for quiet output; default=false</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setServerSide(boolean)">setServerSide</A></B>(boolean&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;emit server-side bindings for web service; default=false</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setSkeletonDeploy(boolean)">setSkeletonDeploy</A></B>(boolean&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deploy skeleton (true) or implementation (false) in deploy.wsdd.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setTestCase(boolean)">setTestCase</A></B>(boolean&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag for automatic Junit testcase generation
+ default is false</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setTimeout(long)">setTimeout</A></B>(long&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timeout in milliseconds for URL retrieval; default is 45 seconds.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setTypeMappingVersion(org.apache.axis.tools.ant.wsdl.TypeMappingVersionEnum)">setTypeMappingVersion</A></B>(<A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/TypeMappingVersionEnum.html" title="class in org.apache.axis.tools.ant.wsdl">TypeMappingVersionEnum</A>&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the default type mapping registry to use.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setURL(java.lang.String)">setURL</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;parameter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL to fetch and generate WSDL for.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setUsername(java.lang.String)">setUsername</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;username)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set any username required for BASIC authenticated access to the WSDL;
+ optional.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setVerbose(boolean)">setVerbose</A></B>(boolean&nbsp;verbose)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag for verbose output; default=false</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#setWrapArrays(boolean)">setWrapArrays</A></B>(boolean&nbsp;wrapArrays)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the wrap arrays flag - if true this will make new classes
+ like "ArrayOfString" for literal "wrapped" arrays.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#traceParams(int)">traceParams</A></B>(int&nbsp;logLevel)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace out parameters</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#validate()">validate</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validation code</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.tools.ant.Task"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class org.apache.tools.ant.Task</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>getDescription, getLocation, getOwningTarget, getRuntimeConfigurableWrapper, getTaskName, handleErrorOutput, handleOutput, init, isInvalid, log, log, maybeConfigure, perform, setDescription, setLocation, setOwningTarget, setRuntimeConfigurableWrapper, setTaskName</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.tools.ant.ProjectComponent"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class org.apache.tools.ant.ProjectComponent</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>getProject, setProject</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="Wsdl2javaAntTask()"><!-- --></A><H3>
+Wsdl2javaAntTask</H3>
+<PRE>
+public <B>Wsdl2javaAntTask</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="validate()"><!-- --></A><H3>
+validate</H3>
+<PRE>
+protected void <B>validate</B>()
+                 throws org.apache.tools.ant.BuildException</PRE>
+<DL>
+<DD>validation code
+<P>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>org.apache.tools.ant.BuildException</CODE> - if validation failed</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="traceParams(int)"><!-- --></A><H3>
+traceParams</H3>
+<PRE>
+public void <B>traceParams</B>(int&nbsp;logLevel)</PRE>
+<DL>
+<DD>trace out parameters
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>logLevel</CODE> - to log at<DT><B>See Also:</B><DD><CODE>Project.log(java.lang.String)</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="execute()"><!-- --></A><H3>
+execute</H3>
+<PRE>
+public void <B>execute</B>()
+             throws org.apache.tools.ant.BuildException</PRE>
+<DL>
+<DD>The method executing the task
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>execute</CODE> in class <CODE>org.apache.tools.ant.Task</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>org.apache.tools.ant.BuildException</CODE> - if validation or execution failed</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setVerbose(boolean)"><!-- --></A><H3>
+setVerbose</H3>
+<PRE>
+public void <B>setVerbose</B>(boolean&nbsp;verbose)</PRE>
+<DL>
+<DD>flag for verbose output; default=false
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>verbose</CODE> - The new verbose value</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setDebug(boolean)"><!-- --></A><H3>
+setDebug</H3>
+<PRE>
+public void <B>setDebug</B>(boolean&nbsp;debug)</PRE>
+<DL>
+<DD>flag for debug output; default=false
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>debug</CODE> - The new debug value</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setQuiet(boolean)"><!-- --></A><H3>
+setQuiet</H3>
+<PRE>
+public void <B>setQuiet</B>(boolean&nbsp;quiet)</PRE>
+<DL>
+<DD>flag for quiet output; default=false
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>quiet</CODE> - The new quiet value</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setServerSide(boolean)"><!-- --></A><H3>
+setServerSide</H3>
+<PRE>
+public void <B>setServerSide</B>(boolean&nbsp;parameter)</PRE>
+<DL>
+<DD>emit server-side bindings for web service; default=false
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSkeletonDeploy(boolean)"><!-- --></A><H3>
+setSkeletonDeploy</H3>
+<PRE>
+public void <B>setSkeletonDeploy</B>(boolean&nbsp;parameter)</PRE>
+<DL>
+<DD>deploy skeleton (true) or implementation (false) in deploy.wsdd.
+ Default is false.  Assumes server-side="true".
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTestCase(boolean)"><!-- --></A><H3>
+setTestCase</H3>
+<PRE>
+public void <B>setTestCase</B>(boolean&nbsp;parameter)</PRE>
+<DL>
+<DD>flag for automatic Junit testcase generation
+ default is false
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setHelperGen(boolean)"><!-- --></A><H3>
+setHelperGen</H3>
+<PRE>
+public void <B>setHelperGen</B>(boolean&nbsp;parameter)</PRE>
+<DL>
+<DD>Turn on/off Helper class generation;
+ default is false
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setFactory(java.lang.String)"><!-- --></A><H3>
+setFactory</H3>
+<PRE>
+public void <B>setFactory</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;parameter)</PRE>
+<DL>
+<DD>name of the Java2WSDLFactory class for
+ extending WSDL generation functions
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setNoImports(boolean)"><!-- --></A><H3>
+setNoImports</H3>
+<PRE>
+public void <B>setNoImports</B>(boolean&nbsp;parameter)</PRE>
+<DL>
+<DD>only generate code for the immediate WSDL document,
+ and not imports; default=false;
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setOutput(java.io.File)"><!-- --></A><H3>
+setOutput</H3>
+<PRE>
+public void <B>setOutput</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A>&nbsp;parameter)
+               throws org.apache.tools.ant.BuildException</PRE>
+<DL>
+<DD>output directory for emitted files
+<P>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>org.apache.tools.ant.BuildException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setProtocolHandlerPkgs(java.lang.String)"><!-- --></A><H3>
+setProtocolHandlerPkgs</H3>
+<PRE>
+public void <B>setProtocolHandlerPkgs</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;handlerPkgs)</PRE>
+<DL>
+<DD>append any protocol handler pkgs specified with the task
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setDeployScope(java.lang.String)"><!-- --></A><H3>
+setDeployScope</H3>
+<PRE>
+public void <B>setDeployScope</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;scope)</PRE>
+<DL>
+<DD>add scope to deploy.xml: "Application", "Request", "Session"
+ optional;
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setURL(java.lang.String)"><!-- --></A><H3>
+setURL</H3>
+<PRE>
+public void <B>setURL</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;parameter)</PRE>
+<DL>
+<DD>URL to fetch and generate WSDL for.
+ Can be remote or a local file.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setAll(boolean)"><!-- --></A><H3>
+setAll</H3>
+<PRE>
+public void <B>setAll</B>(boolean&nbsp;parameter)</PRE>
+<DL>
+<DD>flag to generate code for all elements, even unreferenced ones
+ default=false;
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTypeMappingVersion(org.apache.axis.tools.ant.wsdl.TypeMappingVersionEnum)"><!-- --></A><H3>
+setTypeMappingVersion</H3>
+<PRE>
+public void <B>setTypeMappingVersion</B>(<A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/TypeMappingVersionEnum.html" title="class in org.apache.axis.tools.ant.wsdl">TypeMappingVersionEnum</A>&nbsp;parameter)</PRE>
+<DL>
+<DD>the default type mapping registry to use. Either 1.1 or 1.2.
+ Default is 1.1
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>parameter</CODE> - new version</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTimeout(long)"><!-- --></A><H3>
+setTimeout</H3>
+<PRE>
+public void <B>setTimeout</B>(long&nbsp;parameter)</PRE>
+<DL>
+<DD>timeout in milliseconds for URL retrieval; default is 45 seconds.
+ Set this to -1 to disable timeouts altogether: other negative values
+ are not allowed)
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addMapping(org.apache.axis.tools.ant.wsdl.NamespaceMapping)"><!-- --></A><H3>
+addMapping</H3>
+<PRE>
+public void <B>addMapping</B>(<A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/NamespaceMapping.html" title="class in org.apache.axis.tools.ant.wsdl">NamespaceMapping</A>&nbsp;mapping)</PRE>
+<DL>
+<DD>add a mapping of namespaces to packages
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addMappingSet(org.apache.axis.tools.ant.wsdl.MappingSet)"><!-- --></A><H3>
+addMappingSet</H3>
+<PRE>
+public void <B>addMappingSet</B>(<A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/MappingSet.html" title="class in org.apache.axis.tools.ant.wsdl">MappingSet</A>&nbsp;mappingset)</PRE>
+<DL>
+<DD>add a mapping of namespaces to packages
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setNamespaceMappingFile(java.io.File)"><!-- --></A><H3>
+setNamespaceMappingFile</H3>
+<PRE>
+public void <B>setNamespaceMappingFile</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A>&nbsp;namespaceMappingFile)</PRE>
+<DL>
+<DD>set the mapping file. This is a properties file of
+ package=namespace order. Optional, default is to look for
+ a file called NStoPkg.properties in the project directory.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>namespaceMappingFile</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setFailOnNetworkErrors(boolean)"><!-- --></A><H3>
+setFailOnNetworkErrors</H3>
+<PRE>
+public void <B>setFailOnNetworkErrors</B>(boolean&nbsp;failOnNetworkErrors)</PRE>
+<DL>
+<DD>should the task fail the build if there is a network error?
+ optional: defaults to false
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>failOnNetworkErrors</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setPrintStackTraceOnFailure(boolean)"><!-- --></A><H3>
+setPrintStackTraceOnFailure</H3>
+<PRE>
+public void <B>setPrintStackTraceOnFailure</B>(boolean&nbsp;printStackTraceOnFailure)</PRE>
+<DL>
+<DD>should we print a stack trace on failure?
+ Optional, default=true.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>printStackTraceOnFailure</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setUsername(java.lang.String)"><!-- --></A><H3>
+setUsername</H3>
+<PRE>
+public void <B>setUsername</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;username)</PRE>
+<DL>
+<DD>set any username required for BASIC authenticated access to the WSDL;
+ optional.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>username</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setPassword(java.lang.String)"><!-- --></A><H3>
+setPassword</H3>
+<PRE>
+public void <B>setPassword</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;password)</PRE>
+<DL>
+<DD>set any password required for BASIC authenticated access to the WSDL;
+ optional; only used if username is set
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>password</CODE> - <DT><B>See Also:</B><DD><A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html#username"><CODE>username</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setNoWrapped(boolean)"><!-- --></A><H3>
+setNoWrapped</H3>
+<PRE>
+public void <B>setNoWrapped</B>(boolean&nbsp;noWrapped)</PRE>
+<DL>
+<DD>Set the noWrapped flag.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>noWrapped</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setAllowInvalidUrl(boolean)"><!-- --></A><H3>
+setAllowInvalidUrl</H3>
+<PRE>
+public void <B>setAllowInvalidUrl</B>(boolean&nbsp;b)</PRE>
+<DL>
+<DD>Set the allowInvalidURL flag.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setImplementationClassName(java.lang.String)"><!-- --></A><H3>
+setImplementationClassName</H3>
+<PRE>
+public void <B>setImplementationClassName</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;implementationClassName)</PRE>
+<DL>
+<DD>Set the name of the class implementing the web service.
+ This is especially useful when exporting a java class
+ as a web service using Java2WSDL followed by WSDL2Java.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>implementationClassName</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setWrapArrays(boolean)"><!-- --></A><H3>
+setWrapArrays</H3>
+<PRE>
+public void <B>setWrapArrays</B>(boolean&nbsp;wrapArrays)</PRE>
+<DL>
+<DD>Set the wrap arrays flag - if true this will make new classes
+ like "ArrayOfString" for literal "wrapped" arrays.  Otherwise it
+ will use "String []" and generate appropriate metadata.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>wrapArrays</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createClasspath()"><!-- --></A><H3>
+createClasspath</H3>
+<PRE>
+public org.apache.tools.ant.types.Path <B>createClasspath</B>()</PRE>
+<DL>
+<DD>set the classpath
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createNsInclude()"><!-- --></A><H3>
+createNsInclude</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/axis/wsdl/toJava/NamespaceSelector.html" title="class in org.apache.axis.wsdl.toJava">NamespaceSelector</A> <B>createNsInclude</B>()</PRE>
+<DL>
+<DD>Adds an additional namespace to the list to be included
+ in source code generation.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createNsExclude()"><!-- --></A><H3>
+createNsExclude</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/axis/wsdl/toJava/NamespaceSelector.html" title="class in org.apache.axis.wsdl.toJava">NamespaceSelector</A> <B>createNsExclude</B>()</PRE>
+<DL>
+<DD>Adds an additional namespace to the list to be excluded
+ from source code generation.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createProperty()"><!-- --></A><H3>
+createProperty</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/axis/wsdl/toJava/FactoryProperty.html" title="class in org.apache.axis.wsdl.toJava">FactoryProperty</A> <B>createProperty</B>()</PRE>
+<DL>
+<DD>Adds a property name/value pair for specialized
+ JavaGeneratorFactories.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createEmitter()"><!-- --></A><H3>
+createEmitter</H3>
+<PRE>
+protected <A HREF="../../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</A> <B>createEmitter</B>()</PRE>
+<DL>
+<DD>This factory method makes it easier to extend this Ant task
+ with a custom Emitter, if necessary.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createSelector()"><!-- --></A><H3>
+createSelector</H3>
+<PRE>
+protected <A HREF="../../../../../../org/apache/axis/wsdl/toJava/NamespaceSelector.html" title="class in org.apache.axis.wsdl.toJava">NamespaceSelector</A> <B>createSelector</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addSysproperty(org.apache.tools.ant.types.Environment.Variable)"><!-- --></A><H3>
+addSysproperty</H3>
+<PRE>
+public void <B>addSysproperty</B>(org.apache.tools.ant.types.Environment.Variable&nbsp;sysp)</PRE>
+<DL>
+<DD>Adds a system property that tests can access.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>sysp</CODE> - environment variable to add</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Wsdl2javaAntTask.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../org/apache/axis/tools/ant/wsdl/TypeMappingVersionEnum.html" title="class in org.apache.axis.tools.ant.wsdl"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;NEXT CLASS</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/axis/tools/ant/wsdl/Wsdl2javaAntTask.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="Wsdl2javaAntTask.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_org.apache.tools.ant.Task">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.
+</BODY>
+</HTML>

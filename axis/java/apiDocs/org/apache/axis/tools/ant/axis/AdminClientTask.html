@@ -1,0 +1,855 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>
+AdminClientTask (Apache Axis)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="AdminClientTask (Apache Axis)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/AdminClientTask.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../../org/apache/axis/tools/ant/axis/RunAxisFunctionalTestsTask.html" title="class in org.apache.axis.tools.ant.axis"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/axis/tools/ant/axis/AdminClientTask.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="AdminClientTask.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_org.apache.tools.ant.taskdefs.MatchingTask">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.axis.tools.ant.axis</FONT>
+<BR>
+Class AdminClientTask</H2>
+<PRE>
+<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by ">org.apache.tools.ant.ProjectComponent
+      <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by ">org.apache.tools.ant.Task
+          <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by ">org.apache.tools.ant.taskdefs.MatchingTask
+              <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.axis.tools.ant.axis.AdminClientTask</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>org.apache.tools.ant.types.selectors.SelectorContainer</DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>AdminClientTask</B><DT>extends org.apache.tools.ant.taskdefs.MatchingTask</DL>
+</PRE>
+
+<P>
+Task to administer a local or remote Axis server. Remember, for remote admin,
+ the server has to be accept remote management calls.
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_org.apache.tools.ant.taskdefs.MatchingTask"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class org.apache.tools.ant.taskdefs.MatchingTask</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>fileset, useDefaultExcludes</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_org.apache.tools.ant.Task"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class org.apache.tools.ant.Task</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>description, location, target, taskName, taskType, wrapper</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_org.apache.tools.ant.ProjectComponent"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class org.apache.tools.ant.ProjectComponent</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>project</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#AdminClientTask()">AdminClientTask</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#addArg(java.lang.String)">addArg</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;argument)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add one arg</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#addArg(java.lang.String, boolean)">addArg</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;argument,
+       boolean&nbsp;test)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add one arg</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#addArgs(java.lang.String, java.lang.String)">addArgs</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;argument,
+        <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;param)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add an arg pair</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#addArgs(java.lang.String, java.lang.String, boolean)">addArgs</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;argument,
+        <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;param,
+        boolean&nbsp;test)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add an arg pair if the test is true</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;org.apache.tools.ant.types.Path</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#createClasspath()">createClasspath</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the optional classpath</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#execute()">execute</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Processes a set of administration commands.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setClasspath(org.apache.tools.ant.types.Path)">setClasspath</A></B>(org.apache.tools.ant.types.Path&nbsp;classpath)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the optional classpath</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setClasspathRef(org.apache.tools.ant.types.Reference)">setClasspathRef</A></B>(org.apache.tools.ant.types.Reference&nbsp;r)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the reference to an optional classpath</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setDebug(boolean)">setDebug</A></B>(boolean&nbsp;debug)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set a debug flag</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setFailOnError(boolean)">setFailOnError</A></B>(boolean&nbsp;fail)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Whether or not the build should halt if this task fails.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setFileProtocol(java.lang.String)">setFileProtocol</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;fileProtocol)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specifies that a simple file protocol be used</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setFork(boolean)">setFork</A></B>(boolean&nbsp;f)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If true, forks the ant invocation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setHostname(java.lang.String)">setHostname</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;hostname)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name the host to admin</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setNewPassword(java.lang.String)">setNewPassword</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;newPassword)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set a new password; only valid if action=passwd</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setPassword(java.lang.String)">setPassword</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;password)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the admin password</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setPort(int)">setPort</A></B>(int&nbsp;port)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the port to connect to</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setServletPath(java.lang.String)">setServletPath</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;servletPath)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the path to the AxisAdmin servlet</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setSrcdir(java.io.File)">setSrcdir</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A>&nbsp;srcDir)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the source dir to find the source text files.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setTransportChain(java.lang.String)">setTransportChain</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;transportChain)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set the transport chain to use</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setUrl(java.lang.String)">setUrl</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;url)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;full url to the admin endpoint</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setUsername(java.lang.String)">setUsername</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;username)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;username to log in as</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setXmlFile(java.io.File)">setXmlFile</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A>&nbsp;xmlFile)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the name of the XML file containing deployment information</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#traceParams(int)">traceParams</A></B>(int&nbsp;logLevel)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace out parameters</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#validate()">validate</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validation code</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.tools.ant.taskdefs.MatchingTask"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class org.apache.tools.ant.taskdefs.MatchingTask</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>addAnd, addContains, addCustom, addDate, addDepend, addDepth, addFilename, addMajority, addNone, addNot, addOr, addPresent, addSelector, addSize, appendSelector, createExclude, createExcludesFile, createInclude, createIncludesFile, createPatternSet, getDirectoryScanner, getSelectors, hasSelectors, selectorCount, selectorElements, setCaseSensitive, setDefaultexcludes, setExcludes, setExcludesfile, setFollowSymlinks, setIncludes, setIncludesfile, setProject, XsetIgnore, XsetItems</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.tools.ant.Task"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class org.apache.tools.ant.Task</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>getDescription, getLocation, getOwningTarget, getRuntimeConfigurableWrapper, getTaskName, handleErrorOutput, handleOutput, init, isInvalid, log, log, maybeConfigure, perform, setDescription, setLocation, setOwningTarget, setRuntimeConfigurableWrapper, setTaskName</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.tools.ant.ProjectComponent"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class org.apache.tools.ant.ProjectComponent</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>getProject</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="AdminClientTask()"><!-- --></A><H3>
+AdminClientTask</H3>
+<PRE>
+public <B>AdminClientTask</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="setDebug(boolean)"><!-- --></A><H3>
+setDebug</H3>
+<PRE>
+public void <B>setDebug</B>(boolean&nbsp;debug)</PRE>
+<DL>
+<DD>set a debug flag
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>debug</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setNewPassword(java.lang.String)"><!-- --></A><H3>
+setNewPassword</H3>
+<PRE>
+public void <B>setNewPassword</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;newPassword)</PRE>
+<DL>
+<DD>set a new password; only valid if action=passwd
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>newPassword</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setUrl(java.lang.String)"><!-- --></A><H3>
+setUrl</H3>
+<PRE>
+public void <B>setUrl</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;url)</PRE>
+<DL>
+<DD>full url to the admin endpoint
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>url</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setFileProtocol(java.lang.String)"><!-- --></A><H3>
+setFileProtocol</H3>
+<PRE>
+public void <B>setFileProtocol</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;fileProtocol)</PRE>
+<DL>
+<DD>specifies that a simple file protocol be used
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>fileProtocol</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setHostname(java.lang.String)"><!-- --></A><H3>
+setHostname</H3>
+<PRE>
+public void <B>setHostname</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;hostname)</PRE>
+<DL>
+<DD>name the host to admin
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>hostname</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setPassword(java.lang.String)"><!-- --></A><H3>
+setPassword</H3>
+<PRE>
+public void <B>setPassword</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;password)</PRE>
+<DL>
+<DD>the admin password
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>password</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setPort(int)"><!-- --></A><H3>
+setPort</H3>
+<PRE>
+public void <B>setPort</B>(int&nbsp;port)</PRE>
+<DL>
+<DD>the port to connect to
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>port</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setServletPath(java.lang.String)"><!-- --></A><H3>
+setServletPath</H3>
+<PRE>
+public void <B>setServletPath</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;servletPath)</PRE>
+<DL>
+<DD>the path to the AxisAdmin servlet
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>servletPath</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSrcdir(java.io.File)"><!-- --></A><H3>
+setSrcdir</H3>
+<PRE>
+public void <B>setSrcdir</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A>&nbsp;srcDir)</PRE>
+<DL>
+<DD>Set the source dir to find the source text files.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setXmlFile(java.io.File)"><!-- --></A><H3>
+setXmlFile</H3>
+<PRE>
+public void <B>setXmlFile</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</A>&nbsp;xmlFile)</PRE>
+<DL>
+<DD>the name of the XML file containing deployment information
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>xmlFile</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTransportChain(java.lang.String)"><!-- --></A><H3>
+setTransportChain</H3>
+<PRE>
+public void <B>setTransportChain</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;transportChain)</PRE>
+<DL>
+<DD>set the transport chain to use
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>transportChain</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setUsername(java.lang.String)"><!-- --></A><H3>
+setUsername</H3>
+<PRE>
+public void <B>setUsername</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;username)</PRE>
+<DL>
+<DD>username to log in as
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>username</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setFailOnError(boolean)"><!-- --></A><H3>
+setFailOnError</H3>
+<PRE>
+public void <B>setFailOnError</B>(boolean&nbsp;fail)</PRE>
+<DL>
+<DD>Whether or not the build should halt if this task fails.
+ Defaults to <code>true</code>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setFork(boolean)"><!-- --></A><H3>
+setFork</H3>
+<PRE>
+public void <B>setFork</B>(boolean&nbsp;f)</PRE>
+<DL>
+<DD>If true, forks the ant invocation.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>f</CODE> - "true|false|on|off|yes|no"</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="validate()"><!-- --></A><H3>
+validate</H3>
+<PRE>
+protected void <B>validate</B>()
+                 throws org.apache.tools.ant.BuildException</PRE>
+<DL>
+<DD>validation code
+<P>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>org.apache.tools.ant.BuildException</CODE> - if validation failed</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="traceParams(int)"><!-- --></A><H3>
+traceParams</H3>
+<PRE>
+public void <B>traceParams</B>(int&nbsp;logLevel)</PRE>
+<DL>
+<DD>trace out parameters
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>logLevel</CODE> - to log at<DT><B>See Also:</B><DD><CODE>Project.log(java.lang.String)</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="execute()"><!-- --></A><H3>
+execute</H3>
+<PRE>
+public void <B>execute</B>()
+             throws org.apache.tools.ant.BuildException</PRE>
+<DL>
+<DD><p>Processes a set of administration commands.</p>
+ <p>The following commands are available:</p>
+ <ul>
+ <li><code>-l<i>url</i></code> sets the AxisServlet URL</li>
+ <li><code>-h<i>hostName</i></code> sets the AxisServlet host</li>
+ <li><code>-p<i>portNumber</i></code> sets the AxisServlet port</li>
+ <li><code>-s<i>servletPath</i></code> sets the path to the
+ AxisServlet</li>
+ <li><code>-f<i>fileName</i></code> specifies that a simple file
+ protocol should be used</li>
+ <li><code>-u<i>username</i></code> sets the username</li>
+ <li><code>-w<i>password</i></code> sets the password</li>
+ <li><code>-d</code> sets the debug flag (for instance, -ddd would
+ set it to 3)</li>
+ <li><code>-t<i>name</i></code> sets the transport chain touse</li>
+ <li><code>list</code> will list the currently deployed services</li>
+ <li><code>quit</code> will quit (???)</li>
+ <li><code>passwd <i>value</i></code> changes the admin password</li>
+ <li><code><i>xmlConfigFile</i></code> deploys or undeploys
+ Axis components and web services</li>
+ </ul>
+ <p>If <code>-l</code> or <code>-h -p -s</code> are not set, the
+ AdminClient will invoke
+ <code>http://localhost:8080/axis/servlet/AxisServlet</code>.</p>
+ <p/>
+ outputs XML result or null in case of failure. In the case of multiple
+ commands, the XML results will be concatenated, separated by \n
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>execute</CODE> in class <CODE>org.apache.tools.ant.Task</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>org.apache.tools.ant.BuildException</CODE> - something went wrong</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addArg(java.lang.String)"><!-- --></A><H3>
+addArg</H3>
+<PRE>
+protected void <B>addArg</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;argument)</PRE>
+<DL>
+<DD>add one arg
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>argument</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addArg(java.lang.String, boolean)"><!-- --></A><H3>
+addArg</H3>
+<PRE>
+protected void <B>addArg</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;argument,
+                      boolean&nbsp;test)</PRE>
+<DL>
+<DD>add one arg
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>argument</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addArgs(java.lang.String, java.lang.String)"><!-- --></A><H3>
+addArgs</H3>
+<PRE>
+protected void <B>addArgs</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;argument,
+                       <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;param)</PRE>
+<DL>
+<DD>add an arg pair
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>argument</CODE> - <DD><CODE>param</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addArgs(java.lang.String, java.lang.String, boolean)"><!-- --></A><H3>
+addArgs</H3>
+<PRE>
+protected void <B>addArgs</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;argument,
+                       <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;param,
+                       boolean&nbsp;test)</PRE>
+<DL>
+<DD>add an arg pair if the test is true
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>argument</CODE> - first arg<DD><CODE>param</CODE> - param to accompany<DD><CODE>test</CODE> - test to trigger argument add</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setClasspath(org.apache.tools.ant.types.Path)"><!-- --></A><H3>
+setClasspath</H3>
+<PRE>
+public void <B>setClasspath</B>(org.apache.tools.ant.types.Path&nbsp;classpath)</PRE>
+<DL>
+<DD>Set the optional classpath
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>classpath</CODE> - the classpath to use when loading class</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createClasspath()"><!-- --></A><H3>
+createClasspath</H3>
+<PRE>
+public org.apache.tools.ant.types.Path <B>createClasspath</B>()</PRE>
+<DL>
+<DD>Set the optional classpath
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>a path instance to be configured by the Ant core.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setClasspathRef(org.apache.tools.ant.types.Reference)"><!-- --></A><H3>
+setClasspathRef</H3>
+<PRE>
+public void <B>setClasspathRef</B>(org.apache.tools.ant.types.Reference&nbsp;r)</PRE>
+<DL>
+<DD>Set the reference to an optional classpath
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>r</CODE> - the id of the Ant path instance to act as the classpath</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/AdminClientTask.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../../org/apache/axis/tools/ant/axis/RunAxisFunctionalTestsTask.html" title="class in org.apache.axis.tools.ant.axis"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/axis/tools/ant/axis/AdminClientTask.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="AdminClientTask.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_org.apache.tools.ant.taskdefs.MatchingTask">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.
+</BODY>
+</HTML>
