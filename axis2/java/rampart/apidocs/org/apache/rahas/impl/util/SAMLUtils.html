@@ -1,523 +1,467 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--NewPage-->
-<HTML>
-<HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>
-SAMLUtils (Apache Rampart)
-</TITLE>
-
-
-<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
-
-<SCRIPT type="text/javascript">
-function windowTitle()
-{
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>SAMLUtils (Apache Rampart)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
         parent.document.title="SAMLUtils (Apache Rampart)";
     }
-}
-</SCRIPT>
-<NOSCRIPT>
-</NOSCRIPT>
-
-</HEAD>
-
-<BODY BGCOLOR="white" onload="windowTitle();">
-<HR>
-
-
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<A NAME="navbar_top"><!-- --></A>
-<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_top_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SAMLUtils.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../org/apache/rahas/impl/util/SAMLNameIdentifierCallback.html" title="class in org.apache.rahas.impl.util"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;<A HREF="../../../../../org/apache/rahas/impl/util/SignKeyHolder.html" title="class in org.apache.rahas.impl.util"><B>NEXT CLASS</B></A></FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../index.html?org/apache/rahas/impl/util/SAMLUtils.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="SAMLUtils.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/SAMLUtils.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/rahas/impl/util/SAMLNameIdentifierCallback.html" title="class in org.apache.rahas.impl.util"><span class="strong">PREV CLASS</span></a></li>
+<li><a href="../../../../../org/apache/rahas/impl/util/SignKeyHolder.html" title="class in org.apache.rahas.impl.util"><span class="strong">NEXT CLASS</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/rahas/impl/util/SAMLUtils.html" target="_top">FRAMES</a></li>
+<li><a href="SAMLUtils.html" target="_top">NO FRAMES</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_top"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>SUMMARY:&nbsp;</li>
+<li>NESTED&nbsp;|&nbsp;</li>
+<li>FIELD&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">CONSTR</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">METHOD</a></li>
+</ul>
+<ul class="subNavList">
+<li>DETAIL:&nbsp;</li>
+<li>FIELD&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">CONSTR</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">METHOD</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-
-<HR>
 <!-- ======== START OF CLASS DATA ======== -->
-<H2>
-<FONT SIZE="-1">
-org.apache.rahas.impl.util</FONT>
-<BR>
-Class SAMLUtils</H2>
-<PRE>
-<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
-  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.rahas.impl.util.SAMLUtils</B>
-</PRE>
-<HR>
-<DL>
-<DT><PRE>public class <B>SAMLUtils</B><DT>extends <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></DL>
-</PRE>
-
-<P>
-Utility class for SAML 1 assertions. Responsible for manipulating all SAML1 specific objects
- like Assertion, ConfirmationMethod etc ...
-<P>
-
-<P>
-<HR>
-
-<P>
-
+<div class="header">
+<p class="subTitle">org.apache.rahas.impl.util</p>
+<h2 title="Class SAMLUtils" class="title">Class SAMLUtils</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.rahas.impl.util.SAMLUtils</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public class <strong>SAMLUtils</strong>
+extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<div class="block">Utility class for SAML 1 assertions. Responsible for manipulating all SAML1 specific objects
+ like Assertion, ConfirmationMethod etc ...</div>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-
-<A NAME="constructor_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Constructor Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#SAMLUtils()">SAMLUtils</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#SAMLUtils()">SAMLUtils</a></strong>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
-
-<A NAME="method_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Method Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.saml1.core.Assertion</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#buildAssertion(org.w3c.dom.Element)">buildAssertion</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Element.html?is-external=true" title="class or interface in org.w3c.dom">Element</A>&nbsp;assertionElement)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builds an assertion from an XML element.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.xml.XMLObject</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#buildXMLObject(javax.xml.namespace.QName)">buildXMLObject</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</A>&nbsp;objectQName)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Builds the requested XMLObject.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.joda.time.DateTime</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#convertToDateTime(java.util.Date)">convertToDateTime</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</A>&nbsp;date)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Converts java.util.Date to opensaml DateTime object.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.saml1.core.Assertion</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAssertion(java.lang.String, org.joda.time.DateTime, org.joda.time.DateTime, java.util.List)">createAssertion</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;issuerName,
-                org.joda.time.DateTime&nbsp;notBefore,
-                org.joda.time.DateTime&nbsp;notOnOrAfter,
-                <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;org.opensaml.saml1.core.Statement&gt;&nbsp;statements)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This method creates the final SAML assertion.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.saml1.core.Attribute</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAttribute(java.lang.String, java.lang.String, java.lang.String)">createAttribute</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name,
-                <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;namespace,
-                <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;value)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a SAML attribute similar to following,
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.saml1.core.Assertion</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#buildAssertion(org.w3c.dom.Element)">buildAssertion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Element.html?is-external=true" title="class or interface in org.w3c.dom">Element</a>&nbsp;assertionElement)</code>
+<div class="block">Builds an assertion from an XML element.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.opensaml.xml.XMLObject</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#buildXMLObject(javax.xml.namespace.QName)">buildXMLObject</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;objectQName)</code>
+<div class="block">Builds the requested XMLObject.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.joda.time.DateTime</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#convertToDateTime(java.util.Date)">convertToDateTime</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date)</code>
+<div class="block">Converts java.util.Date to opensaml DateTime object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.opensaml.saml1.core.Assertion</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAssertion(java.lang.String, org.joda.time.DateTime, org.joda.time.DateTime, java.util.List)">createAssertion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerName,
+               org.joda.time.DateTime&nbsp;notBefore,
+               org.joda.time.DateTime&nbsp;notOnOrAfter,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.opensaml.saml1.core.Statement&gt;&nbsp;statements)</code>
+<div class="block">This method creates the final SAML assertion.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.saml1.core.Attribute</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAttribute(java.lang.String, java.lang.String, java.lang.String)">createAttribute</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
+<div class="block">Creates a SAML attribute similar to following,
  <saml:Attribute
        AttributeName="MemberLevel"
        AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes">
        <saml:AttributeValue>gold</saml:AttributeValue>
-   </saml:Attribute></TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.saml1.core.AttributeStatement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAttributeStatement(org.opensaml.saml1.core.Subject, java.util.List)">createAttributeStatement</A></B>(org.opensaml.saml1.core.Subject&nbsp;subject,
-                         <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;org.opensaml.saml1.core.Attribute&gt;&nbsp;attributeList)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates an attribute statement.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.saml1.core.AuthenticationStatement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAuthenticationStatement(org.opensaml.saml1.core.Subject, java.lang.String, org.joda.time.DateTime)">createAuthenticationStatement</A></B>(org.opensaml.saml1.core.Subject&nbsp;subject,
-                              <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;authenticationMethod,
-                              org.joda.time.DateTime&nbsp;authenticationInstant)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates an AuthenticationStatement.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.saml1.core.Conditions</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createConditions(org.joda.time.DateTime, org.joda.time.DateTime)">createConditions</A></B>(org.joda.time.DateTime&nbsp;notBefore,
-                 org.joda.time.DateTime&nbsp;notOnOrAfter)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates Conditions object.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.xml.signature.KeyInfo</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createKeyInfo()">createKeyInfo</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a KeyInfo object</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.xml.signature.KeyInfo</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createKeyInfo(org.opensaml.xml.encryption.EncryptedKey)">createKeyInfo</A></B>(org.opensaml.xml.encryption.EncryptedKey&nbsp;encryptedKey)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a KeyInfo element given EncryptedKey.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.xml.signature.KeyInfo</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createKeyInfo(org.opensaml.xml.signature.X509Data)">createKeyInfo</A></B>(org.opensaml.xml.signature.X509Data&nbsp;x509Data)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a KeyInfo element given EncryptedKey.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.saml1.core.NameIdentifier</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createNamedIdentifier(java.lang.String, java.lang.String)">createNamedIdentifier</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;principalName,
-                      <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;format)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create named identifier.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.saml1.core.Subject</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createSubject(org.opensaml.saml1.core.NameIdentifier, java.lang.String, org.opensaml.xml.signature.KeyInfo)">createSubject</A></B>(org.opensaml.saml1.core.NameIdentifier&nbsp;nameIdentifier,
-              <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;confirmationMethod,
-              org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates an opensaml Subject representation.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.saml1.core.SubjectConfirmation</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createSubjectConfirmation(java.lang.String, org.opensaml.xml.signature.KeyInfo)">createSubjectConfirmation</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;confirmationMethod,
-                          org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates opensaml SubjectConfirmation representation.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.saml1.core.ConfirmationMethod</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createSubjectConfirmationMethod(java.lang.String)">createSubjectConfirmationMethod</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;confirmationMethod)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates the subject confirmation method.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</A>&lt;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</A>&gt;</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getCertChainCollection(java.security.cert.X509Certificate[])">getCertChainCollection</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</A>[]&nbsp;issuerCerts)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.xml.signature.KeyInfo</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getCertificateBasedKeyInfo(java.security.cert.X509Certificate)">getCertificateBasedKeyInfo</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</A>&nbsp;certificate)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates the certificate based KeyInfo object.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getSAML11SubjectConfirmationMethod(org.opensaml.saml1.core.Assertion)">getSAML11SubjectConfirmationMethod</A></B>(org.opensaml.saml1.core.Assertion&nbsp;assertion)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get subject confirmation method of the given SAML 1.1 Assertion.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.opensaml.xml.signature.KeyInfo</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getSymmetricKeyBasedKeyInfo(org.w3c.dom.Document, org.apache.rahas.RahasData, java.security.cert.X509Certificate, int, org.apache.ws.security.components.crypto.Crypto, int)">getSymmetricKeyBasedKeyInfo</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</A>&nbsp;doc,
-                            <A HREF="../../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</A>&nbsp;data,
-                            <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</A>&nbsp;serviceCert,
-                            int&nbsp;keySize,
-                            org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
-                            int&nbsp;keyComputation)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This method creates KeyInfo element of an assertion.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#signAssertion(org.opensaml.saml1.core.Assertion, org.apache.ws.security.components.crypto.Crypto, java.lang.String, java.lang.String)">signAssertion</A></B>(org.opensaml.saml1.core.Assertion&nbsp;assertion,
-              org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
-              <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;issuerKeyAlias,
-              <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;issuerKeyPassword)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signs the SAML assertion.</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
-<P>
-
+   </saml:Attribute></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.opensaml.saml1.core.AttributeStatement</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAttributeStatement(org.opensaml.saml1.core.Subject, java.util.List)">createAttributeStatement</a></strong>(org.opensaml.saml1.core.Subject&nbsp;subject,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.opensaml.saml1.core.Attribute&gt;&nbsp;attributeList)</code>
+<div class="block">Creates an attribute statement.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.saml1.core.AuthenticationStatement</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAuthenticationStatement(org.opensaml.saml1.core.Subject, java.lang.String, org.joda.time.DateTime)">createAuthenticationStatement</a></strong>(org.opensaml.saml1.core.Subject&nbsp;subject,
+                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;authenticationMethod,
+                             org.joda.time.DateTime&nbsp;authenticationInstant)</code>
+<div class="block">Creates an AuthenticationStatement.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.opensaml.saml1.core.Conditions</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createConditions(org.joda.time.DateTime, org.joda.time.DateTime)">createConditions</a></strong>(org.joda.time.DateTime&nbsp;notBefore,
+                org.joda.time.DateTime&nbsp;notOnOrAfter)</code>
+<div class="block">Creates Conditions object.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.xml.signature.KeyInfo</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createKeyInfo()">createKeyInfo</a></strong>()</code>
+<div class="block">Creates a KeyInfo object</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.opensaml.xml.signature.KeyInfo</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createKeyInfo(org.opensaml.xml.encryption.EncryptedKey)">createKeyInfo</a></strong>(org.opensaml.xml.encryption.EncryptedKey&nbsp;encryptedKey)</code>
+<div class="block">Creates a KeyInfo element given EncryptedKey.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.xml.signature.KeyInfo</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createKeyInfo(org.opensaml.xml.signature.X509Data)">createKeyInfo</a></strong>(org.opensaml.xml.signature.X509Data&nbsp;x509Data)</code>
+<div class="block">Creates a KeyInfo element given EncryptedKey.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.opensaml.saml1.core.NameIdentifier</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createNamedIdentifier(java.lang.String, java.lang.String)">createNamedIdentifier</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;principalName,
+                     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;format)</code>
+<div class="block">Create named identifier.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.saml1.core.Subject</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createSubject(org.opensaml.saml1.core.NameIdentifier, java.lang.String, org.opensaml.xml.signature.KeyInfo)">createSubject</a></strong>(org.opensaml.saml1.core.NameIdentifier&nbsp;nameIdentifier,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;confirmationMethod,
+             org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)</code>
+<div class="block">Creates an opensaml Subject representation.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.opensaml.saml1.core.SubjectConfirmation</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createSubjectConfirmation(java.lang.String, org.opensaml.xml.signature.KeyInfo)">createSubjectConfirmation</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;confirmationMethod,
+                         org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)</code>
+<div class="block">Creates opensaml SubjectConfirmation representation.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.saml1.core.ConfirmationMethod</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createSubjectConfirmationMethod(java.lang.String)">createSubjectConfirmationMethod</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;confirmationMethod)</code>
+<div class="block">Creates the subject confirmation method.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getCertChainCollection(java.security.cert.X509Certificate[])">getCertChainCollection</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>[]&nbsp;issuerCerts)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.xml.signature.KeyInfo</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getCertificateBasedKeyInfo(java.security.cert.X509Certificate)">getCertificateBasedKeyInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;certificate)</code>
+<div class="block">Creates the certificate based KeyInfo object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getSAML11SubjectConfirmationMethod(org.opensaml.saml1.core.Assertion)">getSAML11SubjectConfirmationMethod</a></strong>(org.opensaml.saml1.core.Assertion&nbsp;assertion)</code>
+<div class="block">Get subject confirmation method of the given SAML 1.1 Assertion.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.xml.signature.KeyInfo</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getSymmetricKeyBasedKeyInfo(org.w3c.dom.Document, org.apache.rahas.RahasData, java.security.cert.X509Certificate, int, org.apache.ws.security.components.crypto.Crypto, int)">getSymmetricKeyBasedKeyInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+                           <a href="../../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data,
+                           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;serviceCert,
+                           int&nbsp;keySize,
+                           org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+                           int&nbsp;keyComputation)</code>
+<div class="block">This method creates KeyInfo element of an assertion.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#signAssertion(org.opensaml.saml1.core.Assertion, org.apache.ws.security.components.crypto.Crypto, java.lang.String, java.lang.String)">signAssertion</a></strong>(org.opensaml.saml1.core.Assertion&nbsp;assertion,
+             org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerKeyAlias,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerKeyPassword)</code>
+<div class="block">Signs the SAML assertion.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-
-<A NAME="constructor_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Constructor Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="SAMLUtils()"><!-- --></A><H3>
-SAMLUtils</H3>
-<PRE>
-public <B>SAMLUtils</B>()</PRE>
-<DL>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="SAMLUtils()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>SAMLUtils</h4>
+<pre>public&nbsp;SAMLUtils()</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
-
-<A NAME="method_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Method Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="getCertChainCollection(java.security.cert.X509Certificate[])"><!-- --></A><H3>
-getCertChainCollection</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</A>&lt;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</A>&gt; <B>getCertChainCollection</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</A>[]&nbsp;issuerCerts)</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="buildXMLObject(javax.xml.namespace.QName)"><!-- --></A><H3>
-buildXMLObject</H3>
-<PRE>
-public static org.opensaml.xml.XMLObject <B>buildXMLObject</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</A>&nbsp;objectQName)
-                                                 throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Builds the requested XMLObject.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>objectQName</CODE> - name of the XMLObject
-<DT><B>Returns:</B><DD>the build XMLObject
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find the appropriate builder.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="buildAssertion(org.w3c.dom.Element)"><!-- --></A><H3>
-buildAssertion</H3>
-<PRE>
-public static org.opensaml.saml1.core.Assertion <B>buildAssertion</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Element.html?is-external=true" title="class or interface in org.w3c.dom">Element</A>&nbsp;assertionElement)</PRE>
-<DL>
-<DD>Builds an assertion from an XML element.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>assertionElement</CODE> - The XML element.
-<DT><B>Returns:</B><DD>An Assertion object.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="signAssertion(org.opensaml.saml1.core.Assertion, org.apache.ws.security.components.crypto.Crypto, java.lang.String, java.lang.String)"><!-- --></A><H3>
-signAssertion</H3>
-<PRE>
-public static void <B>signAssertion</B>(org.opensaml.saml1.core.Assertion&nbsp;assertion,
-                                 org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
-                                 <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;issuerKeyAlias,
-                                 <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;issuerKeyPassword)
-                          throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Signs the SAML assertion. The steps to sign SAML assertion is as follows,
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getCertChainCollection(java.security.cert.X509Certificate[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCertChainCollection</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&gt;&nbsp;getCertChainCollection(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>[]&nbsp;issuerCerts)</pre>
+</li>
+</ul>
+<a name="buildXMLObject(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>buildXMLObject</h4>
+<pre>public static&nbsp;org.opensaml.xml.XMLObject&nbsp;buildXMLObject(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;objectQName)
+                                                 throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Builds the requested XMLObject.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>objectQName</code> - name of the XMLObject</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the build XMLObject</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the appropriate builder.</dd></dl>
+</li>
+</ul>
+<a name="buildAssertion(org.w3c.dom.Element)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>buildAssertion</h4>
+<pre>public static&nbsp;org.opensaml.saml1.core.Assertion&nbsp;buildAssertion(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Element.html?is-external=true" title="class or interface in org.w3c.dom">Element</a>&nbsp;assertionElement)</pre>
+<div class="block">Builds an assertion from an XML element.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>assertionElement</code> - The XML element.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>An Assertion object.</dd></dl>
+</li>
+</ul>
+<a name="signAssertion(org.opensaml.saml1.core.Assertion, org.apache.ws.security.components.crypto.Crypto, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>signAssertion</h4>
+<pre>public static&nbsp;void&nbsp;signAssertion(org.opensaml.saml1.core.Assertion&nbsp;assertion,
+                 org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerKeyAlias,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerKeyPassword)
+                          throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Signs the SAML assertion. The steps to sign SAML assertion is as follows,
  <ol>
      <li>Get certificate for issuer alias</li>
      <li>Extract private key</li>
-     <li>Create <CODE>Credential</CODE> object</li>
-     <li>Create <CODE>Signature</CODE> object</li>
+     <li>Create <code>Credential</code> object</li>
+     <li>Create <code>Signature</code> object</li>
      <li>Set Signature object in Assertion</li>
      <li>Prepare signing environment - SecurityHelper.prepareSignatureParams</li>
      <li>Perform signing action - Signer.signObject</li>
- </ol>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>assertion</CODE> - The assertion to be signed.<DD><CODE>crypto</CODE> - Certificate and private key data are stored in Crypto object<DD><CODE>issuerKeyAlias</CODE> - Key alias<DD><CODE>issuerKeyPassword</CODE> - Key password
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If an error occurred while signing the assertion.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getSAML11SubjectConfirmationMethod(org.opensaml.saml1.core.Assertion)"><!-- --></A><H3>
-getSAML11SubjectConfirmationMethod</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getSAML11SubjectConfirmationMethod</B>(org.opensaml.saml1.core.Assertion&nbsp;assertion)</PRE>
-<DL>
-<DD>Get subject confirmation method of the given SAML 1.1 Assertion.
- This is used in rampart-core.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>assertion</CODE> - SAML 1.1 Assertion
-<DT><B>Returns:</B><DD>subject confirmation method</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createNamedIdentifier(java.lang.String, java.lang.String)"><!-- --></A><H3>
-createNamedIdentifier</H3>
-<PRE>
-public static org.opensaml.saml1.core.NameIdentifier <B>createNamedIdentifier</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;principalName,
-                                                                           <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;format)
-                                                                    throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Create named identifier.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>principalName</CODE> - Name of the subject.<DD><CODE>format</CODE> - Format of the subject, whether it is an email, uid etc ...
-<DT><B>Returns:</B><DD>The NamedIdentifier object.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find the builder.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createSubjectConfirmationMethod(java.lang.String)"><!-- --></A><H3>
-createSubjectConfirmationMethod</H3>
-<PRE>
-public static org.opensaml.saml1.core.ConfirmationMethod <B>createSubjectConfirmationMethod</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;confirmationMethod)
-                                                                                  throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates the subject confirmation method.
+ </ol></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>assertion</code> - The assertion to be signed.</dd><dd><code>crypto</code> - Certificate and private key data are stored in Crypto object</dd><dd><code>issuerKeyAlias</code> - Key alias</dd><dd><code>issuerKeyPassword</code> - Key password</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while signing the assertion.</dd></dl>
+</li>
+</ul>
+<a name="getSAML11SubjectConfirmationMethod(org.opensaml.saml1.core.Assertion)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSAML11SubjectConfirmationMethod</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSAML11SubjectConfirmationMethod(org.opensaml.saml1.core.Assertion&nbsp;assertion)</pre>
+<div class="block">Get subject confirmation method of the given SAML 1.1 Assertion.
+ This is used in rampart-core.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>assertion</code> - SAML 1.1 Assertion</dd>
+<dt><span class="strong">Returns:</span></dt><dd>subject confirmation method</dd></dl>
+</li>
+</ul>
+<a name="createNamedIdentifier(java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createNamedIdentifier</h4>
+<pre>public static&nbsp;org.opensaml.saml1.core.NameIdentifier&nbsp;createNamedIdentifier(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;principalName,
+                                                           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;format)
+                                                                    throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Create named identifier.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>principalName</code> - Name of the subject.</dd><dd><code>format</code> - Format of the subject, whether it is an email, uid etc ...</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The NamedIdentifier object.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the builder.</dd></dl>
+</li>
+</ul>
+<a name="createSubjectConfirmationMethod(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSubjectConfirmationMethod</h4>
+<pre>public static&nbsp;org.opensaml.saml1.core.ConfirmationMethod&nbsp;createSubjectConfirmationMethod(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;confirmationMethod)
+                                                                                  throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates the subject confirmation method.
  Relevant XML element would look like as follows,
  <saml:ConfirmationMethod>
        urn:oasis:names:tc:SAML:1.0:cm:holder-of-key
-  </saml:ConfirmationMethod>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>confirmationMethod</CODE> - Name of the actual confirmation method. Could be
+  </saml:ConfirmationMethod></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>confirmationMethod</code> - Name of the actual confirmation method. Could be
       holder-of-key - "urn:oasis:names:tc:SAML:1.0:cm:holder-of-key"
       sender-vouches - "urn:oasis:names:tc:SAML:1.0:cm:sender-vouches"
-      bearer - TODO
-<DT><B>Returns:</B><DD>Returns the opensaml representation of the ConfirmationMethod.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find appropriate XMLObject builder for confirmation QName.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createSubjectConfirmation(java.lang.String, org.opensaml.xml.signature.KeyInfo)"><!-- --></A><H3>
-createSubjectConfirmation</H3>
-<PRE>
-public static org.opensaml.saml1.core.SubjectConfirmation <B>createSubjectConfirmation</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;confirmationMethod,
-                                                                                    org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)
-                                                                             throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates opensaml SubjectConfirmation representation. The relevant XML would looks as follows,
+      bearer - TODO</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Returns the opensaml representation of the ConfirmationMethod.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find appropriate XMLObject builder for confirmation QName.</dd></dl>
+</li>
+</ul>
+<a name="createSubjectConfirmation(java.lang.String, org.opensaml.xml.signature.KeyInfo)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSubjectConfirmation</h4>
+<pre>public static&nbsp;org.opensaml.saml1.core.SubjectConfirmation&nbsp;createSubjectConfirmation(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;confirmationMethod,
+                                                                    org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)
+                                                                             throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates opensaml SubjectConfirmation representation. The relevant XML would looks as follows,
   <saml:SubjectConfirmation>
        <saml:ConfirmationMethod>
            urn:oasis:names:tc:SAML:1.0:cm:sender-vouches
        </saml:ConfirmationMethod>
-   </saml:SubjectConfirmation>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>confirmationMethod</CODE> - The subject confirmation method. Bearer, Sender-Vouches or Holder-Of-Key.<DD><CODE>keyInfoContent</CODE> - The KeyInfo content. According to SPEC (SAML 1.1) this could be null.
-<DT><B>Returns:</B><DD>OpenSAML representation of SubjectConfirmation.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find any of the XML builders.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createSubject(org.opensaml.saml1.core.NameIdentifier, java.lang.String, org.opensaml.xml.signature.KeyInfo)"><!-- --></A><H3>
-createSubject</H3>
-<PRE>
-public static org.opensaml.saml1.core.Subject <B>createSubject</B>(org.opensaml.saml1.core.NameIdentifier&nbsp;nameIdentifier,
-                                                            <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;confirmationMethod,
-                                                            org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)
-                                                     throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates an opensaml Subject representation. The relevant XML would looks as follows,
+   </saml:SubjectConfirmation></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>confirmationMethod</code> - The subject confirmation method. Bearer, Sender-Vouches or Holder-Of-Key.</dd><dd><code>keyInfoContent</code> - The KeyInfo content. According to SPEC (SAML 1.1) this could be null.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of SubjectConfirmation.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find any of the XML builders.</dd></dl>
+</li>
+</ul>
+<a name="createSubject(org.opensaml.saml1.core.NameIdentifier, java.lang.String, org.opensaml.xml.signature.KeyInfo)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSubject</h4>
+<pre>public static&nbsp;org.opensaml.saml1.core.Subject&nbsp;createSubject(org.opensaml.saml1.core.NameIdentifier&nbsp;nameIdentifier,
+                                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;confirmationMethod,
+                                            org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)
+                                                     throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates an opensaml Subject representation. The relevant XML would looks as follows,
  <saml:Subject>
        <saml:NameIdentifier
        NameQualifier="www.example.com"
@@ -532,26 +476,24 @@ public static org.opensaml.saml1.core.Subject <B>createSubject</B>(org.opensaml.
            <ds:KeyValue>...</ds:KeyValue>
        </ds:KeyInfo>
        </saml:SubjectConfirmation>
-   </saml:Subject>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>nameIdentifier</CODE> - Represent the "NameIdentifier" of XML element above.<DD><CODE>confirmationMethod</CODE> - Represent the bearer, HOK or Sender-Vouches.<DD><CODE>keyInfoContent</CODE> - Key info information. This could be null.
-<DT><B>Returns:</B><DD>OpenSAML representation of the Subject.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If a relevant XML builder is unable to find.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createAuthenticationStatement(org.opensaml.saml1.core.Subject, java.lang.String, org.joda.time.DateTime)"><!-- --></A><H3>
-createAuthenticationStatement</H3>
-<PRE>
-public static org.opensaml.saml1.core.AuthenticationStatement <B>createAuthenticationStatement</B>(org.opensaml.saml1.core.Subject&nbsp;subject,
-                                                                                            <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;authenticationMethod,
-                                                                                            org.joda.time.DateTime&nbsp;authenticationInstant)
-                                                                                     throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates an AuthenticationStatement. The relevant XML element looks as follows,
+   </saml:Subject></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>nameIdentifier</code> - Represent the "NameIdentifier" of XML element above.</dd><dd><code>confirmationMethod</code> - Represent the bearer, HOK or Sender-Vouches.</dd><dd><code>keyInfoContent</code> - Key info information. This could be null.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of the Subject.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If a relevant XML builder is unable to find.</dd></dl>
+</li>
+</ul>
+<a name="createAuthenticationStatement(org.opensaml.saml1.core.Subject, java.lang.String, org.joda.time.DateTime)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createAuthenticationStatement</h4>
+<pre>public static&nbsp;org.opensaml.saml1.core.AuthenticationStatement&nbsp;createAuthenticationStatement(org.opensaml.saml1.core.Subject&nbsp;subject,
+                                                                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;authenticationMethod,
+                                                                            org.joda.time.DateTime&nbsp;authenticationInstant)
+                                                                                     throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates an AuthenticationStatement. The relevant XML element looks as follows,
  <AuthenticationStatement
        AuthenticationInstant="2003-04-17T00:46:00Z"
        AuthenticationMethod="urn:oasis:names:tc:SAML:1.0:am:password">
@@ -564,26 +506,24 @@ public static org.opensaml.saml1.core.AuthenticationStatement <B>createAuthentic
                </SubjectConfirmation>
        </Subject>
        <SubjectLocality IPAddress="127.0.0.1"/>
-   </AuthenticationStatement>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>subject</CODE> - OpenSAML Subject implementation.<DD><CODE>authenticationMethod</CODE> - How subject is authenticated ? i.e. by using a password, kerberos, certificate
-          etc ... The method is defined as a URL in SAML specification.<DD><CODE>authenticationInstant</CODE> - Time which authentication took place.
-<DT><B>Returns:</B><DD>opensaml AuthenticationStatement object.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find the builder.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createAttributeStatement(org.opensaml.saml1.core.Subject, java.util.List)"><!-- --></A><H3>
-createAttributeStatement</H3>
-<PRE>
-public static org.opensaml.saml1.core.AttributeStatement <B>createAttributeStatement</B>(org.opensaml.saml1.core.Subject&nbsp;subject,
-                                                                                  <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;org.opensaml.saml1.core.Attribute&gt;&nbsp;attributeList)
-                                                                           throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates an attribute statement. Sample attribute statement would look like follows,
+   </AuthenticationStatement></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>subject</code> - OpenSAML Subject implementation.</dd><dd><code>authenticationMethod</code> - How subject is authenticated ? i.e. by using a password, kerberos, certificate
+          etc ... The method is defined as a URL in SAML specification.</dd><dd><code>authenticationInstant</code> - Time which authentication took place.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>opensaml AuthenticationStatement object.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the builder.</dd></dl>
+</li>
+</ul>
+<a name="createAttributeStatement(org.opensaml.saml1.core.Subject, java.util.List)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createAttributeStatement</h4>
+<pre>public static&nbsp;org.opensaml.saml1.core.AttributeStatement&nbsp;createAttributeStatement(org.opensaml.saml1.core.Subject&nbsp;subject,
+                                                                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.opensaml.saml1.core.Attribute&gt;&nbsp;attributeList)
+                                                                           throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates an attribute statement. Sample attribute statement would look like follows,
   <saml:AttributeStatement>
        <saml:Subject>
            <saml:NameIdentifier
@@ -610,48 +550,44 @@ public static org.opensaml.saml1.core.AttributeStatement <B>createAttributeState
            AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes">
            <saml:AttributeValue>joe@yahoo.com</saml:AttributeValue>
        </saml:Attribute>
-   </saml:AttributeStatement>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>subject</CODE> - The OpenSAML representation of the Subject.<DD><CODE>attributeList</CODE> - List of attribute values to include within the message.
-<DT><B>Returns:</B><DD>OpenSAML representation of AttributeStatement.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find the appropriate builder.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createConditions(org.joda.time.DateTime, org.joda.time.DateTime)"><!-- --></A><H3>
-createConditions</H3>
-<PRE>
-public static org.opensaml.saml1.core.Conditions <B>createConditions</B>(org.joda.time.DateTime&nbsp;notBefore,
-                                                                  org.joda.time.DateTime&nbsp;notOnOrAfter)
-                                                           throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates Conditions object. Analogous XML element is as follows,
+   </saml:AttributeStatement></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>subject</code> - The OpenSAML representation of the Subject.</dd><dd><code>attributeList</code> - List of attribute values to include within the message.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of AttributeStatement.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the appropriate builder.</dd></dl>
+</li>
+</ul>
+<a name="createConditions(org.joda.time.DateTime, org.joda.time.DateTime)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createConditions</h4>
+<pre>public static&nbsp;org.opensaml.saml1.core.Conditions&nbsp;createConditions(org.joda.time.DateTime&nbsp;notBefore,
+                                                  org.joda.time.DateTime&nbsp;notOnOrAfter)
+                                                           throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates Conditions object. Analogous XML element is as follows,
  <saml:Conditions>
        NotBefore="2002-06-19T16:53:33.173Z"
-       NotOnOrAfter="2002-06-19T17:08:33.173Z"/>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>notBefore</CODE> - The validity of the Assertion starts from this value.<DD><CODE>notOnOrAfter</CODE> - The validity ends from this value.
-<DT><B>Returns:</B><DD>OpenSAML Conditions object.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find appropriate builder.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createAssertion(java.lang.String, org.joda.time.DateTime, org.joda.time.DateTime, java.util.List)"><!-- --></A><H3>
-createAssertion</H3>
-<PRE>
-public static org.opensaml.saml1.core.Assertion <B>createAssertion</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;issuerName,
-                                                                org.joda.time.DateTime&nbsp;notBefore,
-                                                                org.joda.time.DateTime&nbsp;notOnOrAfter,
-                                                                <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;org.opensaml.saml1.core.Statement&gt;&nbsp;statements)
-                                                         throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>This method creates the final SAML assertion. The final SAML assertion would looks like as follows,
+       NotOnOrAfter="2002-06-19T17:08:33.173Z"/></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>notBefore</code> - The validity of the Assertion starts from this value.</dd><dd><code>notOnOrAfter</code> - The validity ends from this value.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML Conditions object.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find appropriate builder.</dd></dl>
+</li>
+</ul>
+<a name="createAssertion(java.lang.String, org.joda.time.DateTime, org.joda.time.DateTime, java.util.List)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createAssertion</h4>
+<pre>public static&nbsp;org.opensaml.saml1.core.Assertion&nbsp;createAssertion(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerName,
+                                                org.joda.time.DateTime&nbsp;notBefore,
+                                                org.joda.time.DateTime&nbsp;notOnOrAfter,
+                                                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.opensaml.saml1.core.Statement&gt;&nbsp;statements)
+                                                         throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method creates the final SAML assertion. The final SAML assertion would looks like as follows,
   <saml:Assertion  AssertionID="_a75adf55-01d7-40cc-929f-dbd8372ebdfc"
                    IssueInstant="2003-04-17T00:46:02Z"
                    Issuer=”www.opensaml.org”
@@ -688,220 +624,209 @@ public static org.opensaml.saml1.core.Assertion <B>createAssertion</B>(<A HREF="
            </saml:Attribute>
        </saml:AttributeStatement>
        <ds:Signature>...</ds:Signature>
-   </saml:Assertion>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>issuerName</CODE> - Represents the "Issuer" in Assertion.<DD><CODE>notBefore</CODE> - The Condition's NotBefore value<DD><CODE>notOnOrAfter</CODE> - The Condition's NotOnOrAfter value<DD><CODE>statements</CODE> - Other statements.
-<DT><B>Returns:</B><DD>An opensaml Assertion object.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find the appropriate builder.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createAttribute(java.lang.String, java.lang.String, java.lang.String)"><!-- --></A><H3>
-createAttribute</H3>
-<PRE>
-public static org.opensaml.saml1.core.Attribute <B>createAttribute</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name,
-                                                                <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;namespace,
-                                                                <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;value)
-                                                         throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates a SAML attribute similar to following,
+   </saml:Assertion></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>issuerName</code> - Represents the "Issuer" in Assertion.</dd><dd><code>notBefore</code> - The Condition's NotBefore value</dd><dd><code>notOnOrAfter</code> - The Condition's NotOnOrAfter value</dd><dd><code>statements</code> - Other statements.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>An opensaml Assertion object.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the appropriate builder.</dd></dl>
+</li>
+</ul>
+<a name="createAttribute(java.lang.String, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createAttribute</h4>
+<pre>public static&nbsp;org.opensaml.saml1.core.Attribute&nbsp;createAttribute(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                                                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+                                                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)
+                                                         throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates a SAML attribute similar to following,
  <saml:Attribute
        AttributeName="MemberLevel"
        AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes">
        <saml:AttributeValue>gold</saml:AttributeValue>
-   </saml:Attribute>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>name</CODE> - attribute name<DD><CODE>namespace</CODE> - attribute namespace.<DD><CODE>value</CODE> - attribute value.
-<DT><B>Returns:</B><DD>OpenSAML representation of the attribute.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find the appropriate builder.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createKeyInfo()"><!-- --></A><H3>
-createKeyInfo</H3>
-<PRE>
-public static org.opensaml.xml.signature.KeyInfo <B>createKeyInfo</B>()
-                                                        throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates a KeyInfo object
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD>OpenSAML KeyInfo representation.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If an error occurred while creating KeyInfo.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createKeyInfo(org.opensaml.xml.encryption.EncryptedKey)"><!-- --></A><H3>
-createKeyInfo</H3>
-<PRE>
-public static org.opensaml.xml.signature.KeyInfo <B>createKeyInfo</B>(org.opensaml.xml.encryption.EncryptedKey&nbsp;encryptedKey)
-                                                        throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates a KeyInfo element given EncryptedKey. The relevant XML would looks as follows,
+   </saml:Attribute></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - attribute name</dd><dd><code>namespace</code> - attribute namespace.</dd><dd><code>value</code> - attribute value.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of the attribute.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the appropriate builder.</dd></dl>
+</li>
+</ul>
+<a name="createKeyInfo()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createKeyInfo</h4>
+<pre>public static&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;createKeyInfo()
+                                                        throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates a KeyInfo object</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>OpenSAML KeyInfo representation.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating KeyInfo.</dd></dl>
+</li>
+</ul>
+<a name="createKeyInfo(org.opensaml.xml.encryption.EncryptedKey)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createKeyInfo</h4>
+<pre>public static&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;createKeyInfo(org.opensaml.xml.encryption.EncryptedKey&nbsp;encryptedKey)
+                                                        throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates a KeyInfo element given EncryptedKey. The relevant XML would looks as follows,
   <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
      <xenc:EncryptedKey xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
            ....
      </xenc:EncryptedKey>
-   </ds:KeyInfo>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>encryptedKey</CODE> - The OpemSAML representation of encrypted key.
-<DT><B>Returns:</B><DD>The appropriate opensaml representation of the KeyInfo.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find the builder.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createKeyInfo(org.opensaml.xml.signature.X509Data)"><!-- --></A><H3>
-createKeyInfo</H3>
-<PRE>
-public static org.opensaml.xml.signature.KeyInfo <B>createKeyInfo</B>(org.opensaml.xml.signature.X509Data&nbsp;x509Data)
-                                                        throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates a KeyInfo element given EncryptedKey. The relevant XML would looks as follows,
+   </ds:KeyInfo></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>encryptedKey</code> - The OpemSAML representation of encrypted key.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The appropriate opensaml representation of the KeyInfo.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the builder.</dd></dl>
+</li>
+</ul>
+<a name="createKeyInfo(org.opensaml.xml.signature.X509Data)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createKeyInfo</h4>
+<pre>public static&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;createKeyInfo(org.opensaml.xml.signature.X509Data&nbsp;x509Data)
+                                                        throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates a KeyInfo element given EncryptedKey. The relevant XML would looks as follows,
   <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
      <X509Data xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
            ....
      </X509Data>
-   </ds:KeyInfo>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>x509Data</CODE> - The OpemSAML representation X509Data
-<DT><B>Returns:</B><DD>The appropriate opensaml representation of the KeyInfo.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If unable to find the builder.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getCertificateBasedKeyInfo(java.security.cert.X509Certificate)"><!-- --></A><H3>
-getCertificateBasedKeyInfo</H3>
-<PRE>
-public static org.opensaml.xml.signature.KeyInfo <B>getCertificateBasedKeyInfo</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</A>&nbsp;certificate)
-                                                                     throws <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Creates the certificate based KeyInfo object.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>certificate</CODE> - The public key certificate used to create the KeyInfo object.
-<DT><B>Returns:</B><DD>OpenSAML representation of KeyInfo object.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If an error occurred while creating the KeyInfo</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getSymmetricKeyBasedKeyInfo(org.w3c.dom.Document, org.apache.rahas.RahasData, java.security.cert.X509Certificate, int, org.apache.ws.security.components.crypto.Crypto, int)"><!-- --></A><H3>
-getSymmetricKeyBasedKeyInfo</H3>
-<PRE>
-public static org.opensaml.xml.signature.KeyInfo <B>getSymmetricKeyBasedKeyInfo</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</A>&nbsp;doc,
-                                                                             <A HREF="../../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</A>&nbsp;data,
-                                                                             <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</A>&nbsp;serviceCert,
-                                                                             int&nbsp;keySize,
-                                                                             org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
-                                                                             int&nbsp;keyComputation)
+   </ds:KeyInfo></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>x509Data</code> - The OpemSAML representation X509Data</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The appropriate opensaml representation of the KeyInfo.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the builder.</dd></dl>
+</li>
+</ul>
+<a name="getCertificateBasedKeyInfo(java.security.cert.X509Certificate)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCertificateBasedKeyInfo</h4>
+<pre>public static&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;getCertificateBasedKeyInfo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;certificate)
+                                                                     throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Creates the certificate based KeyInfo object.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>certificate</code> - The public key certificate used to create the KeyInfo object.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of KeyInfo object.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the KeyInfo</dd></dl>
+</li>
+</ul>
+<a name="getSymmetricKeyBasedKeyInfo(org.w3c.dom.Document, org.apache.rahas.RahasData, java.security.cert.X509Certificate, int, org.apache.ws.security.components.crypto.Crypto, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSymmetricKeyBasedKeyInfo</h4>
+<pre>public static&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;getSymmetricKeyBasedKeyInfo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+                                                             <a href="../../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data,
+                                                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;serviceCert,
+                                                             int&nbsp;keySize,
+                                                             org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+                                                             int&nbsp;keyComputation)
                                                                       throws org.apache.ws.security.WSSecurityException,
-                                                                             <A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>This method creates KeyInfo element of an assertion. This is a facade, in which it calls
+                                                                             <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method creates KeyInfo element of an assertion. This is a facade, in which it calls
  to other helper methods to create KeyInfo. The TokenIssuer will call this method to
- create the KeyInfo.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>doc</CODE> - An Axiom based DOM Document.<DD><CODE>data</CODE> - The ephemeral key which we use here need in encrypting the message also. Therefore
-              we need to save the ephemeral key in RahasData passed here.<DD><CODE>serviceCert</CODE> - Public key used to encrypt the assertion is extracted from this certificate.<DD><CODE>keySize</CODE> - Size of the key to be used<DD><CODE>crypto</CODE> - The relevant private key<DD><CODE>keyComputation</CODE> - Key computation mechanism.
-<DT><B>Returns:</B><DD>OpenSAML KeyInfo representation.
-<DT><B>Throws:</B>
-<DD><CODE>org.apache.ws.security.WSSecurityException</CODE> - We use WSS4J to generate encrypted key. This exception will trigger if an
-                      error occurs while generating the encrypted key.
-<DD><CODE><A HREF="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE> - If an error occurred while creating KeyInfo object.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="convertToDateTime(java.util.Date)"><!-- --></A><H3>
-convertToDateTime</H3>
-<PRE>
-public static org.joda.time.DateTime <B>convertToDateTime</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</A>&nbsp;date)</PRE>
-<DL>
-<DD>Converts java.util.Date to opensaml DateTime object.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>date</CODE> - Java util date
-<DT><B>Returns:</B><DD>opensaml specific DateTime object.</DL>
-</DD>
-</DL>
+ create the KeyInfo.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>doc</code> - An Axiom based DOM Document.</dd><dd><code>data</code> - The ephemeral key which we use here need in encrypting the message also. Therefore
+              we need to save the ephemeral key in RahasData passed here.</dd><dd><code>serviceCert</code> - Public key used to encrypt the assertion is extracted from this certificate.</dd><dd><code>keySize</code> - Size of the key to be used</dd><dd><code>crypto</code> - The relevant private key</dd><dd><code>keyComputation</code> - Key computation mechanism.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML KeyInfo representation.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>org.apache.ws.security.WSSecurityException</code> - We use WSS4J to generate encrypted key. This exception will trigger if an
+                      error occurs while generating the encrypted key.</dd>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating KeyInfo object.</dd></dl>
+</li>
+</ul>
+<a name="convertToDateTime(java.util.Date)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>convertToDateTime</h4>
+<pre>public static&nbsp;org.joda.time.DateTime&nbsp;convertToDateTime(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date)</pre>
+<div class="block">Converts java.util.Date to opensaml DateTime object.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>date</code> - Java util date</dd>
+<dt><span class="strong">Returns:</span></dt><dd>opensaml specific DateTime object.</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <!-- ========= END OF CLASS DATA ========= -->
-<HR>
-
-
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<A NAME="navbar_bottom"><!-- --></A>
-<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_bottom_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SAMLUtils.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../org/apache/rahas/impl/util/SAMLNameIdentifierCallback.html" title="class in org.apache.rahas.impl.util"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;<A HREF="../../../../../org/apache/rahas/impl/util/SignKeyHolder.html" title="class in org.apache.rahas.impl.util"><B>NEXT CLASS</B></A></FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../index.html?org/apache/rahas/impl/util/SAMLUtils.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="SAMLUtils.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/SAMLUtils.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/rahas/impl/util/SAMLNameIdentifierCallback.html" title="class in org.apache.rahas.impl.util"><span class="strong">PREV CLASS</span></a></li>
+<li><a href="../../../../../org/apache/rahas/impl/util/SignKeyHolder.html" title="class in org.apache.rahas.impl.util"><span class="strong">NEXT CLASS</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/rahas/impl/util/SAMLUtils.html" target="_top">FRAMES</a></li>
+<li><a href="SAMLUtils.html" target="_top">NO FRAMES</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_bottom"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>SUMMARY:&nbsp;</li>
+<li>NESTED&nbsp;|&nbsp;</li>
+<li>FIELD&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">CONSTR</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">METHOD</a></li>
+</ul>
+<ul class="subNavList">
+<li>DETAIL:&nbsp;</li>
+<li>FIELD&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">CONSTR</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">METHOD</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-
-<HR>
-Copyright © <a href="http://www.apache.org">Apache Software Foundation</a>. All Rights Reserved.
-</BODY>
-</HTML>
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org">Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

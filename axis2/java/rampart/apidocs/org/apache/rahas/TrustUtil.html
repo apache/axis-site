@@ -1,1134 +1,943 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--NewPage-->
-<HTML>
-<HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>
-TrustUtil (Apache Rampart)
-</TITLE>
-
-
-<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../stylesheet.css" TITLE="Style">
-
-<SCRIPT type="text/javascript">
-function windowTitle()
-{
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>TrustUtil (Apache Rampart)</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
         parent.document.title="TrustUtil (Apache Rampart)";
     }
-}
-</SCRIPT>
-<NOSCRIPT>
-</NOSCRIPT>
-
-</HEAD>
-
-<BODY BGCOLOR="white" onload="windowTitle();">
-<HR>
-
-
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<A NAME="navbar_top"><!-- --></A>
-<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_top_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/TrustUtil.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;NEXT CLASS</FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../index.html?org/apache/rahas/TrustUtil.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="TrustUtil.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/TrustUtil.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-all.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas"><span class="strong">PREV CLASS</span></a></li>
+<li>NEXT CLASS</li>
+</ul>
+<ul class="navList">
+<li><a href="../../../index.html?org/apache/rahas/TrustUtil.html" target="_top">FRAMES</a></li>
+<li><a href="TrustUtil.html" target="_top">NO FRAMES</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
   if(window==top) {
-    document.writeln('<A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_top"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>SUMMARY:&nbsp;</li>
+<li>NESTED&nbsp;|&nbsp;</li>
+<li>FIELD&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">CONSTR</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">METHOD</a></li>
+</ul>
+<ul class="subNavList">
+<li>DETAIL:&nbsp;</li>
+<li>FIELD&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">CONSTR</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">METHOD</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-
-<HR>
 <!-- ======== START OF CLASS DATA ======== -->
-<H2>
-<FONT SIZE="-1">
-org.apache.rahas</FONT>
-<BR>
-Class TrustUtil</H2>
-<PRE>
-<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
-  <IMG SRC="../../../resources/inherit.gif" ALT="extended by "><B>org.apache.rahas.TrustUtil</B>
-</PRE>
-<HR>
-<DL>
-<DT><PRE>public class <B>TrustUtil</B><DT>extends <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></DL>
-</PRE>
-
-<P>
-<HR>
-
-<P>
-
+<div class="header">
+<p class="subTitle">org.apache.rahas</p>
+<h2 title="Class TrustUtil" class="title">Class TrustUtil</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.rahas.TrustUtil</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public class <strong>TrustUtil</strong>
+extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-
-<A NAME="constructor_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Constructor Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#TrustUtil()">TrustUtil</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#TrustUtil()">TrustUtil</a></strong>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
-
-<A NAME="method_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Method Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createAppliesToElement(org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">createAppliesToElement</A></B>(org.apache.axiom.om.OMElement&nbsp;parent,
-                       <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;address,
-                       <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;addressingNs)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createBinarySecretElement(int, org.apache.axiom.om.OMElement, java.lang.String)">createBinarySecretElement</A></B>(int&nbsp;version,
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createAppliesToElement(org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">createAppliesToElement</a></strong>(org.apache.axiom.om.OMElement&nbsp;parent,
+                      <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;address,
+                      <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;addressingNs)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createBinarySecretElement(int, org.apache.axiom.om.OMElement, java.lang.String)">createBinarySecretElement</a></strong>(int&nbsp;version,
+                         org.apache.axiom.om.OMElement&nbsp;parent,
+                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createCancelRequest(java.lang.String, int)">createCancelRequest</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tokenId,
+                   int&nbsp;version)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createCancelTargetElement(int, org.apache.axiom.om.OMElement)">createCancelTargetElement</a></strong>(int&nbsp;version,
+                         org.apache.axiom.om.OMElement&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createClaims(int, org.apache.axiom.om.OMElement, java.lang.String)">createClaims</a></strong>(int&nbsp;version,
+            org.apache.axiom.om.OMElement&nbsp;parent,
+            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;dialect)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createComputedKeyAlgorithm(int, org.apache.axiom.om.OMElement, java.lang.String)">createComputedKeyAlgorithm</a></strong>(int&nbsp;version,
                           org.apache.axiom.om.OMElement&nbsp;parent,
-                          <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;type)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createCancelRequest(java.lang.String, int)">createCancelRequest</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;tokenId,
-                    int&nbsp;version)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createCancelTargetElement(int, org.apache.axiom.om.OMElement)">createCancelTargetElement</A></B>(int&nbsp;version,
-                          org.apache.axiom.om.OMElement&nbsp;parent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createClaims(int, org.apache.axiom.om.OMElement, java.lang.String)">createClaims</A></B>(int&nbsp;version,
-             org.apache.axiom.om.OMElement&nbsp;parent,
-             <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;dialect)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createComputedKeyAlgorithm(int, org.apache.axiom.om.OMElement, java.lang.String)">createComputedKeyAlgorithm</A></B>(int&nbsp;version,
-                           org.apache.axiom.om.OMElement&nbsp;parent,
-                           <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;algoId)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createComputedKeyElement(int, org.apache.axiom.om.OMElement)">createComputedKeyElement</A></B>(int&nbsp;version,
-                         org.apache.axiom.om.OMElement&nbsp;parent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createEntropyElement(int, org.apache.axiom.om.OMElement)">createEntropyElement</A></B>(int&nbsp;version,
-                     org.apache.axiom.om.OMElement&nbsp;parent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createKeySizeElement(int, org.apache.axiom.om.OMElement, int)">createKeySizeElement</A></B>(int&nbsp;version,
+                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;algoId)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createComputedKeyElement(int, org.apache.axiom.om.OMElement)">createComputedKeyElement</a></strong>(int&nbsp;version,
+                        org.apache.axiom.om.OMElement&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createEntropyElement(int, org.apache.axiom.om.OMElement)">createEntropyElement</a></strong>(int&nbsp;version,
+                    org.apache.axiom.om.OMElement&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createKeySizeElement(int, org.apache.axiom.om.OMElement, int)">createKeySizeElement</a></strong>(int&nbsp;version,
+                    org.apache.axiom.om.OMElement&nbsp;parent,
+                    int&nbsp;size)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createKeyTypeElement(int, org.apache.axiom.om.OMElement, java.lang.String)">createKeyTypeElement</a></strong>(int&nbsp;version,
+                    org.apache.axiom.om.OMElement&nbsp;parent,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createLifetimeElement(int, org.apache.axiom.om.OMElement, long)">createLifetimeElement</a></strong>(int&nbsp;version,
                      org.apache.axiom.om.OMElement&nbsp;parent,
-                     int&nbsp;size)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createKeyTypeElement(int, org.apache.axiom.om.OMElement, java.lang.String)">createKeyTypeElement</A></B>(int&nbsp;version,
+                     long&nbsp;ttl)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createLifetimeElement(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">createLifetimeElement</a></strong>(int&nbsp;version,
                      org.apache.axiom.om.OMElement&nbsp;parent,
-                     <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;type)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createLifetimeElement(int, org.apache.axiom.om.OMElement, long)">createLifetimeElement</A></B>(int&nbsp;version,
-                      org.apache.axiom.om.OMElement&nbsp;parent,
-                      long&nbsp;ttl)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createLifetimeElement(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">createLifetimeElement</A></B>(int&nbsp;version,
-                      org.apache.axiom.om.OMElement&nbsp;parent,
-                      <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;created,
-                      <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;expires)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRenewTargetElement(int, org.apache.axiom.om.OMElement, org.apache.axiom.om.OMElement)">createRenewTargetElement</A></B>(int&nbsp;version,
-                         org.apache.axiom.om.OMElement&nbsp;parent,
-                         org.apache.axiom.om.OMElement&nbsp;str)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestedAttachedRef(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">createRequestedAttachedRef</A></B>(int&nbsp;version,
-                           org.apache.axiom.om.OMElement&nbsp;parent,
-                           <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refUri,
-                           <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refValueType)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestedAttachedRef(org.apache.axiom.om.OMElement, java.lang.String, int)">createRequestedAttachedRef</A></B>(org.apache.axiom.om.OMElement&nbsp;rstrElem,
-                           <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;id,
-                           int&nbsp;version)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create and add wst:AttachedReference element</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestedProofTokenElement(int, org.apache.axiom.om.OMElement)">createRequestedProofTokenElement</A></B>(int&nbsp;version,
-                                 org.apache.axiom.om.OMElement&nbsp;parent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestedSecurityTokenElement(int, org.apache.axiom.om.OMElement)">createRequestedSecurityTokenElement</A></B>(int&nbsp;version,
-                                    org.apache.axiom.om.OMElement&nbsp;parent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestedTokenCanceledElement(int, org.apache.axiom.om.OMElement)">createRequestedTokenCanceledElement</A></B>(int&nbsp;version,
-                                    org.apache.axiom.om.OMElement&nbsp;parent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestedUnattachedRef(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">createRequestedUnattachedRef</A></B>(int&nbsp;version,
-                             org.apache.axiom.om.OMElement&nbsp;parent,
-                             <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refUri,
-                             <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refValueType)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestedUnattachedRef(org.apache.axiom.om.OMElement, java.lang.String, int)">createRequestedUnattachedRef</A></B>(org.apache.axiom.om.OMElement&nbsp;rstrElem,
-                             <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;id,
-                             int&nbsp;version)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create and add wst:UnattachedReference element</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestSecurityTokenElement(int)">createRequestSecurityTokenElement</A></B>(int&nbsp;version)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestSecurityTokenResponseCollectionElement(int, org.apache.axiom.om.OMElement)">createRequestSecurityTokenResponseCollectionElement</A></B>(int&nbsp;version,
-                                                    org.apache.axiom.om.OMElement&nbsp;parent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestSecurityTokenResponseElement(int, org.apache.axiom.om.OMElement)">createRequestSecurityTokenResponseElement</A></B>(int&nbsp;version,
-                                          org.apache.axiom.om.OMElement&nbsp;parent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createRequestTypeElement(int, org.apache.axiom.om.OMElement, java.lang.String)">createRequestTypeElement</A></B>(int&nbsp;version,
-                         org.apache.axiom.om.OMElement&nbsp;parent,
-                         <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;value)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Element.html?is-external=true" title="class or interface in org.w3c.dom">Element</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createSecurityTokenReference(org.w3c.dom.Document, java.lang.String, java.lang.String)">createSecurityTokenReference</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</A>&nbsp;doc,
-                             <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refUri,
-                             <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refValueType)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a wsse:Reference element with the given URI and the value type</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.soap.SOAPEnvelope</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createSOAPEnvelope(java.lang.String)">createSOAPEnvelope</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;nsUri)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new <code>SOAPEnvelope</code> of the same version as the
- SOAPEnvelope in the given <code>MessageContext</code></TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createTokenTypeElement(int, org.apache.axiom.om.OMElement)">createTokenTypeElement</A></B>(int&nbsp;version,
-                       org.apache.axiom.om.OMElement&nbsp;parent)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;org.apache.axiom.om.OMElement</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#createValidateTargetElement(int, org.apache.axiom.om.OMElement, org.apache.axiom.om.OMElement)">createValidateTargetElement</A></B>(int&nbsp;version,
+                     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;created,
+                     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;expires)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRenewTargetElement(int, org.apache.axiom.om.OMElement, org.apache.axiom.om.OMElement)">createRenewTargetElement</a></strong>(int&nbsp;version,
+                        org.apache.axiom.om.OMElement&nbsp;parent,
+                        org.apache.axiom.om.OMElement&nbsp;str)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestedAttachedRef(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">createRequestedAttachedRef</a></strong>(int&nbsp;version,
+                          org.apache.axiom.om.OMElement&nbsp;parent,
+                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refUri,
+                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refValueType)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestedAttachedRef(org.apache.axiom.om.OMElement, java.lang.String, int)">createRequestedAttachedRef</a></strong>(org.apache.axiom.om.OMElement&nbsp;rstrElem,
+                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id,
+                          int&nbsp;version)</code>
+<div class="block">Create and add wst:AttachedReference element</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestedProofTokenElement(int, org.apache.axiom.om.OMElement)">createRequestedProofTokenElement</a></strong>(int&nbsp;version,
+                                org.apache.axiom.om.OMElement&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestedSecurityTokenElement(int, org.apache.axiom.om.OMElement)">createRequestedSecurityTokenElement</a></strong>(int&nbsp;version,
+                                   org.apache.axiom.om.OMElement&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestedTokenCanceledElement(int, org.apache.axiom.om.OMElement)">createRequestedTokenCanceledElement</a></strong>(int&nbsp;version,
+                                   org.apache.axiom.om.OMElement&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestedUnattachedRef(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">createRequestedUnattachedRef</a></strong>(int&nbsp;version,
                             org.apache.axiom.om.OMElement&nbsp;parent,
-                            org.apache.axiom.om.OMElement&nbsp;str)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;byte[]</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#generateEphemeralKey(byte[], byte[], java.lang.String, int)">generateEphemeralKey</A></B>(byte[]&nbsp;reqEnt,
-                     byte[]&nbsp;respEnt,
-                     <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;algo,
-                     int&nbsp;keySize)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create an ephemeral key</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;byte[]</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#generateEphemeralKey(int)">generateEphemeralKey</A></B>(int&nbsp;keySize)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create an ephemeral key</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#getActionValue(int, java.lang.String)">getActionValue</A></B>(int&nbsp;version,
-               <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;action)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="../../../org/apache/rahas/TokenStorage.html" title="interface in org.apache.rahas">TokenStorage</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#getTokenStore(org.apache.axis2.context.ConfigurationContext)">getTokenStore</A></B>(org.apache.axis2.context.ConfigurationContext&nbsp;ctx)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fetches the token storage from the configuration context.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="../../../org/apache/rahas/TokenStorage.html" title="interface in org.apache.rahas">TokenStorage</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#getTokenStore(org.apache.axis2.context.MessageContext)">getTokenStore</A></B>(org.apache.axis2.context.MessageContext&nbsp;msgCtx)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the token store.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#getWSTNamespace(int)">getWSTNamespace</A></B>(int&nbsp;version)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#getWSTVersion(java.lang.String)">getWSTVersion</A></B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;ns)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../org/apache/rahas/TrustUtil.html#toProperties(org.apache.axiom.om.OMElement)">toProperties</A></B>(org.apache.axiom.om.OMElement&nbsp;cryptoElem)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
-<P>
-
+                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refUri,
+                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refValueType)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestedUnattachedRef(org.apache.axiom.om.OMElement, java.lang.String, int)">createRequestedUnattachedRef</a></strong>(org.apache.axiom.om.OMElement&nbsp;rstrElem,
+                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id,
+                            int&nbsp;version)</code>
+<div class="block">Create and add wst:UnattachedReference element</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestSecurityTokenElement(int)">createRequestSecurityTokenElement</a></strong>(int&nbsp;version)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestSecurityTokenResponseCollectionElement(int, org.apache.axiom.om.OMElement)">createRequestSecurityTokenResponseCollectionElement</a></strong>(int&nbsp;version,
+                                                   org.apache.axiom.om.OMElement&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestSecurityTokenResponseElement(int, org.apache.axiom.om.OMElement)">createRequestSecurityTokenResponseElement</a></strong>(int&nbsp;version,
+                                         org.apache.axiom.om.OMElement&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createRequestTypeElement(int, org.apache.axiom.om.OMElement, java.lang.String)">createRequestTypeElement</a></strong>(int&nbsp;version,
+                        org.apache.axiom.om.OMElement&nbsp;parent,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Element.html?is-external=true" title="class or interface in org.w3c.dom">Element</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createSecurityTokenReference(org.w3c.dom.Document, java.lang.String, java.lang.String)">createSecurityTokenReference</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refUri,
+                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refValueType)</code>
+<div class="block">Create a wsse:Reference element with the given URI and the value type</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.soap.SOAPEnvelope</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createSOAPEnvelope(java.lang.String)">createSOAPEnvelope</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;nsUri)</code>
+<div class="block">Create a new <code>SOAPEnvelope</code> of the same version as the
+ SOAPEnvelope in the given <code>MessageContext</code></div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createTokenTypeElement(int, org.apache.axiom.om.OMElement)">createTokenTypeElement</a></strong>(int&nbsp;version,
+                      org.apache.axiom.om.OMElement&nbsp;parent)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#createValidateTargetElement(int, org.apache.axiom.om.OMElement, org.apache.axiom.om.OMElement)">createValidateTargetElement</a></strong>(int&nbsp;version,
+                           org.apache.axiom.om.OMElement&nbsp;parent,
+                           org.apache.axiom.om.OMElement&nbsp;str)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected byte[]</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#generateEphemeralKey(byte[], byte[], java.lang.String, int)">generateEphemeralKey</a></strong>(byte[]&nbsp;reqEnt,
+                    byte[]&nbsp;respEnt,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;algo,
+                    int&nbsp;keySize)</code>
+<div class="block">Create an ephemeral key</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected byte[]</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#generateEphemeralKey(int)">generateEphemeralKey</a></strong>(int&nbsp;keySize)</code>
+<div class="block">Create an ephemeral key</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#getActionValue(int, java.lang.String)">getActionValue</a></strong>(int&nbsp;version,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;action)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/rahas/TokenStorage.html" title="interface in org.apache.rahas">TokenStorage</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#getTokenStore(org.apache.axis2.context.ConfigurationContext)">getTokenStore</a></strong>(org.apache.axis2.context.ConfigurationContext&nbsp;ctx)</code>
+<div class="block">Fetches the token storage from the configuration context.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../org/apache/rahas/TokenStorage.html" title="interface in org.apache.rahas">TokenStorage</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#getTokenStore(org.apache.axis2.context.MessageContext)">getTokenStore</a></strong>(org.apache.axis2.context.MessageContext&nbsp;msgCtx)</code>
+<div class="block">Returns the token store.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#getWSTNamespace(int)">getWSTNamespace</a></strong>(int&nbsp;version)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#getWSTVersion(java.lang.String)">getWSTVersion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ns)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/TrustUtil.html#toProperties(org.apache.axiom.om.OMElement)">toProperties</a></strong>(org.apache.axiom.om.OMElement&nbsp;cryptoElem)</code>&nbsp;</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-
-<A NAME="constructor_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Constructor Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="TrustUtil()"><!-- --></A><H3>
-TrustUtil</H3>
-<PRE>
-public <B>TrustUtil</B>()</PRE>
-<DL>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="TrustUtil()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>TrustUtil</h4>
+<pre>public&nbsp;TrustUtil()</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
-
-<A NAME="method_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Method Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="createSecurityTokenReference(org.w3c.dom.Document, java.lang.String, java.lang.String)"><!-- --></A><H3>
-createSecurityTokenReference</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Element.html?is-external=true" title="class or interface in org.w3c.dom">Element</A> <B>createSecurityTokenReference</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</A>&nbsp;doc,
-                                                   <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refUri,
-                                                   <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refValueType)</PRE>
-<DL>
-<DD>Create a wsse:Reference element with the given URI and the value type
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>doc</CODE> - <DD><CODE>refUri</CODE> - <DD><CODE>refValueType</CODE> - 
-<DT><B>Returns:</B><DD>Element</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestSecurityTokenResponseElement(int, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createRequestSecurityTokenResponseElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createRequestSecurityTokenResponseElement</B>(int&nbsp;version,
-                                                                                      org.apache.axiom.om.OMElement&nbsp;parent)
-                                                                               throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestSecurityTokenResponseCollectionElement(int, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createRequestSecurityTokenResponseCollectionElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createRequestSecurityTokenResponseCollectionElement</B>(int&nbsp;version,
-                                                                                                org.apache.axiom.om.OMElement&nbsp;parent)
-                                                                                         throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestedSecurityTokenElement(int, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createRequestedSecurityTokenElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createRequestedSecurityTokenElement</B>(int&nbsp;version,
-                                                                                org.apache.axiom.om.OMElement&nbsp;parent)
-                                                                         throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestSecurityTokenElement(int)"><!-- --></A><H3>
-createRequestSecurityTokenElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createRequestSecurityTokenElement</B>(int&nbsp;version)
-                                                                       throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestedProofTokenElement(int, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createRequestedProofTokenElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createRequestedProofTokenElement</B>(int&nbsp;version,
-                                                                             org.apache.axiom.om.OMElement&nbsp;parent)
-                                                                      throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createEntropyElement(int, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createEntropyElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createEntropyElement</B>(int&nbsp;version,
-                                                                 org.apache.axiom.om.OMElement&nbsp;parent)
-                                                          throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createComputedKeyElement(int, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createComputedKeyElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createComputedKeyElement</B>(int&nbsp;version,
-                                                                     org.apache.axiom.om.OMElement&nbsp;parent)
-                                                              throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestTypeElement(int, org.apache.axiom.om.OMElement, java.lang.String)"><!-- --></A><H3>
-createRequestTypeElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createRequestTypeElement</B>(int&nbsp;version,
-                                                                     org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                     <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;value)
-                                                              throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createTokenTypeElement(int, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createTokenTypeElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createTokenTypeElement</B>(int&nbsp;version,
-                                                                   org.apache.axiom.om.OMElement&nbsp;parent)
-                                                            throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createValidateTargetElement(int, org.apache.axiom.om.OMElement, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createValidateTargetElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createValidateTargetElement</B>(int&nbsp;version,
-                                                                        org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                        org.apache.axiom.om.OMElement&nbsp;str)
-                                                                 throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRenewTargetElement(int, org.apache.axiom.om.OMElement, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createRenewTargetElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createRenewTargetElement</B>(int&nbsp;version,
-                                                                     org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                     org.apache.axiom.om.OMElement&nbsp;str)
-                                                              throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createBinarySecretElement(int, org.apache.axiom.om.OMElement, java.lang.String)"><!-- --></A><H3>
-createBinarySecretElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createBinarySecretElement</B>(int&nbsp;version,
-                                                                      org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                      <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;type)
-                                                               throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createComputedKeyAlgorithm(int, org.apache.axiom.om.OMElement, java.lang.String)"><!-- --></A><H3>
-createComputedKeyAlgorithm</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createComputedKeyAlgorithm</B>(int&nbsp;version,
-                                                                       org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                       <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;algoId)
-                                                                throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestedUnattachedRef(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)"><!-- --></A><H3>
-createRequestedUnattachedRef</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createRequestedUnattachedRef</B>(int&nbsp;version,
-                                                                         org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                         <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refUri,
-                                                                         <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refValueType)
-                                                                  throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestedAttachedRef(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)"><!-- --></A><H3>
-createRequestedAttachedRef</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createRequestedAttachedRef</B>(int&nbsp;version,
-                                                                       org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                       <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refUri,
-                                                                       <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;refValueType)
-                                                                throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestedAttachedRef(org.apache.axiom.om.OMElement, java.lang.String, int)"><!-- --></A><H3>
-createRequestedAttachedRef</H3>
-<PRE>
-public static void <B>createRequestedAttachedRef</B>(org.apache.axiom.om.OMElement&nbsp;rstrElem,
-                                              <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;id,
-                                              int&nbsp;version)
-                                       throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Create and add wst:AttachedReference element
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>rstrElem</CODE> - wst:RequestSecurityToken element<DD><CODE>id</CODE> - Token identifier
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestedUnattachedRef(org.apache.axiom.om.OMElement, java.lang.String, int)"><!-- --></A><H3>
-createRequestedUnattachedRef</H3>
-<PRE>
-public static void <B>createRequestedUnattachedRef</B>(org.apache.axiom.om.OMElement&nbsp;rstrElem,
-                                                <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;id,
-                                                int&nbsp;version)
-                                         throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Create and add wst:UnattachedReference element
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>rstrElem</CODE> - wst:RequestSecurityToken element<DD><CODE>id</CODE> - Token identifier
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createKeySizeElement(int, org.apache.axiom.om.OMElement, int)"><!-- --></A><H3>
-createKeySizeElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createKeySizeElement</B>(int&nbsp;version,
-                                                                 org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                 int&nbsp;size)
-                                                          throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createKeyTypeElement(int, org.apache.axiom.om.OMElement, java.lang.String)"><!-- --></A><H3>
-createKeyTypeElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createKeyTypeElement</B>(int&nbsp;version,
-                                                                 org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                 <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;type)
-                                                          throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createRequestedTokenCanceledElement(int, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createRequestedTokenCanceledElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createRequestedTokenCanceledElement</B>(int&nbsp;version,
-                                                                                org.apache.axiom.om.OMElement&nbsp;parent)
-                                                                         throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createLifetimeElement(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)"><!-- --></A><H3>
-createLifetimeElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createLifetimeElement</B>(int&nbsp;version,
-                                                                  org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                  <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;created,
-                                                                  <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;expires)
-                                                           throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createLifetimeElement(int, org.apache.axiom.om.OMElement, long)"><!-- --></A><H3>
-createLifetimeElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createLifetimeElement</B>(int&nbsp;version,
-                                                                  org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                  long&nbsp;ttl)
-                                                           throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createAppliesToElement(org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)"><!-- --></A><H3>
-createAppliesToElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createAppliesToElement</B>(org.apache.axiom.om.OMElement&nbsp;parent,
-                                                                   <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;address,
-                                                                   <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;addressingNs)</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getActionValue(int, java.lang.String)"><!-- --></A><H3>
-getActionValue</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getActionValue</B>(int&nbsp;version,
-                                    <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;action)
-                             throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createSOAPEnvelope(java.lang.String)"><!-- --></A><H3>
-createSOAPEnvelope</H3>
-<PRE>
-public static org.apache.axiom.soap.SOAPEnvelope <B>createSOAPEnvelope</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;nsUri)</PRE>
-<DL>
-<DD>Create a new <code>SOAPEnvelope</code> of the same version as the
- SOAPEnvelope in the given <code>MessageContext</code>
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>nsUri</CODE> - 
-<DT><B>Returns:</B><DD>SOAPEnvelope</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getWSTNamespace(int)"><!-- --></A><H3>
-getWSTNamespace</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getWSTNamespace</B>(int&nbsp;version)
-                              throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getWSTVersion(java.lang.String)"><!-- --></A><H3>
-getWSTVersion</H3>
-<PRE>
-public static int <B>getWSTVersion</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;ns)
-                         throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getTokenStore(org.apache.axis2.context.MessageContext)"><!-- --></A><H3>
-getTokenStore</H3>
-<PRE>
-public static <A HREF="../../../org/apache/rahas/TokenStorage.html" title="interface in org.apache.rahas">TokenStorage</A> <B>getTokenStore</B>(org.apache.axis2.context.MessageContext&nbsp;msgCtx)</PRE>
-<DL>
-<DD>Returns the token store.
- If the token store is already available in the configuration context then
- fetch it and return it. If not create a new one, hook it up in the
- configuration context and return it
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>msgCtx</CODE> - 
-<DT><B>Returns:</B><DD>the token store</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getTokenStore(org.apache.axis2.context.ConfigurationContext)"><!-- --></A><H3>
-getTokenStore</H3>
-<PRE>
-public static <A HREF="../../../org/apache/rahas/TokenStorage.html" title="interface in org.apache.rahas">TokenStorage</A> <B>getTokenStore</B>(org.apache.axis2.context.ConfigurationContext&nbsp;ctx)</PRE>
-<DL>
-<DD>Fetches the token storage from the configuration context.
- If the token store is already available in the configuration context then
- fetch it and return it. If not create a new one, hook it up in the
- configuration context and return it
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>ctx</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="generateEphemeralKey(int)"><!-- --></A><H3>
-generateEphemeralKey</H3>
-<PRE>
-protected byte[] <B>generateEphemeralKey</B>(int&nbsp;keySize)
-                               throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Create an ephemeral key
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD>The generated ephemeral key
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="generateEphemeralKey(byte[], byte[], java.lang.String, int)"><!-- --></A><H3>
-generateEphemeralKey</H3>
-<PRE>
-protected byte[] <B>generateEphemeralKey</B>(byte[]&nbsp;reqEnt,
-                                      byte[]&nbsp;respEnt,
-                                      <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;algo,
-                                      int&nbsp;keySize)
-                               throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD>Create an ephemeral key
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD>The generated ephemeral key
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createCancelTargetElement(int, org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-createCancelTargetElement</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createCancelTargetElement</B>(int&nbsp;version,
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="createSecurityTokenReference(org.w3c.dom.Document, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSecurityTokenReference</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Element.html?is-external=true" title="class or interface in org.w3c.dom">Element</a>&nbsp;createSecurityTokenReference(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+                                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refUri,
+                                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refValueType)</pre>
+<div class="block">Create a wsse:Reference element with the given URI and the value type</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>doc</code> - </dd><dd><code>refUri</code> - </dd><dd><code>refValueType</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd>Element</dd></dl>
+</li>
+</ul>
+<a name="createRequestSecurityTokenResponseElement(int, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestSecurityTokenResponseElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createRequestSecurityTokenResponseElement(int&nbsp;version,
                                                                       org.apache.axiom.om.OMElement&nbsp;parent)
-                                                               throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createClaims(int, org.apache.axiom.om.OMElement, java.lang.String)"><!-- --></A><H3>
-createClaims</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createClaims</B>(int&nbsp;version,
+                                                                               throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRequestSecurityTokenResponseCollectionElement(int, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestSecurityTokenResponseCollectionElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createRequestSecurityTokenResponseCollectionElement(int&nbsp;version,
+                                                                                org.apache.axiom.om.OMElement&nbsp;parent)
+                                                                                         throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRequestedSecurityTokenElement(int, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestedSecurityTokenElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createRequestedSecurityTokenElement(int&nbsp;version,
+                                                                org.apache.axiom.om.OMElement&nbsp;parent)
+                                                                         throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRequestSecurityTokenElement(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestSecurityTokenElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createRequestSecurityTokenElement(int&nbsp;version)
+                                                                       throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRequestedProofTokenElement(int, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestedProofTokenElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createRequestedProofTokenElement(int&nbsp;version,
+                                                             org.apache.axiom.om.OMElement&nbsp;parent)
+                                                                      throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createEntropyElement(int, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createEntropyElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createEntropyElement(int&nbsp;version,
+                                                 org.apache.axiom.om.OMElement&nbsp;parent)
+                                                          throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createComputedKeyElement(int, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createComputedKeyElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createComputedKeyElement(int&nbsp;version,
+                                                     org.apache.axiom.om.OMElement&nbsp;parent)
+                                                              throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRequestTypeElement(int, org.apache.axiom.om.OMElement, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestTypeElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createRequestTypeElement(int&nbsp;version,
+                                                     org.apache.axiom.om.OMElement&nbsp;parent,
+                                                     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)
+                                                              throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createTokenTypeElement(int, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createTokenTypeElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createTokenTypeElement(int&nbsp;version,
+                                                   org.apache.axiom.om.OMElement&nbsp;parent)
+                                                            throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createValidateTargetElement(int, org.apache.axiom.om.OMElement, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createValidateTargetElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createValidateTargetElement(int&nbsp;version,
+                                                        org.apache.axiom.om.OMElement&nbsp;parent,
+                                                        org.apache.axiom.om.OMElement&nbsp;str)
+                                                                 throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRenewTargetElement(int, org.apache.axiom.om.OMElement, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRenewTargetElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createRenewTargetElement(int&nbsp;version,
+                                                     org.apache.axiom.om.OMElement&nbsp;parent,
+                                                     org.apache.axiom.om.OMElement&nbsp;str)
+                                                              throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createBinarySecretElement(int, org.apache.axiom.om.OMElement, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createBinarySecretElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createBinarySecretElement(int&nbsp;version,
+                                                      org.apache.axiom.om.OMElement&nbsp;parent,
+                                                      <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type)
+                                                               throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createComputedKeyAlgorithm(int, org.apache.axiom.om.OMElement, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createComputedKeyAlgorithm</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createComputedKeyAlgorithm(int&nbsp;version,
+                                                       org.apache.axiom.om.OMElement&nbsp;parent,
+                                                       <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;algoId)
+                                                                throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRequestedUnattachedRef(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestedUnattachedRef</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createRequestedUnattachedRef(int&nbsp;version,
                                                          org.apache.axiom.om.OMElement&nbsp;parent,
-                                                         <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;dialect)
-                                                  throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createCancelRequest(java.lang.String, int)"><!-- --></A><H3>
-createCancelRequest</H3>
-<PRE>
-public static org.apache.axiom.om.OMElement <B>createCancelRequest</B>(<A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;tokenId,
-                                                                int&nbsp;version)
-                                                         throws <A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></PRE>
-<DL>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="toProperties(org.apache.axiom.om.OMElement)"><!-- --></A><H3>
-toProperties</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</A> <B>toProperties</B>(org.apache.axiom.om.OMElement&nbsp;cryptoElem)</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-</DL>
+                                                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refUri,
+                                                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refValueType)
+                                                                  throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRequestedAttachedRef(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestedAttachedRef</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createRequestedAttachedRef(int&nbsp;version,
+                                                       org.apache.axiom.om.OMElement&nbsp;parent,
+                                                       <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refUri,
+                                                       <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;refValueType)
+                                                                throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRequestedAttachedRef(org.apache.axiom.om.OMElement, java.lang.String, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestedAttachedRef</h4>
+<pre>public static&nbsp;void&nbsp;createRequestedAttachedRef(org.apache.axiom.om.OMElement&nbsp;rstrElem,
+                              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id,
+                              int&nbsp;version)
+                                       throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Create and add wst:AttachedReference element</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>rstrElem</code> - wst:RequestSecurityToken element</dd><dd><code>id</code> - Token identifier</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRequestedUnattachedRef(org.apache.axiom.om.OMElement, java.lang.String, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestedUnattachedRef</h4>
+<pre>public static&nbsp;void&nbsp;createRequestedUnattachedRef(org.apache.axiom.om.OMElement&nbsp;rstrElem,
+                                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id,
+                                int&nbsp;version)
+                                         throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Create and add wst:UnattachedReference element</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>rstrElem</code> - wst:RequestSecurityToken element</dd><dd><code>id</code> - Token identifier</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createKeySizeElement(int, org.apache.axiom.om.OMElement, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createKeySizeElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createKeySizeElement(int&nbsp;version,
+                                                 org.apache.axiom.om.OMElement&nbsp;parent,
+                                                 int&nbsp;size)
+                                                          throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createKeyTypeElement(int, org.apache.axiom.om.OMElement, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createKeyTypeElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createKeyTypeElement(int&nbsp;version,
+                                                 org.apache.axiom.om.OMElement&nbsp;parent,
+                                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type)
+                                                          throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createRequestedTokenCanceledElement(int, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createRequestedTokenCanceledElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createRequestedTokenCanceledElement(int&nbsp;version,
+                                                                org.apache.axiom.om.OMElement&nbsp;parent)
+                                                                         throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createLifetimeElement(int, org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createLifetimeElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createLifetimeElement(int&nbsp;version,
+                                                  org.apache.axiom.om.OMElement&nbsp;parent,
+                                                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;created,
+                                                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;expires)
+                                                           throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createLifetimeElement(int, org.apache.axiom.om.OMElement, long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createLifetimeElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createLifetimeElement(int&nbsp;version,
+                                                  org.apache.axiom.om.OMElement&nbsp;parent,
+                                                  long&nbsp;ttl)
+                                                           throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createAppliesToElement(org.apache.axiom.om.OMElement, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createAppliesToElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createAppliesToElement(org.apache.axiom.om.OMElement&nbsp;parent,
+                                                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;address,
+                                                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;addressingNs)</pre>
+</li>
+</ul>
+<a name="getActionValue(int, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getActionValue</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getActionValue(int&nbsp;version,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;action)
+                             throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createSOAPEnvelope(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSOAPEnvelope</h4>
+<pre>public static&nbsp;org.apache.axiom.soap.SOAPEnvelope&nbsp;createSOAPEnvelope(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;nsUri)</pre>
+<div class="block">Create a new <code>SOAPEnvelope</code> of the same version as the
+ SOAPEnvelope in the given <code>MessageContext</code></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>nsUri</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd>SOAPEnvelope</dd></dl>
+</li>
+</ul>
+<a name="getWSTNamespace(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getWSTNamespace</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getWSTNamespace(int&nbsp;version)
+                              throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getWSTVersion(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getWSTVersion</h4>
+<pre>public static&nbsp;int&nbsp;getWSTVersion(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ns)
+                         throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getTokenStore(org.apache.axis2.context.MessageContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTokenStore</h4>
+<pre>public static&nbsp;<a href="../../../org/apache/rahas/TokenStorage.html" title="interface in org.apache.rahas">TokenStorage</a>&nbsp;getTokenStore(org.apache.axis2.context.MessageContext&nbsp;msgCtx)</pre>
+<div class="block">Returns the token store.
+ If the token store is already available in the configuration context then
+ fetch it and return it. If not create a new one, hook it up in the
+ configuration context and return it</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgCtx</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd>the token store</dd></dl>
+</li>
+</ul>
+<a name="getTokenStore(org.apache.axis2.context.ConfigurationContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTokenStore</h4>
+<pre>public static&nbsp;<a href="../../../org/apache/rahas/TokenStorage.html" title="interface in org.apache.rahas">TokenStorage</a>&nbsp;getTokenStore(org.apache.axis2.context.ConfigurationContext&nbsp;ctx)</pre>
+<div class="block">Fetches the token storage from the configuration context.
+ If the token store is already available in the configuration context then
+ fetch it and return it. If not create a new one, hook it up in the
+ configuration context and return it</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>ctx</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="generateEphemeralKey(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateEphemeralKey</h4>
+<pre>protected&nbsp;byte[]&nbsp;generateEphemeralKey(int&nbsp;keySize)
+                               throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Create an ephemeral key</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The generated ephemeral key</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="generateEphemeralKey(byte[], byte[], java.lang.String, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateEphemeralKey</h4>
+<pre>protected&nbsp;byte[]&nbsp;generateEphemeralKey(byte[]&nbsp;reqEnt,
+                          byte[]&nbsp;respEnt,
+                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;algo,
+                          int&nbsp;keySize)
+                               throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Create an ephemeral key</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The generated ephemeral key</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createCancelTargetElement(int, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createCancelTargetElement</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createCancelTargetElement(int&nbsp;version,
+                                                      org.apache.axiom.om.OMElement&nbsp;parent)
+                                                               throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createClaims(int, org.apache.axiom.om.OMElement, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createClaims</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createClaims(int&nbsp;version,
+                                         org.apache.axiom.om.OMElement&nbsp;parent,
+                                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;dialect)
+                                                  throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createCancelRequest(java.lang.String, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createCancelRequest</h4>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;createCancelRequest(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tokenId,
+                                                int&nbsp;version)
+                                                         throws <a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="toProperties(org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>toProperties</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;toProperties(org.apache.axiom.om.OMElement&nbsp;cryptoElem)</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <!-- ========= END OF CLASS DATA ========= -->
-<HR>
-
-
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<A NAME="navbar_bottom"><!-- --></A>
-<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_bottom_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/TrustUtil.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;NEXT CLASS</FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../index.html?org/apache/rahas/TrustUtil.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="TrustUtil.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/TrustUtil.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-all.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas"><span class="strong">PREV CLASS</span></a></li>
+<li>NEXT CLASS</li>
+</ul>
+<ul class="navList">
+<li><a href="../../../index.html?org/apache/rahas/TrustUtil.html" target="_top">FRAMES</a></li>
+<li><a href="TrustUtil.html" target="_top">NO FRAMES</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
   if(window==top) {
-    document.writeln('<A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_bottom"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>SUMMARY:&nbsp;</li>
+<li>NESTED&nbsp;|&nbsp;</li>
+<li>FIELD&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">CONSTR</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">METHOD</a></li>
+</ul>
+<ul class="subNavList">
+<li>DETAIL:&nbsp;</li>
+<li>FIELD&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">CONSTR</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">METHOD</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-
-<HR>
-Copyright © <a href="http://www.apache.org">Apache Software Foundation</a>. All Rights Reserved.
-</BODY>
-</HTML>
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org">Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>
