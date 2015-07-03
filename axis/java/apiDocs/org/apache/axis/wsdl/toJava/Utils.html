@@ -1,824 +1,717 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--NewPage-->
-<HTML>
-<HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>
-Utils (Apache Axis)
-</TITLE>
-
-
-<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
-
-<SCRIPT type="text/javascript">
-function windowTitle()
-{
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Utils (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
         parent.document.title="Utils (Apache Axis)";
     }
-}
-</SCRIPT>
-<NOSCRIPT>
-</NOSCRIPT>
-
-</HEAD>
-
-<BODY BGCOLOR="white" onload="windowTitle();">
-<HR>
-
-
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<A NAME="navbar_top"><!-- --></A>
-<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_top_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Utils.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../org/apache/axis/wsdl/toJava/NamespaceSelector.html" title="class in org.apache.axis.wsdl.toJava"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;NEXT CLASS</FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../index.html?org/apache/axis/wsdl/toJava/Utils.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="Utils.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Utils.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/NamespaceSelector.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Prev Class</span></a></li>
+<li>Next Class</li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/wsdl/toJava/Utils.html" target="_top">Frames</a></li>
+<li><a href="Utils.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_top"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-
-<HR>
 <!-- ======== START OF CLASS DATA ======== -->
-<H2>
-<FONT SIZE="-1">
-org.apache.axis.wsdl.toJava</FONT>
-<BR>
-Class Utils</H2>
-<PRE>
-<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
-  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html" title="class in org.apache.axis.wsdl.symbolTable">org.apache.axis.wsdl.symbolTable.Utils</A>
-      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.axis.wsdl.toJava.Utils</B>
-</PRE>
-<HR>
-<DL>
-<DT><PRE>public class <B>Utils</B><DT>extends <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html" title="class in org.apache.axis.wsdl.symbolTable">Utils</A></DL>
-</PRE>
-
-<P>
-Class Utils
-<P>
-
-<P>
-<DL>
-<DT><B>Version:</B></DT>
-  <DD>%I%, %G%</DD>
-</DL>
-<HR>
-
-<P>
+<div class="header">
+<div class="subTitle">org.apache.axis.wsdl.toJava</div>
+<h2 title="Class Utils" class="title">Class Utils</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html" title="class in org.apache.axis.wsdl.symbolTable">org.apache.axis.wsdl.symbolTable.Utils</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.wsdl.toJava.Utils</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public class <span class="strong">Utils</span>
+extends <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html" title="class in org.apache.axis.wsdl.symbolTable">Utils</a></pre>
+<div class="block">Class Utils</div>
+<dl><dt><span class="strong">Version:</span></dt>
+  <dd>%I%, %G%</dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
 <!-- =========== FIELD SUMMARY =========== -->
-
-<A NAME="field_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Field Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;org.apache.commons.logging.Log</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#log">log</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field log</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="fields_inherited_from_class_org.apache.axis.wsdl.symbolTable.Utils"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Fields inherited from class org.apache.axis.wsdl.symbolTable.<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html" title="class in org.apache.axis.wsdl.symbolTable">Utils</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#TYPES">TYPES</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static org.apache.commons.logging.Log</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#log">log</a></strong></code>
+<div class="block">Field log</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.axis.wsdl.symbolTable.Utils">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.axis.wsdl.symbolTable.<a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html" title="class in org.apache.axis.wsdl.symbolTable">Utils</a></h3>
+<code><a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#TYPES">TYPES</a></code></li>
+</ul>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-
-<A NAME="constructor_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Constructor Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#Utils()">Utils</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#Utils()">Utils</a></strong>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
-
-<A NAME="method_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Method Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#addPackageName(java.lang.String, java.lang.String)">addPackageName</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;className,
-               <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;newPkg)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add package to name</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#addUnderscore(java.lang.String)">addUnderscore</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prepend an underscore to the name</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#capitalizeFirstChar(java.lang.String)">capitalizeFirstChar</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Capitalize the first character of the name.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#fileExists(java.lang.String, java.lang.String, org.apache.axis.wsdl.toJava.Namespaces)">fileExists</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name,
-           <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;namespace,
-           <A HREF="../../../../../org/apache/axis/wsdl/toJava/Namespaces.html" title="class in org.apache.axis.wsdl.toJava">Namespaces</A>&nbsp;namespaces)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Does the given file already exist in the given namespace?</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getConstructorForParam(org.apache.axis.wsdl.symbolTable.Parameter, org.apache.axis.wsdl.symbolTable.SymbolTable, javax.xml.rpc.holders.BooleanHolder)">getConstructorForParam</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</A>&nbsp;param,
-                       <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</A>&nbsp;symbolTable,
-                       <A HREF="../../../../../javax/xml/rpc/holders/BooleanHolder.html" title="class in javax.xml.rpc.holders">BooleanHolder</A>&nbsp;bThrow)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return a constructor for the provided Parameter
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#addPackageName(java.lang.String,%20java.lang.String)">addPackageName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className,
+              <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;newPkg)</code>
+<div class="block">Add package to name</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#addUnderscore(java.lang.String)">addUnderscore</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">Prepend an underscore to the name</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#capitalizeFirstChar(java.lang.String)">capitalizeFirstChar</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">Capitalize the first character of the name.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#fileExists(java.lang.String,%20java.lang.String,%20org.apache.axis.wsdl.toJava.Namespaces)">fileExists</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+          <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+          <a href="../../../../../org/apache/axis/wsdl/toJava/Namespaces.html" title="class in org.apache.axis.wsdl.toJava">Namespaces</a>&nbsp;namespaces)</code>
+<div class="block">Does the given file already exist in the given namespace?</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getConstructorForParam(org.apache.axis.wsdl.symbolTable.Parameter,%20org.apache.axis.wsdl.symbolTable.SymbolTable,%20javax.xml.rpc.holders.BooleanHolder)">getConstructorForParam</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</a>&nbsp;param,
+                      <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable,
+                      <a href="../../../../../javax/xml/rpc/holders/BooleanHolder.html" title="class in javax.xml.rpc.holders">BooleanHolder</a>&nbsp;bThrow)</code>
+<div class="block">Return a constructor for the provided Parameter
  This string will be suitable for assignment:
  <p/>
  Foo var = <i>string returned</i>
  <p/>
  Handles basic java types (int, float, etc), wrapper types (Integer, etc)
- and certain java.math (BigDecimal, BigInteger) types.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getEnumerationBaseAndValues(org.w3c.dom.Node, org.apache.axis.wsdl.symbolTable.SymbolTable)">getEnumerationBaseAndValues</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/org/w3c/dom/Node.html?is-external=true" title="class or interface in org.w3c.dom">Node</A>&nbsp;node,
-                            <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</A>&nbsp;symbolTable)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the specified node represents a supported JAX-RPC enumeration,
- a Vector is returned which contains the base type and the enumeration values.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getFaultDataType(javax.wsdl.Message, org.apache.axis.wsdl.symbolTable.SymbolTable)">getFaultDataType</A></B>(javax.wsdl.Message&nbsp;faultMessage,
-                 <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</A>&nbsp;symbolTable)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Given a fault message, return the XML type of the exception data.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getFullExceptionName(javax.wsdl.Message, org.apache.axis.wsdl.symbolTable.SymbolTable)">getFullExceptionName</A></B>(javax.wsdl.Message&nbsp;faultMessage,
-                     <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</A>&nbsp;symbolTable)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Given a fault message, return the fully qualified Java class name
- of the exception to be generated from this fault</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getItemQName(org.apache.axis.wsdl.symbolTable.TypeEntry)">getItemQName</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;te)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getItemType(org.apache.axis.wsdl.symbolTable.TypeEntry)">getItemType</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;te)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getJavaLocalName(java.lang.String)">getJavaLocalName</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;fullName)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Query Java Local Name</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getJavaPackageName(java.lang.String)">getJavaPackageName</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;fullName)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Query Java Package Name</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getNewQName(javax.xml.namespace.QName)">getNewQName</A></B>(<A HREF="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</A>&nbsp;qname)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Common code for generating a QName in emitted code.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getNewQNameWithLastLocalPart(javax.xml.namespace.QName)">getNewQNameWithLastLocalPart</A></B>(<A HREF="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</A>&nbsp;qname)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getOperationSOAPAction(javax.wsdl.BindingOperation)">getOperationSOAPAction</A></B>(javax.wsdl.BindingOperation&nbsp;bindingOper)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the SOAPAction (if any) of this binding operation</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getParameterTypeName(org.apache.axis.wsdl.symbolTable.Parameter)">getParameterTypeName</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</A>&nbsp;parm)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the parameter type name.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getResponseString(org.apache.axis.wsdl.symbolTable.Parameter, java.lang.String)">getResponseString</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</A>&nbsp;param,
-                  <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;var)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the Object variable 'var' cast to the appropriate type
- doing the right thing for the primitive types.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getWrapperType(org.apache.axis.wsdl.symbolTable.TypeEntry)">getWrapperType</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;type)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a "wrapper" type for the given TypeEntry.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#holder(org.apache.axis.wsdl.symbolTable.Parameter, org.apache.axis.wsdl.toJava.Emitter)">holder</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</A>&nbsp;p,
-       <A HREF="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</A>&nbsp;emitter)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Given a type, return the Java mapping of that type's holder.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#holder(org.apache.axis.wsdl.symbolTable.TypeEntry, org.apache.axis.wsdl.toJava.Emitter)">holder</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;type,
-       <A HREF="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</A>&nbsp;emitter)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#isFaultComplex(javax.wsdl.Message, org.apache.axis.wsdl.symbolTable.SymbolTable)">isFaultComplex</A></B>(javax.wsdl.Message&nbsp;faultMessage,
-               <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</A>&nbsp;symbolTable)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Given a fault message, return TRUE if the fault is a complex type fault</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#isPrimitiveType(org.apache.axis.wsdl.symbolTable.TypeEntry)">isPrimitiveType</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;type)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Method isPrimitiveType</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#makePackageName(java.lang.String)">makePackageName</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;namespace)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Method makePackageName</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#shouldEmit(org.apache.axis.wsdl.symbolTable.TypeEntry)">shouldEmit</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;type)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#wrapPrimitiveType(org.apache.axis.wsdl.symbolTable.TypeEntry, java.lang.String)">wrapPrimitiveType</A></B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;type,
-                  <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;var)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return a string with "var" wrapped as an Object type if needed</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#xmlNameToJava(java.lang.String)">xmlNameToJava</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>Use <A HREF="../../../../../org/apache/axis/utils/JavaUtils.html#xmlNameToJava(java.lang.String)"><CODE>JavaUtils.xmlNameToJava(String)</CODE></A> instead.</I></TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#xmlNameToJavaClass(java.lang.String)">xmlNameToJavaClass</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map an XML name to a valid Java identifier w/ capitolized first letter</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_org.apache.axis.wsdl.symbolTable.Utils"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class org.apache.axis.wsdl.symbolTable.<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html" title="class in org.apache.axis.wsdl.symbolTable">Utils</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getAttribute(org.w3c.dom.Node, java.lang.String)">getAttribute</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getAttributesWithLocalName(org.w3c.dom.Node, java.lang.String)">getAttributesWithLocalName</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getDerivedTypes(org.apache.axis.wsdl.symbolTable.TypeEntry, org.apache.axis.wsdl.symbolTable.SymbolTable)">getDerivedTypes</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getLastLocalPart(java.lang.String)">getLastLocalPart</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getMemberTypeQNames(org.w3c.dom.Node)">getMemberTypeQNames</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getMIMETypeQName(java.lang.String)">getMIMETypeQName</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getNestedTypes(org.apache.axis.wsdl.symbolTable.TypeEntry, org.apache.axis.wsdl.symbolTable.SymbolTable, boolean)">getNestedTypes</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getNodeNameQName(org.w3c.dom.Node)">getNodeNameQName</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getNodeQName(org.w3c.dom.Node)">getNodeQName</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getOperationQName(javax.wsdl.BindingOperation, org.apache.axis.wsdl.symbolTable.BindingEntry, org.apache.axis.wsdl.symbolTable.SymbolTable)">getOperationQName</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getQNameFromPrefixedName(org.w3c.dom.Node, java.lang.String)">getQNameFromPrefixedName</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getScopedAttribute(org.w3c.dom.Node, java.lang.String)">getScopedAttribute</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getTypeQName(org.w3c.dom.Node, javax.xml.rpc.holders.BooleanHolder, boolean)">getTypeQName</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getWrapperType(java.lang.String)">getWrapperType</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getXSIType(org.apache.axis.wsdl.symbolTable.Parameter)">getXSIType</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getXSIType(org.apache.axis.wsdl.symbolTable.TypeEntry)">getXSIType</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#hasMIME(org.apache.axis.wsdl.symbolTable.BindingEntry)">hasMIME</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#hasMIME(org.apache.axis.wsdl.symbolTable.BindingEntry, javax.wsdl.BindingOperation)">hasMIME</A>, <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#isXsNode(org.w3c.dom.Node, java.lang.String)">isXsNode</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
-<P>
-
+ and certain java.math (BigDecimal, BigInteger) types.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getEnumerationBaseAndValues(org.w3c.dom.Node,%20org.apache.axis.wsdl.symbolTable.SymbolTable)">getEnumerationBaseAndValues</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/org/w3c/dom/Node.html?is-external=true" title="class or interface in org.w3c.dom">Node</a>&nbsp;node,
+                           <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</code>
+<div class="block">If the specified node represents a supported JAX-RPC enumeration,
+ a Vector is returned which contains the base type and the enumeration values.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getFaultDataType(javax.wsdl.Message,%20org.apache.axis.wsdl.symbolTable.SymbolTable)">getFaultDataType</a></strong>(javax.wsdl.Message&nbsp;faultMessage,
+                <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</code>
+<div class="block">Given a fault message, return the XML type of the exception data.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getFullExceptionName(javax.wsdl.Message,%20org.apache.axis.wsdl.symbolTable.SymbolTable)">getFullExceptionName</a></strong>(javax.wsdl.Message&nbsp;faultMessage,
+                    <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</code>
+<div class="block">Given a fault message, return the fully qualified Java class name
+ of the exception to be generated from this fault</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getItemQName(org.apache.axis.wsdl.symbolTable.TypeEntry)">getItemQName</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;te)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getItemType(org.apache.axis.wsdl.symbolTable.TypeEntry)">getItemType</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;te)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getJavaLocalName(java.lang.String)">getJavaLocalName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fullName)</code>
+<div class="block">Query Java Local Name</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getJavaPackageName(java.lang.String)">getJavaPackageName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fullName)</code>
+<div class="block">Query Java Package Name</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getNewQName(javax.xml.namespace.QName)">getNewQName</a></strong>(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname)</code>
+<div class="block">Common code for generating a QName in emitted code.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getNewQNameWithLastLocalPart(javax.xml.namespace.QName)">getNewQNameWithLastLocalPart</a></strong>(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getOperationSOAPAction(javax.wsdl.BindingOperation)">getOperationSOAPAction</a></strong>(javax.wsdl.BindingOperation&nbsp;bindingOper)</code>
+<div class="block">Return the SOAPAction (if any) of this binding operation</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getParameterTypeName(org.apache.axis.wsdl.symbolTable.Parameter)">getParameterTypeName</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</a>&nbsp;parm)</code>
+<div class="block">Get the parameter type name.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getResponseString(org.apache.axis.wsdl.symbolTable.Parameter,%20java.lang.String)">getResponseString</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</a>&nbsp;param,
+                 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;var)</code>
+<div class="block">Return the Object variable 'var' cast to the appropriate type
+ doing the right thing for the primitive types.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#getWrapperType(org.apache.axis.wsdl.symbolTable.TypeEntry)">getWrapperType</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;type)</code>
+<div class="block">Returns a "wrapper" type for the given TypeEntry.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#holder(org.apache.axis.wsdl.symbolTable.Parameter,%20org.apache.axis.wsdl.toJava.Emitter)">holder</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</a>&nbsp;p,
+      <a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</a>&nbsp;emitter)</code>
+<div class="block">Given a type, return the Java mapping of that type's holder.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#holder(org.apache.axis.wsdl.symbolTable.TypeEntry,%20org.apache.axis.wsdl.toJava.Emitter)">holder</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;type,
+      <a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</a>&nbsp;emitter)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#isFaultComplex(javax.wsdl.Message,%20org.apache.axis.wsdl.symbolTable.SymbolTable)">isFaultComplex</a></strong>(javax.wsdl.Message&nbsp;faultMessage,
+              <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</code>
+<div class="block">Given a fault message, return TRUE if the fault is a complex type fault</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#isPrimitiveType(org.apache.axis.wsdl.symbolTable.TypeEntry)">isPrimitiveType</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;type)</code>
+<div class="block">Method isPrimitiveType</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#makePackageName(java.lang.String)">makePackageName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace)</code>
+<div class="block">Method makePackageName</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#shouldEmit(org.apache.axis.wsdl.symbolTable.TypeEntry)">shouldEmit</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;type)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#wrapPrimitiveType(org.apache.axis.wsdl.symbolTable.TypeEntry,%20java.lang.String)">wrapPrimitiveType</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;type,
+                 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;var)</code>
+<div class="block">Return a string with "var" wrapped as an Object type if needed</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#xmlNameToJava(java.lang.String)">xmlNameToJava</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use <a href="../../../../../org/apache/axis/utils/JavaUtils.html#xmlNameToJava(java.lang.String)"><code>JavaUtils.xmlNameToJava(String)</code></a> instead.</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#xmlNameToJavaClass(java.lang.String)">xmlNameToJavaClass</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">Map an XML name to a valid Java identifier w/ capitolized first letter</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.axis.wsdl.symbolTable.Utils">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.axis.wsdl.symbolTable.<a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html" title="class in org.apache.axis.wsdl.symbolTable">Utils</a></h3>
+<code><a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getAttribute(org.w3c.dom.Node,%20java.lang.String)">getAttribute</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getAttributesWithLocalName(org.w3c.dom.Node,%20java.lang.String)">getAttributesWithLocalName</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getDerivedTypes(org.apache.axis.wsdl.symbolTable.TypeEntry,%20org.apache.axis.wsdl.symbolTable.SymbolTable)">getDerivedTypes</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getLastLocalPart(java.lang.String)">getLastLocalPart</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getMemberTypeQNames(org.w3c.dom.Node)">getMemberTypeQNames</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getMIMETypeQName(java.lang.String)">getMIMETypeQName</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getNestedTypes(org.apache.axis.wsdl.symbolTable.TypeEntry,%20org.apache.axis.wsdl.symbolTable.SymbolTable,%20boolean)">getNestedTypes</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getNodeNameQName(org.w3c.dom.Node)">getNodeNameQName</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getNodeQName(org.w3c.dom.Node)">getNodeQName</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getOperationQName(javax.wsdl.BindingOperation,%20org.apache.axis.wsdl.symbolTable.BindingEntry,%20org.apache.axis.wsdl.symbolTable.SymbolTable)">getOperationQName</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getQNameFromPrefixedName(org.w3c.dom.Node,%20java.lang.String)">getQNameFromPrefixedName</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getScopedAttribute(org.w3c.dom.Node,%20java.lang.String)">getScopedAttribute</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getTypeQName(org.w3c.dom.Node,%20javax.xml.rpc.holders.BooleanHolder,%20boolean)">getTypeQName</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getWrapperType(java.lang.String)">getWrapperType</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getXSIType(org.apache.axis.wsdl.symbolTable.Parameter)">getXSIType</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#getXSIType(org.apache.axis.wsdl.symbolTable.TypeEntry)">getXSIType</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#hasMIME(org.apache.axis.wsdl.symbolTable.BindingEntry)">hasMIME</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#hasMIME(org.apache.axis.wsdl.symbolTable.BindingEntry,%20javax.wsdl.BindingOperation)">hasMIME</a>, <a href="../../../../../org/apache/axis/wsdl/symbolTable/Utils.html#isXsNode(org.w3c.dom.Node,%20java.lang.String)">isXsNode</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
 <!-- ============ FIELD DETAIL =========== -->
-
-<A NAME="field_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Field Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="log"><!-- --></A><H3>
-log</H3>
-<PRE>
-protected static org.apache.commons.logging.Log <B>log</B></PRE>
-<DL>
-<DD>Field log
-<P>
-<DL>
-</DL>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="log">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>log</h4>
+<pre>protected static&nbsp;org.apache.commons.logging.Log log</pre>
+<div class="block">Field log</div>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-
-<A NAME="constructor_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Constructor Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="Utils()"><!-- --></A><H3>
-Utils</H3>
-<PRE>
-public <B>Utils</B>()</PRE>
-<DL>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="Utils()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Utils</h4>
+<pre>public&nbsp;Utils()</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
-
-<A NAME="method_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Method Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="holder(org.apache.axis.wsdl.symbolTable.TypeEntry, org.apache.axis.wsdl.toJava.Emitter)"><!-- --></A><H3>
-holder</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>holder</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;type,
-                            <A HREF="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</A>&nbsp;emitter)</PRE>
-<DL>
-<DD><DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../org/apache/axis/wsdl/toJava/Utils.html#holder(org.apache.axis.wsdl.symbolTable.Parameter, org.apache.axis.wsdl.toJava.Emitter)"><CODE>holder(Parameter, Emitter)</CODE></A></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="holder(org.apache.axis.wsdl.symbolTable.Parameter, org.apache.axis.wsdl.toJava.Emitter)"><!-- --></A><H3>
-holder</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>holder</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</A>&nbsp;p,
-                            <A HREF="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</A>&nbsp;emitter)</PRE>
-<DL>
-<DD>Given a type, return the Java mapping of that type's holder.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>p</CODE> - parameter whose holder class name we want to obtain.<DD><CODE>emitter</CODE> - the only <A HREF="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava"><CODE>Emitter</CODE></A> object embodying the running
-                   instance of WSDL2Java.
-<DT><B>Returns:</B><DD>the name of the holder class for <tt>p</tt>.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="addPackageName(java.lang.String, java.lang.String)"><!-- --></A><H3>
-addPackageName</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>addPackageName</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;className,
-                                    <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;newPkg)</PRE>
-<DL>
-<DD>Add package to name
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>className</CODE> - full name of the class.<DD><CODE>newPkg</CODE> - name of the package to append
-<DT><B>Returns:</B><DD>String name with package name added</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getFullExceptionName(javax.wsdl.Message, org.apache.axis.wsdl.symbolTable.SymbolTable)"><!-- --></A><H3>
-getFullExceptionName</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getFullExceptionName</B>(javax.wsdl.Message&nbsp;faultMessage,
-                                          <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</A>&nbsp;symbolTable)</PRE>
-<DL>
-<DD>Given a fault message, return the fully qualified Java class name
- of the exception to be generated from this fault
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>faultMessage</CODE> - The WSDL fault message<DD><CODE>symbolTable</CODE> - the current symbol table
-<DT><B>Returns:</B><DD>A Java class name for the fault</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getFaultDataType(javax.wsdl.Message, org.apache.axis.wsdl.symbolTable.SymbolTable)"><!-- --></A><H3>
-getFaultDataType</H3>
-<PRE>
-public static <A HREF="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</A> <B>getFaultDataType</B>(javax.wsdl.Message&nbsp;faultMessage,
-                                     <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</A>&nbsp;symbolTable)</PRE>
-<DL>
-<DD>Given a fault message, return the XML type of the exception data.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>faultMessage</CODE> - The WSDL fault message object<DD><CODE>symbolTable</CODE> - the current symbol table
-<DT><B>Returns:</B><DD>A QName for the XML type of the data</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="isFaultComplex(javax.wsdl.Message, org.apache.axis.wsdl.symbolTable.SymbolTable)"><!-- --></A><H3>
-isFaultComplex</H3>
-<PRE>
-public static boolean <B>isFaultComplex</B>(javax.wsdl.Message&nbsp;faultMessage,
-                                     <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</A>&nbsp;symbolTable)</PRE>
-<DL>
-<DD>Given a fault message, return TRUE if the fault is a complex type fault
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>faultMessage</CODE> - The WSDL fault message object<DD><CODE>symbolTable</CODE> - the current symbol table
-<DT><B>Returns:</B><DD>A Java class name for the fault</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getEnumerationBaseAndValues(org.w3c.dom.Node, org.apache.axis.wsdl.symbolTable.SymbolTable)"><!-- --></A><H3>
-getEnumerationBaseAndValues</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</A> <B>getEnumerationBaseAndValues</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/org/w3c/dom/Node.html?is-external=true" title="class or interface in org.w3c.dom">Node</A>&nbsp;node,
-                                                 <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</A>&nbsp;symbolTable)</PRE>
-<DL>
-<DD>If the specified node represents a supported JAX-RPC enumeration,
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="holder(org.apache.axis.wsdl.symbolTable.TypeEntry, org.apache.axis.wsdl.toJava.Emitter)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>holder</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;holder(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;type,
+            <a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</a>&nbsp;emitter)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis/wsdl/toJava/Utils.html#holder(org.apache.axis.wsdl.symbolTable.Parameter,%20org.apache.axis.wsdl.toJava.Emitter)"><code>holder(Parameter, Emitter)</code></a></dd></dl>
+</li>
+</ul>
+<a name="holder(org.apache.axis.wsdl.symbolTable.Parameter, org.apache.axis.wsdl.toJava.Emitter)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>holder</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;holder(<a href="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</a>&nbsp;p,
+            <a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</a>&nbsp;emitter)</pre>
+<div class="block">Given a type, return the Java mapping of that type's holder.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>p</code> - parameter whose holder class name we want to obtain.</dd><dd><code>emitter</code> - the only <a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava"><code>Emitter</code></a> object embodying the running
+                   instance of WSDL2Java.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the name of the holder class for <tt>p</tt>.</dd></dl>
+</li>
+</ul>
+<a name="addPackageName(java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addPackageName</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;addPackageName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className,
+                    <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;newPkg)</pre>
+<div class="block">Add package to name</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>className</code> - full name of the class.</dd><dd><code>newPkg</code> - name of the package to append</dd>
+<dt><span class="strong">Returns:</span></dt><dd>String name with package name added</dd></dl>
+</li>
+</ul>
+<a name="getFullExceptionName(javax.wsdl.Message, org.apache.axis.wsdl.symbolTable.SymbolTable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFullExceptionName</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getFullExceptionName(javax.wsdl.Message&nbsp;faultMessage,
+                          <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</pre>
+<div class="block">Given a fault message, return the fully qualified Java class name
+ of the exception to be generated from this fault</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>faultMessage</code> - The WSDL fault message</dd><dd><code>symbolTable</code> - the current symbol table</dd>
+<dt><span class="strong">Returns:</span></dt><dd>A Java class name for the fault</dd></dl>
+</li>
+</ul>
+<a name="getFaultDataType(javax.wsdl.Message, org.apache.axis.wsdl.symbolTable.SymbolTable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFaultDataType</h4>
+<pre>public static&nbsp;<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;getFaultDataType(javax.wsdl.Message&nbsp;faultMessage,
+                     <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</pre>
+<div class="block">Given a fault message, return the XML type of the exception data.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>faultMessage</code> - The WSDL fault message object</dd><dd><code>symbolTable</code> - the current symbol table</dd>
+<dt><span class="strong">Returns:</span></dt><dd>A QName for the XML type of the data</dd></dl>
+</li>
+</ul>
+<a name="isFaultComplex(javax.wsdl.Message, org.apache.axis.wsdl.symbolTable.SymbolTable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isFaultComplex</h4>
+<pre>public static&nbsp;boolean&nbsp;isFaultComplex(javax.wsdl.Message&nbsp;faultMessage,
+                     <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</pre>
+<div class="block">Given a fault message, return TRUE if the fault is a complex type fault</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>faultMessage</code> - The WSDL fault message object</dd><dd><code>symbolTable</code> - the current symbol table</dd>
+<dt><span class="strong">Returns:</span></dt><dd>A Java class name for the fault</dd></dl>
+</li>
+</ul>
+<a name="getEnumerationBaseAndValues(org.w3c.dom.Node, org.apache.axis.wsdl.symbolTable.SymbolTable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEnumerationBaseAndValues</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getEnumerationBaseAndValues(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/org/w3c/dom/Node.html?is-external=true" title="class or interface in org.w3c.dom">Node</a>&nbsp;node,
+                                 <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</pre>
+<div class="block">If the specified node represents a supported JAX-RPC enumeration,
  a Vector is returned which contains the base type and the enumeration values.
  The first element in the vector is the base type (an TypeEntry).
  Subsequent elements are values (Strings).
- If this is not an enumeration, null is returned.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>node</CODE> - <DD><CODE>symbolTable</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="capitalizeFirstChar(java.lang.String)"><!-- --></A><H3>
-capitalizeFirstChar</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>capitalizeFirstChar</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</PRE>
-<DL>
-<DD>Capitalize the first character of the name.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>name</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="addUnderscore(java.lang.String)"><!-- --></A><H3>
-addUnderscore</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>addUnderscore</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</PRE>
-<DL>
-<DD>Prepend an underscore to the name
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>name</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="xmlNameToJava(java.lang.String)"><!-- --></A><H3>
-xmlNameToJava</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>xmlNameToJava</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</PRE>
-<DL>
-<DD><B>Deprecated.</B>&nbsp;<I>Use <A HREF="../../../../../org/apache/axis/utils/JavaUtils.html#xmlNameToJava(java.lang.String)"><CODE>JavaUtils.xmlNameToJava(String)</CODE></A> instead.</I>
-<P>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="xmlNameToJavaClass(java.lang.String)"><!-- --></A><H3>
-xmlNameToJavaClass</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>xmlNameToJavaClass</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</PRE>
-<DL>
-<DD>Map an XML name to a valid Java identifier w/ capitolized first letter
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>name</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="makePackageName(java.lang.String)"><!-- --></A><H3>
-makePackageName</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>makePackageName</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;namespace)</PRE>
-<DL>
-<DD>Method makePackageName
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>namespace</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getJavaLocalName(java.lang.String)"><!-- --></A><H3>
-getJavaLocalName</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getJavaLocalName</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;fullName)</PRE>
-<DL>
-<DD>Query Java Local Name
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>fullName</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getJavaPackageName(java.lang.String)"><!-- --></A><H3>
-getJavaPackageName</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getJavaPackageName</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;fullName)</PRE>
-<DL>
-<DD>Query Java Package Name
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>fullName</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="fileExists(java.lang.String, java.lang.String, org.apache.axis.wsdl.toJava.Namespaces)"><!-- --></A><H3>
-fileExists</H3>
-<PRE>
-public static boolean <B>fileExists</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name,
-                                 <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;namespace,
-                                 <A HREF="../../../../../org/apache/axis/wsdl/toJava/Namespaces.html" title="class in org.apache.axis.wsdl.toJava">Namespaces</A>&nbsp;namespaces)
-                          throws <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</A></PRE>
-<DL>
-<DD>Does the given file already exist in the given namespace?
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>name</CODE> - <DD><CODE>namespace</CODE> - <DD><CODE>namespaces</CODE> - 
-<DT><B>Returns:</B><DD>
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="wrapPrimitiveType(org.apache.axis.wsdl.symbolTable.TypeEntry, java.lang.String)"><!-- --></A><H3>
-wrapPrimitiveType</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>wrapPrimitiveType</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;type,
-                                       <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;var)</PRE>
-<DL>
-<DD>Return a string with "var" wrapped as an Object type if needed
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>type</CODE> - <DD><CODE>var</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getResponseString(org.apache.axis.wsdl.symbolTable.Parameter, java.lang.String)"><!-- --></A><H3>
-getResponseString</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getResponseString</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</A>&nbsp;param,
-                                       <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;var)</PRE>
-<DL>
-<DD>Return the Object variable 'var' cast to the appropriate type
- doing the right thing for the primitive types.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>var</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="isPrimitiveType(org.apache.axis.wsdl.symbolTable.TypeEntry)"><!-- --></A><H3>
-isPrimitiveType</H3>
-<PRE>
-public static boolean <B>isPrimitiveType</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;type)</PRE>
-<DL>
-<DD>Method isPrimitiveType
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>type</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getWrapperType(org.apache.axis.wsdl.symbolTable.TypeEntry)"><!-- --></A><H3>
-getWrapperType</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getWrapperType</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;type)</PRE>
-<DL>
-<DD>Returns a "wrapper" type for the given TypeEntry.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>type</CODE> - 
-<DT><B>Returns:</B><DD>the name of a java wrapper class for the type, or the type's
-         name if it's not a primitive.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getOperationSOAPAction(javax.wsdl.BindingOperation)"><!-- --></A><H3>
-getOperationSOAPAction</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getOperationSOAPAction</B>(javax.wsdl.BindingOperation&nbsp;bindingOper)</PRE>
-<DL>
-<DD>Return the SOAPAction (if any) of this binding operation
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>bindingOper</CODE> - the operation to look at
-<DT><B>Returns:</B><DD>the SOAPAction or null if not found</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getNewQName(javax.xml.namespace.QName)"><!-- --></A><H3>
-getNewQName</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getNewQName</B>(<A HREF="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</A>&nbsp;qname)</PRE>
-<DL>
-<DD>Common code for generating a QName in emitted code.  Note that there's
- no semicolon at the end, so we can use this in a variety of contexts.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>qname</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getNewQNameWithLastLocalPart(javax.xml.namespace.QName)"><!-- --></A><H3>
-getNewQNameWithLastLocalPart</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getNewQNameWithLastLocalPart</B>(<A HREF="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</A>&nbsp;qname)</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getParameterTypeName(org.apache.axis.wsdl.symbolTable.Parameter)"><!-- --></A><H3>
-getParameterTypeName</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getParameterTypeName</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</A>&nbsp;parm)</PRE>
-<DL>
-<DD>Get the parameter type name.  If this is a MIME type, then
+ If this is not an enumeration, null is returned.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>node</code> - </dd><dd><code>symbolTable</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="capitalizeFirstChar(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>capitalizeFirstChar</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;capitalizeFirstChar(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">Capitalize the first character of the name.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="addUnderscore(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addUnderscore</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;addUnderscore(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">Prepend an underscore to the name</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="xmlNameToJava(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>xmlNameToJava</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;xmlNameToJava(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../../org/apache/axis/utils/JavaUtils.html#xmlNameToJava(java.lang.String)"><code>JavaUtils.xmlNameToJava(String)</code></a> instead.</i></div>
+</li>
+</ul>
+<a name="xmlNameToJavaClass(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>xmlNameToJavaClass</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;xmlNameToJavaClass(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">Map an XML name to a valid Java identifier w/ capitolized first letter</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="makePackageName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>makePackageName</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;makePackageName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace)</pre>
+<div class="block">Method makePackageName</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getJavaLocalName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getJavaLocalName</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getJavaLocalName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fullName)</pre>
+<div class="block">Query Java Local Name</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fullName</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getJavaPackageName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getJavaPackageName</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getJavaPackageName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fullName)</pre>
+<div class="block">Query Java Package Name</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fullName</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="fileExists(java.lang.String, java.lang.String, org.apache.axis.wsdl.toJava.Namespaces)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fileExists</h4>
+<pre>public static&nbsp;boolean&nbsp;fileExists(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+                 <a href="../../../../../org/apache/axis/wsdl/toJava/Namespaces.html" title="class in org.apache.axis.wsdl.toJava">Namespaces</a>&nbsp;namespaces)
+                          throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Does the given file already exist in the given namespace?</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - </dd><dd><code>namespace</code> - </dd><dd><code>namespaces</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="wrapPrimitiveType(org.apache.axis.wsdl.symbolTable.TypeEntry, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>wrapPrimitiveType</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wrapPrimitiveType(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;type,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;var)</pre>
+<div class="block">Return a string with "var" wrapped as an Object type if needed</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>type</code> - </dd><dd><code>var</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getResponseString(org.apache.axis.wsdl.symbolTable.Parameter, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResponseString</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getResponseString(<a href="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</a>&nbsp;param,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;var)</pre>
+<div class="block">Return the Object variable 'var' cast to the appropriate type
+ doing the right thing for the primitive types.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>var</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="isPrimitiveType(org.apache.axis.wsdl.symbolTable.TypeEntry)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isPrimitiveType</h4>
+<pre>public static&nbsp;boolean&nbsp;isPrimitiveType(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;type)</pre>
+<div class="block">Method isPrimitiveType</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>type</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getWrapperType(org.apache.axis.wsdl.symbolTable.TypeEntry)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getWrapperType</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getWrapperType(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;type)</pre>
+<div class="block">Returns a "wrapper" type for the given TypeEntry.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>type</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd>the name of a java wrapper class for the type, or the type's
+         name if it's not a primitive.</dd></dl>
+</li>
+</ul>
+<a name="getOperationSOAPAction(javax.wsdl.BindingOperation)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOperationSOAPAction</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getOperationSOAPAction(javax.wsdl.BindingOperation&nbsp;bindingOper)</pre>
+<div class="block">Return the SOAPAction (if any) of this binding operation</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>bindingOper</code> - the operation to look at</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the SOAPAction or null if not found</dd></dl>
+</li>
+</ul>
+<a name="getNewQName(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNewQName</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getNewQName(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname)</pre>
+<div class="block">Common code for generating a QName in emitted code.  Note that there's
+ no semicolon at the end, so we can use this in a variety of contexts.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>qname</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getNewQNameWithLastLocalPart(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNewQNameWithLastLocalPart</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getNewQNameWithLastLocalPart(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname)</pre>
+</li>
+</ul>
+<a name="getParameterTypeName(org.apache.axis.wsdl.symbolTable.Parameter)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParameterTypeName</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getParameterTypeName(<a href="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</a>&nbsp;parm)</pre>
+<div class="block">Get the parameter type name.  If this is a MIME type, then
  figure out the appropriate type from the MIME type, otherwise
- use the name of the type itself.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>parm</CODE> - 
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getConstructorForParam(org.apache.axis.wsdl.symbolTable.Parameter, org.apache.axis.wsdl.symbolTable.SymbolTable, javax.xml.rpc.holders.BooleanHolder)"><!-- --></A><H3>
-getConstructorForParam</H3>
-<PRE>
-public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getConstructorForParam</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</A>&nbsp;param,
-                                            <A HREF="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</A>&nbsp;symbolTable,
-                                            <A HREF="../../../../../javax/xml/rpc/holders/BooleanHolder.html" title="class in javax.xml.rpc.holders">BooleanHolder</A>&nbsp;bThrow)</PRE>
-<DL>
-<DD>Return a constructor for the provided Parameter
+ use the name of the type itself.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parm</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getConstructorForParam(org.apache.axis.wsdl.symbolTable.Parameter, org.apache.axis.wsdl.symbolTable.SymbolTable, javax.xml.rpc.holders.BooleanHolder)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getConstructorForParam</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getConstructorForParam(<a href="../../../../../org/apache/axis/wsdl/symbolTable/Parameter.html" title="class in org.apache.axis.wsdl.symbolTable">Parameter</a>&nbsp;param,
+                            <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable,
+                            <a href="../../../../../javax/xml/rpc/holders/BooleanHolder.html" title="class in javax.xml.rpc.holders">BooleanHolder</a>&nbsp;bThrow)</pre>
+<div class="block">Return a constructor for the provided Parameter
  This string will be suitable for assignment:
  <p/>
  Foo var = <i>string returned</i>
@@ -828,107 +721,105 @@ public static <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/St
  Will also handle all Axis specific types (org.apache.axis.types.*)
  <p/>
  Caller should expect to wrap the construction in a try/catch block
- if bThrow is set to <i>true</i>.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>param</CODE> - info about the parameter we need a constructor for<DD><CODE>symbolTable</CODE> - used to lookup enumerations<DD><CODE>bThrow</CODE> - set to true if contructor needs try/catch block
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="shouldEmit(org.apache.axis.wsdl.symbolTable.TypeEntry)"><!-- --></A><H3>
-shouldEmit</H3>
-<PRE>
-public static boolean <B>shouldEmit</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;type)</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getItemQName(org.apache.axis.wsdl.symbolTable.TypeEntry)"><!-- --></A><H3>
-getItemQName</H3>
-<PRE>
-public static <A HREF="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</A> <B>getItemQName</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;te)</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getItemType(org.apache.axis.wsdl.symbolTable.TypeEntry)"><!-- --></A><H3>
-getItemType</H3>
-<PRE>
-public static <A HREF="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</A> <B>getItemType</B>(<A HREF="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</A>&nbsp;te)</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-</DL>
+ if bThrow is set to <i>true</i>.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>param</code> - info about the parameter we need a constructor for</dd><dd><code>symbolTable</code> - used to lookup enumerations</dd><dd><code>bThrow</code> - set to true if contructor needs try/catch block</dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="shouldEmit(org.apache.axis.wsdl.symbolTable.TypeEntry)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldEmit</h4>
+<pre>public static&nbsp;boolean&nbsp;shouldEmit(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;type)</pre>
+</li>
+</ul>
+<a name="getItemQName(org.apache.axis.wsdl.symbolTable.TypeEntry)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getItemQName</h4>
+<pre>public static&nbsp;<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;getItemQName(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;te)</pre>
+</li>
+</ul>
+<a name="getItemType(org.apache.axis.wsdl.symbolTable.TypeEntry)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getItemType</h4>
+<pre>public static&nbsp;<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;getItemType(<a href="../../../../../org/apache/axis/wsdl/symbolTable/TypeEntry.html" title="class in org.apache.axis.wsdl.symbolTable">TypeEntry</a>&nbsp;te)</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <!-- ========= END OF CLASS DATA ========= -->
-<HR>
-
-
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<A NAME="navbar_bottom"><!-- --></A>
-<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_bottom_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Utils.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../org/apache/axis/wsdl/toJava/NamespaceSelector.html" title="class in org.apache.axis.wsdl.toJava"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;NEXT CLASS</FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../index.html?org/apache/axis/wsdl/toJava/Utils.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="Utils.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Utils.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/NamespaceSelector.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Prev Class</span></a></li>
+<li>Next Class</li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/wsdl/toJava/Utils.html" target="_top">Frames</a></li>
+<li><a href="Utils.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_bottom"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-
-<HR>
-Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.
-</BODY>
-</HTML>
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

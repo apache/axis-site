@@ -1,617 +1,571 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--NewPage-->
-<HTML>
-<HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>
-JavaProvider (Apache Axis)
-</TITLE>
-
-
-<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
-
-<SCRIPT type="text/javascript">
-function windowTitle()
-{
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JavaProvider (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
         parent.document.title="JavaProvider (Apache Axis)";
     }
-}
-</SCRIPT>
-<NOSCRIPT>
-</NOSCRIPT>
-
-</HEAD>
-
-<BODY BGCOLOR="white" onload="windowTitle();">
-<HR>
-
-
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<A NAME="navbar_top"><!-- --></A>
-<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_top_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/JavaProvider.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../org/apache/axis/providers/java/EJBProvider.html" title="class in org.apache.axis.providers.java"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;<A HREF="../../../../../org/apache/axis/providers/java/MsgProvider.html" title="class in org.apache.axis.providers.java"><B>NEXT CLASS</B></A></FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../index.html?org/apache/axis/providers/java/JavaProvider.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="JavaProvider.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/JavaProvider.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/providers/java/EJBProvider.html" title="class in org.apache.axis.providers.java"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis/providers/java/MsgProvider.html" title="class in org.apache.axis.providers.java"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/providers/java/JavaProvider.html" target="_top">Frames</a></li>
+<li><a href="JavaProvider.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_top"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-
-<HR>
 <!-- ======== START OF CLASS DATA ======== -->
-<H2>
-<FONT SIZE="-1">
-org.apache.axis.providers.java</FONT>
-<BR>
-Class JavaProvider</H2>
-<PRE>
-<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
-  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html" title="class in org.apache.axis.handlers">org.apache.axis.handlers.BasicHandler</A>
-      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../org/apache/axis/providers/BasicProvider.html" title="class in org.apache.axis.providers">org.apache.axis.providers.BasicProvider</A>
-          <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.axis.providers.java.JavaProvider</B>
-</PRE>
-<DL>
-<DT><B>All Implemented Interfaces:</B> <DD><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</A>, <A HREF="../../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</A></DD>
-</DL>
-<DL>
-<DT><B>Direct Known Subclasses:</B> <DD><A HREF="../../../../../org/apache/axis/providers/java/MsgProvider.html" title="class in org.apache.axis.providers.java">MsgProvider</A>, <A HREF="../../../../../org/apache/axis/providers/java/RPCProvider.html" title="class in org.apache.axis.providers.java">RPCProvider</A></DD>
-</DL>
-<HR>
-<DL>
-<DT><PRE>public abstract class <B>JavaProvider</B><DT>extends <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html" title="class in org.apache.axis.providers">BasicProvider</A></DL>
-</PRE>
-
-<P>
-Base class for Java dispatching.  Fetches various fields out of envelope,
+<div class="header">
+<div class="subTitle">org.apache.axis.providers.java</div>
+<h2 title="Class JavaProvider" class="title">Class JavaProvider</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="../../../../../org/apache/axis/handlers/BasicHandler.html" title="class in org.apache.axis.handlers">org.apache.axis.handlers.BasicHandler</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="../../../../../org/apache/axis/providers/BasicProvider.html" title="class in org.apache.axis.providers">org.apache.axis.providers.BasicProvider</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.providers.java.JavaProvider</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>, <a href="../../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</a></dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../../org/apache/axis/providers/java/MsgProvider.html" title="class in org.apache.axis.providers.java">MsgProvider</a>, <a href="../../../../../org/apache/axis/providers/java/RPCProvider.html" title="class in org.apache.axis.providers.java">RPCProvider</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public abstract class <span class="strong">JavaProvider</span>
+extends <a href="../../../../../org/apache/axis/providers/BasicProvider.html" title="class in org.apache.axis.providers">BasicProvider</a></pre>
+<div class="block">Base class for Java dispatching.  Fetches various fields out of envelope,
  looks up service object (possibly using session state), and delegates
- envelope body processing to subclass via abstract processMessage method.
-<P>
-
-<P>
-<DL>
-<DT><B>Author:</B></DT>
-  <DD>Doug Davis (dug@us.ibm.com), Carl Woolf (cwoolf@macromedia.com)</DD>
-<DT><B>See Also:</B><DD><A HREF="../../../../../serialized-form.html#org.apache.axis.providers.java.JavaProvider">Serialized Form</A></DL>
-<HR>
-
-<P>
+ envelope body processing to subclass via abstract processMessage method.</div>
+<dl><dt><span class="strong">Author:</span></dt>
+  <dd>Doug Davis (dug@us.ibm.com), Carl Woolf (cwoolf@macromedia.com)</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../serialized-form.html#org.apache.axis.providers.java.JavaProvider">Serialized Form</a></dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
 <!-- =========== FIELD SUMMARY =========== -->
-
-<A NAME="field_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Field Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;org.apache.commons.logging.Log</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#entLog">entLog</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;org.apache.commons.logging.Log</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#log">log</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#OPTION_ALLOWEDMETHODS">OPTION_ALLOWEDMETHODS</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#OPTION_CLASSNAME">OPTION_CLASSNAME</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#OPTION_SCOPE">OPTION_SCOPE</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="fields_inherited_from_class_org.apache.axis.providers.BasicProvider"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Fields inherited from class org.apache.axis.providers.<A HREF="../../../../../org/apache/axis/providers/BasicProvider.html" title="class in org.apache.axis.providers">BasicProvider</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_EXTRACLASSES">OPTION_EXTRACLASSES</A>, <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_INPUTSCHEMA">OPTION_WSDL_INPUTSCHEMA</A>, <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_PORTTYPE">OPTION_WSDL_PORTTYPE</A>, <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_SERVICEELEMENT">OPTION_WSDL_SERVICEELEMENT</A>, <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_SERVICEPORT">OPTION_WSDL_SERVICEPORT</A>, <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_SOAPACTION_MODE">OPTION_WSDL_SOAPACTION_MODE</A>, <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_TARGETNAMESPACE">OPTION_WSDL_TARGETNAMESPACE</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="fields_inherited_from_class_org.apache.axis.handlers.BasicHandler"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Fields inherited from class org.apache.axis.handlers.<A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html" title="class in org.apache.axis.handlers">BasicHandler</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#makeLockable">makeLockable</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#name">name</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#options">options</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static org.apache.commons.logging.Log</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#entLog">entLog</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static org.apache.commons.logging.Log</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#log">log</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#OPTION_ALLOWEDMETHODS">OPTION_ALLOWEDMETHODS</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#OPTION_CLASSNAME">OPTION_CLASSNAME</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#OPTION_SCOPE">OPTION_SCOPE</a></strong></code>&nbsp;</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.axis.providers.BasicProvider">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.axis.providers.<a href="../../../../../org/apache/axis/providers/BasicProvider.html" title="class in org.apache.axis.providers">BasicProvider</a></h3>
+<code><a href="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_EXTRACLASSES">OPTION_EXTRACLASSES</a>, <a href="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_INPUTSCHEMA">OPTION_WSDL_INPUTSCHEMA</a>, <a href="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_PORTTYPE">OPTION_WSDL_PORTTYPE</a>, <a href="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_SERVICEELEMENT">OPTION_WSDL_SERVICEELEMENT</a>, <a href="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_SERVICEPORT">OPTION_WSDL_SERVICEPORT</a>, <a href="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_SOAPACTION_MODE">OPTION_WSDL_SOAPACTION_MODE</a>, <a href="../../../../../org/apache/axis/providers/BasicProvider.html#OPTION_WSDL_TARGETNAMESPACE">OPTION_WSDL_TARGETNAMESPACE</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.axis.handlers.BasicHandler">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.axis.handlers.<a href="../../../../../org/apache/axis/handlers/BasicHandler.html" title="class in org.apache.axis.handlers">BasicHandler</a></h3>
+<code><a href="../../../../../org/apache/axis/handlers/BasicHandler.html#makeLockable">makeLockable</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#name">name</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#options">options</a></code></li>
+</ul>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-
-<A NAME="constructor_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Constructor Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#JavaProvider()">JavaProvider</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#JavaProvider()">JavaProvider</a></strong>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
-
-<A NAME="method_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Method Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#getServiceClass(java.lang.String, org.apache.axis.handlers.soap.SOAPService, org.apache.axis.MessageContext)">getServiceClass</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;clsName,
-                <A HREF="../../../../../org/apache/axis/handlers/soap/SOAPService.html" title="class in org.apache.axis.handlers.soap">SOAPService</A>&nbsp;service,
-                <A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the Class info about the service class.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#getServiceClassName(org.apache.axis.Handler)">getServiceClassName</A></B>(<A HREF="../../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</A>&nbsp;service)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the class name of the service</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#getServiceClassNameOptionName()">getServiceClassNameOptionName</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the option in the configuration that contains the service class
- name</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#getServiceObject(org.apache.axis.MessageContext, org.apache.axis.Handler, java.lang.String, javax.xml.rpc.holders.IntHolder)">getServiceObject</A></B>(<A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext,
-                 <A HREF="../../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</A>&nbsp;service,
-                 <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;clsName,
-                 <A HREF="../../../../../javax/xml/rpc/holders/IntHolder.html" title="class in javax.xml.rpc.holders">IntHolder</A>&nbsp;scopeHolder)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the service object whose method actually provides the service.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#initServiceDesc(org.apache.axis.handlers.soap.SOAPService, org.apache.axis.MessageContext)">initServiceDesc</A></B>(<A HREF="../../../../../org/apache/axis/handlers/soap/SOAPService.html" title="class in org.apache.axis.handlers.soap">SOAPService</A>&nbsp;service,
-                <A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fill in a service description with the correct impl class
- and typemapping set.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#invoke(org.apache.axis.MessageContext)">invoke</A></B>(<A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoke the message by obtaining various common fields, looking up
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#getServiceClass(java.lang.String,%20org.apache.axis.handlers.soap.SOAPService,%20org.apache.axis.MessageContext)">getServiceClass</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clsName,
+               <a href="../../../../../org/apache/axis/handlers/soap/SOAPService.html" title="class in org.apache.axis.handlers.soap">SOAPService</a>&nbsp;service,
+               <a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext)</code>
+<div class="block">Returns the Class info about the service class.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#getServiceClassName(org.apache.axis.Handler)">getServiceClassName</a></strong>(<a href="../../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</a>&nbsp;service)</code>
+<div class="block">Return the class name of the service</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#getServiceClassNameOptionName()">getServiceClassNameOptionName</a></strong>()</code>
+<div class="block">Return the option in the configuration that contains the service class
+ name</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#getServiceObject(org.apache.axis.MessageContext,%20org.apache.axis.Handler,%20java.lang.String,%20javax.xml.rpc.holders.IntHolder)">getServiceObject</a></strong>(<a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext,
+                <a href="../../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</a>&nbsp;service,
+                <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clsName,
+                <a href="../../../../../javax/xml/rpc/holders/IntHolder.html" title="class in javax.xml.rpc.holders">IntHolder</a>&nbsp;scopeHolder)</code>
+<div class="block">Get the service object whose method actually provides the service.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#initServiceDesc(org.apache.axis.handlers.soap.SOAPService,%20org.apache.axis.MessageContext)">initServiceDesc</a></strong>(<a href="../../../../../org/apache/axis/handlers/soap/SOAPService.html" title="class in org.apache.axis.handlers.soap">SOAPService</a>&nbsp;service,
+               <a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext)</code>
+<div class="block">Fill in a service description with the correct impl class
+ and typemapping set.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#invoke(org.apache.axis.MessageContext)">invoke</a></strong>(<a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext)</code>
+<div class="block">Invoke the message by obtaining various common fields, looking up
  the service object (via getServiceObject), and actually processing
- the message (via processMessage).</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#makeNewServiceObject(org.apache.axis.MessageContext, java.lang.String)">makeNewServiceObject</A></B>(<A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext,
-                     <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;clsName)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default java service object comes from simply instantiating the
- class wrapped in jc</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>abstract &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/providers/java/JavaProvider.html#processMessage(org.apache.axis.MessageContext, org.apache.axis.message.SOAPEnvelope, org.apache.axis.message.SOAPEnvelope, java.lang.Object)">processMessage</A></B>(<A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext,
-               <A HREF="../../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</A>&nbsp;reqEnv,
-               <A HREF="../../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</A>&nbsp;resEnv,
-               <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A>&nbsp;obj)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Process the current message.</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_org.apache.axis.providers.BasicProvider"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class org.apache.axis.providers.<A HREF="../../../../../org/apache/axis/providers/BasicProvider.html" title="class in org.apache.axis.providers">BasicProvider</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#addOperation(java.lang.String, javax.xml.namespace.QName)">addOperation</A>, <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#generateWSDL(org.apache.axis.MessageContext)">generateWSDL</A>, <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#getOperationName(javax.xml.namespace.QName)">getOperationName</A>, <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#getOperationNames()">getOperationNames</A>, <A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#getOperationQNames()">getOperationQNames</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_org.apache.axis.handlers.BasicHandler"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class org.apache.axis.handlers.<A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html" title="class in org.apache.axis.handlers">BasicHandler</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#canHandleBlock(javax.xml.namespace.QName)">canHandleBlock</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#cleanup()">cleanup</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#getDeploymentData(org.w3c.dom.Document)">getDeploymentData</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#getName()">getName</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#getOption(java.lang.String)">getOption</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#getOptions()">getOptions</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#getUnderstoodHeaders()">getUnderstoodHeaders</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#init()">init</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#initHashtable()">initHashtable</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#onFault(org.apache.axis.MessageContext)">onFault</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#setName(java.lang.String)">setName</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#setOption(java.lang.String, java.lang.Object)">setOption</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#setOptionDefault(java.lang.String, java.lang.Object)">setOptionDefault</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#setOptions(java.util.Hashtable)">setOptions</A>, <A HREF="../../../../../org/apache/axis/handlers/BasicHandler.html#setOptionsLockable(boolean)">setOptionsLockable</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
-<P>
-
+ the message (via processMessage).</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#makeNewServiceObject(org.apache.axis.MessageContext,%20java.lang.String)">makeNewServiceObject</a></strong>(<a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext,
+                    <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clsName)</code>
+<div class="block">Default java service object comes from simply instantiating the
+ class wrapped in jc</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/providers/java/JavaProvider.html#processMessage(org.apache.axis.MessageContext,%20org.apache.axis.message.SOAPEnvelope,%20org.apache.axis.message.SOAPEnvelope,%20java.lang.Object)">processMessage</a></strong>(<a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext,
+              <a href="../../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</a>&nbsp;reqEnv,
+              <a href="../../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</a>&nbsp;resEnv,
+              <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)</code>
+<div class="block">Process the current message.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.axis.providers.BasicProvider">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.axis.providers.<a href="../../../../../org/apache/axis/providers/BasicProvider.html" title="class in org.apache.axis.providers">BasicProvider</a></h3>
+<code><a href="../../../../../org/apache/axis/providers/BasicProvider.html#addOperation(java.lang.String,%20javax.xml.namespace.QName)">addOperation</a>, <a href="../../../../../org/apache/axis/providers/BasicProvider.html#generateWSDL(org.apache.axis.MessageContext)">generateWSDL</a>, <a href="../../../../../org/apache/axis/providers/BasicProvider.html#getOperationName(javax.xml.namespace.QName)">getOperationName</a>, <a href="../../../../../org/apache/axis/providers/BasicProvider.html#getOperationNames()">getOperationNames</a>, <a href="../../../../../org/apache/axis/providers/BasicProvider.html#getOperationQNames()">getOperationQNames</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.axis.handlers.BasicHandler">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.axis.handlers.<a href="../../../../../org/apache/axis/handlers/BasicHandler.html" title="class in org.apache.axis.handlers">BasicHandler</a></h3>
+<code><a href="../../../../../org/apache/axis/handlers/BasicHandler.html#canHandleBlock(javax.xml.namespace.QName)">canHandleBlock</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#cleanup()">cleanup</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#getDeploymentData(org.w3c.dom.Document)">getDeploymentData</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#getName()">getName</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#getOption(java.lang.String)">getOption</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#getOptions()">getOptions</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#getUnderstoodHeaders()">getUnderstoodHeaders</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#init()">init</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#initHashtable()">initHashtable</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#onFault(org.apache.axis.MessageContext)">onFault</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#setName(java.lang.String)">setName</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#setOption(java.lang.String,%20java.lang.Object)">setOption</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#setOptionDefault(java.lang.String,%20java.lang.Object)">setOptionDefault</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#setOptions(java.util.Hashtable)">setOptions</a>, <a href="../../../../../org/apache/axis/handlers/BasicHandler.html#setOptionsLockable(boolean)">setOptionsLockable</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
 <!-- ============ FIELD DETAIL =========== -->
-
-<A NAME="field_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Field Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="log"><!-- --></A><H3>
-log</H3>
-<PRE>
-protected static org.apache.commons.logging.Log <B>log</B></PRE>
-<DL>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="entLog"><!-- --></A><H3>
-entLog</H3>
-<PRE>
-protected static org.apache.commons.logging.Log <B>entLog</B></PRE>
-<DL>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="OPTION_CLASSNAME"><!-- --></A><H3>
-OPTION_CLASSNAME</H3>
-<PRE>
-public static final <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>OPTION_CLASSNAME</B></PRE>
-<DL>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.providers.java.JavaProvider.OPTION_CLASSNAME">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="OPTION_ALLOWEDMETHODS"><!-- --></A><H3>
-OPTION_ALLOWEDMETHODS</H3>
-<PRE>
-public static final <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>OPTION_ALLOWEDMETHODS</B></PRE>
-<DL>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.providers.java.JavaProvider.OPTION_ALLOWEDMETHODS">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="OPTION_SCOPE"><!-- --></A><H3>
-OPTION_SCOPE</H3>
-<PRE>
-public static final <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>OPTION_SCOPE</B></PRE>
-<DL>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.providers.java.JavaProvider.OPTION_SCOPE">Constant Field Values</A></DL>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="log">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>log</h4>
+<pre>protected static&nbsp;org.apache.commons.logging.Log log</pre>
+</li>
+</ul>
+<a name="entLog">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>entLog</h4>
+<pre>protected static&nbsp;org.apache.commons.logging.Log entLog</pre>
+</li>
+</ul>
+<a name="OPTION_CLASSNAME">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>OPTION_CLASSNAME</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPTION_CLASSNAME</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.providers.java.JavaProvider.OPTION_CLASSNAME">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="OPTION_ALLOWEDMETHODS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>OPTION_ALLOWEDMETHODS</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPTION_ALLOWEDMETHODS</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.providers.java.JavaProvider.OPTION_ALLOWEDMETHODS">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="OPTION_SCOPE">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>OPTION_SCOPE</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> OPTION_SCOPE</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.providers.java.JavaProvider.OPTION_SCOPE">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-
-<A NAME="constructor_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Constructor Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="JavaProvider()"><!-- --></A><H3>
-JavaProvider</H3>
-<PRE>
-public <B>JavaProvider</B>()</PRE>
-<DL>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="JavaProvider()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>JavaProvider</h4>
+<pre>public&nbsp;JavaProvider()</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
-
-<A NAME="method_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Method Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="getServiceObject(org.apache.axis.MessageContext, org.apache.axis.Handler, java.lang.String, javax.xml.rpc.holders.IntHolder)"><!-- --></A><H3>
-getServiceObject</H3>
-<PRE>
-public <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A> <B>getServiceObject</B>(<A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext,
-                               <A HREF="../../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</A>&nbsp;service,
-                               <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;clsName,
-                               <A HREF="../../../../../javax/xml/rpc/holders/IntHolder.html" title="class in javax.xml.rpc.holders">IntHolder</A>&nbsp;scopeHolder)
-                        throws <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></PRE>
-<DL>
-<DD>Get the service object whose method actually provides the service.
- May look up in session table.
-<P>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="processMessage(org.apache.axis.MessageContext, org.apache.axis.message.SOAPEnvelope, org.apache.axis.message.SOAPEnvelope, java.lang.Object)"><!-- --></A><H3>
-processMessage</H3>
-<PRE>
-public abstract void <B>processMessage</B>(<A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext,
-                                    <A HREF="../../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</A>&nbsp;reqEnv,
-                                    <A HREF="../../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</A>&nbsp;resEnv,
-                                    <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A>&nbsp;obj)
-                             throws <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></PRE>
-<DL>
-<DD>Process the current message.  Side-effect resEnv to create return value.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>msgContext</CODE> - self-explanatory<DD><CODE>reqEnv</CODE> - the request envelope<DD><CODE>resEnv</CODE> - the response envelope<DD><CODE>obj</CODE> - the service object itself
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="invoke(org.apache.axis.MessageContext)"><!-- --></A><H3>
-invoke</H3>
-<PRE>
-public void <B>invoke</B>(<A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext)
-            throws <A HREF="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</A></PRE>
-<DL>
-<DD>Invoke the message by obtaining various common fields, looking up
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getServiceObject(org.apache.axis.MessageContext, org.apache.axis.Handler, java.lang.String, javax.xml.rpc.holders.IntHolder)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServiceObject</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getServiceObject(<a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext,
+                      <a href="../../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</a>&nbsp;service,
+                      <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clsName,
+                      <a href="../../../../../javax/xml/rpc/holders/IntHolder.html" title="class in javax.xml.rpc.holders">IntHolder</a>&nbsp;scopeHolder)
+                        throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<div class="block">Get the service object whose method actually provides the service.
+ May look up in session table.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
+<a name="processMessage(org.apache.axis.MessageContext, org.apache.axis.message.SOAPEnvelope, org.apache.axis.message.SOAPEnvelope, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>processMessage</h4>
+<pre>public abstract&nbsp;void&nbsp;processMessage(<a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext,
+                  <a href="../../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</a>&nbsp;reqEnv,
+                  <a href="../../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</a>&nbsp;resEnv,
+                  <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)
+                             throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<div class="block">Process the current message.  Side-effect resEnv to create return value.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - self-explanatory</dd><dd><code>reqEnv</code> - the request envelope</dd><dd><code>resEnv</code> - the response envelope</dd><dd><code>obj</code> - the service object itself</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
+<a name="invoke(org.apache.axis.MessageContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>public&nbsp;void&nbsp;invoke(<a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext)
+            throws <a href="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></pre>
+<div class="block">Invoke the message by obtaining various common fields, looking up
  the service object (via getServiceObject), and actually processing
- the message (via processMessage).
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>msgContext</CODE> - the <code>MessageContext</code> to process with this
-              <code>Handler</code>.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</A></CODE> - if the handler encounters an error</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="makeNewServiceObject(org.apache.axis.MessageContext, java.lang.String)"><!-- --></A><H3>
-makeNewServiceObject</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A> <B>makeNewServiceObject</B>(<A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext,
-                                      <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;clsName)
-                               throws <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></PRE>
-<DL>
-<DD>Default java service object comes from simply instantiating the
- class wrapped in jc
-<P>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getServiceClassName(org.apache.axis.Handler)"><!-- --></A><H3>
-getServiceClassName</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getServiceClassName</B>(<A HREF="../../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</A>&nbsp;service)</PRE>
-<DL>
-<DD>Return the class name of the service
-<P>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getServiceClassNameOptionName()"><!-- --></A><H3>
-getServiceClassNameOptionName</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getServiceClassNameOptionName</B>()</PRE>
-<DL>
-<DD>Return the option in the configuration that contains the service class
- name
-<P>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getServiceClass(java.lang.String, org.apache.axis.handlers.soap.SOAPService, org.apache.axis.MessageContext)"><!-- --></A><H3>
-getServiceClass</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</A> <B>getServiceClass</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;clsName,
-                                <A HREF="../../../../../org/apache/axis/handlers/soap/SOAPService.html" title="class in org.apache.axis.handlers.soap">SOAPService</A>&nbsp;service,
-                                <A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext)
-                         throws <A HREF="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</A></PRE>
-<DL>
-<DD>Returns the Class info about the service class.
-<P>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="initServiceDesc(org.apache.axis.handlers.soap.SOAPService, org.apache.axis.MessageContext)"><!-- --></A><H3>
-initServiceDesc</H3>
-<PRE>
-public void <B>initServiceDesc</B>(<A HREF="../../../../../org/apache/axis/handlers/soap/SOAPService.html" title="class in org.apache.axis.handlers.soap">SOAPService</A>&nbsp;service,
-                            <A HREF="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</A>&nbsp;msgContext)
-                     throws <A HREF="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</A></PRE>
-<DL>
-<DD>Fill in a service description with the correct impl class
+ the message (via processMessage).</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - the <code>MessageContext</code> to process with this
+              <code>Handler</code>.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></code> - if the handler encounters an error</dd></dl>
+</li>
+</ul>
+<a name="makeNewServiceObject(org.apache.axis.MessageContext, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>makeNewServiceObject</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;makeNewServiceObject(<a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext,
+                          <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clsName)
+                               throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<div class="block">Default java service object comes from simply instantiating the
+ class wrapped in jc</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
+<a name="getServiceClassName(org.apache.axis.Handler)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServiceClassName</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getServiceClassName(<a href="../../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</a>&nbsp;service)</pre>
+<div class="block">Return the class name of the service</div>
+</li>
+</ul>
+<a name="getServiceClassNameOptionName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServiceClassNameOptionName</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getServiceClassNameOptionName()</pre>
+<div class="block">Return the option in the configuration that contains the service class
+ name</div>
+</li>
+</ul>
+<a name="getServiceClass(java.lang.String, org.apache.axis.handlers.soap.SOAPService, org.apache.axis.MessageContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServiceClass</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;getServiceClass(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clsName,
+                    <a href="../../../../../org/apache/axis/handlers/soap/SOAPService.html" title="class in org.apache.axis.handlers.soap">SOAPService</a>&nbsp;service,
+                    <a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext)
+                         throws <a href="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></pre>
+<div class="block">Returns the Class info about the service class.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="initServiceDesc(org.apache.axis.handlers.soap.SOAPService, org.apache.axis.MessageContext)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>initServiceDesc</h4>
+<pre>public&nbsp;void&nbsp;initServiceDesc(<a href="../../../../../org/apache/axis/handlers/soap/SOAPService.html" title="class in org.apache.axis.handlers.soap">SOAPService</a>&nbsp;service,
+                   <a href="../../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;msgContext)
+                     throws <a href="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></pre>
+<div class="block">Fill in a service description with the correct impl class
  and typemapping set.  This uses methods that can be overridden by
  other providers (like the EJBProvider) to get the class from the
- right place.
-<P>
-<DD><DL>
-<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/axis/providers/BasicProvider.html#initServiceDesc(org.apache.axis.handlers.soap.SOAPService, org.apache.axis.MessageContext)">initServiceDesc</A></CODE> in class <CODE><A HREF="../../../../../org/apache/axis/providers/BasicProvider.html" title="class in org.apache.axis.providers">BasicProvider</A></CODE></DL>
-</DD>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</A></CODE></DL>
-</DD>
-</DL>
+ right place.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/providers/BasicProvider.html#initServiceDesc(org.apache.axis.handlers.soap.SOAPService,%20org.apache.axis.MessageContext)">initServiceDesc</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/providers/BasicProvider.html" title="class in org.apache.axis.providers">BasicProvider</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <!-- ========= END OF CLASS DATA ========= -->
-<HR>
-
-
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<A NAME="navbar_bottom"><!-- --></A>
-<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_bottom_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/JavaProvider.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../org/apache/axis/providers/java/EJBProvider.html" title="class in org.apache.axis.providers.java"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;<A HREF="../../../../../org/apache/axis/providers/java/MsgProvider.html" title="class in org.apache.axis.providers.java"><B>NEXT CLASS</B></A></FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../index.html?org/apache/axis/providers/java/JavaProvider.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="JavaProvider.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/JavaProvider.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/providers/java/EJBProvider.html" title="class in org.apache.axis.providers.java"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis/providers/java/MsgProvider.html" title="class in org.apache.axis.providers.java"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/providers/java/JavaProvider.html" target="_top">Frames</a></li>
+<li><a href="JavaProvider.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_bottom"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-
-<HR>
-Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.
-</BODY>
-</HTML>
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

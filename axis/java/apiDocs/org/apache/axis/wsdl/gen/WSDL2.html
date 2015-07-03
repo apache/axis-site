@@ -1,676 +1,616 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--NewPage-->
-<HTML>
-<HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>
-WSDL2 (Apache Axis)
-</TITLE>
-
-
-<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
-
-<SCRIPT type="text/javascript">
-function windowTitle()
-{
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WSDL2 (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
         parent.document.title="WSDL2 (Apache Axis)";
     }
-}
-</SCRIPT>
-<NOSCRIPT>
-</NOSCRIPT>
-
-</HEAD>
-
-<BODY BGCOLOR="white" onload="windowTitle();">
-<HR>
-
-
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<A NAME="navbar_top"><!-- --></A>
-<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_top_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/WSDL2.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;NEXT CLASS</FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../index.html?org/apache/axis/wsdl/gen/WSDL2.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="WSDL2.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/WSDL2.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen"><span class="strong">Prev Class</span></a></li>
+<li>Next Class</li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/wsdl/gen/WSDL2.html" target="_top">Frames</a></li>
+<li><a href="WSDL2.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_top"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-
-<HR>
 <!-- ======== START OF CLASS DATA ======== -->
-<H2>
-<FONT SIZE="-1">
-org.apache.axis.wsdl.gen</FONT>
-<BR>
-Class WSDL2</H2>
-<PRE>
-<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
-  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.axis.wsdl.gen.WSDL2</B>
-</PRE>
-<DL>
-<DT><B>Direct Known Subclasses:</B> <DD><A HREF="../../../../../org/apache/axis/wsdl/WSDL2Java.html" title="class in org.apache.axis.wsdl">WSDL2Java</A></DD>
-</DL>
-<HR>
-<DL>
-<DT><PRE>public class <B>WSDL2</B><DT>extends <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></DL>
-</PRE>
-
-<P>
-Class WSDL2
-<P>
-
-<P>
-<DL>
-<DT><B>Version:</B></DT>
-  <DD>%I%, %G%</DD>
-</DL>
-<HR>
-
-<P>
+<div class="header">
+<div class="subTitle">org.apache.axis.wsdl.gen</div>
+<h2 title="Class WSDL2" class="title">Class WSDL2</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.wsdl.gen.WSDL2</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../../org/apache/axis/wsdl/WSDL2Java.html" title="class in org.apache.axis.wsdl">WSDL2Java</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public class <span class="strong">WSDL2</span>
+extends <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<div class="block">Class WSDL2</div>
+<dl><dt><span class="strong">Version:</span></dt>
+  <dd>%I%, %G%</dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
 <!-- =========== FIELD SUMMARY =========== -->
-
-<A NAME="field_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Field Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#DEBUG_OPT">DEBUG_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field DEBUG_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#HELP_OPT">HELP_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field HELP_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#NETWORK_TIMEOUT_OPT">NETWORK_TIMEOUT_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field NETWORK_TIMEOUT_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#NOIMPORTS_OPT">NOIMPORTS_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field NOIMPORTS_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#NOWRAP_OPT">NOWRAP_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field NOWRAP_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="../../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</A>[]</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#options">options</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field options</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#parser">parser</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field parser</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#QUIET_OPT">QUIET_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Filed quiet</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#VERBOSE_OPT">VERBOSE_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field VERBOSE_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#wsdlURI">wsdlURI</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field wsdlURI</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#DEBUG_OPT">DEBUG_OPT</a></strong></code>
+<div class="block">Field DEBUG_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#HELP_OPT">HELP_OPT</a></strong></code>
+<div class="block">Field HELP_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#NETWORK_TIMEOUT_OPT">NETWORK_TIMEOUT_OPT</a></strong></code>
+<div class="block">Field NETWORK_TIMEOUT_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#NOIMPORTS_OPT">NOIMPORTS_OPT</a></strong></code>
+<div class="block">Field NOIMPORTS_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#NOWRAP_OPT">NOWRAP_OPT</a></strong></code>
+<div class="block">Field NOWRAP_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#options">options</a></strong></code>
+<div class="block">Field options</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#parser">parser</a></strong></code>
+<div class="block">Field parser</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#QUIET_OPT">QUIET_OPT</a></strong></code>
+<div class="block">Filed quiet</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#VERBOSE_OPT">VERBOSE_OPT</a></strong></code>
+<div class="block">Field VERBOSE_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#wsdlURI">wsdlURI</a></strong></code>
+<div class="block">Field wsdlURI</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-
-<A NAME="constructor_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Constructor Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected </CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#WSDL2()">WSDL2</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructor
- Used by extended classes to construct an instance of WSDL2</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colLast" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#WSDL2()">WSDL2</a></strong>()</code>
+<div class="block">Constructor
+ Used by extended classes to construct an instance of WSDL2</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
-
-<A NAME="method_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Method Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#addOptions(org.apache.axis.utils.CLOptionDescriptor[])">addOptions</A></B>(<A HREF="../../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</A>[]&nbsp;newOptions)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;addOptions
- Add option descriptions to the tool.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#createParser()">createParser</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;createParser
- Used by extended classes to construct an instance of the Parser</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#getParser()">getParser</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getParser
- get the Parser object</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#main(java.lang.String[])">main</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;args)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Main
- Run the tool with the specified command-line arguments</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#parseOption(org.apache.axis.utils.CLOption)">parseOption</A></B>(<A HREF="../../../../../org/apache/axis/utils/CLOption.html" title="class in org.apache.axis.utils">CLOption</A>&nbsp;option)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parse an option</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#printUsage()">printUsage</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printUsage
- print usage information and quit.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#removeOption(java.lang.String)">removeOption</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;removeOption
- Remove an option description from the tool.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#run(java.lang.String[])">run</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;args)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run
- checkes the command-line arguments and runs the tool.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#validateOptions()">validateOptions</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validateOptions
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#addOptions(org.apache.axis.utils.CLOptionDescriptor[])">addOptions</a></strong>(<a href="../../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</a>[]&nbsp;newOptions)</code>
+<div class="block">addOptions
+ Add option descriptions to the tool.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#createParser()">createParser</a></strong>()</code>
+<div class="block">createParser
+ Used by extended classes to construct an instance of the Parser</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#getParser()">getParser</a></strong>()</code>
+<div class="block">getParser
+ get the Parser object</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#main(java.lang.String[])">main</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</code>
+<div class="block">Main
+ Run the tool with the specified command-line arguments</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#parseOption(org.apache.axis.utils.CLOption)">parseOption</a></strong>(<a href="../../../../../org/apache/axis/utils/CLOption.html" title="class in org.apache.axis.utils">CLOption</a>&nbsp;option)</code>
+<div class="block">Parse an option</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#printUsage()">printUsage</a></strong>()</code>
+<div class="block">printUsage
+ print usage information and quit.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#removeOption(java.lang.String)">removeOption</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">removeOption
+ Remove an option description from the tool.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#run(java.lang.String[])">run</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</code>
+<div class="block">run
+ checkes the command-line arguments and runs the tool.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/gen/WSDL2.html#validateOptions()">validateOptions</a></strong>()</code>
+<div class="block">validateOptions
  This method is invoked after the options are set to validate and default the options
- the option settings.</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
-<P>
-
+ the option settings.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
 <!-- ============ FIELD DETAIL =========== -->
-
-<A NAME="field_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Field Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="DEBUG_OPT"><!-- --></A><H3>
-DEBUG_OPT</H3>
-<PRE>
-protected static final int <B>DEBUG_OPT</B></PRE>
-<DL>
-<DD>Field DEBUG_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.DEBUG_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="HELP_OPT"><!-- --></A><H3>
-HELP_OPT</H3>
-<PRE>
-protected static final int <B>HELP_OPT</B></PRE>
-<DL>
-<DD>Field HELP_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.HELP_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="NETWORK_TIMEOUT_OPT"><!-- --></A><H3>
-NETWORK_TIMEOUT_OPT</H3>
-<PRE>
-protected static final int <B>NETWORK_TIMEOUT_OPT</B></PRE>
-<DL>
-<DD>Field NETWORK_TIMEOUT_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.NETWORK_TIMEOUT_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="NOIMPORTS_OPT"><!-- --></A><H3>
-NOIMPORTS_OPT</H3>
-<PRE>
-protected static final int <B>NOIMPORTS_OPT</B></PRE>
-<DL>
-<DD>Field NOIMPORTS_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.NOIMPORTS_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="VERBOSE_OPT"><!-- --></A><H3>
-VERBOSE_OPT</H3>
-<PRE>
-protected static final int <B>VERBOSE_OPT</B></PRE>
-<DL>
-<DD>Field VERBOSE_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.VERBOSE_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="NOWRAP_OPT"><!-- --></A><H3>
-NOWRAP_OPT</H3>
-<PRE>
-protected static final int <B>NOWRAP_OPT</B></PRE>
-<DL>
-<DD>Field NOWRAP_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.NOWRAP_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="QUIET_OPT"><!-- --></A><H3>
-QUIET_OPT</H3>
-<PRE>
-protected static final int <B>QUIET_OPT</B></PRE>
-<DL>
-<DD>Filed quiet
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.QUIET_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="options"><!-- --></A><H3>
-options</H3>
-<PRE>
-protected <A HREF="../../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</A>[] <B>options</B></PRE>
-<DL>
-<DD>Field options
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="wsdlURI"><!-- --></A><H3>
-wsdlURI</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>wsdlURI</B></PRE>
-<DL>
-<DD>Field wsdlURI
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="parser"><!-- --></A><H3>
-parser</H3>
-<PRE>
-protected <A HREF="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</A> <B>parser</B></PRE>
-<DL>
-<DD>Field parser
-<P>
-<DL>
-</DL>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="DEBUG_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEBUG_OPT</h4>
+<pre>protected static final&nbsp;int DEBUG_OPT</pre>
+<div class="block">Field DEBUG_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.DEBUG_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="HELP_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>HELP_OPT</h4>
+<pre>protected static final&nbsp;int HELP_OPT</pre>
+<div class="block">Field HELP_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.HELP_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="NETWORK_TIMEOUT_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>NETWORK_TIMEOUT_OPT</h4>
+<pre>protected static final&nbsp;int NETWORK_TIMEOUT_OPT</pre>
+<div class="block">Field NETWORK_TIMEOUT_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.NETWORK_TIMEOUT_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="NOIMPORTS_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>NOIMPORTS_OPT</h4>
+<pre>protected static final&nbsp;int NOIMPORTS_OPT</pre>
+<div class="block">Field NOIMPORTS_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.NOIMPORTS_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="VERBOSE_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>VERBOSE_OPT</h4>
+<pre>protected static final&nbsp;int VERBOSE_OPT</pre>
+<div class="block">Field VERBOSE_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.VERBOSE_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="NOWRAP_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>NOWRAP_OPT</h4>
+<pre>protected static final&nbsp;int NOWRAP_OPT</pre>
+<div class="block">Field NOWRAP_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.NOWRAP_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="QUIET_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>QUIET_OPT</h4>
+<pre>protected static final&nbsp;int QUIET_OPT</pre>
+<div class="block">Filed quiet</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.wsdl.gen.WSDL2.QUIET_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="options">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>options</h4>
+<pre>protected&nbsp;<a href="../../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</a>[] options</pre>
+<div class="block">Field options</div>
+</li>
+</ul>
+<a name="wsdlURI">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>wsdlURI</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> wsdlURI</pre>
+<div class="block">Field wsdlURI</div>
+</li>
+</ul>
+<a name="parser">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>parser</h4>
+<pre>protected&nbsp;<a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a> parser</pre>
+<div class="block">Field parser</div>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-
-<A NAME="constructor_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Constructor Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="WSDL2()"><!-- --></A><H3>
-WSDL2</H3>
-<PRE>
-protected <B>WSDL2</B>()</PRE>
-<DL>
-<DD>Constructor
- Used by extended classes to construct an instance of WSDL2
-<P>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="WSDL2()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>WSDL2</h4>
+<pre>protected&nbsp;WSDL2()</pre>
+<div class="block">Constructor
+ Used by extended classes to construct an instance of WSDL2</div>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
-
-<A NAME="method_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Method Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="createParser()"><!-- --></A><H3>
-createParser</H3>
-<PRE>
-protected <A HREF="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</A> <B>createParser</B>()</PRE>
-<DL>
-<DD>createParser
- Used by extended classes to construct an instance of the Parser
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getParser()"><!-- --></A><H3>
-getParser</H3>
-<PRE>
-protected <A HREF="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</A> <B>getParser</B>()</PRE>
-<DL>
-<DD>getParser
- get the Parser object
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="addOptions(org.apache.axis.utils.CLOptionDescriptor[])"><!-- --></A><H3>
-addOptions</H3>
-<PRE>
-protected void <B>addOptions</B>(<A HREF="../../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</A>[]&nbsp;newOptions)</PRE>
-<DL>
-<DD>addOptions
- Add option descriptions to the tool.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>newOptions</CODE> - CLOptionDescriptor[] the options</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="removeOption(java.lang.String)"><!-- --></A><H3>
-removeOption</H3>
-<PRE>
-protected void <B>removeOption</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</PRE>
-<DL>
-<DD>removeOption
- Remove an option description from the tool.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>name</CODE> - the name of the CLOptionDescriptor to remove</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="parseOption(org.apache.axis.utils.CLOption)"><!-- --></A><H3>
-parseOption</H3>
-<PRE>
-protected void <B>parseOption</B>(<A HREF="../../../../../org/apache/axis/utils/CLOption.html" title="class in org.apache.axis.utils">CLOption</A>&nbsp;option)</PRE>
-<DL>
-<DD>Parse an option
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>option</CODE> - CLOption is the option</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="validateOptions()"><!-- --></A><H3>
-validateOptions</H3>
-<PRE>
-protected void <B>validateOptions</B>()</PRE>
-<DL>
-<DD>validateOptions
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="createParser()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createParser</h4>
+<pre>protected&nbsp;<a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a>&nbsp;createParser()</pre>
+<div class="block">createParser
+ Used by extended classes to construct an instance of the Parser</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getParser()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParser</h4>
+<pre>protected&nbsp;<a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a>&nbsp;getParser()</pre>
+<div class="block">getParser
+ get the Parser object</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="addOptions(org.apache.axis.utils.CLOptionDescriptor[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addOptions</h4>
+<pre>protected&nbsp;void&nbsp;addOptions(<a href="../../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</a>[]&nbsp;newOptions)</pre>
+<div class="block">addOptions
+ Add option descriptions to the tool.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>newOptions</code> - CLOptionDescriptor[] the options</dd></dl>
+</li>
+</ul>
+<a name="removeOption(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeOption</h4>
+<pre>protected&nbsp;void&nbsp;removeOption(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">removeOption
+ Remove an option description from the tool.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the name of the CLOptionDescriptor to remove</dd></dl>
+</li>
+</ul>
+<a name="parseOption(org.apache.axis.utils.CLOption)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>parseOption</h4>
+<pre>protected&nbsp;void&nbsp;parseOption(<a href="../../../../../org/apache/axis/utils/CLOption.html" title="class in org.apache.axis.utils">CLOption</a>&nbsp;option)</pre>
+<div class="block">Parse an option</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>option</code> - CLOption is the option</dd></dl>
+</li>
+</ul>
+<a name="validateOptions()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>validateOptions</h4>
+<pre>protected&nbsp;void&nbsp;validateOptions()</pre>
+<div class="block">validateOptions
  This method is invoked after the options are set to validate and default the options
- the option settings.
-<P>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="printUsage()"><!-- --></A><H3>
-printUsage</H3>
-<PRE>
-protected void <B>printUsage</B>()</PRE>
-<DL>
-<DD>printUsage
- print usage information and quit.
-<P>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="run(java.lang.String[])"><!-- --></A><H3>
-run</H3>
-<PRE>
-protected void <B>run</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;args)</PRE>
-<DL>
-<DD>run
- checkes the command-line arguments and runs the tool.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>args</CODE> - String[] command-line arguments.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="main(java.lang.String[])"><!-- --></A><H3>
-main</H3>
-<PRE>
-public static void <B>main</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;args)</PRE>
-<DL>
-<DD>Main
- Run the tool with the specified command-line arguments
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>args</CODE> - String[] command-line arguments</DL>
-</DD>
-</DL>
+ the option settings.</div>
+</li>
+</ul>
+<a name="printUsage()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>printUsage</h4>
+<pre>protected&nbsp;void&nbsp;printUsage()</pre>
+<div class="block">printUsage
+ print usage information and quit.</div>
+</li>
+</ul>
+<a name="run(java.lang.String[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>run</h4>
+<pre>protected&nbsp;void&nbsp;run(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</pre>
+<div class="block">run
+ checkes the command-line arguments and runs the tool.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>args</code> - String[] command-line arguments.</dd></dl>
+</li>
+</ul>
+<a name="main(java.lang.String[])">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>main</h4>
+<pre>public static&nbsp;void&nbsp;main(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</pre>
+<div class="block">Main
+ Run the tool with the specified command-line arguments</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>args</code> - String[] command-line arguments</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <!-- ========= END OF CLASS DATA ========= -->
-<HR>
-
-
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<A NAME="navbar_bottom"><!-- --></A>
-<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_bottom_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/WSDL2.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;NEXT CLASS</FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../index.html?org/apache/axis/wsdl/gen/WSDL2.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="WSDL2.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/WSDL2.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen"><span class="strong">Prev Class</span></a></li>
+<li>Next Class</li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/wsdl/gen/WSDL2.html" target="_top">Frames</a></li>
+<li><a href="WSDL2.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_bottom"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-
-<HR>
-Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.
-</BODY>
-</HTML>
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

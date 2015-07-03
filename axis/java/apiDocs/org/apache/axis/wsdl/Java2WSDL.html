@@ -1,1176 +1,1035 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--NewPage-->
-<HTML>
-<HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>
-Java2WSDL (Apache Axis)
-</TITLE>
-
-
-<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
-
-<SCRIPT type="text/javascript">
-function windowTitle()
-{
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java2WSDL (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
         parent.document.title="Java2WSDL (Apache Axis)";
     }
-}
-</SCRIPT>
-<NOSCRIPT>
-</NOSCRIPT>
-
-</HEAD>
-
-<BODY BGCOLOR="white" onload="windowTitle();">
-<HR>
-
-
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<A NAME="navbar_top"><!-- --></A>
-<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_top_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Java2WSDL.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;PREV CLASS&nbsp;
-&nbsp;<A HREF="../../../../org/apache/axis/wsdl/Skeleton.html" title="interface in org.apache.axis.wsdl"><B>NEXT CLASS</B></A></FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../index.html?org/apache/axis/wsdl/Java2WSDL.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="Java2WSDL.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Java2WSDL.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>Prev Class</li>
+<li><a href="../../../../org/apache/axis/wsdl/Skeleton.html" title="interface in org.apache.axis.wsdl"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/apache/axis/wsdl/Java2WSDL.html" target="_top">Frames</a></li>
+<li><a href="Java2WSDL.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
   if(window==top) {
-    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_top"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-
-<HR>
 <!-- ======== START OF CLASS DATA ======== -->
-<H2>
-<FONT SIZE="-1">
-org.apache.axis.wsdl</FONT>
-<BR>
-Class Java2WSDL</H2>
-<PRE>
-<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
-  <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.axis.wsdl.Java2WSDL</B>
-</PRE>
-<HR>
-<DL>
-<DT><PRE>public class <B>Java2WSDL</B><DT>extends <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></DL>
-</PRE>
-
-<P>
-Command line interface to the java2wsdl utility
-<P>
-
-<P>
-<DL>
-<DT><B>Author:</B></DT>
-  <DD>Ravi Kumar (rkumar@borland.com), Rich Scheuerle (scheu@us.ibm.com)</DD>
-</DL>
-<HR>
-
-<P>
+<div class="header">
+<div class="subTitle">org.apache.axis.wsdl</div>
+<h2 title="Class Java2WSDL" class="title">Class Java2WSDL</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.wsdl.Java2WSDL</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public class <span class="strong">Java2WSDL</span>
+extends <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<div class="block">Command line interface to the java2wsdl utility</div>
+<dl><dt><span class="strong">Author:</span></dt>
+  <dd>Ravi Kumar (rkumar@borland.com), Rich Scheuerle (scheu@us.ibm.com)</dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
 <!-- =========== FIELD SUMMARY =========== -->
-
-<A NAME="field_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Field Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#BINDING_NAME_OPT">BINDING_NAME_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field BINDING_NAME_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#className">className</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field className</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#CLASSPATH_OPT">CLASSPATH_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#DEPLOY_OPT">DEPLOY_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field DEPLOY_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#emitter">emitter</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field emitter</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#EXTRA_CLASSES_OPT">EXTRA_CLASSES_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field EXTRA_CLASSES_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#HELP_OPT">HELP_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field HELP_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#IMPL_CLASS_OPT">IMPL_CLASS_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field IMPL_CLASS_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#IMPORT_SCHEMA_OPT">IMPORT_SCHEMA_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field IMPORT_SCHEMA_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#INHERITED_CLASS_OPT">INHERITED_CLASS_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field INHERITED_CLASS_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#INPUT_OPT">INPUT_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field INPUT_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#isDeploy">isDeploy</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field isDeplpy</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#LOCATION_IMPORT_OPT">LOCATION_IMPORT_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field LOCATION_IMPORT_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#LOCATION_OPT">LOCATION_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field LOCATION_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#METHODS_ALLOWED_OPT">METHODS_ALLOWED_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field METHODS_ALLOWED_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#METHODS_NOTALLOWED_OPT">METHODS_NOTALLOWED_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field METHODS_NOTALLOWED_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#mode">mode</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field mode</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#NAMESPACE_IMPL_OPT">NAMESPACE_IMPL_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field NAMESPACE_IMPL_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#NAMESPACE_OPT">NAMESPACE_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field NAMESPACE_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#namespaceMap">namespaceMap</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field namespaceMap</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</A>[]</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#options">options</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Define the understood options.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#OUTPUT_IMPL_OPT">OUTPUT_IMPL_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field OUTPUT_IMPL_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#OUTPUT_OPT">OUTPUT_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field OUTPUT_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#OUTPUT_WSDL_MODE_OPT">OUTPUT_WSDL_MODE_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field OUTPUT_WSDL_MODE_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#PACKAGE_OPT">PACKAGE_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field PACKAGE_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#PORTTYPE_NAME_OPT">PORTTYPE_NAME_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field PORTTYPE_NAME_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#SERVICE_ELEMENT_NAME_OPT">SERVICE_ELEMENT_NAME_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field SERVICE_ELEMENT_NAME_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#SERVICE_PORT_NAME_OPT">SERVICE_PORT_NAME_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field SERVICE_PORT_NAME_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#SOAPACTION_OPT">SOAPACTION_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field SOAPACTION_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#STOP_CLASSES_OPT">STOP_CLASSES_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field STOP_CLASSES_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#STYLE_OPT">STYLE_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field STYLE_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#TYPEMAPPING_OPT">TYPEMAPPING_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field TYPEMAPPING_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#typeMappingVersion">typeMappingVersion</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field typeMappingVersion</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#USE_OPT">USE_OPT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field USE_OPT</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#wsdlFilename">wsdlFilename</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field wsdlFilename</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#wsdlImplFilename">wsdlImplFilename</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field wsdlImplFilename</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#BINDING_NAME_OPT">BINDING_NAME_OPT</a></strong></code>
+<div class="block">Field BINDING_NAME_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#className">className</a></strong></code>
+<div class="block">Field className</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#CLASSPATH_OPT">CLASSPATH_OPT</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#DEPLOY_OPT">DEPLOY_OPT</a></strong></code>
+<div class="block">Field DEPLOY_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#emitter">emitter</a></strong></code>
+<div class="block">Field emitter</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#EXTRA_CLASSES_OPT">EXTRA_CLASSES_OPT</a></strong></code>
+<div class="block">Field EXTRA_CLASSES_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#HELP_OPT">HELP_OPT</a></strong></code>
+<div class="block">Field HELP_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#IMPL_CLASS_OPT">IMPL_CLASS_OPT</a></strong></code>
+<div class="block">Field IMPL_CLASS_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#IMPORT_SCHEMA_OPT">IMPORT_SCHEMA_OPT</a></strong></code>
+<div class="block">Field IMPORT_SCHEMA_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#INHERITED_CLASS_OPT">INHERITED_CLASS_OPT</a></strong></code>
+<div class="block">Field INHERITED_CLASS_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#INPUT_OPT">INPUT_OPT</a></strong></code>
+<div class="block">Field INPUT_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#isDeploy">isDeploy</a></strong></code>
+<div class="block">Field isDeplpy</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#LOCATION_IMPORT_OPT">LOCATION_IMPORT_OPT</a></strong></code>
+<div class="block">Field LOCATION_IMPORT_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#LOCATION_OPT">LOCATION_OPT</a></strong></code>
+<div class="block">Field LOCATION_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#METHODS_ALLOWED_OPT">METHODS_ALLOWED_OPT</a></strong></code>
+<div class="block">Field METHODS_ALLOWED_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#METHODS_NOTALLOWED_OPT">METHODS_NOTALLOWED_OPT</a></strong></code>
+<div class="block">Field METHODS_NOTALLOWED_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#mode">mode</a></strong></code>
+<div class="block">Field mode</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#NAMESPACE_IMPL_OPT">NAMESPACE_IMPL_OPT</a></strong></code>
+<div class="block">Field NAMESPACE_IMPL_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#NAMESPACE_OPT">NAMESPACE_OPT</a></strong></code>
+<div class="block">Field NAMESPACE_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#namespaceMap">namespaceMap</a></strong></code>
+<div class="block">Field namespaceMap</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#options">options</a></strong></code>
+<div class="block">Define the understood options.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#OUTPUT_IMPL_OPT">OUTPUT_IMPL_OPT</a></strong></code>
+<div class="block">Field OUTPUT_IMPL_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#OUTPUT_OPT">OUTPUT_OPT</a></strong></code>
+<div class="block">Field OUTPUT_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#OUTPUT_WSDL_MODE_OPT">OUTPUT_WSDL_MODE_OPT</a></strong></code>
+<div class="block">Field OUTPUT_WSDL_MODE_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#PACKAGE_OPT">PACKAGE_OPT</a></strong></code>
+<div class="block">Field PACKAGE_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#PORTTYPE_NAME_OPT">PORTTYPE_NAME_OPT</a></strong></code>
+<div class="block">Field PORTTYPE_NAME_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#SERVICE_ELEMENT_NAME_OPT">SERVICE_ELEMENT_NAME_OPT</a></strong></code>
+<div class="block">Field SERVICE_ELEMENT_NAME_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#SERVICE_PORT_NAME_OPT">SERVICE_PORT_NAME_OPT</a></strong></code>
+<div class="block">Field SERVICE_PORT_NAME_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#SOAPACTION_OPT">SOAPACTION_OPT</a></strong></code>
+<div class="block">Field SOAPACTION_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#STOP_CLASSES_OPT">STOP_CLASSES_OPT</a></strong></code>
+<div class="block">Field STOP_CLASSES_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#STYLE_OPT">STYLE_OPT</a></strong></code>
+<div class="block">Field STYLE_OPT</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#TYPEMAPPING_OPT">TYPEMAPPING_OPT</a></strong></code>
+<div class="block">Field TYPEMAPPING_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#typeMappingVersion">typeMappingVersion</a></strong></code>
+<div class="block">Field typeMappingVersion</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#USE_OPT">USE_OPT</a></strong></code>
+<div class="block">Field USE_OPT</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#wsdlFilename">wsdlFilename</a></strong></code>
+<div class="block">Field wsdlFilename</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#wsdlImplFilename">wsdlImplFilename</a></strong></code>
+<div class="block">Field wsdlImplFilename</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-
-<A NAME="constructor_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Constructor Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected </CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#Java2WSDL()">Java2WSDL</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate a Java2WSDL emitter.</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colLast" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#Java2WSDL()">Java2WSDL</a></strong>()</code>
+<div class="block">Instantiate a Java2WSDL emitter.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
-
-<A NAME="method_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Method Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#addOptions(org.apache.axis.utils.CLOptionDescriptor[])">addOptions</A></B>(<A HREF="../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</A>[]&nbsp;newOptions)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;addOptions
- Add option descriptions to the tool.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#createEmitter()">createEmitter</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instantiate an Emitter</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#generateServerSide(org.apache.axis.wsdl.fromJava.Emitter, java.lang.String)">generateServerSide</A></B>(<A HREF="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</A>&nbsp;j2w,
-                   <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;wsdlFileName)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generate the server side artifacts from the generated WSDL</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#main(java.lang.String[])">main</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;args)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Main
- Run the Java2WSDL emitter with the specified command-line arguments</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#parseOption(org.apache.axis.utils.CLOption)">parseOption</A></B>(<A HREF="../../../../org/apache/axis/utils/CLOption.html" title="class in org.apache.axis.utils">CLOption</A>&nbsp;option)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parse an option</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#printUsage()">printUsage</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printUsage
- print usage information and quit.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#run(java.lang.String[])">run</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;args)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;run
- checks the command-line arguments and runs the tool.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../org/apache/axis/wsdl/Java2WSDL.html#validateOptions()">validateOptions</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validateOptions
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#addOptions(org.apache.axis.utils.CLOptionDescriptor[])">addOptions</a></strong>(<a href="../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</a>[]&nbsp;newOptions)</code>
+<div class="block">addOptions
+ Add option descriptions to the tool.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#createEmitter()">createEmitter</a></strong>()</code>
+<div class="block">Instantiate an Emitter</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#generateServerSide(org.apache.axis.wsdl.fromJava.Emitter,%20java.lang.String)">generateServerSide</a></strong>(<a href="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</a>&nbsp;j2w,
+                  <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wsdlFileName)</code>
+<div class="block">Generate the server side artifacts from the generated WSDL</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#main(java.lang.String[])">main</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</code>
+<div class="block">Main
+ Run the Java2WSDL emitter with the specified command-line arguments</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#parseOption(org.apache.axis.utils.CLOption)">parseOption</a></strong>(<a href="../../../../org/apache/axis/utils/CLOption.html" title="class in org.apache.axis.utils">CLOption</a>&nbsp;option)</code>
+<div class="block">Parse an option</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#printUsage()">printUsage</a></strong>()</code>
+<div class="block">printUsage
+ print usage information and quit.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#run(java.lang.String[])">run</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</code>
+<div class="block">run
+ checks the command-line arguments and runs the tool.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/wsdl/Java2WSDL.html#validateOptions()">validateOptions</a></strong>()</code>
+<div class="block">validateOptions
  This method is invoked after the options are set to validate
- the option settings.</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
-<P>
-
+ the option settings.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
 <!-- ============ FIELD DETAIL =========== -->
-
-<A NAME="field_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Field Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="INHERITED_CLASS_OPT"><!-- --></A><H3>
-INHERITED_CLASS_OPT</H3>
-<PRE>
-protected static final int <B>INHERITED_CLASS_OPT</B></PRE>
-<DL>
-<DD>Field INHERITED_CLASS_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.INHERITED_CLASS_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="SOAPACTION_OPT"><!-- --></A><H3>
-SOAPACTION_OPT</H3>
-<PRE>
-protected static final int <B>SOAPACTION_OPT</B></PRE>
-<DL>
-<DD>Field SOAPACTION_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.SOAPACTION_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="BINDING_NAME_OPT"><!-- --></A><H3>
-BINDING_NAME_OPT</H3>
-<PRE>
-protected static final int <B>BINDING_NAME_OPT</B></PRE>
-<DL>
-<DD>Field BINDING_NAME_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.BINDING_NAME_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="STOP_CLASSES_OPT"><!-- --></A><H3>
-STOP_CLASSES_OPT</H3>
-<PRE>
-protected static final int <B>STOP_CLASSES_OPT</B></PRE>
-<DL>
-<DD>Field STOP_CLASSES_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.STOP_CLASSES_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="IMPORT_SCHEMA_OPT"><!-- --></A><H3>
-IMPORT_SCHEMA_OPT</H3>
-<PRE>
-protected static final int <B>IMPORT_SCHEMA_OPT</B></PRE>
-<DL>
-<DD>Field IMPORT_SCHEMA_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.IMPORT_SCHEMA_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="EXTRA_CLASSES_OPT"><!-- --></A><H3>
-EXTRA_CLASSES_OPT</H3>
-<PRE>
-protected static final int <B>EXTRA_CLASSES_OPT</B></PRE>
-<DL>
-<DD>Field EXTRA_CLASSES_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.EXTRA_CLASSES_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="HELP_OPT"><!-- --></A><H3>
-HELP_OPT</H3>
-<PRE>
-protected static final int <B>HELP_OPT</B></PRE>
-<DL>
-<DD>Field HELP_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.HELP_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="IMPL_CLASS_OPT"><!-- --></A><H3>
-IMPL_CLASS_OPT</H3>
-<PRE>
-protected static final int <B>IMPL_CLASS_OPT</B></PRE>
-<DL>
-<DD>Field IMPL_CLASS_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.IMPL_CLASS_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="INPUT_OPT"><!-- --></A><H3>
-INPUT_OPT</H3>
-<PRE>
-protected static final int <B>INPUT_OPT</B></PRE>
-<DL>
-<DD>Field INPUT_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.INPUT_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="LOCATION_OPT"><!-- --></A><H3>
-LOCATION_OPT</H3>
-<PRE>
-protected static final int <B>LOCATION_OPT</B></PRE>
-<DL>
-<DD>Field LOCATION_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.LOCATION_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="LOCATION_IMPORT_OPT"><!-- --></A><H3>
-LOCATION_IMPORT_OPT</H3>
-<PRE>
-protected static final int <B>LOCATION_IMPORT_OPT</B></PRE>
-<DL>
-<DD>Field LOCATION_IMPORT_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.LOCATION_IMPORT_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="METHODS_ALLOWED_OPT"><!-- --></A><H3>
-METHODS_ALLOWED_OPT</H3>
-<PRE>
-protected static final int <B>METHODS_ALLOWED_OPT</B></PRE>
-<DL>
-<DD>Field METHODS_ALLOWED_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.METHODS_ALLOWED_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="NAMESPACE_OPT"><!-- --></A><H3>
-NAMESPACE_OPT</H3>
-<PRE>
-protected static final int <B>NAMESPACE_OPT</B></PRE>
-<DL>
-<DD>Field NAMESPACE_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.NAMESPACE_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="NAMESPACE_IMPL_OPT"><!-- --></A><H3>
-NAMESPACE_IMPL_OPT</H3>
-<PRE>
-protected static final int <B>NAMESPACE_IMPL_OPT</B></PRE>
-<DL>
-<DD>Field NAMESPACE_IMPL_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.NAMESPACE_IMPL_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="OUTPUT_OPT"><!-- --></A><H3>
-OUTPUT_OPT</H3>
-<PRE>
-protected static final int <B>OUTPUT_OPT</B></PRE>
-<DL>
-<DD>Field OUTPUT_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.OUTPUT_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="OUTPUT_IMPL_OPT"><!-- --></A><H3>
-OUTPUT_IMPL_OPT</H3>
-<PRE>
-protected static final int <B>OUTPUT_IMPL_OPT</B></PRE>
-<DL>
-<DD>Field OUTPUT_IMPL_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.OUTPUT_IMPL_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="PACKAGE_OPT"><!-- --></A><H3>
-PACKAGE_OPT</H3>
-<PRE>
-protected static final int <B>PACKAGE_OPT</B></PRE>
-<DL>
-<DD>Field PACKAGE_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.PACKAGE_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="PORTTYPE_NAME_OPT"><!-- --></A><H3>
-PORTTYPE_NAME_OPT</H3>
-<PRE>
-protected static final int <B>PORTTYPE_NAME_OPT</B></PRE>
-<DL>
-<DD>Field PORTTYPE_NAME_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.PORTTYPE_NAME_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="SERVICE_PORT_NAME_OPT"><!-- --></A><H3>
-SERVICE_PORT_NAME_OPT</H3>
-<PRE>
-protected static final int <B>SERVICE_PORT_NAME_OPT</B></PRE>
-<DL>
-<DD>Field SERVICE_PORT_NAME_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.SERVICE_PORT_NAME_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="SERVICE_ELEMENT_NAME_OPT"><!-- --></A><H3>
-SERVICE_ELEMENT_NAME_OPT</H3>
-<PRE>
-protected static final int <B>SERVICE_ELEMENT_NAME_OPT</B></PRE>
-<DL>
-<DD>Field SERVICE_ELEMENT_NAME_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.SERVICE_ELEMENT_NAME_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="TYPEMAPPING_OPT"><!-- --></A><H3>
-TYPEMAPPING_OPT</H3>
-<PRE>
-protected static final int <B>TYPEMAPPING_OPT</B></PRE>
-<DL>
-<DD>Field TYPEMAPPING_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.TYPEMAPPING_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="USE_OPT"><!-- --></A><H3>
-USE_OPT</H3>
-<PRE>
-protected static final int <B>USE_OPT</B></PRE>
-<DL>
-<DD>Field USE_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.USE_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="OUTPUT_WSDL_MODE_OPT"><!-- --></A><H3>
-OUTPUT_WSDL_MODE_OPT</H3>
-<PRE>
-protected static final int <B>OUTPUT_WSDL_MODE_OPT</B></PRE>
-<DL>
-<DD>Field OUTPUT_WSDL_MODE_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.OUTPUT_WSDL_MODE_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="METHODS_NOTALLOWED_OPT"><!-- --></A><H3>
-METHODS_NOTALLOWED_OPT</H3>
-<PRE>
-protected static final int <B>METHODS_NOTALLOWED_OPT</B></PRE>
-<DL>
-<DD>Field METHODS_NOTALLOWED_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.METHODS_NOTALLOWED_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="CLASSPATH_OPT"><!-- --></A><H3>
-CLASSPATH_OPT</H3>
-<PRE>
-protected static final int <B>CLASSPATH_OPT</B></PRE>
-<DL>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.CLASSPATH_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="STYLE_OPT"><!-- --></A><H3>
-STYLE_OPT</H3>
-<PRE>
-protected static final int <B>STYLE_OPT</B></PRE>
-<DL>
-<DD>Field STYLE_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.STYLE_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="DEPLOY_OPT"><!-- --></A><H3>
-DEPLOY_OPT</H3>
-<PRE>
-protected static final int <B>DEPLOY_OPT</B></PRE>
-<DL>
-<DD>Field DEPLOY_OPT
-<P>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.DEPLOY_OPT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="options"><!-- --></A><H3>
-options</H3>
-<PRE>
-protected <A HREF="../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</A>[] <B>options</B></PRE>
-<DL>
-<DD>Define the understood options. Each CLOptionDescriptor contains:
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="INHERITED_CLASS_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>INHERITED_CLASS_OPT</h4>
+<pre>protected static final&nbsp;int INHERITED_CLASS_OPT</pre>
+<div class="block">Field INHERITED_CLASS_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.INHERITED_CLASS_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="SOAPACTION_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SOAPACTION_OPT</h4>
+<pre>protected static final&nbsp;int SOAPACTION_OPT</pre>
+<div class="block">Field SOAPACTION_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.SOAPACTION_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="BINDING_NAME_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>BINDING_NAME_OPT</h4>
+<pre>protected static final&nbsp;int BINDING_NAME_OPT</pre>
+<div class="block">Field BINDING_NAME_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.BINDING_NAME_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="STOP_CLASSES_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>STOP_CLASSES_OPT</h4>
+<pre>protected static final&nbsp;int STOP_CLASSES_OPT</pre>
+<div class="block">Field STOP_CLASSES_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.STOP_CLASSES_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="IMPORT_SCHEMA_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>IMPORT_SCHEMA_OPT</h4>
+<pre>protected static final&nbsp;int IMPORT_SCHEMA_OPT</pre>
+<div class="block">Field IMPORT_SCHEMA_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.IMPORT_SCHEMA_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="EXTRA_CLASSES_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>EXTRA_CLASSES_OPT</h4>
+<pre>protected static final&nbsp;int EXTRA_CLASSES_OPT</pre>
+<div class="block">Field EXTRA_CLASSES_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.EXTRA_CLASSES_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="HELP_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>HELP_OPT</h4>
+<pre>protected static final&nbsp;int HELP_OPT</pre>
+<div class="block">Field HELP_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.HELP_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="IMPL_CLASS_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>IMPL_CLASS_OPT</h4>
+<pre>protected static final&nbsp;int IMPL_CLASS_OPT</pre>
+<div class="block">Field IMPL_CLASS_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.IMPL_CLASS_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="INPUT_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>INPUT_OPT</h4>
+<pre>protected static final&nbsp;int INPUT_OPT</pre>
+<div class="block">Field INPUT_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.INPUT_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="LOCATION_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>LOCATION_OPT</h4>
+<pre>protected static final&nbsp;int LOCATION_OPT</pre>
+<div class="block">Field LOCATION_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.LOCATION_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="LOCATION_IMPORT_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>LOCATION_IMPORT_OPT</h4>
+<pre>protected static final&nbsp;int LOCATION_IMPORT_OPT</pre>
+<div class="block">Field LOCATION_IMPORT_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.LOCATION_IMPORT_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="METHODS_ALLOWED_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>METHODS_ALLOWED_OPT</h4>
+<pre>protected static final&nbsp;int METHODS_ALLOWED_OPT</pre>
+<div class="block">Field METHODS_ALLOWED_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.METHODS_ALLOWED_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="NAMESPACE_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>NAMESPACE_OPT</h4>
+<pre>protected static final&nbsp;int NAMESPACE_OPT</pre>
+<div class="block">Field NAMESPACE_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.NAMESPACE_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="NAMESPACE_IMPL_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>NAMESPACE_IMPL_OPT</h4>
+<pre>protected static final&nbsp;int NAMESPACE_IMPL_OPT</pre>
+<div class="block">Field NAMESPACE_IMPL_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.NAMESPACE_IMPL_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="OUTPUT_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>OUTPUT_OPT</h4>
+<pre>protected static final&nbsp;int OUTPUT_OPT</pre>
+<div class="block">Field OUTPUT_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.OUTPUT_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="OUTPUT_IMPL_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>OUTPUT_IMPL_OPT</h4>
+<pre>protected static final&nbsp;int OUTPUT_IMPL_OPT</pre>
+<div class="block">Field OUTPUT_IMPL_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.OUTPUT_IMPL_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="PACKAGE_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PACKAGE_OPT</h4>
+<pre>protected static final&nbsp;int PACKAGE_OPT</pre>
+<div class="block">Field PACKAGE_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.PACKAGE_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="PORTTYPE_NAME_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>PORTTYPE_NAME_OPT</h4>
+<pre>protected static final&nbsp;int PORTTYPE_NAME_OPT</pre>
+<div class="block">Field PORTTYPE_NAME_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.PORTTYPE_NAME_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="SERVICE_PORT_NAME_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SERVICE_PORT_NAME_OPT</h4>
+<pre>protected static final&nbsp;int SERVICE_PORT_NAME_OPT</pre>
+<div class="block">Field SERVICE_PORT_NAME_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.SERVICE_PORT_NAME_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="SERVICE_ELEMENT_NAME_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SERVICE_ELEMENT_NAME_OPT</h4>
+<pre>protected static final&nbsp;int SERVICE_ELEMENT_NAME_OPT</pre>
+<div class="block">Field SERVICE_ELEMENT_NAME_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.SERVICE_ELEMENT_NAME_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="TYPEMAPPING_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>TYPEMAPPING_OPT</h4>
+<pre>protected static final&nbsp;int TYPEMAPPING_OPT</pre>
+<div class="block">Field TYPEMAPPING_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.TYPEMAPPING_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="USE_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>USE_OPT</h4>
+<pre>protected static final&nbsp;int USE_OPT</pre>
+<div class="block">Field USE_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.USE_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="OUTPUT_WSDL_MODE_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>OUTPUT_WSDL_MODE_OPT</h4>
+<pre>protected static final&nbsp;int OUTPUT_WSDL_MODE_OPT</pre>
+<div class="block">Field OUTPUT_WSDL_MODE_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.OUTPUT_WSDL_MODE_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="METHODS_NOTALLOWED_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>METHODS_NOTALLOWED_OPT</h4>
+<pre>protected static final&nbsp;int METHODS_NOTALLOWED_OPT</pre>
+<div class="block">Field METHODS_NOTALLOWED_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.METHODS_NOTALLOWED_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="CLASSPATH_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CLASSPATH_OPT</h4>
+<pre>protected static final&nbsp;int CLASSPATH_OPT</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.CLASSPATH_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="STYLE_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>STYLE_OPT</h4>
+<pre>protected static final&nbsp;int STYLE_OPT</pre>
+<div class="block">Field STYLE_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.STYLE_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="DEPLOY_OPT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEPLOY_OPT</h4>
+<pre>protected static final&nbsp;int DEPLOY_OPT</pre>
+<div class="block">Field DEPLOY_OPT</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.wsdl.Java2WSDL.DEPLOY_OPT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="options">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>options</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</a>[] options</pre>
+<div class="block">Define the understood options. Each CLOptionDescriptor contains:
  - The "long" version of the option. Eg, "help" means that "--help" will
  be recognised.
  - The option flags, governing the option's argument(s).
  - The "short" version of the option. Eg, 'h' means that "-h" will be
  recognised.
- - A description of the option for the usage message
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="emitter"><!-- --></A><H3>
-emitter</H3>
-<PRE>
-protected <A HREF="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</A> <B>emitter</B></PRE>
-<DL>
-<DD>Field emitter
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="className"><!-- --></A><H3>
-className</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>className</B></PRE>
-<DL>
-<DD>Field className
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="wsdlFilename"><!-- --></A><H3>
-wsdlFilename</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>wsdlFilename</B></PRE>
-<DL>
-<DD>Field wsdlFilename
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="wsdlImplFilename"><!-- --></A><H3>
-wsdlImplFilename</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>wsdlImplFilename</B></PRE>
-<DL>
-<DD>Field wsdlImplFilename
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="namespaceMap"><!-- --></A><H3>
-namespaceMap</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</A> <B>namespaceMap</B></PRE>
-<DL>
-<DD>Field namespaceMap
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="mode"><!-- --></A><H3>
-mode</H3>
-<PRE>
-protected int <B>mode</B></PRE>
-<DL>
-<DD>Field mode
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="typeMappingVersion"><!-- --></A><H3>
-typeMappingVersion</H3>
-<PRE>
-protected <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>typeMappingVersion</B></PRE>
-<DL>
-<DD>Field typeMappingVersion
-<P>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="isDeploy"><!-- --></A><H3>
-isDeploy</H3>
-<PRE>
-protected boolean <B>isDeploy</B></PRE>
-<DL>
-<DD>Field isDeplpy
-<P>
-<DL>
-</DL>
-</DL>
-
+ - A description of the option for the usage message</div>
+</li>
+</ul>
+<a name="emitter">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>emitter</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</a> emitter</pre>
+<div class="block">Field emitter</div>
+</li>
+</ul>
+<a name="className">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>className</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> className</pre>
+<div class="block">Field className</div>
+</li>
+</ul>
+<a name="wsdlFilename">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>wsdlFilename</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> wsdlFilename</pre>
+<div class="block">Field wsdlFilename</div>
+</li>
+</ul>
+<a name="wsdlImplFilename">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>wsdlImplFilename</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> wsdlImplFilename</pre>
+<div class="block">Field wsdlImplFilename</div>
+</li>
+</ul>
+<a name="namespaceMap">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>namespaceMap</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a> namespaceMap</pre>
+<div class="block">Field namespaceMap</div>
+</li>
+</ul>
+<a name="mode">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>mode</h4>
+<pre>protected&nbsp;int mode</pre>
+<div class="block">Field mode</div>
+</li>
+</ul>
+<a name="typeMappingVersion">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>typeMappingVersion</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> typeMappingVersion</pre>
+<div class="block">Field typeMappingVersion</div>
+</li>
+</ul>
+<a name="isDeploy">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isDeploy</h4>
+<pre>protected&nbsp;boolean isDeploy</pre>
+<div class="block">Field isDeplpy</div>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-
-<A NAME="constructor_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Constructor Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="Java2WSDL()"><!-- --></A><H3>
-Java2WSDL</H3>
-<PRE>
-protected <B>Java2WSDL</B>()</PRE>
-<DL>
-<DD>Instantiate a Java2WSDL emitter.
-<P>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="Java2WSDL()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Java2WSDL</h4>
+<pre>protected&nbsp;Java2WSDL()</pre>
+<div class="block">Instantiate a Java2WSDL emitter.</div>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
-
-<A NAME="method_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Method Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="createEmitter()"><!-- --></A><H3>
-createEmitter</H3>
-<PRE>
-protected <A HREF="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</A> <B>createEmitter</B>()</PRE>
-<DL>
-<DD>Instantiate an Emitter
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="addOptions(org.apache.axis.utils.CLOptionDescriptor[])"><!-- --></A><H3>
-addOptions</H3>
-<PRE>
-protected void <B>addOptions</B>(<A HREF="../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</A>[]&nbsp;newOptions)</PRE>
-<DL>
-<DD>addOptions
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="createEmitter()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createEmitter</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</a>&nbsp;createEmitter()</pre>
+<div class="block">Instantiate an Emitter</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="addOptions(org.apache.axis.utils.CLOptionDescriptor[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addOptions</h4>
+<pre>protected&nbsp;void&nbsp;addOptions(<a href="../../../../org/apache/axis/utils/CLOptionDescriptor.html" title="class in org.apache.axis.utils">CLOptionDescriptor</a>[]&nbsp;newOptions)</pre>
+<div class="block">addOptions
  Add option descriptions to the tool.  Allows
- extended classes to add additional options.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>newOptions</CODE> - CLOptionDescriptor[] the options</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="parseOption(org.apache.axis.utils.CLOption)"><!-- --></A><H3>
-parseOption</H3>
-<PRE>
-protected boolean <B>parseOption</B>(<A HREF="../../../../org/apache/axis/utils/CLOption.html" title="class in org.apache.axis.utils">CLOption</A>&nbsp;option)</PRE>
-<DL>
-<DD>Parse an option
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>option</CODE> - CLOption is the option
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="validateOptions()"><!-- --></A><H3>
-validateOptions</H3>
-<PRE>
-protected boolean <B>validateOptions</B>()</PRE>
-<DL>
-<DD>validateOptions
+ extended classes to add additional options.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>newOptions</code> - CLOptionDescriptor[] the options</dd></dl>
+</li>
+</ul>
+<a name="parseOption(org.apache.axis.utils.CLOption)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>parseOption</h4>
+<pre>protected&nbsp;boolean&nbsp;parseOption(<a href="../../../../org/apache/axis/utils/CLOption.html" title="class in org.apache.axis.utils">CLOption</a>&nbsp;option)</pre>
+<div class="block">Parse an option</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>option</code> - CLOption is the option</dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="validateOptions()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>validateOptions</h4>
+<pre>protected&nbsp;boolean&nbsp;validateOptions()</pre>
+<div class="block">validateOptions
  This method is invoked after the options are set to validate
- the option settings.
-<P>
-<DD><DL>
-
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="run(java.lang.String[])"><!-- --></A><H3>
-run</H3>
-<PRE>
-protected int <B>run</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;args)</PRE>
-<DL>
-<DD>run
- checks the command-line arguments and runs the tool.
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>args</CODE> - String[] command-line arguments.
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="generateServerSide(org.apache.axis.wsdl.fromJava.Emitter, java.lang.String)"><!-- --></A><H3>
-generateServerSide</H3>
-<PRE>
-protected void <B>generateServerSide</B>(<A HREF="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</A>&nbsp;j2w,
-                                  <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;wsdlFileName)
-                           throws <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></PRE>
-<DL>
-<DD>Generate the server side artifacts from the generated WSDL
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>j2w</CODE> - the Java2WSDL emitter<DD><CODE>wsdlFileName</CODE> - the generated WSDL file
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="printUsage()"><!-- --></A><H3>
-printUsage</H3>
-<PRE>
-protected void <B>printUsage</B>()</PRE>
-<DL>
-<DD>printUsage
- print usage information and quit.
-<P>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="main(java.lang.String[])"><!-- --></A><H3>
-main</H3>
-<PRE>
-public static void <B>main</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;args)</PRE>
-<DL>
-<DD>Main
- Run the Java2WSDL emitter with the specified command-line arguments
-<P>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>args</CODE> - String[] command-line arguments</DL>
-</DD>
-</DL>
+ the option settings.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="run(java.lang.String[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>run</h4>
+<pre>protected&nbsp;int&nbsp;run(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</pre>
+<div class="block">run
+ checks the command-line arguments and runs the tool.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>args</code> - String[] command-line arguments.</dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="generateServerSide(org.apache.axis.wsdl.fromJava.Emitter, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateServerSide</h4>
+<pre>protected&nbsp;void&nbsp;generateServerSide(<a href="../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</a>&nbsp;j2w,
+                      <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wsdlFileName)
+                           throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<div class="block">Generate the server side artifacts from the generated WSDL</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>j2w</code> - the Java2WSDL emitter</dd><dd><code>wsdlFileName</code> - the generated WSDL file</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
+<a name="printUsage()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>printUsage</h4>
+<pre>protected&nbsp;void&nbsp;printUsage()</pre>
+<div class="block">printUsage
+ print usage information and quit.</div>
+</li>
+</ul>
+<a name="main(java.lang.String[])">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>main</h4>
+<pre>public static&nbsp;void&nbsp;main(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</pre>
+<div class="block">Main
+ Run the Java2WSDL emitter with the specified command-line arguments</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>args</code> - String[] command-line arguments</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <!-- ========= END OF CLASS DATA ========= -->
-<HR>
-
-
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<A NAME="navbar_bottom"><!-- --></A>
-<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_bottom_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Java2WSDL.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;PREV CLASS&nbsp;
-&nbsp;<A HREF="../../../../org/apache/axis/wsdl/Skeleton.html" title="interface in org.apache.axis.wsdl"><B>NEXT CLASS</B></A></FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../index.html?org/apache/axis/wsdl/Java2WSDL.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="Java2WSDL.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Java2WSDL.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>Prev Class</li>
+<li><a href="../../../../org/apache/axis/wsdl/Skeleton.html" title="interface in org.apache.axis.wsdl"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/apache/axis/wsdl/Java2WSDL.html" target="_top">Frames</a></li>
+<li><a href="Java2WSDL.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
   if(window==top) {
-    document.writeln('<A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_bottom"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-
-<HR>
-Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.
-</BODY>
-</HTML>
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

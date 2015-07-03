@@ -1,812 +1,671 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--NewPage-->
-<HTML>
-<HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>
-SimpleAxisServer (Apache Axis)
-</TITLE>
-
-
-<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
-
-<SCRIPT type="text/javascript">
-function windowTitle()
-{
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SimpleAxisServer (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
         parent.document.title="SimpleAxisServer (Apache Axis)";
     }
-}
-</SCRIPT>
-<NOSCRIPT>
-</NOSCRIPT>
-
-</HEAD>
-
-<BODY BGCOLOR="white" onload="windowTitle();">
-<HR>
-
-
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
 <!-- ========= START OF TOP NAVBAR ======= -->
-<A NAME="navbar_top"><!-- --></A>
-<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_top_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SimpleAxisServer.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../org/apache/axis/transport/http/ServletEndpointContextImpl.html" title="class in org.apache.axis.transport.http"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;<A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisWorker.html" title="class in org.apache.axis.transport.http"><B>NEXT CLASS</B></A></FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../index.html?org/apache/axis/transport/http/SimpleAxisServer.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="SimpleAxisServer.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/SimpleAxisServer.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/transport/http/ServletEndpointContextImpl.html" title="class in org.apache.axis.transport.http"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis/transport/http/SimpleAxisWorker.html" title="class in org.apache.axis.transport.http"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/transport/http/SimpleAxisServer.html" target="_top">Frames</a></li>
+<li><a href="SimpleAxisServer.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_top"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-
-<HR>
 <!-- ======== START OF CLASS DATA ======== -->
-<H2>
-<FONT SIZE="-1">
-org.apache.axis.transport.http</FONT>
-<BR>
-Class SimpleAxisServer</H2>
-<PRE>
-<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
-  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.axis.transport.http.SimpleAxisServer</B>
-</PRE>
-<DL>
-<DT><B>All Implemented Interfaces:</B> <DD><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</A></DD>
-</DL>
-<HR>
-<DL>
-<DT><PRE>public class <B>SimpleAxisServer</B><DT>extends <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A><DT>implements <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</A></DL>
-</PRE>
-
-<P>
-This is a simple implementation of an HTTP server for processing
+<div class="header">
+<div class="subTitle">org.apache.axis.transport.http</div>
+<h2 title="Class SimpleAxisServer" class="title">Class SimpleAxisServer</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.transport.http.SimpleAxisServer</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public class <span class="strong">SimpleAxisServer</span>
+extends <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a></pre>
+<div class="block">This is a simple implementation of an HTTP server for processing
  SOAP requests via Apache's xml-axis.  This is not intended for production
  use.  Its intended uses are for demos, debugging, and performance
  profiling.
 
  Note this classes uses static objects to provide a thread pool, so you should
  not use multiple instances of this class in the same JVM/classloader unless
- you want bad things to happen at shutdown.
-<P>
-
-<P>
-<DL>
-<DT><B>Author:</B></DT>
-  <DD>Sam Ruby (ruby@us.ibm.com), Rob Jellinghaus (robj@unrealities.com), Alireza Taherkordi (a_taherkordi@users.sourceforge.net)</DD>
-</DL>
-<HR>
-
-<P>
+ you want bad things to happen at shutdown.</div>
+<dl><dt><span class="strong">Author:</span></dt>
+  <dd>Sam Ruby (ruby@us.ibm.com), Rob Jellinghaus (robj@unrealities.com), Alireza Taherkordi (a_taherkordi@users.sourceforge.net)</dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
 <!-- =========== FIELD SUMMARY =========== -->
-
-<A NAME="field_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Field Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected static&nbsp;org.apache.commons.logging.Log</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#log">log</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#MAX_SESSIONS_DEFAULT">MAX_SESSIONS_DEFAULT</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#sessionIndex">sessionIndex</A></B></CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static org.apache.commons.logging.Log</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#log">log</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#MAX_SESSIONS_DEFAULT">MAX_SESSIONS_DEFAULT</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#sessionIndex">sessionIndex</a></strong></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-
-<A NAME="constructor_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Constructor Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#SimpleAxisServer()">SimpleAxisServer</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;create a server with the default threads and sessions.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#SimpleAxisServer(int)">SimpleAxisServer</A></B>(int&nbsp;maxPoolSize)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a server with a configurable pool side; sessions set to the default
- limit</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#SimpleAxisServer(int, int)">SimpleAxisServer</A></B>(int&nbsp;maxPoolSize,
-                 int&nbsp;maxSessions)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructor</TD>
-</TR>
-</TABLE>
-&nbsp;
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#SimpleAxisServer()">SimpleAxisServer</a></strong>()</code>
+<div class="block">create a server with the default threads and sessions.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#SimpleAxisServer(int)">SimpleAxisServer</a></strong>(int&nbsp;maxPoolSize)</code>
+<div class="block">Create a server with a configurable pool side; sessions set to the default
+ limit</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#SimpleAxisServer(int,%20int)">SimpleAxisServer</a></strong>(int&nbsp;maxPoolSize,
+                int&nbsp;maxSessions)</code>
+<div class="block">Constructor</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
-
-<A NAME="method_summary"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
-<B>Method Summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;<A HREF="../../../../../org/apache/axis/session/Session.html" title="interface in org.apache.axis.session">Session</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#createSession(java.lang.String)">createSession</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;cooky)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;demand create a session if there is not already one for the string</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#finalize()">finalize</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stop the server if not already told to.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;<A HREF="../../../../../org/apache/axis/server/AxisServer.html" title="class in org.apache.axis.server">AxisServer</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getAxisServer()">getAxisServer</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;demand create an axis server; return an existing one if one exists.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getDoThreads()">getDoThreads</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;int</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getMaxSessions()">getMaxSessions</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get max session count</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;<A HREF="../../../../../org/apache/axis/EngineConfiguration.html" title="interface in org.apache.axis">EngineConfiguration</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getMyConfig()">getMyConfig</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;<A HREF="../../../../../org/apache/axis/components/threadpool/ThreadPool.html" title="class in org.apache.axis.components.threadpool">ThreadPool</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getPool()">getPool</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get the thread pool</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/ServerSocket.html?is-external=true" title="class or interface in java.net">ServerSocket</A></CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getServerSocket()">getServerSocket</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obtain the serverSocket that that SimpleAxisServer is listening on.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>protected &nbsp;boolean</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#isSessionUsed()">isSessionUsed</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>static&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#main(java.lang.String[])">main</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;args)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server process.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#run()">run</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accept requests from a given TCP port and send them through the
- Axis engine for processing.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#setDoThreads(boolean)">setDoThreads</A></B>(boolean&nbsp;value)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;turn threading on or off.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#setMaxSessions(int)">setMaxSessions</A></B>(int&nbsp;maxSessions)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resize the session map</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#setMyConfig(org.apache.axis.EngineConfiguration)">setMyConfig</A></B>(<A HREF="../../../../../org/apache/axis/EngineConfiguration.html" title="interface in org.apache.axis">EngineConfiguration</A>&nbsp;myConfig)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#setServerSocket(java.net.ServerSocket)">setServerSocket</A></B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/ServerSocket.html?is-external=true" title="class or interface in java.net">ServerSocket</A>&nbsp;serverSocket)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the serverSocket this server should listen on.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#start()">start</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start this server as a NON-daemon.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#start(boolean)">start</A></B>(boolean&nbsp;daemon)</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start this server.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
-<CODE>&nbsp;void</CODE></FONT></TD>
-<TD><CODE><B><A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#stop()">stop</A></B>()</CODE>
-
-<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stop this server.</TD>
-</TR>
-</TABLE>
-&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
-<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
-</TR>
-</TABLE>
-&nbsp;
-<P>
-
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/axis/session/Session.html" title="interface in org.apache.axis.session">Session</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#createSession(java.lang.String)">createSession</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;cooky)</code>
+<div class="block">demand create a session if there is not already one for the string</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#finalize()">finalize</a></strong>()</code>
+<div class="block">stop the server if not already told to.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis/server/AxisServer.html" title="class in org.apache.axis.server">AxisServer</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getAxisServer()">getAxisServer</a></strong>()</code>
+<div class="block">demand create an axis server; return an existing one if one exists.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getDoThreads()">getDoThreads</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getMaxSessions()">getMaxSessions</a></strong>()</code>
+<div class="block">get max session count</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis/EngineConfiguration.html" title="interface in org.apache.axis">EngineConfiguration</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getMyConfig()">getMyConfig</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../org/apache/axis/components/threadpool/ThreadPool.html" title="class in org.apache.axis.components.threadpool">ThreadPool</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getPool()">getPool</a></strong>()</code>
+<div class="block">get the thread pool</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/ServerSocket.html?is-external=true" title="class or interface in java.net">ServerSocket</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#getServerSocket()">getServerSocket</a></strong>()</code>
+<div class="block">Obtain the serverSocket that that SimpleAxisServer is listening on.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#isSessionUsed()">isSessionUsed</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#main(java.lang.String[])">main</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</code>
+<div class="block">Server process.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#run()">run</a></strong>()</code>
+<div class="block">Accept requests from a given TCP port and send them through the
+ Axis engine for processing.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#setDoThreads(boolean)">setDoThreads</a></strong>(boolean&nbsp;value)</code>
+<div class="block">turn threading on or off.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#setMaxSessions(int)">setMaxSessions</a></strong>(int&nbsp;maxSessions)</code>
+<div class="block">Resize the session map</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#setMyConfig(org.apache.axis.EngineConfiguration)">setMyConfig</a></strong>(<a href="../../../../../org/apache/axis/EngineConfiguration.html" title="interface in org.apache.axis">EngineConfiguration</a>&nbsp;myConfig)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#setServerSocket(java.net.ServerSocket)">setServerSocket</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/ServerSocket.html?is-external=true" title="class or interface in java.net">ServerSocket</a>&nbsp;serverSocket)</code>
+<div class="block">Set the serverSocket this server should listen on.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#start()">start</a></strong>()</code>
+<div class="block">Start this server as a NON-daemon.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#start(boolean)">start</a></strong>(boolean&nbsp;daemon)</code>
+<div class="block">Start this server.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/transport/http/SimpleAxisServer.html#stop()">stop</a></strong>()</code>
+<div class="block">Stop this server.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
 <!-- ============ FIELD DETAIL =========== -->
-
-<A NAME="field_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Field Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="log"><!-- --></A><H3>
-log</H3>
-<PRE>
-protected static org.apache.commons.logging.Log <B>log</B></PRE>
-<DL>
-<DL>
-</DL>
-</DL>
-<HR>
-
-<A NAME="MAX_SESSIONS_DEFAULT"><!-- --></A><H3>
-MAX_SESSIONS_DEFAULT</H3>
-<PRE>
-public static final int <B>MAX_SESSIONS_DEFAULT</B></PRE>
-<DL>
-<DL>
-<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.axis.transport.http.SimpleAxisServer.MAX_SESSIONS_DEFAULT">Constant Field Values</A></DL>
-</DL>
-<HR>
-
-<A NAME="sessionIndex"><!-- --></A><H3>
-sessionIndex</H3>
-<PRE>
-public static int <B>sessionIndex</B></PRE>
-<DL>
-<DL>
-</DL>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="log">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>log</h4>
+<pre>protected static&nbsp;org.apache.commons.logging.Log log</pre>
+</li>
+</ul>
+<a name="MAX_SESSIONS_DEFAULT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>MAX_SESSIONS_DEFAULT</h4>
+<pre>public static final&nbsp;int MAX_SESSIONS_DEFAULT</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.transport.http.SimpleAxisServer.MAX_SESSIONS_DEFAULT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="sessionIndex">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>sessionIndex</h4>
+<pre>public static&nbsp;int sessionIndex</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-
-<A NAME="constructor_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Constructor Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="SimpleAxisServer()"><!-- --></A><H3>
-SimpleAxisServer</H3>
-<PRE>
-public <B>SimpleAxisServer</B>()</PRE>
-<DL>
-<DD>create a server with the default threads and sessions.
-<P>
-</DL>
-<HR>
-
-<A NAME="SimpleAxisServer(int)"><!-- --></A><H3>
-SimpleAxisServer</H3>
-<PRE>
-public <B>SimpleAxisServer</B>(int&nbsp;maxPoolSize)</PRE>
-<DL>
-<DD>Create a server with a configurable pool side; sessions set to the default
- limit
-<P>
-<DL>
-<DT><B>Parameters:</B><DD><CODE>maxPoolSize</CODE> - maximum thread pool size</DL>
-</DL>
-<HR>
-
-<A NAME="SimpleAxisServer(int, int)"><!-- --></A><H3>
-SimpleAxisServer</H3>
-<PRE>
-public <B>SimpleAxisServer</B>(int&nbsp;maxPoolSize,
-                        int&nbsp;maxSessions)</PRE>
-<DL>
-<DD>Constructor
-<P>
-<DL>
-<DT><B>Parameters:</B><DD><CODE>maxPoolSize</CODE> - max number of threads<DD><CODE>maxSessions</CODE> - maximum sessions</DL>
-</DL>
-
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="SimpleAxisServer()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SimpleAxisServer</h4>
+<pre>public&nbsp;SimpleAxisServer()</pre>
+<div class="block">create a server with the default threads and sessions.</div>
+</li>
+</ul>
+<a name="SimpleAxisServer(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SimpleAxisServer</h4>
+<pre>public&nbsp;SimpleAxisServer(int&nbsp;maxPoolSize)</pre>
+<div class="block">Create a server with a configurable pool side; sessions set to the default
+ limit</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>maxPoolSize</code> - maximum thread pool size</dd></dl>
+</li>
+</ul>
+<a name="SimpleAxisServer(int, int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>SimpleAxisServer</h4>
+<pre>public&nbsp;SimpleAxisServer(int&nbsp;maxPoolSize,
+                int&nbsp;maxSessions)</pre>
+<div class="block">Constructor</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>maxPoolSize</code> - max number of threads</dd><dd><code>maxSessions</code> - maximum sessions</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
-
-<A NAME="method_detail"><!-- --></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
-<B>Method Detail</B></FONT></TH>
-</TR>
-</TABLE>
-
-<A NAME="getPool()"><!-- --></A><H3>
-getPool</H3>
-<PRE>
-public static <A HREF="../../../../../org/apache/axis/components/threadpool/ThreadPool.html" title="class in org.apache.axis.components.threadpool">ThreadPool</A> <B>getPool</B>()</PRE>
-<DL>
-<DD>get the thread pool
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="finalize()"><!-- --></A><H3>
-finalize</H3>
-<PRE>
-protected void <B>finalize</B>()
-                 throws <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</A></PRE>
-<DL>
-<DD>stop the server if not already told to.
-<P>
-<DD><DL>
-<DT><B>Overrides:</B><DD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</A></CODE> in class <CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></CODE></DL>
-</DD>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getMaxSessions()"><!-- --></A><H3>
-getMaxSessions</H3>
-<PRE>
-public int <B>getMaxSessions</B>()</PRE>
-<DL>
-<DD>get max session count
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="setMaxSessions(int)"><!-- --></A><H3>
-setMaxSessions</H3>
-<PRE>
-public void <B>setMaxSessions</B>(int&nbsp;maxSessions)</PRE>
-<DL>
-<DD>Resize the session map
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>maxSessions</CODE> - maximum sessions</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="isSessionUsed()"><!-- --></A><H3>
-isSessionUsed</H3>
-<PRE>
-protected boolean <B>isSessionUsed</B>()</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="setDoThreads(boolean)"><!-- --></A><H3>
-setDoThreads</H3>
-<PRE>
-public void <B>setDoThreads</B>(boolean&nbsp;value)</PRE>
-<DL>
-<DD>turn threading on or off. This sets a static value
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>value</CODE> - </DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getDoThreads()"><!-- --></A><H3>
-getDoThreads</H3>
-<PRE>
-public boolean <B>getDoThreads</B>()</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getMyConfig()"><!-- --></A><H3>
-getMyConfig</H3>
-<PRE>
-public <A HREF="../../../../../org/apache/axis/EngineConfiguration.html" title="interface in org.apache.axis">EngineConfiguration</A> <B>getMyConfig</B>()</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="setMyConfig(org.apache.axis.EngineConfiguration)"><!-- --></A><H3>
-setMyConfig</H3>
-<PRE>
-public void <B>setMyConfig</B>(<A HREF="../../../../../org/apache/axis/EngineConfiguration.html" title="interface in org.apache.axis">EngineConfiguration</A>&nbsp;myConfig)</PRE>
-<DL>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="createSession(java.lang.String)"><!-- --></A><H3>
-createSession</H3>
-<PRE>
-protected <A HREF="../../../../../org/apache/axis/session/Session.html" title="interface in org.apache.axis.session">Session</A> <B>createSession</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;cooky)</PRE>
-<DL>
-<DD>demand create a session if there is not already one for the string
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>cooky</CODE> - 
-<DT><B>Returns:</B><DD>a session.</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getAxisServer()"><!-- --></A><H3>
-getAxisServer</H3>
-<PRE>
-public <A HREF="../../../../../org/apache/axis/server/AxisServer.html" title="class in org.apache.axis.server">AxisServer</A> <B>getAxisServer</B>()</PRE>
-<DL>
-<DD>demand create an axis server; return an existing one if one exists.
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getPool()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPool</h4>
+<pre>public static&nbsp;<a href="../../../../../org/apache/axis/components/threadpool/ThreadPool.html" title="class in org.apache.axis.components.threadpool">ThreadPool</a>&nbsp;getPool()</pre>
+<div class="block">get the thread pool</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="finalize()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>finalize</h4>
+<pre>protected&nbsp;void&nbsp;finalize()
+                 throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></pre>
+<div class="block">stop the server if not already told to.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></code></dd></dl>
+</li>
+</ul>
+<a name="getMaxSessions()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMaxSessions</h4>
+<pre>public&nbsp;int&nbsp;getMaxSessions()</pre>
+<div class="block">get max session count</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setMaxSessions(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMaxSessions</h4>
+<pre>public&nbsp;void&nbsp;setMaxSessions(int&nbsp;maxSessions)</pre>
+<div class="block">Resize the session map</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>maxSessions</code> - maximum sessions</dd></dl>
+</li>
+</ul>
+<a name="isSessionUsed()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isSessionUsed</h4>
+<pre>protected&nbsp;boolean&nbsp;isSessionUsed()</pre>
+</li>
+</ul>
+<a name="setDoThreads(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDoThreads</h4>
+<pre>public&nbsp;void&nbsp;setDoThreads(boolean&nbsp;value)</pre>
+<div class="block">turn threading on or off. This sets a static value</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="getDoThreads()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDoThreads</h4>
+<pre>public&nbsp;boolean&nbsp;getDoThreads()</pre>
+</li>
+</ul>
+<a name="getMyConfig()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMyConfig</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/axis/EngineConfiguration.html" title="interface in org.apache.axis">EngineConfiguration</a>&nbsp;getMyConfig()</pre>
+</li>
+</ul>
+<a name="setMyConfig(org.apache.axis.EngineConfiguration)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMyConfig</h4>
+<pre>public&nbsp;void&nbsp;setMyConfig(<a href="../../../../../org/apache/axis/EngineConfiguration.html" title="interface in org.apache.axis">EngineConfiguration</a>&nbsp;myConfig)</pre>
+</li>
+</ul>
+<a name="createSession(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSession</h4>
+<pre>protected&nbsp;<a href="../../../../../org/apache/axis/session/Session.html" title="interface in org.apache.axis.session">Session</a>&nbsp;createSession(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;cooky)</pre>
+<div class="block">demand create a session if there is not already one for the string</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>cooky</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd>a session.</dd></dl>
+</li>
+</ul>
+<a name="getAxisServer()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAxisServer</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/axis/server/AxisServer.html" title="class in org.apache.axis.server">AxisServer</a>&nbsp;getAxisServer()</pre>
+<div class="block">demand create an axis server; return an existing one if one exists.
  The configuration for the axis server is derived from #myConfig if not null,
- the default config otherwise.
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-
-<DT><B>Returns:</B><DD></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="run()"><!-- --></A><H3>
-run</H3>
-<PRE>
-public void <B>run</B>()</PRE>
-<DL>
-<DD>Accept requests from a given TCP port and send them through the
- Axis engine for processing.
-<P>
-<DD><DL>
-<DT><B>Specified by:</B><DD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Runnable.html?is-external=true#run()" title="class or interface in java.lang">run</A></CODE> in interface <CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</A></CODE></DL>
-</DD>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="getServerSocket()"><!-- --></A><H3>
-getServerSocket</H3>
-<PRE>
-public <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/ServerSocket.html?is-external=true" title="class or interface in java.net">ServerSocket</A> <B>getServerSocket</B>()</PRE>
-<DL>
-<DD>Obtain the serverSocket that that SimpleAxisServer is listening on.
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="setServerSocket(java.net.ServerSocket)"><!-- --></A><H3>
-setServerSocket</H3>
-<PRE>
-public void <B>setServerSocket</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/ServerSocket.html?is-external=true" title="class or interface in java.net">ServerSocket</A>&nbsp;serverSocket)</PRE>
-<DL>
-<DD>Set the serverSocket this server should listen on.
+ the default config otherwise.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="run()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>run</h4>
+<pre>public&nbsp;void&nbsp;run()</pre>
+<div class="block">Accept requests from a given TCP port and send them through the
+ Axis engine for processing.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Runnable.html?is-external=true#run()" title="class or interface in java.lang">run</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getServerSocket()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServerSocket</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/ServerSocket.html?is-external=true" title="class or interface in java.net">ServerSocket</a>&nbsp;getServerSocket()</pre>
+<div class="block">Obtain the serverSocket that that SimpleAxisServer is listening on.</div>
+</li>
+</ul>
+<a name="setServerSocket(java.net.ServerSocket)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setServerSocket</h4>
+<pre>public&nbsp;void&nbsp;setServerSocket(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/ServerSocket.html?is-external=true" title="class or interface in java.net">ServerSocket</a>&nbsp;serverSocket)</pre>
+<div class="block">Set the serverSocket this server should listen on.
  (note : changing this will not affect a running server, but if you
-  stop() and then start() the server, the new socket will be used).
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
+  stop() and then start() the server, the new socket will be used).</div>
+</li>
+</ul>
+<a name="start(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>start</h4>
+<pre>public&nbsp;void&nbsp;start(boolean&nbsp;daemon)
+           throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<div class="block">Start this server.
 
-<A NAME="start(boolean)"><!-- --></A><H3>
-start</H3>
-<PRE>
-public void <B>start</B>(boolean&nbsp;daemon)
-           throws <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></PRE>
-<DL>
-<DD>Start this server.
-
- Spawns a worker thread to listen for HTTP requests.
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-<DT><B>Parameters:</B><DD><CODE>daemon</CODE> - a boolean indicating if the thread should be a daemon.
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="start()"><!-- --></A><H3>
-start</H3>
-<PRE>
-public void <B>start</B>()
-           throws <A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></PRE>
-<DL>
-<DD>Start this server as a NON-daemon.
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-
-<DT><B>Throws:</B>
-<DD><CODE><A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</A></CODE></DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="stop()"><!-- --></A><H3>
-stop</H3>
-<PRE>
-public void <B>stop</B>()</PRE>
-<DL>
-<DD>Stop this server. Can be called safely if the system is already stopped,
+ Spawns a worker thread to listen for HTTP requests.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>daemon</code> - a boolean indicating if the thread should be a daemon.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
+<a name="start()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>start</h4>
+<pre>public&nbsp;void&nbsp;start()
+           throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<div class="block">Start this server as a NON-daemon.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
+<a name="stop()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>stop</h4>
+<pre>public&nbsp;void&nbsp;stop()</pre>
+<div class="block">Stop this server. Can be called safely if the system is already stopped,
  or if it was never started.
 
- This will interrupt any pending accept().
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-</DL>
-</DD>
-</DL>
-<HR>
-
-<A NAME="main(java.lang.String[])"><!-- --></A><H3>
-main</H3>
-<PRE>
-public static void <B>main</B>(<A HREF="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]&nbsp;args)</PRE>
-<DL>
-<DD>Server process.
-<P>
-<DD><DL>
-</DL>
-</DD>
-<DD><DL>
-</DL>
-</DD>
-</DL>
+ This will interrupt any pending accept().</div>
+</li>
+</ul>
+<a name="main(java.lang.String[])">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>main</h4>
+<pre>public static&nbsp;void&nbsp;main(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;args)</pre>
+<div class="block">Server process.</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <!-- ========= END OF CLASS DATA ========= -->
-<HR>
-
-
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
-<A NAME="navbar_bottom"><!-- --></A>
-<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<A NAME="navbar_bottom_firstrow"><!-- --></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-  <TR ALIGN="center" VALIGN="top">
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SimpleAxisServer.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
-  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
-  </TR>
-</TABLE>
-</TD>
-<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
-</EM>
-</TD>
-</TR>
-
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-&nbsp;<A HREF="../../../../../org/apache/axis/transport/http/ServletEndpointContextImpl.html" title="class in org.apache.axis.transport.http"><B>PREV CLASS</B></A>&nbsp;
-&nbsp;<A HREF="../../../../../org/apache/axis/transport/http/SimpleAxisWorker.html" title="class in org.apache.axis.transport.http"><B>NEXT CLASS</B></A></FONT></TD>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
-  <A HREF="../../../../../index.html?org/apache/axis/transport/http/SimpleAxisServer.html" target="_top"><B>FRAMES</B></A>  &nbsp;
-&nbsp;<A HREF="SimpleAxisServer.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
-&nbsp;<SCRIPT type="text/javascript">
-  <!--
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/SimpleAxisServer.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/transport/http/ServletEndpointContextImpl.html" title="class in org.apache.axis.transport.http"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis/transport/http/SimpleAxisWorker.html" title="class in org.apache.axis.transport.http"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/transport/http/SimpleAxisServer.html" target="_top">Frames</a></li>
+<li><a href="SimpleAxisServer.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
   if(window==top) {
-    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
   }
   //-->
-</SCRIPT>
-<NOSCRIPT>
-  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-
-
-</FONT></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
-DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
-</TR>
-</TABLE>
-<A NAME="skip-navbar_bottom"></A>
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-
-<HR>
-Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.
-</BODY>
-</HTML>
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>
