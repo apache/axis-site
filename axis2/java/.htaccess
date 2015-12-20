@@ -12,6 +12,11 @@ RedirectMatch permanent ^/axis2/java/core/[0-9_]+/((adb|images|jibx|src)/.*)$ ht
 RedirectMatch permanent ^/axis2/java/core/tools/[0-9_]+/(.*)$ http://axis.apache.org/axis2/java/core/tools/$1
 RedirectMatch permanent ^/axis2/java/core/download/([0-9_]+)/download\.cgi$ http://axis.apache.org/axis2/java/core/download.cgi#a$1
 
+# Since 1.6.4/1.7.0, Axis2 core uses the more standard "apidocs" instead of "api"
+
+Redirect permanent /axis2/java/core/api http://axis.apache.org/axis2/java/core/apidocs/
+RedirectMatch permanent ^/axis2/java/core/api/(.*)$ http://axis.apache.org/axis2/java/core/apidocs/$1
+
 # Mark very old (Axis 2.0 milestone) links as gone
 
 Redirect gone /axis2/java/core/multiproject
