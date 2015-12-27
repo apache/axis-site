@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PostDispatchVerificationHandler.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.handler</a> &gt; <span class="el_source">PostDispatchVerificationHandler.java</span></div><h1>PostDispatchVerificationHandler.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.handler;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMException;
+import org.apache.axiom.soap.SOAPHeader;
+import org.apache.axiom.soap.SOAPHeaderBlock;
+import org.apache.axis2.AxisFault;
+import org.apache.axis2.context.MessageContext;
+import org.apache.axis2.description.HandlerDescription;
+import org.apache.axis2.description.Parameter;
+import org.apache.axis2.engine.Handler;
+import org.apache.neethi.Assertion;
+import org.apache.neethi.Policy;
+import org.apache.neethi.PolicyEngine;
+import org.apache.rampart.RampartMessageData;
+import org.apache.rampart.policy.RampartPolicyData;
+import org.apache.rampart.util.HandlerParameterDecoder;
+import org.apache.rampart.util.RampartUtil;
+import org.apache.ws.secpolicy.model.Binding;
+import org.apache.ws.secpolicy.model.SupportingToken;
+import org.apache.ws.security.WSConstants;
+import org.apache.ws.security.handler.WSHandlerConstants;
+import org.apache.ws.security.handler.WSHandlerResult;
+
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * Handler to verify the message security after dispatch
+ *
+ */
+<span class="fc" id="L48">public class PostDispatchVerificationHandler implements Handler {</span>
+
+    private HandlerDescription handlerDesc;
+    
+    /**
+     * @see org.apache.axis2.engine.Handler#cleanup()
+     */
+    public void cleanup() {
+<span class="nc" id="L56">    }</span>
+
+    /**
+     * @see org.apache.axis2.engine.Handler#flowComplete(org.apache.axis2.context.MessageContext)
+     */
+    public void flowComplete(MessageContext msgContext) {
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * @see org.apache.axis2.engine.Handler#getHandlerDesc()
+     */
+    public HandlerDescription getHandlerDesc() {
+<span class="fc" id="L68">        return this.handlerDesc;</span>
+    }
+
+    /**
+     * @see org.apache.axis2.engine.Handler#getName()
+     */
+    public String getName() {
+<span class="nc" id="L75">        return &quot;Post dispatch security verification handler&quot;;</span>
+    }
+
+    /**
+     * @see org.apache.axis2.engine.Handler#getParameter(java.lang.String)
+     */
+    public Parameter getParameter(String name) {
+<span class="nc" id="L82">        return this.handlerDesc.getParameter(name);</span>
+    }
+
+    /**
+     * @see org.apache.axis2.engine.Handler#init(org.apache.axis2.description.HandlerDescription)
+     */
+    public void init(HandlerDescription handlerDesc) {
+<span class="fc" id="L89">        this.handlerDesc = handlerDesc;</span>
+<span class="fc" id="L90">    }</span>
+
+    /**
+     * @see org.apache.axis2.engine.Handler#invoke(org.apache.axis2.context.MessageContext)
+     */
+    public InvocationResponse invoke(MessageContext msgContext)
+            throws AxisFault {
+        
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        if (!msgContext.isEngaged(WSSHandlerConstants.SECURITY_MODULE_NAME)) {</span>
+<span class="fc" id="L99">          return InvocationResponse.CONTINUE;</span>
+        }
+
+<span class="fc" id="L102">        Policy policy = msgContext.getEffectivePolicy();</span>
+
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        if(msgContext.getProperty(RampartMessageData.KEY_RAMPART_POLICY) != null) {</span>
+<span class="fc" id="L105">            policy = (Policy)msgContext.getProperty(RampartMessageData.KEY_RAMPART_POLICY);</span>
+        }
+        
+
+<span class="fc bfc" id="L109" title="All 2 branches covered.">        if(policy == null) {</span>
+<span class="fc" id="L110">            policy = msgContext.getEffectivePolicy();</span>
+        }
+        
+<span class="fc bfc" id="L113" title="All 2 branches covered.">        if(policy == null) {</span>
+<span class="fc" id="L114">            Parameter param = msgContext.getParameter(RampartMessageData.KEY_RAMPART_POLICY);</span>
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">            if(param != null) {</span>
+<span class="nc" id="L116">                OMElement policyElem = param.getParameterElement().getFirstElement();</span>
+<span class="nc" id="L117">                policy = PolicyEngine.getPolicy(policyElem);</span>
+            }
+        }
+        
+<span class="fc bfc" id="L121" title="All 2 branches covered.">        if(policy == null) {</span>
+<span class="fc" id="L122">            return InvocationResponse.CONTINUE;</span>
+        }
+        
+<span class="fc" id="L125">        Iterator alternatives = policy.getAlternatives();</span>
+        
+<span class="fc" id="L127">        boolean securityPolicyPresent = false;</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">        if(alternatives.hasNext()) {</span>
+<span class="fc" id="L129">            List assertions = (List)alternatives.next();</span>
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">            for (Iterator iterator = assertions.iterator(); iterator.hasNext();) {</span>
+<span class="fc" id="L131">                Assertion assertion = (Assertion) iterator.next();</span>
+                //Check for any *Binding assertion
+<span class="fc bfc" id="L133" title="All 2 branches covered.">                if (assertion instanceof Binding) {</span>
+<span class="fc" id="L134">                    securityPolicyPresent = true;</span>
+<span class="fc" id="L135">                    break;</span>
+                // There can be  security policies containing only supporting tokens    
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">                } else if (assertion instanceof SupportingToken) {</span>
+<span class="nc" id="L138">                    securityPolicyPresent = true; </span>
+<span class="nc" id="L139">                    break;</span>
+                }
+<span class="fc" id="L141">            }</span>
+        }
+        
+        
+        
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">        if (securityPolicyPresent) {</span>
+<span class="fc" id="L147">            RampartPolicyData rpd = (RampartPolicyData)msgContext.</span>
+                                                getProperty(RampartMessageData.RAMPART_POLICY_DATA);
+            // Security policy data has not been populated at the time of verification
+<span class="pc bpc" id="L150" title="1 of 2 branches missed.">            if (rpd == null ) {</span>
+<span class="nc" id="L151">                throw new AxisFault(&quot;InvalidSecurity&quot;);</span>
+            }
+            
+<span class="fc" id="L154">            boolean isInitiator = false;</span>
+<span class="fc" id="L155">            Parameter clientSideParam = msgContext.getAxisService().</span>
+                                                getParameter(RampartMessageData.PARAM_CLIENT_SIDE);
+<span class="fc bfc" id="L157" title="All 2 branches covered.">            if(clientSideParam != null) {</span>
+<span class="fc" id="L158">                isInitiator = true;</span>
+            }
+            
+            //Now check for security processing results if security policy is available
+<span class="pc bpc" id="L162" title="2 of 4 branches missed.">            if(RampartUtil.isSecHeaderRequired(rpd,isInitiator,true) &amp;&amp; </span>
+                                  msgContext.getProperty(WSHandlerConstants.RECV_RESULTS) == null) {
+<span class="nc" id="L164">                throw new AxisFault(&quot;InvalidSecurity&quot;);</span>
+            }           
+            
+        }
+    
+        //Check for an empty security processing results when parameter based 
+        //configuration is used
+<span class="pc bpc" id="L171" title="2 of 4 branches missed.">        if(msgContext.getParameter(WSSHandlerConstants.INFLOW_SECURITY) != null ||</span>
+                msgContext.getProperty(WSSHandlerConstants.INFLOW_SECURITY) != null) {
+<span class="nc bnc" id="L173" title="All 2 branches missed.">            if(msgContext.getProperty(WSHandlerConstants.RECV_RESULTS) == null) {</span>
+<span class="nc" id="L174">                    throw new AxisFault(&quot;InvalidSecurity&quot;);</span>
+            } else {
+<span class="nc bnc" id="L176" title="All 2 branches missed.">                if(((List&lt;WSHandlerResult&gt;)msgContext.getProperty(WSHandlerConstants.RECV_RESULTS)).size() == 0) {</span>
+<span class="nc" id="L177">                    throw new AxisFault(&quot;InvalidSecurity&quot;);</span>
+                }
+            }
+        }
+        
+        // If a security header is there and Rampart is engaged, it has to be processed.  
+        // If it is not processed, there must have been a problem in picking the policy 
+        
+<span class="fc" id="L185">        SOAPHeaderBlock secHeader = getSecurityHeader(msgContext);</span>
+        
+<span class="pc bpc" id="L187" title="2 of 4 branches missed.">        if (secHeader != null &amp;&amp; (secHeader.isProcessed() == false)) {</span>
+<span class="nc" id="L188">            throw new AxisFault(&quot;InvalidSecurity - Security policy not found&quot;);</span>
+        }
+        
+<span class="fc" id="L191">        return InvocationResponse.CONTINUE;</span>
+        
+    }
+    
+    private SOAPHeaderBlock getSecurityHeader(MessageContext msgContext) throws AxisFault {
+        
+<span class="fc" id="L197">        SOAPHeader header = null;</span>
+        try {
+<span class="fc" id="L199">            header = msgContext.getEnvelope().getHeader();</span>
+<span class="nc" id="L200">        } catch (OMException ex) {</span>
+<span class="nc" id="L201">            throw new AxisFault(</span>
+                &quot;PostDispatchVerificationHandler: cannot get SOAP header after security processing&quot;,
+                    ex);
+<span class="fc" id="L204">        }</span>
+        
+<span class="pc bpc" id="L206" title="1 of 2 branches missed.">        if(header == null) {</span>
+<span class="nc" id="L207">            return null;</span>
+        }
+
+<span class="fc" id="L210">        Iterator headers = header.getChildElements();</span>
+
+<span class="fc" id="L212">        SOAPHeaderBlock headerBlock = null;</span>
+
+<span class="pc bpc" id="L214" title="1 of 2 branches missed.">        while (headers.hasNext()) { </span>
+            // Find the wsse header
+<span class="fc" id="L216">            SOAPHeaderBlock hb = (SOAPHeaderBlock) headers.next();</span>
+<span class="pc bpc" id="L217" title="2 of 4 branches missed.">            if (hb.getLocalName().equals(WSConstants.WSSE_LN)</span>
+                    &amp;&amp; hb.getNamespace().getNamespaceURI().equals(WSConstants.WSSE_NS)) {
+<span class="fc" id="L219">                headerBlock = hb;</span>
+<span class="fc" id="L220">                break;</span>
+            }
+<span class="nc" id="L222">        }</span>
+        
+<span class="fc" id="L224">        return headerBlock;</span>
+        
+        
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

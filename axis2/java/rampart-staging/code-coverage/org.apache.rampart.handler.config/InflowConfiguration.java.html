@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>InflowConfiguration.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.handler.config</a> &gt; <span class="el_source">InflowConfiguration.java</span></div><h1>InflowConfiguration.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.handler.config;
+
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axis2.description.Parameter;
+import org.apache.rampart.handler.WSSHandlerConstants;
+import org.apache.ws.security.handler.WSHandlerConstants;
+
+import java.util.HashMap;
+import java.util.Iterator;
+
+/**
+ * This is the representation of the inflow configurations of the security
+ * module.
+ * 
+ * @deprecated
+ */
+<span class="fc" id="L35">public class InflowConfiguration {</span>
+	
+<span class="fc" id="L37">	private HashMap action = new HashMap();</span>
+	
+	/**
+	 * Returns the configuration as an OMElement.
+	 * @return Returns Parameter.
+	 */
+	public Parameter getProperty() {
+        
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (! action.containsKey(&quot;items&quot;)) {</span>
+<span class="nc" id="L46">            return null;</span>
+        }
+                
+<span class="fc" id="L49">		OMFactory fac = OMAbstractFactory.getOMFactory();</span>
+        //TODO: Find the constants for &quot;Parameter&quot; and &quot;name&quot;
+<span class="fc" id="L51">        OMElement paramElement = fac.createOMElement(&quot;Parameter&quot;,null);</span>
+<span class="fc" id="L52">        paramElement.addAttribute(fac.createOMAttribute(&quot;name&quot;, null ,WSSHandlerConstants.INFLOW_SECURITY));</span>
+		
+<span class="fc" id="L54">		OMElement actionElem = fac.createOMElement(</span>
+				WSSHandlerConstants.ACTION, null);
+		
+		// Get the set of kes of the selected action
+<span class="fc" id="L58">		Iterator keys = action.keySet().iterator();</span>
+
+<span class="fc bfc" id="L60" title="All 2 branches covered.">		while (keys.hasNext()) {</span>
+<span class="fc" id="L61">			String key = (String) keys.next();</span>
+<span class="fc" id="L62">            String value = (String) action.get(key);</span>
+<span class="pc bpc" id="L63" title="2 of 4 branches missed.">            if(value != null &amp;&amp; value.length() &gt; 0) {</span>
+                // Create an element with the name of the key
+<span class="fc" id="L65">    			OMElement elem = fac.createOMElement(key, null);</span>
+    			// Set the text value of the element
+<span class="fc" id="L67">                elem.setText(value);</span>
+    			// Add the element as a child of this action element
+<span class="fc" id="L69">    			actionElem.addChild(elem);</span>
+            }
+<span class="fc" id="L71">		}</span>
+		
+<span class="fc" id="L73">		paramElement.addChild(actionElem);</span>
+		
+<span class="fc" id="L75">		Parameter param = new Parameter();</span>
+<span class="fc" id="L76">		param.setParameterElement(paramElement);</span>
+<span class="fc" id="L77">        param.setValue(paramElement);</span>
+<span class="fc" id="L78">        param.setName(WSSHandlerConstants.INFLOW_SECURITY);</span>
+		
+<span class="fc" id="L80">		return param;</span>
+	}
+
+	/**
+	 * Returns the action items.
+	 * @return Returns String.
+	 */
+	public String getActionItems() {
+<span class="nc" id="L88">		return (String)this.action.get(WSSHandlerConstants.ACTION_ITEMS);</span>
+	}
+
+	/**
+	 * Sets the action items.
+	 * @param actionItems
+	 */
+	public void setActionItems(String actionItems) {
+<span class="fc" id="L96">		this.action.put(WSSHandlerConstants.ACTION_ITEMS, actionItems);</span>
+<span class="fc" id="L97">	}</span>
+
+	/**
+	 * Returns the decryption property file.
+	 * @return Returns String.
+	 */
+	public String getDecryptionPropFile() {
+<span class="nc" id="L104">		return (String)this.action.get(WSHandlerConstants.DEC_PROP_FILE);</span>
+	}
+
+	/**
+	 * Sets the decryption property file.
+	 * @param decryptionPropFile
+	 */
+	public void setDecryptionPropFile(String decryptionPropFile) {
+<span class="fc" id="L112">		this.action.put(WSHandlerConstants.DEC_PROP_FILE,decryptionPropFile);</span>
+<span class="fc" id="L113">	}</span>
+    
+    /**
+     * Sets the decryption property ref key.
+     * @param decryptionPropRefKey
+     */
+    public void setDecryptionPropRefKey(String decryptionPropRefKey) {
+<span class="fc" id="L120">        this.action.put(WSHandlerConstants.DEC_PROP_REF_ID,decryptionPropRefKey);</span>
+<span class="fc" id="L121">    }</span>
+
+	/**
+	 * Returns the password callback class name.
+	 * @return Returns String.
+	 */
+	public String getPasswordCallbackClass() {
+<span class="nc" id="L128">		return (String)this.action.get(WSHandlerConstants.PW_CALLBACK_CLASS);</span>
+	}
+
+	/**
+	 * Sets the password callback class name.
+	 * @param passwordCallbackClass
+	 */
+	public void setPasswordCallbackClass(String passwordCallbackClass) {
+<span class="fc" id="L136">		this.action.put(WSHandlerConstants.PW_CALLBACK_CLASS,passwordCallbackClass);</span>
+<span class="fc" id="L137">	}</span>
+
+	/**
+	 * Returns the signature property file.
+	 * @return Returns String.
+	 */
+	public String getSignaturePropFile() {
+<span class="nc" id="L144">		return (String)this.action.get(WSHandlerConstants.SIG_PROP_FILE);</span>
+	}
+
+	/**
+	 * Sets the signature property file.
+	 * @param signaturePropFile
+	 */
+	public void setSignaturePropFile(String signaturePropFile) {
+<span class="fc" id="L152">		this.action.put(WSHandlerConstants.SIG_PROP_FILE, signaturePropFile);</span>
+<span class="fc" id="L153">	}</span>
+    
+    /**
+     * Sets the signature property ref key.
+     * @param signaturePropRefId
+     */
+    public void setSignaturePropRefId(String signaturePropRefId) {
+<span class="fc" id="L160">        this.action.put(WSHandlerConstants.SIG_PROP_REF_ID, signaturePropRefId);</span>
+<span class="fc" id="L161">    }</span>
+	
+	/**
+	 * Sets whether signature confirmation should be enabled or not.
+	 * @param value
+	 */
+	public void setEnableSignatureConfirmation(boolean value) {
+<span class="pc bpc" id="L168" title="1 of 2 branches missed.">		this.action.put(</span>
+				WSHandlerConstants.ENABLE_SIGNATURE_CONFIRMATION, value?&quot;true&quot;:&quot;false&quot;);
+<span class="fc" id="L170">	}</span>
+	
+	/**
+	 * Returns whether signature confirmation should be enabled or not.
+	 * @return Returns String.
+	 */
+	public String getEnableSignatureConfirmation() {
+<span class="nc" id="L177">		return (String) this.action</span>
+				.get(WSHandlerConstants.ENABLE_SIGNATURE_CONFIRMATION);
+	}
+
+     /**
+     * This will set whether request or response evaluation should adhere to &quot;Basic Security Profile&quot;
+     * @param value true if evaluation should adhere to &quot;Basic Security Profile&quot; else false. Default is true.
+     */
+	public void setBSPCompliant(boolean value) {
+<span class="pc bpc" id="L186" title="1 of 2 branches missed.">		this.action.put(</span>
+				WSHandlerConstants.IS_BSP_COMPLIANT, value?&quot;true&quot;:&quot;false&quot;);
+<span class="fc" id="L188">	}</span>
+
+
+    /**
+     * Gets whether security processing is configured to handle BSP compliant manner.
+     * &quot;true&quot; or &quot;false&quot;
+     * @return Returns &quot;true&quot; or &quot;false&quot;.
+     */
+	public String getBSPCompliant() {
+<span class="nc" id="L197">		return (String) this.action</span>
+				.get(WSHandlerConstants.IS_BSP_COMPLIANT);
+	}
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

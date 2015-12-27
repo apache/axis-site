@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>EncryptedKeyToken.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas</a> &gt; <span class="el_source">EncryptedKeyToken.java</span></div><h1>EncryptedKeyToken.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rahas;
+
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Date;
+
+import org.apache.axiom.om.OMElement;
+
+/**
+ * This token is used store Encrypted Key Tokens. This token contains the
+ * SHA1 value of the Encrypted Key.
+ *
+ * These tokens are stored using the storage mechanism provided via the 
+ * &lt;code&gt;TokenStorage&lt;/code&gt; interface.
+ * @see org.apache.rahas.TokenStorage
+ *
+ */
+public class EncryptedKeyToken extends Token {
+	
+    /**
+     * SHA1 value of the encrypted key
+     */
+    private String sha;
+
+    public EncryptedKeyToken(){
+<span class="nc" id="L43">        super();</span>
+<span class="nc" id="L44">    }</span>
+	
+	public EncryptedKeyToken (String id,Date created, Date expires) {
+<span class="fc" id="L47">		super(id,created,expires);</span>
+<span class="fc" id="L48">	}</span>
+	
+	public EncryptedKeyToken (String id, OMElement tokenElem, 
+			                    Date created, Date expires)throws TrustException{
+<span class="fc" id="L52">		super(id,tokenElem,created,expires);</span>
+<span class="fc" id="L53">	}</span>
+	
+	/**
+	 * @param sha SHA1 of the encrypted key
+	 */
+	public void setSHA1(String sha) {
+<span class="fc" id="L59">		this.sha = sha;</span>
+<span class="fc" id="L60">	}</span>
+	
+	/** 
+	 * @return SHA1 value of the encrypted key 
+	 */
+	public String getSHA1() {
+<span class="fc" id="L66">		return sha;</span>
+	}
+
+    public void writeExternal(ObjectOutput out)
+        throws IOException {
+
+<span class="nc" id="L72">        super.writeExternal(out);</span>
+<span class="nc" id="L73">        out.writeObject(this.sha);</span>
+<span class="nc" id="L74">    }</span>
+
+    public void readExternal(ObjectInput in)
+        throws ClassNotFoundException, IOException {
+
+<span class="nc" id="L79">        super.readExternal(in);</span>
+<span class="nc" id="L80">        this.sha = (String)in.readObject();</span>
+
+<span class="nc" id="L82">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

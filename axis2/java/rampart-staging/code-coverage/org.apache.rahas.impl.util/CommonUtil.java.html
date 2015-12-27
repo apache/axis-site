@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CommonUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.impl.util</a> &gt; <span class="el_source">CommonUtil.java</span></div><h1>CommonUtil.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rahas.impl.util;
+
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.dom.DOMMetaFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rahas.TrustException;
+import org.apache.rahas.TrustUtil;
+import org.apache.ws.security.WSDocInfo;
+import org.apache.ws.security.WSSConfig;
+import org.apache.ws.security.WSSecurityEngineResult;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.components.crypto.Crypto;
+import org.apache.ws.security.components.crypto.CryptoFactory;
+import org.apache.ws.security.components.crypto.CryptoType;
+import org.apache.ws.security.handler.RequestData;
+import org.apache.ws.security.processor.EncryptedKeyProcessor;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import javax.security.auth.callback.CallbackHandler;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import java.security.cert.X509Certificate;
+import java.util.List;
+import java.util.Properties;
+
+import static org.apache.axiom.om.OMAbstractFactory.FEATURE_DOM;
+
+/**
+ * This class implements some utility methods common to SAML1 and SAML2.
+ */
+<span class="nc" id="L51">public class CommonUtil {</span>
+
+<span class="fc" id="L53">    private static Log log = LogFactory.getLog(CommonUtil.class);</span>
+
+    /**
+     * This method creates a DOM compatible Axiom document.
+     * @return DOM compatible Axiom document
+     * @throws TrustException If an error occurred while creating the Document.
+     */
+    public static Document getOMDOMDocument() throws TrustException {
+<span class="fc" id="L61">        DOMMetaFactory metaFactory = (DOMMetaFactory) OMAbstractFactory.getMetaFactory(FEATURE_DOM);</span>
+<span class="fc" id="L62">            DocumentBuilderFactory dbf = metaFactory.newDocumentBuilderFactory();</span>
+        try {
+<span class="fc" id="L64">            return  dbf.newDocumentBuilder().newDocument();</span>
+<span class="nc" id="L65">        } catch (ParserConfigurationException e) {</span>
+<span class="nc" id="L66">            throw new TrustException(&quot;Error creating Axiom compatible DOM Document&quot;, e);</span>
+        }
+    }
+
+    /**
+     * Gets the certificates chain by alias. Always returns the first certificate if a certificate chain is found.
+     * @param crypto Crypto to lookup certificate.
+     * @param alias Alias name.
+     * @return X509 certificate object.
+     * @throws org.apache.rahas.TrustException If an error occurred
+     *                              while retrieving the certificate or if no certificates are found for given alias.
+     */
+    public static X509Certificate getCertificateByAlias(Crypto crypto, String alias) throws TrustException {
+
+<span class="fc" id="L80">        X509Certificate[] certificates = getCertificatesByAlias(crypto, alias);</span>
+
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">        if (certificates == null) {</span>
+<span class="nc" id="L83">            log.error(&quot;Unable to retrieve certificate for alias &quot; + alias);</span>
+<span class="nc" id="L84">            throw new TrustException(&quot;issuerCertificateNotFound&quot;);</span>
+        }
+
+<span class="fc" id="L87">        return certificates[0];</span>
+    }
+
+    /**
+     * Gets the certificates chain by alias. If no certificates are found return an empty array.
+     * @param crypto Crypto to lookup certificate.
+     * @param alias Alias name.
+     * @return X509 certificates array.
+     * @throws org.apache.rahas.TrustException If an error occurred
+     *                                          while retrieving the certificate.
+     */
+    public static X509Certificate[] getCertificatesByAlias(Crypto crypto, String alias) throws TrustException {
+
+        // TODO are we always looking up by alias ? Dont we need to lookup by any other attribute ?
+<span class="fc" id="L101">        CryptoType type = new CryptoType(CryptoType.TYPE.ALIAS);</span>
+<span class="fc" id="L102">        type.setAlias(alias);</span>
+
+        try {
+<span class="fc" id="L105">            X509Certificate[] certificates = crypto.getX509Certificates(type);</span>
+
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">            if (certificates == null) {</span>
+<span class="nc" id="L108">                log.debug(&quot;Unable to retrieve certificate for alias &quot; + alias);</span>
+<span class="nc" id="L109">                return new X509Certificate[0];</span>
+            }
+<span class="fc" id="L111">            return certificates;</span>
+<span class="nc" id="L112">        } catch (WSSecurityException e) {</span>
+<span class="nc" id="L113">            log.error(&quot;Unable to retrieve certificate for alias &quot; + alias, e);</span>
+<span class="nc" id="L114">            throw new TrustException(&quot;issuerCertificateNotFound&quot;, e);</span>
+        }
+    }
+
+    /**
+     * Decrypts the EncryptedKey element and returns the secret that was used.
+     * @param callbackHandler Callback handler to pass to WSS4J framework.
+     * @param crypto To get private key information.
+     * @param encryptedKeyElement The encrypted Key element.
+     * @return The secret as a byte stream.
+     * @throws WSSecurityException If an error is occurred while decrypting the element.
+     */
+    public static byte[] getDecryptedBytes(CallbackHandler callbackHandler, Crypto crypto, Node encryptedKeyElement)
+            throws WSSecurityException {
+
+        // TODO make this code more efficient and reader friendly
+
+<span class="nc" id="L131">        EncryptedKeyProcessor encryptedKeyProcessor = new EncryptedKeyProcessor();</span>
+
+<span class="nc" id="L133">        RequestData requestData = new RequestData();</span>
+<span class="nc" id="L134">        requestData.setCallbackHandler(callbackHandler);</span>
+<span class="nc" id="L135">        requestData.setDecCrypto(crypto);</span>
+
+<span class="nc" id="L137">        final WSSConfig cfg = WSSConfig.getNewInstance();</span>
+<span class="nc" id="L138">        requestData.setWssConfig(cfg);</span>
+
+<span class="nc" id="L140">        WSDocInfo docInfo = new WSDocInfo(encryptedKeyElement.getOwnerDocument());</span>
+
+<span class="nc" id="L142">        List&lt;WSSecurityEngineResult&gt; resultList</span>
+                = null;
+
+<span class="nc" id="L145">        resultList = encryptedKeyProcessor.handleToken((Element) encryptedKeyElement, requestData, docInfo);</span>
+
+
+<span class="nc" id="L148">        WSSecurityEngineResult wsSecurityEngineResult = resultList.get(0);</span>
+
+<span class="nc" id="L150">        return (byte[]) wsSecurityEngineResult.get(WSSecurityEngineResult.TAG_SECRET);</span>
+    }
+
+    /**
+     * Constructs crypto configuration based on the given properties. Provider is instantiated using
+     * given class loader.
+     * @param properties Crypto configuration properties.
+     * @param classLoader Class loader used to create provider.
+     * @return A crypto object.
+     * @throws TrustException If an error occurred while creating the Crypto object.
+     */
+    public static Crypto getCrypto(Properties properties, ClassLoader classLoader) throws TrustException {
+        try {
+<span class="fc" id="L163">            return CryptoFactory.getInstance(properties, classLoader);</span>
+<span class="nc" id="L164">        } catch (WSSecurityException e) {</span>
+<span class="nc" id="L165">            log.error(&quot;An error occurred while loading crypto properties&quot;, e);</span>
+<span class="nc" id="L166">            throw new TrustException(&quot;errorLoadingCryptoProperties&quot;, e);</span>
+
+        }
+    }
+
+    /**
+     * Constructs crypto configuration based on the given properties. Provider is instantiated using
+     * given class loader.
+     * @param propertiesFile Crypto configuration properties file name.
+     * @param classLoader Class loader used to create provider.
+     * @return A crypto object.
+     * @throws TrustException If an error occurred while creating the Crypto object.
+     */
+    public static Crypto getCrypto(String propertiesFile, ClassLoader classLoader) throws TrustException {
+        try {
+<span class="nc" id="L181">            return CryptoFactory.getInstance(propertiesFile, classLoader);</span>
+<span class="nc" id="L182">        } catch (WSSecurityException e) {</span>
+<span class="nc" id="L183">            log.error(&quot;An error occurred while loading crypto properties with property file &quot; + propertiesFile, e);</span>
+<span class="nc" id="L184">            throw new TrustException(&quot;errorLoadingCryptoProperties&quot;, new Object[]{propertiesFile}, e);</span>
+
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

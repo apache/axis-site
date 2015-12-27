@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RampartConfig.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.policy.model</a> &gt; <span class="el_source">RampartConfig.java</span></div><h1>RampartConfig.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.policy.model;
+
+import org.apache.neethi.Assertion;
+import org.apache.neethi.Constants;
+import org.apache.neethi.PolicyComponent;
+
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamWriter;
+
+/**
+ * Rampart policy model bean to capture Rampart configuration assertion info.
+ * 
+ * Example:
+ * 
+ * &lt;pre&gt;
+ *  &amp;lt;ramp:RampartConfig xmlns:ramp=&amp;quot;http://ws.apache.org/rampart/policy&amp;quot;&amp;gt; 
+ *  &amp;lt;ramp:user&amp;gt;alice&amp;lt;/ramp:user&amp;gt;
+ *  &amp;lt;ramp:encryptionUser&amp;gt;bob&amp;lt;/ramp:encryptionUser&amp;gt;
+ *  &amp;lt;ramp:passwordCallbackClass&amp;gt;org.apache.axis2.security.PWCallback&amp;lt;/ramp:passwordCallbackClass&amp;gt;
+ *  &amp;lt;ramp:policyValidatorCbClass&amp;gt;org.apache.axis2.security.ramp:PolicyValidatorCallbackHandler&amp;lt;/ramp:policyValidatorCbClass&amp;gt;
+ *  &amp;lt;ramp:timestampPrecisionInMilliseconds&amp;gt;true&amp;lt;/timestampPrecisionInMilliseconds&amp;gt;
+ *  &amp;lt;ramp:timestampTTL&amp;gt;300&amp;lt;/ramp:timestampTTL&amp;gt;
+ *  &amp;lt;ramp:timestampMaxSkew&amp;gt;0&amp;lt;/ramp:timestampMaxSkew&amp;gt;
+ *  &amp;lt;ramp:tokenStoreClass&amp;gt;org.apache.rahas.StorageImpl&amp;lt;/ramp:tokenStoreClass&amp;gt;
+ *  &amp;lt;ramp:nonceLifeTime&amp;gt;org.apache.rahas.StorageImpl&amp;lt;/ramp:nonceLifeTime&amp;gt;
+ *  
+ *  &amp;lt;ramp:signatureCrypto&amp;gt;
+ *  &amp;lt;ramp:crypto provider=&amp;quot;org.apache.ws.security.components.crypto.Merlin&amp;quot;&amp;gt;
+ *  &amp;lt;ramp:property name=&amp;quot;keystoreType&amp;quot;&amp;gt;JKS&amp;lt;/ramp:property&amp;gt;
+ *  &amp;lt;ramp:property name=&amp;quot;keystoreFile&amp;quot;&amp;gt;/path/to/file.jks&amp;lt;/ramp:property&amp;gt;
+ *  &amp;lt;ramp:property name=&amp;quot;keystorePassword&amp;quot;&amp;gt;password&amp;lt;/ramp:property&amp;gt;
+ *  &amp;lt;/ramp:crypto&amp;gt;
+ *  &amp;lt;/ramp:signatureCrypto&amp;gt;
+ *  
+ *  &amp;lt;ramp:tokenIssuerPolicy&amp;gt;
+ *  &amp;lt;wsp:Policy&amp;gt;
+ *  ....
+ *  ....
+ *  &amp;lt;/wsp:Policy&amp;gt;
+ *  &amp;lt;/ramp:tokenIssuerPolicy&amp;gt;
+ *  &amp;lt;/ramp:RampartConfig&amp;gt;
+ * 
+ * &lt;/pre&gt;
+ * 
+ */
+<span class="fc" id="L63">public class RampartConfig implements Assertion {</span>
+    
+    public static final boolean DEFAULT_TIMESTAMP_PRECISION_IN_MS = true;
+	
+    public static final int DEFAULT_TIMESTAMP_TTL = 300;
+
+    public static final int DEFAULT_TIMESTAMP_MAX_SKEW = 300;
+
+    public static final int DEFAULT_NONCE_LIFE_TIME = 60 * 5; // Default life time of a nonce is 5 minutes
+
+    public final static String NS = &quot;http://ws.apache.org/rampart/policy&quot;;
+
+    public final static String PREFIX = &quot;rampart&quot;;
+
+    public final static String RAMPART_CONFIG_LN = &quot;RampartConfig&quot;;
+
+    public final static String USER_LN = &quot;user&quot;;
+    
+    public final static String USER_CERT_ALIAS_LN = &quot;userCertAlias&quot;;
+
+    public final static String ENCRYPTION_USER_LN = &quot;encryptionUser&quot;;
+    
+    public final static String STS_ALIAS_LN = &quot;stsAlias&quot;;
+
+    public final static String PW_CB_CLASS_LN = &quot;passwordCallbackClass&quot;;
+    
+    public final static String POLICY_VALIDATOR_CB_CLASS_LN = &quot;policyValidatorCbClass&quot;;
+    
+    public final static String RAMPART_CONFIG_CB_CLASS_LN = &quot;rampartConfigCallbackClass&quot;;
+
+    public final static String SIG_CRYPTO_LN = &quot;signatureCrypto&quot;;
+
+    public final static String ENCR_CRYPTO_LN = &quot;encryptionCrypto&quot;;
+
+    public final static String DEC_CRYPTO_LN = &quot;decryptionCrypto&quot;;
+    
+    public final static String STS_CRYPTO_LN = &quot;stsCrypto&quot;;
+
+    public final static String TS_PRECISION_IN_MS_LN = &quot;timestampPrecisionInMilliseconds&quot;;
+    
+    public final static String TS_TTL_LN = &quot;timestampTTL&quot;;
+
+    public final static String TS_MAX_SKEW_LN = &quot;timestampMaxSkew&quot;;
+
+    public final static String TOKEN_STORE_CLASS_LN = &quot;tokenStoreClass&quot;;
+
+    public final static String NONCE_LIFE_TIME = &quot;nonceLifeTime&quot;;
+    
+    public final static String OPTIMISE_PARTS = &quot;optimizeParts&quot;;
+
+    public final static String SSL_CONFIG = &quot;sslConfig&quot;;
+    
+    private String user;
+    
+    private String userCertAlias;
+
+    private String encryptionUser;
+    
+    private String stsAlias;
+
+    private String pwCbClass;
+    
+    private String policyValidatorCbClass;
+    
+    private String rampartConfigCbClass;
+
+    private CryptoConfig sigCryptoConfig;
+
+    private CryptoConfig encrCryptoConfig;
+
+    private CryptoConfig decCryptoConfig;
+    
+    private CryptoConfig stsCryptoConfig;
+
+<span class="fc" id="L137">    private String timestampPrecisionInMilliseconds = Boolean.toString(DEFAULT_TIMESTAMP_PRECISION_IN_MS);</span>
+    
+<span class="fc" id="L139">    private String timestampTTL = Integer.toString(DEFAULT_TIMESTAMP_TTL);</span>
+    
+<span class="fc" id="L141">    private String timestampMaxSkew = Integer.toString(DEFAULT_TIMESTAMP_MAX_SKEW);</span>
+
+    private OptimizePartsConfig optimizeParts;
+
+    private String tokenStoreClass;
+
+<span class="fc" id="L147">    private String nonceLifeTime = Integer.toString(DEFAULT_NONCE_LIFE_TIME);</span>
+    
+    private SSLConfig sslConfig;
+    
+    public SSLConfig getSSLConfig() {
+<span class="fc" id="L152">        return sslConfig;</span>
+    }
+
+    public void setSSLConfig(SSLConfig sslConfig) {
+<span class="fc" id="L156">        this.sslConfig = sslConfig;</span>
+<span class="fc" id="L157">    }</span>
+    
+
+    /**
+     * @return Returns the tokenStoreClass.
+     */
+    public String getTokenStoreClass() {
+<span class="fc" id="L164">        return tokenStoreClass;</span>
+    }
+
+    /**
+     * @param tokenStoreClass
+     *            The tokenStoreClass to set.
+     */
+    public void setTokenStoreClass(String tokenStoreClass) {
+<span class="nc" id="L172">        this.tokenStoreClass = tokenStoreClass;</span>
+<span class="nc" id="L173">    }</span>
+
+    /**
+     * @return Returns the life time of a nonce in seconds.
+     */
+    public String getNonceLifeTime() {
+<span class="nc" id="L179">        return this.nonceLifeTime;</span>
+    }
+
+    /**
+     * @param nonceLife
+     *            The life time of a nonce to set (in seconds).
+     */
+    public void setNonceLifeTime(String nonceLife) {
+<span class="nc" id="L187">        this.nonceLifeTime = nonceLife;</span>
+<span class="nc" id="L188">    }</span>
+
+    public CryptoConfig getDecCryptoConfig() {
+<span class="fc" id="L191">        return decCryptoConfig;</span>
+    }
+
+    public void setDecCryptoConfig(CryptoConfig decCrypto) {
+<span class="fc" id="L195">        this.decCryptoConfig = decCrypto;</span>
+<span class="fc" id="L196">    }</span>
+
+    public CryptoConfig getEncrCryptoConfig() {
+<span class="fc" id="L199">        return encrCryptoConfig;</span>
+    }
+
+    public void setEncrCryptoConfig(CryptoConfig encrCrypto) {
+<span class="fc" id="L203">        this.encrCryptoConfig = encrCrypto;</span>
+<span class="fc" id="L204">    }</span>
+
+    public String getEncryptionUser() {
+<span class="fc" id="L207">        return encryptionUser;</span>
+    }
+
+    public void setEncryptionUser(String encryptionUser) {
+<span class="fc" id="L211">        this.encryptionUser = encryptionUser;</span>
+<span class="fc" id="L212">    }</span>
+
+    public String getPwCbClass() {
+<span class="fc" id="L215">        return pwCbClass;</span>
+    }
+
+    public void setPwCbClass(String pwCbClass) {
+<span class="fc" id="L219">        this.pwCbClass = pwCbClass;</span>
+<span class="fc" id="L220">    }</span>
+    
+    public String getPolicyValidatorCbClass() {
+<span class="fc" id="L223">        return this.policyValidatorCbClass;</span>
+    }
+    
+    public void setPolicyValidatorCbClass(String policyValidatorCbClass) {
+<span class="nc" id="L227">        this.policyValidatorCbClass = policyValidatorCbClass;</span>
+<span class="nc" id="L228">    }</span>
+
+    public String getRampartConfigCbClass() {
+<span class="fc" id="L231">        return rampartConfigCbClass;</span>
+    }
+
+    public void setRampartConfigCbClass(String rampartConfigCbClass) {
+<span class="fc" id="L235">        this.rampartConfigCbClass = rampartConfigCbClass;</span>
+<span class="fc" id="L236">    }</span>
+
+    public CryptoConfig getSigCryptoConfig() {
+<span class="fc" id="L239">        return sigCryptoConfig;</span>
+    }
+
+    public void setSigCryptoConfig(CryptoConfig sigCryptoConfig) {
+<span class="fc" id="L243">        this.sigCryptoConfig = sigCryptoConfig;</span>
+<span class="fc" id="L244">    }</span>
+
+    public String getUser() {
+<span class="fc" id="L247">        return user;</span>
+    }
+
+    public void setUser(String user) {
+<span class="fc" id="L251">        this.user = user;</span>
+<span class="fc" id="L252">    }</span>
+    
+    public String getUserCertAlias() {
+<span class="fc" id="L255">        return userCertAlias;</span>
+    }
+    
+    public void setUserCertAlias(String userCertAlias) {
+<span class="fc" id="L259">        this.userCertAlias = userCertAlias;</span>
+<span class="fc" id="L260">    }</span>
+
+    public QName getName() {
+<span class="fc" id="L263">        return new QName(NS, RAMPART_CONFIG_LN);</span>
+    }
+
+    public boolean isOptional() {
+        // TODO TODO
+<span class="nc" id="L268">        throw new UnsupportedOperationException(&quot;TODO&quot;);</span>
+    }
+    public boolean isIgnorable() {
+<span class="nc" id="L271">        throw new UnsupportedOperationException(&quot;TODO&quot;);</span>
+    }
+
+    public PolicyComponent normalize() {
+        // TODO TODO
+<span class="nc" id="L276">        throw new UnsupportedOperationException(&quot;TODO&quot;);</span>
+    }
+
+    public void serialize(XMLStreamWriter writer) throws XMLStreamException {
+<span class="nc" id="L280">        String prefix = writer.getPrefix(NS);</span>
+
+<span class="nc bnc" id="L282" title="All 2 branches missed.">        if (prefix == null) {</span>
+<span class="nc" id="L283">            prefix = PREFIX;</span>
+<span class="nc" id="L284">            writer.setPrefix(PREFIX, NS);</span>
+        }
+
+<span class="nc" id="L287">        writer.writeStartElement(PREFIX, RAMPART_CONFIG_LN, NS);</span>
+<span class="nc" id="L288">        writer.writeNamespace(prefix, NS);</span>
+
+<span class="nc bnc" id="L290" title="All 2 branches missed.">        if (getUser() != null) {</span>
+<span class="nc" id="L291">            writer.writeStartElement(NS, USER_LN);</span>
+<span class="nc" id="L292">            writer.writeCharacters(getUser());</span>
+<span class="nc" id="L293">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L296" title="All 2 branches missed.">        if (getUserCertAlias() != null) {</span>
+<span class="nc" id="L297">            writer.writeStartElement(NS, USER_CERT_ALIAS_LN);</span>
+<span class="nc" id="L298">            writer.writeCharacters(getUserCertAlias());</span>
+<span class="nc" id="L299">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L302" title="All 2 branches missed.">        if (getEncryptionUser() != null) {</span>
+<span class="nc" id="L303">            writer.writeStartElement(NS, ENCRYPTION_USER_LN);</span>
+<span class="nc" id="L304">            writer.writeCharacters(getEncryptionUser());</span>
+<span class="nc" id="L305">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L308" title="All 2 branches missed.">        if (getStsAlias() != null ) {</span>
+<span class="nc" id="L309">            writer.writeStartElement(NS, STS_ALIAS_LN);</span>
+<span class="nc" id="L310">            writer.writeCharacters(getStsAlias());</span>
+<span class="nc" id="L311">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L314" title="All 2 branches missed.">        if (getPwCbClass() != null) {</span>
+<span class="nc" id="L315">            writer.writeStartElement(NS, PW_CB_CLASS_LN);</span>
+<span class="nc" id="L316">            writer.writeCharacters(getPwCbClass());</span>
+<span class="nc" id="L317">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L320" title="All 2 branches missed.">        if (getPolicyValidatorCbClass() != null) {</span>
+<span class="nc" id="L321">            writer.writeStartElement(NS, POLICY_VALIDATOR_CB_CLASS_LN);</span>
+<span class="nc" id="L322">            writer.writeCharacters(getPolicyValidatorCbClass());</span>
+<span class="nc" id="L323">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L326" title="All 2 branches missed.">        if (getRampartConfigCbClass() != null) {</span>
+<span class="nc" id="L327">            writer.writeStartElement(NS, RAMPART_CONFIG_CB_CLASS_LN);</span>
+<span class="nc" id="L328">            writer.writeCharacters(getRampartConfigCbClass());</span>
+<span class="nc" id="L329">            writer.writeEndElement();     </span>
+        }
+        
+<span class="nc bnc" id="L332" title="All 2 branches missed.">        if (getTimestampPrecisionInMilliseconds() != null) {</span>
+<span class="nc" id="L333">            writer.writeStartElement(NS, TS_PRECISION_IN_MS_LN);</span>
+<span class="nc" id="L334">            writer.writeCharacters(getTimestampPrecisionInMilliseconds());</span>
+<span class="nc" id="L335">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L338" title="All 2 branches missed.">        if (getTimestampTTL() != null) {</span>
+<span class="nc" id="L339">            writer.writeStartElement(NS, TS_TTL_LN);</span>
+<span class="nc" id="L340">            writer.writeCharacters(getTimestampTTL());</span>
+<span class="nc" id="L341">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L344" title="All 2 branches missed.">        if (getTimestampMaxSkew() != null) {</span>
+<span class="nc" id="L345">            writer.writeStartElement(NS, TS_MAX_SKEW_LN);</span>
+<span class="nc" id="L346">            writer.writeCharacters(getTimestampMaxSkew());</span>
+<span class="nc" id="L347">            writer.writeEndElement();</span>
+        }
+
+<span class="nc bnc" id="L350" title="All 2 branches missed.">        if (getTokenStoreClass() != null) {</span>
+<span class="nc" id="L351">            writer.writeStartElement(NS, TOKEN_STORE_CLASS_LN);</span>
+<span class="nc" id="L352">            writer.writeCharacters(getTokenStoreClass());</span>
+<span class="nc" id="L353">            writer.writeEndElement();</span>
+        }
+
+<span class="nc bnc" id="L356" title="All 2 branches missed.">        if (getNonceLifeTime() != null) {</span>
+<span class="nc" id="L357">            writer.writeStartElement(NS, NONCE_LIFE_TIME);</span>
+<span class="nc" id="L358">            writer.writeCharacters(getNonceLifeTime());</span>
+<span class="nc" id="L359">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L362" title="All 2 branches missed.">        if (encrCryptoConfig != null) {</span>
+<span class="nc" id="L363">            writer.writeStartElement(NS, ENCR_CRYPTO_LN);</span>
+<span class="nc" id="L364">            encrCryptoConfig.serialize(writer);</span>
+<span class="nc" id="L365">            writer.writeEndElement();</span>
+            
+        }
+        
+<span class="nc bnc" id="L369" title="All 2 branches missed.">        if (decCryptoConfig != null) {</span>
+<span class="nc" id="L370">            writer.writeStartElement(NS, DEC_CRYPTO_LN);</span>
+<span class="nc" id="L371">            decCryptoConfig.serialize(writer);</span>
+<span class="nc" id="L372">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L375" title="All 2 branches missed.">        if(stsCryptoConfig != null) {</span>
+<span class="nc" id="L376">            writer.writeStartElement(NS, STS_CRYPTO_LN);</span>
+<span class="nc" id="L377">            stsCryptoConfig.serialize(writer);</span>
+<span class="nc" id="L378">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc bnc" id="L381" title="All 2 branches missed.">        if (sigCryptoConfig != null) {</span>
+<span class="nc" id="L382">            writer.writeStartElement(NS, SIG_CRYPTO_LN);</span>
+<span class="nc" id="L383">            sigCryptoConfig.serialize(writer);</span>
+<span class="nc" id="L384">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc" id="L387">        writer.writeEndElement();</span>
+
+<span class="nc" id="L389">    }</span>
+
+    public boolean equal(PolicyComponent policyComponent) {
+<span class="nc" id="L392">        throw new UnsupportedOperationException(&quot;TODO&quot;);</span>
+    }
+
+    public short getType() {
+<span class="fc" id="L396">        return Constants.TYPE_ASSERTION;</span>
+    }
+
+    public String getTimestampPrecisionInMilliseconds() {
+<span class="fc" id="L400">    	return timestampPrecisionInMilliseconds;</span>
+    }
+    
+    public void setTimestampPrecisionInMilliseconds(String timestampPrecisionInMilliseconds) {
+<span class="nc" id="L404">        this.timestampPrecisionInMilliseconds = timestampPrecisionInMilliseconds;</span>
+<span class="nc" id="L405">    }</span>
+    
+    /**
+     * @return Returns the timestampTTL.
+     */
+    public String getTimestampTTL() {
+<span class="fc" id="L411">        return timestampTTL;</span>
+    }
+
+    /**
+     * @param timestampTTL
+     *            The timestampTTL to set.
+     */
+    public void setTimestampTTL(String timestampTTL) {
+<span class="nc" id="L419">        this.timestampTTL = timestampTTL;</span>
+<span class="nc" id="L420">    }</span>
+    
+    /**
+     * @return Returns the timestampMaxSkew.
+     */
+    public String getTimestampMaxSkew() {
+<span class="fc" id="L426">        return timestampMaxSkew;</span>
+    }
+
+    /**
+     * @param timestampMaxSkew
+     *            The timestampMaxSkew to set.
+     */
+    public void setTimestampMaxSkew(String timestampMaxSkew) {
+<span class="nc" id="L434">        this.timestampMaxSkew = timestampMaxSkew;</span>
+<span class="nc" id="L435">    }</span>
+
+    public OptimizePartsConfig getOptimizeParts() {
+<span class="nc" id="L438">        return optimizeParts;</span>
+    }
+
+    public void setOptimizeParts(OptimizePartsConfig optimizeParts) {
+<span class="nc" id="L442">        this.optimizeParts = optimizeParts;</span>
+<span class="nc" id="L443">    }</span>
+
+    public String getStsAlias() {
+<span class="fc" id="L446">        return stsAlias;</span>
+    }
+
+    public void setStsAlias(String stsAlias) {
+<span class="fc" id="L450">        this.stsAlias = stsAlias;</span>
+<span class="fc" id="L451">    }</span>
+
+    public CryptoConfig getStsCryptoConfig() {
+<span class="fc" id="L454">        return stsCryptoConfig;</span>
+    }
+
+    public void setStsCryptoConfig(CryptoConfig stsCryptoConfig) {
+<span class="fc" id="L458">        this.stsCryptoConfig = stsCryptoConfig;</span>
+<span class="fc" id="L459">    }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

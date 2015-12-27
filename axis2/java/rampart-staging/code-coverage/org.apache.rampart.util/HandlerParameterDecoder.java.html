@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>HandlerParameterDecoder.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.util</a> &gt; <span class="el_source">HandlerParameterDecoder.java</span></div><h1>HandlerParameterDecoder.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.rampart.util;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axis2.AxisFault;
+import org.apache.axis2.context.MessageContext;
+import org.apache.axis2.description.Parameter;
+import org.apache.rampart.handler.WSSHandlerConstants;
+import org.apache.rampart.handler.config.InflowConfiguration;
+import org.apache.rampart.handler.config.OutflowConfiguration;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.handler.WSHandlerConstants;
+
+import javax.xml.namespace.QName;
+
+import java.util.Iterator;
+
+/**
+ * This is used to process the security parameters from the configuration files
+ * 
+ * Example: &lt;code&gt;
+ &lt;br&gt;
+
+ &lt;/code&gt;
+ * 
+ */
+<span class="nc" id="L41">public class HandlerParameterDecoder {</span>
+
+	/**
+	 * 
+	 * @param msgCtx
+	 * @param inflow
+	 * @throws WSSecurityException
+	 */
+	public static void processParameters(MessageContext msgCtx, boolean inflow)
+			throws Exception {
+ 		Parameter inFlowSecParam;
+        	Parameter outFlowSecParam;
+        
+<span class="fc bfc" id="L54" title="All 2 branches covered.">	        if(msgCtx.isServerSide()){</span>
+<span class="fc" id="L55">            		inFlowSecParam = msgCtx.getParameter(WSSHandlerConstants.INFLOW_SECURITY_SERVER);</span>
+<span class="fc" id="L56">            		outFlowSecParam = msgCtx.getParameter(WSSHandlerConstants.OUTFLOW_SECURITY_SERVER);</span>
+       		 }else{
+<span class="fc" id="L58">            		inFlowSecParam = msgCtx.getParameter(WSSHandlerConstants.INFLOW_SECURITY_CLIENT);</span>
+<span class="fc" id="L59">            		outFlowSecParam = msgCtx.getParameter(WSSHandlerConstants.OUTFLOW_SECURITY_CLIENT);</span>
+        	}
+        
+        	//TODO: check whether policy is available 
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        	if(inFlowSecParam == null){</span>
+<span class="fc" id="L64">            		inFlowSecParam = (Parameter)msgCtx.getProperty(WSSHandlerConstants.INFLOW_SECURITY);            </span>
+       		}
+
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">       	 	if(outFlowSecParam == null){</span>
+<span class="fc" id="L68">            		outFlowSecParam = (Parameter)msgCtx.getProperty(WSSHandlerConstants.OUTFLOW_SECURITY);            </span>
+       		 }
+		
+		//If the configs are not available in the file
+<span class="fc bfc" id="L72" title="All 2 branches covered.">		if(inFlowSecParam == null) {</span>
+<span class="fc" id="L73">			inFlowSecParam = msgCtx.getParameter(WSSHandlerConstants.INFLOW_SECURITY);</span>
+		}
+<span class="fc bfc" id="L75" title="All 2 branches covered.">		if(outFlowSecParam == null) {</span>
+<span class="fc" id="L76">			outFlowSecParam = msgCtx.getParameter(WSSHandlerConstants.OUTFLOW_SECURITY);</span>
+		}
+
+<span class="fc" id="L79">		int repetitionCount = -1;</span>
+
+		/*
+		 * Populate the inflow parameters
+		 */
+<span class="fc bfc" id="L84" title="All 4 branches covered.">		if (inFlowSecParam != null &amp;&amp; inflow) {</span>
+<span class="fc" id="L85">			OMElement inFlowParamElem = inFlowSecParam.getParameterElement();</span>
+
+<span class="fc" id="L87">			OMElement actionElem = inFlowParamElem</span>
+					.getFirstChildWithName(new QName(WSSHandlerConstants.ACTION));
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">			if (actionElem == null) {</span>
+<span class="nc" id="L90">				throw new Exception(</span>
+						&quot;Inflow configuration must contain an 'action' &quot;
+								+ &quot;elements the child of 'InflowSecurity' element&quot;);
+			}
+
+<span class="fc" id="L95">			Iterator childElements = actionElem.getChildElements();</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">			while (childElements.hasNext()) {</span>
+<span class="fc" id="L97">				OMElement element = (OMElement) childElements.next();</span>
+<span class="fc" id="L98">				msgCtx.setProperty(element.getLocalName(), element.getText().trim());</span>
+<span class="fc" id="L99">			}</span>
+
+		}
+
+		/*
+		 * Populate the outflow parameters
+		 */
+<span class="fc bfc" id="L106" title="All 4 branches covered.">		if (outFlowSecParam != null &amp;&amp; !inflow) {</span>
+<span class="fc" id="L107">			OMElement outFlowParamElem = outFlowSecParam.getParameterElement();</span>
+			
+<span class="fc" id="L109">			Iterator childElements = outFlowParamElem.getChildElements();</span>
+<span class="fc bfc" id="L110" title="All 2 branches covered.">			while (childElements.hasNext()) {</span>
+<span class="fc" id="L111">				OMElement element = (OMElement) childElements.next();</span>
+				
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">				if(!element.getLocalName().equals(WSSHandlerConstants.ACTION)) {</span>
+<span class="nc" id="L114">					throw new Exception(</span>
+							&quot;Alian element '&quot;
+									+ element.getLocalName()
+									+ &quot;' in the 'OutFlowSecurity' element, &quot; 
+									+ &quot;only 'action' elements can be present&quot;);
+				}
+				
+<span class="fc" id="L121">                boolean signAllHeaders = false;</span>
+<span class="fc" id="L122">                boolean signBody = false;</span>
+<span class="fc" id="L123">                boolean encryptBody = false;</span>
+                
+<span class="fc" id="L125">                repetitionCount++;</span>
+<span class="fc" id="L126">				Iterator paramElements = element.getChildElements();</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">				while (paramElements.hasNext()) {</span>
+<span class="fc" id="L128">					OMElement elem = (OMElement) paramElements.next();</span>
+<span class="fc" id="L129">                    String localName = elem.getLocalName();</span>
+<span class="fc" id="L130">                    String text = elem.getText().trim();</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">                    if(localName.equals(WSSHandlerConstants.SIGN_ALL_HEADERS)) {</span>
+<span class="nc" id="L132">                        signAllHeaders = true;</span>
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">                    } else if(localName.equals(WSSHandlerConstants.SIGN_BODY)) {</span>
+<span class="nc" id="L134">                        signBody = true;</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">                    } else if(localName.equals(WSSHandlerConstants.ENCRYPT_BODY)) {</span>
+<span class="nc" id="L136">                        encryptBody = true;</span>
+                    } else {
+<span class="fc" id="L138">                        msgCtx.setProperty(Axis2Util.getKey(localName,</span>
+							inflow,repetitionCount), text);
+                    }
+<span class="fc" id="L141">				}</span>
+                
+<span class="pc bpc" id="L143" title="3 of 6 branches missed.">                if(signAllHeaders || signBody || encryptBody) {</span>
+<span class="nc" id="L144">                    handleSignEncrParts(signAllHeaders, signBody, encryptBody,</span>
+                            msgCtx, repetitionCount);
+                }
+                
+				
+<span class="fc" id="L149">			}</span>
+
+<span class="fc" id="L151">			msgCtx.setProperty(WSSHandlerConstants.SENDER_REPEAT_COUNT,</span>
+					Integer.valueOf(repetitionCount));
+		}
+<span class="fc" id="L154">	}</span>
+    
+    public static OutflowConfiguration getOutflowConfiguration(Parameter outflowConfigParam) throws AxisFault {
+<span class="nc bnc" id="L157" title="All 2 branches missed.">        if (outflowConfigParam != null) {</span>
+<span class="nc" id="L158">            OMElement outflowParamElem = outflowConfigParam.getParameterElement();</span>
+
+<span class="nc" id="L160">            OMElement actionElem = outflowParamElem</span>
+                    .getFirstChildWithName(new QName(WSSHandlerConstants.ACTION));
+<span class="nc bnc" id="L162" title="All 2 branches missed.">            if (actionElem == null) {</span>
+<span class="nc" id="L163">                throw new AxisFault(</span>
+                        &quot;Inflow configuration must contain an 'action' &quot;
+                                + &quot;elements the child of 'InflowSecurity' element&quot;);
+            }
+
+<span class="nc" id="L168">            OutflowConfiguration outflowConfiguration = new OutflowConfiguration();</span>
+            
+<span class="nc" id="L170">            Iterator childElements = actionElem.getChildElements();</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">            while (childElements.hasNext()) {</span>
+<span class="nc" id="L172">                OMElement element = (OMElement) childElements.next();</span>
+                
+<span class="nc" id="L174">                String localName = element.getLocalName();</span>
+<span class="nc" id="L175">                String text = element.getText().trim();</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">                if(localName.equals(WSHandlerConstants.PW_CALLBACK_CLASS)) {</span>
+<span class="nc" id="L177">                    outflowConfiguration.setPasswordCallbackClass(text);</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">                } else if(localName.equals(WSHandlerConstants.SIG_PROP_FILE)) {</span>
+<span class="nc" id="L179">                    outflowConfiguration.setSignaturePropFile(text);</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">                } else if(localName.equals(WSHandlerConstants.ENC_PROP_FILE)) {</span>
+<span class="nc" id="L181">                    outflowConfiguration.setEncryptionPropFile(text);</span>
+<span class="nc bnc" id="L182" title="All 2 branches missed.">                } else if(localName.equals(WSHandlerConstants.ENC_CALLBACK_CLASS)) {</span>
+<span class="nc" id="L183">                    outflowConfiguration.setEmbeddedKeyCallbackClass(text);</span>
+<span class="nc bnc" id="L184" title="All 2 branches missed.">                } else if(localName.equals(WSHandlerConstants.USER)) {</span>
+<span class="nc" id="L185">                    outflowConfiguration.setUser(text);</span>
+<span class="nc bnc" id="L186" title="All 2 branches missed.">                } else if(localName.equals(WSHandlerConstants.ENCRYPTION_USER)) {</span>
+<span class="nc" id="L187">                    outflowConfiguration.setEncryptionUser(text);</span>
+                }
+<span class="nc" id="L189">            }</span>
+<span class="nc" id="L190">            return outflowConfiguration;</span>
+        }
+<span class="nc" id="L192">        return null;</span>
+    }
+    
+    public static InflowConfiguration getInflowConfiguration(Parameter inflowConfigParam) throws AxisFault {
+
+<span class="nc bnc" id="L197" title="All 2 branches missed.">        if (inflowConfigParam != null) {</span>
+<span class="nc" id="L198">            OMElement inFlowParamElem = inflowConfigParam.getParameterElement();</span>
+
+<span class="nc" id="L200">            OMElement actionElem = inFlowParamElem</span>
+                    .getFirstChildWithName(new QName(WSSHandlerConstants.ACTION));
+<span class="nc bnc" id="L202" title="All 2 branches missed.">            if (actionElem == null) {</span>
+<span class="nc" id="L203">                throw new AxisFault(</span>
+                        &quot;Inflow configuration must contain an 'action' &quot;
+                                + &quot;elements the child of 'InflowSecurity' element&quot;);
+            }
+
+<span class="nc" id="L208">            InflowConfiguration inflowConfiguration = new InflowConfiguration();</span>
+            
+<span class="nc" id="L210">            Iterator childElements = actionElem.getChildElements();</span>
+<span class="nc bnc" id="L211" title="All 2 branches missed.">            while (childElements.hasNext()) {</span>
+<span class="nc" id="L212">                OMElement element = (OMElement) childElements.next();</span>
+                
+<span class="nc" id="L214">                String localName = element.getLocalName();</span>
+<span class="nc" id="L215">                String text = element.getText().trim();</span>
+                
+<span class="nc bnc" id="L217" title="All 2 branches missed.">                if(localName.equals(WSHandlerConstants.PW_CALLBACK_CLASS)) {</span>
+<span class="nc" id="L218">                    inflowConfiguration.setPasswordCallbackClass(text);</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">                } else if(localName.equals(WSHandlerConstants.SIG_PROP_FILE)) {</span>
+<span class="nc" id="L220">                    inflowConfiguration.setSignaturePropFile(text);</span>
+<span class="nc bnc" id="L221" title="All 2 branches missed.">                } else if(localName.equals(WSHandlerConstants.DEC_PROP_FILE)) {</span>
+<span class="nc" id="L222">                    inflowConfiguration.setDecryptionPropFile(text);</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">                } else if (WSHandlerConstants.ENABLE_SIGNATURE_CONFIRMATION</span>
+                        .equals(localName)) {
+<span class="nc bnc" id="L225" title="All 4 branches missed.">                    if (&quot;false&quot;.equals(text)</span>
+                            || &quot;0&quot;.equals(text)) {
+<span class="nc" id="L227">                        inflowConfiguration</span>
+                                .setEnableSignatureConfirmation(false);
+                    }
+                }
+<span class="nc" id="L231">            }</span>
+<span class="nc" id="L232">            return inflowConfiguration;</span>
+        }
+<span class="nc" id="L234">        return null;</span>
+    }
+
+    private static void handleSignEncrParts(boolean signAllHeaders,
+            boolean signBody, boolean encrBody, MessageContext msgCtx,
+            int repetition) {
+<span class="nc" id="L240">        String soapNs = msgCtx.getEnvelope().getNamespace().getNamespaceURI();</span>
+<span class="nc bnc" id="L241" title="All 2 branches missed.">        if(signBody) {</span>
+            //Add body signPart
+<span class="nc" id="L243">            String sigBodySigPart = &quot;{Element}{&quot; + soapNs + &quot;}Body&quot;;</span>
+<span class="nc" id="L244">            addSigPart(sigBodySigPart, msgCtx, repetition);</span>
+        }
+<span class="nc bnc" id="L246" title="All 2 branches missed.">        if(encrBody) {</span>
+            //Encrypt body content
+<span class="nc" id="L248">            String encrBodyEncrPart = &quot;{}{&quot; + soapNs + &quot;}Body&quot;;</span>
+<span class="nc" id="L249">            addEncrPart(encrBodyEncrPart, msgCtx, repetition);</span>
+        }
+<span class="nc bnc" id="L251" title="All 2 branches missed.">        if(signAllHeaders) {</span>
+<span class="nc" id="L252">            Iterator children = msgCtx.getEnvelope().getHeader().getChildElements();</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">            while (children.hasNext()) {</span>
+<span class="nc" id="L254">                OMElement element = (OMElement) children.next();</span>
+                //Sign only the qualified headers
+                //TODO check whether we can sign the unqualified header elements
+<span class="nc" id="L257">                String ns = element.getNamespace().getNamespaceURI();</span>
+<span class="nc bnc" id="L258" title="All 4 branches missed.">                if(ns != null &amp;&amp; ns.length() &gt; 0) {</span>
+<span class="nc" id="L259">                    addSigPart(&quot;{Element}{&quot; + ns + &quot;}&quot; + element.getLocalName(),msgCtx, repetition);</span>
+                }
+<span class="nc" id="L261">            }</span>
+        }
+        
+<span class="nc" id="L264">    }</span>
+    
+    private static void addSigPart(String sigPart, MessageContext msgCtx, int repetition) {
+<span class="nc" id="L267">        String key = Axis2Util.getKey(WSHandlerConstants.SIGNATURE_PARTS, false, repetition);</span>
+<span class="nc" id="L268">        String existingSignParts = (String) msgCtx.getProperty(key);</span>
+<span class="nc bnc" id="L269" title="All 4 branches missed.">        if (existingSignParts != null &amp;&amp; existingSignParts.length() &gt; 0) {</span>
+            // If the part is not already there as a sign part
+<span class="nc bnc" id="L271" title="All 2 branches missed.">            if (existingSignParts.indexOf(sigPart) != -1) {</span>
+<span class="nc" id="L272">                msgCtx.setProperty(key, existingSignParts + &quot;;&quot; + sigPart);</span>
+            }
+        } else {
+            // If there are no signed parts
+<span class="nc" id="L276">            msgCtx.setProperty(key, sigPart);</span>
+        }
+<span class="nc" id="L278">    }</span>
+    
+    private static void addEncrPart(String encrPart, MessageContext msgCtx, int repetition) {
+<span class="nc" id="L281">        String key = Axis2Util.getKey(WSHandlerConstants.ENCRYPTION_PARTS, false, repetition);</span>
+<span class="nc" id="L282">        String existingEncrParts = (String) msgCtx.getProperty(key);</span>
+<span class="nc bnc" id="L283" title="All 4 branches missed.">        if (existingEncrParts != null &amp;&amp; existingEncrParts.length() &gt; 0) {</span>
+<span class="nc bnc" id="L284" title="All 2 branches missed.">            if (existingEncrParts.indexOf(encrPart) != -1) {</span>
+<span class="nc" id="L285">                msgCtx.setProperty(key, existingEncrParts + &quot;;&quot; + encrPart);</span>
+            }
+        } else {
+<span class="nc" id="L288">            msgCtx.setProperty(key, encrPart);</span>
+        }
+<span class="nc" id="L290">    }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

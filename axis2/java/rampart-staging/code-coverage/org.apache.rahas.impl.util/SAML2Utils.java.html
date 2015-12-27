@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SAML2Utils.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.impl.util</a> &gt; <span class="el_source">SAML2Utils.java</span></div><h1>SAML2Utils.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package org.apache.rahas.impl.util;
+
+import org.apache.axiom.om.impl.dom.jaxp.DocumentBuilderFactoryImpl;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rahas.RahasConstants;
+import org.apache.rahas.TrustException;
+import org.apache.ws.security.*;
+import org.apache.ws.security.components.crypto.Crypto;
+import org.apache.ws.security.handler.RequestData;
+import org.apache.ws.security.processor.EncryptedKeyProcessor;
+import org.apache.ws.security.util.Base64;
+import org.apache.xml.security.exceptions.XMLSecurityException;
+import org.apache.xml.security.keys.KeyInfo;
+import org.apache.xml.security.keys.content.X509Data;
+import org.apache.xml.security.keys.content.x509.XMLX509Certificate;
+import org.opensaml.Configuration;
+import org.opensaml.DefaultBootstrap;
+import org.opensaml.saml2.core.*;
+import org.opensaml.xml.ConfigurationException;
+import org.opensaml.xml.XMLObject;
+import org.opensaml.xml.io.*;
+import org.w3c.dom.*;
+import org.w3c.dom.bootstrap.DOMImplementationRegistry;
+import org.w3c.dom.ls.DOMImplementationLS;
+import org.w3c.dom.ls.LSOutput;
+import org.w3c.dom.ls.LSSerializer;
+import org.xml.sax.SAXException;
+
+import javax.security.auth.callback.Callback;
+import javax.security.auth.callback.CallbackHandler;
+import javax.xml.namespace.QName;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.security.cert.X509Certificate;
+import java.util.Iterator;
+import java.util.List;
+
+<span class="nc" id="L60">public class SAML2Utils {</span>
+
+<span class="nc" id="L62">    private static final Log log = LogFactory.getLog(SAML2Utils.class);</span>
+
+    public static Element getElementFromAssertion(XMLObject xmlObj) throws TrustException {
+        try {
+            
+<span class="nc" id="L67">            String jaxpProperty = System.getProperty(&quot;javax.xml.parsers.DocumentBuilderFactory&quot;);</span>
+            //System.setProperty(&quot;javax.xml.parsers.DocumentBuilderFactory&quot;, &quot;org.apache.xerces.jaxp.DocumentBuilderFactoryImpl&quot;);
+
+<span class="nc" id="L70">            MarshallerFactory marshallerFactory = org.opensaml.xml.Configuration.getMarshallerFactory();</span>
+<span class="nc" id="L71">            Marshaller marshaller = marshallerFactory.getMarshaller(xmlObj);</span>
+<span class="nc" id="L72">            Element element = marshaller.marshall(xmlObj);</span>
+
+            // Reset the sys. property to its previous value.
+<span class="nc bnc" id="L75" title="All 2 branches missed.">            if (jaxpProperty == null) {</span>
+<span class="nc" id="L76">                System.getProperties().remove(&quot;javax.xml.parsers.DocumentBuilderFactory&quot;);</span>
+            } else {
+<span class="nc" id="L78">                System.setProperty(&quot;javax.xml.parsers.DocumentBuilderFactory&quot;, jaxpProperty);</span>
+            }
+
+<span class="nc" id="L81">            ByteArrayOutputStream byteArrayOutputStrm = new ByteArrayOutputStream();</span>
+
+<span class="nc" id="L83">            DOMImplementationRegistry registry = DOMImplementationRegistry.newInstance();</span>
+
+<span class="nc" id="L85">            DOMImplementationLS impl =</span>
+                    (DOMImplementationLS) registry.getDOMImplementation(&quot;LS&quot;);
+
+<span class="nc" id="L88">            LSSerializer writer = impl.createLSSerializer();</span>
+<span class="nc" id="L89">            LSOutput output = impl.createLSOutput();</span>
+<span class="nc" id="L90">            output.setByteStream(byteArrayOutputStrm);</span>
+<span class="nc" id="L91">            writer.write(element, output);</span>
+<span class="nc" id="L92">            String elementString = byteArrayOutputStrm.toString();</span>
+
+<span class="nc" id="L94">            DocumentBuilderFactoryImpl.setDOOMRequired(true);</span>
+
+<span class="nc" id="L96">            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="nc" id="L97">            documentBuilderFactory.setNamespaceAware(true);</span>
+<span class="nc" id="L98">            DocumentBuilder docBuilder = documentBuilderFactory.newDocumentBuilder();</span>
+<span class="nc" id="L99">            Document document = docBuilder.parse(new ByteArrayInputStream(elementString.trim().getBytes()));</span>
+<span class="nc" id="L100">            Element assertionElement = document.getDocumentElement();</span>
+<span class="nc" id="L101">            DocumentBuilderFactoryImpl.setDOOMRequired(false);</span>
+
+<span class="nc" id="L103">            log.debug(&quot;DOM element is created successfully from the OpenSAML2 XMLObject&quot;);</span>
+<span class="nc" id="L104">            return assertionElement;</span>
+
+<span class="nc" id="L106">        } catch (Exception e) {</span>
+<span class="nc" id="L107">            throw new TrustException(&quot;Error creating DOM object from the assertion&quot;, e);</span>
+        }
+    }
+
+     /**
+     * Extract certificates or the key available in the SAMLAssertion
+     *
+     * @param elem
+     * @return the SAML2 Key Info
+     * @throws org.apache.ws.security.WSSecurityException
+     *
+     */
+    public static SAML2KeyInfo getSAML2KeyInfo(Element elem, Crypto crypto,
+                                              CallbackHandler cb) throws WSSecurityException, TrustException {
+        Assertion assertion;
+
+        //build the assertion by unmarhalling the DOM element.
+        try {
+<span class="nc" id="L125">            DefaultBootstrap.bootstrap();</span>
+
+<span class="nc" id="L127">            String keyInfoElementString = elem.toString();</span>
+<span class="nc" id="L128">            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();</span>
+<span class="nc" id="L129">            documentBuilderFactory.setNamespaceAware(true);</span>
+<span class="nc" id="L130">            DocumentBuilder docBuilder = documentBuilderFactory.newDocumentBuilder();</span>
+<span class="nc" id="L131">            Document document = docBuilder.parse(new ByteArrayInputStream(keyInfoElementString.trim().getBytes()));</span>
+<span class="nc" id="L132">            Element element = document.getDocumentElement();</span>
+<span class="nc" id="L133">            UnmarshallerFactory unmarshallerFactory = Configuration</span>
+                    .getUnmarshallerFactory();
+<span class="nc" id="L135">            Unmarshaller unmarshaller = unmarshallerFactory</span>
+                    .getUnmarshaller(element);
+<span class="nc" id="L137">            assertion = (Assertion) unmarshaller</span>
+                    .unmarshall(element);
+        }
+<span class="nc" id="L140">        catch (ConfigurationException e) {</span>
+<span class="nc" id="L141">            throw new WSSecurityException(</span>
+                    WSSecurityException.FAILURE, &quot;Failure in bootstrapping&quot;, null, e);
+<span class="nc" id="L143">        } catch (UnmarshallingException e) {</span>
+<span class="nc" id="L144">            throw new WSSecurityException(</span>
+                    WSSecurityException.FAILURE, &quot;Failure in unmarshelling the assertion&quot;, null, e);
+<span class="nc" id="L146">        } catch (IOException e) {</span>
+<span class="nc" id="L147">            throw new WSSecurityException(</span>
+                    WSSecurityException.FAILURE, &quot;Failure in unmarshelling the assertion&quot;, null, e);
+<span class="nc" id="L149">        } catch (SAXException e) {</span>
+<span class="nc" id="L150">            throw new WSSecurityException(</span>
+                    WSSecurityException.FAILURE, &quot;Failure in unmarshelling the assertion&quot;, null, e);
+<span class="nc" id="L152">        } catch (ParserConfigurationException e) {</span>
+<span class="nc" id="L153">            throw new WSSecurityException(</span>
+                    WSSecurityException.FAILURE, &quot;Failure in unmarshelling the assertion&quot;, null, e);
+<span class="nc" id="L155">        }</span>
+<span class="nc" id="L156">        return getSAML2KeyInfo(assertion, crypto, cb);</span>
+
+    }
+
+    public static SAML2KeyInfo getSAML2KeyInfo(Assertion assertion, Crypto crypto,
+                                               CallbackHandler cb) throws WSSecurityException {
+
+        //First ask the cb whether it can provide the secret
+<span class="nc" id="L164">        WSPasswordCallback pwcb = new WSPasswordCallback(assertion.getID(), WSPasswordCallback.CUSTOM_TOKEN);</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">        if (cb != null) {</span>
+            try {
+<span class="nc" id="L167">                cb.handle(new Callback[]{pwcb});</span>
+<span class="nc" id="L168">            } catch (Exception e1) {</span>
+<span class="nc" id="L169">                throw new WSSecurityException(WSSecurityException.FAILURE, &quot;noKey&quot;,</span>
+                        new Object[]{assertion.getID()}, e1);
+<span class="nc" id="L171">            }</span>
+        }
+
+<span class="nc" id="L174">        byte[] key = pwcb.getKey();</span>
+
+<span class="nc bnc" id="L176" title="All 2 branches missed.">        if (key != null) {</span>
+<span class="nc" id="L177">            return new SAML2KeyInfo(assertion, key);</span>
+        } else {
+            // if the cb fails to provide the secret.
+            try {
+                // extract the subject
+<span class="nc" id="L182">                Subject samlSubject = assertion.getSubject();</span>
+<span class="nc bnc" id="L183" title="All 2 branches missed.">                if (samlSubject == null) {</span>
+<span class="nc" id="L184">                    throw new WSSecurityException(WSSecurityException.FAILURE,</span>
+                            &quot;invalidSAML2Token&quot;, new Object[]{&quot;for Signature (no Subject)&quot;});
+                }
+
+                // extract the subject confirmation element from the subject
+<span class="nc" id="L189">                SubjectConfirmation subjectConf = (SubjectConfirmation) samlSubject.getSubjectConfirmations().get(0);</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">                if (subjectConf == null) {</span>
+<span class="nc" id="L191">                    throw new WSSecurityException(WSSecurityException.FAILURE,</span>
+                            &quot;invalidSAML2Token&quot;, new Object[]{&quot;for Signature (no Subject Confirmation)&quot;});
+                }
+
+                // Get the subject confirmation data, KeyInfoConfirmationDataType extends SubjectConfirmationData.
+<span class="nc" id="L196">                SubjectConfirmationData scData = subjectConf.getSubjectConfirmationData();</span>
+                
+<span class="nc bnc" id="L198" title="All 2 branches missed.">                if (scData == null) {</span>
+<span class="nc" id="L199">                    throw new WSSecurityException(WSSecurityException.FAILURE,</span>
+                            &quot;invalidSAML2Token&quot;, new Object[]{&quot;for Signature (no Subject Confirmation Data)&quot;});
+                }
+
+                // Get the SAML specific XML representation of the keyInfo object
+<span class="nc" id="L204">                XMLObject KIElem = null;</span>
+<span class="nc" id="L205">                List&lt;XMLObject&gt; scDataElements = scData.getOrderedChildren();</span>
+<span class="nc" id="L206">                Iterator&lt;XMLObject&gt; iterator = scDataElements.iterator();</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">                while (iterator.hasNext()) {</span>
+<span class="nc" id="L208">                    XMLObject xmlObj = iterator.next();</span>
+<span class="nc bnc" id="L209" title="All 2 branches missed.">                    if (xmlObj instanceof org.opensaml.xml.signature.KeyInfo) {</span>
+<span class="nc" id="L210">                        KIElem = xmlObj;</span>
+<span class="nc" id="L211">                        break;</span>
+                    }
+<span class="nc" id="L213">                }</span>
+
+                Element keyInfoElement;
+
+                // Generate a DOM element from the XMLObject.
+<span class="nc bnc" id="L218" title="All 2 branches missed.">                if (KIElem != null) {</span>
+
+                    // Set the &quot;javax.xml.parsers.DocumentBuilderFactory&quot; system property to make sure the endorsed JAXP
+                    // implementation is picked over the default jaxp impl shipped with the JDK.
+<span class="nc" id="L222">                    String jaxpProperty = System.getProperty(&quot;javax.xml.parsers.DocumentBuilderFactory&quot;);</span>
+                    //System.setProperty(&quot;javax.xml.parsers.DocumentBuilderFactory&quot;, &quot;org.apache.xerces.jaxp.DocumentBuilderFactoryImpl&quot;);
+
+<span class="nc" id="L225">                    MarshallerFactory marshallerFactory = org.opensaml.xml.Configuration.getMarshallerFactory();</span>
+<span class="nc" id="L226">                    Marshaller marshaller = marshallerFactory.getMarshaller(KIElem);</span>
+<span class="nc" id="L227">                    keyInfoElement = marshaller.marshall(KIElem);</span>
+
+                    // Reset the sys. property to its previous value.
+<span class="nc bnc" id="L230" title="All 2 branches missed.">                    if (jaxpProperty == null) {</span>
+<span class="nc" id="L231">                        System.getProperties().remove(&quot;javax.xml.parsers.DocumentBuilderFactory&quot;);</span>
+                    } else {
+<span class="nc" id="L233">                        System.setProperty(&quot;javax.xml.parsers.DocumentBuilderFactory&quot;, jaxpProperty);</span>
+                    }
+
+<span class="nc" id="L236">                } else {</span>
+<span class="nc" id="L237">                    throw new WSSecurityException(WSSecurityException.FAILURE,</span>
+                            &quot;invalidSAML2Token&quot;, new Object[]{&quot;for Signature (no key info element)&quot;});
+                }
+
+<span class="nc bnc" id="L241" title="All 2 branches missed.">                AttributeStatement attrStmt = assertion.getAttributeStatements().size() != 0 ?</span>
+                        (AttributeStatement) assertion.getAttributeStatements().get(0) : null;
+<span class="nc bnc" id="L243" title="All 2 branches missed.">                AuthnStatement authnStmt = assertion.getAuthnStatements().size() != 0 ?</span>
+                        (AuthnStatement) assertion.getAuthnStatements().get(0) : null;
+
+                // if an attr stmt is present, then it has a symmetric key.
+<span class="nc bnc" id="L247" title="All 2 branches missed.">                if (attrStmt != null) {</span>
+<span class="nc" id="L248">                    NodeList children = keyInfoElement.getChildNodes();</span>
+<span class="nc" id="L249">                    int len = children.getLength();</span>
+
+<span class="nc bnc" id="L251" title="All 2 branches missed.">                    for (int i = 0; i &lt; len; i++) {</span>
+<span class="nc" id="L252">                        Node child = children.item(i);</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">                        if (child.getNodeType() != Node.ELEMENT_NODE) {</span>
+<span class="nc" id="L254">                            continue;</span>
+                        }
+<span class="nc" id="L256">                        QName el = new QName(child.getNamespaceURI(), child.getLocalName());</span>
+<span class="nc bnc" id="L257" title="All 2 branches missed.">                        if (el.equals(WSSecurityEngine.ENCRYPTED_KEY)) {</span>
+
+<span class="nc" id="L259">                            byte[] secret = CommonUtil.getDecryptedBytes(cb, crypto, child);</span>
+
+<span class="nc" id="L261">                            return new SAML2KeyInfo(assertion, secret);</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">                        } else if (el.equals(new QName(WSConstants.WST_NS, &quot;BinarySecret&quot;))) {</span>
+<span class="nc" id="L263">                            Text txt = (Text) child.getFirstChild();</span>
+<span class="nc" id="L264">                            return new SAML2KeyInfo(assertion, Base64.decode(txt.getData()));</span>
+                        }
+                    }
+
+                }
+
+                // If an authn stmt is present then it has a public key.
+<span class="nc bnc" id="L271" title="All 2 branches missed.">                if (authnStmt != null) {</span>
+
+<span class="nc" id="L273">                    X509Certificate[] certs = null;</span>
+                    try {
+<span class="nc" id="L275">                        KeyInfo ki = new KeyInfo(keyInfoElement, null);</span>
+
+<span class="nc bnc" id="L277" title="All 2 branches missed.">                        if (ki.containsX509Data()) {</span>
+<span class="nc" id="L278">                            X509Data data = ki.itemX509Data(0);</span>
+<span class="nc" id="L279">                            XMLX509Certificate certElem = null;</span>
+<span class="nc bnc" id="L280" title="All 4 branches missed.">                            if (data != null &amp;&amp; data.containsCertificate()) {</span>
+<span class="nc" id="L281">                                certElem = data.itemCertificate(0);</span>
+                            }
+<span class="nc bnc" id="L283" title="All 2 branches missed.">                            if (certElem != null) {</span>
+<span class="nc" id="L284">                                X509Certificate cert = certElem.getX509Certificate();</span>
+<span class="nc" id="L285">                                certs = new X509Certificate[1];</span>
+<span class="nc" id="L286">                                certs[0] = cert;</span>
+<span class="nc" id="L287">                                return new SAML2KeyInfo(assertion, certs);</span>
+                            }
+                        }
+
+<span class="nc" id="L291">                    } catch (XMLSecurityException e3) {</span>
+<span class="nc" id="L292">                        throw new WSSecurityException(WSSecurityException.FAILURE,</span>
+                                &quot;invalidSAMLsecurity&quot;,
+                                new Object[]{&quot;cannot get certificate (key holder)&quot;}, e3);
+<span class="nc" id="L295">                    }</span>
+
+                }
+
+
+<span class="nc" id="L300">                throw new WSSecurityException(WSSecurityException.FAILURE,</span>
+                        &quot;invalidSAMLsecurity&quot;,
+                        new Object[]{&quot;cannot get certificate or key &quot;});
+
+<span class="nc" id="L304">            } catch (MarshallingException e) {</span>
+<span class="nc" id="L305">                throw new WSSecurityException(WSSecurityException.FAILURE,</span>
+                        &quot;Failed marshalling the SAML Assertion&quot;, null, e);
+            }
+        }
+    }
+
+      /**
+     * Get the subject confirmation method of a SAML 2.0 assertion
+     *
+     * @param assertion SAML 2.0 assertion
+     * @return Subject Confirmation method
+     */
+    public static String getSAML2SubjectConfirmationMethod(Assertion assertion) {
+<span class="nc" id="L318">        String subjectConfirmationMethod = RahasConstants.SAML20_SUBJECT_CONFIRMATION_HOK;</span>
+<span class="nc" id="L319">        List&lt;SubjectConfirmation&gt; subjectConfirmations = assertion.getSubject().getSubjectConfirmations();</span>
+<span class="nc bnc" id="L320" title="All 2 branches missed.">        if (subjectConfirmations.size() &gt; 0) {</span>
+<span class="nc" id="L321">            subjectConfirmationMethod = subjectConfirmations.get(0).getMethod();</span>
+        }
+<span class="nc" id="L323">        return subjectConfirmationMethod;</span>
+    }
+
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

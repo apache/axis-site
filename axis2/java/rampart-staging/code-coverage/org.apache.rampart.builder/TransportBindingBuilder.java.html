@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransportBindingBuilder.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.builder</a> &gt; <span class="el_source">TransportBindingBuilder.java</span></div><h1>TransportBindingBuilder.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.builder;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.soap.SOAPEnvelope;
+import org.apache.axis2.context.MessageContext;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rahas.RahasConstants;
+import org.apache.rahas.TrustException;
+import org.apache.rampart.RampartConstants;
+import org.apache.rampart.RampartException;
+import org.apache.rampart.RampartMessageData;
+import org.apache.rampart.policy.RampartPolicyData;
+import org.apache.rampart.util.RampartUtil;
+import org.apache.ws.secpolicy.SPConstants;
+import org.apache.ws.secpolicy.model.AlgorithmSuite;
+import org.apache.ws.secpolicy.model.Header;
+import org.apache.ws.secpolicy.model.IssuedToken;
+import org.apache.ws.secpolicy.model.SecureConversationToken;
+import org.apache.ws.secpolicy.model.SignedEncryptedParts;
+import org.apache.ws.secpolicy.model.SupportingToken;
+import org.apache.ws.secpolicy.model.Token;
+import org.apache.ws.secpolicy.model.UsernameToken;
+import org.apache.ws.secpolicy.model.X509Token;
+import org.apache.ws.security.WSConstants;
+import org.apache.ws.security.WSEncryptionPart;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.conversation.ConversationException;
+import org.apache.ws.security.handler.WSHandlerConstants;
+import org.apache.ws.security.message.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import javax.xml.crypto.dsig.Reference;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+<span class="fc" id="L55">public class TransportBindingBuilder extends BindingBuilder {</span>
+
+<span class="fc" id="L57">    private static Log log = LogFactory.getLog(TransportBindingBuilder.class);</span>
+<span class="fc" id="L58">    private static Log tlog = LogFactory.getLog(RampartConstants.TIME_LOG);	</span>
+
+    public void build(RampartMessageData rmd) throws RampartException {
+
+<span class="fc" id="L62">        log.debug(&quot;TransportBindingBuilder build invoked&quot;);</span>
+
+<span class="fc" id="L64">        long t0 = 0, t1 = 0;</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">    	if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L66">    		t1 = System.currentTimeMillis();</span>
+    	}
+        
+<span class="fc" id="L69">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+        
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">        if (rpd.isIncludeTimestamp()) {</span>
+<span class="fc" id="L72">        	addTimestamp(rmd);</span>
+        }
+       
+        /*
+         * Process Supporting tokens
+         */
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        if(rmd.isInitiator()) {</span>
+<span class="fc" id="L79">            List&lt;byte[]&gt; signatureValues = new ArrayList&lt;byte[]&gt;();</span>
+            
+<span class="fc" id="L81">            SupportingToken sgndSuppTokens = rpd.getSignedSupportingTokens();</span>
+            
+<span class="pc bpc" id="L83" title="3 of 6 branches missed.">            if(sgndSuppTokens != null &amp;&amp; sgndSuppTokens.getTokens() != null &amp;&amp;</span>
+                    sgndSuppTokens.getTokens().size() &gt; 0) {
+
+<span class="fc" id="L86">                log.debug(&quot;Processing signed supporting tokens&quot;);</span>
+
+<span class="fc" id="L88">                ArrayList tokens = sgndSuppTokens.getTokens();</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">                for (Object signedSupportingToken : tokens) {</span>
+
+<span class="fc" id="L91">                    Token token = (Token) signedSupportingToken;</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">                    if (token instanceof UsernameToken) {</span>
+<span class="fc" id="L93">                        WSSecUsernameToken utBuilder = addUsernameToken(rmd, (UsernameToken) token);</span>
+
+<span class="fc" id="L95">                        utBuilder.prepare(rmd.getDocument());</span>
+
+                        //Add the UT
+<span class="fc" id="L98">                        utBuilder.appendToHeader(rmd.getSecHeader());</span>
+
+<span class="fc" id="L100">                    } else {</span>
+<span class="nc" id="L101">                        throw new RampartException(&quot;unsupportedSignedSupportingToken&quot;,</span>
+                                new String[]{&quot;{&quot; + token.getName().getNamespaceURI()
+                                        + &quot;}&quot; + token.getName().getLocalPart()});
+                    }
+<span class="fc" id="L105">                }</span>
+            }
+            
+<span class="fc" id="L108">            SupportingToken sgndEndSuppTokens = rpd.getSignedEndorsingSupportingTokens();</span>
+<span class="pc bpc" id="L109" title="2 of 6 branches missed.">            if(sgndEndSuppTokens != null &amp;&amp; sgndEndSuppTokens.getTokens() != null &amp;&amp;</span>
+                    sgndEndSuppTokens.getTokens().size() &gt; 0) {
+
+<span class="fc" id="L112">                log.debug(&quot;Processing endorsing signed supporting tokens&quot;);</span>
+
+<span class="fc" id="L114">                ArrayList tokens = sgndEndSuppTokens.getTokens();</span>
+<span class="fc" id="L115">                SignedEncryptedParts signdParts = sgndEndSuppTokens.getSignedParts();</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">                for (Object objectToken : tokens) {</span>
+<span class="fc" id="L117">                    Token token = (Token) objectToken;</span>
+<span class="pc bpc" id="L118" title="3 of 4 branches missed.">                    if (token instanceof IssuedToken &amp;&amp; rmd.isInitiator()) {</span>
+<span class="nc" id="L119">                        signatureValues.add(doIssuedTokenSignature(rmd, token, signdParts));</span>
+<span class="pc bpc" id="L120" title="1 of 2 branches missed.">                    } else if (token instanceof X509Token) {</span>
+<span class="fc" id="L121">                        signatureValues.add(doX509TokenSignature(rmd, token, signdParts));</span>
+                    }
+<span class="fc" id="L123">                }</span>
+            }
+    
+<span class="fc" id="L126">            SupportingToken endSupptokens = rpd.getEndorsingSupportingTokens();</span>
+<span class="pc bpc" id="L127" title="5 of 6 branches missed.">            if(endSupptokens != null &amp;&amp; endSupptokens.getTokens() != null &amp;&amp;</span>
+                    endSupptokens.getTokens().size() &gt; 0) {
+<span class="nc" id="L129">                log.debug(&quot;Processing endorsing supporting tokens&quot;);</span>
+<span class="nc" id="L130">                ArrayList tokens = endSupptokens.getTokens();</span>
+<span class="nc" id="L131">                SignedEncryptedParts signdParts = endSupptokens.getSignedParts();</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">                for (Object objectToken : tokens) {</span>
+<span class="nc" id="L133">                    Token token = (Token) objectToken;</span>
+<span class="nc bnc" id="L134" title="All 4 branches missed.">                    if (token instanceof IssuedToken &amp;&amp; rmd.isInitiator()) {</span>
+<span class="nc" id="L135">                        signatureValues.add(doIssuedTokenSignature(rmd, token, signdParts));</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">                    } else if (token instanceof X509Token) {</span>
+<span class="nc" id="L137">                        signatureValues.add(doX509TokenSignature(rmd, token, signdParts));</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">                    } else if (token instanceof SecureConversationToken) {</span>
+<span class="nc" id="L139">                        handleSecureConversationTokens(rmd, (SecureConversationToken) token);</span>
+<span class="nc" id="L140">                        signatureValues.add(doSecureConversationSignature(rmd, token, signdParts));</span>
+                    }
+<span class="nc" id="L142">                }</span>
+            }
+            
+            
+<span class="fc" id="L146">            List&lt;SupportingToken&gt; supportingToks = rpd.getSupportingTokensList();</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">            for (SupportingToken supportingTok : supportingToks) {</span>
+<span class="nc" id="L148">                this.handleSupportingTokens(rmd, supportingTok);</span>
+<span class="nc" id="L149">            } </span>
+            
+            
+            //Store the signature values list
+<span class="fc" id="L153">            rmd.getMsgContext().setProperty(WSHandlerConstants.SEND_SIGV, signatureValues);</span>
+<span class="fc" id="L154">        } else {</span>
+<span class="fc" id="L155">            addSignatureConfirmation(rmd, null);</span>
+        }
+        
+<span class="pc bpc" id="L158" title="1 of 2 branches missed.">    	if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L159">    		t1 = System.currentTimeMillis();</span>
+<span class="nc" id="L160">    		tlog.debug(&quot;Transport binding build took &quot;+ (t1 - t0));</span>
+    	}
+<span class="fc" id="L162">    }</span>
+
+
+
+    /**
+     * X.509 signature
+     * @param rmd
+     * @param token
+     * @param signdParts 
+     */
+    private byte[] doX509TokenSignature(RampartMessageData rmd, Token token, SignedEncryptedParts signdParts) throws RampartException {
+        
+<span class="fc" id="L174">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc" id="L175">        Document doc = rmd.getDocument();</span>
+        
+<span class="fc" id="L177">        List&lt;WSEncryptionPart&gt; sigParts = new ArrayList&lt;WSEncryptionPart&gt;();</span>
+        
+<span class="pc bpc" id="L179" title="1 of 2 branches missed.">        if(this.timestampElement != null){</span>
+<span class="fc" id="L180">            sigParts.add(new WSEncryptionPart(rmd.getTimestampId()));                          </span>
+        }
+        
+<span class="pc bpc" id="L183" title="1 of 2 branches missed.">        if(signdParts != null) {</span>
+<span class="nc bnc" id="L184" title="All 2 branches missed.">            if(signdParts.isBody()) {</span>
+<span class="nc" id="L185">                SOAPEnvelope env = rmd.getMsgContext().getEnvelope();</span>
+<span class="nc" id="L186">                sigParts.add(new WSEncryptionPart(RampartUtil.addWsuIdToElement(env.getBody())));</span>
+            }
+    
+<span class="nc" id="L189">            ArrayList headers = signdParts.getHeaders();</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">            for (Iterator iterator = headers.iterator(); iterator.hasNext();) {</span>
+<span class="nc" id="L191">                Header header = (Header) iterator.next();</span>
+<span class="nc" id="L192">                WSEncryptionPart wep = new WSEncryptionPart(header.getName(), </span>
+                        header.getNamespace(),
+                        &quot;Content&quot;);
+<span class="nc" id="L195">                sigParts.add(wep);</span>
+<span class="nc" id="L196">            }</span>
+        }
+<span class="fc bfc" id="L198" title="All 2 branches covered.">        if(token.isDerivedKeys()) {</span>
+            //In this case we will have to encrypt the ephmeral key with the 
+            //other party's key and then use it as the parent key of the
+            // derived keys
+            try {
+                
+<span class="fc" id="L204">                WSSecEncryptedKey encrKey = getEncryptedKeyBuilder(rmd, token);</span>
+                
+<span class="fc" id="L206">                Element bstElem = encrKey.getBinarySecurityTokenElement();</span>
+<span class="pc bpc" id="L207" title="1 of 2 branches missed.">                if(bstElem != null) {</span>
+<span class="nc" id="L208">                   RampartUtil.appendChildToSecHeader(rmd, bstElem); </span>
+                }
+
+                // Add &lt;xenc:EncryptedKey Id=&quot;EncKeyId-E67B75302ACB3BEDF313277587471272&quot;&gt;..&lt;/xenc:EncryptedKey&gt;
+                // to security header.
+<span class="fc" id="L213">                encrKey.appendToHeader(rmd.getSecHeader());</span>
+                
+<span class="fc" id="L215">                WSSecDKSign dkSig = new WSSecDKSign();</span>
+                
+<span class="fc" id="L217">                dkSig.setWsConfig(rmd.getConfig());</span>
+                
+<span class="fc" id="L219">                dkSig.setSigCanonicalization(rpd.getAlgorithmSuite().getInclusiveC14n());</span>
+<span class="fc" id="L220">                dkSig.setSignatureAlgorithm(rpd.getAlgorithmSuite().getSymmetricSignature());</span>
+<span class="fc" id="L221">                dkSig.setDerivedKeyLength(rpd.getAlgorithmSuite().getSignatureDerivedKeyLength()/8);</span>
+
+                /**
+                 * Add a reference to encrypted key in the derived key
+                 */
+<span class="fc" id="L226">                dkSig.setExternalKey(encrKey.getEphemeralKey(), encrKey.getId());</span>
+                
+<span class="fc" id="L228">                dkSig.prepare(doc, rmd.getSecHeader());</span>
+                
+                
+<span class="pc bpc" id="L231" title="1 of 2 branches missed.">                if(rpd.isTokenProtection()) {</span>
+<span class="nc" id="L232">                    sigParts.add(new WSEncryptionPart(encrKey.getBSTTokenId()));</span>
+                }
+                
+<span class="fc" id="L235">                dkSig.setParts(sigParts);</span>
+                
+<span class="fc" id="L237">                List&lt;Reference&gt; referenceList</span>
+                        = dkSig.addReferencesToSign(sigParts, rmd.getSecHeader());
+
+
+                /**
+                 * Add &lt;wsc:DerivedKeyToken&gt;..&lt;/wsc:DerivedKeyToken&gt; to security
+                 * header. We need to add this just after Encrypted Key and just before &lt;Signature&gt;..&lt;/Signature&gt;
+                 * elements. (As a convention)
+                 */
+<span class="fc" id="L246">                dkSig.appendDKElementToHeader(rmd.getSecHeader());</span>
+
+                //Do signature and append to the security header
+<span class="fc" id="L249">                dkSig.computeSignature(referenceList, false, null);</span>
+                
+
+
+                // TODO this is bit dubious, before migration code was like &quot;dkSig.appendSigToHeader(rmd.getSecHeader())&quot;
+                // but WSS4J has remove append methods. Need to find why ?
+                //this.appendToHeader(rmd.getSecHeader(), dkSig.getSignatureElement());
+
+<span class="fc" id="L257">                return dkSig.getSignatureValue();</span>
+                
+<span class="nc" id="L259">            } catch (WSSecurityException e) {</span>
+<span class="nc" id="L260">                throw new RampartException(&quot;errorInDerivedKeyTokenSignature&quot;, e);</span>
+<span class="nc" id="L261">            } catch (ConversationException e) {</span>
+<span class="nc" id="L262">                throw new RampartException(&quot;errorInDerivedKeyTokenSignature&quot;, e);</span>
+            }
+            
+        } else {
+            
+            try {
+<span class="fc" id="L268">                WSSecSignature sig = this.getSignatureBuilder(rmd, token);</span>
+                
+
+<span class="fc" id="L271">                sig.appendBSTElementToHeader(rmd.getSecHeader());</span>
+                
+<span class="pc bpc" id="L273" title="3 of 4 branches missed.">                if (rpd.isTokenProtection()</span>
+                        &amp;&amp; !(SPConstants.INCLUDE_TOKEN_NEVER == token.getInclusion())) {
+<span class="nc" id="L275">                    sigParts.add(new WSEncryptionPart(sig.getBSTTokenId()));</span>
+                }
+                
+<span class="fc" id="L278">                List&lt;Reference&gt; referenceList</span>
+                        = sig.addReferencesToSign(sigParts, rmd.getSecHeader());
+
+                // TODO changed the order - verify
+                // Compute signature and append to the header
+<span class="fc" id="L283">                sig.computeSignature(referenceList, false, null);</span>
+
+<span class="fc" id="L285">                return sig.getSignatureValue();</span>
+<span class="nc" id="L286">            } catch (WSSecurityException e) {</span>
+<span class="nc" id="L287">                throw new RampartException(&quot;errorInSignatureWithX509Token&quot;, e);</span>
+            }
+            
+            
+        }
+        
+    }
+
+    private void appendToHeader(WSSecHeader secHeader, Element appendingChild) {
+
+        // TODO this is bit dubious, before migration code was like &quot;dkSig.appendSigToHeader(rmd.getSecHeader())&quot;
+        // but WSS4J has remove append methods. Need to find why ?
+<span class="nc" id="L299">        Element secHeaderElement = secHeader.getSecurityHeader();</span>
+<span class="nc" id="L300">        secHeaderElement.appendChild(appendingChild);</span>
+
+<span class="nc" id="L302">    }</span>
+
+
+    /**
+     * IssuedToken signature
+     * @param rmd
+     * @param token
+     * @param signdParts 
+     * @throws RampartException
+     */
+    private byte[] doIssuedTokenSignature(RampartMessageData rmd, Token token, SignedEncryptedParts signdParts) throws RampartException {
+        
+<span class="nc" id="L314">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="nc" id="L315">        Document doc= rmd.getDocument();</span>
+        
+        //Get the issued token
+<span class="nc" id="L318">        String id = RampartUtil.getIssuedToken(rmd, (IssuedToken)token);</span>
+   
+<span class="nc" id="L320">        int inclusion = token.getInclusion();</span>
+<span class="nc" id="L321">        org.apache.rahas.Token tok = null;</span>
+        try {
+<span class="nc" id="L323">          tok = rmd.getTokenStorage().getToken(id);</span>
+<span class="nc" id="L324">        } catch (TrustException e) {</span>
+<span class="nc" id="L325">          throw new RampartException(&quot;errorExtractingToken&quot;,</span>
+                  new String[]{id} ,e);
+<span class="nc" id="L327">        }</span>
+   
+<span class="nc" id="L329">        boolean tokenIncluded = false;</span>
+        
+<span class="nc bnc" id="L331" title="All 8 branches missed.">        if(inclusion == SPConstants.INCLUDE_TOEKN_ALWAYS ||</span>
+        ((inclusion == SPConstants.INCLUDE_TOEKN_ALWAYS_TO_RECIPIENT 
+                || inclusion == SPConstants.INCLUDE_TOKEN_ONCE) 
+                &amp;&amp; rmd.isInitiator())) {
+          
+            //Add the token
+<span class="nc" id="L337">            rmd.getSecHeader().getSecurityHeader().appendChild(</span>
+                  doc.importNode((Element) tok.getToken(), true));
+          
+<span class="nc" id="L340">            tokenIncluded = true;</span>
+        }
+
+<span class="nc" id="L343">        List&lt;WSEncryptionPart&gt; sigParts = new ArrayList&lt;WSEncryptionPart&gt;();</span>
+        
+<span class="nc bnc" id="L345" title="All 2 branches missed.">        if(this.timestampElement != null){</span>
+<span class="nc" id="L346">            sigParts.add(new WSEncryptionPart(rmd.getTimestampId()));                          </span>
+        }
+        
+        
+<span class="nc bnc" id="L350" title="All 4 branches missed.">        if(rpd.isTokenProtection() &amp;&amp; tokenIncluded) {</span>
+<span class="nc" id="L351">            sigParts.add(new WSEncryptionPart(id));</span>
+        }
+        
+<span class="nc bnc" id="L354" title="All 2 branches missed.">        if(signdParts != null) {</span>
+<span class="nc bnc" id="L355" title="All 2 branches missed.">            if(signdParts.isBody()) {</span>
+<span class="nc" id="L356">                SOAPEnvelope env = rmd.getMsgContext().getEnvelope();</span>
+<span class="nc" id="L357">                sigParts.add(new WSEncryptionPart(RampartUtil.addWsuIdToElement(env.getBody())));</span>
+            }
+    
+<span class="nc" id="L360">            ArrayList headers = signdParts.getHeaders();</span>
+<span class="nc bnc" id="L361" title="All 2 branches missed.">            for (Object signedHeader : headers) {</span>
+<span class="nc" id="L362">                Header header = (Header) signedHeader;</span>
+<span class="nc" id="L363">                WSEncryptionPart wep = new WSEncryptionPart(header.getName(),</span>
+                        header.getNamespace(),
+                        &quot;Content&quot;);
+<span class="nc" id="L366">                sigParts.add(wep);</span>
+<span class="nc" id="L367">            }</span>
+        }
+        
+        //check for derived keys
+<span class="nc" id="L371">        AlgorithmSuite algorithmSuite = rpd.getAlgorithmSuite();</span>
+<span class="nc bnc" id="L372" title="All 2 branches missed.">        if(token.isDerivedKeys()) {</span>
+          //Create a derived key and add
+          try {
+   
+              //Do Signature with derived keys
+<span class="nc" id="L377">              WSSecDKSign dkSign = new WSSecDKSign();</span>
+              
+              // Setting the AttachedReference or the UnattachedReference according to the flag
+              OMElement ref;
+<span class="nc bnc" id="L381" title="All 2 branches missed.">              if (tokenIncluded) {</span>
+<span class="nc" id="L382">                  ref = tok.getAttachedReference();</span>
+              } else {
+<span class="nc" id="L384">                  ref = tok.getUnattachedReference();</span>
+              }
+              
+<span class="nc bnc" id="L387" title="All 2 branches missed.">              if(ref != null) {</span>
+<span class="nc" id="L388">                  dkSign.setExternalKey(tok.getSecret(), (Element) </span>
+                          doc.importNode((Element) ref, true));
+              } else {
+<span class="nc" id="L391">                  dkSign.setExternalKey(tok.getSecret(), tok.getId());</span>
+              }
+              
+              //Set the algo info
+<span class="nc" id="L395">              dkSign.setSignatureAlgorithm(algorithmSuite.getSymmetricSignature());</span>
+<span class="nc" id="L396">              dkSign.setDerivedKeyLength(algorithmSuite.getSignatureDerivedKeyLength());</span>
+              
+<span class="nc" id="L398">              dkSign.prepare(doc);</span>
+
+              /**
+               * Add &lt;wsc:DerivedKeyToken&gt;..&lt;/wsc:DerivedKeyToken&gt; to security
+               * header. We need to add this just after Encrypted Key and just before &lt;Signature&gt;..&lt;/Signature&gt;
+               * elements. (As a convention)
+               */
+<span class="nc" id="L405">              dkSign.appendDKElementToHeader(rmd.getSecHeader());</span>
+              
+<span class="nc" id="L407">              dkSign.setParts(sigParts);</span>
+              
+<span class="nc" id="L409">              List&lt;Reference&gt; referenceList</span>
+                      = dkSign.addReferencesToSign(sigParts, rmd.getSecHeader());
+              
+              //Do signature
+<span class="nc" id="L413">              dkSign.computeSignature(referenceList, false, null);</span>
+
+              // TODO verify before migration - dkSign.appendSigToHeader(rmd.getSecHeader())
+              // this.appendToHeader(rmd.getSecHeader(), dkSign.getSignatureElement());
+              
+<span class="nc" id="L418">              return dkSign.getSignatureValue();</span>
+              
+<span class="nc" id="L420">          } catch (ConversationException e) {</span>
+<span class="nc" id="L421">              throw new RampartException(</span>
+                      &quot;errorInDerivedKeyTokenSignature&quot;, e);
+<span class="nc" id="L423">          } catch (WSSecurityException e) {</span>
+<span class="nc" id="L424">              throw new RampartException(</span>
+                      &quot;errorInDerivedKeyTokenSignature&quot;, e);
+          }
+          
+        } else {
+            try {
+<span class="nc" id="L430">                WSSecSignature sig = new WSSecSignature();</span>
+<span class="nc" id="L431">                sig.setWsConfig(rmd.getConfig());</span>
+<span class="nc" id="L432">                String tokId = tok.getId();</span>
+<span class="nc bnc" id="L433" title="All 2 branches missed.">                if (tokId.charAt(0) == '#') {</span>
+<span class="nc" id="L434">		    tokId = tokId.substring(1);</span>
+                }
+<span class="nc" id="L436">                sig.setCustomTokenId(tokId);</span>
+<span class="nc" id="L437">                sig.setCustomTokenValueType(RampartUtil.getSAML10AssertionNamespace());</span>
+<span class="nc" id="L438">                sig.setSecretKey(tok.getSecret());</span>
+<span class="nc" id="L439">                sig.setSignatureAlgorithm(algorithmSuite.getAsymmetricSignature());</span>
+<span class="nc" id="L440">                sig.setSignatureAlgorithm(algorithmSuite.getSymmetricSignature());</span>
+<span class="nc" id="L441">                sig.setKeyIdentifierType(WSConstants.CUSTOM_SYMM_SIGNING);</span>
+<span class="nc" id="L442">                sig.prepare(rmd.getDocument(), RampartUtil.getSignatureCrypto(rpd</span>
+                        .getRampartConfig(), rmd.getCustomClassLoader()),
+                        rmd.getSecHeader());
+
+<span class="nc" id="L446">                sig.setParts(sigParts);</span>
+<span class="nc" id="L447">                List&lt;javax.xml.crypto.dsig.Reference&gt; referenceList</span>
+                        = sig.addReferencesToSign(sigParts, rmd.getSecHeader());
+
+                //Do signature
+<span class="nc" id="L451">                sig.computeSignature(referenceList);</span>
+
+                //Add elements to header
+<span class="nc" id="L454">                this.setInsertionLocation(RampartUtil.insertSiblingAfter(</span>
+                        rmd,
+                        this.getInsertionLocation(),
+                        sig.getSignatureElement()));
+
+<span class="nc" id="L459">                return sig.getSignatureValue();</span>
+
+<span class="nc" id="L461">            } catch (WSSecurityException e) {</span>
+<span class="nc" id="L462">                throw new RampartException(&quot;errorInSignatureWithACustomToken&quot;, e);</span>
+            }
+        }
+    }
+    
+    private byte[] doSecureConversationSignature(RampartMessageData rmd, Token token, SignedEncryptedParts signdParts) throws RampartException {
+        
+<span class="nc" id="L469">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="nc" id="L470">        Document doc= rmd.getDocument();</span>
+        
+        //Get the issued token
+<span class="nc" id="L473">        String id = rmd.getSecConvTokenId();</span>
+   
+<span class="nc" id="L475">        int inclusion = token.getInclusion();</span>
+<span class="nc" id="L476">        org.apache.rahas.Token tok = null;</span>
+        try {
+<span class="nc" id="L478">          tok = rmd.getTokenStorage().getToken(id);</span>
+<span class="nc" id="L479">        } catch (TrustException e) {</span>
+<span class="nc" id="L480">          throw new RampartException(&quot;errorExtractingToken&quot;,</span>
+                  new String[]{id} ,e);
+<span class="nc" id="L482">        }</span>
+   
+<span class="nc" id="L484">        boolean tokenIncluded = false;</span>
+        
+<span class="nc bnc" id="L486" title="All 8 branches missed.">        if(inclusion == SPConstants.INCLUDE_TOEKN_ALWAYS ||</span>
+        ((inclusion == SPConstants.INCLUDE_TOEKN_ALWAYS_TO_RECIPIENT 
+                || inclusion == SPConstants.INCLUDE_TOKEN_ONCE) 
+                &amp;&amp; rmd.isInitiator())) {
+          
+            //Add the token
+<span class="nc" id="L492">            rmd.getSecHeader().getSecurityHeader().appendChild(</span>
+                  doc.importNode((Element) tok.getToken(), true));
+          
+<span class="nc" id="L495">            tokenIncluded = true;</span>
+        }
+
+<span class="nc" id="L498">        List&lt;WSEncryptionPart&gt; sigParts = new ArrayList&lt;WSEncryptionPart&gt;();</span>
+        
+<span class="nc bnc" id="L500" title="All 2 branches missed.">        if(this.timestampElement != null){</span>
+<span class="nc" id="L501">            sigParts.add(new WSEncryptionPart(rmd.getTimestampId()));                          </span>
+        }
+        
+        
+<span class="nc bnc" id="L505" title="All 4 branches missed.">        if(rpd.isTokenProtection() &amp;&amp; tokenIncluded) {</span>
+<span class="nc" id="L506">            sigParts.add(new WSEncryptionPart(id));</span>
+        }
+        
+<span class="nc bnc" id="L509" title="All 2 branches missed.">        if(signdParts != null) {</span>
+<span class="nc bnc" id="L510" title="All 2 branches missed.">            if(signdParts.isBody()) {</span>
+<span class="nc" id="L511">                SOAPEnvelope env = rmd.getMsgContext().getEnvelope();</span>
+<span class="nc" id="L512">                sigParts.add(new WSEncryptionPart(RampartUtil.addWsuIdToElement(env.getBody())));</span>
+            }
+    
+<span class="nc" id="L515">            ArrayList headers = signdParts.getHeaders();</span>
+<span class="nc bnc" id="L516" title="All 2 branches missed.">            for (Object objectHeader : headers) {</span>
+<span class="nc" id="L517">                Header header = (Header) objectHeader;</span>
+<span class="nc" id="L518">                WSEncryptionPart wep = new WSEncryptionPart(header.getName(),</span>
+                        header.getNamespace(),
+                        &quot;Content&quot;);
+<span class="nc" id="L521">                sigParts.add(wep);</span>
+<span class="nc" id="L522">            }</span>
+        }
+        
+        //check for derived keys
+<span class="nc" id="L526">        AlgorithmSuite algorithmSuite = rpd.getAlgorithmSuite();</span>
+<span class="nc bnc" id="L527" title="All 2 branches missed.">        if(token.isDerivedKeys()) {</span>
+          //Create a derived key and add
+          try {
+   
+              //Do Signature with derived keys
+<span class="nc" id="L532">              WSSecDKSign dkSign = new WSSecDKSign();</span>
+              
+              // Setting the AttachedReference or the UnattachedReference according to the flag
+              OMElement ref;
+<span class="nc bnc" id="L536" title="All 2 branches missed.">              if (tokenIncluded) {</span>
+<span class="nc" id="L537">                  ref = tok.getAttachedReference();</span>
+              } else {
+<span class="nc" id="L539">                  ref = tok.getUnattachedReference();</span>
+              }
+              
+<span class="nc bnc" id="L542" title="All 2 branches missed.">              if(ref != null) {</span>
+<span class="nc" id="L543">                  dkSign.setExternalKey(tok.getSecret(), (Element) </span>
+                          doc.importNode((Element) ref, true));
+              } else {
+<span class="nc" id="L546">                  dkSign.setExternalKey(tok.getSecret(), tok.getId());</span>
+              }
+              
+              //Set the algo info
+<span class="nc" id="L550">              dkSign.setSignatureAlgorithm(algorithmSuite.getSymmetricSignature());</span>
+<span class="nc" id="L551">              dkSign.setDerivedKeyLength(algorithmSuite.getSignatureDerivedKeyLength());</span>
+              
+<span class="nc" id="L553">              dkSign.prepare(doc);</span>
+
+              /**
+               * Add &lt;wsc:DerivedKeyToken&gt;..&lt;/wsc:DerivedKeyToken&gt; to security
+               * header. We need to add this just after Encrypted Key and just before &lt;Signature&gt;..&lt;/Signature&gt;
+               * elements. (As a convention)
+               */
+<span class="nc" id="L560">              dkSign.appendDKElementToHeader(rmd.getSecHeader());</span>
+              
+<span class="nc" id="L562">              dkSign.setParts(sigParts);</span>
+              
+<span class="nc" id="L564">              List&lt;Reference&gt; referenceList</span>
+                      = dkSign.addReferencesToSign(sigParts, rmd.getSecHeader());
+              
+              //Do signature
+<span class="nc" id="L568">              dkSign.computeSignature(referenceList, false, null);</span>
+
+              //this.appendToHeader(rmd.getSecHeader(), dkSign.getSignatureElement());
+
+<span class="nc" id="L572">              return dkSign.getSignatureValue();</span>
+              
+<span class="nc" id="L574">          } catch (ConversationException e) {</span>
+<span class="nc" id="L575">              throw new RampartException(</span>
+                      &quot;errorInDerivedKeyTokenSignature&quot;, e);
+<span class="nc" id="L577">          } catch (WSSecurityException e) {</span>
+<span class="nc" id="L578">              throw new RampartException(</span>
+                      &quot;errorInDerivedKeyTokenSignature&quot;, e);
+          }
+          
+        } else {
+            try {
+<span class="nc" id="L584">                WSSecSignature sig = new WSSecSignature();</span>
+<span class="nc" id="L585">                sig.setWsConfig(rmd.getConfig());</span>
+<span class="nc" id="L586">                sig.setCustomTokenId(tok.getId().substring(1));</span>
+<span class="nc" id="L587">                sig.setCustomTokenValueType(RampartUtil.getSAML10AssertionNamespace());</span>
+<span class="nc" id="L588">                sig.setSecretKey(tok.getSecret());</span>
+<span class="nc" id="L589">                sig.setSignatureAlgorithm(algorithmSuite.getAsymmetricSignature());</span>
+<span class="nc" id="L590">                sig.setSignatureAlgorithm(algorithmSuite.getSymmetricSignature());</span>
+<span class="nc" id="L591">                sig.setKeyIdentifierType(WSConstants.CUSTOM_SYMM_SIGNING);</span>
+<span class="nc" id="L592">                sig.prepare(rmd.getDocument(), RampartUtil.getSignatureCrypto(rpd</span>
+                        .getRampartConfig(), rmd.getCustomClassLoader()),
+                        rmd.getSecHeader());
+
+<span class="nc" id="L596">                sig.setParts(sigParts);</span>
+<span class="nc" id="L597">                List&lt;Reference&gt; referenceList</span>
+                        = sig.addReferencesToSign(sigParts, rmd.getSecHeader());
+
+                //Do signature
+<span class="nc" id="L601">                sig.computeSignature(referenceList, false, this.getInsertionLocation());</span>
+
+                //Add elements to header
+<span class="nc" id="L604">                this.setInsertionLocation(sig.getSignatureElement());</span>
+
+<span class="nc" id="L606">                return sig.getSignatureValue();</span>
+
+<span class="nc" id="L608">            } catch (WSSecurityException e) {</span>
+<span class="nc" id="L609">                throw new RampartException(&quot;errorInSignatureWithACustomToken&quot;, e);</span>
+            }
+        }
+    }
+    
+    private void handleSecureConversationTokens(RampartMessageData rmd, 
+                                      SecureConversationToken secConvTok) throws RampartException {
+            
+            
+<span class="nc" id="L618">            MessageContext msgContext = rmd.getMsgContext();</span>
+            
+<span class="nc" id="L620">            String secConvTokenId = rmd.getSecConvTokenId();</span>
+            
+            //The RSTR has to be secured with the cancelled token
+<span class="nc" id="L623">            String action = msgContext.getOptions().getAction();</span>
+<span class="nc bnc" id="L624" title="All 8 branches missed.">            boolean cancelReqResp = action.equals(RahasConstants.WST_NS_05_02 + RahasConstants.RSTR_ACTION_CANCEL_SCT) || </span>
+                                       action.equals(RahasConstants.WST_NS_05_02 + RahasConstants.RSTR_ACTION_CANCEL_SCT) ||
+                                       action.equals(RahasConstants.WST_NS_05_02 + RahasConstants.RST_ACTION_CANCEL_SCT) || 
+                                       action.equals(RahasConstants.WST_NS_05_02 + RahasConstants.RST_ACTION_CANCEL_SCT);
+            
+            //In the case of the cancel req or resp we should mark the token as cancelled
+<span class="nc bnc" id="L630" title="All 4 branches missed.">            if(secConvTokenId != null &amp;&amp; cancelReqResp) {</span>
+                try {
+<span class="nc" id="L632">                    rmd.getTokenStorage().getToken(secConvTokenId).setState(org.apache.rahas.Token.CANCELLED);</span>
+<span class="nc" id="L633">                    msgContext.setProperty(RampartMessageData.SCT_ID, secConvTokenId);</span>
+                    
+                    //remove from the local map of contexts
+<span class="nc" id="L636">                    String contextIdentifierKey = RampartUtil.getContextIdentifierKey(msgContext);</span>
+<span class="nc" id="L637">                    RampartUtil.getContextMap(msgContext).remove(contextIdentifierKey);</span>
+<span class="nc" id="L638">                } catch (TrustException e) {</span>
+<span class="nc" id="L639">                    throw new RampartException(&quot;errorExtractingToken&quot;,e);</span>
+<span class="nc" id="L640">                }</span>
+            }
+            
+<span class="nc bnc" id="L643" title="All 8 branches missed.">            if (secConvTokenId == null</span>
+                    || (secConvTokenId != null &amp;&amp; 
+                            (!RampartUtil.isTokenValid(rmd, secConvTokenId) &amp;&amp; !cancelReqResp))) {
+
+<span class="nc" id="L647">                log.debug(&quot;No SecureConversationToken found, requesting a new token&quot;);</span>
+
+                try {
+
+<span class="nc" id="L651">                    secConvTokenId = RampartUtil.getSecConvToken(rmd, secConvTok);</span>
+<span class="nc" id="L652">                    rmd.setSecConvTokenId(secConvTokenId);</span>
+                    
+<span class="nc" id="L654">                } catch (TrustException e) {</span>
+<span class="nc" id="L655">                    throw new RampartException(&quot;errorInObtainingSct&quot;, e);</span>
+<span class="nc" id="L656">                }</span>
+            }
+            
+/*          org.apache.rahas.Token token;
+            try {
+                token = rmd.getTokenStorage().getToken(secConvTokenId);
+            } catch (TrustException e) {
+                throw new RampartException(&quot;errorExtractingToken&quot;, e);
+            }
+            
+            
+            //Add the token to the header
+           Element siblingElem = RampartUtil
+                    .insertSiblingAfter(rmd, this.getInsertionLocation(),
+                            (Element) token.getToken());
+            this.setInsertionLocation(siblingElem);*/
+            
+<span class="nc" id="L673">        }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SAMLTokenIssuerConfig.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.impl</a> &gt; <span class="el_source">SAMLTokenIssuerConfig.java</span></div><h1>SAMLTokenIssuerConfig.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rahas.impl;
+
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMAttribute;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+import org.apache.axis2.description.Parameter;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rahas.TrustException;
+import org.apache.rahas.impl.util.CommonUtil;
+import org.apache.rahas.impl.util.SAMLCallbackHandler;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.components.crypto.Crypto;
+
+import javax.xml.namespace.QName;
+import java.io.FileInputStream;
+import java.security.cert.X509Certificate;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Properties;
+
+/**
+ * Configuration manager for the &lt;code&gt;SAMLTokenIssuer&lt;/code&gt;
+ *
+ * @see SAMLTokenIssuer
+ */
+public class SAMLTokenIssuerConfig extends AbstractIssuerConfig {
+
+	
+<span class="pc" id="L50">	Log log = LogFactory.getLog(SAMLTokenIssuerConfig.class);</span>
+	
+    /**
+     * The QName of the configuration element of the SAMLTokenIssuer
+     */
+<span class="fc" id="L55">    public final static QName SAML_ISSUER_CONFIG = new QName(&quot;saml-issuer-config&quot;);</span>
+
+    /**
+     * Element name to include the alias of the private key to sign the response or
+     * the issued token
+     */
+<span class="fc" id="L61">    private final static QName ISSUER_KEY_ALIAS = new QName(&quot;issuerKeyAlias&quot;);</span>
+
+    /**
+	 * Element name to include the password of the private key to sign the response or the issued
+	 * token
+	 */
+<span class="fc" id="L67">	private final static QName ISSUER_KEY_PASSWD = new QName(&quot;issuerKeyPassword&quot;);</span>
+
+	/**
+	 * Element name of the attribute call-back handler
+	 */
+<span class="fc" id="L72">	private final static QName ATTR_CALLBACK_HANDLER_NAME = new QName(&quot;attrCallbackHandlerName&quot;);</span>
+
+    /**
+     * Element to specify the lifetime of the SAMLToken
+     * Dafaults to 300000 milliseconds (5 mins)
+     */
+<span class="fc" id="L78">    private final static QName TTL = new QName(&quot;timeToLive&quot;);</span>
+
+    /**
+     * Element to list the trusted services
+     */
+<span class="fc" id="L83">    private final static QName TRUSTED_SERVICES = new QName(&quot;trusted-services&quot;);</span>
+
+<span class="fc" id="L85">    private final static QName KEY_SIZE = new QName(&quot;keySize&quot;);</span>
+
+<span class="fc" id="L87">    private final static QName SERVICE = new QName(&quot;service&quot;);</span>
+<span class="fc" id="L88">    private final static QName ALIAS = new QName(&quot;alias&quot;);</span>
+
+<span class="fc" id="L90">    public final static QName USE_SAML_ATTRIBUTE_STATEMENT = new QName(&quot;useSAMLAttributeStatement&quot;);</span>
+
+<span class="fc" id="L92">    public final static QName ISSUER_NAME = new QName(&quot;issuerName&quot;);</span>
+    
+<span class="fc" id="L94">    public final static QName SAML_CALLBACK_CLASS = new QName(&quot;dataCallbackHandlerClass&quot;);</span>
+        
+    protected String issuerKeyAlias;
+    protected String issuerKeyPassword;
+    protected String issuerName;
+<span class="pc" id="L99">    protected Map trustedServices = new HashMap();</span>
+    protected String trustStorePropFile;
+    protected SAMLCallbackHandler callbackHandler;
+    protected String callbackHandlerName;
+  
+    /**
+     * Create a new configuration with issuer name and crypto information
+     * @param issuerName Name of the issuer
+     * @param cryptoProviderClassName WSS4J Crypto impl class name
+     * @param cryptoProps Configuration properties of crypto impl
+     */
+<span class="nc" id="L110">    public SAMLTokenIssuerConfig(String issuerName, String cryptoProviderClassName, Properties cryptoProps) {</span>
+<span class="nc" id="L111">        this.issuerName = issuerName;</span>
+<span class="nc" id="L112">        this.setCryptoProperties(cryptoProviderClassName, cryptoProps);</span>
+<span class="nc" id="L113">    }</span>
+    
+    /**
+     * Create a SAMLTokenIssuer configuration with a config file picked from the
+     * given location.
+     * @param configFilePath Path to the config file
+     * @throws TrustException
+     */
+<span class="nc" id="L121">    public SAMLTokenIssuerConfig(String configFilePath) throws TrustException {</span>
+        FileInputStream fis;
+        StAXOMBuilder builder;
+        try {
+<span class="nc" id="L125">            fis = new FileInputStream(configFilePath);</span>
+<span class="nc" id="L126">            builder = new StAXOMBuilder(fis);</span>
+<span class="nc" id="L127">        } catch (Exception e) {</span>
+<span class="nc" id="L128">            throw new TrustException(&quot;errorLoadingConfigFile&quot;,</span>
+                    new String[] { configFilePath });
+<span class="nc" id="L130">        }</span>
+<span class="nc" id="L131">        this.load(builder.getDocumentElement());</span>
+<span class="nc" id="L132">    }</span>
+    
+    /**
+     * Create a  SAMLTokenIssuer configuration using the give config element
+     * @param elem Configuration element as an &lt;code&gt;OMElement&lt;/code&gt;
+     * @throws TrustException
+     */
+<span class="fc" id="L139">    public SAMLTokenIssuerConfig(OMElement elem) throws TrustException {</span>
+<span class="fc" id="L140">        this.load(elem);</span>
+<span class="fc" id="L141">    }</span>
+
+    private void load(OMElement elem) throws TrustException {
+<span class="fc" id="L144">        OMElement proofKeyElem = elem.getFirstChildWithName(PROOF_KEY_TYPE);</span>
+<span class="pc bpc" id="L145" title="1 of 2 branches missed.">        if (proofKeyElem != null) {</span>
+<span class="fc" id="L146">            this.proofKeyType = proofKeyElem.getText().trim();</span>
+        }
+
+<span class="fc" id="L149">        OMElement callbackNameElem = elem.getFirstChildWithName(ATTR_CALLBACK_HANDLER_NAME);</span>
+<span class="pc bpc" id="L150" title="1 of 2 branches missed.">        if (callbackNameElem != null) {</span>
+<span class="nc" id="L151">            this.callbackHandlerName = callbackNameElem.getText().trim();</span>
+        }
+        
+        //The alias of the private key
+<span class="fc" id="L155">        OMElement userElem = elem.getFirstChildWithName(ISSUER_KEY_ALIAS);</span>
+<span class="pc bpc" id="L156" title="1 of 2 branches missed.">        if (userElem != null) {</span>
+<span class="fc" id="L157">            this.issuerKeyAlias = userElem.getText().trim();</span>
+        }
+
+<span class="pc bpc" id="L160" title="2 of 4 branches missed.">        if (this.issuerKeyAlias == null || &quot;&quot;.equals(this.issuerKeyAlias)) {</span>
+<span class="nc" id="L161">            throw new TrustException(&quot;samlIssuerKeyAliasMissing&quot;);</span>
+        }
+
+<span class="fc" id="L164">        OMElement issuerKeyPasswdElem = elem.getFirstChildWithName(ISSUER_KEY_PASSWD);</span>
+<span class="pc bpc" id="L165" title="1 of 2 branches missed.">        if (issuerKeyPasswdElem != null) {</span>
+<span class="fc" id="L166">            this.issuerKeyPassword = issuerKeyPasswdElem.getText().trim();</span>
+        }
+
+<span class="pc bpc" id="L169" title="2 of 4 branches missed.">        if (this.issuerKeyPassword == null || &quot;&quot;.equals(this.issuerKeyPassword)) {</span>
+<span class="nc" id="L170">            throw new TrustException(&quot;samlIssuerKeyPasswdMissing&quot;);</span>
+        }
+
+<span class="fc" id="L173">        OMElement issuerNameElem = elem.getFirstChildWithName(ISSUER_NAME);</span>
+<span class="pc bpc" id="L174" title="1 of 2 branches missed.">        if (issuerNameElem != null) {</span>
+<span class="fc" id="L175">            this.issuerName = issuerNameElem.getText().trim();</span>
+        }
+
+<span class="pc bpc" id="L178" title="2 of 4 branches missed.">        if (this.issuerName == null || &quot;&quot;.equals(this.issuerName)) {</span>
+<span class="nc" id="L179">            throw new TrustException(&quot;samlIssuerNameMissing&quot;);</span>
+        }
+
+<span class="fc" id="L182">        this.cryptoPropertiesElement = elem.getFirstChildWithName(CRYPTO_PROPERTIES);</span>
+<span class="pc bpc" id="L183" title="1 of 2 branches missed.">        if (this.cryptoPropertiesElement != null) {</span>
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">            if ((this.cryptoElement =</span>
+                this.cryptoPropertiesElement .getFirstChildWithName(CRYPTO)) == null){
+                // no children. Hence, prop file should have been defined
+<span class="nc" id="L187">                this.cryptoPropertiesFile = this.cryptoPropertiesElement .getText().trim();</span>
+            }
+            // else Props should be defined as children of a crypto element
+        }
+
+<span class="fc" id="L192">        OMElement keyCompElem = elem.getFirstChildWithName(KeyComputation.KEY_COMPUTATION);</span>
+<span class="pc bpc" id="L193" title="3 of 6 branches missed.">        if (keyCompElem != null &amp;&amp; keyCompElem.getText() != null &amp;&amp; !&quot;&quot;.equals(keyCompElem.getText())) {</span>
+<span class="fc" id="L194">            this.keyComputation = Integer.parseInt(keyCompElem.getText());</span>
+        }
+
+        //time to live
+<span class="fc" id="L198">        OMElement ttlElem = elem.getFirstChildWithName(TTL);</span>
+<span class="pc bpc" id="L199" title="1 of 2 branches missed.">        if (ttlElem != null) {</span>
+            try {
+<span class="fc" id="L201">                this.ttl = Long.parseLong(ttlElem.getText().trim());</span>
+<span class="nc" id="L202">            } catch (NumberFormatException e) {</span>
+<span class="nc" id="L203">                throw new TrustException(&quot;invlidTTL&quot;);</span>
+<span class="fc" id="L204">            }</span>
+        }
+
+<span class="fc" id="L207">        OMElement keySizeElem = elem.getFirstChildWithName(KEY_SIZE);</span>
+<span class="pc bpc" id="L208" title="1 of 2 branches missed.">        if (keySizeElem != null) {</span>
+            try {
+<span class="fc" id="L210">                this.keySize = Integer.parseInt(keySizeElem.getText().trim());</span>
+<span class="nc" id="L211">            } catch (NumberFormatException e) {</span>
+<span class="nc" id="L212">                throw new TrustException(&quot;invalidKeysize&quot;);</span>
+<span class="fc" id="L213">            }</span>
+        }
+
+<span class="pc bpc" id="L216" title="1 of 2 branches missed.">        this.addRequestedAttachedRef = elem</span>
+                .getFirstChildWithName(ADD_REQUESTED_ATTACHED_REF) != null;
+<span class="pc bpc" id="L218" title="1 of 2 branches missed.">        this.addRequestedUnattachedRef = elem</span>
+                .getFirstChildWithName(ADD_REQUESTED_UNATTACHED_REF) != null;
+
+        //Process trusted services
+<span class="fc" id="L222">        OMElement trustedServices = elem.getFirstChildWithName(TRUSTED_SERVICES);</span>
+
+        /*
+        * If there are trusted services add them to a list
+        * Only trusts myself to issue tokens to :
+        * In this case the STS is embedded in the service as well and
+        * the issued token can only be used with that particular service
+        * since the response secret is encrypted by the service's public key
+        */
+<span class="pc bpc" id="L231" title="1 of 2 branches missed.">        if (trustedServices != null) {</span>
+            //Now process the trusted services
+<span class="fc" id="L233">            Iterator servicesIter = trustedServices.getChildrenWithName(SERVICE);</span>
+<span class="fc bfc" id="L234" title="All 2 branches covered.">            while (servicesIter.hasNext()) {</span>
+<span class="fc" id="L235">                OMElement service = (OMElement) servicesIter.next();</span>
+<span class="fc" id="L236">                OMAttribute aliasAttr = service.getAttribute(ALIAS);</span>
+<span class="pc bpc" id="L237" title="1 of 2 branches missed.">                if (aliasAttr == null) {</span>
+                    //The certificate alias is a must
+<span class="nc" id="L239">                    throw new TrustException(&quot;aliasMissingForService&quot;,</span>
+                                             new String[]{service.getText().trim()});
+                }
+<span class="pc bpc" id="L242" title="1 of 2 branches missed.">                if (this.trustedServices == null) {</span>
+<span class="nc" id="L243">                    this.trustedServices = new HashMap();</span>
+                }
+
+                //Add the trusted service and the alias to the map of services
+<span class="fc" id="L247">                this.trustedServices.put(service.getText().trim(), aliasAttr.getAttributeValue());</span>
+<span class="fc" id="L248">            }</span>
+
+            //There maybe no trusted services as well, Therefore do not 
+            //throw an exception when there are no trusted in the list at the 
+            //moment
+        }
+        
+        
+<span class="fc" id="L256">       	OMElement attrElemet = elem.getFirstChildWithName(SAML_CALLBACK_CLASS);</span>
+<span class="fc bfc" id="L257" title="All 2 branches covered.">		if (attrElemet != null) {</span>
+				try {
+<span class="fc" id="L259">					String value = attrElemet.getText();</span>
+<span class="fc" id="L260">					Class handlerClass = Class.forName(value);</span>
+<span class="fc" id="L261">					this.callbackHandler = (SAMLCallbackHandler)handlerClass.newInstance();</span>
+<span class="nc" id="L262">				} catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L263">					log.error(&quot;Error loading class&quot; , e);</span>
+<span class="nc" id="L264">					throw new TrustException(&quot;Error loading class&quot; , e);</span>
+<span class="nc" id="L265">				} catch (InstantiationException e) {</span>
+<span class="nc" id="L266">					log.error(&quot;Error instantiating class&quot; , e);</span>
+<span class="nc" id="L267">					throw new TrustException(&quot;Error instantiating class&quot; , e);</span>
+<span class="nc" id="L268">				} catch (IllegalAccessException e) {</span>
+<span class="nc" id="L269">					log.error(&quot;Illegal Access&quot; , e);</span>
+<span class="nc" id="L270">					throw new TrustException(&quot;Illegal Access&quot; , e);</span>
+<span class="fc" id="L271">				}</span>
+		}
+				
+
+<span class="fc" id="L275">    }</span>
+
+    /**
+     * Generate an Axis2 parameter for this configuration
+     * @return An Axis2 Parameter instance with configuration information
+     */
+    public Parameter getParameter() {
+<span class="nc" id="L282">        Parameter param = new Parameter();</span>
+        
+<span class="nc" id="L284">        OMFactory fac = OMAbstractFactory.getOMFactory();</span>
+        
+<span class="nc" id="L286">        OMElement paramElem = fac.createOMElement(&quot;Parameter&quot;, null);</span>
+<span class="nc" id="L287">        paramElem.addAttribute(&quot;name&quot;, SAML_ISSUER_CONFIG.getLocalPart(), null);</span>
+        
+<span class="nc" id="L289">        OMElement configElem = fac.createOMElement(SAML_ISSUER_CONFIG, paramElem);</span>
+        
+<span class="nc" id="L291">        OMElement issuerNameElem = fac.createOMElement(ISSUER_NAME, configElem);</span>
+<span class="nc" id="L292">        issuerNameElem.setText(this.issuerName);</span>
+        
+<span class="nc" id="L294">        OMElement issuerKeyAliasElem = fac.createOMElement(ISSUER_KEY_ALIAS, configElem);</span>
+<span class="nc" id="L295">        issuerKeyAliasElem.setText(this.issuerKeyAlias);</span>
+        
+<span class="nc" id="L297">        OMElement issuerKeyPasswd = fac.createOMElement(ISSUER_KEY_PASSWD, configElem);</span>
+<span class="nc" id="L298">        issuerKeyPasswd.setText(this.issuerKeyPassword);</span>
+        
+<span class="nc" id="L300">        OMElement callbackHandlerName = fac.createOMElement(ATTR_CALLBACK_HANDLER_NAME, configElem);</span>
+<span class="nc" id="L301">        callbackHandlerName.setText(this.callbackHandlerName);</span>
+        
+<span class="nc" id="L303">        OMElement timeToLive = fac.createOMElement(TTL, configElem);</span>
+<span class="nc" id="L304">        timeToLive.setText(String.valueOf(this.ttl));</span>
+
+<span class="nc" id="L306">        configElem.addChild(this.cryptoPropertiesElement);</span>
+        
+<span class="nc" id="L308">        OMElement keySizeElem = fac.createOMElement(KEY_SIZE, configElem);</span>
+<span class="nc" id="L309">        keySizeElem.setText(Integer.toString(this.keySize));</span>
+        
+<span class="nc bnc" id="L311" title="All 2 branches missed.">        if(this.addRequestedAttachedRef) {</span>
+<span class="nc" id="L312">            fac.createOMElement(ADD_REQUESTED_ATTACHED_REF, configElem);</span>
+        }
+<span class="nc bnc" id="L314" title="All 2 branches missed.">        if(this.addRequestedUnattachedRef) {</span>
+<span class="nc" id="L315">            fac.createOMElement(ADD_REQUESTED_UNATTACHED_REF, configElem);</span>
+        }
+        
+<span class="nc" id="L318">        OMElement keyCompElem = fac.createOMElement(KeyComputation.KEY_COMPUTATION, configElem);</span>
+<span class="nc" id="L319">        keyCompElem.setText(Integer.toString(this.keyComputation));</span>
+        
+<span class="nc" id="L321">        OMElement proofKeyTypeElem = fac.createOMElement(PROOF_KEY_TYPE, configElem);</span>
+<span class="nc" id="L322">        proofKeyTypeElem.setText(this.proofKeyType);</span>
+        
+<span class="nc" id="L324">        OMElement trustedServicesElem = fac.createOMElement(TRUSTED_SERVICES, configElem);</span>
+<span class="nc bnc" id="L325" title="All 2 branches missed.">        for (Iterator iterator = this.trustedServices.keySet().iterator(); iterator.hasNext();) {</span>
+<span class="nc" id="L326">            String service = (String) iterator.next();</span>
+<span class="nc" id="L327">            OMElement serviceElem = fac.createOMElement(SERVICE, trustedServicesElem);</span>
+<span class="nc" id="L328">            serviceElem.setText(service);</span>
+<span class="nc" id="L329">            serviceElem.addAttribute(&quot;alias&quot;, (String)this.trustedServices.get(service), null);</span>
+            
+<span class="nc" id="L331">        }</span>
+        
+<span class="nc" id="L333">        param.setName(SAML_ISSUER_CONFIG.getLocalPart());</span>
+<span class="nc" id="L334">        param.setParameterElement(paramElem);</span>
+<span class="nc" id="L335">        param.setValue(paramElem);</span>
+<span class="nc" id="L336">        param.setParameterType(Parameter.OM_PARAMETER);</span>
+        
+<span class="nc" id="L338">        return param;</span>
+    }
+    
+    public void setIssuerKeyAlias(String issuerKeyAlias) {
+<span class="nc" id="L342">        this.issuerKeyAlias = issuerKeyAlias;</span>
+<span class="nc" id="L343">    }</span>
+
+    public String getIssuerKeyAlias() {
+<span class="fc" id="L346">        return issuerKeyAlias;</span>
+    }
+
+    public void setIssuerKeyPassword(String issuerKeyPassword) {
+<span class="nc" id="L350">        this.issuerKeyPassword = issuerKeyPassword;</span>
+<span class="nc" id="L351">    }</span>
+
+    public String getIssuerKeyPassword() {
+<span class="fc" id="L354">        return issuerKeyPassword;</span>
+    }
+
+    public void setIssuerName(String issuerName) {
+<span class="nc" id="L358">        this.issuerName = issuerName;</span>
+<span class="nc" id="L359">    }</span>
+
+    public void setTrustedServices(Map trustedServices) {
+<span class="nc" id="L362">        this.trustedServices = trustedServices;</span>
+<span class="nc" id="L363">    }</span>
+
+    public void setTrustStorePropFile(String trustStorePropFile) {
+<span class="nc" id="L366">        this.trustStorePropFile = trustStorePropFile;</span>
+<span class="nc" id="L367">    }</span>
+
+    /**
+     * Add a new trusted service endpoint address with its certificate
+     * @param address Service endpoint address
+     * @param alias certificate alias
+     */
+    public void addTrustedServiceEndpointAddress(String address, String alias) {
+<span class="nc" id="L375">        this.trustedServices.put(address, alias);</span>
+<span class="nc" id="L376">    }</span>
+    
+    /**
+     * Set crypto information using WSS4J mechanisms
+     * 
+     * @param providerClassName
+     *            Provider class - an implementation of
+     *            org.apache.ws.security.components.crypto.Crypto
+     * @param props Configuration properties
+     */
+    public void setCryptoProperties(String providerClassName, Properties props) {
+<span class="nc" id="L387">        OMFactory fac = OMAbstractFactory.getOMFactory();</span>
+<span class="nc" id="L388">        this.cryptoPropertiesElement= fac.createOMElement(CRYPTO_PROPERTIES);</span>
+<span class="nc" id="L389">        OMElement cryptoElem = fac.createOMElement(CRYPTO, this.cryptoPropertiesElement);</span>
+<span class="nc" id="L390">        cryptoElem.addAttribute(PROVIDER.getLocalPart(), providerClassName, null);</span>
+<span class="nc" id="L391">        Enumeration keys =  props.keys();</span>
+<span class="nc bnc" id="L392" title="All 2 branches missed.">        while (keys.hasMoreElements()) {</span>
+<span class="nc" id="L393">            String prop = (String) keys.nextElement();</span>
+<span class="nc" id="L394">            String value = (String)props.get(prop);</span>
+<span class="nc" id="L395">            OMElement propElem = fac.createOMElement(PROPERTY, cryptoElem);</span>
+<span class="nc" id="L396">            propElem.setText(value);</span>
+<span class="nc" id="L397">            propElem.addAttribute(&quot;name&quot;, prop, null);</span>
+<span class="nc" id="L398">        }</span>
+<span class="nc" id="L399">    }</span>
+
+    /**
+     * Return the list of trusted services as a &lt;code&gt;java.util.Map&lt;/code&gt;.
+     * The services addresses are the keys and cert aliases available under 
+     * those keys. 
+     * @return
+     */
+    public Map getTrustedServices() {
+<span class="nc" id="L408">        return trustedServices;</span>
+    }
+
+    @Deprecated
+	public SAMLCallbackHandler getCallbackHander() {
+<span class="nc" id="L413">		return callbackHandler;</span>
+	}
+
+    @Deprecated
+	public void setCallbackHander(SAMLCallbackHandler callbackHandler) {
+<span class="nc" id="L418">		this.callbackHandler = callbackHandler;</span>
+<span class="nc" id="L419">	}</span>
+	
+	public SAMLCallbackHandler getCallbackHandler() {
+<span class="fc" id="L422">		return callbackHandler;</span>
+	}
+
+	public void setCallbackHandler(SAMLCallbackHandler callbackHandler) {
+<span class="nc" id="L426">		this.callbackHandler = callbackHandler;</span>
+<span class="nc" id="L427">	}</span>
+	
+	public String getCallbackHandlerName() {
+<span class="fc" id="L430">		return callbackHandlerName;</span>
+	}
+
+	public void setCallbackHandlerName(String callbackHandlerName) {
+<span class="nc" id="L434">		this.callbackHandlerName = callbackHandlerName;</span>
+<span class="nc" id="L435">	}</span>
+
+    /**
+     * Uses the &lt;code&gt;wst:AppliesTo&lt;/code&gt; to figure out the certificate to
+     * encrypt the secret in the SAML token
+     *
+     * @param crypto
+     * @param serviceAddress
+     *            The address of the service
+     * @return
+     * @throws org.apache.rahas.TrustException If unable to find certificate by given alias.
+     */
+    public X509Certificate getServiceCert(Crypto crypto, String serviceAddress) throws TrustException {
+
+<span class="pc bpc" id="L449" title="1 of 4 branches missed.">        if (serviceAddress != null &amp;&amp; !&quot;&quot;.equals(serviceAddress)) {</span>
+<span class="fc" id="L450">            String alias = (String) this.trustedServices.get(serviceAddress);</span>
+<span class="pc bpc" id="L451" title="1 of 2 branches missed.">            if (alias != null) {</span>
+<span class="fc" id="L452">                return CommonUtil.getCertificateByAlias(crypto,alias);</span>
+            } else {
+<span class="nc" id="L454">                alias = (String) this.trustedServices.get(&quot;*&quot;);</span>
+<span class="nc" id="L455">                return CommonUtil.getCertificateByAlias(crypto,alias);</span>
+            }
+        } else {
+<span class="fc" id="L458">            String alias = (String) this.trustedServices.get(&quot;*&quot;);</span>
+<span class="fc" id="L459">            return CommonUtil.getCertificateByAlias(crypto,alias);</span>
+        }
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Axis2Util.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.util</a> &gt; <span class="el_source">Axis2Util.java</span></div><h1>Axis2Util.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.util;
+
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMAttribute;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.om.OMNamespace;
+import org.apache.axiom.om.OMNode;
+import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+import org.apache.axiom.soap.SOAP11Constants;
+import org.apache.axiom.soap.SOAP12Constants;
+import org.apache.axiom.soap.SOAPEnvelope;
+import org.apache.axiom.soap.SOAPFactory;
+import org.apache.axiom.soap.SOAPHeader;
+import org.apache.axiom.soap.SOAPHeaderBlock;
+import org.apache.axiom.soap.SOAPModelBuilder;
+import org.apache.axiom.soap.impl.builder.StAXSOAPModelBuilder;
+import org.apache.rampart.handler.WSSHandlerConstants;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.xml.security.utils.XMLUtils;
+import org.w3c.dom.DOMConfiguration;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import javax.xml.namespace.QName;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.stream.FactoryConfigurationError;
+import javax.xml.stream.XMLStreamReader;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ * Utility class for the Axis2-WSS4J Module
+ */
+<span class="nc" id="L56">public class Axis2Util {</span>
+    
+<span class="fc" id="L58">    private static ThreadLocal doomTacker = new ThreadLocal();</span>
+    
+    public static boolean isUseDOOM() {
+<span class="nc" id="L61">        Object value = doomTacker.get();</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        return (value != null);</span>
+    }
+    
+    public static void useDOOM(boolean isDOOMRequired) {
+//TODO Enable this when we have DOOM fixed to be able to flow in and out of Axis2
+//        if(isDOOMRequired) {
+//            if(!isUseDOOM()) {
+//                System.setProperty(OMAbstractFactory.SOAP11_FACTORY_NAME_PROPERTY, SOAP11Factory.class.getName());
+//                System.setProperty(OMAbstractFactory.SOAP12_FACTORY_NAME_PROPERTY, SOAP12Factory.class.getName());
+//                System.setProperty(OMAbstractFactory.OM_FACTORY_NAME_PROPERTY, OMDOMFactory.class.getName());
+//                doomTacker.set(new Object());
+//            }
+//        } else {
+//            System.getProperties().remove(OMAbstractFactory.SOAP11_FACTORY_NAME_PROPERTY);
+//            System.getProperties().remove(OMAbstractFactory.SOAP12_FACTORY_NAME_PROPERTY);
+//            System.getProperties().remove(OMAbstractFactory.OM_FACTORY_NAME_PROPERTY);
+//            doomTacker.set(null);
+//        }
+<span class="fc" id="L80">    }</span>
+    
+    
+	/**
+	 * Creates a DOM Document using the SOAP Envelope.
+	 * @param env An org.apache.axiom.soap.SOAPEnvelope instance
+	 * @return Returns the DOM Document of the given SOAP Envelope.
+	 * @throws Exception
+	 */
+	public static Document getDocumentFromSOAPEnvelope(SOAPEnvelope env, boolean useDoom)
+			throws WSSecurityException {
+		try {
+<span class="fc bfc" id="L92" title="All 2 branches covered.">            if(env instanceof Element) {</span>
+<span class="fc" id="L93">                Element element = (Element)env;</span>
+<span class="fc" id="L94">                Document document = element.getOwnerDocument();</span>
+                // For outgoing messages, Axis2 only creates the SOAPEnvelope, but no document. If
+                // the Axiom implementation also supports DOM, then the envelope (seen as a DOM
+                // element) will have an owner document, but the document and the envelope have no
+                // parent-child relationship. On the other hand, the input expected by WSS4J is
+                // a document with the envelope as document element. Therefore we need to set the
+                // envelope as document element on the owner document.
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">                if (element.getParentNode() != document) {</span>
+<span class="fc" id="L102">                    document.appendChild(element);</span>
+                }
+                // If the Axiom implementation supports DOM, then it is possible/likely that the
+                // DOM API was used to create the object model (or parts of it). In this case, the
+                // object model is not necessarily well formed with respect to namespaces because
+                // DOM doesn't generate namespace declarations automatically. This is an issue
+                // because WSS4J/Santuario expects that all namespace declarations are present.
+                // If this is not the case, then signature values or encryptions will be incorrect.
+                // To avoid this, we normalize the document. Note that if we disable the other
+                // normalizations supported by DOM, this is generally not a heavy operation.
+                // In particular, the Axiom implementation is not required to expand the object
+                // model (including OMSourcedElements) because the Axiom builder is required to
+                // perform namespace repairing, so that no modifications to unexpanded parts of
+                // the message are required.
+<span class="fc" id="L116">                DOMConfiguration domConfig = document.getDomConfig();</span>
+<span class="fc" id="L117">                domConfig.setParameter(&quot;split-cdata-sections&quot;, Boolean.FALSE);</span>
+<span class="fc" id="L118">                domConfig.setParameter(&quot;well-formed&quot;, Boolean.FALSE);</span>
+<span class="fc" id="L119">                domConfig.setParameter(&quot;namespaces&quot;, Boolean.TRUE);</span>
+<span class="fc" id="L120">                document.normalizeDocument();</span>
+<span class="fc" id="L121">                return document;</span>
+            }
+            
+<span class="fc bfc" id="L124" title="All 2 branches covered.">            if (useDoom) {</span>
+<span class="fc" id="L125">                env.build();</span>
+
+                // Workaround to prevent a bug in AXIOM where
+                // there can be an incomplete OMElement as the first child body
+<span class="fc" id="L129">                OMElement firstElement = env.getBody().getFirstElement();</span>
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">                if (firstElement != null) {</span>
+<span class="fc" id="L131">                    firstElement.build();</span>
+                }
+                
+                //Get processed headers
+<span class="fc" id="L135">                SOAPHeader soapHeader = env.getHeader();</span>
+<span class="fc" id="L136">                ArrayList processedHeaderQNames = new ArrayList();</span>
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">                if(soapHeader != null) {</span>
+<span class="fc" id="L138">                    Iterator headerBlocs = soapHeader.getChildElements();</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">                    while (headerBlocs.hasNext()) {</span>
+<span class="fc" id="L140">                        SOAPHeaderBlock element = (SOAPHeaderBlock) headerBlocs.next();</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">                        if(element.isProcessed()) {</span>
+<span class="fc" id="L142">                            processedHeaderQNames.add(element.getQName());</span>
+                        }
+<span class="fc" id="L144">                    }</span>
+                }
+
+                // Check the namespace and find SOAP version and factory
+<span class="fc" id="L148">                String nsURI = null;</span>
+<span class="fc" id="L149">                OMMetaFactory metaFactory = OMAbstractFactory.getMetaFactory(OMAbstractFactory.FEATURE_DOM);</span>
+                SOAPFactory factory;
+<span class="fc bfc" id="L151" title="All 2 branches covered.">                if (env.getNamespace().getNamespaceURI().equals(</span>
+                        SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)) {
+<span class="fc" id="L153">                    nsURI = SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI;</span>
+<span class="fc" id="L154">                    factory = metaFactory.getSOAP11Factory();</span>
+                } else {
+<span class="fc" id="L156">                    nsURI = SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI;</span>
+<span class="fc" id="L157">                    factory = metaFactory.getSOAP12Factory();</span>
+                }
+
+<span class="fc" id="L160">                StAXSOAPModelBuilder stAXSOAPModelBuilder = new StAXSOAPModelBuilder(</span>
+                        env.getXMLStreamReader(), factory, nsURI);
+<span class="fc" id="L162">                SOAPEnvelope envelope = (stAXSOAPModelBuilder)</span>
+                        .getSOAPEnvelope();
+<span class="fc" id="L164">                envelope.getParent().build();</span>
+                
+                //Set the processed flag of the processed headers
+<span class="fc" id="L167">                SOAPHeader header = envelope.getHeader();</span>
+<span class="fc" id="L168">                for (Iterator iter = processedHeaderQNames.iterator(); iter</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">                        .hasNext();) {</span>
+<span class="fc" id="L170">                    QName name = (QName) iter.next();</span>
+<span class="fc" id="L171">                    Iterator omKids = header.getChildrenWithName(name);</span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">                    if(omKids.hasNext()) {</span>
+<span class="fc" id="L173">                        ((SOAPHeaderBlock)omKids.next()).setProcessed();</span>
+                    }
+<span class="fc" id="L175">                }</span>
+                
+<span class="fc" id="L177">                Element envElem = (Element) envelope;</span>
+<span class="fc" id="L178">                return envElem.getOwnerDocument();</span>
+            } else {
+<span class="fc" id="L180">                ByteArrayOutputStream baos = new ByteArrayOutputStream();</span>
+<span class="fc" id="L181">                env.build();</span>
+<span class="fc" id="L182">                env.serialize(baos);</span>
+<span class="fc" id="L183">                ByteArrayInputStream bais = new ByteArrayInputStream(baos</span>
+                        .toByteArray());
+<span class="fc" id="L185">                DocumentBuilderFactory factory = DocumentBuilderFactory</span>
+                        .newInstance();
+<span class="fc" id="L187">                factory.setNamespaceAware(true);</span>
+<span class="fc" id="L188">                return factory.newDocumentBuilder().parse(bais);</span>
+            }
+<span class="nc" id="L190">		} catch (Exception e) {</span>
+<span class="nc" id="L191">			throw new WSSecurityException(</span>
+					&quot;Error in converting SOAP Envelope to Document&quot;, e);
+		}
+	}
+
+	/**
+	 * Builds a SOAPEnvelope from DOM Document.
+	 * @param doc - The dom document that contains a SOAP message
+	 * @param useDoom
+	 * @return
+	 * @throws WSSecurityException
+	 */
+	public static SOAPEnvelope getSOAPEnvelopeFromDOMDocument(Document doc, boolean useDoom)
+            throws WSSecurityException {
+
+<span class="fc" id="L206">	    Element documentElement = doc.getDocumentElement();</span>
+<span class="fc bfc" id="L207" title="All 2 branches covered.">	    if (documentElement instanceof SOAPEnvelope) {</span>
+<span class="fc" id="L208">	        SOAPEnvelope env = (SOAPEnvelope)documentElement;</span>
+	        // If the DOM tree already implements the Axiom API and the corresponding
+	        // Axiom implementation is also used as default implementation, then just return
+	        // the SOAPEnvelope directly. Note that this will never be the case for DOOM,
+	        // but may be the case for a non standard Axiom implementation.
+<span class="pc bpc" id="L213" title="1 of 2 branches missed.">	        if (env.getOMFactory().getMetaFactory() == OMAbstractFactory.getMetaFactory()) {</span>
+<span class="nc" id="L214">	            return env;</span>
+	        }
+	    }
+	    
+<span class="fc bfc" id="L218" title="All 2 branches covered.">        if(useDoom) {</span>
+            try {
+                //Get processed headers
+<span class="fc" id="L221">                SOAPEnvelope env = (SOAPEnvelope)doc.getDocumentElement(); </span>
+<span class="fc" id="L222">                ArrayList processedHeaderQNames = new ArrayList();</span>
+<span class="fc" id="L223">                SOAPHeader soapHeader = env.getHeader();</span>
+                
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">                if(soapHeader != null) {</span>
+<span class="fc" id="L226">                    Iterator headerBlocs = soapHeader.getChildElements();</span>
+<span class="fc bfc" id="L227" title="All 2 branches covered.">                    while (headerBlocs.hasNext()) {</span>
+                    	
+<span class="fc" id="L229">                    	OMElement element = (OMElement)headerBlocs.next();</span>
+<span class="fc" id="L230">                    	SOAPHeaderBlock header = null;</span>
+                    	
+<span class="fc bfc" id="L232" title="All 2 branches covered.">                    	if (element instanceof SOAPHeaderBlock) {</span>
+<span class="fc" id="L233">                            header = (SOAPHeaderBlock) element;</span>
+                            
+                        // If a header block is not an instance of SOAPHeaderBlock, it means that
+                        // it is a header we have added in rampart eg. EncryptedHeader and should
+                        // be converted to SOAPHeaderBlock for processing
+                    	} else {
+<span class="fc" id="L239">                    		header = soapHeader.addHeaderBlock(element.getLocalName(), element.getNamespace());</span>
+<span class="fc" id="L240">                    		Iterator attrIter = element.getAllAttributes();</span>
+<span class="pc bpc" id="L241" title="1 of 2 branches missed.">                    		while (attrIter.hasNext()) {</span>
+<span class="nc" id="L242">                    			OMAttribute attr = (OMAttribute)attrIter.next();</span>
+<span class="nc" id="L243">                    			header.addAttribute(attr.getLocalName(), attr.getAttributeValue(), attr.getNamespace());</span>
+<span class="nc" id="L244">                    		}</span>
+<span class="fc" id="L245">                    		Iterator nsIter  = element.getAllDeclaredNamespaces();</span>
+<span class="fc bfc" id="L246" title="All 2 branches covered.">                    		while (nsIter.hasNext()) {</span>
+<span class="fc" id="L247">                    			OMNamespace ns =  (OMNamespace) nsIter.next();</span>
+<span class="fc" id="L248">                    			header.declareNamespace(ns);</span>
+<span class="fc" id="L249">                    		}</span>
+                    		// retrieve all child nodes (including any text nodes)
+                    		// and re-attach to header block
+<span class="fc" id="L252">                    		Iterator children = element.getChildren();</span>
+<span class="fc bfc" id="L253" title="All 2 branches covered.">                    		while (children.hasNext()) {</span>
+<span class="fc" id="L254">                    			OMNode child = (OMNode)children.next();</span>
+<span class="fc" id="L255">                    			children.remove();</span>
+<span class="fc" id="L256">                    			header.addChild(child);</span>
+<span class="fc" id="L257">                    		}</span>
+                    		
+<span class="fc" id="L259">                    		headerBlocs.remove();</span>
+                    		
+<span class="fc" id="L261">                    		soapHeader.build();</span>
+                    		
+<span class="fc" id="L263">                    		header.setProcessed();</span>
+                    		
+                    	}
+                    	
+<span class="fc bfc" id="L267" title="All 2 branches covered.">                        if(header.isProcessed()) {</span>
+<span class="fc" id="L268">                            processedHeaderQNames.add(element.getQName());</span>
+                        }
+<span class="fc" id="L270">                    }</span>
+                
+                }
+<span class="fc" id="L273">                XMLStreamReader reader = ((OMElement) doc.getDocumentElement())</span>
+                        .getXMLStreamReader();
+<span class="fc" id="L275">                SOAPModelBuilder stAXSOAPModelBuilder = OMXMLBuilderFactory.createStAXSOAPModelBuilder(</span>
+                        reader);
+<span class="fc" id="L277">                SOAPEnvelope envelope = stAXSOAPModelBuilder.getSOAPEnvelope();</span>
+                
+                //Set the processed flag of the processed headers
+<span class="fc" id="L280">                SOAPHeader header = envelope.getHeader();</span>
+<span class="fc" id="L281">                for (Iterator iter = processedHeaderQNames.iterator(); iter</span>
+<span class="fc bfc" id="L282" title="All 2 branches covered.">                        .hasNext();) {</span>
+<span class="fc" id="L283">                    QName name = (QName) iter.next();</span>
+<span class="fc" id="L284">                    Iterator omKids = header.getChildrenWithName(name);</span>
+<span class="pc bpc" id="L285" title="1 of 2 branches missed.">                    if(omKids.hasNext()) {</span>
+<span class="fc" id="L286">                        ((SOAPHeaderBlock)omKids.next()).setProcessed();</span>
+                    }
+<span class="fc" id="L288">                }</span>
+                
+<span class="fc" id="L290">                envelope.build();</span>
+                
+<span class="fc" id="L292">                return envelope;</span>
+
+<span class="nc" id="L294">            } catch (FactoryConfigurationError e) {</span>
+<span class="nc" id="L295">                throw new WSSecurityException(e.getMessage());</span>
+            }
+        } else {
+            try {
+<span class="fc" id="L299">                ByteArrayOutputStream os = new ByteArrayOutputStream();</span>
+<span class="fc" id="L300">                XMLUtils.outputDOM(doc.getDocumentElement(), os, true);</span>
+<span class="fc" id="L301">                ByteArrayInputStream bais =  new ByteArrayInputStream(os.toByteArray());</span>
+
+<span class="fc" id="L303">                SOAPModelBuilder stAXSOAPModelBuilder = OMXMLBuilderFactory.createSOAPModelBuilder(bais, null);</span>
+<span class="fc" id="L304">                return stAXSOAPModelBuilder.getSOAPEnvelope();</span>
+<span class="nc" id="L305">            } catch (Exception e) {</span>
+<span class="nc" id="L306">                throw new WSSecurityException(e.getMessage());</span>
+            }
+        }
+    }
+	
+	
+	/**
+	 * Provides the appropriate key to pickup config params from the message context.
+	 * This is acutally used when the outflow handler (WSDoAllSender)
+	 * is repeated n number of times.
+	 * @param originalKey The default key
+	 * @param inHandler Whether the handler is the inflow handler or not
+	 * @param repetition The current repetition number
+	 * @return Returns the key to be used internally in the security module to pick
+	 * up the config params.
+	 */
+	public static String getKey(String originalKey, boolean inHandler, int repetition) {
+		
+<span class="pc bpc" id="L324" title="1 of 8 branches missed.">		if(repetition &gt; 0 &amp;&amp; !inHandler &amp;&amp; </span>
+				!originalKey.equals(WSSHandlerConstants.OUTFLOW_SECURITY)&amp;&amp;	
+				!originalKey.equals(WSSHandlerConstants.SENDER_REPEAT_COUNT)) {
+			
+<span class="fc" id="L328">				return originalKey + repetition;</span>
+		}
+<span class="fc" id="L330">		return originalKey;</span>
+	}
+	
+    /**
+     * This will build a DOOM Element that is of the same &lt;code&gt;Document&lt;/code&gt;
+     * @param factory
+     * @param element
+     * @return
+     */
+    public static OMElement toDOOM(OMFactory factory, OMElement element){
+<span class="nc" id="L340">        StAXOMBuilder builder = new StAXOMBuilder(factory, element.getXMLStreamReader());</span>
+<span class="nc" id="L341">        OMElement elem = builder.getDocumentElement();</span>
+<span class="nc" id="L342">        elem.build();</span>
+<span class="nc" id="L343">        return elem;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>
