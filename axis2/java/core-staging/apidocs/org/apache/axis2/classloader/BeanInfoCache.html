@@ -83,7 +83,7 @@
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
 <li>org.apache.axis2.classloader.BeanInfoCache</li>
@@ -96,11 +96,11 @@
 <hr>
 <br>
 <pre>public final class <span class="strong">BeanInfoCache</span>
-extends <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
-<div class="block"><a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> cache that stores introspection results by bean class and stop class. This goes
+extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<div class="block"><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> cache that stores introspection results by bean class and stop class. This goes
  beyond the caching provided by the JRE, which only caches the results of
- <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/Introspector.html?is-external=true#getBeanInfo(java.lang.Class)" title="class or interface in java.beans"><code>Introspector.getBeanInfo(Class)</code></a>, but not the results of
- <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/Introspector.html?is-external=true#getBeanInfo(java.lang.Class, java.lang.Class)" title="class or interface in java.beans"><code>Introspector.getBeanInfo(Class, Class)</code></a> (with non null stop class).
+ <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/Introspector.html?is-external=true#getBeanInfo(java.lang.Class)" title="class or interface in java.beans"><code>Introspector.getBeanInfo(Class)</code></a>, but not the results of
+ <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/Introspector.html?is-external=true#getBeanInfo(java.lang.Class, java.lang.Class)" title="class or interface in java.beans"><code>Introspector.getBeanInfo(Class, Class)</code></a> (with non null stop class).
  <p>
  To avoid class loader leaks, this class should not be used as a singleton if the introspected
  classes are loaded from class loaders that are children of the class loader which holds the
@@ -141,17 +141,17 @@ extends <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Obje
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans">BeanInfo</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/classloader/BeanInfoCache.html#getBeanInfo(java.lang.Class, java.lang.Class)">getBeanInfo</a></strong>(<a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;beanClass,
-           <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;stopClass)</code>
-<div class="block">Introspect on a Java bean and return a cached <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object.</div>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans">BeanInfo</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/classloader/BeanInfoCache.html#getBeanInfo(java.lang.Class, java.lang.Class)">getBeanInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;beanClass,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;stopClass)</code>
+<div class="block">Introspect on a Java bean and return a cached <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans">BeanInfo</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/classloader/BeanInfoCache.html#getCachedBeanInfo(java.lang.Class, java.lang.Class)">getCachedBeanInfo</a></strong>(<a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;beanClass,
-                 <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;stopClass)</code>
-<div class="block">Locate an appropriate <a href="../../../../org/apache/axis2/classloader/BeanInfoCache.html" title="class in org.apache.axis2.classloader"><code>BeanInfoCache</code></a> and return a cached <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object.</div>
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans">BeanInfo</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/classloader/BeanInfoCache.html#getCachedBeanInfo(java.lang.Class, java.lang.Class)">getCachedBeanInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;beanClass,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;stopClass)</code>
+<div class="block">Locate an appropriate <a href="../../../../org/apache/axis2/classloader/BeanInfoCache.html" title="class in org.apache.axis2.classloader"><code>BeanInfoCache</code></a> and return a cached <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object.</div>
 </td>
 </tr>
 </table>
@@ -159,8 +159,8 @@ extends <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Obje
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -199,14 +199,14 @@ extends <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Obje
 <ul class="blockList">
 <li class="blockList">
 <h4>getBeanInfo</h4>
-<pre>public&nbsp;<a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans">BeanInfo</a>&nbsp;getBeanInfo(<a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;beanClass,
-                   <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;stopClass)
-                     throws <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/IntrospectionException.html?is-external=true" title="class or interface in java.beans">IntrospectionException</a></pre>
-<div class="block">Introspect on a Java bean and return a cached <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object.</div>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans">BeanInfo</a>&nbsp;getBeanInfo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;beanClass,
+                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;stopClass)
+                     throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/IntrospectionException.html?is-external=true" title="class or interface in java.beans">IntrospectionException</a></pre>
+<div class="block">Introspect on a Java bean and return a cached <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>beanClass</code> - The bean class to be analyzed.</dd><dd><code>stopClass</code> - The base class at which to stop the analysis; may be <code>null</code>.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>A <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object describing the target bean.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>A <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object describing the target bean.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/IntrospectionException.html?is-external=true" title="class or interface in java.beans">IntrospectionException</a></code> - if an exception occurs during introspection.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/Introspector.html?is-external=true#getBeanInfo(java.lang.Class, java.lang.Class)" title="class or interface in java.beans"><code>Introspector.getBeanInfo(Class, Class)</code></a></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/IntrospectionException.html?is-external=true" title="class or interface in java.beans">IntrospectionException</a></code> - if an exception occurs during introspection.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/Introspector.html?is-external=true#getBeanInfo(java.lang.Class, java.lang.Class)" title="class or interface in java.beans"><code>Introspector.getBeanInfo(Class, Class)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getCachedBeanInfo(java.lang.Class, java.lang.Class)">
@@ -215,16 +215,16 @@ extends <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Obje
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getCachedBeanInfo</h4>
-<pre>public static&nbsp;<a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans">BeanInfo</a>&nbsp;getCachedBeanInfo(<a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;beanClass,
-                         <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;stopClass)
-                                  throws <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/IntrospectionException.html?is-external=true" title="class or interface in java.beans">IntrospectionException</a></pre>
-<div class="block">Locate an appropriate <a href="../../../../org/apache/axis2/classloader/BeanInfoCache.html" title="class in org.apache.axis2.classloader"><code>BeanInfoCache</code></a> and return a cached <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object.
- This method ensures that caching the <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object will not result in a class
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans">BeanInfo</a>&nbsp;getCachedBeanInfo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;beanClass,
+                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;stopClass)
+                                  throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/IntrospectionException.html?is-external=true" title="class or interface in java.beans">IntrospectionException</a></pre>
+<div class="block">Locate an appropriate <a href="../../../../org/apache/axis2/classloader/BeanInfoCache.html" title="class in org.apache.axis2.classloader"><code>BeanInfoCache</code></a> and return a cached <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object.
+ This method ensures that caching the <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object will not result in a class
  loader leak.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>beanClass</code> - The bean class to be analyzed.</dd><dd><code>stopClass</code> - The base class at which to stop the analysis; may be <code>null</code>.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>A <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object describing the target bean.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>A <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> object describing the target bean.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://download.oracle.com/javase/1.5.0/docs/api/java/beans/IntrospectionException.html?is-external=true" title="class or interface in java.beans">IntrospectionException</a></code> - if an exception occurs during introspection.</dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/beans/IntrospectionException.html?is-external=true" title="class or interface in java.beans">IntrospectionException</a></code> - if an exception occurs during introspection.</dd></dl>
 </li>
 </ul>
 </li>

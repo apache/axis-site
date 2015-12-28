@@ -97,10 +97,10 @@
 <br>
 <pre>public interface <span class="strong">DataSourceMessageBuilder</span>
 extends <a href="../../../../org/apache/axis2/builder/Builder.html" title="interface in org.apache.axis2.builder">Builder</a></pre>
-<div class="block">Message builder able to build messages from <a href="http://java.sun.com/javaee/5/docs/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation"><code>DataSource</code></a> objects.
+<div class="block">Message builder able to build messages from <a href="http://docs.oracle.com/javaee/5/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation"><code>DataSource</code></a> objects.
  This interface can be optionally implemented by <a href="../../../../org/apache/axis2/builder/Builder.html" title="interface in org.apache.axis2.builder"><code>Builder</code></a>
- implementations that support building messages from <a href="http://java.sun.com/javaee/5/docs/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation"><code>DataSource</code></a> objects.
- Since by definition the data from a <a href="http://java.sun.com/javaee/5/docs/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation"><code>DataSource</code></a> can be read multiple
+ implementations that support building messages from <a href="http://docs.oracle.com/javaee/5/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation"><code>DataSource</code></a> objects.
+ Since by definition the data from a <a href="http://docs.oracle.com/javaee/5/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation"><code>DataSource</code></a> can be read multiple
  times, this interface can be used by message builders to avoid storing the
  message content in memory.
  <p>
@@ -113,11 +113,11 @@ extends <a href="../../../../org/apache/axis2/builder/Builder.html" title="inter
  Examples are JMS and VFS.
  <p>
  The builder will typically expose the data source directly or indirectly through
- the returned <code>OMElement</code>, e.g. by adding to the tree an <code>OMText</code>
- or <code>OMDataSource</code> node referencing the data source.
+ the returned <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om"><code>OMElement</code></a>, e.g. by adding to the tree an <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMText.html?is-external=true" title="class or interface in org.apache.axiom.om"><code>OMText</code></a>
+ or <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true" title="class or interface in org.apache.axiom.om"><code>OMDataSource</code></a> node referencing the data source.
  This means that the builder will not be able to guarantee that all streams requested
  from the data source are properly closed. Note that code accessing the returned
- <code>OMElement</code> can't be expected to take care of this since in many cases the fact
+ <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om"><code>OMElement</code></a> can't be expected to take care of this since in many cases the fact
  that a data source is being used is completely transparent to that code.
  It is therefore the responsibility of the transport to make sure that all resources linked to
  the data source itself as well as any open stream requested from that data source are properly
@@ -160,9 +160,9 @@ extends <a href="../../../../org/apache/axis2/builder/Builder.html" title="inter
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>org.apache.axiom.om.OMElement</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/format/DataSourceMessageBuilder.html#processDocument(javax.activation.DataSource, java.lang.String, org.apache.axis2.context.MessageContext)">processDocument</a></strong>(<a href="http://java.sun.com/javaee/5/docs/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation">DataSource</a>&nbsp;dataSource,
-               <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
+<td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/format/DataSourceMessageBuilder.html#processDocument(javax.activation.DataSource, java.lang.String, org.apache.axis2.context.MessageContext)">processDocument</a></strong>(<a href="http://docs.oracle.com/javaee/5/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation">DataSource</a>&nbsp;dataSource,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
                <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext)</code>&nbsp;</td>
 </tr>
 </table>
@@ -193,10 +193,10 @@ extends <a href="../../../../org/apache/axis2/builder/Builder.html" title="inter
 <ul class="blockListLast">
 <li class="blockList">
 <h4>processDocument</h4>
-<pre>org.apache.axiom.om.OMElement&nbsp;processDocument(<a href="http://java.sun.com/javaee/5/docs/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation">DataSource</a>&nbsp;dataSource,
-                                            <a href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
-                                            <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext)
-                                              throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<pre><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;processDocument(<a href="http://docs.oracle.com/javaee/5/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation">DataSource</a>&nbsp;dataSource,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
+                        <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext)
+                          throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
 </li>
