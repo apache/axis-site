@@ -2,7 +2,7 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 <title>SAMLUtils (Apache Rampart)</title>
 <link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
 </head>
@@ -154,7 +154,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static org.opensaml.saml1.core.Assertion</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAssertion(java.lang.String,%20org.joda.time.DateTime,%20org.joda.time.DateTime,%20java.util.List)">createAssertion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerName,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAssertion(java.lang.String, org.joda.time.DateTime, org.joda.time.DateTime, java.util.List)">createAssertion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerName,
                org.joda.time.DateTime&nbsp;notBefore,
                org.joda.time.DateTime&nbsp;notOnOrAfter,
                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.opensaml.saml1.core.Statement&gt;&nbsp;statements)</code>
@@ -163,7 +163,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static org.opensaml.saml1.core.Attribute</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAttribute(java.lang.String,%20java.lang.String,%20java.lang.String)">createAttribute</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAttribute(java.lang.String, java.lang.String, java.lang.String)">createAttribute</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
 <div class="block">Creates a SAML attribute similar to following,
@@ -176,14 +176,14 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static org.opensaml.saml1.core.AttributeStatement</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAttributeStatement(org.opensaml.saml1.core.Subject,%20java.util.List)">createAttributeStatement</a></strong>(org.opensaml.saml1.core.Subject&nbsp;subject,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAttributeStatement(org.opensaml.saml1.core.Subject, java.util.List)">createAttributeStatement</a></strong>(org.opensaml.saml1.core.Subject&nbsp;subject,
                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.opensaml.saml1.core.Attribute&gt;&nbsp;attributeList)</code>
 <div class="block">Creates an attribute statement.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static org.opensaml.saml1.core.AuthenticationStatement</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAuthenticationStatement(org.opensaml.saml1.core.Subject,%20java.lang.String,%20org.joda.time.DateTime)">createAuthenticationStatement</a></strong>(org.opensaml.saml1.core.Subject&nbsp;subject,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAuthenticationStatement(org.opensaml.saml1.core.Subject, java.lang.String, org.joda.time.DateTime)">createAuthenticationStatement</a></strong>(org.opensaml.saml1.core.Subject&nbsp;subject,
                              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;authenticationMethod,
                              org.joda.time.DateTime&nbsp;authenticationInstant)</code>
 <div class="block">Creates an AuthenticationStatement.</div>
@@ -191,7 +191,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static org.opensaml.saml1.core.Conditions</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createConditions(org.joda.time.DateTime,%20org.joda.time.DateTime)">createConditions</a></strong>(org.joda.time.DateTime&nbsp;notBefore,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createConditions(org.joda.time.DateTime, org.joda.time.DateTime)">createConditions</a></strong>(org.joda.time.DateTime&nbsp;notBefore,
                 org.joda.time.DateTime&nbsp;notOnOrAfter)</code>
 <div class="block">Creates Conditions object.</div>
 </td>
@@ -216,14 +216,14 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static org.opensaml.saml1.core.NameIdentifier</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createNamedIdentifier(java.lang.String,%20java.lang.String)">createNamedIdentifier</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;principalName,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createNamedIdentifier(java.lang.String, java.lang.String)">createNamedIdentifier</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;principalName,
                      <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;format)</code>
 <div class="block">Create named identifier.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static org.opensaml.saml1.core.Subject</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createSubject(org.opensaml.saml1.core.NameIdentifier,%20java.lang.String,%20org.opensaml.xml.signature.KeyInfo)">createSubject</a></strong>(org.opensaml.saml1.core.NameIdentifier&nbsp;nameIdentifier,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createSubject(org.opensaml.saml1.core.NameIdentifier, java.lang.String, org.opensaml.xml.signature.KeyInfo)">createSubject</a></strong>(org.opensaml.saml1.core.NameIdentifier&nbsp;nameIdentifier,
              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;confirmationMethod,
              org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)</code>
 <div class="block">Creates an opensaml Subject representation.</div>
@@ -231,7 +231,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static org.opensaml.saml1.core.SubjectConfirmation</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createSubjectConfirmation(java.lang.String,%20org.opensaml.xml.signature.KeyInfo)">createSubjectConfirmation</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;confirmationMethod,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createSubjectConfirmation(java.lang.String, org.opensaml.xml.signature.KeyInfo)">createSubjectConfirmation</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;confirmationMethod,
                          org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)</code>
 <div class="block">Creates opensaml SubjectConfirmation representation.</div>
 </td>
@@ -260,7 +260,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static org.opensaml.xml.signature.KeyInfo</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getSymmetricKeyBasedKeyInfo(org.w3c.dom.Document,%20org.apache.rahas.RahasData,%20java.security.cert.X509Certificate,%20int,%20org.apache.ws.security.components.crypto.Crypto,%20int)">getSymmetricKeyBasedKeyInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getSymmetricKeyBasedKeyInfo(org.w3c.dom.Document, org.apache.rahas.RahasData, java.security.cert.X509Certificate, int, org.apache.ws.security.components.crypto.Crypto, int)">getSymmetricKeyBasedKeyInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
                            <a href="../../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data,
                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;serviceCert,
                            int&nbsp;keySize,
@@ -271,7 +271,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#signAssertion(org.opensaml.saml1.core.Assertion,%20org.apache.ws.security.components.crypto.Crypto,%20java.lang.String,%20java.lang.String)">signAssertion</a></strong>(org.opensaml.saml1.core.Assertion&nbsp;assertion,
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#signAssertion(org.opensaml.saml1.core.Assertion, org.apache.ws.security.components.crypto.Crypto, java.lang.String, java.lang.String)">signAssertion</a></strong>(org.opensaml.saml1.core.Assertion&nbsp;assertion,
              org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerKeyAlias,
              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerKeyPassword)</code>
@@ -284,7 +284,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
