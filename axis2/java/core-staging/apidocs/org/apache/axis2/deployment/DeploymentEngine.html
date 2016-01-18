@@ -1,0 +1,1350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>DeploymentEngine (Apache Axis2)</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="DeploymentEngine (Apache Axis2)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DeploymentEngine.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html" title="interface in org.apache.axis2.deployment"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/deployment/DeploymentErrorMsgs.html" title="class in org.apache.axis2.deployment"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/apache/axis2/deployment/DeploymentEngine.html" target="_top">Frames</a></li>
+<li><a href="DeploymentEngine.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis2.deployment</div>
+<h2 title="Class DeploymentEngine" class="title">Class DeploymentEngine</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis2.deployment.DeploymentEngine</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html" title="interface in org.apache.axis2.deployment">DeploymentConstants</a></dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../org/apache/axis2/transport/CustomAxisConfigurator.html" title="class in org.apache.axis2.transport">CustomAxisConfigurator</a>, <a href="../../../../org/apache/axis2/deployment/FileSystemConfigurator.html" title="class in org.apache.axis2.deployment">FileSystemConfigurator</a>, <a href="../../../../org/apache/axis2/osgi/deployment/OSGiServerConfigurator.html" title="class in org.apache.axis2.osgi.deployment">OSGiServerConfigurator</a>, <a href="../../../../org/apache/axis2/scripting/ScriptDeploymentEngine.html" title="class in org.apache.axis2.scripting">ScriptDeploymentEngine</a>, <a href="../../../../org/apache/axis2/deployment/URLBasedAxisConfigurator.html" title="class in org.apache.axis2.deployment">URLBasedAxisConfigurator</a>, <a href="../../../../org/apache/axis2/deployment/WarBasedAxisConfigurator.html" title="class in org.apache.axis2.deployment">WarBasedAxisConfigurator</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public abstract class <span class="strong">DeploymentEngine</span>
+extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html" title="interface in org.apache.axis2.deployment">DeploymentConstants</a></pre>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#axisConfig">axisConfig</a></strong></code>
+<div class="block">to keep a ref to engine register
+ this ref will pass to engine when it call start()
+ method</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#configContext">configContext</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#DEPLOYMENT_TASK_RUNNING">DEPLOYMENT_TASK_RUNNING</a></strong></code>
+<div class="block">Indicates that the deployment task is running</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#hotDeployment">hotDeployment</a></strong></code>
+<div class="block">Support for hot deployment is controlled by this flag</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#hotUpdate">hotUpdate</a></strong></code>
+<div class="block">Support for hot update is controlled by this flag</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/deployment/ModuleDeployer.html" title="class in org.apache.axis2.deployment">ModuleDeployer</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#moduleDeployer">moduleDeployer</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#modulesDir">modulesDir</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#modulesPath">modulesPath</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/deployment/RepositoryListener.html" title="class in org.apache.axis2.deployment">RepositoryListener</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#repoListener">repoListener</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/deployment/scheduler/Scheduler.html" title="class in org.apache.axis2.deployment.scheduler">Scheduler</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#scheduler">scheduler</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/deployment/ServiceDeployer.html" title="class in org.apache.axis2.deployment">ServiceDeployer</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#serviceDeployer">serviceDeployer</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#servicesDir">servicesDir</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#servicesPath">servicesPath</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#webLocationString">webLocationString</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#wsToDeploy">wsToDeploy</a></strong></code>
+<div class="block">Stores all the web Services to deploy.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#wsToUnDeploy">wsToUnDeploy</a></strong></code>
+<div class="block">Stores all the web Services to undeploy.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.axis2.deployment.DeploymentConstants">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;org.apache.axis2.deployment.<a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html" title="interface in org.apache.axis2.deployment">DeploymentConstants</a></h3>
+<code><a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#ATTACHMENTS_LIFECYCLE_MANAGER">ATTACHMENTS_LIFECYCLE_MANAGER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#ATTRIBUTE_ACTIVATE">ATTRIBUTE_ACTIVATE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#ATTRIBUTE_CLASS">ATTRIBUTE_CLASS</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#ATTRIBUTE_DEFAULT_VERSION">ATTRIBUTE_DEFAULT_VERSION</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#ATTRIBUTE_LOCKED">ATTRIBUTE_LOCKED</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#ATTRIBUTE_NAME">ATTRIBUTE_NAME</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#ATTRIBUTE_NAMESPACE">ATTRIBUTE_NAMESPACE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#ATTRIBUTE_PACKAGE">ATTRIBUTE_PACKAGE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#ATTRIBUTE_SCOPE">ATTRIBUTE_SCOPE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#ATTRIBUTE_WSADDRESSING">ATTRIBUTE_WSADDRESSING</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#AXIS2_CONFIGURATION_RESOURCE">AXIS2_CONFIGURATION_RESOURCE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#AXIS2_CONFIGURATION_XML">AXIS2_CONFIGURATION_XML</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#AXIS2_REPO">AXIS2_REPO</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#BOOLEAN_FALSE">BOOLEAN_FALSE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#BOOLEAN_TRUE">BOOLEAN_TRUE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#DEPLOYER">DEPLOYER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#DIRECTORY">DIRECTORY</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#DIRECTORY_AXIS2_HOME">DIRECTORY_AXIS2_HOME</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#DIRECTORY_CONF">DIRECTORY_CONF</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#EXTENSION">EXTENSION</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#MAPPING">MAPPING</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#META_INF">META_INF</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#MODULE_DRI_PATH">MODULE_DRI_PATH</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#MODULE_PATH">MODULE_PATH</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#MODULE_XML">MODULE_XML</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#POLICY_NS_URI">POLICY_NS_URI</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#PROPERTY_TEMP_DIR">PROPERTY_TEMP_DIR</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#RESOURCE_MODULES">RESOURCE_MODULES</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SCHEMA">SCHEMA</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SCHEMA_ELEMENT_QUALIFIED">SCHEMA_ELEMENT_QUALIFIED</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SCHEMA_NAME_SPACE">SCHEMA_NAME_SPACE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SEPARATOR_COLON">SEPARATOR_COLON</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SEPARATOR_DOT">SEPARATOR_DOT</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SERVICE_DIR_PATH">SERVICE_DIR_PATH</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SERVICE_PATH">SERVICE_PATH</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SERVICES_XML">SERVICES_XML</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SUFFIX_JAR">SUFFIX_JAR</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SUFFIX_MAR">SUFFIX_MAR</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#SUFFIX_WSDL">SUFFIX_WSDL</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_AFTER">TAG_AFTER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_ALLOWOVERRIDE">TAG_ALLOWOVERRIDE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_ANTI_JAR_LOCKING">TAG_ANTI_JAR_LOCKING</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_APPLIES_TO">TAG_APPLIES_TO</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_AXISCONFIG">TAG_AXISCONFIG</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_BEFORE">TAG_BEFORE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_CLASS_NAME">TAG_CLASS_NAME</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_CLUSTER">TAG_CLUSTER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_CONTENT_TYPE">TAG_CONTENT_TYPE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_CONTEXT">TAG_CONTEXT</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_DEFAULT_MODULE_VERSION">TAG_DEFAULT_MODULE_VERSION</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_DEFAULTS">TAG_DEFAULTS</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_DESCRIPTION">TAG_DESCRIPTION</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_DISPATCH_ORDER">TAG_DISPATCH_ORDER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_DISPATCHER">TAG_DISPATCHER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_EXCLUDE">TAG_EXCLUDE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_EXCLUDE_OPERATIONS">TAG_EXCLUDE_OPERATIONS</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_EXCLUDE_PROPERTIES">TAG_EXCLUDE_PROPERTIES</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_EXPOSE">TAG_EXPOSE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_EXTRACT_SERVICE_ARCHIVE">TAG_EXTRACT_SERVICE_ARCHIVE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_FLOW_IN">TAG_FLOW_IN</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_FLOW_IN_FAULT">TAG_FLOW_IN_FAULT</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_FLOW_OUT">TAG_FLOW_OUT</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_FLOW_OUT_FAULT">TAG_FLOW_OUT_FAULT</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_HANDLER">TAG_HANDLER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_HOT_DEPLOYMENT">TAG_HOT_DEPLOYMENT</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_HOT_UPDATE">TAG_HOT_UPDATE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_INCLUDE_PROPERTIES">TAG_INCLUDE_PROPERTIES</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_LABEL">TAG_LABEL</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_LIST_ID">TAG_LIST_ID</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_LISTENER">TAG_LISTENER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MAPPING">TAG_MAPPING</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MEP">TAG_MEP</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MESSAGE">TAG_MESSAGE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MESSAGE_BUILDER">TAG_MESSAGE_BUILDER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MESSAGE_BUILDERS">TAG_MESSAGE_BUILDERS</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MESSAGE_FORMATTER">TAG_MESSAGE_FORMATTER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MESSAGE_FORMATTERS">TAG_MESSAGE_FORMATTERS</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MESSAGE_RECEIVER">TAG_MESSAGE_RECEIVER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MESSAGE_RECEIVERS">TAG_MESSAGE_RECEIVERS</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MODULE">TAG_MODULE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_MODULE_CONFIG">TAG_MODULE_CONFIG</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_NAMESPACES">TAG_NAMESPACES</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_NODE_MANAGER">TAG_NODE_MANAGER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_OBJECT_SUPPLIER">TAG_OBJECT_SUPPLIER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_OPERATION">TAG_OPERATION</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_ORDER">TAG_ORDER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_PACKAGE_NAME">TAG_PACKAGE_NAME</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_PACKAGE2QNAME">TAG_PACKAGE2QNAME</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_PARAMETER">TAG_PARAMETER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_PHASE">TAG_PHASE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_PHASE_FIRST">TAG_PHASE_FIRST</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_PHASE_LAST">TAG_PHASE_LAST</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_PHASE_ORDER">TAG_PHASE_ORDER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_POLICY">TAG_POLICY</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_POLICY_ATTACHMENT">TAG_POLICY_ATTACHMENT</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_POLICY_REF">TAG_POLICY_REF</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_QNAME">TAG_QNAME</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_REFERENCE">TAG_REFERENCE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_REPLICATION">TAG_REPLICATION</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_SERVICE">TAG_SERVICE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_SERVICE_GROUP">TAG_SERVICE_GROUP</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_STATE_MANAGER">TAG_STATE_MANAGER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_SUPPORTED_POLICY_NAMESPACES">TAG_SUPPORTED_POLICY_NAMESPACES</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_TARGET_RESOLVER">TAG_TARGET_RESOLVER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_TARGET_RESOLVERS">TAG_TARGET_RESOLVERS</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_THREAD_CONTEXT_MIGRATOR">TAG_THREAD_CONTEXT_MIGRATOR</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_THREAD_CONTEXT_MIGRATORS">TAG_THREAD_CONTEXT_MIGRATORS</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_TIMEOUT">TAG_TIMEOUT</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_TRANSACTION">TAG_TRANSACTION</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_TRANSACTION_CONFIGURATION_CLASS">TAG_TRANSACTION_CONFIGURATION_CLASS</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_TRANSPORT">TAG_TRANSPORT</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_TRANSPORT_RECEIVER">TAG_TRANSPORT_RECEIVER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_TRANSPORT_SENDER">TAG_TRANSPORT_SENDER</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_TRANSPORTS">TAG_TRANSPORTS</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TAG_TYPE">TAG_TYPE</a>, <a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html#TARGET_NAME_SPACE">TARGET_NAME_SPACE</a></code></li>
+</ul>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#DeploymentEngine()">DeploymentEngine</a></strong>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#addDeployer(org.apache.axis2.deployment.Deployer, java.lang.String, java.lang.String)">addDeployer</a></strong>(<a href="../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extension)</code>
+<div class="block">Add and initialize a new Deployer.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#addNewModule(org.apache.axis2.description.AxisModule, org.apache.axis2.engine.AxisConfiguration)">addNewModule</a></strong>(<a href="../../../../org/apache/axis2/description/AxisModule.html" title="class in org.apache.axis2.description">AxisModule</a>&nbsp;modulemetadata,
+            <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfiguration)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#addServiceGroup(org.apache.axis2.description.AxisServiceGroup, java.util.ArrayList, java.net.URL, org.apache.axis2.deployment.repository.util.DeploymentFileData, org.apache.axis2.engine.AxisConfiguration)">addServiceGroup</a></strong>(<a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;serviceGroup,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&nbsp;serviceList,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;serviceLocation,
+               <a href="../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;currentDeploymentFile,
+               <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfiguration)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#addWSToDeploy(org.apache.axis2.deployment.repository.util.DeploymentFileData)">addWSToDeploy</a></strong>(<a href="../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;file)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#addWSToUndeploy(org.apache.axis2.deployment.repository.util.WSInfo)">addWSToUndeploy</a></strong>(<a href="../../../../org/apache/axis2/deployment/repository/util/WSInfo.html" title="class in org.apache.axis2.deployment.repository.util">WSInfo</a>&nbsp;file)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/axis2/description/AxisModule.html" title="class in org.apache.axis2.description">AxisModule</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#buildModule(java.io.File, org.apache.axis2.engine.AxisConfiguration)">buildModule</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;modulearchive,
+           <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;config)</code>
+<div class="block">Builds an AxisModule for a given module archive file.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#buildService(java.io.InputStream, org.apache.axis2.context.ConfigurationContext)">buildService</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;serviceInputStream,
+            <a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configCtx)</code>
+<div class="block">Fills an axisservice object using services.xml.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#buildServiceGroup(java.io.InputStream, java.lang.ClassLoader, java.lang.String, org.apache.axis2.context.ConfigurationContext, org.apache.axis2.deployment.repository.util.ArchiveReader, java.util.HashMap)">buildServiceGroup</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;servicesxml,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceGroupName,
+                 <a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configCtx,
+                 <a href="../../../../org/apache/axis2/deployment/repository/util/ArchiveReader.html" title="class in org.apache.axis2.deployment.repository.util">ArchiveReader</a>&nbsp;archiveReader,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;wsdlServices)</code>
+<div class="block">To build a AxisServiceGroup for a given services.xml
+ You have to add the created group into AxisConfig</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#cleanup()">cleanup</a></strong>()</code>
+<div class="block">Clean up the mess</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#doDeploy()">doDeploy</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#engageModules()">engageModules</a></strong>()</code>
+<div class="block">Checks if the modules, referred by server.xml, exist or that they are deployed.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#fillServiceGroup(org.apache.axis2.description.AxisServiceGroup, java.util.ArrayList, java.net.URL, org.apache.axis2.engine.AxisConfiguration)">fillServiceGroup</a></strong>(<a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;serviceGroup,
+                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&nbsp;serviceList,
+                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;serviceLocation,
+                <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfig)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getAxisConfig()">getAxisConfig</a></strong>()</code>
+<div class="block">Gets AxisConfiguration.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getAxisServiceName(java.lang.String)">getAxisServiceName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fileName)</code>
+<div class="block">Retrieves service name from the archive file name.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getDeployer(java.lang.String, java.lang.String)">getDeployer</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extension)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&gt;&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getDeployers()">getDeployers</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getFileList(java.net.URL)">getFileList</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;fileListUrl)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/description/AxisModule.html" title="class in org.apache.axis2.description">AxisModule</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getModule(java.lang.String)">getModule</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleName)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/deployment/ModuleDeployer.html" title="class in org.apache.axis2.deployment">ModuleDeployer</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getModuleDeployer()">getModuleDeployer</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getModulesDir()">getModulesDir</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/deployment/RepositoryListener.html" title="class in org.apache.axis2.deployment">RepositoryListener</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getRepoListener()">getRepoListener</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getRepositoryDir()">getRepositoryDir</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getRepositoryPath(java.io.File)">getRepositoryPath</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;repository)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/deployment/ServiceDeployer.html" title="class in org.apache.axis2.deployment">ServiceDeployer</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getServiceDeployer()">getServiceDeployer</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getServicesDir()">getServicesDir</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#getWebLocationString()">getWebLocationString</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#isDeploymentTaskRunning()">isDeploymentTaskRunning</a></strong>()</code>
+<div class="block">Method to check whether the deployment task is currently running.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#isHotUpdate()">isHotUpdate</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#isServiceGroupReadyToDeploy(org.apache.axis2.description.AxisServiceGroup, java.util.ArrayList, java.net.URL, org.apache.axis2.deployment.repository.util.DeploymentFileData, org.apache.axis2.engine.AxisConfiguration)">isServiceGroupReadyToDeploy</a></strong>(<a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;serviceGroup,
+                           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&nbsp;serviceList,
+                           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;serviceLocation,
+                           <a href="../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;currentDeploymentFile,
+                           <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfig)</code>
+<div class="block">Performs a check routine, in order to identify whether all the serviceGroup, service and
+ operation level modules are available.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/engine/MessageReceiver.html" title="interface in org.apache.axis2.engine">MessageReceiver</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#loadDefaultMessageReceiver(java.lang.String, org.apache.axis2.description.AxisService)">loadDefaultMessageReceiver</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;mepURL,
+                          <a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;service)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#loadFromClassPath()">loadFromClassPath</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#loadRepository(java.lang.String)">loadRepository</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;repoDir)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#loadRepositoryFromURL(java.net.URL)">loadRepositoryFromURL</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;repoURL)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#loadServiceGroup(java.io.File, org.apache.axis2.context.ConfigurationContext)">loadServiceGroup</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;serviceFile,
+                <a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configCtx)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#loadServices()">loadServices</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#loadServicesFromUrl(java.net.URL)">loadServicesFromUrl</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;repoURL)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#populateAxisConfiguration(java.io.InputStream)">populateAxisConfiguration</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in)</code>
+<div class="block">To get AxisConfiguration for a given inputStream this method can be used.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#populateService(org.apache.axis2.description.AxisServiceGroup, java.net.URL, java.lang.String)">populateService</a></strong>(<a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;serviceGroup,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;servicesURL,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#prepareRepository(java.lang.String)">prepareRepository</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;repositoryName)</code>
+<div class="block">Creates directories for modules/services, copies configuration xml from class loader if necessary</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#removeDeployer(java.lang.String, java.lang.String)">removeDeployer</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extension)</code>
+<div class="block">Remove any Deployer mapped for the given directory and extension</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#setClassLoaders(java.lang.String)">setClassLoaders</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;axis2repoURI)</code>
+<div class="block">To set the all the classLoader hierarchy this method can be used , the top most parent is
+ CCL then SCL(system Class Loader)
+ CCL
+ :
+ SCL
+ :  :
+ MCCL  SCCL
+ :      :
+ MCL    SCL
+ <p/>
+ <p/>
+ MCCL :  module common class loader
+ SCCL : Service common class loader
+ MCL : module class loader
+ SCL  : Service class loader</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#setConfigContext(org.apache.axis2.context.ConfigurationContext)">setConfigContext</a></strong>(<a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configContext)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#setDeployers(java.util.Map)">setDeployers</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&gt;&gt;&nbsp;deployerMap)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#setDeploymentFeatures()">setDeploymentFeatures</a></strong>()</code>
+<div class="block">Sets hotDeployment and hot update.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#setWebLocationString(java.lang.String)">setWebLocationString</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;webLocationString)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#startSearch(org.apache.axis2.deployment.RepositoryListener)">startSearch</a></strong>(<a href="../../../../org/apache/axis2/deployment/RepositoryListener.html" title="class in org.apache.axis2.deployment">RepositoryListener</a>&nbsp;listener)</code>
+<div class="block">Starts the Deployment engine to perform Hot deployment and so on.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/DeploymentEngine.html#unDeploy()">unDeploy</a></strong>()</code>&nbsp;</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="DEPLOYMENT_TASK_RUNNING">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEPLOYMENT_TASK_RUNNING</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> DEPLOYMENT_TASK_RUNNING</pre>
+<div class="block">Indicates that the deployment task is running</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis2.deployment.DeploymentEngine.DEPLOYMENT_TASK_RUNNING">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="webLocationString">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>webLocationString</h4>
+<pre>protected static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> webLocationString</pre>
+</li>
+</ul>
+<a name="scheduler">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>scheduler</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis2/deployment/scheduler/Scheduler.html" title="class in org.apache.axis2.deployment.scheduler">Scheduler</a> scheduler</pre>
+</li>
+</ul>
+<a name="hotUpdate">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hotUpdate</h4>
+<pre>protected&nbsp;boolean hotUpdate</pre>
+<div class="block">Support for hot update is controlled by this flag</div>
+</li>
+</ul>
+<a name="hotDeployment">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hotDeployment</h4>
+<pre>protected&nbsp;boolean hotDeployment</pre>
+<div class="block">Support for hot deployment is controlled by this flag</div>
+</li>
+</ul>
+<a name="wsToDeploy">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>wsToDeploy</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a> wsToDeploy</pre>
+<div class="block">Stores all the web Services to deploy.</div>
+</li>
+</ul>
+<a name="wsToUnDeploy">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>wsToUnDeploy</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a> wsToUnDeploy</pre>
+<div class="block">Stores all the web Services to undeploy.</div>
+</li>
+</ul>
+<a name="axisConfig">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>axisConfig</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a> axisConfig</pre>
+<div class="block">to keep a ref to engine register
+ this ref will pass to engine when it call start()
+ method</div>
+</li>
+</ul>
+<a name="configContext">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>configContext</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a> configContext</pre>
+</li>
+</ul>
+<a name="repoListener">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>repoListener</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis2/deployment/RepositoryListener.html" title="class in org.apache.axis2.deployment">RepositoryListener</a> repoListener</pre>
+</li>
+</ul>
+<a name="servicesPath">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>servicesPath</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> servicesPath</pre>
+</li>
+</ul>
+<a name="servicesDir">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>servicesDir</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a> servicesDir</pre>
+</li>
+</ul>
+<a name="modulesPath">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>modulesPath</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> modulesPath</pre>
+</li>
+</ul>
+<a name="modulesDir">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>modulesDir</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a> modulesDir</pre>
+</li>
+</ul>
+<a name="serviceDeployer">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>serviceDeployer</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis2/deployment/ServiceDeployer.html" title="class in org.apache.axis2.deployment">ServiceDeployer</a> serviceDeployer</pre>
+</li>
+</ul>
+<a name="moduleDeployer">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>moduleDeployer</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis2/deployment/ModuleDeployer.html" title="class in org.apache.axis2.deployment">ModuleDeployer</a> moduleDeployer</pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="DeploymentEngine()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>DeploymentEngine</h4>
+<pre>public&nbsp;DeploymentEngine()</pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="setWebLocationString(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setWebLocationString</h4>
+<pre>public static&nbsp;void&nbsp;setWebLocationString(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;webLocationString)</pre>
+</li>
+</ul>
+<a name="loadServices()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadServices</h4>
+<pre>public&nbsp;void&nbsp;loadServices()</pre>
+</li>
+</ul>
+<a name="loadRepository(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadRepository</h4>
+<pre>public&nbsp;void&nbsp;loadRepository(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;repoDir)
+                    throws <a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></code></dd></dl>
+</li>
+</ul>
+<a name="loadFromClassPath()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadFromClassPath</h4>
+<pre>public&nbsp;void&nbsp;loadFromClassPath()
+                       throws <a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></code></dd></dl>
+</li>
+</ul>
+<a name="loadServicesFromUrl(java.net.URL)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadServicesFromUrl</h4>
+<pre>public&nbsp;void&nbsp;loadServicesFromUrl(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;repoURL)</pre>
+</li>
+</ul>
+<a name="loadRepositoryFromURL(java.net.URL)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadRepositoryFromURL</h4>
+<pre>public&nbsp;void&nbsp;loadRepositoryFromURL(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;repoURL)
+                           throws <a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></code></dd></dl>
+</li>
+</ul>
+<a name="populateService(org.apache.axis2.description.AxisServiceGroup, java.net.URL, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>populateService</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&nbsp;populateService(<a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;serviceGroup,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;servicesURL,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName)
+                             throws <a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></code></dd></dl>
+</li>
+</ul>
+<a name="loadDefaultMessageReceiver(java.lang.String, org.apache.axis2.description.AxisService)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadDefaultMessageReceiver</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis2/engine/MessageReceiver.html" title="interface in org.apache.axis2.engine">MessageReceiver</a>&nbsp;loadDefaultMessageReceiver(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;mepURL,
+                                         <a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;service)</pre>
+</li>
+</ul>
+<a name="addNewModule(org.apache.axis2.description.AxisModule, org.apache.axis2.engine.AxisConfiguration)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addNewModule</h4>
+<pre>public static&nbsp;void&nbsp;addNewModule(<a href="../../../../org/apache/axis2/description/AxisModule.html" title="class in org.apache.axis2.description">AxisModule</a>&nbsp;modulemetadata,
+                <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfiguration)
+                         throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="addServiceGroup(org.apache.axis2.description.AxisServiceGroup, java.util.ArrayList, java.net.URL, org.apache.axis2.deployment.repository.util.DeploymentFileData, org.apache.axis2.engine.AxisConfiguration)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addServiceGroup</h4>
+<pre>public static&nbsp;void&nbsp;addServiceGroup(<a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;serviceGroup,
+                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&nbsp;serviceList,
+                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;serviceLocation,
+                   <a href="../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;currentDeploymentFile,
+                   <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfiguration)
+                            throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="isServiceGroupReadyToDeploy(org.apache.axis2.description.AxisServiceGroup, java.util.ArrayList, java.net.URL, org.apache.axis2.deployment.repository.util.DeploymentFileData, org.apache.axis2.engine.AxisConfiguration)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isServiceGroupReadyToDeploy</h4>
+<pre>protected static&nbsp;boolean&nbsp;isServiceGroupReadyToDeploy(<a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;serviceGroup,
+                                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&nbsp;serviceList,
+                                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;serviceLocation,
+                                  <a href="../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;currentDeploymentFile,
+                                  <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfig)
+                                              throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Performs a check routine, in order to identify whether all the serviceGroup, service and
+ operation level modules are available. If a referenced module is not deployed yet, the
+ serviceGroup is added as a faulty service.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceGroup</code> - the AxisServiceGroup we're checking</dd><dd><code>serviceList</code> - a List of AxisServices to check</dd><dd><code>serviceLocation</code> - the URL of the service (only used if there's a problem)</dd><dd><code>currentDeploymentFile</code> - the current DeploymentFileData object (only used if there's a
+                              problem)</dd><dd><code>axisConfig</code> - the active AxisConfiguration</dd>
+<dt><span class="strong">Returns:</span></dt><dd>boolean</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="fillServiceGroup(org.apache.axis2.description.AxisServiceGroup, java.util.ArrayList, java.net.URL, org.apache.axis2.engine.AxisConfiguration)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fillServiceGroup</h4>
+<pre>protected static&nbsp;void&nbsp;fillServiceGroup(<a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;serviceGroup,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&nbsp;serviceList,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;serviceLocation,
+                    <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfig)
+                                throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="addWSToDeploy(org.apache.axis2.deployment.repository.util.DeploymentFileData)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addWSToDeploy</h4>
+<pre>public&nbsp;void&nbsp;addWSToDeploy(<a href="../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;file)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>file</code> - ArchiveFileData</dd></dl>
+</li>
+</ul>
+<a name="addWSToUndeploy(org.apache.axis2.deployment.repository.util.WSInfo)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addWSToUndeploy</h4>
+<pre>public&nbsp;void&nbsp;addWSToUndeploy(<a href="../../../../org/apache/axis2/deployment/repository/util/WSInfo.html" title="class in org.apache.axis2.deployment.repository.util">WSInfo</a>&nbsp;file)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>file</code> - WSInfo</dd></dl>
+</li>
+</ul>
+<a name="doDeploy()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>doDeploy</h4>
+<pre>public&nbsp;void&nbsp;doDeploy()</pre>
+</li>
+</ul>
+<a name="engageModules()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>engageModules</h4>
+<pre>public&nbsp;void&nbsp;engageModules()
+                   throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Checks if the modules, referred by server.xml, exist or that they are deployed.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - : If smt goes wrong</dd></dl>
+</li>
+</ul>
+<a name="populateAxisConfiguration(java.io.InputStream)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>populateAxisConfiguration</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;populateAxisConfiguration(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in)
+                                            throws <a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></pre>
+<div class="block">To get AxisConfiguration for a given inputStream this method can be used.
+ The inputstream should be a valid axis2.xml , else you will be getting
+ DeploymentExceptions.
+ <p/>
+ First creat a AxisConfiguration using given inputSream , and then it will
+ try to find the repository location parameter from AxisConfiguration, so
+ if user has add a parameter with the name "repository" , then the value
+ specified by that parameter will be the repository and system will try to
+ load modules and services from that repository location if it a valid
+ location. hot deployment and hot update will work as usual in this case.
+ <p/>
+ You will be getting AxisConfiguration corresponding to given inputstream
+ if it is valid , if something goes wrong you will be getting
+ DeploymentException</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>in</code> - : InputStream to axis2.xml</dd>
+<dt><span class="strong">Returns:</span></dt><dd>a populated AxisConfiguration</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></code> - : If something goes wrong</dd></dl>
+</li>
+</ul>
+<a name="startSearch(org.apache.axis2.deployment.RepositoryListener)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>startSearch</h4>
+<pre>protected&nbsp;void&nbsp;startSearch(<a href="../../../../org/apache/axis2/deployment/RepositoryListener.html" title="class in org.apache.axis2.deployment">RepositoryListener</a>&nbsp;listener)</pre>
+<div class="block">Starts the Deployment engine to perform Hot deployment and so on.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>listener</code> - : RepositoryListener</dd></dl>
+</li>
+</ul>
+<a name="isDeploymentTaskRunning()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isDeploymentTaskRunning</h4>
+<pre>public&nbsp;boolean&nbsp;isDeploymentTaskRunning()</pre>
+<div class="block">Method to check whether the deployment task is currently running. Will be used is graceful
+ shutdown & restart scenarios.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>true - if the deployment task is running, false - otherwise</dd></dl>
+</li>
+</ul>
+<a name="unDeploy()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>unDeploy</h4>
+<pre>public&nbsp;void&nbsp;unDeploy()</pre>
+</li>
+</ul>
+<a name="getAxisConfig()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAxisConfig</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;getAxisConfig()</pre>
+<div class="block">Gets AxisConfiguration.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>AxisConfiguration <code>AxisConfiguration</code></dd></dl>
+</li>
+</ul>
+<a name="getAxisServiceName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAxisServiceName</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getAxisServiceName(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fileName)</pre>
+<div class="block">Retrieves service name from the archive file name.
+ If the archive file name is service1.aar , then axis2 service name would be service1</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fileName</code> - the archive file name</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Returns String.</dd></dl>
+</li>
+</ul>
+<a name="getModule(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getModule</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/description/AxisModule.html" title="class in org.apache.axis2.description">AxisModule</a>&nbsp;getModule(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleName)
+                     throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="isHotUpdate()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isHotUpdate</h4>
+<pre>public&nbsp;boolean&nbsp;isHotUpdate()</pre>
+</li>
+</ul>
+<a name="getWebLocationString()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getWebLocationString</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getWebLocationString()</pre>
+</li>
+</ul>
+<a name="setClassLoaders(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setClassLoaders</h4>
+<pre>protected&nbsp;void&nbsp;setClassLoaders(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;axis2repoURI)
+                        throws <a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></pre>
+<div class="block">To set the all the classLoader hierarchy this method can be used , the top most parent is
+ CCL then SCL(system Class Loader)
+ CCL
+ :
+ SCL
+ :  :
+ MCCL  SCCL
+ :      :
+ MCL    SCL
+ <p/>
+ <p/>
+ MCCL :  module common class loader
+ SCCL : Service common class loader
+ MCL : module class loader
+ SCL  : Service class loader</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>axis2repoURI</code> - : The repository folder of Axis2</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></code> - if there's a problem</dd></dl>
+</li>
+</ul>
+<a name="setDeploymentFeatures()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDeploymentFeatures</h4>
+<pre>protected&nbsp;void&nbsp;setDeploymentFeatures()</pre>
+<div class="block">Sets hotDeployment and hot update.</div>
+</li>
+</ul>
+<a name="prepareRepository(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>prepareRepository</h4>
+<pre>protected&nbsp;void&nbsp;prepareRepository(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;repositoryName)</pre>
+<div class="block">Creates directories for modules/services, copies configuration xml from class loader if necessary</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>repositoryName</code> - the pathname of the repository</dd></dl>
+</li>
+</ul>
+<a name="getRepositoryPath(java.io.File)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRepositoryPath</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRepositoryPath(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;repository)</pre>
+</li>
+</ul>
+<a name="getFileList(java.net.URL)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFileList</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&nbsp;getFileList(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;fileListUrl)</pre>
+</li>
+</ul>
+<a name="setConfigContext(org.apache.axis2.context.ConfigurationContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setConfigContext</h4>
+<pre>public&nbsp;void&nbsp;setConfigContext(<a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configContext)</pre>
+</li>
+</ul>
+<a name="buildModule(java.io.File, org.apache.axis2.engine.AxisConfiguration)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>buildModule</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/axis2/description/AxisModule.html" title="class in org.apache.axis2.description">AxisModule</a>&nbsp;buildModule(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;modulearchive,
+                     <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;config)
+                              throws <a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></pre>
+<div class="block">Builds an AxisModule for a given module archive file. This does not
+ called the init method since there is no reference to configuration context
+ so who ever create module using this has to called module.init if it is
+ required</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>modulearchive</code> - : Actual module archive file</dd><dd><code>config</code> - : AxisConfiguration : for get classloaders etc..</dd>
+<dt><span class="strong">Returns:</span></dt><dd>a complete AxisModule read from the file.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></code> - if there's a problem</dd></dl>
+</li>
+</ul>
+<a name="buildService(java.io.InputStream, org.apache.axis2.context.ConfigurationContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>buildService</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;buildService(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;serviceInputStream,
+                       <a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configCtx)
+                                throws <a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></pre>
+<div class="block">Fills an axisservice object using services.xml. First creates
+ an axisservice object using WSDL and then fills it using the given services.xml.
+ Loads all the required class and builds the chains, finally adds the
+ servicecontext to EngineContext and axisservice into EngineConfiguration.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceInputStream</code> - InputStream containing configuration data</dd><dd><code>configCtx</code> - the ConfigurationContext in which we're deploying</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Returns AxisService.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></code> - if there's a problem</dd></dl>
+</li>
+</ul>
+<a name="buildServiceGroup(java.io.InputStream, java.lang.ClassLoader, java.lang.String, org.apache.axis2.context.ConfigurationContext, org.apache.axis2.deployment.repository.util.ArchiveReader, java.util.HashMap)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>buildServiceGroup</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;buildServiceGroup(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;servicesxml,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceGroupName,
+                                 <a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configCtx,
+                                 <a href="../../../../org/apache/axis2/deployment/repository/util/ArchiveReader.html" title="class in org.apache.axis2.deployment.repository.util">ArchiveReader</a>&nbsp;archiveReader,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;wsdlServices)
+                                          throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">To build a AxisServiceGroup for a given services.xml
+ You have to add the created group into AxisConfig</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>servicesxml</code> - InputStream created from services.xml or equivalent</dd><dd><code>classLoader</code> - ClassLoader to use</dd><dd><code>serviceGroupName</code> - name of the service group</dd><dd><code>configCtx</code> - the ConfigurationContext in which we're deploying</dd><dd><code>archiveReader</code> - the ArchiveReader we're working with</dd><dd><code>wsdlServices</code> - Map of existing WSDL services</dd>
+<dt><span class="strong">Returns:</span></dt><dd>a fleshed-out AxisServiceGroup</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - if there's a problem</dd></dl>
+</li>
+</ul>
+<a name="loadServiceGroup(java.io.File, org.apache.axis2.context.ConfigurationContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadServiceGroup</h4>
+<pre>public static&nbsp;<a href="../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;loadServiceGroup(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;serviceFile,
+                                <a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configCtx)
+                                         throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="getServicesDir()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServicesDir</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getServicesDir()</pre>
+</li>
+</ul>
+<a name="getModulesDir()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getModulesDir</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getModulesDir()</pre>
+</li>
+</ul>
+<a name="getRepositoryDir()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRepositoryDir</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getRepositoryDir()</pre>
+</li>
+</ul>
+<a name="setDeployers(java.util.Map)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDeployers</h4>
+<pre>public&nbsp;void&nbsp;setDeployers(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&gt;&gt;&nbsp;deployerMap)</pre>
+</li>
+</ul>
+<a name="getDeployers()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDeployers</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&gt;&gt;&nbsp;getDeployers()</pre>
+</li>
+</ul>
+<a name="getRepoListener()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRepoListener</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/deployment/RepositoryListener.html" title="class in org.apache.axis2.deployment">RepositoryListener</a>&nbsp;getRepoListener()</pre>
+</li>
+</ul>
+<a name="getServiceDeployer()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServiceDeployer</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/deployment/ServiceDeployer.html" title="class in org.apache.axis2.deployment">ServiceDeployer</a>&nbsp;getServiceDeployer()</pre>
+</li>
+</ul>
+<a name="getModuleDeployer()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getModuleDeployer</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/deployment/ModuleDeployer.html" title="class in org.apache.axis2.deployment">ModuleDeployer</a>&nbsp;getModuleDeployer()</pre>
+</li>
+</ul>
+<a name="getDeployer(java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDeployer</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;getDeployer(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory,
+                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extension)</pre>
+</li>
+</ul>
+<a name="cleanup()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>cleanup</h4>
+<pre>public&nbsp;void&nbsp;cleanup()</pre>
+<div class="block">Clean up the mess</div>
+</li>
+</ul>
+<a name="addDeployer(org.apache.axis2.deployment.Deployer, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addDeployer</h4>
+<pre>public&nbsp;void&nbsp;addDeployer(<a href="../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extension)</pre>
+<div class="block">Add and initialize a new Deployer.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>deployer</code> - Deployer object to be registered</dd><dd><code>directory</code> - the directory which will be scanned for deployable artifacts</dd><dd><code>extension</code> - the extension of the deployable artifacts for this Deployer</dd></dl>
+</li>
+</ul>
+<a name="removeDeployer(java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>removeDeployer</h4>
+<pre>public&nbsp;void&nbsp;removeDeployer(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory,
+                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extension)</pre>
+<div class="block">Remove any Deployer mapped for the given directory and extension</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>directory</code> - the directory of deployables</dd><dd><code>extension</code> - the extension of deployables</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DeploymentEngine.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html" title="interface in org.apache.axis2.deployment"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/deployment/DeploymentErrorMsgs.html" title="class in org.apache.axis2.deployment"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/apache/axis2/deployment/DeploymentEngine.html" target="_top">Frames</a></li>
+<li><a href="DeploymentEngine.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &copy; <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

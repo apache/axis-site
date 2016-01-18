@@ -1,0 +1,1597 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>Options (Apache Axis2)</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Options (Apache Axis2)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Options.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/apache/axis2/client/OperationClient.html" title="class in org.apache.axis2.client"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/client/ServiceClient.html" title="class in org.apache.axis2.client"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/apache/axis2/client/Options.html" target="_top">Frames</a></li>
+<li><a href="Options.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis2.client</div>
+<h2 title="Class Options" class="title">Class Options</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis2.client.Options</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Externalizable.html?is-external=true" title="class or interface in java.io">Externalizable</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>, <a href="../../../../org/apache/axis2/context/externalize/SafeSerializable.html" title="interface in org.apache.axis2.context.externalize">SafeSerializable</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public class <span class="strong">Options</span>
+extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Externalizable.html?is-external=true" title="class or interface in java.io">Externalizable</a>, <a href="../../../../org/apache/axis2/context/externalize/SafeSerializable.html" title="interface in org.apache.axis2.context.externalize">SafeSerializable</a></pre>
+<div class="block">Holder for operation client options. This is used by the other classes in
+ this package to configure various aspects of how a client communicates with a
+ service. It exposes a number of predefined properties as part of the API
+ (with specific getXXX and setXXX methods), and also allows for arbitrary
+ named properties to be passed using a properties map with the property name
+ as the key value. Instances of this class can be chained together for
+ property inheritance, so that if a property is not set in one instance it
+ will check its parent for a setting.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../serialized-form.html#org.apache.axis2.client.Options">Serialized Form</a></dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#CUSTOM_REPLYTO_ADDRESS">CUSTOM_REPLYTO_ADDRESS</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#CUSTOM_REPLYTO_ADDRESS_TRUE">CUSTOM_REPLYTO_ADDRESS_TRUE</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#DEFAULT_TIMEOUT_MILLISECONDS">DEFAULT_TIMEOUT_MILLISECONDS</a></strong></code>
+<div class="block">Default blocking timeout value.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/description/TransportOutDescription.html" title="class in org.apache.axis2.description">TransportOutDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#transportOut">transportOut</a></strong></code>
+<div class="block">This is used for sending and receiving messages.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#Options()">Options</a></strong>()</code>
+<div class="block">Default constructor</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#Options(org.apache.axis2.client.Options)">Options</a></strong>(<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;parent)</code>
+<div class="block">In normal mode operation, this options will try to fulfil the request
+ from its values.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#activate(org.apache.axis2.context.ConfigurationContext)">activate</a></strong>(<a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;cc)</code>
+<div class="block">This method checks to see if additional work needs to be
+ done in order to complete the object reconstitution.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#addReferenceParameter(org.apache.axiom.om.OMElement)">addReferenceParameter</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;referenceParameter)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;&nbsp;</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#addRelatesTo(org.apache.axis2.addressing.RelatesTo)">addRelatesTo</a></strong>(<a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing">RelatesTo</a>&nbsp;relatesTo)</code>
+<div class="block">Add WS-Addressing RelatesTo item.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getAction()">getAction</a></strong>()</code>
+<div class="block">Get WS-Addressing Action / SOAP Action string.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getFaultTo()">getFaultTo</a></strong>()</code>
+<div class="block">Get WS-Addressing FaultTo endpoint reference.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getFrom()">getFrom</a></strong>()</code>
+<div class="block">Set WS-Addressing From endpoint reference.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/transport/TransportListener.html" title="interface in org.apache.axis2.transport">TransportListener</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getListener()">getListener</a></strong>()</code>
+<div class="block">Get listener used for incoming message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getLogCorrelationIDString()">getLogCorrelationIDString</a></strong>()</code>
+<div class="block">Get the ID associated with this object instance.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getMessageId()">getMessageId</a></strong>()</code>
+<div class="block">Get WS-Addressing MessageId.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getParent()">getParent</a></strong>()</code>
+<div class="block">Get parent instance providing default property values.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getPassword()">getPassword</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getProperties()">getProperties</a></strong>()</code>
+<div class="block">Get a copy of the general option properties.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getProperty(java.lang.String)">getProperty</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key)</code>
+<div class="block">Get named property value.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing">RelatesTo</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getRelatesTo()">getRelatesTo</a></strong>()</code>
+<div class="block">Return a single instance of WS-Addressing RelatesTo that has a relationship
+ type of either "http://www.w3.org/2005/08/addressing/reply" or "wsa:Reply".</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing">RelatesTo</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getRelatesTo(java.lang.String)">getRelatesTo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type)</code>
+<div class="block">Get WS-Addressing RelatesTo item with a specified type.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing">RelatesTo</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getRelationships()">getRelationships</a></strong>()</code>
+<div class="block">Get all WS-Addressing RelatesTo items.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getReplyTo()">getReplyTo</a></strong>()</code>
+<div class="block">Get WS-Addressing ReplyTo endpoint reference.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getSoapVersionURI()">getSoapVersionURI</a></strong>()</code>
+<div class="block">Get SOAP version being used.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getTimeOutInMilliSeconds()">getTimeOutInMilliSeconds</a></strong>()</code>
+<div class="block">Gets the wait time after which a client times out in a blocking scenario.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getTo()">getTo</a></strong>()</code>
+<div class="block">Get WS-Addressing To endpoint reference.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/description/TransportInDescription.html" title="class in org.apache.axis2.description">TransportInDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getTransportIn()">getTransportIn</a></strong>()</code>
+<div class="block">Get transport used for incoming message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getTransportInProtocol()">getTransportInProtocol</a></strong>()</code>
+<div class="block">Get transport protocol used for incoming message.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/description/TransportOutDescription.html" title="class in org.apache.axis2.description">TransportOutDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getTransportOut()">getTransportOut</a></strong>()</code>
+<div class="block">Get outbound transport description.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#getUserName()">getUserName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#isCallTransportCleanup()">isCallTransportCleanup</a></strong>()</code>
+<div class="block">Get the value of the <code>callTransportCleanup</code> property.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#isEquivalent(org.apache.axis2.client.Options)">isEquivalent</a></strong>(<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;obj)</code>
+<div class="block">Compares key parts of the state from the current instance of
+ this class with the specified instance to see if they are
+ equivalent.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#isExceptionToBeThrownOnSOAPFault()">isExceptionToBeThrownOnSOAPFault</a></strong>()</code>
+<div class="block">If there is a SOAP Fault in the body of the incoming SOAP Message, system
+ can be configured to throw an exception with the details extracted from
+ the information from the fault message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#isManageSession()">isManageSession</a></strong>()</code>
+<div class="block">Check if session management is enabled.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#isUseSeparateListener()">isUseSeparateListener</a></strong>()</code>
+<div class="block">Check whether the two SOAP Messages are be sent over same channel or over
+ separate channels.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#readExternal(java.io.ObjectInput)">readExternal</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/ObjectInput.html?is-external=true" title="class or interface in java.io">ObjectInput</a>&nbsp;inObject)</code>
+<div class="block">Restore the contents of the MessageContext that was
+ previously saved.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setAction(java.lang.String)">setAction</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;action)</code>
+<div class="block">Set WS-Addressing Action / SOAP Action string.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setCallTransportCleanup(boolean)">setCallTransportCleanup</a></strong>(boolean&nbsp;callTransportCleanup)</code>
+<div class="block">Set the value of the <code>callTransportCleanup</code> property.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setExceptionToBeThrownOnSOAPFault(boolean)">setExceptionToBeThrownOnSOAPFault</a></strong>(boolean&nbsp;exceptionToBeThrownOnSOAPFault)</code>
+<div class="block">If there is a SOAP Fault in the body of the incoming SOAP Message, system
+ can be configured to throw an exception with the details extracted from
+ the information from the fault message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setFaultTo(org.apache.axis2.addressing.EndpointReference)">setFaultTo</a></strong>(<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;faultTo)</code>
+<div class="block">Set WS-Addressing FaultTo endpoint reference.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setFrom(org.apache.axis2.addressing.EndpointReference)">setFrom</a></strong>(<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;from)</code>
+<div class="block">Set WS-Addressing From endpoint reference.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setListener(org.apache.axis2.transport.TransportListener)">setListener</a></strong>(<a href="../../../../org/apache/axis2/transport/TransportListener.html" title="interface in org.apache.axis2.transport">TransportListener</a>&nbsp;listener)</code>
+<div class="block">Set listener used for incoming message.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setManageSession(boolean)">setManageSession</a></strong>(boolean&nbsp;manageSession)</code>
+<div class="block">Set session management enabled state.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setMessageId(java.lang.String)">setMessageId</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;messageId)</code>
+<div class="block">Set WS-Addressing MessageId.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setParent(org.apache.axis2.client.Options)">setParent</a></strong>(<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;parent)</code>
+<div class="block">Set parent instance providing default property values.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setPassword(java.lang.String)">setPassword</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setProperties(java.util.Map)">setProperties</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;properties)</code>
+<div class="block">Set the general property definitions.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setProperty(java.lang.String, java.lang.Object)">setProperty</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propertyKey,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;property)</code>
+<div class="block">General properties you need to pass in to the message context must be set
+ via this method.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setRelationships(org.apache.axis2.addressing.RelatesTo[])">setRelationships</a></strong>(<a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing">RelatesTo</a>[]&nbsp;list)</code>
+<div class="block">Set WS-Addressing RelatesTo items.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setReplyTo(org.apache.axis2.addressing.EndpointReference)">setReplyTo</a></strong>(<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;replyTo)</code>
+<div class="block">Set WS-Addressing ReplyTo endpoint.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setSenderTransport(java.lang.String, org.apache.axis2.engine.AxisConfiguration)">setSenderTransport</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;senderTransport,
+                  <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfiguration)</code>
+<div class="block">Set transport used for outgoing message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setSoapVersionURI(java.lang.String)">setSoapVersionURI</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapVersionURI)</code>
+<div class="block">Set the SOAP version to be used.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setTimeOutInMilliSeconds(long)">setTimeOutInMilliSeconds</a></strong>(long&nbsp;timeOutInMilliSeconds)</code>
+<div class="block">This is used in blocking scenario.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setTo(org.apache.axis2.addressing.EndpointReference)">setTo</a></strong>(<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;to)</code>
+<div class="block">Set WS-Addressing To endpoint.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setTransportIn(org.apache.axis2.description.TransportInDescription)">setTransportIn</a></strong>(<a href="../../../../org/apache/axis2/description/TransportInDescription.html" title="class in org.apache.axis2.description">TransportInDescription</a>&nbsp;transportIn)</code>
+<div class="block">Set transport used for incoming message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setTransportInfo(java.lang.String, java.lang.String, boolean)">setTransportInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;senderTransport,
+                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;listenerTransport,
+                boolean&nbsp;useSeparateListener)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use setTransportInProtocol(String) and
+             useSeparateListener(boolean) instead. You do not need to
+             setSenderTransportProtocol(String) as sender transport can be
+             inferred from the to EPR. But still you can
+             setTransportOut(TransportOutDescription).</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setTransportInProtocol(java.lang.String)">setTransportInProtocol</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;transportInProtocol)</code>
+<div class="block">Set transport protocol used for incoming message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setTransportOut(org.apache.axis2.description.TransportOutDescription)">setTransportOut</a></strong>(<a href="../../../../org/apache/axis2/description/TransportOutDescription.html" title="class in org.apache.axis2.description">TransportOutDescription</a>&nbsp;transportOut)</code>
+<div class="block">Set transport used for outgoing message.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setUserName(java.lang.String)">setUserName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userName)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#setUseSeparateListener(boolean)">setUseSeparateListener</a></strong>(boolean&nbsp;useSeparateListener)</code>
+<div class="block">Used to specify whether the two SOAP Messages are be sent over same
+ channel or over separate channels.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/Options.html#writeExternal(java.io.ObjectOutput)">writeExternal</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/ObjectOutput.html?is-external=true" title="class or interface in java.io">ObjectOutput</a>&nbsp;o)</code>
+<div class="block">Save the contents of this object.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="CUSTOM_REPLYTO_ADDRESS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CUSTOM_REPLYTO_ADDRESS</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> CUSTOM_REPLYTO_ADDRESS</pre>
+</li>
+</ul>
+<a name="CUSTOM_REPLYTO_ADDRESS_TRUE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CUSTOM_REPLYTO_ADDRESS_TRUE</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> CUSTOM_REPLYTO_ADDRESS_TRUE</pre>
+</li>
+</ul>
+<a name="DEFAULT_TIMEOUT_MILLISECONDS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEFAULT_TIMEOUT_MILLISECONDS</h4>
+<pre>public static final&nbsp;int DEFAULT_TIMEOUT_MILLISECONDS</pre>
+<div class="block">Default blocking timeout value.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis2.client.Options.DEFAULT_TIMEOUT_MILLISECONDS">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="transportOut">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>transportOut</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis2/description/TransportOutDescription.html" title="class in org.apache.axis2.description">TransportOutDescription</a> transportOut</pre>
+<div class="block">This is used for sending and receiving messages.</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="Options()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>Options</h4>
+<pre>public&nbsp;Options()</pre>
+<div class="block">Default constructor</div>
+</li>
+</ul>
+<a name="Options(org.apache.axis2.client.Options)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Options</h4>
+<pre>public&nbsp;Options(<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;parent)</pre>
+<div class="block">In normal mode operation, this options will try to fulfil the request
+ from its values. If that is not possible, this options will request those
+ information from its parent.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parent</code> - </dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getAction()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAction</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getAction()</pre>
+<div class="block">Get WS-Addressing Action / SOAP Action string.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>action</dd></dl>
+</li>
+</ul>
+<a name="getFaultTo()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFaultTo</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;getFaultTo()</pre>
+<div class="block">Get WS-Addressing FaultTo endpoint reference.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>endpoint</dd></dl>
+</li>
+</ul>
+<a name="getFrom()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFrom</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;getFrom()</pre>
+<div class="block">Set WS-Addressing From endpoint reference.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>endpoint</dd></dl>
+</li>
+</ul>
+<a name="getListener()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getListener</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/transport/TransportListener.html" title="interface in org.apache.axis2.transport">TransportListener</a>&nbsp;getListener()</pre>
+<div class="block">Get listener used for incoming message.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>listener</dd></dl>
+</li>
+</ul>
+<a name="getTransportIn()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTransportIn</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/description/TransportInDescription.html" title="class in org.apache.axis2.description">TransportInDescription</a>&nbsp;getTransportIn()</pre>
+<div class="block">Get transport used for incoming message.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>transport information</dd></dl>
+</li>
+</ul>
+<a name="getTransportInProtocol()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTransportInProtocol</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getTransportInProtocol()</pre>
+<div class="block">Get transport protocol used for incoming message.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>name protocol name ("http", "tcp", etc.)</dd></dl>
+</li>
+</ul>
+<a name="getMessageId()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMessageId</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getMessageId()</pre>
+<div class="block">Get WS-Addressing MessageId.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>uri string</dd></dl>
+</li>
+</ul>
+<a name="getProperties()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProperties</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;getProperties()</pre>
+<div class="block">Get a copy of the general option properties. Because of the way options
+ are stored this does not include properties with specific get/set
+ methods, only the general properties identified by a text string. The
+ returned map merges properties inherited from parent options, if any, to
+ give a complete set of property definitions as seen by users of this
+ options instance. The returned copy is not "live", so changes you make to
+ the copy are not reflected in the actual option settings. However, you
+ can make the modified values take effect with a call to <a href="../../../../org/apache/axis2/client/Options.html#setProperties(java.util.Map)"><code>setProperties(Map)</code></a>,</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>copy of general properties</dd></dl>
+</li>
+</ul>
+<a name="getProperty(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProperty</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getProperty(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key)</pre>
+<div class="block">Get named property value.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>key</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd>the value related to this key. <code>null</code>, if not found.</dd></dl>
+</li>
+</ul>
+<a name="getRelatesTo(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRelatesTo</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing">RelatesTo</a>&nbsp;getRelatesTo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type)</pre>
+<div class="block">Get WS-Addressing RelatesTo item with a specified type. If there are
+ multiple RelatesTo items defined with the same type, the one returned
+ by this method is arbitrary - if you need to handle this case, you can
+ instead use the <a href="../../../../org/apache/axis2/client/Options.html#getRelationships()"><code>getRelationships()</code></a> to retrieve all the items
+ and check for multiple matches.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>type</code> - relationship type (URI)</dd>
+<dt><span class="strong">Returns:</span></dt><dd>item of specified type</dd></dl>
+</li>
+</ul>
+<a name="getRelatesTo()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRelatesTo</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing">RelatesTo</a>&nbsp;getRelatesTo()</pre>
+<div class="block">Return a single instance of WS-Addressing RelatesTo that has a relationship
+ type of either "http://www.w3.org/2005/08/addressing/reply" or "wsa:Reply".
+ If no such instance of RelatesTo can be found then return <code>null</code>.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>an instance of <a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing"><code>RelatesTo</code></a></dd></dl>
+</li>
+</ul>
+<a name="getRelationships()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRelationships</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing">RelatesTo</a>[]&nbsp;getRelationships()</pre>
+<div class="block">Get all WS-Addressing RelatesTo items.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>array of items</dd></dl>
+</li>
+</ul>
+<a name="setRelationships(org.apache.axis2.addressing.RelatesTo[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setRelationships</h4>
+<pre>public&nbsp;void&nbsp;setRelationships(<a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing">RelatesTo</a>[]&nbsp;list)</pre>
+<div class="block">Set WS-Addressing RelatesTo items.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>list</code> - </dd></dl>
+</li>
+</ul>
+<a name="getReplyTo()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReplyTo</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;getReplyTo()</pre>
+<div class="block">Get WS-Addressing ReplyTo endpoint reference.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>endpoint</dd></dl>
+</li>
+</ul>
+<a name="getTransportOut()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTransportOut</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/description/TransportOutDescription.html" title="class in org.apache.axis2.description">TransportOutDescription</a>&nbsp;getTransportOut()</pre>
+<div class="block">Get outbound transport description.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>description</dd></dl>
+</li>
+</ul>
+<a name="getSoapVersionURI()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSoapVersionURI</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSoapVersionURI()</pre>
+<div class="block">Get SOAP version being used.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>version</dd></dl>
+</li>
+</ul>
+<a name="getTimeOutInMilliSeconds()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTimeOutInMilliSeconds</h4>
+<pre>public&nbsp;long&nbsp;getTimeOutInMilliSeconds()</pre>
+<div class="block">Gets the wait time after which a client times out in a blocking scenario.
+ The default is Options#DEFAULT_TIMEOUT_MILLISECONDS</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>timeOutInMilliSeconds</dd></dl>
+</li>
+</ul>
+<a name="getTo()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTo</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;getTo()</pre>
+<div class="block">Get WS-Addressing To endpoint reference.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>endpoint</dd></dl>
+</li>
+</ul>
+<a name="isExceptionToBeThrownOnSOAPFault()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isExceptionToBeThrownOnSOAPFault</h4>
+<pre>public&nbsp;boolean&nbsp;isExceptionToBeThrownOnSOAPFault()</pre>
+<div class="block">If there is a SOAP Fault in the body of the incoming SOAP Message, system
+ can be configured to throw an exception with the details extracted from
+ the information from the fault message. This boolean variable will enable
+ that facility. If this is false, the response message will just be
+ returned to the application, irrespective of whether it has a Fault or
+ not.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd><code>true</code> if exception to be thrown</dd></dl>
+</li>
+</ul>
+<a name="isUseSeparateListener()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isUseSeparateListener</h4>
+<pre>public&nbsp;boolean&nbsp;isUseSeparateListener()</pre>
+<div class="block">Check whether the two SOAP Messages are be sent over same channel or over
+ separate channels. Only duplex transports such as http and tcp support a
+ <code>false</code> value.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>separate channel flag</dd></dl>
+</li>
+</ul>
+<a name="getParent()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParent</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;getParent()</pre>
+<div class="block">Get parent instance providing default property values.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>parent (<code>null</code> if none)</dd></dl>
+</li>
+</ul>
+<a name="setParent(org.apache.axis2.client.Options)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setParent</h4>
+<pre>public&nbsp;void&nbsp;setParent(<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;parent)</pre>
+<div class="block">Set parent instance providing default property values.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parent</code> - (<code>null</code> if none)</dd></dl>
+</li>
+</ul>
+<a name="setAction(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAction</h4>
+<pre>public&nbsp;void&nbsp;setAction(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;action)</pre>
+<div class="block">Set WS-Addressing Action / SOAP Action string.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>action</code> - </dd></dl>
+</li>
+</ul>
+<a name="setExceptionToBeThrownOnSOAPFault(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setExceptionToBeThrownOnSOAPFault</h4>
+<pre>public&nbsp;void&nbsp;setExceptionToBeThrownOnSOAPFault(boolean&nbsp;exceptionToBeThrownOnSOAPFault)</pre>
+<div class="block">If there is a SOAP Fault in the body of the incoming SOAP Message, system
+ can be configured to throw an exception with the details extracted from
+ the information from the fault message. This boolean variable will enable
+ that facility. If this is false, the response message will just be
+ returned to the application, irrespective of whether it has a Fault or
+ not.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>exceptionToBeThrownOnSOAPFault</code> - </dd></dl>
+</li>
+</ul>
+<a name="setFaultTo(org.apache.axis2.addressing.EndpointReference)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFaultTo</h4>
+<pre>public&nbsp;void&nbsp;setFaultTo(<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;faultTo)</pre>
+<div class="block">Set WS-Addressing FaultTo endpoint reference.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>faultTo</code> - endpoint</dd></dl>
+</li>
+</ul>
+<a name="setFrom(org.apache.axis2.addressing.EndpointReference)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFrom</h4>
+<pre>public&nbsp;void&nbsp;setFrom(<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;from)</pre>
+<div class="block">Set WS-Addressing From endpoint reference.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>from</code> - endpoint</dd></dl>
+</li>
+</ul>
+<a name="setListener(org.apache.axis2.transport.TransportListener)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setListener</h4>
+<pre>public&nbsp;void&nbsp;setListener(<a href="../../../../org/apache/axis2/transport/TransportListener.html" title="interface in org.apache.axis2.transport">TransportListener</a>&nbsp;listener)</pre>
+<div class="block">Set listener used for incoming message.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>listener</code> - </dd></dl>
+</li>
+</ul>
+<a name="setTransportIn(org.apache.axis2.description.TransportInDescription)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTransportIn</h4>
+<pre>public&nbsp;void&nbsp;setTransportIn(<a href="../../../../org/apache/axis2/description/TransportInDescription.html" title="class in org.apache.axis2.description">TransportInDescription</a>&nbsp;transportIn)</pre>
+<div class="block">Set transport used for incoming message.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>transportIn</code> - </dd></dl>
+</li>
+</ul>
+<a name="setTransportInProtocol(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTransportInProtocol</h4>
+<pre>public&nbsp;void&nbsp;setTransportInProtocol(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;transportInProtocol)</pre>
+<div class="block">Set transport protocol used for incoming message.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>transportInProtocol</code> - ("http", "tcp", etc.)</dd></dl>
+</li>
+</ul>
+<a name="setMessageId(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMessageId</h4>
+<pre>public&nbsp;void&nbsp;setMessageId(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;messageId)</pre>
+<div class="block">Set WS-Addressing MessageId.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>messageId</code> - URI string</dd></dl>
+</li>
+</ul>
+<a name="setProperties(java.util.Map)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setProperties</h4>
+<pre>public&nbsp;void&nbsp;setProperties(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;properties)</pre>
+<div class="block">Set the general property definitions. Due to the way properties are
+ stored, this will not effect the values of predefined properties with
+ specific get/set methods.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>properties</code> - </dd></dl>
+</li>
+</ul>
+<a name="setProperty(java.lang.String, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setProperty</h4>
+<pre>public&nbsp;void&nbsp;setProperty(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;propertyKey,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;property)</pre>
+<div class="block">General properties you need to pass in to the message context must be set
+ via this method. This method can only be used for properties which do not
+ have specific get/set methods.
+ <p/>
+ Here are some of the properties supported in Axis2.
+ <p/>
+ <a name="GenConst"></a></p>
+ <h3>Generic Constants</h3>
+ <ul>
+ <a name="TRANSPORT_URL"></a></p>
+ <p/>
+ <li><strong>org.apache.axis2.Constants.Configuration.TRANSPORT_URL</strong>
+ <p>Sometimes you want to send your SOAP message through a node, before it reaches to its destination. This means you want to give transport URL different from the URL of the ultimate destination. A typical example would be wanting to send this SOAP (or REST)message through a transparent proxy or through a message monitoring applet. How can that be done using the ServiceClient API?</p>
+ <pre>
+ options.setTo("http://destination.org");
+ options.setProperty(MessageContextConstants.TRANSPORT_URL, "http://myProxy.org");
+ </pre><p>This will send your SOAP message to "http://myProxy.org", but if WS-Addressing is enabled, wsa:To will contain "http://destination.org" as To address.</p>
+ </li>
+ <p>  <a name="CHARACTER_SET_ENCODING"></a></p>
+ <li><b>org.apache.axis2.Constants.Configuration.CHARACTER_SET_ENCODING</b>
+ <p>This will enable user to set the character set encoding scheme to be used when sending the message. Default is set to "UTF-8"</p></li>
+ <p/>
+ <p><a name="ENABLE_MTOM"></a></p>
+ <li><b>org.apache.axis2.Constants.Configuration.ENABLE_MTOM</b>
+ <p>This will enable/disable MTOM support for outgoing messages.</p>
+ <p>Possible values are: </p>
+ <pre>"true"/"false" or Boolean.TRUE/Boolean.FALSE</pre>
+ </li>
+ </ul>
+ <p><a name="Addressing"></a></p>
+ <h3>WS-Addressing Module Specific Constants</h3>
+ <ul>
+ <p/>
+ <a name="WS_ADDRESSING_VERSION"></a></p>
+ <li><b>org.apache.axis2.addressing.AddressingConstants.WS_ADDRESSING_VERSION</b>
+ <p>This will enable to select one of the two WS-Addressing versions available, if WS-Addressing is engaged.</p>
+ <p>Possible values are:</p>
+ <pre>
+ org.apache.axis2.addressing.AddressingConstants.Final.WSA_NAMESPACE
+ and
+ org.apache.axis2.addressing.AddressingConstants.Submission.WSA_NAMESPACE</pre>
+ </li>
+ <p>  <a name="REPLACE_ADDRESSING_HEADERS"></a></p>
+ <li><b>org.apache.axis2.addressing.AddressingConstants.REPLACE_ADDRESSING_HEADERS</b>
+ <p/>
+ <p>AddressingOutHandler picks up the addressing information from the message context and set them to the outgoing message. But someone may have already put some addressing headers, before the AddressingOutHandler. This flag will notify the handler whether to override them or not.</p>
+ <p>Possible values are: </p>
+ <pre>"true"/"false" or Boolean.TRUE/Boolean.FALSE</pre>
+ </li>
+ <p>  <a name="DISABLE_ADDRESSING_FOR_OUT_MESSAGES"></a></p>
+ <li><b>org.apache.axis2.addressing.AddressingConstants.<br />
+ DISABLE_ADDRESSING_FOR_OUT_MESSAGES</b>
+ <p>If WS-Addressing is engaged globally or some how in effect for this particular invocation, this will disable Axis2 from putting WS-Addressing headers in to the out going SOAP message. (Note that Axis2 will not put addressing headers to the outgoing message, irrespective of the above flag, if the incoming message did not contain addressing headers).</p>
+ <p/>
+ <p>Possible values are:</p>
+ <pre>"true"/"false" or Boolean.TRUE/Boolean.FALSE</pre>
+ </li>
+ </ul>
+ <p><a name="HTTPConstants"></a></p>
+ <h3>HTTP Constants</h3>
+ <ul>
+ <a name="CHUNKED"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.CHUNKED</b>
+ <p>This will enable/disable chunking support. </p>
+ <p/>
+ <p>Possible values are:</p>
+ <pre>"true"/"false" or Boolean.TRUE/Boolean.FALSE</pre>
+ </li>
+ <p><a name="NTLM"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.NTLM_AUTHENTICATION</b>
+ <p>This enables the user to pass in NTLM authentication information, such as host, port, realm, username, password to be used with HTTP transport sender. </p>
+ <p>The value should always be an instance of:  </p>
+ <pre>org.apache.axis2.transport.http.HttpTransportProperties.
+ NTLMAuthentication</pre>
+ </li>
+ <p/>
+ <p><a name="PROXY"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.PROXY</b>
+ <p>This enables the user to pass in proxy information, such as proxy host name, port, domain, username, password to be used with HTTP transport sender. </p>
+ <p>The value should always be an instance of:</p>
+ <pre>org.apache.axis2.transport.http.HttpTransportProperties.ProxyProperties</pre>
+ </li>
+ <p>The value should always be an instance of: </p>
+ <pre>org.apache.axis2.transport.http.HttpTransportProperties.BasicAuthentication</pre>
+ </li>
+ <p><a name="SO_TIMEOUT"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.SO_TIMEOUT</b>
+ <p>This enables the user to pass in socket timeout value as an Integer. If nothing is set, the default value is 60000 milliseconds.</p>
+ </li>
+ <p><a name="CON_TIMEOUT"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.CONNECTION_TIMEOUT</b>
+ <p/>
+ <p>This enables the user to pass in connection timeout value as an Integer. If nothing is set, the default value is 60000 milliseconds.</p>
+ </li>
+ <p><a name="USER_AGENT"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.USER_AGENT</b>
+ <p>This enables the user to set the user agent header in the outgoing HTTP request. Default value is "Axis2"</p>
+ </li>
+ <p><a name="GZIP"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.MC_GZIP_REQUEST</b>
+ <p>If set this will GZip your request and send over to the destination. Before doing this, you must make sure that the receiving end supports GZip compressed streams. <br></p>
+ <p/>
+ <p>Possible values are: </p>
+ <pre>"true"/"false" or Boolean.TRUE/Boolean.FALSE</pre>
+ </li>
+ <p><a name="ACCEPT_GZIP"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.MC_ACCEPT_GZIP</b>
+ <p>Whether or not you send a gzip-ped request, you can choose to receive GZIP back from the server using this flag.</p>
+ <p>Possible values are: </p>
+ <pre>"true"/"false" or Boolean.TRUE/Boolean.FALSE</pre>
+ </li>
+ <p/>
+ <p><a name="COOKIE"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.COOKIE_STRING</b>
+ <p>This enables the user to set the cookie string header in the outgoing HTTP request.</p>
+ </li>
+ <p><a name="HTTP_PROTOCOL_VERSION"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.HTTP_PROTOCOL_VERSION</b>
+ <p>This will set the HTTP protocol version to be used in sending the SOAP requests. </p>
+ <p>Possible values are :</p>
+ <pre>
+ <p/>
+ HTTP/1.1 - HTTPConstants.HEADER_PROTOCOL_11
+ HTTP/1.0 - HTTPConstants.HEADER_PROTOCOL_10
+ </pre><p>    Default is to use HTTP/1.1.</li>
+ <p><a name="HTTP_HEADERS"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.HTTP_HEADERS</b>
+ <p>You might sometimes want to send your own custom HTTP headers. You can set an ArrayList filled with </p>
+ <pre>org.apache.commons.httpclient.Header</pre><p> objects using the above property. You must not try to override the Headers the Axis2 engine is setting to the outgoing message.</p>
+ </li>
+ <p><a name="REUSE_HTTP_CLIENT"></a></p>
+ <p/>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.REUSE_HTTP_CLIENT</b>
+ <p>You might want to use the same HTTPClient instance for multiple invocations. This flag will notify the engine to use the same HTTPClient between invocations.</p>
+ </li>
+ <p><a name="CACHED_HTTP_CLIENT"></a></p>
+ <li><b>org.apache.axis2.transport.http.HTTPConstants.CACHED_HTTP_CLIENT</b>
+ <p>If user had requested to re-use an HTTPClient using the above property, this property can be used to set a custom HTTPClient to be re-used.</p>
+ </li>
+ </ul>
+ <p><a name="REST"></a></p>
+ <p/>
+ <h3>Constants to be used in a REST Invocation</h3>
+ <ul>
+ <a name="ENABLE_REST"></a></p>
+ <li><b>org.apache.axis2.transport.http.Constants.Configuration.ENABLE_REST</b>
+ <p>Enabling REST using the above flag will send your request as a REST invocation. </p>
+ <p>Possible values are: </p>
+ <pre>"true"/"false" or Boolean.TRUE/Boolean.FALSE</pre>
+ </li>
+ <p><a name="HTTP_METHOD"></a></p>
+ <li><b>org.apache.axis2.transport.http.Constants.Configuration.HTTP_METHOD</b>
+ <p/>
+ <p>This will help the user to pick the HTTP method to be used during a REST invocation. </p>
+ <p>Possible values are :</p>
+ <pre>
+ org.apache.axis2.Constants.Configuration.HTTP_METHOD_GET
+ and
+ org.apache.axis2.Constants.Configuration.HTTP_METHOD_POST
+ </pre><p>    Default is to use POST method.</li>
+ <p><a name="CONTENT_TYPE"></a>  </p>
+ <li><b>org.apache.axis2.transport.http.Constants.Configuration.CONTENT_TYPE</b>
+ <p>This will help the user to pick the content type to be used during a REST<br />
+ <p/>
+ invocation. </p>
+ <p>Possible values are :</p>
+ <ul>
+ <li>application/xml                   -<br />
+ <pre>HTTPConstants.MEDIA_TYPE_APPLICATION_XML</pre></li>
+ <li>application/x-www-form-urlencoded -<br />
+ <pre>HTTPConstants.MEDIA_TYPE_X_WWW_FORM</pre></li>
+ <li>text/xml                          -<br />
+ <pre>MEDIA_TYPE_TEXT_XML</pre></li>
+ <p/>
+ <li>multipart/related                 -<br />
+ <pre>MEDIA_TYPE_MULTIPART_RELATED</pre></li>
+ </ul>
+ </li>
+ </ul></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>propertyKey</code> - </dd><dd><code>property</code> - </dd></dl>
+</li>
+</ul>
+<a name="addRelatesTo(org.apache.axis2.addressing.RelatesTo)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addRelatesTo</h4>
+<pre>public&nbsp;void&nbsp;addRelatesTo(<a href="../../../../org/apache/axis2/addressing/RelatesTo.html" title="class in org.apache.axis2.addressing">RelatesTo</a>&nbsp;relatesTo)</pre>
+<div class="block">Add WS-Addressing RelatesTo item.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>relatesTo</code> - </dd></dl>
+</li>
+</ul>
+<a name="setReplyTo(org.apache.axis2.addressing.EndpointReference)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setReplyTo</h4>
+<pre>public&nbsp;void&nbsp;setReplyTo(<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;replyTo)</pre>
+<div class="block">Set WS-Addressing ReplyTo endpoint.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>replyTo</code> - endpoint</dd></dl>
+</li>
+</ul>
+<a name="setTransportOut(org.apache.axis2.description.TransportOutDescription)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTransportOut</h4>
+<pre>public&nbsp;void&nbsp;setTransportOut(<a href="../../../../org/apache/axis2/description/TransportOutDescription.html" title="class in org.apache.axis2.description">TransportOutDescription</a>&nbsp;transportOut)</pre>
+<div class="block">Set transport used for outgoing message.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>transportOut</code> - </dd></dl>
+</li>
+</ul>
+<a name="setSenderTransport(java.lang.String, org.apache.axis2.engine.AxisConfiguration)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSenderTransport</h4>
+<pre>public&nbsp;void&nbsp;setSenderTransport(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;senderTransport,
+                      <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfiguration)
+                        throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Set transport used for outgoing message.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>senderTransport</code> - transport name in Axis2 configuration
+                          ("http", "tcp", etc.)</dd><dd><code>axisConfiguration</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - if the transport is not found</dd></dl>
+</li>
+</ul>
+<a name="setSoapVersionURI(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSoapVersionURI</h4>
+<pre>public&nbsp;void&nbsp;setSoapVersionURI(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapVersionURI)</pre>
+<div class="block">Set the SOAP version to be used.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>soapVersionURI</code> - </dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis2/namespace/Constants.html#URI_SOAP11_ENV"><code>Constants.URI_SOAP11_ENV</code></a>, 
+<a href="../../../../org/apache/axis2/namespace/Constants.html#URI_SOAP12_ENV"><code>Constants.URI_SOAP12_ENV</code></a></dd></dl>
+</li>
+</ul>
+<a name="setTimeOutInMilliSeconds(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTimeOutInMilliSeconds</h4>
+<pre>public&nbsp;void&nbsp;setTimeOutInMilliSeconds(long&nbsp;timeOutInMilliSeconds)</pre>
+<div class="block">This is used in blocking scenario. Client will time out after waiting
+ this amount of time. The default is 2000 and must be provided in
+ multiples of 100.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeOutInMilliSeconds</code> - </dd></dl>
+</li>
+</ul>
+<a name="setTo(org.apache.axis2.addressing.EndpointReference)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTo</h4>
+<pre>public&nbsp;void&nbsp;setTo(<a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;to)</pre>
+<div class="block">Set WS-Addressing To endpoint.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>to</code> - endpoint</dd></dl>
+</li>
+</ul>
+<a name="setTransportInfo(java.lang.String, java.lang.String, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTransportInfo</h4>
+<pre>public&nbsp;void&nbsp;setTransportInfo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;senderTransport,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;listenerTransport,
+                    boolean&nbsp;useSeparateListener)
+                      throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use setTransportInProtocol(String) and
+             useSeparateListener(boolean) instead. You do not need to
+             setSenderTransportProtocol(String) as sender transport can be
+             inferred from the to EPR. But still you can
+             setTransportOut(TransportOutDescription).</i></div>
+<div class="block">Sets transport information to the call. The scenarios supported are as
+ follows: <blockquote>
+ <p/>
+ <pre>
+  [senderTransport, listenerTransport, useSeparateListener]
+  http, http, true
+  http, http, false
+  http, smtp, true
+  smtp, http, true
+  smtp, smtp, true
+  tcp,  tcp,  true
+  tcp,  tcp,  false
+  etc.
+ </pre>
+ <p/>
+ </blockquote></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>senderTransport</code> - </dd><dd><code>listenerTransport</code> - </dd><dd><code>useSeparateListener</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="setUseSeparateListener(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUseSeparateListener</h4>
+<pre>public&nbsp;void&nbsp;setUseSeparateListener(boolean&nbsp;useSeparateListener)</pre>
+<div class="block">Used to specify whether the two SOAP Messages are be sent over same
+ channel or over separate channels. The value of this variable depends on
+ the transport specified. For e.g., if the transports are different this
+ is true by default. HTTP transport supports both cases while SMTP
+ transport supports only two channel case.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>useSeparateListener</code> - </dd></dl>
+</li>
+</ul>
+<a name="addReferenceParameter(org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addReferenceParameter</h4>
+<pre>public&nbsp;void&nbsp;addReferenceParameter(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;referenceParameter)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i></i></div>
+<div class="block">Add WS-Addressing ReferenceParameter child element. Multiple child
+ may be used.
+ TODO Add get method, implement handling.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>referenceParameter</code> - </dd></dl>
+</li>
+</ul>
+<a name="isManageSession()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isManageSession</h4>
+<pre>public&nbsp;boolean&nbsp;isManageSession()</pre>
+<div class="block">Check if session management is enabled.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd><code>true</code> if enabled</dd></dl>
+</li>
+</ul>
+<a name="setManageSession(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setManageSession</h4>
+<pre>public&nbsp;void&nbsp;setManageSession(boolean&nbsp;manageSession)</pre>
+<div class="block">Set session management enabled state. When session management is enabled,
+ the engine will automatically send session data (such as the service
+ group id, or HTTP cookies) as part of requests.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>manageSession</code> - <code>true</code> if enabling sessions</dd></dl>
+</li>
+</ul>
+<a name="writeExternal(java.io.ObjectOutput)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeExternal</h4>
+<pre>public&nbsp;void&nbsp;writeExternal(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/ObjectOutput.html?is-external=true" title="class or interface in java.io">ObjectOutput</a>&nbsp;o)
+                   throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Save the contents of this object.
+ <p/>
+ NOTE: Transient fields and static fields are not saved.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Externalizable.html?is-external=true#writeExternal(java.io.ObjectOutput)" title="class or interface in java.io">writeExternal</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Externalizable.html?is-external=true" title="class or interface in java.io">Externalizable</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>out</code> - The stream to write the object contents to</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="readExternal(java.io.ObjectInput)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>readExternal</h4>
+<pre>public&nbsp;void&nbsp;readExternal(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/ObjectInput.html?is-external=true" title="class or interface in java.io">ObjectInput</a>&nbsp;inObject)
+                  throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>,
+                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a></pre>
+<div class="block">Restore the contents of the MessageContext that was
+ previously saved.
+ <p/>
+ NOTE: The field data must read back in the same order and type
+ as it was written.  Some data will need to be validated when
+ resurrected.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Externalizable.html?is-external=true#readExternal(java.io.ObjectInput)" title="class or interface in java.io">readExternal</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Externalizable.html?is-external=true" title="class or interface in java.io">Externalizable</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>in</code> - The stream to read the object contents from</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a></code></dd></dl>
+</li>
+</ul>
+<a name="activate(org.apache.axis2.context.ConfigurationContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>activate</h4>
+<pre>public&nbsp;void&nbsp;activate(<a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;cc)</pre>
+<div class="block">This method checks to see if additional work needs to be
+ done in order to complete the object reconstitution.
+ Some parts of the object restored from the readExternal()
+ cannot be completed until we have a configurationContext
+ from the active engine. The configurationContext is used
+ to help this object to plug back into the engine's
+ configuration and deployment objects.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>cc</code> - The configuration context object representing the active configuration</dd></dl>
+</li>
+</ul>
+<a name="isEquivalent(org.apache.axis2.client.Options)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isEquivalent</h4>
+<pre>public&nbsp;boolean&nbsp;isEquivalent(<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;obj)</pre>
+<div class="block">Compares key parts of the state from the current instance of
+ this class with the specified instance to see if they are
+ equivalent.
+ <p/>
+ This differs from the java.lang.Object.equals() method in
+ that the equals() method generally looks at both the
+ object identity (location in memory) and the object state
+ (data).
+ <p/></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>obj</code> - The object to compare with</dd>
+<dt><span class="strong">Returns:</span></dt><dd>TRUE if this object is equivalent with the specified object
+         that is, key fields match
+         FALSE, otherwise</dd></dl>
+</li>
+</ul>
+<a name="getLogCorrelationIDString()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLogCorrelationIDString</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getLogCorrelationIDString()</pre>
+<div class="block">Get the ID associated with this object instance.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>A string that can be output to a log file as an identifier
+         for this object instance.  It is suitable for matching related log
+         entries.</dd></dl>
+</li>
+</ul>
+<a name="isCallTransportCleanup()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isCallTransportCleanup</h4>
+<pre>public&nbsp;boolean&nbsp;isCallTransportCleanup()</pre>
+<div class="block">Get the value of the <code>callTransportCleanup</code> property.
+ This property determines whether <a href="../../../../org/apache/axis2/client/ServiceClient.html#cleanupTransport()"><code>ServiceClient.cleanupTransport()</code></a> is called
+ automatically (<code>true</code>) or not (<code>false</code>).</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the value of the <code>callTransportCleanup</code> property</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis2/client/ServiceClient.html#cleanupTransport()"><code>ServiceClient.cleanupTransport()</code></a></dd></dl>
+</li>
+</ul>
+<a name="setCallTransportCleanup(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setCallTransportCleanup</h4>
+<pre>public&nbsp;void&nbsp;setCallTransportCleanup(boolean&nbsp;callTransportCleanup)</pre>
+<div class="block">Set the value of the <code>callTransportCleanup</code> property.
+ This property determines whether <a href="../../../../org/apache/axis2/client/ServiceClient.html#cleanupTransport()"><code>ServiceClient.cleanupTransport()</code></a> is called
+ automatically (<code>true</code>) or not (<code>false</code>).</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>callTransportCleanup</code> - the new value</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis2/client/ServiceClient.html#cleanupTransport()"><code>ServiceClient.cleanupTransport()</code></a></dd></dl>
+</li>
+</ul>
+<a name="getUserName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUserName</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getUserName()</pre>
+</li>
+</ul>
+<a name="setUserName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUserName</h4>
+<pre>public&nbsp;void&nbsp;setUserName(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userName)</pre>
+</li>
+</ul>
+<a name="getPassword()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPassword</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getPassword()</pre>
+</li>
+</ul>
+<a name="setPassword(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setPassword</h4>
+<pre>public&nbsp;void&nbsp;setPassword(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Options.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/apache/axis2/client/OperationClient.html" title="class in org.apache.axis2.client"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/client/ServiceClient.html" title="class in org.apache.axis2.client"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/apache/axis2/client/Options.html" target="_top">Frames</a></li>
+<li><a href="Options.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &copy; <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>
