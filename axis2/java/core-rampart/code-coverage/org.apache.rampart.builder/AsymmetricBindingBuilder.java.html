@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AsymmetricBindingBuilder.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.builder</a> &gt; <span class="el_source">AsymmetricBindingBuilder.java</span></div><h1>AsymmetricBindingBuilder.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.builder;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rahas.TrustException;
+import org.apache.rampart.RampartConstants;
+import org.apache.rampart.RampartException;
+import org.apache.rampart.RampartMessageData;
+import org.apache.rampart.policy.RampartPolicyData;
+import org.apache.rampart.policy.SupportingPolicyData;
+import org.apache.rampart.policy.model.RampartConfig;
+import org.apache.rampart.util.RampartUtil;
+import org.apache.ws.secpolicy.SPConstants;
+import org.apache.ws.secpolicy.model.AlgorithmSuite;
+import org.apache.ws.secpolicy.model.SupportingToken;
+import org.apache.ws.secpolicy.model.Token;
+import org.apache.ws.secpolicy.model.X509Token;
+import org.apache.ws.security.WSConstants;
+import org.apache.ws.security.WSEncryptionPart;
+import org.apache.ws.security.WSSConfig;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.conversation.ConversationException;
+import org.apache.ws.security.handler.WSHandlerConstants;
+import org.apache.ws.security.handler.WSHandlerResult;
+import org.apache.ws.security.message.WSSecDKEncrypt;
+import org.apache.ws.security.message.WSSecDKSign;
+import org.apache.ws.security.message.WSSecEncrypt;
+import org.apache.ws.security.message.WSSecEncryptedKey;
+import org.apache.ws.security.message.WSSecSignature;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import javax.xml.crypto.dsig.Reference;
+import java.util.*;
+
+<span class="fc" id="L53">public class AsymmetricBindingBuilder extends BindingBuilder {</span>
+
+<span class="fc" id="L55">    private static Log log = LogFactory.getLog(AsymmetricBindingBuilder.class);</span>
+<span class="fc" id="L56">    private static Log tlog = LogFactory.getLog(RampartConstants.TIME_LOG);</span>
+
+    private WSSecEncryptedKey encrKey;
+    
+    private String encryptedKeyId;
+    
+    private byte[] encryptedKeyValue;
+
+<span class="fc" id="L64">    private List&lt;byte[]&gt; signatureValues = new ArrayList&lt;byte[]&gt;();</span>
+
+    private Element encrTokenElement;
+    
+    private Element sigDKTElement;
+    
+    private Element encrDKTElement;
+
+<span class="fc" id="L72">    private List&lt;WSEncryptionPart&gt; sigParts = new ArrayList&lt;WSEncryptionPart&gt;();</span>
+    
+    private Element signatureElement;
+
+    private Element refList;
+
+    
+    public void build(RampartMessageData rmd) throws RampartException {
+<span class="fc" id="L80">        log.debug(&quot;AsymmetricBindingBuilder build invoked&quot;);</span>
+
+<span class="fc" id="L82">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (rpd.isIncludeTimestamp()) {</span>
+<span class="fc" id="L84">            this.addTimestamp(rmd);</span>
+        }
+
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        if (RampartUtil.encryptFirst(rpd)) {</span>
+<span class="fc" id="L88">            this.doEncryptBeforeSig(rmd);</span>
+        } else {
+<span class="fc" id="L90">            this.doSignBeforeEncrypt(rmd);</span>
+        }
+
+<span class="fc" id="L93">        log.debug(&quot;AsymmetricBindingBuilder build invoked : DONE&quot;);</span>
+<span class="fc" id="L94">    }</span>
+
+    private void doEncryptBeforeSig(RampartMessageData rmd)
+            throws RampartException {
+    	
+<span class="fc" id="L99">    	long t0 = 0, t1 = 0, t2 = 0;</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">    	if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L101">    		t0 = System.currentTimeMillis();</span>
+    	}
+<span class="fc" id="L103">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc" id="L104">        Document doc = rmd.getDocument();</span>
+<span class="fc" id="L105">        RampartConfig config = rpd.getRampartConfig();</span>
+
+        /*
+         * We need to hold on to these two element to use them as refence in the
+         * case of encypting the signature
+         */
+<span class="fc" id="L111">        Element encrDKTokenElem = null;</span>
+<span class="fc" id="L112">        WSSecEncrypt encr = null;</span>
+<span class="fc" id="L113">        refList = null;</span>
+<span class="fc" id="L114">        WSSecDKEncrypt dkEncr = null;</span>
+
+        /*
+         * We MUST use keys derived from the same token
+         */
+<span class="fc" id="L119">        Token encryptionToken = null;</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">        if(rmd.isInitiator()) {</span>
+<span class="fc" id="L121">            encryptionToken = rpd.getRecipientToken();</span>
+        } else {
+<span class="fc" id="L123">            encryptionToken = rpd.getInitiatorToken();</span>
+        }
+<span class="fc" id="L125">        List&lt;WSEncryptionPart&gt; encrParts = RampartUtil.getEncryptedParts(rmd);</span>
+        
+        //Signed parts are determined before encryption because encrypted signed  headers
+        //will not be included otherwise
+<span class="fc" id="L129">        this.sigParts = RampartUtil.getSignedParts(rmd);</span>
+        
+<span class="pc bpc" id="L131" title="3 of 4 branches missed.">        if(encryptionToken == null &amp;&amp; encrParts.size() &gt; 0) {</span>
+<span class="nc" id="L132">            throw new RampartException(&quot;encryptionTokenMissing&quot;);</span>
+        }
+        
+<span class="pc bpc" id="L135" title="2 of 4 branches missed.">        if (encryptionToken != null &amp;&amp; encrParts.size() &gt; 0) {</span>
+            
+            //Check for RampartConfig assertion
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">            if(rpd.getRampartConfig() == null) {</span>
+                //We'er missing the extra info rampart needs
+<span class="nc" id="L140">                throw new RampartException(&quot;rampartConigMissing&quot;);</span>
+            }
+            
+<span class="fc bfc" id="L143" title="All 2 branches covered.">            if (encryptionToken.isDerivedKeys()) {</span>
+                try {
+<span class="fc" id="L145">                    this.setupEncryptedKey(rmd, encryptionToken);</span>
+                    // Create the DK encryption builder
+<span class="fc" id="L147">                    dkEncr = new WSSecDKEncrypt();</span>
+<span class="fc" id="L148">                    dkEncr.setParts(encrParts);</span>
+<span class="fc" id="L149">                    dkEncr.setExternalKey(this.encryptedKeyValue, </span>
+                            this.encryptedKeyId);
+<span class="fc" id="L151">                    dkEncr.setDerivedKeyLength(rpd.getAlgorithmSuite().getEncryptionDerivedKeyLength()/8);</span>
+<span class="fc" id="L152">                    dkEncr.prepare(doc);</span>
+
+                    // Get and add the DKT element
+<span class="fc" id="L155">                    this.encrDKTElement = dkEncr.getdktElement();</span>
+<span class="fc" id="L156">                    encrDKTokenElem = RampartUtil.appendChildToSecHeader(rmd, this.encrDKTElement);</span>
+
+<span class="fc" id="L158">                    refList = dkEncr.encryptForExternalRef(null, encrParts);</span>
+
+<span class="nc" id="L160">                } catch (WSSecurityException e) {</span>
+<span class="nc" id="L161">                    throw new RampartException(&quot;errorCreatingEncryptedKey&quot;, e);</span>
+<span class="nc" id="L162">                } catch (ConversationException e) {</span>
+<span class="nc" id="L163">                    throw new RampartException(&quot;errorInDKEncr&quot;, e);</span>
+<span class="fc" id="L164">                }</span>
+            } else {
+                try {
+<span class="fc" id="L167">                    encr = new WSSecEncrypt();</span>
+<span class="fc" id="L168">                    encr.setParts(encrParts);</span>
+<span class="fc" id="L169">                    encr.setWsConfig(rmd.getConfig());</span>
+<span class="fc" id="L170">                    encr.setDocument(doc);</span>
+<span class="fc" id="L171">                    RampartUtil.setEncryptionUser(rmd, encr);</span>
+<span class="fc" id="L172">                    encr.setSymmetricEncAlgorithm(rpd.getAlgorithmSuite().getEncryption());</span>
+<span class="fc" id="L173">                    RampartUtil.setKeyIdentifierType(rmd, encr, encryptionToken);</span>
+<span class="fc" id="L174">                    encr.setKeyEncAlgo(rpd.getAlgorithmSuite().getAsymmetricKeyWrap());</span>
+<span class="fc" id="L175">                    encr.prepare(doc, RampartUtil.getEncryptionCrypto(config, rmd.getCustomClassLoader()));</span>
+
+<span class="fc" id="L177">                    Element bstElem = encr.getBinarySecurityTokenElement();</span>
+<span class="pc bpc" id="L178" title="1 of 2 branches missed.">                    if (bstElem != null) {</span>
+<span class="nc" id="L179">                        RampartUtil.appendChildToSecHeader(rmd, bstElem);</span>
+                    }
+
+<span class="fc" id="L182">                    this.encrTokenElement = encr.getEncryptedKeyElement();</span>
+<span class="fc" id="L183">                    this.encrTokenElement = RampartUtil.appendChildToSecHeader(rmd,</span>
+                            encrTokenElement);
+
+<span class="fc" id="L186">                    refList = encr.encryptForExternalRef(null, encrParts);</span>
+
+<span class="nc" id="L188">                } catch (WSSecurityException e) {</span>
+<span class="nc" id="L189">                    throw new RampartException(&quot;errorInEncryption&quot;, e);</span>
+<span class="fc" id="L190">                }</span>
+            }
+
+<span class="fc" id="L193">            refList = RampartUtil.appendChildToSecHeader(rmd, refList);</span>
+            
+<span class="pc bpc" id="L195" title="1 of 2 branches missed.">            if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L196">            	t1 = System.currentTimeMillis();</span>
+            }
+
+<span class="fc" id="L199">            this.setInsertionLocation(encrTokenElement);</span>
+
+<span class="fc" id="L201">            RampartUtil.handleEncryptedSignedHeaders(encrParts, this.sigParts, doc);</span>
+
+            // TODO may contain deifferent types of objects as values, therefore cannot use strongly type maps
+            // need to figure out a way
+<span class="fc" id="L205">            HashMap sigSuppTokMap = null;</span>
+<span class="fc" id="L206">            HashMap endSuppTokMap = null;</span>
+<span class="fc" id="L207">            HashMap sgndEndSuppTokMap = null;</span>
+<span class="fc" id="L208">            HashMap sgndEncSuppTokMap = null;</span>
+<span class="fc" id="L209">            HashMap endEncSuppTokMap = null;</span>
+<span class="fc" id="L210">            HashMap sgndEndEncSuppTokMap = null;</span>
+            
+<span class="pc bpc" id="L212" title="1 of 2 branches missed.">            if(this.timestampElement != null){</span>
+<span class="fc" id="L213">            	sigParts.add(RampartUtil.createEncryptionPart(WSConstants.TIMESTAMP_TOKEN_LN,</span>
+                            RampartUtil.addWsuIdToElement((OMElement) this.timestampElement)));
+            }
+            
+<span class="fc bfc" id="L217" title="All 2 branches covered.">            if (rmd.isInitiator()) {</span>
+
+                // Now add the supporting tokens
+<span class="fc" id="L220">                SupportingToken sgndSuppTokens = rpd.getSignedSupportingTokens();</span>
+<span class="fc" id="L221">                sigSuppTokMap = this.handleSupportingTokens(rmd, sgndSuppTokens);           </span>
+                
+<span class="fc" id="L223">                SupportingToken endSuppTokens = rpd.getEndorsingSupportingTokens();</span>
+<span class="fc" id="L224">                endSuppTokMap = this.handleSupportingTokens(rmd, endSuppTokens);</span>
+                
+<span class="fc" id="L226">                SupportingToken sgndEndSuppTokens = rpd.getSignedEndorsingSupportingTokens();           </span>
+<span class="fc" id="L227">                sgndEndSuppTokMap = this.handleSupportingTokens(rmd, sgndEndSuppTokens);</span>
+                
+<span class="fc" id="L229">                SupportingToken sgndEncryptedSuppTokens = rpd.getSignedEncryptedSupportingTokens();</span>
+<span class="fc" id="L230">                sgndEncSuppTokMap = this.handleSupportingTokens(rmd, sgndEncryptedSuppTokens);</span>
+                
+<span class="fc" id="L232">                SupportingToken endorsingEncryptedSuppTokens = rpd.getEndorsingEncryptedSupportingTokens();</span>
+<span class="fc" id="L233">                endEncSuppTokMap = this.handleSupportingTokens(rmd, endorsingEncryptedSuppTokens);</span>
+                
+<span class="fc" id="L235">                SupportingToken sgndEndEncSuppTokens = rpd.getSignedEndorsingEncryptedSupportingTokens();           </span>
+<span class="fc" id="L236">                sgndEndEncSuppTokMap = this.handleSupportingTokens(rmd, sgndEndEncSuppTokens);</span>
+                
+<span class="fc" id="L238">                List&lt;SupportingToken&gt; supportingToks = rpd.getSupportingTokensList();</span>
+<span class="pc bpc" id="L239" title="1 of 2 branches missed.">                for (SupportingToken supportingTok : supportingToks) {</span>
+<span class="nc" id="L240">                    this.handleSupportingTokens(rmd, supportingTok);</span>
+<span class="nc" id="L241">                } </span>
+                
+<span class="fc" id="L243">                SupportingToken encryptedSupportingToks = rpd.getEncryptedSupportingTokens();</span>
+<span class="fc" id="L244">                this.handleSupportingTokens(rmd, encryptedSupportingToks);</span>
+        
+                //Setup signature parts
+<span class="fc" id="L247">                sigParts = addSignatureParts(sigSuppTokMap, sigParts);</span>
+<span class="fc" id="L248">                sigParts = addSignatureParts(sgndEncSuppTokMap, sigParts);</span>
+<span class="fc" id="L249">                sigParts = addSignatureParts(sgndEndSuppTokMap, sigParts);</span>
+<span class="fc" id="L250">                sigParts = addSignatureParts(sgndEndEncSuppTokMap, sigParts);</span>
+                
+<span class="fc" id="L252">            } else {</span>
+<span class="fc" id="L253">                addSignatureConfirmation(rmd, sigParts);</span>
+            }
+            
+<span class="pc bpc" id="L256" title="4 of 10 branches missed.">            if(( sigParts.size() &gt; 0 &amp;&amp;</span>
+                    rmd.isInitiator() &amp;&amp; rpd.getInitiatorToken() != null) || 
+                    (!rmd.isInitiator() &amp;&amp; rpd.getRecipientToken() != null)) {
+<span class="fc" id="L259">                this.doSignature(rmd);</span>
+            }
+
+<span class="fc bfc" id="L262" title="All 2 branches covered.">            if (rmd.isInitiator()) {</span>
+
+<span class="pc bpc" id="L264" title="1 of 2 branches missed.">                if (endSuppTokMap != null) {</span>
+<span class="fc" id="L265">                    endSuppTokMap.putAll(endEncSuppTokMap);</span>
+                }
+                // Do endorsed signatures
+<span class="fc" id="L268">                List&lt;byte[]&gt; endSigVals = this.doEndorsedSignatures(rmd,</span>
+                        endSuppTokMap);
+<span class="pc bpc" id="L270" title="1 of 2 branches missed.">                for (byte[] endSigVal : endSigVals) {</span>
+<span class="nc" id="L271">                    signatureValues.add(endSigVal);</span>
+<span class="nc" id="L272">                }</span>
+
+<span class="fc" id="L274">                sgndEndSuppTokMap.putAll(sgndEndEncSuppTokMap);</span>
+                // Do signed endorsing signatures
+<span class="fc" id="L276">                List&lt;byte[]&gt; sigEndSigVals = this.doEndorsedSignatures(rmd,</span>
+                        sgndEndSuppTokMap);
+<span class="pc bpc" id="L278" title="1 of 2 branches missed.">                for (byte[] sigEndSigVal : sigEndSigVals) {</span>
+<span class="nc" id="L279">                    signatureValues.add(sigEndSigVal);</span>
+<span class="nc" id="L280">                }</span>
+            }
+            
+<span class="pc bpc" id="L283" title="1 of 2 branches missed.">            if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L284">            	t2 = System.currentTimeMillis();</span>
+<span class="nc" id="L285">            	tlog.debug(&quot;Encryption took :&quot; + (t1 - t0)</span>
+            				+&quot;, Signature tool :&quot; + (t2 - t1) );
+            }
+
+            // Check for signature protection
+<span class="pc bpc" id="L290" title="1 of 4 branches missed.">            if (rpd.isSignatureProtection() &amp;&amp; this.mainSigId != null) {</span>
+<span class="fc" id="L291">            	long t3 = 0, t4 = 0;</span>
+<span class="pc bpc" id="L292" title="1 of 2 branches missed.">            	if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L293">            		t3 = System.currentTimeMillis();</span>
+            	}
+
+<span class="fc" id="L296">                List&lt;WSEncryptionPart&gt; secondEncrParts = new ArrayList&lt;WSEncryptionPart&gt;();</span>
+
+                // Now encrypt the signature using the above token
+<span class="fc" id="L299">                secondEncrParts.add(new WSEncryptionPart(this.mainSigId,</span>
+                        &quot;Element&quot;));
+                
+<span class="fc bfc" id="L302" title="All 2 branches covered.">                if(rmd.isInitiator()) {</span>
+<span class="pc bpc" id="L303" title="1 of 2 branches missed.">                    for (String anEncryptedTokensIdList : encryptedTokensIdList) {</span>
+<span class="nc" id="L304">                        secondEncrParts.add(new WSEncryptionPart(anEncryptedTokensIdList, &quot;Element&quot;));</span>
+<span class="nc" id="L305">                    }</span>
+                }
+
+<span class="fc" id="L308">                Element secondRefList = null;</span>
+
+<span class="pc bpc" id="L310" title="1 of 2 branches missed.">                if (encryptionToken.isDerivedKeys()) {</span>
+                    try {
+
+<span class="nc" id="L313">                        secondRefList = dkEncr.encryptForExternalRef(null,</span>
+                                secondEncrParts);
+<span class="nc" id="L315">                        RampartUtil.insertSiblingAfter(rmd, encrDKTokenElem,</span>
+                                secondRefList);
+
+<span class="nc" id="L318">                    } catch (WSSecurityException e) {</span>
+<span class="nc" id="L319">                        throw new RampartException(&quot;errorCreatingEncryptedKey&quot;,</span>
+                                e);
+<span class="nc" id="L321">                    }</span>
+                } else {
+                    try {
+                        // Encrypt, get hold of the ref list and add it
+<span class="fc" id="L325">                        secondRefList = encr.encryptForExternalRef(null,</span>
+                                secondEncrParts);
+
+                        // Insert the ref list after the encrypted key elem
+<span class="fc" id="L329">                        this.setInsertionLocation(RampartUtil</span>
+                                .insertSiblingAfter(rmd, encrTokenElement,
+                                        secondRefList));
+<span class="nc" id="L332">                    } catch (WSSecurityException e) {</span>
+<span class="nc" id="L333">                        throw new RampartException(&quot;errorInEncryption&quot;, e);</span>
+<span class="fc" id="L334">                    }</span>
+                }
+<span class="pc bpc" id="L336" title="1 of 2 branches missed.">                if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L337">            		t4 = System.currentTimeMillis();</span>
+<span class="nc" id="L338">            		tlog.debug(&quot;Signature protection took :&quot; + (t4 - t3));</span>
+            	}
+            }
+        }
+        
+        
+
+<span class="fc" id="L345">    }</span>
+
+    private void doSignBeforeEncrypt(RampartMessageData rmd)
+            throws RampartException {
+    	
+<span class="fc" id="L350">    	long t0 = 0, t1 = 0, t2 = 0;</span>
+    	        
+<span class="fc" id="L352">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc" id="L353">        Document doc = rmd.getDocument();</span>
+
+<span class="fc" id="L355">        HashMap sigSuppTokMap = null;</span>
+<span class="fc" id="L356">        HashMap endSuppTokMap = null;</span>
+<span class="fc" id="L357">        HashMap sgndEndSuppTokMap = null;</span>
+<span class="fc" id="L358">        HashMap sgndEncSuppTokMap = null;</span>
+<span class="fc" id="L359">        HashMap endEncSuppTokMap = null;</span>
+<span class="fc" id="L360">        HashMap sgndEndEncSuppTokMap = null;</span>
+        
+<span class="fc" id="L362">        sigParts = RampartUtil.getSignedParts(rmd);</span>
+        
+        //Add timestamp
+<span class="fc bfc" id="L365" title="All 2 branches covered.">        if(this.timestampElement != null){</span>
+<span class="fc" id="L366">        	sigParts.add(new WSEncryptionPart(RampartUtil</span>
+                .addWsuIdToElement((OMElement) this.timestampElement)));
+        }else{
+<span class="fc" id="L369">        	this.setInsertionLocation(null);</span>
+        }
+        
+<span class="pc bpc" id="L372" title="1 of 2 branches missed.">        if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L373">    		t0 = System.currentTimeMillis();</span>
+    	}
+        
+<span class="fc bfc" id="L376" title="All 2 branches covered.">        if (rmd.isInitiator()) {</span>
+           
+            //      Now add the supporting tokens
+<span class="fc" id="L379">            SupportingToken sgndSuppTokens = rpd.getSignedSupportingTokens();</span>
+<span class="fc" id="L380">            sigSuppTokMap = this.handleSupportingTokens(rmd, sgndSuppTokens);           </span>
+            
+<span class="fc" id="L382">            SupportingToken endSuppTokens = rpd.getEndorsingSupportingTokens();</span>
+<span class="fc" id="L383">            endSuppTokMap = this.handleSupportingTokens(rmd, endSuppTokens);</span>
+            
+<span class="fc" id="L385">            SupportingToken sgndEndSuppTokens = rpd.getSignedEndorsingSupportingTokens();           </span>
+<span class="fc" id="L386">            sgndEndSuppTokMap = this.handleSupportingTokens(rmd, sgndEndSuppTokens);</span>
+            
+<span class="fc" id="L388">            SupportingToken sgndEncryptedSuppTokens = rpd.getSignedEncryptedSupportingTokens();</span>
+<span class="fc" id="L389">            sgndEncSuppTokMap = this.handleSupportingTokens(rmd, sgndEncryptedSuppTokens);</span>
+            
+<span class="fc" id="L391">            SupportingToken endorsingEncryptedSuppTokens = rpd.getEndorsingEncryptedSupportingTokens();</span>
+<span class="fc" id="L392">            endEncSuppTokMap = this.handleSupportingTokens(rmd, endorsingEncryptedSuppTokens);</span>
+            
+<span class="fc" id="L394">            SupportingToken sgndEndEncSuppTokens = rpd.getSignedEndorsingEncryptedSupportingTokens();           </span>
+<span class="fc" id="L395">            sgndEndEncSuppTokMap = this.handleSupportingTokens(rmd, sgndEndEncSuppTokens);</span>
+            
+<span class="fc" id="L397">            List&lt;SupportingToken&gt; supportingToks = rpd.getSupportingTokensList();</span>
+<span class="fc bfc" id="L398" title="All 2 branches covered.">            for (SupportingToken supportingTok : supportingToks) {</span>
+<span class="fc" id="L399">                this.handleSupportingTokens(rmd, supportingTok);</span>
+<span class="fc" id="L400">            } </span>
+            
+<span class="fc" id="L402">            SupportingToken encryptedSupportingToks = rpd.getEncryptedSupportingTokens();</span>
+<span class="fc" id="L403">            this.handleSupportingTokens(rmd, encryptedSupportingToks);</span>
+    
+            //Setup signature parts
+<span class="fc" id="L406">            sigParts = addSignatureParts(sigSuppTokMap, sigParts);</span>
+<span class="fc" id="L407">            sigParts = addSignatureParts(sgndEncSuppTokMap, sigParts);</span>
+<span class="fc" id="L408">            sigParts = addSignatureParts(sgndEndSuppTokMap, sigParts);</span>
+<span class="fc" id="L409">            sigParts = addSignatureParts(sgndEndEncSuppTokMap, sigParts);</span>
+            
+<span class="fc" id="L411">        } else {</span>
+<span class="fc" id="L412">            addSignatureConfirmation(rmd, sigParts);</span>
+        }
+
+<span class="pc bpc" id="L415" title="3 of 10 branches missed.">        if( sigParts.size() &gt; 0 &amp;&amp; </span>
+                ((rmd.isInitiator() &amp;&amp; rpd.getInitiatorToken() != null) || 
+                (!rmd.isInitiator() &amp;&amp; rpd.getRecipientToken() != null))) {
+            // Do signature
+<span class="fc" id="L419">            this.doSignature(rmd);</span>
+        }
+        
+<span class="fc" id="L422">        List&lt;SupportingPolicyData&gt; supportingToks = rpd.getSupportingPolicyData();</span>
+<span class="fc bfc" id="L423" title="All 2 branches covered.">        for (SupportingPolicyData policyData : supportingToks) {</span>
+<span class="pc bpc" id="L424" title="1 of 2 branches missed.">            if (policyData != null) { // TODO do we need this null check ?</span>
+<span class="fc" id="L425">                List&lt;WSEncryptionPart&gt; supportingSigParts = RampartUtil.getSupportingSignedParts(rmd,</span>
+                        policyData);
+
+<span class="pc bpc" id="L428" title="6 of 10 branches missed.">                if (supportingSigParts.size() &gt; 0</span>
+                        &amp;&amp; ((rmd.isInitiator() &amp;&amp; rpd.getInitiatorToken() != null) || (!rmd
+                        .isInitiator() &amp;&amp; rpd.getRecipientToken() != null))) {
+                    // Do signature for policies defined under SupportingToken.
+<span class="fc" id="L432">                    this.doSupportingSignature(rmd, supportingSigParts, policyData);</span>
+                }
+            }
+<span class="fc" id="L435">        }</span>
+        
+        //Do endorsed signature
+
+<span class="fc bfc" id="L439" title="All 2 branches covered.">        if (rmd.isInitiator()) {</span>
+            
+            // Adding the endorsing encrypted supporting tokens to endorsing supporting tokens
+<span class="pc bpc" id="L442" title="1 of 2 branches missed.">            if (endSuppTokMap != null) {</span>
+<span class="fc" id="L443">                endSuppTokMap.putAll(endEncSuppTokMap);</span>
+            }
+            // Do endorsed signatures
+<span class="fc" id="L446">            List&lt;byte[]&gt; endSigVals = this.doEndorsedSignatures(rmd,</span>
+                    endSuppTokMap);
+<span class="pc bpc" id="L448" title="1 of 2 branches missed.">            for (byte[] endSigVal : endSigVals) {</span>
+<span class="nc" id="L449">                signatureValues.add(endSigVal);</span>
+<span class="nc" id="L450">            }</span>
+
+            //Adding the signed endorsed encrypted tokens to signed endorsed supporting tokens
+<span class="pc bpc" id="L453" title="1 of 2 branches missed.">            if (sgndEndSuppTokMap != null) {</span>
+<span class="fc" id="L454">                sgndEndSuppTokMap.putAll(sgndEndEncSuppTokMap);</span>
+            }
+            // Do signed endorsing signatures
+<span class="fc" id="L457">            List&lt;byte[]&gt; sigEndSigVals = this.doEndorsedSignatures(rmd,</span>
+                    sgndEndSuppTokMap);
+<span class="pc bpc" id="L459" title="1 of 2 branches missed.">            for (byte[] sigEndSigVal : sigEndSigVals) {</span>
+<span class="nc" id="L460">                signatureValues.add(sigEndSigVal);</span>
+<span class="nc" id="L461">            }</span>
+        }
+        
+<span class="pc bpc" id="L464" title="1 of 2 branches missed.">        if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L465">    		t1 = System.currentTimeMillis();</span>
+    	}
+             
+<span class="fc" id="L468">        List&lt;WSEncryptionPart&gt; encrParts = RampartUtil.getEncryptedParts(rmd);</span>
+        
+        //Check for signature protection
+<span class="pc bpc" id="L471" title="3 of 4 branches missed.">        if(rpd.isSignatureProtection() &amp;&amp; this.mainSigId != null) {</span>
+<span class="nc" id="L472">            encrParts.add(new WSEncryptionPart(RampartUtil.addWsuIdToElement((OMElement)this.signatureElement), &quot;Element&quot;));</span>
+        }
+        
+<span class="fc bfc" id="L475" title="All 2 branches covered.">        if(rmd.isInitiator()) {</span>
+<span class="fc bfc" id="L476" title="All 2 branches covered.">            for (String anEncryptedTokensIdList : encryptedTokensIdList) {</span>
+<span class="fc" id="L477">                encrParts.add(new WSEncryptionPart(anEncryptedTokensIdList, &quot;Element&quot;));</span>
+<span class="fc" id="L478">            }</span>
+        }
+
+        //Do encryption
+        Token encrToken;
+<span class="fc bfc" id="L483" title="All 2 branches covered.">        if (rmd.isInitiator()) {</span>
+<span class="fc" id="L484">            encrToken = rpd.getRecipientToken();</span>
+        } else {
+<span class="fc" id="L486">            encrToken = rpd.getInitiatorToken();</span>
+        }
+
+<span class="pc bpc" id="L489" title="1 of 4 branches missed.">        if(encrToken != null &amp;&amp; encrParts.size() &gt; 0) {</span>
+<span class="fc" id="L490">            Element refList = null;</span>
+<span class="fc" id="L491">            AlgorithmSuite algorithmSuite = rpd.getAlgorithmSuite();</span>
+<span class="fc bfc" id="L492" title="All 2 branches covered.">            if(encrToken.isDerivedKeys()) {</span>
+                
+                try {
+<span class="fc" id="L495">                    WSSecDKEncrypt dkEncr = new WSSecDKEncrypt();</span>
+                    
+<span class="fc bfc" id="L497" title="All 2 branches covered.">                    if(this.encrKey == null) {</span>
+<span class="fc" id="L498">                        this.setupEncryptedKey(rmd, encrToken);</span>
+                    }
+                    
+<span class="fc" id="L501">                    dkEncr.setExternalKey(this.encryptedKeyValue, this.encryptedKeyId);</span>
+<span class="fc" id="L502">                    dkEncr.setCustomValueType(WSConstants.SOAPMESSAGE_NS11 + &quot;#&quot;</span>
+                            + WSConstants.ENC_KEY_VALUE_TYPE);
+<span class="fc" id="L504">                    dkEncr.setSymmetricEncAlgorithm(algorithmSuite.getEncryption());</span>
+<span class="fc" id="L505">                    dkEncr.setDerivedKeyLength(algorithmSuite.getEncryptionDerivedKeyLength()/8);</span>
+<span class="fc" id="L506">                    dkEncr.prepare(doc);</span>
+                    
+                    
+<span class="fc bfc" id="L509" title="All 2 branches covered.">                    if(this.encrTokenElement != null) {</span>
+<span class="fc" id="L510">                        this.encrDKTElement = RampartUtil.insertSiblingAfter(</span>
+                                rmd, this.encrTokenElement, dkEncr.getdktElement());
+                    } else {
+<span class="fc" id="L513">                        this.encrDKTElement = RampartUtil.insertSiblingBefore(</span>
+                                rmd, this.sigDKTElement, dkEncr.getdktElement());
+                    }
+                    
+<span class="fc" id="L517">                    refList = dkEncr.encryptForExternalRef(null, encrParts);</span>
+                    
+<span class="fc" id="L519">                    RampartUtil.insertSiblingAfter(rmd, </span>
+                                                    this.encrDKTElement, 
+                                                    refList);
+                                                    
+<span class="nc" id="L523">                } catch (WSSecurityException e) {</span>
+<span class="nc" id="L524">                    throw new RampartException(&quot;errorInDKEncr&quot;, e);</span>
+<span class="nc" id="L525">                } catch (ConversationException e) {</span>
+<span class="nc" id="L526">                    throw new RampartException(&quot;errorInDKEncr&quot;, e);</span>
+<span class="fc" id="L527">                }</span>
+            } else {
+                try {
+                    
+<span class="fc" id="L531">                    WSSecEncrypt encr = new WSSecEncrypt();</span>
+                    
+<span class="fc" id="L533">                    RampartUtil.setKeyIdentifierType(rmd, encr, encrToken);</span>
+                    
+<span class="fc" id="L535">                    encr.setWsConfig(rmd.getConfig());</span>
+                    
+<span class="fc" id="L537">                    encr.setDocument(doc);</span>
+<span class="fc" id="L538">                    RampartUtil.setEncryptionUser(rmd, encr);</span>
+<span class="fc" id="L539">                    encr.setSymmetricEncAlgorithm(algorithmSuite.getEncryption());</span>
+<span class="fc" id="L540">                    encr.setKeyEncAlgo(algorithmSuite.getAsymmetricKeyWrap());</span>
+<span class="fc" id="L541">                    encr.prepare(doc, RampartUtil.getEncryptionCrypto(rpd</span>
+                            .getRampartConfig(), rmd.getCustomClassLoader()));
+                    
+<span class="fc bfc" id="L544" title="All 2 branches covered.">                    if(this.timestampElement != null){</span>
+<span class="fc" id="L545">                    	this.setInsertionLocation(this.timestampElement);</span>
+                    }else{
+<span class="fc" id="L547">                    	this.setInsertionLocation(null);</span>
+                    }
+                    
+<span class="pc bpc" id="L550" title="1 of 2 branches missed.">                    if(encr.getBSTTokenId() != null) {</span>
+<span class="nc" id="L551">                        this.setInsertionLocation(RampartUtil</span>
+                                .insertSiblingAfterOrPrepend(rmd,
+                                        this.getInsertionLocation(),
+                                        encr.getBinarySecurityTokenElement()));
+                    }
+                    
+                    
+<span class="fc" id="L558">                    Element encryptedKeyElement = encr.getEncryptedKeyElement();</span>
+                                       
+                    //Encrypt, get hold of the ref list and add it
+<span class="fc" id="L561">                    refList = encr.encryptForInternalRef(null, encrParts);</span>
+                    
+                    //Add internal refs
+<span class="fc" id="L564">                    encryptedKeyElement.appendChild(refList);</span>
+                    
+<span class="fc" id="L566">                    this.setInsertionLocation(RampartUtil</span>
+                            .insertSiblingAfterOrPrepend(rmd,
+                                    this.getInsertionLocation(),
+                                    encryptedKeyElement)); 
+
+//                    RampartUtil.insertSiblingAfter(rmd,
+//                                                    this.getInsertionLocation(),
+//                                                    refList);
+<span class="nc" id="L574">                } catch (WSSecurityException e) {</span>
+<span class="nc" id="L575">                    throw new RampartException(&quot;errorInEncryption&quot;, e);</span>
+<span class="fc" id="L576">                }    </span>
+            }
+        }
+        
+<span class="fc" id="L580">        List&lt;SupportingPolicyData&gt; supportingTokens = rpd.getSupportingPolicyData();</span>
+<span class="fc bfc" id="L581" title="All 2 branches covered.">        for (SupportingPolicyData policyData : supportingTokens) {</span>
+<span class="pc bpc" id="L582" title="1 of 2 branches missed.">            if (policyData != null) { // TODO do we need this null check ?</span>
+<span class="fc" id="L583">                Token supportingEncrToken = policyData.getEncryptionToken();</span>
+<span class="fc" id="L584">                List&lt;WSEncryptionPart&gt; supoortingEncrParts = RampartUtil.getSupportingEncryptedParts(rmd,</span>
+                        policyData);
+
+<span class="pc bpc" id="L587" title="1 of 4 branches missed.">                if (supportingEncrToken != null &amp;&amp; supoortingEncrParts.size() &gt; 0) {</span>
+<span class="fc" id="L588">                    doEncryptionWithSupportingToken(rpd, rmd, supportingEncrToken, doc,</span>
+                            supoortingEncrParts);
+                }
+            }
+<span class="fc" id="L592">        }</span>
+        
+<span class="pc bpc" id="L594" title="1 of 2 branches missed.">        if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L595">    		t2 = System.currentTimeMillis();</span>
+<span class="nc" id="L596">    		tlog.debug(&quot;Signature took :&quot; + (t1 - t0)</span>
+    				+&quot;, Encryption took :&quot; + (t2 - t1) );
+    	}
+        
+<span class="fc" id="L600">    }</span>
+    
+    private void doSupportingSignature(RampartMessageData rmd, List&lt;WSEncryptionPart&gt; supportingSigParts,
+            SupportingPolicyData supportingData) throws RampartException {
+
+        Token supportingSigToken;
+        WSSecSignature supportingSig;
+        Element supportingSignatureElement;
+
+<span class="fc" id="L609">        long t0 = 0, t1 = 0;</span>
+<span class="pc bpc" id="L610" title="1 of 2 branches missed.">        if (tlog.isDebugEnabled()) {</span>
+<span class="nc" id="L611">            t0 = System.currentTimeMillis();</span>
+        }
+
+<span class="fc" id="L614">        supportingSigToken = supportingData.getSignatureToken();</span>
+
+<span class="pc bpc" id="L616" title="1 of 2 branches missed.">        if (!(supportingSigToken instanceof X509Token)) {</span>
+<span class="nc" id="L617">            return;</span>
+        }
+<span class="fc" id="L619">        supportingSig = this.getSignatureBuilder(rmd, supportingSigToken,</span>
+                ((X509Token) supportingSigToken).getUserCertAlias());
+<span class="fc" id="L621">        Element bstElem = supportingSig.getBinarySecurityTokenElement();</span>
+<span class="pc bpc" id="L622" title="1 of 2 branches missed.">        if (bstElem != null) {</span>
+<span class="fc" id="L623">            bstElem = RampartUtil.insertSiblingAfter(rmd, this.getInsertionLocation(), bstElem);</span>
+<span class="fc" id="L624">            this.setInsertionLocation(bstElem);</span>
+        }
+
+<span class="pc bpc" id="L627" title="3 of 4 branches missed.">        if (rmd.getPolicyData().isTokenProtection() &amp;&amp; supportingSig.getBSTTokenId() != null) {</span>
+<span class="nc" id="L628">            supportingSigParts.add(new WSEncryptionPart(supportingSig.getBSTTokenId()));</span>
+        }
+
+        try {
+<span class="fc" id="L632">            supportingSig.setDigestAlgo(rmd.getPolicyData().getAlgorithmSuite().getDigest());</span>
+
+<span class="fc" id="L634">            List&lt;Reference&gt; referenceList</span>
+                    = supportingSig.addReferencesToSign(supportingSigParts, rmd.getSecHeader());
+
+            /**
+             * Before migration it was - this.setInsertionLocation(RampartUtil.insertSiblingAfter(rmd, this
+             *       .getInsertionLocation(), supportingSignatureElement));
+             *
+             * In this case we need to append &lt;Signature&gt;..&lt;/Signature&gt; element to
+             * current insertion location
+             */
+<span class="fc" id="L644">            supportingSig.computeSignature(referenceList, false, this.getInsertionLocation());</span>
+
+<span class="nc" id="L646">        } catch (WSSecurityException e) {</span>
+<span class="nc" id="L647">            throw new RampartException(&quot;errorInSignatureWithX509Token&quot;, e);</span>
+<span class="fc" id="L648">        }</span>
+
+<span class="fc" id="L650">        signatureValues.add(supportingSig.getSignatureValue());</span>
+
+<span class="pc bpc" id="L652" title="1 of 2 branches missed.">        if (tlog.isDebugEnabled()) {</span>
+<span class="nc" id="L653">            t1 = System.currentTimeMillis();</span>
+<span class="nc" id="L654">            tlog.debug(&quot;Signature took :&quot; + (t1 - t0));</span>
+        }
+
+<span class="fc" id="L657">    }</span>
+
+    private void doSignature(RampartMessageData rmd) throws RampartException {
+
+<span class="fc" id="L661">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc" id="L662">        Document doc = rmd.getDocument();</span>
+        
+<span class="fc" id="L664">        long t0 = 0, t1 = 0;</span>
+<span class="pc bpc" id="L665" title="1 of 2 branches missed.">        if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L666">    		t0 = System.currentTimeMillis();</span>
+    	}
+        Token sigToken;
+<span class="fc bfc" id="L669" title="All 2 branches covered.">        if(rmd.isInitiator()) {</span>
+<span class="fc" id="L670">            sigToken = rpd.getInitiatorToken();</span>
+        } else {
+<span class="fc" id="L672">            sigToken = rpd.getRecipientToken();</span>
+        }
+
+        /**
+         * Note : It doesn't make sense to use Derived Keys in an Asymmetric binding environment to sign messages.
+         * In asymmetric binding environment we always sign the message using sender's private key. We do *not*
+         * use a session/ephemeral key to sign the message. We always use PKC keys to sign and verify messages.
+         * Therefore we do not need to have following code segment.
+         * TODO Confirm and remove.
+         */
+<span class="fc bfc" id="L682" title="All 2 branches covered.">        if (sigToken.isDerivedKeys()) {</span>
+            // Set up the encrypted key to use
+<span class="fc bfc" id="L684" title="All 2 branches covered.">            if(this.encrKey == null) {</span>
+<span class="fc" id="L685">                setupEncryptedKey(rmd, sigToken);</span>
+            }
+            
+<span class="fc" id="L688">            WSSecDKSign dkSign = new WSSecDKSign();</span>
+
+<span class="fc" id="L690">            dkSign.setExternalKey(this.encryptedKeyValue, this.encryptedKeyId);</span>
+
+            // Set the algo info
+<span class="fc" id="L693">            dkSign.setSignatureAlgorithm(rpd.getAlgorithmSuite()</span>
+                    .getSymmetricSignature());
+<span class="fc" id="L695">            dkSign.setDerivedKeyLength(rpd.getAlgorithmSuite()</span>
+                    .getSignatureDerivedKeyLength() / 8);
+<span class="fc" id="L697">            dkSign.setCustomValueType(WSConstants.SOAPMESSAGE_NS11 + &quot;#&quot;</span>
+                    + WSConstants.ENC_KEY_VALUE_TYPE);
+            try {
+<span class="fc" id="L700">                dkSign.prepare(doc, rmd.getSecHeader());</span>
+
+<span class="pc bpc" id="L702" title="1 of 2 branches missed.">                if (rpd.isTokenProtection()) {</span>
+<span class="nc" id="L703">                    sigParts.add(new WSEncryptionPart(encrKey.getId()));</span>
+                }
+
+<span class="fc" id="L706">                dkSign.setParts(sigParts);</span>
+
+<span class="fc" id="L708">                List&lt;Reference&gt; referenceList</span>
+                        = dkSign.addReferencesToSign(sigParts, rmd.getSecHeader());
+
+                 /**
+                 * Add &lt;wsc:DerivedKeyToken&gt;..&lt;/wsc:DerivedKeyToken&gt; to security
+                 * header. We need to add this just after Encrypted Key and just before &lt;Signature&gt;..&lt;/Signature&gt;
+                 * elements. (As a convention)
+                 */
+
+<span class="fc bfc" id="L717" title="All 2 branches covered.">                if (refList == null) {</span>
+                    //dkSign.appendDKElementToHeader(rmd.getSecHeader());
+<span class="fc" id="L719">                    this.sigDKTElement = RampartUtil.insertSiblingAfter(rmd,</span>
+                            this.getInsertionLocation(), dkSign.getdktElement());
+<span class="fc" id="L721">                    this.setInsertionLocation(this.sigDKTElement);</span>
+                     // Do signature
+                    /**
+                     * Create and prepend signature
+                     */
+<span class="fc" id="L726">                    dkSign.computeSignature(referenceList, false, this.getInsertionLocation());</span>
+                } else {
+<span class="fc" id="L728">                    this.sigDKTElement = RampartUtil.insertSiblingBefore(rmd, refList, dkSign.getdktElement());</span>
+<span class="fc" id="L729">                    this.setInsertionLocation(this.sigDKTElement);</span>
+
+                    // Do signature
+                    /**
+                     * Create and append signature
+                     */
+<span class="fc" id="L735">                    dkSign.computeSignature(referenceList, true, this.getInsertionLocation());</span>
+                }
+
+<span class="fc bfc" id="L738" title="All 2 branches covered.">                if (RampartUtil.encryptFirst(rpd)) {</span>
+                    // always add encrypt elements after signature. Because we need to first verify the signature
+                    // and decrypt at receiver end.
+<span class="fc" id="L741">                    this.setInsertionLocation(dkSign.getSignatureElement());</span>
+                } else {
+                    // append timestamp element as next insertion location. Cos in sign and encrypt case the
+                    // receiver first need to decrypt the message =&gt; The decryption keys should appear first.
+<span class="fc" id="L745">                    this.setInsertionLocation(this.timestampElement);</span>
+                }
+
+<span class="fc" id="L748">                this.mainSigId = RampartUtil</span>
+                        .addWsuIdToElement((OMElement) dkSign
+                                .getSignatureElement());
+
+<span class="fc" id="L752">                signatureValues.add(dkSign.getSignatureValue());</span>
+                
+<span class="fc" id="L754">                signatureElement = dkSign.getSignatureElement();</span>
+<span class="nc" id="L755">            } catch (WSSecurityException e) {</span>
+<span class="nc" id="L756">                throw new RampartException(&quot;errorInDerivedKeyTokenSignature&quot;, e);</span>
+<span class="nc" id="L757">            } catch (ConversationException e) {</span>
+<span class="nc" id="L758">                throw new RampartException(&quot;errorInDerivedKeyTokenSignature&quot;, e);</span>
+<span class="fc" id="L759">            }</span>
+
+<span class="fc" id="L761">        } else {</span>
+<span class="fc" id="L762">            WSSecSignature sig = this.getSignatureBuilder(rmd, sigToken);</span>
+<span class="fc" id="L763">            Element bstElem = sig.getBinarySecurityTokenElement();</span>
+<span class="fc bfc" id="L764" title="All 2 branches covered.">            if(bstElem != null) {</span>
+<span class="fc" id="L765">                bstElem = RampartUtil.insertSiblingAfter(rmd, this</span>
+                                        .getInsertionLocation(), bstElem);
+<span class="fc" id="L767">                this.setInsertionLocation(bstElem);</span>
+            }
+            
+<span class="pc bpc" id="L770" title="3 of 4 branches missed.">            if (rmd.getPolicyData().isTokenProtection()</span>
+                    &amp;&amp; sig.getBSTTokenId() != null) {
+<span class="nc" id="L772">                sigParts.add(new WSEncryptionPart(sig.getBSTTokenId()));</span>
+            }
+
+            try {
+<span class="fc" id="L776">                sig.setDigestAlgo(rpd.getAlgorithmSuite().getDigest());</span>
+
+<span class="fc" id="L778">                List&lt;Reference&gt; referenceList</span>
+                        = sig.addReferencesToSign(sigParts, rmd.getSecHeader());
+
+                // Do signature
+<span class="fc bfc" id="L782" title="All 2 branches covered.">                if (this.refList == null) {</span>
+                    /**
+                     * If &lt;ReferenceData&gt;..&lt;/ReferenceData&gt; is null append &lt;Signature&gt;..&lt;/Signature&gt; element
+                     * to current insertion location.
+                     */
+<span class="fc" id="L787">                    sig.computeSignature(referenceList, false, this.getInsertionLocation());</span>
+                } else {
+                    /**
+                     * If &lt;ReferenceData&gt;..&lt;/ReferenceData&gt; is not null prepend &lt;Signature&gt;..&lt;/Signature&gt; element
+                     * to reference data.
+                     */
+<span class="fc" id="L793">                    sig.computeSignature(referenceList, true, this.refList);</span>
+                }
+
+<span class="fc" id="L796">                signatureElement = sig.getSignatureElement();</span>
+
+<span class="fc" id="L798">                this.setInsertionLocation(signatureElement);</span>
+
+<span class="fc" id="L800">                this.mainSigId = RampartUtil.addWsuIdToElement((OMElement) signatureElement);</span>
+<span class="nc" id="L801">            } catch (WSSecurityException e) {</span>
+<span class="nc" id="L802">                throw new RampartException(&quot;errorInSignatureWithX509Token&quot;, e);</span>
+<span class="fc" id="L803">            }</span>
+
+<span class="fc" id="L805">            signatureValues.add(sig.getSignatureValue());</span>
+        }
+        
+<span class="pc bpc" id="L808" title="1 of 2 branches missed.">        if(tlog.isDebugEnabled()){</span>
+<span class="nc" id="L809">    		t1 = System.currentTimeMillis();</span>
+<span class="nc" id="L810">    		tlog.debug(&quot;Signature took :&quot; + (t1 - t0));</span>
+    	}
+
+<span class="fc" id="L813">    }</span>
+    
+    private void doEncryptionWithSupportingToken(RampartPolicyData rpd, RampartMessageData rmd,
+            Token encrToken, Document doc, List&lt;WSEncryptionPart&gt; encrParts) throws RampartException {
+<span class="fc" id="L817">        Element refList = null;</span>
+        try {
+<span class="pc bpc" id="L819" title="1 of 2 branches missed.">            if (!(encrToken instanceof X509Token)) {</span>
+<span class="nc" id="L820">                return;</span>
+            }
+
+<span class="fc" id="L823">            WSSecEncrypt encr = new WSSecEncrypt();</span>
+
+<span class="fc" id="L825">            RampartUtil.setKeyIdentifierType(rmd, encr, encrToken);</span>
+
+<span class="fc" id="L827">            encr.setWsConfig(rmd.getConfig());</span>
+
+<span class="fc" id="L829">            encr.setDocument(doc);</span>
+<span class="fc" id="L830">            RampartUtil.setEncryptionUser(rmd, encr, ((X509Token) encrToken).getEncryptionUser());</span>
+<span class="fc" id="L831">            encr.setSymmetricEncAlgorithm(rpd.getAlgorithmSuite().getEncryption());</span>
+<span class="fc" id="L832">            encr.setKeyEncAlgo(rpd.getAlgorithmSuite().getAsymmetricKeyWrap());</span>
+<span class="fc" id="L833">            encr.prepare(doc, RampartUtil.getEncryptionCrypto(rpd.getRampartConfig(), rmd</span>
+                    .getCustomClassLoader()));
+
+<span class="pc bpc" id="L836" title="1 of 2 branches missed.">            if (this.timestampElement != null) {</span>
+<span class="fc" id="L837">                this.setInsertionLocation(this.timestampElement);</span>
+            } else {
+<span class="nc" id="L839">                this.setInsertionLocation(null);</span>
+            }
+
+<span class="pc bpc" id="L842" title="1 of 2 branches missed.">            if (encr.getBSTTokenId() != null) {</span>
+<span class="fc" id="L843">                this.setInsertionLocation(RampartUtil.insertSiblingAfterOrPrepend(rmd, this</span>
+                        .getInsertionLocation(), encr.getBinarySecurityTokenElement()));
+            }
+
+<span class="fc" id="L847">            Element encryptedKeyElement = encr.getEncryptedKeyElement();</span>
+
+            // Encrypt, get hold of the ref list and add it
+<span class="fc" id="L850">            refList = encr.encryptForInternalRef(null, encrParts);</span>
+
+            // Add internal refs
+<span class="fc" id="L853">            encryptedKeyElement.appendChild(refList);</span>
+
+<span class="fc" id="L855">            this.setInsertionLocation(RampartUtil.insertSiblingAfterOrPrepend(rmd, this</span>
+                    .getInsertionLocation(), encryptedKeyElement));
+
+<span class="nc" id="L858">        } catch (WSSecurityException e) {</span>
+<span class="nc" id="L859">            throw new RampartException(&quot;errorInEncryption&quot;, e);</span>
+<span class="fc" id="L860">        }</span>
+<span class="fc" id="L861">    }</span>
+
+
+    /**
+     * @param rmd
+     * @throws RampartException
+     */
+    private void setupEncryptedKey(RampartMessageData rmd, Token token) 
+    throws RampartException {
+<span class="pc bpc" id="L870" title="1 of 4 branches missed.">        if(!rmd.isInitiator() &amp;&amp; token.isDerivedKeys()) {</span>
+                
+                //If we already have them, simply return
+<span class="pc bpc" id="L873" title="1 of 4 branches missed.">                if(this.encryptedKeyId != null &amp;&amp; this.encryptedKeyValue != null) {</span>
+<span class="fc" id="L874">                    return;</span>
+                }
+                
+                //Use the secret from the incoming EncryptedKey element
+<span class="fc" id="L878">                List&lt;WSHandlerResult&gt; resultsObj</span>
+                        = (List&lt;WSHandlerResult&gt;)rmd.getMsgContext().getProperty(WSHandlerConstants.RECV_RESULTS);
+<span class="pc bpc" id="L880" title="1 of 2 branches missed.">                if(resultsObj != null) {</span>
+<span class="fc" id="L881">                    encryptedKeyId = RampartUtil.getRequestEncryptedKeyId(resultsObj);</span>
+<span class="fc" id="L882">                    encryptedKeyValue = RampartUtil.getRequestEncryptedKeyValue(resultsObj);</span>
+                    
+                    //In the case where we don't have the EncryptedKey in the 
+                    //request, for the control to have reached this state,
+                    //the scenario MUST be a case where this is the response
+                    //message by a listener created for an async client
+                    //Therefor we will create a new EncryptedKey
+<span class="pc bpc" id="L889" title="3 of 4 branches missed.">                    if(encryptedKeyId == null &amp;&amp; encryptedKeyValue == null) {</span>
+<span class="nc" id="L890">                        createEncryptedKey(rmd, token);</span>
+                    }
+                } else {
+<span class="nc" id="L893">                    throw new RampartException(&quot;noSecurityResults&quot;);</span>
+                }
+<span class="fc" id="L895">        } else {</span>
+<span class="fc" id="L896">            createEncryptedKey(rmd, token);</span>
+        }
+       
+<span class="fc" id="L899">    }</span>
+
+    /**
+     * Create an encrypted key element
+     * @param rmd
+     * @param token
+     * @throws RampartException
+     */
+    private void createEncryptedKey(RampartMessageData rmd, Token token) throws RampartException {
+        //Set up the encrypted key to use
+<span class="fc" id="L909">        encrKey = this.getEncryptedKeyBuilder(rmd, token);</span>
+
+<span class="fc" id="L911">        Element bstElem = encrKey.getBinarySecurityTokenElement();</span>
+<span class="fc bfc" id="L912" title="All 2 branches covered.">        if (bstElem != null) {</span>
+            // If a BST is available then use it
+<span class="fc" id="L914">            RampartUtil.appendChildToSecHeader(rmd, bstElem);</span>
+        }
+        
+        // Add the EncryptedKey
+<span class="fc" id="L918">        encrTokenElement = encrKey.getEncryptedKeyElement();</span>
+<span class="fc" id="L919">        this.encrTokenElement = RampartUtil.appendChildToSecHeader(rmd,</span>
+                encrTokenElement);
+<span class="fc" id="L921">        encryptedKeyValue = encrKey.getEphemeralKey();</span>
+<span class="fc" id="L922">        encryptedKeyId = encrKey.getId();</span>
+
+        //Store the token for client - response verification 
+        // and server - response creation
+        try {
+<span class="fc" id="L927">            org.apache.rahas.Token tok = new org.apache.rahas.Token(</span>
+                    encryptedKeyId, (OMElement)encrTokenElement , null, null);
+<span class="fc" id="L929">            tok.setSecret(encryptedKeyValue);</span>
+<span class="fc" id="L930">            rmd.getTokenStorage().add(tok);</span>
+<span class="nc" id="L931">        } catch (TrustException e) {</span>
+<span class="nc" id="L932">            throw new RampartException(&quot;errorInAddingTokenIntoStore&quot;, e);</span>
+<span class="fc" id="L933">        }</span>
+<span class="fc" id="L934">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

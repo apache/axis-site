@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SSLConfig.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.policy.model</a> &gt; <span class="el_source">SSLConfig.java</span></div><h1>SSLConfig.java</h1><pre class="source lang-java linenums">package org.apache.rampart.policy.model;
+
+import java.util.Iterator;
+import java.util.Properties;
+
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamWriter;
+
+import org.apache.neethi.Assertion;
+import org.apache.neethi.Constants;
+import org.apache.neethi.PolicyComponent;
+
+<span class="nc" id="L14">public class SSLConfig implements Assertion{</span>
+	public final static String SSL_LN = RampartConfig.SSL_CONFIG;
+	public final static String PROPERTY_LN = &quot;property&quot;;
+	public final static String PROPERTY_NAME_ATTR = &quot;name&quot;;
+	
+	private Properties prop;
+	
+	public Properties getProp() {
+<span class="nc" id="L22">        return prop;</span>
+    }
+    public void setProp(Properties prop) {
+<span class="nc" id="L25">        this.prop = prop;</span>
+<span class="nc" id="L26">    }</span>
+	
+	public PolicyComponent normalize() {
+        // TODO TODO
+<span class="nc" id="L30">        throw new UnsupportedOperationException(&quot;TODO&quot;);</span>
+    }
+	
+	public QName getName() {
+<span class="nc" id="L34">        return new QName(RampartConfig.NS, SSL_LN);</span>
+    }
+
+    public boolean isOptional() {
+        // TODO TODO
+<span class="nc" id="L39">        throw new UnsupportedOperationException(&quot;TODO&quot;);</span>
+    }
+    public boolean isIgnorable() {
+<span class="nc" id="L42">        throw new UnsupportedOperationException(&quot;TODO&quot;);</span>
+    }
+    
+    public void serialize(XMLStreamWriter writer) throws XMLStreamException {
+<span class="nc" id="L46">        String prefix = writer.getPrefix(RampartConfig.NS);</span>
+        
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (prefix == null) {</span>
+<span class="nc" id="L49">            prefix = RampartConfig.NS;</span>
+<span class="nc" id="L50">            writer.setPrefix(prefix, RampartConfig.NS);</span>
+        }                
+        
+        String key;
+        String value;
+        
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        for (Iterator iterator = prop.keySet().iterator(); iterator.hasNext();) {</span>
+<span class="nc" id="L57">            key = (String) iterator.next();</span>
+<span class="nc" id="L58">            value = prop.getProperty(key);</span>
+<span class="nc" id="L59">            writer.writeStartElement(RampartConfig.NS, PROPERTY_LN);</span>
+
+<span class="nc" id="L61">            writer.writeAttribute(&quot;name&quot;, key);</span>
+
+<span class="nc" id="L63">            writer.writeCharacters(value);</span>
+<span class="nc" id="L64">            writer.writeEndElement();</span>
+        }
+        
+<span class="nc" id="L67">        writer.writeEndElement();</span>
+<span class="nc" id="L68">    }</span>
+    
+    public short getType() {
+<span class="nc" id="L71">        return Constants.TYPE_ASSERTION;</span>
+    }
+    
+    public boolean equal(PolicyComponent policyComponent) {
+<span class="nc" id="L75">        throw new UnsupportedOperationException();</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

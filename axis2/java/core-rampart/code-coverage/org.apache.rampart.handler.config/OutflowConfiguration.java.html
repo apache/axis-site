@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>OutflowConfiguration.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.handler.config</a> &gt; <span class="el_source">OutflowConfiguration.java</span></div><h1>OutflowConfiguration.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.handler.config;
+
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axis2.description.Parameter;
+import org.apache.rampart.handler.WSSHandlerConstants;
+import org.apache.ws.security.handler.WSHandlerConstants;
+
+import java.util.HashMap;
+import java.util.Iterator;
+
+/**
+ * This is the representation of the outflow configurations of the security
+ * module.
+ * 
+ * @deprecated
+ */
+public class OutflowConfiguration {
+
+	private HashMap[] actionList;
+
+<span class="fc" id="L39">	private int currentAction = 0;</span>
+
+	/**
+	 * Creates a default outflow configuration instance with an action.
+	 */
+<span class="fc" id="L44">	public OutflowConfiguration() {</span>
+<span class="fc" id="L45">		this.actionList = new HashMap[1];</span>
+<span class="fc" id="L46">		this.actionList[0] = new HashMap();</span>
+<span class="fc" id="L47">	}</span>
+
+	/**
+	 * Creates a new outflow configuration instance with the given number of
+	 * actions.
+	 * 
+	 * @param actionCount
+	 */
+<span class="fc" id="L55">	public OutflowConfiguration(int actionCount) {</span>
+<span class="fc" id="L56">		this.actionList = new HashMap[actionCount];</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">		for (int i = 0; i &lt; actionCount; i++) {</span>
+<span class="fc" id="L58">			this.actionList[i] = new HashMap();</span>
+		}
+<span class="fc" id="L60">	}</span>
+
+	/**
+	 * Returns the configuration as an Parameter
+	 * 
+	 * @return Returns Parameter.
+	 */
+	public Parameter getProperty() {
+		
+
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        for (int i = 0; i &lt; actionList.length; i++) {</span>
+<span class="fc" id="L71">            HashMap action = actionList[i];</span>
+            
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">            if (! action.keySet().contains(&quot;items&quot;)) {</span>
+<span class="nc" id="L74">                return null;</span>
+            }
+        }
+                
+<span class="fc" id="L78">		OMFactory fac = OMAbstractFactory.getOMFactory();</span>
+        //TODO: Find the constants for &quot;Parameter&quot; and &quot;name&quot;
+<span class="fc" id="L80">        OMElement paramElement = fac.createOMElement(&quot;Parameter&quot;,null);</span>
+<span class="fc" id="L81">		paramElement.addAttribute(fac.createOMAttribute(&quot;name&quot;, null ,WSSHandlerConstants.OUTFLOW_SECURITY));</span>
+
+		
+<span class="fc bfc" id="L84" title="All 2 branches covered.">		for (int i = 0; i &lt; this.actionList.length; i++) {</span>
+			// Create the action element
+<span class="fc" id="L86">			OMElement actionElem = fac.createOMElement(</span>
+					WSSHandlerConstants.ACTION, null);
+
+			// Get the current action
+<span class="fc" id="L90">			HashMap action = this.actionList[i];</span>
+
+			// Get the set of kes of the selected action
+<span class="fc" id="L93">			Iterator keys = action.keySet().iterator();</span>
+
+<span class="fc bfc" id="L95" title="All 2 branches covered.">			while (keys.hasNext()) {</span>
+<span class="fc" id="L96">				String key = (String) keys.next();</span>
+<span class="fc" id="L97">                String value = (String) action.get(key);</span>
+<span class="pc bpc" id="L98" title="2 of 4 branches missed.">                if(value != null &amp;&amp; value.length() &gt; 0) {</span>
+                    // Create an element with the name of the key
+<span class="fc" id="L100">    				OMElement elem = fac.createOMElement(key, null);</span>
+    				// Set the text value of the element
+<span class="fc" id="L102">                    elem.setText(value);</span>
+    				// Add the element as a child of this action element
+<span class="fc" id="L104">    				actionElem.addChild(elem);</span>
+                }
+<span class="fc" id="L106">			}</span>
+			
+<span class="fc" id="L108">			paramElement.addChild(actionElem);</span>
+		}
+		
+<span class="fc" id="L111">		Parameter param = new Parameter();</span>
+<span class="fc" id="L112">		param.setParameterElement(paramElement);</span>
+<span class="fc" id="L113">        param.setValue(paramElement);</span>
+<span class="fc" id="L114">        param.setName(WSSHandlerConstants.OUTFLOW_SECURITY);</span>
+<span class="fc" id="L115">		return param;</span>
+	}
+
+	/**
+	 * Moves to the next action. If this is called when the current action is the
+	 * last action then the current action will not change.
+	 * 
+	 * @throws Exception
+	 */
+	public void nextAction() {
+<span class="pc bpc" id="L125" title="1 of 2 branches missed.">		if (currentAction &lt; this.actionList.length - 1) {</span>
+<span class="fc" id="L126">			this.currentAction++;</span>
+		}
+<span class="fc" id="L128">	}</span>
+
+	/**
+	 * Moves to previous action. If this is called when the current action is the
+	 * first option then then the current action will not change.
+	 * 
+	 * @throws Exception
+	 */
+	public void previousAction() {
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">		if (this.currentAction &gt; 0) {</span>
+<span class="fc" id="L138">			this.currentAction--;</span>
+		}
+<span class="fc" id="L140">	}</span>
+
+	/**
+	 * Sets the action items.
+	 * 
+	 * @param actionItems
+	 */
+	public void setActionItems(String actionItems) {
+<span class="fc" id="L148">		this.actionList[this.currentAction].put(</span>
+				WSSHandlerConstants.ACTION_ITEMS, actionItems);
+<span class="fc" id="L150">	}</span>
+
+	/**
+	 * Returns the action items.
+	 * @return Returns String.
+	 */
+	public String getActionItems() {
+<span class="fc" id="L157">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSSHandlerConstants.ACTION_ITEMS);
+	}
+	
+	/**
+	 * Sets the user of the current action.
+	 * 
+	 * @param user
+	 */
+	public void setUser(String user) {
+<span class="fc" id="L167">		this.actionList[this.currentAction].put(WSHandlerConstants.USER, user);</span>
+<span class="fc" id="L168">	}</span>
+
+	/**
+	 * Returns the user of the current action.
+	 * @return Returns String.
+	 */
+	public String getUser() {
+<span class="fc" id="L175">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.USER);
+	}
+	
+	/**
+	 * Sets the name of the password callback class of the current action.
+	 * 
+	 * @param passwordCallbackClass
+	 */
+	public void setPasswordCallbackClass(String passwordCallbackClass) {
+<span class="fc" id="L185">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.PW_CALLBACK_CLASS, passwordCallbackClass);
+<span class="fc" id="L187">	}</span>
+
+	/**
+	 * Returns the name of the password callback class of the current action.
+	 * @return Returns String.
+	 */
+	public String getPasswordCallbackClass() {
+<span class="nc" id="L194">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.PW_CALLBACK_CLASS);
+	}
+	
+	/**
+	 * Sets the signature property file of the current action.
+	 * 
+	 * @param signaturePropFile
+	 */
+	public void setSignaturePropFile(String signaturePropFile) {
+<span class="fc" id="L204">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.SIG_PROP_FILE, signaturePropFile);
+<span class="fc" id="L206">	}</span>
+
+    /**
+     * Sets the signature property ref key of the current action.
+     * 
+     * @param signaturePropRefId
+     */
+    public void setSignaturePropRefId(String signaturePropRefId) {
+<span class="fc" id="L214">        this.actionList[this.currentAction].put(</span>
+                WSHandlerConstants.SIG_PROP_REF_ID, signaturePropRefId);
+<span class="fc" id="L216">    }</span>
+    
+	/**
+	 * Returns the signature property file of the current action.
+	 * @return Returns String.
+	 */
+	public String getSignaturePropFile() {
+<span class="nc" id="L223">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.SIG_PROP_FILE);
+	}
+	
+	/**
+	 * Sets the signatue key identifier of the current action.
+	 * 
+	 * @param signatureKeyIdentifier
+     * Valid values:
+     * &lt;ul&gt;
+     * &lt;li&gt;X509KeyIdentifier - {@link WSSHandlerConstants#X509_KEY_IDENTIFIER}&lt;/li&gt;
+     * &lt;li&gt;SKIKeyIdentifier - {@link WSSHandlerConstants#SKI_KEY_IDENTIFIER}&lt;/li&gt;
+     * &lt;li&gt;IssuerSerial - {@link WSSHandlerConstants#ISSUER_SERIAL}&lt;/li&gt;
+     * &lt;li&gt;DirectReference - {@link WSSHandlerConstants#BST_DIRECT_REFERENCE}&lt;/li&gt;
+     * &lt;li&gt;Thumbprint - {@link WSSHandlerConstants#THUMBPRINT_IDENTIFIER}&lt;/li&gt;
+     * &lt;/ul&gt; 
+	 */
+	public void setSignatureKeyIdentifier(String signatureKeyIdentifier) {
+<span class="fc" id="L241">		this.actionList[this.currentAction].put(WSHandlerConstants.SIG_KEY_ID,</span>
+				signatureKeyIdentifier);
+<span class="fc" id="L243">	}</span>
+
+	/**
+	 * Returns the signatue key identifier of the current action.
+	 * @return Returns String.
+	 */
+	public String getSignatureKeyIdentifier() {
+<span class="nc" id="L250">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.SIG_KEY_ID);
+	}
+    
+    public void setSignatureAlgorithm(String signatureAlgo) {
+<span class="nc" id="L255">        this.actionList[this.currentAction].put(WSHandlerConstants.SIG_ALGO,</span>
+                signatureAlgo);
+<span class="nc" id="L257">    }</span>
+    
+    public String getSignatureAlgorithm() {
+<span class="nc" id="L260">        return (String) this.actionList[this.currentAction]</span>
+                .get(WSHandlerConstants.SIG_ALGO);
+    }
+	
+	/**
+	 * Sets the encrypted key identifier of the current action.
+     * &lt;br/&gt;
+	 * @param encryptionKeyIdentifier
+     * Valid values:
+     * &lt;ul&gt;
+     * &lt;li&gt;X509KeyIdentifier - {@link WSSHandlerConstants#X509_KEY_IDENTIFIER}&lt;/li&gt;
+     * &lt;li&gt;SKIKeyIdentifier - {@link WSSHandlerConstants#SKI_KEY_IDENTIFIER}&lt;/li&gt;
+     * &lt;li&gt;IssuerSerial - {@link WSSHandlerConstants#ISSUER_SERIAL}&lt;/li&gt;
+     * &lt;li&gt;DirectReference - {@link WSSHandlerConstants#BST_DIRECT_REFERENCE}&lt;/li&gt;
+     * &lt;li&gt;EmbeddedKeyName - {@link WSSHandlerConstants#EMBEDDED_KEYNAME}&lt;/li&gt;
+     * &lt;li&gt;Thumbprint - {@link WSSHandlerConstants#THUMBPRINT_IDENTIFIER}&lt;/li&gt;
+     * &lt;/ul&gt; 
+	 */
+	public void setEncryptionKeyIdentifier(String encryptionKeyIdentifier) {
+<span class="fc" id="L279">		this.actionList[this.currentAction].put(WSHandlerConstants.ENC_KEY_ID,</span>
+				encryptionKeyIdentifier);
+<span class="fc" id="L281">	}</span>
+
+	/**
+	 * Returns the encrypted key identifier of the current action.
+	 * @return Returns String.
+	 */
+	public String getEncryptionKeyIdentifier() {
+<span class="nc" id="L288">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.ENC_KEY_ID);
+	}
+	
+	/**
+	 * Sets the encryption user of the current action.
+	 * 
+	 * @param encryptionUser
+	 */
+	public void setEncryptionUser(String encryptionUser) {
+<span class="fc" id="L298">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.ENCRYPTION_USER, encryptionUser);
+<span class="fc" id="L300">	}</span>
+
+	/**
+	 * Returns the encryption user of the current action.
+	 * @return Returns String.
+	 */
+	public String getEncryptionUser() {
+<span class="nc" id="L307">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.ENCRYPTION_USER);
+	}
+	
+	/**
+	 * Sets the signature parts of the current action.
+	 * 
+	 * @param signatureParts
+	 */
+	public void setSignatureParts(String signatureParts) {
+<span class="fc" id="L317">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.SIGNATURE_PARTS, signatureParts);
+<span class="fc" id="L319">	}</span>
+	
+	/**
+	 * Returns the signature parts of the current action.
+	 * @return Returns String.
+	 */
+	public String getSignatureParts() {
+<span class="nc" id="L326">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.SIGNATURE_PARTS);
+	}
+
+	/**
+	 * Sets the encryption parts of the current action.
+	 * 
+	 * @param encryptionParts
+	 */
+	public void setEncryptionParts(String encryptionParts) {
+<span class="fc" id="L336">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.ENCRYPTION_PARTS, encryptionParts);
+<span class="fc" id="L338">	}</span>
+	
+	/**
+	 * Returns the encryption parts of the current action.
+	 * @return Returns String.
+	 */
+	public String getEncryptionParts() {
+<span class="nc" id="L345">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.ENCRYPTION_PARTS);
+	}	
+
+	/**
+	 * Sets the password type of the current action
+	 * 
+	 * @param passwordType
+	 */
+	public void setPasswordType(String passwordType) {
+<span class="fc" id="L355">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.PASSWORD_TYPE, passwordType);
+<span class="fc" id="L357">	}</span>
+
+	/**
+	 * Returns the password type of the current action.
+	 * @return Returns String.
+	 */
+	public String getPasswordType() {
+<span class="nc" id="L364">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.PASSWORD_TYPE);
+	}
+	
+	/**
+	 * Sets the encryption symmetric algorithm of the current action
+	 * 
+	 * @param encryptionSymAlgorithm
+	 */
+	public void setEncryptionSymAlgorithm(String encryptionSymAlgorithm) {
+<span class="fc" id="L374">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.ENC_SYM_ALGO, encryptionSymAlgorithm);
+<span class="fc" id="L376">	}</span>
+
+	/**
+	 * Returns the encryption symmetric algorithm of the current action.
+	 * @return Returns String.
+	 */
+	public String getEncryptionSymAlgorithm() {
+<span class="nc" id="L383">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.ENC_SYM_ALGO);
+	}
+	
+	/**
+	 * Sets the encryption key transport algorithm of the current action
+	 * 
+	 * @param encryptionKeyTransportAlgorithm
+	 */
+	public void setEncryptionKeyTransportAlgorithm(
+			String encryptionKeyTransportAlgorithm) {
+<span class="fc" id="L394">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.ENC_KEY_TRANSPORT,
+				encryptionKeyTransportAlgorithm);
+<span class="fc" id="L397">	}</span>
+
+	/**
+	 * Returns the encryption key transport algorithm of the current action.
+	 * @return Returns String.
+	 */
+	public String getEncryptionKeyTransportAlgorithm() {
+<span class="nc" id="L404">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.ENC_KEY_TRANSPORT);
+	}
+
+	/**
+	 * Sets the embedded key callback class of the current action
+	 * 
+	 * @param embeddedKeyCallbackClass
+	 */
+	public void setEmbeddedKeyCallbackClass(String embeddedKeyCallbackClass) {
+<span class="fc" id="L414">		this.actionList[this.currentAction]</span>
+				.put(WSHandlerConstants.ENC_CALLBACK_CLASS,
+						embeddedKeyCallbackClass);
+<span class="fc" id="L417">	}</span>
+
+	/**
+	 * Returns the embedded key callback class of the current action.
+	 * 
+	 * @return Returns String.
+	 */
+	public String getEmbeddedKeyCallbackClass() {
+<span class="nc" id="L425">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.ENC_CALLBACK_CLASS);
+	}
+
+	/**
+	 * Sets the XPath expression to selecte the elements with content of the
+	 * current action to be MTOM optimized.
+	 * 
+	 * @param optimizePartsXPathExpr
+	 */
+	public void setOptimizeParts(String optimizePartsXPathExpr) {
+<span class="fc" id="L436">		this.actionList[this.currentAction].put(</span>
+				WSSHandlerConstants.OPTIMIZE_PARTS, optimizePartsXPathExpr);
+<span class="fc" id="L438">	}</span>
+
+	/**
+	 * Returns the Path expression to selecte the elements with content of the
+	 * current action to be MTOM optimized.
+	 * 
+	 * @return Returns String.
+	 */
+	public String getOptimizeParts() {
+<span class="nc" id="L447">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSSHandlerConstants.OPTIMIZE_PARTS);
+	}
+	
+	/**
+	 * Sets the SAML property file of the current action.
+	 * @param samlPropFile
+	 */
+	public void setSamlPropFile(String samlPropFile) {
+<span class="fc" id="L456">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.SAML_PROP_FILE, samlPropFile);
+<span class="fc" id="L458">	}</span>
+	
+	/**
+	 * Returns the SAML property file of the current action.
+	 * @return Returns String.
+	 */
+	public String getSamlPropFile() {
+<span class="nc" id="L465">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.SAML_PROP_FILE);
+	}
+	
+	/**
+	 * Sets the encryption property file.
+	 * @param encPropFile
+	 */
+	public void setEncryptionPropFile(String encPropFile) {
+<span class="fc" id="L474">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.ENC_PROP_FILE, encPropFile);
+<span class="fc" id="L476">	}</span>
+	
+    /**
+     * Sets the encryption property ref key of the current action.
+     * 
+     * @param encryptionPropRefId
+     */
+    public void setEncryptionPropRefId(String encryptionPropRefId) {
+<span class="fc" id="L484">        this.actionList[this.currentAction].put(</span>
+                WSHandlerConstants.ENC_PROP_REF_ID, encryptionPropRefId);
+<span class="fc" id="L486">    }</span>
+    
+	/**
+	 * Returns the encryption property file. 
+	 * @return Returns String.
+	 */
+	public String getEncryptionPropFile() {
+<span class="nc" id="L493">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.ENC_PROP_FILE);
+	}
+
+    /**
+     * Enable/Disable PrecisionInMilliseconds
+     * @param value
+     */
+    public void setPrecisionInMilliseconds(boolean value) {
+<span class="nc bnc" id="L502" title="All 2 branches missed.">        this.actionList[this.currentAction].put(</span>
+                WSHandlerConstants.TIMESTAMP_PRECISION, value?&quot;true&quot;:&quot;false&quot;);
+<span class="nc" id="L504">    }</span>
+    
+    /**
+     * Returns whether PrecisionInMilliseconds is enabled or not
+     * @return Returns String.
+     */
+    public String getPrecisionInMilliseconds() {
+<span class="nc" id="L511">        return (String) this.actionList[this.currentAction]</span>
+                .get(WSHandlerConstants.TIMESTAMP_PRECISION);
+    }
+    
+	/**
+	 * Option to add additional elements in the username token element.
+	 * Example: Nonce and Create elements
+	 * @param addUTElements
+	 */
+	public void setAddUTElements(String addUTElements) {
+<span class="fc" id="L521">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.ADD_UT_ELEMENTS, addUTElements);
+<span class="fc" id="L523">	}</span>
+	
+	/**
+	 * Returns the additional elements to be added to the username token element.
+	 */
+	public String getAddUTElements() {
+<span class="nc" id="L529">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.ADD_UT_ELEMENTS);
+	}
+	
+	/**
+	 * Sets the text of the key name that needs to be sent.
+	 * @param embeddedKeyName
+	 */
+	public void setEmbeddedKeyName(String embeddedKeyName) {
+<span class="fc" id="L538">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.ENC_KEY_NAME, embeddedKeyName);
+<span class="fc" id="L540">	}</span>
+	
+	/**
+	 * Returns the text of the key name that needs to be sent.
+	 * @return Returns String.
+	 */
+	public String getEmbeddedKeyName() {
+<span class="nc" id="L547">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.ENC_KEY_NAME);
+	}
+	
+	/**
+	 * Sets whether signature confirmation should be enabled or not.
+	 * @param value
+	 */
+	public void setEnableSignatureConfirmation(boolean value) {
+<span class="pc bpc" id="L556" title="1 of 2 branches missed.">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.ENABLE_SIGNATURE_CONFIRMATION, value?&quot;true&quot;:&quot;false&quot;);
+<span class="fc" id="L558">	}</span>
+	
+	/**
+	 * Returns whether signature confirmation should be enabled or not
+	 * @return Returns String.
+	 */
+	public String getEnableSignatureConfirmation() {
+<span class="nc" id="L565">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.ENABLE_SIGNATURE_CONFIRMATION);
+	}
+	
+	/**
+	 * Sets whether signature confirmation should be enabled or not
+	 * @param value
+	 */
+	public void setPreserveOriginalEnvelope(boolean value) {
+<span class="nc bnc" id="L574" title="All 2 branches missed.">		this.actionList[this.currentAction].put(</span>
+				WSSHandlerConstants.PRESERVE_ORIGINAL_ENV, value?&quot;true&quot;:&quot;false&quot;);
+<span class="nc" id="L576">	}</span>
+	
+	/**
+	 * Returns whether signature confirmation should be enabled or not.
+	 * @return Returns String.
+	 */
+	public String getPreserveOriginalEnvelope() {
+<span class="nc" id="L583">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSSHandlerConstants.PRESERVE_ORIGINAL_ENV);
+	}
+
+    /**
+     * This will set whether request or response evaluation should adhere to &quot;Basic Security Profile&quot;
+     * @param value true if evaluation should adhere to &quot;Basic Security Profile&quot; else false. Default is true.
+     */
+	public void setBSPCompliant(boolean value) {
+<span class="nc bnc" id="L592" title="All 2 branches missed.">		this.actionList[this.currentAction].put(</span>
+				WSHandlerConstants.IS_BSP_COMPLIANT, value?&quot;true&quot;:&quot;false&quot;);
+<span class="nc" id="L594">	}</span>
+
+
+    /**
+     * Gets whether security processing is configured to handle BSP compliant manner.
+     * &quot;true&quot; or &quot;false&quot;
+     * @return Returns &quot;true&quot; or &quot;false&quot;.
+     */
+	public String getBSPCompliant() {
+<span class="nc" id="L603">		return (String) this.actionList[this.currentAction]</span>
+				.get(WSHandlerConstants.IS_BSP_COMPLIANT);
+	}
+
+    
+    
+    public void setSignAllHeadersAndBody() {
+<span class="nc" id="L610">        this.actionList[this.currentAction].put(WSSHandlerConstants.SIGN_ALL_HEADERS, &quot;true&quot;);</span>
+<span class="nc" id="L611">        this.setSignBody();</span>
+<span class="nc" id="L612">    }</span>
+    
+    public void setSignBody() {
+<span class="nc" id="L615">        this.actionList[this.currentAction].put(WSSHandlerConstants.SIGN_BODY, &quot;true&quot;);</span>
+<span class="nc" id="L616">    }</span>
+    
+    public void setEncryptBody() {
+<span class="nc" id="L619">        this.actionList[this.currentAction].put(WSSHandlerConstants.ENCRYPT_BODY, &quot;true&quot;);</span>
+<span class="nc" id="L620">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

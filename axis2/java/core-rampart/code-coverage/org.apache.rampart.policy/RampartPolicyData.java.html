@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RampartPolicyData.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.policy</a> &gt; <span class="el_source">RampartPolicyData.java</span></div><h1>RampartPolicyData.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.policy;
+
+import org.apache.axis2.policy.model.MTOMAssertion;
+import org.apache.neethi.Policy;
+import org.apache.rampart.RampartException;
+import org.apache.rampart.policy.model.OptimizePartsConfig;
+import org.apache.rampart.policy.model.RampartConfig;
+import org.apache.ws.secpolicy.SPConstants;
+import org.apache.ws.secpolicy.WSSPolicyException;
+import org.apache.ws.secpolicy.model.AlgorithmSuite;
+import org.apache.ws.secpolicy.model.SecureConversationToken;
+import org.apache.ws.secpolicy.model.SupportingToken;
+import org.apache.ws.secpolicy.model.Token;
+import org.apache.ws.secpolicy.model.Trust10;
+import org.apache.ws.secpolicy.model.Wss10;
+import org.apache.ws.secpolicy.model.Wss11;
+import org.apache.ws.security.WSEncryptionPart;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Vector;
+
+<span class="fc" id="L40">public class RampartPolicyData {</span>
+
+    /*
+     * Global settings for overall security processing
+     */
+    private boolean symmetricBinding;
+    
+    private boolean transportBinding;
+    
+    private boolean asymmetricBinding;
+
+    private String layout;
+
+    private boolean includeTimestamp;
+    
+    private boolean includeTimestampOptional;
+
+    private boolean entireHeadersAndBodySignatures;
+
+    private String protectionOrder;
+
+    private boolean signatureProtection;
+
+    private boolean tokenProtection;
+
+    private boolean signatureConfirmation;
+
+    //Policy namespace
+<span class="fc" id="L68">    private String webServiceSecurityPolicyNS = null;</span>
+
+    /*
+     * Message tokens for symmetrical binding
+     */
+    private Token encryptionToken;
+
+    private Token signatureToken;
+    
+    
+    /*
+     * Message token for transport binding
+     */
+    private Token transportToken;
+
+    /*
+     * Message tokens for asymmetrical binding
+     */
+    private Token recipientToken; // used to encrypt data to
+
+    // receipient
+
+    private Token initiatorToken; // used to sign data by
+
+    // initiator
+
+    /*
+     * Which parts or elements of the message to sign/encrypt with the messagen
+     * tokens. Parts or elements to sign/encrypt with supporting tokens are
+     * stored together with the tokens (see WSS4JPolicyToken).
+     */
+    private boolean signBody;
+
+    private boolean encryptBody;
+    
+    private boolean signAttachments;
+    
+    private boolean encryptAttachments;
+    
+    private boolean signBodyOptional;
+
+    private boolean encryptBodyOptional;
+    
+    private boolean signAttachmentsOptional;
+    
+    private boolean encryptAttachmentsOptional;
+
+    private boolean signAllHeaders;
+
+<span class="fc" id="L117">    private List&lt;WSEncryptionPart&gt; signedParts = new ArrayList&lt;WSEncryptionPart&gt;();</span>
+
+<span class="fc" id="L119">    private List&lt;String&gt; signedElements = new ArrayList&lt;String&gt;();</span>
+
+<span class="fc" id="L121">    private List&lt;WSEncryptionPart&gt; encryptedParts = new ArrayList&lt;WSEncryptionPart&gt;();</span>
+
+<span class="fc" id="L123">    private List&lt;String&gt; encryptedElements = new ArrayList&lt;String&gt;();</span>
+    
+<span class="fc" id="L125">    private List&lt;String&gt; requiredElements = new ArrayList&lt;String&gt;();</span>
+    
+<span class="fc" id="L127">    private List&lt;String&gt; contentEncryptedElements = new ArrayList&lt;String&gt;();</span>
+
+    //TODO make this strongly type attribute
+<span class="fc" id="L130">    private HashMap declaredNamespaces = new HashMap();</span>
+
+    /*
+     * Holds the supporting tokens elements
+     */
+    //private SupportingToken supportingTokens;
+
+    private SupportingToken signedSupportingTokens;
+
+    private SupportingToken endorsingSupportingTokens;
+
+    private SupportingToken signedEndorsingSupportingTokens;
+    
+    private SupportingToken encryptedSupportingTokens;
+
+    private SupportingToken signedEncryptedSupportingTokens;
+
+    private SupportingToken endorsingEncryptedSupportingTokens;
+
+    private SupportingToken signedEndorsingEncryptedSupportingTokens;
+    
+    private AlgorithmSuite algorithmSuite;
+    
+    private RampartConfig rampartConfig;
+    
+    private MTOMAssertion mtomAssertion;
+    
+    private Trust10 trust10;
+    
+    private HashMap&lt;Token,String&gt; supportingTokensIdMap;
+    private HashMap&lt;Token,String&gt; signedSupportingTokensIdMap;
+    private HashMap&lt;Token,String&gt; endorsingSupportingTokensIdMap;
+    private HashMap&lt;Token,String&gt; signedEndorsingSupportingTokensIdMap;
+    
+    private Wss10 wss10;
+    private Wss11 wss11;
+    
+    private Policy issuerPolicy;
+    
+<span class="fc" id="L169">    private List&lt;SupportingPolicyData&gt; supportingPolicyData = new ArrayList&lt;SupportingPolicyData&gt;();</span>
+    
+<span class="fc" id="L171">    private List&lt;SupportingToken&gt; supportingTokens = new ArrayList&lt;SupportingToken&gt;();</span>
+
+
+
+    public String getWebServiceSecurityPolicyNS() {
+<span class="fc" id="L176">        return webServiceSecurityPolicyNS;</span>
+    }
+
+    public void setWebServiceSecurityPolicyNS(String webServiceSecurityPolicyNS) {
+<span class="fc" id="L180">        this.webServiceSecurityPolicyNS = webServiceSecurityPolicyNS;</span>
+<span class="fc" id="L181">    }</span>
+
+    public List&lt;SupportingPolicyData&gt; getSupportingPolicyData() {
+<span class="fc" id="L184">        return supportingPolicyData;</span>
+    }
+
+    public void addSupportingPolicyData(SupportingPolicyData supportingPolicyData) {
+<span class="fc" id="L188">        this.supportingPolicyData.add(supportingPolicyData);</span>
+<span class="fc" id="L189">    }       </span>
+    
+    public boolean isSignBodyOptional() {
+<span class="fc" id="L192">		return signBodyOptional;</span>
+	}
+
+	public void setSignBodyOptional(boolean signBodyOptional) {
+<span class="fc" id="L196">		this.signBodyOptional = signBodyOptional;</span>
+<span class="fc" id="L197">	}</span>
+
+	public boolean isEncryptBodyOptional() {
+<span class="fc" id="L200">		return encryptBodyOptional;</span>
+	}
+
+	public void setEncryptBodyOptional(boolean encryptBodyOptional) {
+<span class="fc" id="L204">		this.encryptBodyOptional = encryptBodyOptional;</span>
+<span class="fc" id="L205">	}</span>
+
+	public boolean isSignAttachmentsOptional() {
+<span class="nc" id="L208">		return signAttachmentsOptional;</span>
+	}
+
+	public void setSignAttachmentsOptional(boolean signAttachmentsOptional) {
+<span class="fc" id="L212">		this.signAttachmentsOptional = signAttachmentsOptional;</span>
+<span class="fc" id="L213">	}</span>
+
+	public boolean isEncryptAttachmentsOptional() {
+<span class="nc" id="L216">		return encryptAttachmentsOptional;</span>
+	}
+
+	public void setEncryptAttachmentsOptional(boolean encryptAttachmentsOptional) {
+<span class="fc" id="L220">		this.encryptAttachmentsOptional = encryptAttachmentsOptional;</span>
+<span class="fc" id="L221">	}</span>
+
+	/**
+     * @return Returns the symmetricBinding.
+     */
+    public boolean isSymmetricBinding() {
+<span class="fc" id="L227">        return symmetricBinding;</span>
+    }
+
+    /**
+     * @param symmetricBinding
+     *            The symmetricBinding to set.
+     */
+    public void setSymmetricBinding(boolean symmetricBinding) {
+<span class="fc" id="L235">        this.symmetricBinding = symmetricBinding;</span>
+<span class="fc" id="L236">    }</span>
+    
+    /**
+     * @return Returns a boolean value indicating whether a Asymmetric Binding
+     */
+    public boolean isAsymmetricBinding() {
+<span class="fc" id="L242">        return asymmetricBinding;</span>
+    }
+
+    /**
+     * @param asymmetricBinding
+     *            boolean value indicating whether a Asymmetric Binding
+     */
+    public void setAsymmetricBinding(boolean asymmetricBinding) {
+<span class="fc" id="L250">        this.asymmetricBinding = asymmetricBinding;</span>
+<span class="fc" id="L251">    }</span>
+    /**
+     * @return Returns the entireHeaderAndBodySignatures.
+     */
+    public boolean isEntireHeadersAndBodySignatures() {
+<span class="nc" id="L256">        return entireHeadersAndBodySignatures;</span>
+    }
+
+    /**
+     * @param entireHeaderAndBodySignatures
+     *            The entireHeaderAndBodySignatures to set.
+     */
+    public void setEntireHeadersAndBodySignatures(
+            boolean entireHeaderAndBodySignatures) {
+<span class="fc" id="L265">        this.entireHeadersAndBodySignatures = entireHeaderAndBodySignatures;</span>
+<span class="fc" id="L266">    }</span>
+
+    /**
+     * @return Returns the includeTimestamp.
+     */
+    public boolean isIncludeTimestamp() {
+<span class="fc" id="L272">        return includeTimestamp;</span>
+    }
+
+    /**
+     * @param includeTimestamp
+     *            The includeTimestamp to set.
+     */
+    public void setIncludeTimestamp(boolean includeTimestamp) {
+<span class="fc" id="L280">        this.includeTimestamp = includeTimestamp;</span>
+<span class="fc" id="L281">    } </span>
+    
+    public boolean isIncludeTimestampOptional() {
+<span class="fc" id="L284">		return includeTimestampOptional;</span>
+	}
+
+	public void setIncludeTimestampOptional(boolean includeTimestampOptional) {
+<span class="fc" id="L288">		this.includeTimestampOptional = includeTimestampOptional;</span>
+<span class="fc" id="L289">	}</span>
+
+	/**
+     * @return Returns the layout.
+     */
+    public String getLayout() {
+<span class="nc" id="L295">        return layout;</span>
+    }
+
+    /**
+     * @param layout
+     *            The layout to set.
+     */
+    public void setLayout(String layout) {
+<span class="fc" id="L303">        this.layout = layout;</span>
+<span class="fc" id="L304">    }</span>
+
+    /**
+     * @return Returns the protectionOrder.
+     */
+    public String getProtectionOrder() {
+<span class="fc" id="L310">        return protectionOrder;</span>
+    }
+
+    /**
+     * @param protectionOrder
+     *            The protectionOrder to set.
+     */
+    public void setProtectionOrder(String protectionOrder) {
+<span class="fc" id="L318">        this.protectionOrder = protectionOrder;</span>
+<span class="fc" id="L319">    }</span>
+
+    /**
+     * @return Returns the signatureProtection.
+     */
+    public boolean isSignatureProtection() {
+<span class="fc" id="L325">        return signatureProtection;</span>
+    }
+
+    /**
+     * @param signatureProtection
+     *            The signatureProtection to set.
+     */
+    public void setSignatureProtection(boolean signatureProtection) {
+<span class="fc" id="L333">        this.signatureProtection = signatureProtection;</span>
+<span class="fc" id="L334">    }</span>
+
+    /**
+     * @return Returns the tokenProtection.
+     */
+    public boolean isTokenProtection() {
+<span class="fc" id="L340">        return tokenProtection;</span>
+    }
+
+    /**
+     * @param tokenProtection
+     *            The tokenProtection to set.
+     */
+    public void setTokenProtection(boolean tokenProtection) {
+<span class="fc" id="L348">        this.tokenProtection = tokenProtection;</span>
+<span class="fc" id="L349">    }</span>
+
+    /**
+     * @return Returns the signatureConfirmation.
+     */
+    public boolean isSignatureConfirmation() {
+<span class="fc" id="L355">        return signatureConfirmation;</span>
+    }
+
+    /**
+     * @param signatureConfirmation
+     *            The signatureConfirmation to set.
+     */
+    public void setSignatureConfirmation(boolean signatureConfirmation) {
+<span class="fc" id="L363">        this.signatureConfirmation = signatureConfirmation;</span>
+<span class="fc" id="L364">    }</span>
+
+    /**
+     * @return Returns the encryptedElements.
+     */
+    public List&lt;String&gt; getEncryptedElements() {
+<span class="fc" id="L370">        return encryptedElements;</span>
+    }
+
+    /**
+     * @param encElement
+     *            The encrypted Element (XPath) to set.
+     */
+    public void setEncryptedElements(String encElement) {
+
+<span class="fc" id="L379">        encryptedElements.add(encElement);</span>
+<span class="fc" id="L380">    }</span>
+    
+    /**
+     * @return Returns the requiredElements.
+     */
+    public List&lt;String&gt; getRequiredElements() {
+<span class="fc" id="L386">        return requiredElements;</span>
+    }
+
+    /**
+     * @param reqElement The Required Element (XPath) to set.
+     */
+    public void setRequiredElements(String reqElement) {
+<span class="fc" id="L393">        requiredElements.add(reqElement);</span>
+<span class="fc" id="L394">    }</span>
+    
+    /**
+     * @return Returns the contentEncryptedElements.
+     */
+    public List&lt;String&gt; getContentEncryptedElements() {
+<span class="fc" id="L400">        return contentEncryptedElements;</span>
+    }
+
+    /**
+     * @param encElement
+     *            The encrypted Element (XPath) to set.
+     */
+    public void setContentEncryptedElements(String encElement) {
+
+<span class="fc" id="L409">        contentEncryptedElements.add(encElement);</span>
+<span class="fc" id="L410">    }</span>
+
+    /**
+     * @return Returns the encryptedParts.
+     */
+    public List&lt;WSEncryptionPart&gt; getEncryptedParts() {
+<span class="fc" id="L416">        return encryptedParts;</span>
+    }
+
+    /**
+     * @param namespace
+     *            The namespace of the part.
+     * @param element
+     *            The part's element name.
+     */
+    public void setEncryptedParts(String namespace, String element) {
+<span class="nc" id="L426">        WSEncryptionPart wep = new WSEncryptionPart(element, namespace,</span>
+                &quot;Element&quot;);
+<span class="nc" id="L428">        encryptedParts.add(wep);</span>
+<span class="nc" id="L429">    }</span>
+    
+    /**
+     * @param namespace
+     *            The namespace of the part.
+     * @param element
+     *            The part's element name.
+     * @param modifier 
+     *            The type of encryption 
+     *            Element,Content,Header
+     */
+    public void setEncryptedParts(String namespace, String element, 
+    		                                       String modifier) {
+<span class="fc" id="L442">        WSEncryptionPart wep = new WSEncryptionPart(element, namespace,</span>
+                modifier);
+<span class="fc" id="L444">        encryptedParts.add(wep);</span>
+<span class="fc" id="L445">    }</span>
+    
+
+    /**
+     * @return Returns the encryptBody.
+     */
+    public boolean isEncryptBody() {
+<span class="fc" id="L452">        return encryptBody;</span>
+    }
+
+    /**
+     * @param encryptBody
+     *            The encryptBody to set.
+     */
+    public void setEncryptBody(boolean encryptBody) {
+<span class="fc" id="L460">        this.encryptBody = encryptBody;</span>
+<span class="fc" id="L461">    }</span>
+
+    /**
+     * @return Returns the signBody.
+     */
+    public boolean isSignBody() {
+<span class="fc" id="L467">        return signBody;</span>
+    }
+
+    /**
+     * @param signBody
+     *            The signBody to set.
+     */
+    public void setSignBody(boolean signBody) {
+<span class="fc" id="L475">        this.signBody = signBody;</span>
+<span class="fc" id="L476">    }</span>
+    
+    /**
+     * @return Returns the signAttachments.
+     */
+    public boolean isSignAttachments() {
+<span class="nc" id="L482">        return signAttachments;</span>
+    }
+
+    /**
+     * @param signAttachments
+     *            The signAttachments to set.
+     */
+    public void setSignAttachments(boolean signAttachments) {
+<span class="fc" id="L490">        this.signAttachments = signAttachments;</span>
+<span class="fc" id="L491">    }</span>
+    
+    /**
+     * @return Returns the encryptAttachments.
+     */
+    public boolean isEncryptAttachments() {
+<span class="nc" id="L497">        return encryptAttachments;</span>
+    }
+
+    /**
+     * @param encryptAttachments
+     *            The encryptAttachments to set.
+     */
+    public void setEncryptAttachments(boolean encryptAttachments) {
+<span class="fc" id="L505">        this.encryptAttachments = encryptAttachments;</span>
+<span class="fc" id="L506">    }</span>
+
+    /**
+     * @return Returns the signedElements.
+     */
+    public List&lt;String&gt; getSignedElements() {
+<span class="fc" id="L512">        return signedElements;</span>
+    }
+
+    /**
+     * @param sigElement
+     *            The signed Element (XPath) to set.
+     */
+    public void setSignedElements(String sigElement) {
+
+<span class="fc" id="L521">        signedElements.add(sigElement);</span>
+<span class="fc" id="L522">    }</span>
+
+    /**
+     * @return Returns the signedParts.
+     */
+    public List&lt;WSEncryptionPart&gt; getSignedParts() {
+<span class="fc" id="L528">        return signedParts;</span>
+    }
+    
+    public HashMap getDeclaredNamespaces() {
+<span class="fc" id="L532">        return declaredNamespaces;</span>
+    }
+    
+    public void addDeclaredNamespaces(HashMap namespaces) {
+<span class="fc" id="L536">        declaredNamespaces.putAll(namespaces);</span>
+<span class="fc" id="L537">    }</span>
+
+    /**
+     * @param namespace
+     *            The namespace of the part.
+     * @param element
+     *            The part's element name.
+     */
+    public void addSignedPart(String namespace, String element) {
+
+<span class="fc" id="L547">        WSEncryptionPart wep = new WSEncryptionPart(element, namespace,</span>
+                &quot;Content&quot;);
+<span class="fc" id="L549">        signedParts.add(wep);</span>
+<span class="fc" id="L550">    }</span>
+
+    public void addSignedPart(WSEncryptionPart part) {
+<span class="nc" id="L553">        signedParts.add(part);</span>
+<span class="nc" id="L554">    }</span>
+    
+    public void setSignedParts(List&lt;WSEncryptionPart&gt; signedParts) {
+<span class="nc" id="L557">        this.signedParts = signedParts;</span>
+<span class="nc" id="L558">    }</span>
+    
+    public void setSupportingTokens(SupportingToken suppTokens)
+            throws WSSPolicyException {
+
+<span class="fc" id="L563">        int tokenType = suppTokens.getTokenType();</span>
+<span class="fc bfc" id="L564" title="All 2 branches covered.">        if (tokenType == SPConstants.SUPPORTING_TOKEN_SUPPORTING) {</span>
+<span class="fc" id="L565">            supportingTokens.add(suppTokens);</span>
+<span class="fc bfc" id="L566" title="All 2 branches covered.">        } else if (tokenType == SPConstants.SUPPORTING_TOKEN_SIGNED) {</span>
+<span class="fc" id="L567">            signedSupportingTokens = suppTokens;</span>
+<span class="fc bfc" id="L568" title="All 2 branches covered.">        } else if (tokenType == SPConstants.SUPPORTING_TOKEN_ENDORSING) {</span>
+<span class="fc" id="L569">            endorsingSupportingTokens = suppTokens;</span>
+<span class="fc bfc" id="L570" title="All 2 branches covered.">        } else if (tokenType == SPConstants.SUPPORTING_TOKEN_SIGNED_ENDORSING) {</span>
+<span class="fc" id="L571">            signedEndorsingSupportingTokens = suppTokens;</span>
+<span class="fc bfc" id="L572" title="All 2 branches covered.">        } else if (tokenType == SPConstants.SUPPORTING_TOKEN_ENCRYPTED) {</span>
+<span class="fc" id="L573">            encryptedSupportingTokens = suppTokens;</span>
+<span class="fc bfc" id="L574" title="All 2 branches covered.">        } else if (tokenType == SPConstants.SUPPORTING_TOKEN_SIGNED_ENCRYPTED) {</span>
+<span class="fc" id="L575">            signedEncryptedSupportingTokens = suppTokens;</span>
+<span class="fc bfc" id="L576" title="All 2 branches covered.">        } else if (tokenType == SPConstants.SUPPORTING_TOKEN_ENDORSING_ENCRYPTED) {</span>
+<span class="fc" id="L577">            endorsingEncryptedSupportingTokens = suppTokens;</span>
+<span class="pc bpc" id="L578" title="1 of 2 branches missed.">        } else if (tokenType == SPConstants.SUPPORTING_TOKEN_SIGNED_ENDORSING_ENCRYPTED) {</span>
+<span class="fc" id="L579">            signedEndorsingEncryptedSupportingTokens = suppTokens;</span>
+        }
+<span class="fc" id="L581">    }</span>
+    
+    
+
+    /**
+     * @return Returns the rampartConfig.
+     */
+    public RampartConfig getRampartConfig() {
+<span class="fc" id="L589">        return rampartConfig;</span>
+    }
+
+    /**
+     * @return Returns the encryptionToken.
+     */
+    public Token getEncryptionToken() {
+<span class="fc" id="L596">        return encryptionToken;</span>
+    }
+
+    /**
+     * @param encryptionToken The encryptionToken to set.
+     */
+    public void setEncryptionToken(Token encryptionToken) {
+<span class="fc" id="L603">        this.encryptionToken = encryptionToken;</span>
+<span class="fc" id="L604">        this.extractIssuerPolicy(encryptionToken);</span>
+<span class="fc" id="L605">    }</span>
+
+    /**
+     * @return Returns the initiatorToken.
+     */
+    public Token getInitiatorToken() {
+<span class="fc" id="L611">        return initiatorToken;</span>
+    }
+
+    /**
+     * @param initiatorToken The initiatorToken to set.
+     */
+    public void setInitiatorToken(Token initiatorToken) {
+<span class="fc" id="L618">        this.initiatorToken = initiatorToken;</span>
+<span class="fc" id="L619">    }</span>
+    
+    /**
+     * @return Returns the TransportToken.
+     */
+    public Token getTransportToken() {
+<span class="fc" id="L625">        return transportToken;</span>
+    }
+
+    /**
+     * @param transportToken The TransportToken to set.
+     */
+    public void setTransportToken(Token transportToken) {
+<span class="fc" id="L632">        this.transportToken = transportToken;</span>
+<span class="fc" id="L633">    }</span>
+
+    /**
+     * @return Returns the recipientToken.
+     */
+    public Token getRecipientToken() {
+<span class="fc" id="L639">        return recipientToken;</span>
+    }
+
+    /**
+     * @param recipientToken The recipientToken to set.
+     */
+    public void setRecipientToken(Token recipientToken) {
+<span class="fc" id="L646">        this.recipientToken = recipientToken;</span>
+<span class="fc" id="L647">    }</span>
+    
+    public void setProtectionToken(Token protectionToken) {
+<span class="fc" id="L650">        this.setEncryptionToken(protectionToken);</span>
+<span class="fc" id="L651">        this.setSignatureToken(protectionToken);</span>
+<span class="fc" id="L652">        this.extractIssuerPolicy(protectionToken);</span>
+<span class="fc" id="L653">    }</span>
+
+    /**
+     * @return Returns the signatureToken.
+     */
+    public Token getSignatureToken() {
+<span class="fc" id="L659">        return signatureToken;</span>
+    }
+
+    /**
+     * @param signatureToken The signatureToken to set.
+     */
+    public void setSignatureToken(Token signatureToken) {
+<span class="fc" id="L666">        this.signatureToken = signatureToken;</span>
+<span class="fc" id="L667">        this.extractIssuerPolicy(signatureToken);</span>
+<span class="fc" id="L668">    }</span>
+
+    /**
+     * @return Returns the signedEndorsingSupportingToken.
+     */
+    public SupportingToken getSignedEndorsingSupportingTokens() {
+<span class="fc" id="L674">        return signedEndorsingSupportingTokens;</span>
+    }
+
+    /**
+     * @param signedEndorsingSupportingTokens The signedEndorsingSupportingToken to set.
+     */
+    public void setSignedEndorsingSupportingTokens(
+            SupportingToken signedEndorsingSupportingTokens) {
+<span class="nc" id="L682">        this.signedEndorsingSupportingTokens = signedEndorsingSupportingTokens;</span>
+<span class="nc" id="L683">    }</span>
+    
+    /**
+     * @return Returns the signedEndorsingEncryptedSupportingToken.
+     */
+    public SupportingToken getSignedEndorsingEncryptedSupportingTokens() {
+<span class="fc" id="L689">        return signedEndorsingEncryptedSupportingTokens;</span>
+    }
+
+    /**
+     * @param signedEndorsingEncryptedSupportingTokens The signedEndorsingEncryptedSupportingToken to set.
+     */
+    public void setSignedEndorsingEncryptedSupportingTokens(
+            SupportingToken signedEndorsingEncryptedSupportingTokens) {
+<span class="nc" id="L697">        this.signedEndorsingEncryptedSupportingTokens = signedEndorsingEncryptedSupportingTokens;</span>
+<span class="nc" id="L698">    }</span>
+
+    /**
+     * @return Returns the signedSupportingToken.
+     */
+    public SupportingToken getSignedSupportingTokens() {
+<span class="fc" id="L704">        return signedSupportingTokens;</span>
+    }
+
+    /**
+     * @param signedSupportingTokens The signedSupportingToken to set.
+     */
+    public void setSignedSupportingTokens(SupportingToken signedSupportingTokens) {
+<span class="nc" id="L711">        this.signedSupportingTokens = signedSupportingTokens;</span>
+<span class="nc" id="L712">    }</span>
+    
+    /**
+     * @return Returns the signedEncryptedSupportingToken.
+     */
+    public SupportingToken getSignedEncryptedSupportingTokens() {
+<span class="fc" id="L718">        return signedEncryptedSupportingTokens;</span>
+    }
+
+    /**
+     * @param signedEncryptedSupportingTokens The signedEncryptedSupportingToken to set.
+     */
+    public void setSignedEncryptedSupportingTokens(SupportingToken signedEncryptedSupportingTokens) {
+<span class="nc" id="L725">        this.signedEncryptedSupportingTokens = signedEncryptedSupportingTokens;</span>
+<span class="nc" id="L726">    }</span>
+
+    /**
+     * @return Returns the supportingTokenList.
+     */
+    public List&lt;SupportingToken&gt; getSupportingTokensList() {
+<span class="fc" id="L732">        return supportingTokens;</span>
+    }
+    
+    public SupportingToken getSupportingTokens() {
+<span class="nc bnc" id="L736" title="All 2 branches missed.">        if (supportingTokens.size() &gt; 0) {</span>
+<span class="nc" id="L737">            return supportingTokens.get(0);</span>
+        } else {
+<span class="nc" id="L739">            return null;</span>
+        }
+    }
+    
+    /**
+     * @param encryptedSupportingTokens The encryptedSupportingToken to set.
+     */
+    public void setEncryptedSupportingTokens(SupportingToken encryptedSupportingTokens) {
+<span class="nc" id="L747">        this.encryptedSupportingTokens = encryptedSupportingTokens;</span>
+<span class="nc" id="L748">    }</span>
+    
+    /**
+     * @return Returns the encryptedSupportingToken.
+     */
+    public SupportingToken getEncryptedSupportingTokens() {
+<span class="fc" id="L754">        return encryptedSupportingTokens;</span>
+    }
+
+    /**
+     * @param endorsingSupportingTokens The endorsingSupportingToken to set.
+     */
+    public void setEndorsingSupportingTokens(SupportingToken endorsingSupportingTokens) {
+<span class="nc" id="L761">        this.endorsingSupportingTokens = endorsingSupportingTokens;</span>
+<span class="nc" id="L762">    }</span>
+
+    /**
+     * @return Returns the endorsingSupportingToken.
+     */
+    public SupportingToken getEndorsingSupportingTokens() {
+<span class="fc" id="L768">        return endorsingSupportingTokens;</span>
+    }
+    
+    /**
+     * @param endorsingEncryptedSupportingTokens The endorsingEncryptedSupportingToken to set.
+     */
+    public void setEndorsingEncryptedSupportingTokens(SupportingToken endorsingEncryptedSupportingTokens) {
+<span class="nc" id="L775">        this.endorsingEncryptedSupportingTokens = endorsingEncryptedSupportingTokens;</span>
+<span class="nc" id="L776">    }</span>
+
+    /**
+     * @return Returns the endorsingEncryptedSupportingToken.
+     */
+    public SupportingToken getEndorsingEncryptedSupportingTokens() {
+<span class="fc" id="L782">        return endorsingEncryptedSupportingTokens;</span>
+    }
+
+    /**
+     * @return Returns the algorithmSuite.
+     */
+    public AlgorithmSuite getAlgorithmSuite() {
+<span class="fc" id="L789">        return algorithmSuite;</span>
+    }
+
+    /**
+     * @param algorithmSuite The algorithmSuite to set.
+     */
+    public void setAlgorithmSuite(AlgorithmSuite algorithmSuite) {
+<span class="fc" id="L796">        this.algorithmSuite = algorithmSuite;</span>
+<span class="fc" id="L797">    }</span>
+
+    /**
+     * @return Returns the trust10.
+     */
+    public Trust10 getTrust10() {
+<span class="nc" id="L803">        return trust10;</span>
+    }
+
+    /**
+     * @param trust10 The trust10 to set.
+     */
+    public void setTrust10(Trust10 trust10) {
+<span class="fc" id="L810">        this.trust10 = trust10;</span>
+<span class="fc" id="L811">    }</span>
+
+    /**
+     * @param rampartConfig The rampartConfig to set.
+     */
+    public void setRampartConfig(RampartConfig rampartConfig) {
+<span class="fc" id="L817">        this.rampartConfig = rampartConfig;</span>
+<span class="fc" id="L818">    }</span>
+
+    /**
+     * @return Returns the transportBinding.
+     */
+    public boolean isTransportBinding() {
+<span class="fc" id="L824">        return transportBinding;</span>
+    }
+
+    /**
+     * @param transportBinding The transportBinding to set.
+     */
+    public void setTransportBinding(boolean transportBinding) {
+<span class="fc" id="L831">        this.transportBinding = transportBinding;</span>
+<span class="fc" id="L832">    }</span>
+
+    
+    /**
+     * Add the given token and id to the map. 
+     * @param token
+     * @param id
+     */
+    public void setSupporttingtokenId(Token token, String id, int type) throws RampartException {
+        
+<span class="nc" id="L842">        HashMap&lt;Token,String&gt; tokenMap = null;</span>
+<span class="nc bnc" id="L843" title="All 5 branches missed.">        switch (type) {</span>
+        case SPConstants.SUPPORTING_TOKEN_SUPPORTING:
+<span class="nc bnc" id="L845" title="All 2 branches missed.">            if(this.supportingTokensIdMap == null) {</span>
+<span class="nc" id="L846">                this.supportingTokensIdMap = new HashMap&lt;Token,String&gt;();</span>
+            }
+<span class="nc" id="L848">            tokenMap = this.supportingTokensIdMap;</span>
+<span class="nc" id="L849">            break;</span>
+
+        case SPConstants.SUPPORTING_TOKEN_SIGNED:
+<span class="nc bnc" id="L852" title="All 2 branches missed.">            if(this.signedSupportingTokensIdMap == null) {</span>
+<span class="nc" id="L853">                this.signedSupportingTokensIdMap = new HashMap&lt;Token,String&gt;();</span>
+            }
+<span class="nc" id="L855">            tokenMap = this.signedSupportingTokensIdMap;</span>
+<span class="nc" id="L856">            break;</span>
+            
+        case SPConstants.SUPPORTING_TOKEN_ENDORSING:
+<span class="nc bnc" id="L859" title="All 2 branches missed.">            if(this.endorsingSupportingTokensIdMap == null) {</span>
+<span class="nc" id="L860">                this.endorsingSupportingTokensIdMap = new HashMap&lt;Token,String&gt;();</span>
+            }
+<span class="nc" id="L862">            tokenMap = this.endorsingSupportingTokensIdMap;</span>
+<span class="nc" id="L863">            break;</span>
+            
+        case SPConstants.SUPPORTING_TOKEN_SIGNED_ENDORSING:
+<span class="nc bnc" id="L866" title="All 2 branches missed.">            if(this.signedEndorsingSupportingTokensIdMap == null) {</span>
+<span class="nc" id="L867">                this.signedEndorsingSupportingTokensIdMap = new HashMap&lt;Token,String&gt;();</span>
+            }
+<span class="nc" id="L869">            tokenMap = this.signedEndorsingSupportingTokensIdMap;</span>
+<span class="nc" id="L870">            break;</span>
+            
+        default:
+<span class="nc" id="L873">            throw new RampartException(&quot;invalidSupportingVersionType&quot;,</span>
+                    new String[] { Integer.toString(type) });
+        }
+        
+<span class="nc" id="L877">        tokenMap.put(token, id);</span>
+<span class="nc" id="L878">    }</span>
+    
+    public String getSupportingTokenID(Token token, int type)
+            throws RampartException {
+<span class="nc bnc" id="L882" title="All 5 branches missed.">        switch (type) {</span>
+        case SPConstants.SUPPORTING_TOKEN_SUPPORTING:
+<span class="nc bnc" id="L884" title="All 2 branches missed.">            if(this.supportingTokensIdMap != null) {</span>
+<span class="nc" id="L885">                return (String)this.supportingTokensIdMap.get(token);</span>
+            }
+<span class="nc" id="L887">            return null;</span>
+
+        case SPConstants.SUPPORTING_TOKEN_SIGNED:
+<span class="nc bnc" id="L890" title="All 2 branches missed.">            if(this.signedSupportingTokensIdMap != null) {</span>
+<span class="nc" id="L891">                return (String)this.signedSupportingTokensIdMap.get(token);</span>
+            }
+<span class="nc" id="L893">            return null;</span>
+            
+        case SPConstants.SUPPORTING_TOKEN_ENDORSING:
+<span class="nc bnc" id="L896" title="All 2 branches missed.">            if(this.endorsingSupportingTokensIdMap != null) {</span>
+<span class="nc" id="L897">                return (String)this.endorsingSupportingTokensIdMap.get(token);</span>
+            }
+<span class="nc" id="L899">            return null;</span>
+            
+        case SPConstants.SUPPORTING_TOKEN_SIGNED_ENDORSING:
+<span class="nc bnc" id="L902" title="All 2 branches missed.">            if(this.signedEndorsingSupportingTokensIdMap == null) {</span>
+<span class="nc" id="L903">                this.signedEndorsingSupportingTokensIdMap = new HashMap();</span>
+            }
+<span class="nc" id="L905">            return null;</span>
+
+        default:
+<span class="nc" id="L908">            throw new RampartException(&quot;invalidSupportingVersionType&quot;,</span>
+                    new String[] { Integer.toString(type) });
+        }
+    }
+
+    public Wss10 getWss10() {
+<span class="fc" id="L914">        return wss10;</span>
+    }
+
+    public void setWss10(Wss10 wss10) {
+<span class="fc" id="L918">        this.wss10 = wss10;</span>
+<span class="fc" id="L919">    }</span>
+
+    public Wss11 getWss11() {
+<span class="fc" id="L922">        return wss11;</span>
+    }
+
+    public void setWss11(Wss11 wss11) {
+<span class="fc" id="L926">        this.wss11 = wss11;</span>
+<span class="fc" id="L927">    }</span>
+    
+    private void extractIssuerPolicy(Token token) {
+<span class="fc bfc" id="L930" title="All 4 branches covered.">        if(token instanceof SecureConversationToken &amp;&amp; this.issuerPolicy == null) {</span>
+<span class="fc" id="L931">            this.issuerPolicy = ((SecureConversationToken)token).getBootstrapPolicy();</span>
+        }
+<span class="fc" id="L933">    }</span>
+
+    public Policy getIssuerPolicy() {
+<span class="fc" id="L936">        return issuerPolicy;</span>
+    }
+    
+    public void setMTOMAssertion(MTOMAssertion mtomAssertion){
+<span class="nc" id="L940">    	this.mtomAssertion =  mtomAssertion;   	</span>
+<span class="nc" id="L941">    }</span>
+    
+    public MTOMAssertion getMTOMAssertion(){
+<span class="fc" id="L944">    	return mtomAssertion;</span>
+    }
+
+    public boolean isSignAllHeaders() {
+<span class="fc" id="L948">        return signAllHeaders;</span>
+    }
+
+    public void setSignAllHeaders(boolean signAllHeaders) {
+<span class="fc" id="L952">        this.signAllHeaders = signAllHeaders;</span>
+<span class="fc" id="L953">    }</span>
+    
+    public boolean isMTOMSerialize(){
+<span class="pc bpc" id="L956" title="1 of 2 branches missed.">    	if(mtomAssertion == null){</span>
+<span class="fc" id="L957">    		return false;</span>
+    	}
+<span class="nc bnc" id="L959" title="All 2 branches missed.">    	else if(mtomAssertion.isOptional()==false){</span>
+<span class="nc" id="L960">    		return true;</span>
+    	}
+    	else
+<span class="nc" id="L963">    		return false;</span>
+    }
+    
+    public OptimizePartsConfig getOptimizePartsConfig(){
+<span class="nc" id="L967">    	return rampartConfig.getOptimizeParts();</span>
+    }
+   
+     
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>WSDoAllReceiver.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.handler</a> &gt; <span class="el_source">WSDoAllReceiver.java</span></div><h1>WSDoAllReceiver.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.handler;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMException;
+import org.apache.axiom.soap.SOAPEnvelope;
+import org.apache.axiom.soap.SOAPHeader;
+import org.apache.axiom.soap.SOAPHeaderBlock;
+import org.apache.axis2.AxisFault;
+import org.apache.axis2.Constants;
+import org.apache.axis2.addressing.AddressingConstants;
+import org.apache.axis2.context.MessageContext;
+import org.apache.axis2.context.OperationContext;
+import org.apache.axis2.wsdl.WSDLConstants;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rampart.RampartConstants;
+import org.apache.rampart.util.Axis2Util;
+import org.apache.rampart.util.HandlerParameterDecoder;
+import org.apache.rampart.util.RampartUtil;
+import org.apache.ws.security.*;
+import org.apache.ws.security.handler.RequestData;
+import org.apache.ws.security.handler.WSHandlerConstants;
+import org.apache.ws.security.handler.WSHandlerResult;
+import org.apache.ws.security.message.token.Timestamp;
+import org.apache.ws.security.util.WSSecurityUtil;
+import org.w3c.dom.Document;
+
+import javax.security.auth.callback.CallbackHandler;
+import javax.xml.namespace.QName;
+
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * @deprecated
+ */
+public class WSDoAllReceiver extends WSDoAllHandler {
+
+<span class="fc" id="L57">    private static final Log log = LogFactory.getLog(WSDoAllReceiver.class);</span>
+<span class="fc" id="L58">    private static Log mlog = LogFactory.getLog(RampartConstants.MESSAGE_LOG);</span>
+
+    public WSDoAllReceiver() {
+<span class="fc" id="L61">        super();</span>
+<span class="fc" id="L62">        inHandler = true;</span>
+<span class="fc" id="L63">    }</span>
+
+    public void processMessage(MessageContext msgContext) throws AxisFault {
+    	
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">    	if(mlog.isDebugEnabled()){</span>
+<span class="nc" id="L68">        	mlog.debug(&quot;*********************** WSDoAllReceiver recieved \n&quot;+msgContext.getEnvelope());</span>
+        }
+    	
+<span class="fc" id="L71">        boolean doDebug = log.isDebugEnabled();</span>
+
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        if (doDebug) {</span>
+<span class="nc" id="L74">            log.debug(&quot;WSDoAllReceiver: enter invoke() &quot;);</span>
+        }
+
+<span class="fc" id="L77">        String useDoomValue = (String) getProperty(msgContext,</span>
+                WSSHandlerConstants.USE_DOOM);
+<span class="pc bpc" id="L79" title="3 of 4 branches missed.">        boolean useDoom = useDoomValue != null</span>
+                &amp;&amp; Constants.VALUE_TRUE.equalsIgnoreCase(useDoomValue);
+
+<span class="fc" id="L82">        RequestData reqData = new RequestData();</span>
+        try {
+
+<span class="fc" id="L85">            this.processBasic(msgContext, useDoom, reqData);</span>
+<span class="nc" id="L86">        } catch (AxisFault axisFault) {</span>
+<span class="nc" id="L87">            setAddressingInformationOnFault(msgContext);</span>
+<span class="nc" id="L88">            throw axisFault;</span>
+<span class="nc" id="L89">        } catch (Exception e) {</span>
+<span class="nc" id="L90">            setAddressingInformationOnFault(msgContext);</span>
+<span class="nc" id="L91">            throw new AxisFault(e.getMessage(), e);</span>
+        } finally {
+
+<span class="pc bpc" id="L94" title="3 of 4 branches missed.">            if (reqData != null) {</span>
+<span class="pc" id="L95">                reqData.clear();</span>
+<span class="pc" id="L96">                reqData = null;</span>
+            }
+
+<span class="pc bpc" id="L99" title="3 of 4 branches missed.">            if (doDebug) {</span>
+<span class="nc" id="L100">                log.debug(&quot;WSDoAllReceiver: exit invoke()&quot;);</span>
+            }
+        }
+
+<span class="fc" id="L104">    }</span>
+
+    private void processBasic(MessageContext msgContext, boolean useDoom, RequestData reqData)
+            throws Exception {
+
+        // populate the properties
+        try {
+<span class="fc" id="L111">            HandlerParameterDecoder.processParameters(msgContext, true);</span>
+<span class="nc" id="L112">        } catch (Exception e) {</span>
+<span class="nc" id="L113">            throw new AxisFault(&quot;Configuration error&quot;, e);</span>
+<span class="fc" id="L114">        }</span>
+
+        // Retrieves signature crypto and set it to decryption crypto
+<span class="fc" id="L117">        RampartUtil.setDecryptionCrypto(msgContext);</span>
+
+<span class="fc" id="L119">        reqData.setMsgContext(msgContext);</span>
+
+<span class="pc bpc" id="L121" title="1 of 4 branches missed.">        if (((getOption(WSSHandlerConstants.INFLOW_SECURITY)) == null) &amp;&amp;</span>
+            ((getProperty(msgContext, WSSHandlerConstants.INFLOW_SECURITY)) == null)) {
+            
+<span class="pc bpc" id="L124" title="2 of 6 branches missed.">            if (msgContext.isServerSide() &amp;&amp; </span>
+                ((getOption(WSSHandlerConstants.INFLOW_SECURITY_SERVER)) == null) &amp;&amp;
+                ((getProperty(msgContext, WSSHandlerConstants.INFLOW_SECURITY_SERVER)) == null)) {
+            
+<span class="fc" id="L128">                return;</span>
+<span class="pc bpc" id="L129" title="2 of 4 branches missed.">            } else if (((getOption(WSSHandlerConstants.INFLOW_SECURITY_CLIENT)) == null) &amp;&amp;</span>
+                    ((getProperty(msgContext, WSSHandlerConstants.INFLOW_SECURITY_CLIENT)) == null))  {
+                
+<span class="fc" id="L132">                return;</span>
+            }
+        }
+        
+<span class="fc" id="L136">        List&lt;java.lang.Integer&gt; actions = new ArrayList&lt;Integer&gt;();</span>
+<span class="fc" id="L137">        String action = null;</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">        if ((action = (String) getOption(WSSHandlerConstants.ACTION_ITEMS)) == null) {</span>
+<span class="fc" id="L139">            action = (String) getProperty(msgContext,</span>
+                    WSSHandlerConstants.ACTION_ITEMS);
+        }
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">        if (action == null) {</span>
+<span class="nc" id="L143">            throw new AxisFault(&quot;WSDoAllReceiver: No action items defined&quot;);</span>
+        }
+<span class="fc" id="L145">        int doAction = WSSecurityUtil.decodeAction(action, actions);</span>
+
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">        if (doAction == WSConstants.NO_SECURITY) {</span>
+<span class="nc" id="L148">            return;</span>
+        }
+
+<span class="fc" id="L151">        String actor = (String) getOption(WSHandlerConstants.ACTOR);</span>
+
+<span class="fc" id="L153">        Document doc = null;</span>
+
+        try {
+<span class="fc" id="L156">            doc = Axis2Util.getDocumentFromSOAPEnvelope(msgContext</span>
+                    .getEnvelope(), useDoom);
+<span class="nc" id="L158">        } catch (WSSecurityException wssEx) {</span>
+<span class="nc" id="L159">            throw new AxisFault(</span>
+                    &quot;WSDoAllReceiver: Error in converting to Document&quot;, wssEx);
+<span class="fc" id="L161">        }</span>
+
+        // Do not process faults
+<span class="fc" id="L164">        SOAPConstants soapConstants = WSSecurityUtil.getSOAPConstants(doc</span>
+                .getDocumentElement());
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">        if (WSSecurityUtil.findElement(doc.getDocumentElement(), &quot;Fault&quot;,</span>
+                soapConstants.getEnvelopeURI()) != null) {
+<span class="nc" id="L168">            return;</span>
+        }
+
+        /*
+         * To check a UsernameToken or to decrypt an encrypted message we need a
+         * password.
+         */
+<span class="fc" id="L175">        CallbackHandler cbHandler = null;</span>
+<span class="fc bfc" id="L176" title="All 2 branches covered.">        if ((doAction &amp; (WSConstants.ENCR | WSConstants.UT)) != 0) {</span>
+<span class="fc" id="L177">            cbHandler = getPasswordCallbackHandler(reqData);</span>
+        }
+
+        // Copy the WSHandlerConstants.SEND_SIGV over to the new message
+        // context - if it exists, if signatureConfirmation in the response msg
+<span class="fc" id="L182">        String sigConfEnabled = null;</span>
+<span class="pc bpc" id="L183" title="1 of 2 branches missed.">        if ((sigConfEnabled = (String) getOption(WSHandlerConstants.ENABLE_SIGNATURE_CONFIRMATION)) == null) {</span>
+<span class="fc" id="L184">            sigConfEnabled = (String) getProperty(msgContext,</span>
+                    WSHandlerConstants.ENABLE_SIGNATURE_CONFIRMATION);
+        }
+
+        // To handle sign confirmation of a sync response
+        // TODO Async response
+<span class="fc bfc" id="L190" title="All 4 branches covered.">        if (!msgContext.isServerSide()</span>
+                &amp;&amp; !&quot;false&quot;.equalsIgnoreCase(sigConfEnabled)) {
+<span class="fc" id="L192">            OperationContext opCtx = msgContext.getOperationContext();</span>
+<span class="fc" id="L193">            MessageContext outMsgCtx = opCtx</span>
+                    .getMessageContext(WSDLConstants.MESSAGE_LABEL_OUT_VALUE);
+<span class="pc bpc" id="L195" title="1 of 2 branches missed.">            if (outMsgCtx != null) {</span>
+<span class="fc" id="L196">                msgContext.setProperty(WSHandlerConstants.SEND_SIGV, outMsgCtx</span>
+                        .getProperty(WSHandlerConstants.SEND_SIGV));
+            } else {
+<span class="nc" id="L199">                throw new WSSecurityException(</span>
+                        &quot;Cannot obtain request message context&quot;);
+            }
+        }
+
+        /*
+         * Get and check the Signature specific parameters first because they
+         * may be used for encryption too.
+         */
+
+<span class="fc" id="L209">        doReceiverAction(doAction, reqData);</span>
+
+<span class="fc" id="L211">        List&lt;WSSecurityEngineResult&gt; wsResult = null;</span>
+        try {
+<span class="fc" id="L213">            wsResult = secEngine.processSecurityHeader(doc, actor, cbHandler,</span>
+                    reqData.getSigCrypto(), reqData.getDecCrypto());
+<span class="nc" id="L215">        } catch (WSSecurityException ex) {</span>
+<span class="nc" id="L216">            throw new AxisFault(&quot;WSDoAllReceiver: security processing failed&quot;,</span>
+                    ex);
+<span class="fc" id="L218">        }</span>
+<span class="pc bpc" id="L219" title="1 of 2 branches missed.">        if (wsResult == null) { // no security header found</span>
+<span class="nc bnc" id="L220" title="All 2 branches missed.">            if (doAction == WSConstants.NO_SECURITY) {</span>
+<span class="nc" id="L221">                return;</span>
+            } else {
+<span class="nc" id="L223">                throw new AxisFault(</span>
+                        &quot;WSDoAllReceiver: Incoming message does not contain required Security header&quot;);
+            }
+        }
+
+<span class="pc bpc" id="L228" title="3 of 4 branches missed.">        if (reqData.getWssConfig().isEnableSignatureConfirmation()</span>
+                &amp;&amp; !msgContext.isServerSide()) {
+<span class="nc" id="L230">            checkSignatureConfirmation(reqData, wsResult);</span>
+        }
+
+        /**
+         * Set the new SOAPEnvelope
+         */
+
+<span class="fc" id="L237">        msgContext.setEnvelope(Axis2Util.getSOAPEnvelopeFromDOMDocument(doc, useDoom));</span>
+
+        /*
+         * After setting the new current message, probably modified because of
+         * decryption, we need to locate the security header. That is, we force
+         * Axis (with getSOAPEnvelope()) to parse the string, build the new
+         * header. Then we examine, look up the security header and set the
+         * header as processed.
+         * 
+         * Please note: find all header elements that contain the same actor
+         * that was given to processSecurityHeader(). Then check if there is a
+         * security header with this actor.
+         */
+<span class="fc" id="L250">        SOAPHeader header = null;</span>
+        try {
+<span class="fc" id="L252">            header = msgContext.getEnvelope().getHeader();</span>
+<span class="nc" id="L253">        } catch (OMException ex) {</span>
+<span class="nc" id="L254">            throw new AxisFault(</span>
+                    &quot;WSDoAllReceiver: cannot get SOAP header after security processing&quot;,
+                    ex);
+<span class="fc" id="L257">        }</span>
+
+<span class="fc" id="L259">        Iterator headers = header.examineHeaderBlocks(actor);</span>
+
+<span class="fc" id="L261">        SOAPHeaderBlock headerBlock = null;</span>
+
+<span class="pc bpc" id="L263" title="1 of 2 branches missed.">        while (headers.hasNext()) { // Find the wsse header</span>
+<span class="fc" id="L264">            SOAPHeaderBlock hb = (SOAPHeaderBlock) headers.next();</span>
+<span class="pc bpc" id="L265" title="2 of 4 branches missed.">            if (hb.getLocalName().equals(WSConstants.WSSE_LN)</span>
+                    &amp;&amp; hb.getNamespace().getNamespaceURI().equals(WSConstants.WSSE_NS)) {
+<span class="fc" id="L267">                headerBlock = hb;</span>
+<span class="fc" id="L268">                break;</span>
+            }
+<span class="nc" id="L270">        }</span>
+
+<span class="pc bpc" id="L272" title="1 of 2 branches missed.">        if(headerBlock != null) {</span>
+<span class="fc" id="L273">            headerBlock.setProcessed();</span>
+        }
+
+        /*
+         * Now we can check the certificate used to sign the message. In the
+         * following implementation the certificate is only trusted if either it
+         * itself or the certificate of the issuer is installed in the keystore.
+         * 
+         * Note: the method verifyTrust(X509Certificate) allows custom
+         * implementations with other validation algorithms for subclasses.
+         */
+
+        // Extract the signature action result from the action list
+<span class="fc" id="L286">        WSSecurityEngineResult actionResult = WSSecurityUtil.fetchActionResult(</span>
+                wsResult, WSConstants.SIGN);
+
+<span class="fc bfc" id="L289" title="All 2 branches covered.">        if (actionResult != null) {</span>
+<span class="fc" id="L290">            X509Certificate returnCert = (X509Certificate)actionResult.get(WSSecurityEngineResult.TAG_X509_CERTIFICATE);</span>
+
+<span class="pc bpc" id="L292" title="1 of 2 branches missed.">            if (returnCert != null) {</span>
+<span class="fc" id="L293">                CertificateValidator certificateValidator = new CertificateValidator();</span>
+
+<span class="pc bpc" id="L295" title="1 of 2 branches missed.">                if (!certificateValidator.validateCertificate(returnCert, reqData.getSigCrypto())) {</span>
+<span class="nc" id="L296">                    throw new AxisFault(</span>
+                            &quot;WSDoAllReceiver: The certificate used for the signature is not trusted&quot;);
+                }
+            }
+        }
+
+        /*
+         * Perform further checks on the timestamp that was transmitted in the
+         * header. In the following implementation the timestamp is valid if it
+         * was created after (now-ttl), where ttl is set on server side, not by
+         * the client.
+         * 
+         * Note: the method verifyTimestamp(Timestamp) allows custom
+         * implementations with other validation algorithms for subclasses.
+         */
+
+        // Extract the timestamp action result from the action list
+<span class="fc" id="L313">        actionResult = WSSecurityUtil.fetchActionResult(wsResult,</span>
+                WSConstants.TS);
+
+<span class="fc bfc" id="L316" title="All 2 branches covered.">        if (actionResult != null) {</span>
+<span class="fc" id="L317">            Timestamp timestamp = (Timestamp)actionResult.get(WSSecurityEngineResult.TAG_TIMESTAMP);</span>
+
+<span class="pc bpc" id="L319" title="1 of 2 branches missed.">            if (timestamp != null) {</span>
+<span class="fc" id="L320">                String ttl = null;</span>
+<span class="pc bpc" id="L321" title="1 of 2 branches missed.">                if ((ttl = (String) getOption(WSHandlerConstants.TTL_TIMESTAMP)) == null) {</span>
+<span class="fc" id="L322">                    ttl = (String) getProperty(msgContext,</span>
+                            WSHandlerConstants.TTL_TIMESTAMP);
+                }
+<span class="fc" id="L325">                int ttl_i = 0;</span>
+<span class="pc bpc" id="L326" title="1 of 2 branches missed.">                if (ttl != null) {</span>
+                    try {
+<span class="nc" id="L328">                        ttl_i = Integer.parseInt(ttl);</span>
+<span class="nc" id="L329">                    } catch (NumberFormatException e) {</span>
+<span class="nc" id="L330">                        ttl_i = reqData.getTimeToLive();</span>
+<span class="nc" id="L331">                    }</span>
+                }
+<span class="pc bpc" id="L333" title="1 of 2 branches missed.">                if (ttl_i &lt;= 0) {</span>
+<span class="fc" id="L334">                    ttl_i = reqData.getTimeToLive();</span>
+                }
+
+                // TODO configure future time to live
+<span class="pc bpc" id="L338" title="1 of 2 branches missed.">                if (!timestamp.verifyCreated(ttl_i, 60)) {</span>
+<span class="nc" id="L339">                    throw new AxisFault(</span>
+                            &quot;WSDoAllReceiver: The timestamp could not be validated&quot;);
+                }
+            }
+        }
+
+        /*
+         * now check the security actions: do they match, in right order?
+         */
+<span class="pc bpc" id="L348" title="1 of 2 branches missed.">        if (!checkReceiverResults(wsResult, actions)) {</span>
+<span class="nc" id="L349">            throw new AxisFault(</span>
+                    &quot;WSDoAllReceiver: security processing failed (actions mismatch)&quot;);
+
+        }
+        /*
+         * All ok up to this point. Now construct and setup the security result
+         * structure. The service may fetch this and check it. Also the
+         * DoAllSender will use this in certain situations such as:
+         * USE_REQ_SIG_CERT to encrypt
+         */
+<span class="fc" id="L359">        List&lt;WSHandlerResult&gt; results = null;</span>
+<span class="pc bpc" id="L360" title="1 of 2 branches missed.">        if ((results = (List&lt;WSHandlerResult&gt;) getProperty(msgContext,</span>
+                WSHandlerConstants.RECV_RESULTS)) == null) {
+<span class="fc" id="L362">            results = new ArrayList&lt;WSHandlerResult&gt;();</span>
+<span class="fc" id="L363">            msgContext.setProperty(WSHandlerConstants.RECV_RESULTS, results);</span>
+        }
+<span class="fc" id="L365">        WSHandlerResult rResult = new WSHandlerResult(actor, wsResult);</span>
+<span class="fc" id="L366">        results.add(0, rResult);</span>
+<span class="fc" id="L367">    }</span>
+
+    private void setAddressingInformationOnFault(MessageContext msgContext) {
+<span class="nc" id="L370">        SOAPEnvelope env = msgContext.getEnvelope();</span>
+<span class="nc" id="L371">        SOAPHeader header = env.getHeader();</span>
+
+<span class="nc bnc" id="L373" title="All 2 branches missed.">        if (header != null) {</span>
+<span class="nc" id="L374">            OMElement msgIdElem = header.getFirstChildWithName(new QName(</span>
+                    AddressingConstants.Final.WSA_NAMESPACE,
+                    AddressingConstants.WSA_MESSAGE_ID));
+<span class="nc bnc" id="L377" title="All 2 branches missed.">            if (msgIdElem == null) {</span>
+<span class="nc" id="L378">                msgIdElem = header.getFirstChildWithName(new QName(</span>
+                        AddressingConstants.Submission.WSA_NAMESPACE,
+                        AddressingConstants.WSA_MESSAGE_ID));
+            }
+<span class="nc bnc" id="L382" title="All 4 branches missed.">            if (msgIdElem != null &amp;&amp; msgIdElem.getText() != null) {</span>
+<span class="nc" id="L383">                msgContext.getOptions().setMessageId(msgIdElem.getText());</span>
+            }
+        }
+<span class="nc" id="L386">    }</span>
+    
+    protected void doReceiverAction(int doAction, RequestData reqData)
+        throws WSSecurityException {
+        //backward compatibility, allow username tokens without password per default
+        //see https://issues.apache.org/jira/browse/WSS-420
+<span class="fc" id="L392">        Object msgContext = reqData.getMsgContext();</span>
+<span class="pc bpc" id="L393" title="1 of 2 branches missed.">        if (getProperty(msgContext, WSHandlerConstants.ALLOW_USERNAMETOKEN_NOPASSWORD) == null) {</span>
+<span class="fc" id="L394">            setProperty(msgContext, WSHandlerConstants.ALLOW_USERNAMETOKEN_NOPASSWORD, &quot;true&quot;);</span>
+        }
+<span class="fc" id="L396">        super.doReceiverAction(doAction, reqData);</span>
+<span class="fc" id="L397">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

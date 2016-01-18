@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SAMLTokenIssuer.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.impl</a> &gt; <span class="el_source">SAMLTokenIssuer.java</span></div><h1>SAMLTokenIssuer.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rahas.impl;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMNode;
+import org.apache.axiom.soap.SOAPEnvelope;
+import org.apache.axis2.context.MessageContext;
+import org.apache.axis2.description.Parameter;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rahas.RahasConstants;
+import org.apache.rahas.RahasData;
+import org.apache.rahas.Token;
+import org.apache.rahas.TokenIssuer;
+import org.apache.rahas.TrustException;
+import org.apache.rahas.TrustUtil;
+import org.apache.rahas.impl.util.*;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.WSUsernameTokenPrincipal;
+import org.apache.ws.security.components.crypto.Crypto;
+import org.apache.ws.security.components.crypto.CryptoFactory;
+import org.apache.ws.security.util.Loader;
+import org.apache.ws.security.util.XmlSchemaDateFormat;
+
+import org.joda.time.DateTime;
+import org.opensaml.common.SAMLException;
+import org.opensaml.saml1.core.*;
+import org.opensaml.xml.signature.KeyInfo;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import java.security.Principal;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Issuer to issue SAMl tokens
+ */
+<span class="fc" id="L59">public class SAMLTokenIssuer implements TokenIssuer {</span>
+
+    private String configParamName;
+
+    private OMElement configElement;
+
+    private String configFile;
+
+
+    //TODO move this to TrustUtil
+    private static final String  AUTHENTICATION_METHOD_PASSWORD = &quot;urn:oasis:names:tc:SAML:1.0:am:password&quot;;
+
+<span class="fc" id="L71">    private static final Log log = LogFactory.getLog(SAMLTokenIssuer.class);</span>
+
+    public SOAPEnvelope issue(RahasData data) throws TrustException {
+<span class="fc" id="L74">        MessageContext inMsgCtx = data.getInMessageContext();</span>
+
+<span class="fc" id="L76">        SAMLTokenIssuerConfig config = null;</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">        if (this.configElement != null) {</span>
+<span class="nc" id="L78">            config = new SAMLTokenIssuerConfig(configElement</span>
+                            .getFirstChildWithName(SAMLTokenIssuerConfig.SAML_ISSUER_CONFIG));
+        }
+
+        // Look for the file
+<span class="pc bpc" id="L83" title="2 of 4 branches missed.">        if (config == null &amp;&amp; this.configFile != null) {</span>
+<span class="nc" id="L84">            config = new SAMLTokenIssuerConfig(this.configFile);</span>
+        }
+
+        // Look for the param
+<span class="pc bpc" id="L88" title="2 of 4 branches missed.">        if (config == null &amp;&amp; this.configParamName != null) {</span>
+<span class="fc" id="L89">            Parameter param = inMsgCtx.getParameter(this.configParamName);</span>
+<span class="pc bpc" id="L90" title="2 of 4 branches missed.">            if (param != null &amp;&amp; param.getParameterElement() != null) {</span>
+<span class="fc" id="L91">                config = new SAMLTokenIssuerConfig(param</span>
+                        .getParameterElement().getFirstChildWithName(
+                                SAMLTokenIssuerConfig.SAML_ISSUER_CONFIG));
+            } else {
+<span class="nc" id="L95">                throw new TrustException(&quot;expectedParameterMissing&quot;,</span>
+                        new String[] { this.configParamName });
+            }
+        }
+
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">        if (config == null) {</span>
+<span class="nc" id="L101">            throw new TrustException(&quot;configurationIsNull&quot;);</span>
+        }
+
+<span class="fc" id="L104">        SOAPEnvelope env = TrustUtil.createSOAPEnvelope(inMsgCtx</span>
+                .getEnvelope().getNamespace().getNamespaceURI());
+
+        Crypto crypto;
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        if (config.cryptoElement != null) { // crypto props defined as elements</span>
+<span class="fc" id="L109">            crypto = CommonUtil.getCrypto(TrustUtil</span>
+                    .toProperties(config.cryptoElement), inMsgCtx
+                    .getAxisService().getClassLoader());
+
+        } else { // crypto props defined in a properties file
+<span class="nc" id="L114">            crypto = CommonUtil.getCrypto(config.cryptoPropertiesFile, inMsgCtx</span>
+                    .getAxisService().getClassLoader());
+        }
+
+        // Creation and expiration times
+<span class="fc" id="L119">        DateTime creationTime = new DateTime();</span>
+<span class="fc" id="L120">        DateTime expirationTime = new DateTime(creationTime.getMillis() + config.ttl);</span>
+
+        // Get the document
+<span class="fc" id="L123">        Document doc = ((Element) env).getOwnerDocument();</span>
+
+        // Get the key size and create a new byte array of that size
+<span class="fc" id="L126">        int keySize = data.getKeysize();</span>
+
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">        keySize = (keySize == -1) ? config.keySize : keySize;</span>
+
+        /*
+         * Find the KeyType If the KeyType is SymmetricKey or PublicKey,
+         * issue a SAML HoK assertion. - In the case of the PublicKey, in
+         * coming security header MUST contain a certificate (maybe via
+         * signature)
+         * 
+         * If the KeyType is Bearer then issue a Bearer assertion
+         * 
+         * If the key type is missing we will issue a HoK assertion
+         */
+
+<span class="fc" id="L141">        String keyType = data.getKeyType();</span>
+        Assertion assertion;
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">        if (keyType == null) {</span>
+<span class="nc" id="L144">            throw new TrustException(TrustException.INVALID_REQUEST,</span>
+                    new String[] { &quot;Requested KeyType is missing&quot; });
+        }
+
+<span class="fc bfc" id="L148" title="All 4 branches covered.">        if (keyType.endsWith(RahasConstants.KEY_TYPE_SYMM_KEY)</span>
+                || keyType.endsWith(RahasConstants.KEY_TYPE_PUBLIC_KEY)) {
+<span class="fc" id="L150">            assertion = createHoKAssertion(config, doc, crypto,</span>
+                    creationTime, expirationTime, data);
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">        } else if (keyType.endsWith(RahasConstants.KEY_TYPE_BEARER)) {</span>
+<span class="fc" id="L153">            assertion = createBearerAssertion(config, doc, crypto,</span>
+                    creationTime, expirationTime, data);
+        } else {
+<span class="nc" id="L156">            throw new TrustException(&quot;unsupportedKeyType&quot;);</span>
+        }
+
+        OMElement rstrElem;
+<span class="fc" id="L160">        int wstVersion = data.getVersion();</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">        if (RahasConstants.VERSION_05_02 == wstVersion) {</span>
+<span class="fc" id="L162">            rstrElem = TrustUtil.createRequestSecurityTokenResponseElement(</span>
+                    wstVersion, env.getBody());
+        } else {
+<span class="fc" id="L165">            OMElement rstrcElem = TrustUtil</span>
+                    .createRequestSecurityTokenResponseCollectionElement(
+                            wstVersion, env.getBody());
+<span class="fc" id="L168">            rstrElem = TrustUtil.createRequestSecurityTokenResponseElement(</span>
+                    wstVersion, rstrcElem);
+        }
+
+<span class="fc" id="L172">        TrustUtil.createTokenTypeElement(wstVersion, rstrElem).setText(</span>
+                RahasConstants.TOK_TYPE_SAML_10);
+
+<span class="fc bfc" id="L175" title="All 2 branches covered.">        if (keyType.endsWith(RahasConstants.KEY_TYPE_SYMM_KEY)) {</span>
+<span class="fc" id="L176">            TrustUtil.createKeySizeElement(wstVersion, rstrElem, keySize);</span>
+        }
+
+<span class="pc bpc" id="L179" title="1 of 2 branches missed.">        if (config.addRequestedAttachedRef) {</span>
+<span class="fc" id="L180">            TrustUtil.createRequestedAttachedRef(rstrElem, assertion.getID(),wstVersion);</span>
+        }
+
+<span class="pc bpc" id="L183" title="1 of 2 branches missed.">        if (config.addRequestedUnattachedRef) {</span>
+<span class="fc" id="L184">            TrustUtil.createRequestedUnattachedRef(rstrElem, assertion.getID(),wstVersion);</span>
+        }
+
+<span class="fc bfc" id="L187" title="All 2 branches covered.">        if (data.getAppliesToAddress() != null) {</span>
+<span class="fc" id="L188">            TrustUtil.createAppliesToElement(rstrElem, data</span>
+                    .getAppliesToAddress(), data.getAddressingNs());
+        }
+
+        // Use GMT time in milliseconds
+<span class="fc" id="L193">        DateFormat zulu = new XmlSchemaDateFormat();</span>
+
+        // Add the Lifetime element
+<span class="fc" id="L196">        TrustUtil.createLifetimeElement(wstVersion, rstrElem, zulu</span>
+                .format(creationTime.toDate()), zulu.format(expirationTime.toDate()));
+
+        // Create the RequestedSecurityToken element and add the SAML token
+        // to it
+<span class="fc" id="L201">        OMElement reqSecTokenElem = TrustUtil</span>
+                .createRequestedSecurityTokenElement(wstVersion, rstrElem);
+        Token assertionToken;
+        //try {
+<span class="fc" id="L205">            Node tempNode = assertion.getDOM();</span>
+<span class="fc" id="L206">            reqSecTokenElem.addChild((OMNode) ((Element) rstrElem)</span>
+                    .getOwnerDocument().importNode(tempNode, true));
+
+            // Store the token
+<span class="fc" id="L210">            assertionToken = new Token(assertion.getID(),</span>
+                    (OMElement) assertion.getDOM(), creationTime.toDate(),
+                    expirationTime.toDate());
+
+            // At this point we definitely have the secret
+            // Otherwise it should fail with an exception earlier
+<span class="fc" id="L216">            assertionToken.setSecret(data.getEphmeralKey());</span>
+<span class="fc" id="L217">            TrustUtil.getTokenStore(inMsgCtx).add(assertionToken);</span>
+
+       /* } catch (SAMLException e) {
+            throw new TrustException(&quot;samlConverstionError&quot;, e);
+        }*/
+
+<span class="pc bpc" id="L223" title="1 of 4 branches missed.">        if (keyType.endsWith(RahasConstants.KEY_TYPE_SYMM_KEY)</span>
+                &amp;&amp; config.keyComputation != SAMLTokenIssuerConfig.KeyComputation.KEY_COMP_USE_REQ_ENT) {
+
+            // Add the RequestedProofToken
+<span class="fc" id="L227">            TokenIssuerUtil.handleRequestedProofToken(data, wstVersion,</span>
+                    config, rstrElem, assertionToken, doc);
+        }
+
+<span class="fc" id="L231">        return env;</span>
+    }
+
+
+
+    private Assertion createBearerAssertion(SAMLTokenIssuerConfig config,
+                                            Document doc, Crypto crypto, DateTime creationTime,
+                                            DateTime expirationTime, RahasData data) throws TrustException {
+
+<span class="fc" id="L240">        Principal principal = data.getPrincipal();</span>
+        Assertion assertion;
+        // In the case where the principal is a UT
+<span class="pc bpc" id="L243" title="1 of 2 branches missed.">        if (principal instanceof WSUsernameTokenPrincipal) {</span>
+<span class="fc" id="L244">            NameIdentifier nameId = null;</span>
+<span class="pc bpc" id="L245" title="1 of 2 branches missed.">            if (config.getCallbackHandler() != null) {</span>
+<span class="nc" id="L246">                SAMLNameIdentifierCallback cb = new SAMLNameIdentifierCallback(data);</span>
+<span class="nc" id="L247">                cb.setUserId(principal.getName());</span>
+<span class="nc" id="L248">                SAMLCallbackHandler callbackHandler = config.getCallbackHandler();</span>
+                try {
+<span class="nc" id="L250">                    callbackHandler.handle(cb);</span>
+<span class="nc" id="L251">                } catch (SAMLException e) {</span>
+<span class="nc" id="L252">                    throw new TrustException(&quot;unableToRetrieveCallbackHandler&quot;, e);</span>
+<span class="nc" id="L253">                }</span>
+<span class="nc" id="L254">                nameId = cb.getNameId();</span>
+<span class="nc" id="L255">            } else {</span>
+
+<span class="fc" id="L257">                nameId = SAMLUtils.createNamedIdentifier(principal.getName(), NameIdentifier.EMAIL);</span>
+            }
+
+<span class="fc" id="L260">            assertion = createAuthAssertion(RahasConstants.SAML11_SUBJECT_CONFIRMATION_BEARER,</span>
+                    nameId, null, config, crypto, creationTime,
+                    expirationTime, data);
+<span class="fc" id="L263">            return assertion;</span>
+        } else {
+<span class="nc" id="L265">            throw new TrustException(&quot;samlUnsupportedPrincipal&quot;,</span>
+                    new String[]{principal.getClass().getName()});
+        }
+    }
+
+    private Assertion createHoKAssertion(SAMLTokenIssuerConfig config,
+            Document doc, Crypto crypto, DateTime creationTime,
+            DateTime expirationTime, RahasData data) throws TrustException {
+
+<span class="fc bfc" id="L274" title="All 2 branches covered.">        if (data.getKeyType().endsWith(RahasConstants.KEY_TYPE_SYMM_KEY)) {</span>
+<span class="fc" id="L275">            X509Certificate serviceCert = null;</span>
+            try {
+
+                // TODO what if principal is null ?
+<span class="fc" id="L279">                NameIdentifier nameIdentifier = null;</span>
+<span class="pc bpc" id="L280" title="1 of 2 branches missed.">                if (data.getPrincipal() != null) {</span>
+<span class="fc" id="L281">                    String subjectNameId = data.getPrincipal().getName();</span>
+<span class="fc" id="L282">                    nameIdentifier =SAMLUtils.createNamedIdentifier(subjectNameId, NameIdentifier.EMAIL);</span>
+                }
+
+                /**
+                 * In this case we need to create a KeyInfo similar to following,
+                 * *  &lt;KeyInfo xmlns=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&gt;
+                 *     &lt;xenc:EncryptedKey xmlns:xenc=&quot;http://www.w3.org/2001/04/xmlenc#&quot;
+                 *           ....
+                 *     &lt;/xenc:EncryptedKey&gt;
+                 *   &lt;/ds:KeyInfo&gt;
+                 */
+
+                // Get ApliesTo to figure out which service to issue the token
+                // for
+<span class="fc" id="L296">                serviceCert = getServiceCert(config, crypto, data</span>
+                        .getAppliesToAddress());
+
+                // set keySize
+<span class="fc" id="L300">                int keySize = data.getKeysize();</span>
+<span class="pc bpc" id="L301" title="1 of 2 branches missed.">                keySize = (keySize != -1) ? keySize : config.keySize;</span>
+
+                // Create the encrypted key
+<span class="fc" id="L304">                KeyInfo encryptedKeyInfoElement</span>
+                        = SAMLUtils.getSymmetricKeyBasedKeyInfo(doc, data, serviceCert, keySize,
+                        crypto, config.keyComputation);
+
+<span class="fc" id="L308">                return this.createAttributeAssertion(data, encryptedKeyInfoElement, nameIdentifier, config,</span>
+                    crypto, creationTime, expirationTime);
+
+
+<span class="nc" id="L312">            } catch (WSSecurityException e) {</span>
+
+<span class="nc bnc" id="L314" title="All 2 branches missed.">                if (serviceCert != null) {</span>
+<span class="nc" id="L315">                    throw new TrustException(</span>
+                            &quot;errorInBuildingTheEncryptedKeyForPrincipal&quot;,
+                            new String[]{serviceCert.getSubjectDN().getName()},
+                            e);
+                } else {
+<span class="nc" id="L320">                    throw new TrustException(</span>
+                            &quot;trustedCertNotFoundForEPR&quot;,
+                            new String[]{data.getAppliesToAddress()},
+                            e);
+                }
+
+            }
+        } else {
+            try {
+
+                /**
+                 * In this case we need to create KeyInfo as follows,
+                 * &lt;KeyInfo xmlns=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&gt;
+                 *   &lt;X509Data xmlns:xenc=&quot;http://www.w3.org/2001/04/xmlenc#&quot;
+                 *             xmlns:ds=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&gt;
+                 *        &lt;X509Certificate&gt;
+                 *              MIICNTCCAZ6gAwIBAgIES343....
+                 *           &lt;/X509Certificate&gt;
+                 *       &lt;/X509Data&gt;
+                 *   &lt;/KeyInfo&gt;
+                 */
+
+<span class="fc" id="L342">                String subjectNameId = data.getPrincipal().getName();</span>
+                
+<span class="fc" id="L344">                NameIdentifier nameId = SAMLUtils.createNamedIdentifier(subjectNameId, NameIdentifier.EMAIL);</span>
+
+                // Create the ds:KeyValue element with the ds:X509Data
+<span class="fc" id="L347">                X509Certificate clientCert = data.getClientCert();</span>
+
+<span class="pc bpc" id="L349" title="1 of 2 branches missed.">                if(clientCert == null) {</span>
+<span class="nc" id="L350">                    clientCert = CommonUtil.getCertificateByAlias(crypto,data.getPrincipal().getName());;</span>
+                }
+
+<span class="fc" id="L353">                KeyInfo keyInfo = SAMLUtils.getCertificateBasedKeyInfo(clientCert);</span>
+
+<span class="fc" id="L355">                return this.createAuthAssertion(RahasConstants.SAML11_SUBJECT_CONFIRMATION_HOK, nameId, keyInfo,</span>
+                        config, crypto, creationTime, expirationTime, data);
+<span class="nc" id="L357">            } catch (Exception e) {</span>
+<span class="nc" id="L358">                throw new TrustException(&quot;samlAssertionCreationError&quot;, e);</span>
+            }
+        }
+    }
+
+    /**
+     * Uses the &lt;code&gt;wst:AppliesTo&lt;/code&gt; to figure out the certificate to
+     * encrypt the secret in the SAML token
+     * 
+     * @param config Token issuer configuration.
+     * @param crypto Crypto properties.
+     * @param serviceAddress
+     *            The address of the service
+     * @return The X509 certificate.
+     * @throws org.apache.rahas.TrustException If an error occurred while retrieving certificate from crypto.
+     */
+    private X509Certificate getServiceCert(SAMLTokenIssuerConfig config,
+            Crypto crypto, String serviceAddress) throws TrustException {
+
+        // TODO a duplicate method !!
+<span class="pc bpc" id="L378" title="1 of 4 branches missed.">        if (serviceAddress != null &amp;&amp; !&quot;&quot;.equals(serviceAddress)) {</span>
+<span class="fc" id="L379">            String alias = (String) config.trustedServices.get(serviceAddress);</span>
+<span class="pc bpc" id="L380" title="1 of 2 branches missed.">            if (alias != null) {</span>
+<span class="fc" id="L381">                return CommonUtil.getCertificateByAlias(crypto,alias);</span>
+            } else {
+<span class="nc" id="L383">                alias = (String) config.trustedServices.get(&quot;*&quot;);</span>
+<span class="nc" id="L384">                return CommonUtil.getCertificateByAlias(crypto,alias);</span>
+            }
+        } else {
+<span class="fc" id="L387">            String alias = (String) config.trustedServices.get(&quot;*&quot;);</span>
+<span class="fc" id="L388">            return CommonUtil.getCertificateByAlias(crypto,alias);</span>
+        }
+
+    }
+
+    /**
+     * Create the SAML assertion with the secret held in an
+     * &lt;code&gt;xenc:EncryptedKey&lt;/code&gt;
+     * @param data The Rahas configurations, this is needed to get the callbacks.
+     * @param keyInfo OpenSAML KeyInfo representation.
+     * @param subjectNameId Principal as an OpenSAML Subject
+     * @param config SAML Token issuer configurations.
+     * @param crypto To get certificate information.
+     * @param notBefore Validity period start.
+     * @param notAfter Validity period end
+     * @return OpenSAML Assertion object.
+     * @throws TrustException If an error occurred while creating the Assertion.
+     */
+    private Assertion createAttributeAssertion(RahasData data,
+                                               KeyInfo keyInfo, NameIdentifier subjectNameId,
+                                               SAMLTokenIssuerConfig config,
+                                               Crypto crypto, DateTime notBefore, DateTime notAfter) throws TrustException {
+        try {
+
+<span class="fc" id="L412">            Subject subject</span>
+                    = SAMLUtils.createSubject(subjectNameId, RahasConstants.SAML11_SUBJECT_CONFIRMATION_HOK, keyInfo);
+
+            Attribute[] attrs;
+<span class="fc bfc" id="L416" title="All 2 branches covered.">            if (config.getCallbackHandler() != null) {</span>
+<span class="fc" id="L417">                SAMLAttributeCallback cb = new SAMLAttributeCallback(data);</span>
+<span class="fc" id="L418">                SAMLCallbackHandler handler = config.getCallbackHandler();</span>
+<span class="fc" id="L419">                handler.handle(cb);</span>
+<span class="fc" id="L420">                attrs = cb.getAttributes();</span>
+<span class="pc bpc" id="L421" title="3 of 4 branches missed.">            } else if (config.getCallbackHandlerName() != null</span>
+                    &amp;&amp; config.getCallbackHandlerName().trim().length() &gt; 0) {
+<span class="nc" id="L423">                SAMLAttributeCallback cb = new SAMLAttributeCallback(data);</span>
+<span class="nc" id="L424">                SAMLCallbackHandler handler = null;</span>
+<span class="nc" id="L425">                MessageContext msgContext = data.getInMessageContext();</span>
+<span class="nc" id="L426">                ClassLoader classLoader = msgContext.getAxisService().getClassLoader();</span>
+                Class cbClass;
+                try {
+<span class="nc" id="L429">                    cbClass = Loader.loadClass(classLoader, config.getCallbackHandlerName());</span>
+<span class="nc" id="L430">                } catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L431">                    throw new TrustException(&quot;cannotLoadPWCBClass&quot;, new String[]{config</span>
+                            .getCallbackHandlerName()}, e);
+<span class="nc" id="L433">                }</span>
+                try {
+<span class="nc" id="L435">                    handler = (SAMLCallbackHandler) cbClass.newInstance();</span>
+<span class="nc" id="L436">                } catch (java.lang.Exception e) {</span>
+<span class="nc" id="L437">                    throw new TrustException(&quot;cannotCreatePWCBInstance&quot;, new String[]{config</span>
+                            .getCallbackHandlerName()}, e);
+<span class="nc" id="L439">                }</span>
+<span class="nc" id="L440">                handler.handle(cb);</span>
+<span class="nc" id="L441">                attrs = cb.getAttributes();</span>
+<span class="nc" id="L442">            } else {</span>
+                //TODO Remove this after discussing
+<span class="fc" id="L444">                Attribute attribute = SAMLUtils.createAttribute(&quot;Name&quot;, &quot;https://rahas.apache.org/saml/attrns&quot;,</span>
+                        &quot;Colombo/Rahas&quot;);
+<span class="fc" id="L446">                attrs = new Attribute[]{attribute};</span>
+            }
+
+<span class="fc" id="L449">            AttributeStatement attributeStatement = SAMLUtils.createAttributeStatement(subject, Arrays.asList(attrs));</span>
+
+
+<span class="fc" id="L452">            List&lt;Statement&gt; attributeStatements = new ArrayList&lt;Statement&gt;();</span>
+<span class="fc" id="L453">            attributeStatements.add(attributeStatement);</span>
+
+<span class="fc" id="L455">            Assertion assertion = SAMLUtils.createAssertion(config.issuerName, notBefore,</span>
+                    notAfter, attributeStatements);
+
+<span class="fc" id="L458">            SAMLUtils.signAssertion(assertion, crypto, config.getIssuerKeyAlias(), config.getIssuerKeyPassword());</span>
+
+<span class="fc" id="L460">            return assertion;</span>
+<span class="nc" id="L461">        } catch (Exception e) {</span>
+<span class="nc" id="L462">            throw new TrustException(&quot;samlAssertionCreationError&quot;, e);</span>
+        }
+    }
+
+    /**
+     * Creates an authentication assertion.
+     * @param confirmationMethod The confirmation method. (HOK, Bearer ...)
+     * @param subjectNameId The principal name.
+     * @param keyInfo OpenSAML representation of KeyInfo.
+     * @param config Rahas configurations.
+     * @param crypto Certificate information.
+     * @param notBefore Validity start.
+     * @param notAfter Validity end.
+     * @param data Other Rahas data.
+     * @return An openSAML Assertion.
+     * @throws TrustException If an exception occurred while creating the Assertion.
+     */
+    private Assertion createAuthAssertion(String confirmationMethod,
+            NameIdentifier subjectNameId, KeyInfo keyInfo,
+            SAMLTokenIssuerConfig config, Crypto crypto, DateTime notBefore,
+            DateTime notAfter, RahasData data) throws TrustException {
+        try {
+
+<span class="fc" id="L485">            Subject subject = SAMLUtils.createSubject(subjectNameId,confirmationMethod, keyInfo);</span>
+
+<span class="fc" id="L487">            AuthenticationStatement authenticationStatement</span>
+                    = SAMLUtils.createAuthenticationStatement(subject, AUTHENTICATION_METHOD_PASSWORD,
+                    notBefore);
+
+<span class="fc" id="L491">            List&lt;Statement&gt; statements = new ArrayList&lt;Statement&gt;();</span>
+<span class="pc bpc" id="L492" title="3 of 4 branches missed.">            if (data.getClaimDialect() != null &amp;&amp; data.getClaimElem() != null) {</span>
+<span class="nc" id="L493">                Statement attrStatement = createSAMLAttributeStatement(</span>
+                        SAMLUtils.createSubject(subject.getNameIdentifier(),
+                                confirmationMethod, keyInfo), data, config);
+<span class="nc" id="L496">                statements.add(attrStatement);</span>
+            }
+
+<span class="fc" id="L499">            statements.add(authenticationStatement);</span>
+
+<span class="fc" id="L501">            Assertion assertion = SAMLUtils.createAssertion(config.issuerName,</span>
+                    notBefore, notAfter, statements);
+
+            // Signing the assertion
+            // The &lt;ds:Signature&gt;...&lt;/ds:Signature&gt; element appears only after
+            // signing.
+<span class="fc" id="L507">            SAMLUtils.signAssertion(assertion, crypto, config.getIssuerKeyAlias(), config.getIssuerKeyPassword());</span>
+
+<span class="fc" id="L509">            return assertion;</span>
+<span class="nc" id="L510">        } catch (Exception e) {</span>
+<span class="nc" id="L511">            throw new TrustException(&quot;samlAssertionCreationError&quot;, e);</span>
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public String getResponseAction(RahasData data) throws TrustException {
+<span class="fc" id="L519">        return TrustUtil.getActionValue(data.getVersion(),</span>
+                RahasConstants.RSTR_ACTION_ISSUE);
+    }
+
+    /**
+     * Create an ephemeral key
+     * 
+     * @return The generated key as a byte array
+     * @throws TrustException
+     */
+    protected byte[] generateEphemeralKey(int keySize) throws TrustException {
+        try {
+<span class="nc" id="L531">            SecureRandom random = SecureRandom.getInstance(&quot;SHA1PRNG&quot;);</span>
+<span class="nc" id="L532">            byte[] temp = new byte[keySize / 8];</span>
+<span class="nc" id="L533">            random.nextBytes(temp);</span>
+<span class="nc" id="L534">            return temp;</span>
+<span class="nc" id="L535">        } catch (Exception e) {</span>
+<span class="nc" id="L536">            throw new TrustException(&quot;Error in creating the ephemeral key&quot;, e);</span>
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public void setConfigurationFile(String configFile) {
+<span class="fc" id="L544">        this.configFile = configFile;</span>
+
+<span class="fc" id="L546">    }</span>
+    
+    /**
+     * {@inheritDoc}
+     */
+    public void setConfigurationElement(OMElement configElement) {
+<span class="fc" id="L552">        this.configElement = configElement;</span>
+<span class="fc" id="L553">    }</span>
+
+    /**
+     * {@inheritDoc}
+     */
+    public void setConfigurationParamName(String configParamName) {
+<span class="fc" id="L559">        this.configParamName = configParamName;</span>
+<span class="fc" id="L560">    }</span>
+
+    private AttributeStatement createSAMLAttributeStatement(Subject subject,
+                                                            RahasData rahasData,
+                                                            SAMLTokenIssuerConfig config)
+            throws TrustException {
+<span class="nc" id="L566">        Attribute[] attrs = null;</span>
+<span class="nc bnc" id="L567" title="All 2 branches missed.">        if (config.getCallbackHandler() != null) {</span>
+<span class="nc" id="L568">            SAMLAttributeCallback cb = new SAMLAttributeCallback(rahasData);</span>
+<span class="nc" id="L569">            SAMLCallbackHandler handler = config.getCallbackHandler();</span>
+            try {
+<span class="nc" id="L571">                handler.handle(cb);</span>
+<span class="nc" id="L572">                attrs = cb.getAttributes();</span>
+<span class="nc" id="L573">            } catch (SAMLException e) {</span>
+<span class="nc" id="L574">                throw new TrustException(&quot;unableToRetrieveCallbackHandler&quot;, e);</span>
+<span class="nc" id="L575">            }</span>
+
+<span class="nc bnc" id="L577" title="All 4 branches missed.">        } else if (config.getCallbackHandlerName() != null</span>
+                &amp;&amp; config.getCallbackHandlerName().trim().length() &gt; 0) {
+<span class="nc" id="L579">            SAMLAttributeCallback cb = new SAMLAttributeCallback(rahasData);</span>
+<span class="nc" id="L580">            SAMLCallbackHandler handler = null;</span>
+<span class="nc" id="L581">            MessageContext msgContext = rahasData.getInMessageContext();</span>
+<span class="nc" id="L582">            ClassLoader classLoader = msgContext.getAxisService().getClassLoader();</span>
+<span class="nc" id="L583">            Class cbClass = null;</span>
+            try {
+<span class="nc" id="L585">                cbClass = Loader.loadClass(classLoader, config.getCallbackHandlerName());</span>
+<span class="nc" id="L586">            } catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L587">                throw new TrustException(&quot;cannotLoadPWCBClass&quot;,</span>
+                        new String[]{config.getCallbackHandlerName()}, e);
+<span class="nc" id="L589">            }</span>
+            try {
+<span class="nc" id="L591">                handler = (SAMLCallbackHandler) cbClass.newInstance();</span>
+<span class="nc" id="L592">            } catch (Exception e) {</span>
+<span class="nc" id="L593">                throw new TrustException(&quot;cannotCreatePWCBInstance&quot;,</span>
+                        new String[]{config.getCallbackHandlerName()}, e);
+<span class="nc" id="L595">            }</span>
+            try {
+<span class="nc" id="L597">                handler.handle(cb);</span>
+<span class="nc" id="L598">            } catch (SAMLException e) {</span>
+<span class="nc" id="L599">                throw new TrustException(&quot;unableToRetrieveCallbackHandler&quot;, e);</span>
+<span class="nc" id="L600">            }</span>
+<span class="nc" id="L601">            attrs = cb.getAttributes();</span>
+<span class="nc" id="L602">        } else {</span>
+            //TODO Remove this after discussing
+<span class="nc" id="L604">            Attribute attribute =</span>
+                    SAMLUtils.createAttribute(&quot;Name&quot;, &quot;https://rahas.apache.org/saml/attrns&quot;, &quot;Colombo/Rahas&quot;);
+
+<span class="nc" id="L607">            attrs = new Attribute[]{attribute};</span>
+        }
+
+<span class="nc" id="L610">        AttributeStatement attributeStatement = SAMLUtils.createAttributeStatement(subject, Arrays.asList(attrs));</span>
+
+<span class="nc" id="L612">        return attributeStatement;</span>
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

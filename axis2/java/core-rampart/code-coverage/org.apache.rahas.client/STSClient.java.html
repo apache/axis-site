@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>STSClient.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.client</a> &gt; <span class="el_source">STSClient.java</span></div><h1>STSClient.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rahas.client;
+
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMException;
+import org.apache.axiom.om.OMNode;
+import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+import org.apache.axiom.om.impl.dom.DOOMAbstractFactory;
+import org.apache.axiom.om.util.UUIDGenerator;
+import org.apache.axiom.soap.SOAP12Constants;
+import org.apache.axiom.util.base64.Base64Utils;
+import org.apache.axis2.AxisFault;
+import org.apache.axis2.addressing.AddressingConstants;
+import org.apache.axis2.addressing.EndpointReference;
+import org.apache.axis2.client.Options;
+import org.apache.axis2.client.ServiceClient;
+import org.apache.axis2.context.ConfigurationContext;
+import org.apache.axis2.description.AxisOperation;
+import org.apache.axis2.description.AxisService;
+import org.apache.axis2.description.OutInAxisOperation;
+import org.apache.axis2.description.Parameter;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.neethi.Assertion;
+import org.apache.neethi.Policy;
+import org.apache.rahas.RahasConstants;
+import org.apache.rahas.Token;
+import org.apache.rahas.TokenStorage;
+import org.apache.rahas.TrustException;
+import org.apache.rahas.TrustUtil;
+import org.apache.rahas.impl.util.CommonUtil;
+import org.apache.ws.secpolicy.model.AlgorithmSuite;
+import org.apache.ws.secpolicy.model.Binding;
+import org.apache.ws.secpolicy.model.Trust10;
+import org.apache.ws.secpolicy.model.Trust13;
+import org.apache.ws.security.WSConstants;
+import org.apache.ws.security.WSPasswordCallback;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.components.crypto.Crypto;
+import org.apache.ws.security.conversation.ConversationException;
+import org.apache.ws.security.conversation.dkalgo.P_SHA1;
+import org.apache.ws.security.message.token.Reference;
+import org.apache.ws.security.util.WSSecurityUtil;
+import org.apache.ws.security.util.XmlSchemaDateFormat;
+import org.w3c.dom.Element;
+
+import javax.security.auth.callback.Callback;
+import javax.security.auth.callback.CallbackHandler;
+import javax.security.auth.callback.UnsupportedCallbackException;
+import javax.xml.namespace.QName;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+public class STSClient {
+
+    private static final String RAMPART_POLICY = &quot;rampartPolicy&quot;;
+
+<span class="fc" id="L79">    private static Log log = LogFactory.getLog(STSClient.class);</span>
+
+    private String action;
+
+    private OMElement rstTemplate;
+
+<span class="fc" id="L85">    private int version = RahasConstants.VERSION_05_02;</span>
+
+    private Options options;
+
+    private Trust10 trust10;
+    
+    private Trust13 trust13;
+
+    private AlgorithmSuite algorithmSuite;
+    
+<span class="fc" id="L95">    private ArrayList parameters = new ArrayList();</span>
+
+    private byte[] requestorEntropy;
+
+<span class="fc" id="L99">    private String addressingNs = AddressingConstants.Submission.WSA_NAMESPACE;</span>
+
+    private int keySize;
+    
+<span class="fc" id="L103">    private String soapVersion = SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI;</span>
+
+    /**
+     * Life time in seconds
+     * Default is 300 seconds (5 mins)
+     */
+<span class="fc" id="L109">    private int ttl = 300;</span>
+    private Crypto crypto;
+    private CallbackHandler cbHandler;
+    private ConfigurationContext configCtx;
+
+<span class="fc" id="L114">    public STSClient(ConfigurationContext configCtx) throws TrustException {</span>
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">        if (configCtx != null) {</span>
+<span class="fc" id="L116">            this.configCtx = configCtx;</span>
+        } else {
+<span class="nc" id="L118">            throw new TrustException(&quot;stsClientCfgCtxNull&quot;);</span>
+        }
+<span class="fc" id="L120">    }</span>
+
+    public Token requestSecurityToken(Policy servicePolicy,
+                                      String issuerAddress,
+                                      Policy issuerPolicy,
+                                      String appliesTo) throws TrustException {
+        try {
+<span class="fc" id="L127">            QName rstQn = new QName(&quot;requestSecurityToken&quot;);</span>
+<span class="fc" id="L128">            String requestType =</span>
+                    TrustUtil.getWSTNamespace(version) + RahasConstants.REQ_TYPE_ISSUE;
+            
+<span class="fc" id="L131">            ServiceClient client = getServiceClient(rstQn, issuerAddress);</span>
+            
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">            for (int i = 0; i &lt; parameters.size(); i++) {</span>
+<span class="nc" id="L134">                Parameter param = (Parameter)parameters.get(i);</span>
+<span class="nc" id="L135">                client.getAxisService().addParameter(param.getName(), param.getValue());</span>
+            }
+            
+<span class="fc" id="L138">            client.getServiceContext().setProperty(RAMPART_POLICY, issuerPolicy);</span>
+<span class="fc" id="L139">            client.getOptions().setSoapVersionURI(this.soapVersion);</span>
+
+            //TODO Remove later
+<span class="fc" id="L142">            client.getOptions().setTimeOutInMilliSeconds(300000);</span>
+
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">            if(this.addressingNs != null) {</span>
+<span class="fc" id="L145">                client.getOptions().setProperty(AddressingConstants.WS_ADDRESSING_VERSION, this.addressingNs);</span>
+            }
+<span class="fc" id="L147">            client.engageModule(&quot;addressing&quot;);</span>
+<span class="fc" id="L148">            client.engageModule(&quot;rampart&quot;);</span>
+
+            //Process the STS and service policy policy
+<span class="fc" id="L151">            this.processPolicy(issuerPolicy, servicePolicy);</span>
+            
+            try {
+<span class="fc" id="L154">                OMElement response = client.sendReceive(rstQn,</span>
+                                                        createIssueRequest(requestType, appliesTo));
+    
+<span class="fc" id="L157">                return processIssueResponse(version, response, issuerAddress);</span>
+            } finally {
+<span class="pc" id="L159">                client.cleanupTransport();</span>
+            }
+<span class="nc" id="L161">        } catch (AxisFault e) {</span>
+<span class="nc" id="L162">            log.error(&quot;errorInObtainingToken&quot;, e);</span>
+<span class="nc" id="L163">            throw new TrustException(&quot;errorInObtainingToken&quot;, new String[]{issuerAddress},e);</span>
+        }
+    }
+
+    /**
+     * Cancel a particular security token
+     *
+     * @param issuerAddress
+     * @param tokenId
+     * @return true is the Token was successfully canceled. False otherwise.
+     * @throws TrustException
+     */
+    public boolean cancelToken(String issuerAddress,
+                               String tokenId,
+                               String action) throws TrustException {
+        try {
+<span class="nc" id="L179">            QName rstQn = new QName(&quot;cancelSecurityToken&quot;);</span>
+<span class="nc" id="L180">            ServiceClient client = getServiceClient(rstQn, issuerAddress);</span>
+<span class="nc bnc" id="L181" title="All 2 branches missed.">            if(action != null) {</span>
+<span class="nc" id="L182">                client.getOptions().setAction(action);</span>
+            }
+            
+<span class="nc" id="L185">            return processCancelResponse(client.sendReceive(rstQn,</span>
+                                                            createCancelRequest(tokenId)));
+<span class="nc" id="L187">        } catch (AxisFault e) {</span>
+<span class="nc" id="L188">            log.error(&quot;errorInCancelingToken&quot;, e);</span>
+<span class="nc" id="L189">            throw new TrustException(&quot;errorInCancelingToken&quot;, e);</span>
+        }
+    }
+    
+    public boolean validateToken(String tokenId,
+                                 String issuerAddress,
+                                 Policy issuerPolicy) throws TrustException {
+        try {
+<span class="nc" id="L197">            QName rstQn = new QName(&quot;requestSecurityToken&quot;);</span>
+<span class="nc" id="L198">            String requestType =</span>
+                    TrustUtil.getWSTNamespace(version) + RahasConstants.REQ_TYPE_VALIDATE;
+            
+<span class="nc" id="L201">            ServiceClient client = getServiceClient(rstQn, issuerAddress);</span>
+            
+<span class="nc" id="L203">            client.getServiceContext().setProperty(RAMPART_POLICY, issuerPolicy);</span>
+<span class="nc" id="L204">            client.getOptions().setSoapVersionURI(this.soapVersion);</span>
+<span class="nc bnc" id="L205" title="All 2 branches missed.">            if(this.addressingNs != null) {</span>
+<span class="nc" id="L206">                client.getOptions().setProperty(AddressingConstants.WS_ADDRESSING_VERSION, this.addressingNs);</span>
+            }
+<span class="nc" id="L208">            client.engageModule(&quot;addressing&quot;);</span>
+<span class="nc" id="L209">            client.engageModule(&quot;rampart&quot;);</span>
+
+<span class="nc" id="L211">            this.processPolicy(issuerPolicy, null);</span>
+            
+<span class="nc" id="L213">            OMElement response = client.sendReceive(rstQn,</span>
+                                                    createValidateRequest(requestType,tokenId));
+            
+<span class="nc" id="L216">            return true;</span>
+            
+            
+<span class="nc" id="L219">        } catch (AxisFault e) {</span>
+<span class="nc" id="L220">            log.error(&quot;errorInValidatingToken&quot;, e);</span>
+<span class="nc" id="L221">            throw new TrustException(&quot;errorInValidatingToken&quot;, new String[]{issuerAddress},e);</span>
+        }
+        
+    }
+    
+    public boolean renewToken(String tokenId,
+                              String issuerAddress,
+                              Policy issuerPolicy) throws TrustException {
+        
+        try {
+<span class="nc" id="L231">        QName rstQn = new QName(&quot;requestSecurityToken&quot;);</span>
+        
+<span class="nc" id="L233">        ServiceClient client = getServiceClient(rstQn, issuerAddress);</span>
+        
+<span class="nc" id="L235">        client.getServiceContext().setProperty(RAMPART_POLICY, issuerPolicy);</span>
+<span class="nc" id="L236">        client.getOptions().setSoapVersionURI(this.soapVersion);</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">        if(this.addressingNs != null) {</span>
+<span class="nc" id="L238">            client.getOptions().setProperty(AddressingConstants.WS_ADDRESSING_VERSION, this.addressingNs);</span>
+        }
+<span class="nc" id="L240">        client.engageModule(&quot;addressing&quot;);</span>
+<span class="nc" id="L241">        client.engageModule(&quot;rampart&quot;);</span>
+
+<span class="nc" id="L243">        this.processPolicy(issuerPolicy, null);</span>
+        
+<span class="nc" id="L245">        String tokenType = RahasConstants.TOK_TYPE_SAML_10;</span>
+        
+<span class="nc" id="L247">        OMElement response = client.sendReceive(rstQn,</span>
+                                                createRenewRequest(tokenType,tokenId));
+        
+<span class="nc" id="L250">        return true;</span>
+        
+<span class="nc" id="L252">        } catch (AxisFault e) {</span>
+<span class="nc" id="L253">            log.error(&quot;errorInRenewingToken&quot;, e);</span>
+<span class="nc" id="L254">            throw new TrustException(&quot;errorInRenewingToken&quot;, new String[]{issuerAddress},e); </span>
+        }
+        
+    }
+
+    /**
+     * Renews the token referenced by the token id, updates the token store
+     * @param tokenId
+     * @param issuerAddress
+     * @param issuerPolicy
+     * @param store
+     * @return status
+     * @throws TrustException
+     */
+    public boolean renewToken(String tokenId,
+                              String issuerAddress,
+                              Policy issuerPolicy, TokenStorage store) throws TrustException {
+
+        try {
+<span class="nc" id="L273">            QName rstQn = new QName(&quot;requestSecurityToken&quot;);</span>
+
+<span class="nc" id="L275">            ServiceClient client = getServiceClient(rstQn, issuerAddress);</span>
+
+<span class="nc" id="L277">            client.getServiceContext().setProperty(RAMPART_POLICY, issuerPolicy);</span>
+<span class="nc" id="L278">            client.getOptions().setSoapVersionURI(this.soapVersion);</span>
+<span class="nc bnc" id="L279" title="All 2 branches missed.">            if (this.addressingNs != null) {</span>
+<span class="nc" id="L280">                client.getOptions().setProperty(AddressingConstants.WS_ADDRESSING_VERSION, this.addressingNs);</span>
+            }
+<span class="nc" id="L282">            client.engageModule(&quot;addressing&quot;);</span>
+<span class="nc" id="L283">            client.engageModule(&quot;rampart&quot;);</span>
+
+<span class="nc" id="L285">            this.processPolicy(issuerPolicy, null);</span>
+
+<span class="nc" id="L287">            String tokenType = RahasConstants.TOK_TYPE_SAML_10;</span>
+
+<span class="nc" id="L289">            OMElement response = client.sendReceive(rstQn,</span>
+                    createRenewRequest(tokenType, tokenId));
+<span class="nc" id="L291">            store.update(processRenewResponse(version, response, store, tokenId));</span>
+
+<span class="nc" id="L293">            return true;</span>
+
+<span class="nc" id="L295">        } catch (AxisFault e) {</span>
+<span class="nc" id="L296">            log.error(&quot;errorInRenewingToken&quot;, e);</span>
+<span class="nc" id="L297">            throw new TrustException(&quot;errorInRenewingToken&quot;, new String[]{issuerAddress}, e);</span>
+        }
+
+    }
+
+    /**
+     * Processes the response and update the token store
+     * @param version
+     * @param elem
+     * @param store
+     * @param id
+     * @return
+     * @throws TrustException
+     */
+    private Token processRenewResponse(int version, OMElement elem, TokenStorage store, String id) throws TrustException {
+<span class="nc" id="L312">        OMElement rstr = elem;</span>
+<span class="nc bnc" id="L313" title="All 2 branches missed.">        if (version == RahasConstants.VERSION_05_12) {</span>
+            //The WS-SX result will be an RSTRC
+<span class="nc" id="L315">            rstr = elem.getFirstElement();</span>
+        }
+        //get the corresponding WS-Trust NS
+<span class="nc" id="L318">        String ns = TrustUtil.getWSTNamespace(version);</span>
+
+        //Get the RequestedAttachedReference
+<span class="nc" id="L321">        OMElement reqSecToken = rstr.getFirstChildWithName(new QName(</span>
+                ns, RahasConstants.IssuanceBindingLocalNames.REQUESTED_SECURITY_TOKEN));
+
+<span class="nc bnc" id="L324" title="All 2 branches missed.">        if (reqSecToken == null) {</span>
+<span class="nc" id="L325">            throw new TrustException(&quot;reqestedSecTokMissing&quot;);</span>
+        }
+
+        //Extract the life-time element
+<span class="nc" id="L329">        OMElement lifeTimeEle = rstr.getFirstChildWithName(new QName(</span>
+                ns, RahasConstants.IssuanceBindingLocalNames.LIFETIME));
+
+<span class="nc bnc" id="L332" title="All 2 branches missed.">        if (lifeTimeEle == null) {</span>
+<span class="nc" id="L333">            throw new TrustException(&quot;lifeTimeElemMissing&quot;);</span>
+        }
+
+        //update the existing token
+<span class="nc" id="L337">        OMElement tokenElem = reqSecToken.getFirstElement();</span>
+<span class="nc" id="L338">        Token token = store.getToken(id);</span>
+<span class="nc" id="L339">        token.setPreviousToken(token.getToken());</span>
+<span class="nc" id="L340">        token.setToken(tokenElem);</span>
+<span class="nc" id="L341">        token.setState(Token.RENEWED);</span>
+<span class="nc" id="L342">        token.setExpires(extractExpiryDate(lifeTimeEle));</span>
+
+<span class="nc" id="L344">        return token;</span>
+    }
+
+    /**
+     * extracts the expiry date from the Lifetime element of the RSTR
+     * @param lifetimeElem
+     * @return
+     * @throws TrustException
+     */
+    private Date extractExpiryDate(OMElement lifetimeElem) throws TrustException {
+        try {
+<span class="nc" id="L355">            DateFormat zulu = new XmlSchemaDateFormat();</span>
+
+<span class="nc" id="L357">            OMElement expiresElem =</span>
+                    lifetimeElem.getFirstChildWithName(new QName(WSConstants.WSU_NS,
+                            WSConstants.EXPIRES_LN));
+<span class="nc" id="L360">            Date expires = zulu.parse(expiresElem.getText());</span>
+<span class="nc" id="L361">            return expires;</span>
+<span class="nc" id="L362">        } catch (OMException e) {</span>
+<span class="nc" id="L363">            throw new TrustException(&quot;lifeTimeProcessingError&quot;,</span>
+                    new String[]{lifetimeElem.toString()}, e);
+<span class="nc" id="L365">        } catch (ParseException e) {</span>
+<span class="nc" id="L366">            throw new TrustException(&quot;lifeTimeProcessingError&quot;,</span>
+                    new String[]{lifetimeElem.toString()}, e);
+        }
+    }
+
+
+    private ServiceClient getServiceClient(QName rstQn,
+                                           String issuerAddress) throws AxisFault {
+<span class="fc" id="L374">        AxisService axisService =</span>
+                new AxisService(&quot;SecurityTokenService&quot; + UUIDGenerator.getUUID());
+<span class="fc" id="L376">        axisService.setClientSide(true);</span>
+<span class="fc" id="L377">        AxisOperation operation = new OutInAxisOperation(rstQn);</span>
+<span class="fc" id="L378">        axisService.addOperation(operation);</span>
+<span class="fc" id="L379">        ServiceClient client = new ServiceClient(this.configCtx, axisService);</span>
+
+<span class="fc bfc" id="L381" title="All 2 branches covered.">        if (this.options != null) {</span>
+<span class="fc" id="L382">            client.setOptions(options);</span>
+        }
+
+        //Set the action
+<span class="fc" id="L386">        client.getOptions().setAction(action);</span>
+<span class="fc" id="L387">        client.getOptions().setTo(new EndpointReference(issuerAddress));</span>
+<span class="fc" id="L388">        client.engageModule(&quot;rampart&quot;);</span>
+<span class="fc" id="L389">        return client;</span>
+    }
+
+    /**
+     * @param result
+     * @return Token
+     */
+    private Token processIssueResponse(int version, OMElement result, 
+            String issuerAddress) throws TrustException {
+<span class="fc" id="L398">        OMElement rstr = result;</span>
+
+        /**
+         * TODO :-
+         * There are 3 mechanisms to establish a security context token.
+         * They are,
+         * 1. Security context token created by a security token service
+         * 2. Security context token created by one of the communicating parties and propagated with a
+         * message
+         * 3. Security context token created through negotiation/exchanges
+         *
+         * As per now we are only supporting case 1. Therefore we always expect a
+         * wst:RequestSecurityTokenResponseCollection in the incoming message.
+         *
+         * This only applies when we use specification http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512
+         */
+
+<span class="fc bfc" id="L415" title="All 2 branches covered.">        if (version == RahasConstants.VERSION_05_12) {</span>
+            //The WS-SX result will be an RSTRC
+<span class="fc" id="L417">            rstr = result.getFirstElement();</span>
+        }
+
+<span class="fc" id="L420">        String ns = TrustUtil.getWSTNamespace(version);</span>
+
+        //Get the RequestedAttachedReference
+<span class="fc" id="L423">        OMElement reqAttElem = rstr.getFirstChildWithName(new QName(</span>
+                ns, RahasConstants.IssuanceBindingLocalNames.REQUESTED_ATTACHED_REFERENCE));
+<span class="pc bpc" id="L425" title="1 of 2 branches missed.">        OMElement reqAttRef = reqAttElem == null ? null : reqAttElem.getFirstElement();</span>
+
+        //Get the RequestedUnattachedReference
+<span class="fc" id="L428">        OMElement reqUnattElem =</span>
+                rstr.getFirstChildWithName(new QName(ns,
+                                                     RahasConstants.IssuanceBindingLocalNames.
+                                                             REQUESTED_UNATTACHED_REFERENCE));
+<span class="pc bpc" id="L432" title="1 of 2 branches missed.">        OMElement reqUnattRef = reqUnattElem == null ? null : reqUnattElem.getFirstElement();</span>
+
+        //Get the security token
+<span class="fc" id="L435">        OMElement reqSecTok =</span>
+                rstr.getFirstChildWithName(new QName(ns,
+                                                     RahasConstants.IssuanceBindingLocalNames.
+                                                             REQUESTED_SECURITY_TOKEN));
+<span class="pc bpc" id="L439" title="1 of 2 branches missed.">        if (reqSecTok == null) {</span>
+<span class="nc" id="L440">            throw new TrustException(&quot;reqestedSecTokMissing&quot;);</span>
+        }
+
+<span class="fc" id="L443">        OMElement tokenElem = reqSecTok.getFirstElement();</span>
+
+<span class="fc" id="L445">        String id = this.findIdentifier(reqAttRef, reqUnattRef, tokenElem);</span>
+
+<span class="pc bpc" id="L447" title="1 of 2 branches missed.">        if (id == null) {</span>
+<span class="nc" id="L448">            throw new TrustException(&quot;cannotObtainTokenIdentifier&quot;);</span>
+        }
+
+<span class="fc" id="L451">        OMElement lifeTimeEle =</span>
+                rstr.getFirstChildWithName(new QName(ns,
+                                                     RahasConstants.IssuanceBindingLocalNames.
+                                                             LIFETIME));
+
+<span class="fc" id="L456">        Token token = new Token(id, tokenElem, lifeTimeEle);</span>
+<span class="fc" id="L457">        token.setIssuerAddress(issuerAddress);</span>
+<span class="fc" id="L458">        token.setAttachedReference(reqAttRef);</span>
+<span class="fc" id="L459">        token.setUnattachedReference(reqUnattRef);</span>
+
+        //Handle proof token
+<span class="fc" id="L462">        OMElement rpt =</span>
+                rstr.getFirstChildWithName(new QName(ns,
+                                                     RahasConstants.LocalNames.
+                                                             REQUESTED_PROOF_TOKEN));
+
+<span class="fc" id="L467">        byte[] secret = null;</span>
+
+<span class="fc bfc" id="L469" title="All 2 branches covered.">        if (rpt != null) {</span>
+<span class="fc" id="L470">            OMElement child = rpt.getFirstElement();</span>
+<span class="pc bpc" id="L471" title="1 of 2 branches missed.">            if (child == null) {</span>
+<span class="nc" id="L472">                throw new TrustException(&quot;invalidRPT&quot;);</span>
+            }
+<span class="fc bfc" id="L474" title="All 2 branches covered.">            if (child.getQName().equals(new QName(ns,</span>
+                                                  RahasConstants.LocalNames.
+                                                          BINARY_SECRET))) {
+                //First check for the binary secret
+<span class="fc" id="L478">                String b64Secret = child.getText();</span>
+<span class="fc" id="L479">                secret = Base64Utils.decode(b64Secret);</span>
+<span class="pc bpc" id="L480" title="1 of 2 branches missed.">            } else if (child.getQName().equals(new QName(ns, WSConstants.ENC_KEY_LN))) {</span>
+
+<span class="nc" id="L482">                Element domChild = (Element) new StAXOMBuilder(</span>
+                        OMAbstractFactory.getMetaFactory(
+                                OMAbstractFactory.FEATURE_DOM).getOMFactory(),
+                        child.getXMLStreamReader()).getDocumentElement();
+
+                try {
+<span class="nc" id="L488">                    secret = CommonUtil.getDecryptedBytes(this.cbHandler, this.crypto, domChild);</span>
+<span class="nc" id="L489">                } catch (WSSecurityException e) {</span>
+<span class="nc" id="L490">                    log.error(&quot;Error decrypting encrypted key element&quot;, e);</span>
+<span class="nc" id="L491">                    throw new TrustException(&quot;errorInProcessingEncryptedKey&quot;, e);</span>
+<span class="nc" id="L492">                }</span>
+
+<span class="pc bpc" id="L494" title="1 of 2 branches missed.">            } else if (child.getQName().equals(new QName(ns,</span>
+                    RahasConstants.IssuanceBindingLocalNames.
+                            COMPUTED_KEY))) {
+                //Handle the computed key
+
+                //Get service entropy
+<span class="fc" id="L500">                OMElement serviceEntrElem = rstr</span>
+                        .getFirstChildWithName(new QName(ns,
+                                RahasConstants.IssuanceBindingLocalNames.
+                                        ENTROPY));
+
+<span class="fc" id="L505">                OMElement binSecElem = serviceEntrElem.getFirstElement();</span>
+
+<span class="pc bpc" id="L507" title="3 of 6 branches missed.">                if (binSecElem != null &amp;&amp; binSecElem.getText() != null</span>
+                        &amp;&amp; !&quot;&quot;.equals(binSecElem.getText().trim())) {
+
+<span class="fc" id="L510">                    byte[] serviceEntr = Base64Utils.decode(binSecElem.getText());</span>
+
+                    //Right now we only use PSHA1 as the computed key algo                    
+<span class="fc" id="L513">                    P_SHA1 p_sha1 = new P_SHA1();</span>
+
+<span class="pc bpc" id="L515" title="1 of 2 branches missed.">                    int length = (this.keySize &gt; 0) ? keySize</span>
+                            : this.algorithmSuite
+                            .getMaximumSymmetricKeyLength();
+                    try {
+<span class="fc" id="L519">                        secret = p_sha1.createKey(this.requestorEntropy, serviceEntr, 0, length / 8);</span>
+<span class="nc" id="L520">                    } catch (ConversationException e) {</span>
+<span class="nc" id="L521">                        throw new TrustException(&quot;keyDerivationError&quot;, e);</span>
+<span class="fc" id="L522">                    }</span>
+<span class="fc" id="L523">                } else {</span>
+                    //Service entropy missing
+<span class="nc" id="L525">                    throw new TrustException(&quot;serviceEntropyMissing&quot;);</span>
+                }
+            }
+
+<span class="fc" id="L529">        } else {</span>
+<span class="pc bpc" id="L530" title="1 of 2 branches missed.">            if (this.requestorEntropy != null) {</span>
+                //Use requester entropy as the key
+<span class="fc" id="L532">                secret = this.requestorEntropy;</span>
+            }
+        }
+<span class="fc" id="L535">        token.setSecret(secret);</span>
+<span class="fc" id="L536">        return token;</span>
+    }
+
+    private boolean processCancelResponse(OMElement response) {
+        /*
+        &lt;wst:RequestSecurityTokenResponse&gt;
+            &lt;wst:RequestedTokenCancelled/&gt;
+        &lt;/wst:RequestSecurityTokenResponse&gt;
+        */
+<span class="nc bnc" id="L545" title="All 2 branches missed.">        return response.</span>
+                getFirstChildWithName(new QName(RahasConstants.
+                        CancelBindingLocalNames.REQUESTED_TOKEN_CANCELED)) != null;
+    }
+
+    /**
+     * Find the token identifier.
+     *
+     * @param reqAttRef
+     * @param reqUnattRef
+     * @param token
+     * @return id
+     */
+    private String findIdentifier(OMElement reqAttRef,
+                                  OMElement reqUnattRef,
+                                  OMElement token) {
+        String id;
+<span class="pc bpc" id="L562" title="1 of 2 branches missed.">        if (reqAttRef != null) {</span>
+            //First try the attached ref
+<span class="fc" id="L564">            id = this.getIdFromSTR(reqAttRef);</span>
+<span class="nc bnc" id="L565" title="All 2 branches missed.">        } else if (reqUnattRef != null) {</span>
+            //then try the unattached ref
+<span class="nc" id="L567">            id = this.getIdFromSTR(reqUnattRef);</span>
+        } else {
+            //Return wsu:Id of the token element
+<span class="nc" id="L570">            id = token.getAttributeValue(new QName(WSConstants.WSU_NS, &quot;Id&quot;));</span>
+<span class="nc bnc" id="L571" title="All 2 branches missed.">            if ( id == null )</span>
+            {
+            	// If we are dealing with a SAML Assetion, look for AssertionID.
+<span class="nc" id="L574">            	id = token.getAttributeValue(new QName( &quot;AssertionID&quot;));</span>
+            }
+        }
+<span class="fc" id="L577">        return id;</span>
+    }
+
+
+    /**
+     * Process the given STR to find the id it refers to
+     *
+     * @param refElem
+     * @return id
+     */
+    private String getIdFromSTR(OMElement refElem) {
+        //ASSUMPTION:SecurityTokenReference/KeyIdentifier
+<span class="fc" id="L589">        OMElement child = refElem.getFirstElement();</span>
+<span class="pc bpc" id="L590" title="1 of 2 branches missed.">        if(child == null) {</span>
+<span class="nc" id="L591">            return null;</span>
+        }
+        
+<span class="pc bpc" id="L594" title="1 of 4 branches missed.">        if (child.getQName().equals(new QName(WSConstants.SIG_NS, &quot;KeyInfo&quot;)) ||</span>
+                child.getQName().equals(new QName(WSConstants.WSSE_NS, &quot;KeyIdentifier&quot;))) {
+<span class="fc" id="L596">            return child.getText();</span>
+<span class="pc bpc" id="L597" title="1 of 2 branches missed.">        } else if(child.getQName().equals(Reference.TOKEN)) {</span>
+<span class="fc" id="L598">            return child.getAttributeValue(new QName(&quot;URI&quot;));</span>
+        } else {
+<span class="nc" id="L600">            return null;</span>
+        }
+
+    }
+
+    /**
+     * Process the goven service policy and extract the info required to create
+     * the RST.
+     *
+     * @param servicePolicy
+     */
+    private void processPolicy(Policy issuerPolicy, Policy servicePolicy) {
+        //Get the policy assertions
+        //Assumption: there's only one alternative
+
+<span class="pc bpc" id="L615" title="1 of 2 branches missed.">        if (issuerPolicy != null) {</span>
+<span class="fc" id="L616">            log.debug(&quot;Processing Issuer policy&quot;);</span>
+
+<span class="fc" id="L618">            List issuerAssertions = (List) issuerPolicy.getAlternatives().next();</span>
+
+<span class="fc bfc" id="L620" title="All 2 branches covered.">            for (Iterator iter = issuerAssertions.iterator(); iter.hasNext();) {</span>
+<span class="fc" id="L621">                Assertion tempAssertion = (Assertion) iter.next();</span>
+                //find the AlgorithmSuite assertion
+<span class="fc bfc" id="L623" title="All 2 branches covered.">                if (tempAssertion instanceof Binding) {</span>
+
+<span class="fc" id="L625">                    log.debug(&quot;Extracting algo suite from issuer policy binding&quot;);</span>
+
+<span class="fc" id="L627">                    this.algorithmSuite = ((Binding) tempAssertion)</span>
+                            .getAlgorithmSuite();
+                }
+<span class="fc" id="L630">            }</span>
+        }
+
+<span class="pc bpc" id="L633" title="1 of 2 branches missed.">        if (servicePolicy != null) {</span>
+
+<span class="fc" id="L635">            log.debug(&quot;Processing service policy to find Trust10 assertion&quot;);</span>
+
+<span class="fc" id="L637">            List assertions = (List) servicePolicy.getAlternatives().next();</span>
+
+<span class="fc bfc" id="L639" title="All 2 branches covered.">            for (Iterator iter = assertions.iterator(); iter.hasNext();) {</span>
+<span class="fc" id="L640">                Assertion tempAssertion = (Assertion) iter.next();</span>
+                //find the Trust10 assertion
+<span class="fc bfc" id="L642" title="All 2 branches covered.">                if (tempAssertion instanceof Trust10) {</span>
+<span class="fc" id="L643">                    log.debug(&quot;Extracting Trust10 assertion from service policy&quot;);</span>
+<span class="fc" id="L644">                    this.trust10 = (Trust10) tempAssertion;</span>
+<span class="fc bfc" id="L645" title="All 2 branches covered.">                } else if (tempAssertion instanceof Trust13) {</span>
+<span class="fc" id="L646">                    log.debug(&quot;Extracting Trust13 assertion from service policy&quot;);</span>
+<span class="fc" id="L647">                    this.trust13 = (Trust13) tempAssertion;</span>
+                }
+<span class="fc" id="L649">            }</span>
+        }
+<span class="fc" id="L651">    }</span>
+
+    /**
+     * Create the RST request.
+     *
+     * @param requestType
+     * @param appliesTo
+     * @return OMElement
+     * @throws TrustException
+     */
+    private OMElement createIssueRequest(String requestType,
+                                         String appliesTo) throws TrustException {
+
+<span class="pc bpc" id="L664" title="1 of 2 branches missed.">        if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L665">            log.debug(&quot;Creating request with request type: &quot; + requestType +</span>
+                      &quot; and applies to: &quot; + appliesTo);
+        }
+
+<span class="fc" id="L669">        OMElement rst = TrustUtil.createRequestSecurityTokenElement(version);</span>
+
+<span class="fc" id="L671">        TrustUtil.createRequestTypeElement(this.version, rst, requestType);</span>
+<span class="fc bfc" id="L672" title="All 2 branches covered.">        if (appliesTo != null) {</span>
+<span class="fc" id="L673">            TrustUtil.createAppliesToElement(rst, appliesTo, this.addressingNs);</span>
+        }
+<span class="fc" id="L675">        TrustUtil.createLifetimeElement(this.version, rst, this.ttl * 1000);</span>
+
+        //Copy over the elements from the template
+<span class="pc bpc" id="L678" title="1 of 2 branches missed.">        if (this.rstTemplate != null) {</span>
+
+<span class="pc bpc" id="L680" title="1 of 2 branches missed.">            if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L681">                log.debug(&quot;Using RSTTemplate: &quot; + this.rstTemplate.toString());</span>
+            }
+
+<span class="fc" id="L684">            Iterator templateChildren = rstTemplate.getChildElements();</span>
+<span class="fc bfc" id="L685" title="All 2 branches covered.">            while (templateChildren.hasNext()) {</span>
+<span class="fc" id="L686">                OMElement child = (OMElement) templateChildren.next();</span>
+<span class="fc" id="L687">                rst.addChild(child.cloneOMElement());</span>
+                //Look for the key size element
+<span class="fc bfc" id="L689" title="All 2 branches covered.">                if (child.getQName().equals(</span>
+                        new QName(TrustUtil.getWSTNamespace(this.version),
+                                  RahasConstants.IssuanceBindingLocalNames.KEY_SIZE))) {
+<span class="fc" id="L692">                    log.debug(&quot;Extracting key size from the RSTTemplate: &quot;);</span>
+<span class="pc bpc" id="L693" title="2 of 4 branches missed.">                    this.keySize =</span>
+                            (child.getText() != null &amp;&amp; !&quot;&quot;.equals(child.getText())) ?
+                            Integer.parseInt(child.getText()) :
+                            -1;
+<span class="pc bpc" id="L697" title="1 of 2 branches missed.">                    if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L698">                        log.debug(&quot;Key size from RSTTemplate: &quot; + this.keySize);</span>
+                    }
+                }
+<span class="fc" id="L701">            }</span>
+        }
+
+        try {
+            // Handle entropy
+<span class="fc bfc" id="L706" title="All 2 branches covered.">            if (this.trust10 != null) {</span>
+
+<span class="fc" id="L708">                log.debug(&quot;Processing Trust assertion&quot;);</span>
+
+<span class="pc bpc" id="L710" title="1 of 2 branches missed.">                if (this.trust10.isRequireClientEntropy()) {</span>
+
+<span class="fc" id="L712">                    log.debug(&quot;Requires client entropy&quot;);</span>
+
+                    // setup requestor entropy
+<span class="fc" id="L715">                    OMElement ent = TrustUtil.createEntropyElement(this.version, rst);</span>
+<span class="fc" id="L716">                    OMElement binSec =</span>
+                            TrustUtil.createBinarySecretElement(this.version,
+                                                                ent,
+                                                                RahasConstants.BIN_SEC_TYPE_NONCE);
+<span class="fc" id="L720">                    this.requestorEntropy =</span>
+                            WSSecurityUtil.generateNonce(this.algorithmSuite.
+                                    getMaximumSymmetricKeyLength()/8);
+<span class="fc" id="L723">                    binSec.setText(Base64Utils.encode(this.requestorEntropy));</span>
+
+<span class="pc bpc" id="L725" title="1 of 2 branches missed.">                    if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L726">                        log.debug(&quot;Clien entropy : &quot; + Base64Utils.encode(this.requestorEntropy));</span>
+                    }
+
+                    // Add the ComputedKey element
+<span class="fc" id="L730">                    TrustUtil.createComputedKeyAlgorithm(this.version, rst,</span>
+                                                         RahasConstants.COMPUTED_KEY_PSHA1);
+<span class="fc" id="L732">                }</span>
+                
+<span class="pc bpc" id="L734" title="1 of 2 branches missed.">            } else if (this.trust13 != null) {</span>
+                
+<span class="pc bpc" id="L736" title="1 of 2 branches missed.">                if (this.trust13.isRequireClientEntropy()) {</span>
+
+<span class="fc" id="L738">                    log.debug(&quot;Requires client entropy&quot;);</span>
+
+                    // setup requestor entropy
+<span class="fc" id="L741">                    OMElement ent = TrustUtil.createEntropyElement(this.version, rst);</span>
+<span class="fc" id="L742">                    OMElement binSec =</span>
+                            TrustUtil.createBinarySecretElement(this.version,
+                                                                ent,
+                                                                RahasConstants.BIN_SEC_TYPE_NONCE);
+<span class="fc" id="L746">                    this.requestorEntropy =</span>
+                            WSSecurityUtil.generateNonce(this.algorithmSuite.
+                                    getMaximumSymmetricKeyLength()/8);
+<span class="fc" id="L749">                    binSec.setText(Base64Utils.encode(this.requestorEntropy));</span>
+
+<span class="pc bpc" id="L751" title="1 of 2 branches missed.">                    if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L752">                        log.debug(&quot;Clien entropy : &quot; + Base64Utils.encode(this.requestorEntropy));</span>
+                    }
+
+                    // Add the ComputedKey element
+<span class="fc" id="L756">                    TrustUtil.createComputedKeyAlgorithm(this.version, rst,</span>
+                                                         RahasConstants.COMPUTED_KEY_PSHA1);
+                }
+                
+            }
+            
+            
+            
+            
+<span class="nc" id="L765">        } catch (Exception e) {</span>
+<span class="nc" id="L766">            throw new TrustException(&quot;errorSettingUpRequestorEntropy&quot;, e);</span>
+<span class="fc" id="L767">        }</span>
+
+        
+<span class="fc" id="L770">        return rst;</span>
+        
+    }
+    
+    private OMElement createValidateRequest(String requestType, String tokenId) throws TrustException {
+
+<span class="nc bnc" id="L776" title="All 2 branches missed.">        if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L777">            log.debug(&quot;Creating request with request type: &quot; + requestType);</span>
+        }
+
+<span class="nc" id="L780">        OMElement rst = TrustUtil.createRequestSecurityTokenElement(version);</span>
+        
+<span class="nc" id="L782">        TrustUtil.createRequestTypeElement(this.version, rst, requestType);</span>
+        
+<span class="nc" id="L784">        OMElement tokenTypeElem = TrustUtil.createTokenTypeElement(this.version, rst);</span>
+        
+<span class="nc" id="L786">        String tokenType =</span>
+            TrustUtil.getWSTNamespace(version) + RahasConstants.TOK_TYPE_STATUS;
+        
+<span class="nc" id="L789">        tokenTypeElem.setText(tokenType);</span>
+        
+<span class="nc" id="L791">        TokenStorage store = TrustUtil.getTokenStore(configCtx);</span>
+        
+<span class="nc" id="L793">        Token token = store.getToken(tokenId);</span>
+        
+<span class="nc bnc" id="L795" title="All 2 branches missed.">        if ( token != null) {            </span>
+<span class="nc" id="L796">            OMElement str = token.getUnattachedReference();     </span>
+            
+<span class="nc bnc" id="L798" title="All 2 branches missed.">            if (str == null) {</span>
+<span class="nc" id="L799">                str = token.getAttachedReference();</span>
+            }
+            
+<span class="nc" id="L802">            TrustUtil.createValidateTargetElement(this.version, rst,str);</span>
+            
+            
+<span class="nc" id="L805">        } else {</span>
+<span class="nc" id="L806">            throw new TrustException(&quot;noToken&quot;,new String[]{tokenId});</span>
+        }
+              
+<span class="nc" id="L809">        return rst;</span>
+             
+    }
+    
+    private OMElement createRenewRequest(String tokenType, String tokenId) throws TrustException {
+        
+<span class="nc" id="L815">        String requestType =</span>
+            TrustUtil.getWSTNamespace(version) + RahasConstants.REQ_TYPE_RENEW;
+
+<span class="nc bnc" id="L818" title="All 2 branches missed.">        if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L819">            log.debug(&quot;Creating request with request type: &quot; + requestType);</span>
+        }
+
+<span class="nc" id="L822">        OMElement rst = TrustUtil.createRequestSecurityTokenElement(version);</span>
+        
+<span class="nc" id="L824">        TrustUtil.createRequestTypeElement(this.version, rst, requestType);</span>
+        
+<span class="nc" id="L826">        OMElement tokenTypeElem = TrustUtil.createTokenTypeElement(version, rst);</span>
+<span class="nc" id="L827">        tokenTypeElem.setText(tokenType);</span>
+        
+<span class="nc" id="L829">        TokenStorage store = TrustUtil.getTokenStore(configCtx);</span>
+        
+<span class="nc" id="L831">        Token token = store.getToken(tokenId);</span>
+        
+<span class="nc bnc" id="L833" title="All 2 branches missed.">        if ( token != null) {</span>
+            
+<span class="nc" id="L835">            OMElement str = token.getUnattachedReference();     </span>
+            
+<span class="nc bnc" id="L837" title="All 2 branches missed.">            if (str == null) {</span>
+<span class="nc" id="L838">                str = token.getAttachedReference();</span>
+            }
+            
+<span class="nc" id="L841">            TrustUtil.createRenewTargetElement(this.version, rst,str);</span>
+            
+            
+<span class="nc" id="L844">        } else {</span>
+<span class="nc" id="L845">            throw new TrustException(&quot;noToken&quot;,new String[]{tokenId});</span>
+        }
+        
+<span class="nc" id="L848">        return rst;</span>
+              
+        
+    }
+
+    private OMElement createCancelRequest(String tokenId) throws TrustException {
+
+<span class="nc" id="L855">        return TrustUtil.createCancelRequest(tokenId, version);</span>
+    }
+
+    /**
+     * Set this to set the entropy configurations.
+     * If this is provided in the given policy it will be overridden.
+     *
+     * @param trust10 The trust10 to set.
+     */
+    public void setTrust10(Trust10 trust10) {
+<span class="nc" id="L865">        this.trust10 = trust10;</span>
+<span class="nc" id="L866">    }</span>
+    
+    /**
+     * Set this to set the entropy configurations.
+     * If this is provided in the given policy it will be overridden.
+     *
+     * @param trust13 The trust13 to set.
+     */
+    public void setTrust13(Trust13 trust13) {
+<span class="nc" id="L875">        this.trust13 = trust13;</span>
+<span class="nc" id="L876">    }</span>
+
+    /**
+     * This can be used in the case where the AlgorithmSuite is not specified in
+     * the given policy.
+     * If the AlgorithmSuite exists in a binding in the policy then the value
+     * set will be overridden.
+     *
+     * @param algorithmSuite The algorithmSuite to set.
+     */
+    public void setAlgorithmSuite(AlgorithmSuite algorithmSuite) {
+<span class="nc" id="L887">        this.algorithmSuite = algorithmSuite;</span>
+<span class="nc" id="L888">    }</span>
+
+    /**
+     * @param addressingNs The addressingNs to set.
+     */
+    public void setAddressingNs(String addressingNs) {
+<span class="nc" id="L894">        this.addressingNs = addressingNs;</span>
+<span class="nc" id="L895">    }</span>
+
+    /**
+     * @param ttl The ttl to set.
+     */
+    public void setTtl(int ttl) {
+<span class="nc" id="L901">        this.ttl = ttl;</span>
+<span class="nc" id="L902">    }</span>
+
+    /**
+     * Sets the crypto information required to process the RSTR.
+     *
+     * @param crypto    Crypto information
+     * @param cbHandler Callback handler to provide the private key password to
+     *                  decrypt
+     */
+    public void setCryptoInfo(Crypto crypto, CallbackHandler cbHandler) {
+<span class="fc" id="L912">        this.crypto = crypto;</span>
+<span class="fc" id="L913">        this.cbHandler = cbHandler;</span>
+<span class="fc" id="L914">    }</span>
+
+    /**
+     * Sets the crypto information required to process the RSTR.
+     *
+     * @param crypto        The crypto information
+     * @param privKeyPasswd Private key password to decrypt
+     */
+    public void setCryptoInfo(Crypto crypto, String privKeyPasswd) {
+<span class="nc" id="L923">        this.crypto = crypto;</span>
+<span class="nc" id="L924">        this.cbHandler = new CBHandler(privKeyPasswd);</span>
+<span class="nc" id="L925">    }</span>
+
+    /**
+     * @param action The action to set.
+     */
+    public void setAction(String action) {
+<span class="fc" id="L931">        this.action = action;</span>
+<span class="fc" id="L932">    }</span>
+
+    /**
+     * @param options The options to set.
+     */
+    public void setOptions(Options options) {
+<span class="fc" id="L938">        this.options = options;</span>
+<span class="fc" id="L939">    }</span>
+
+    /**
+     * @param rstTemplate The rstTemplate to set.
+     */
+    public void setRstTemplate(OMElement rstTemplate) {
+<span class="fc" id="L945">        this.rstTemplate = rstTemplate;</span>
+<span class="fc" id="L946">    }</span>
+
+    private static class CBHandler implements CallbackHandler {
+
+        private String passwd;
+
+<span class="nc" id="L952">        private CBHandler(String passwd) {</span>
+<span class="nc" id="L953">            this.passwd = passwd;</span>
+<span class="nc" id="L954">        }</span>
+
+        public void handle(Callback[] cb) throws IOException,
+                                                 UnsupportedCallbackException {
+<span class="nc" id="L958">            ((WSPasswordCallback) cb[0]).setPassword(this.passwd);</span>
+<span class="nc" id="L959">        }</span>
+
+    }
+
+    /**
+     * @param version The version to set.
+     */
+    public void setVersion(int version) {
+<span class="fc" id="L967">        this.version = version;</span>
+<span class="fc" id="L968">    }</span>
+
+    public void setSoapVersion(String soapVersion) {
+<span class="fc" id="L971">        this.soapVersion = soapVersion;</span>
+<span class="fc" id="L972">    }</span>
+    
+    public void addParameter(Parameter param) {
+<span class="nc" id="L975">        parameters.add(param);</span>
+<span class="nc" id="L976">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>
