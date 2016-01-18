@@ -67,9 +67,9 @@ public class NonceCache extends AbstractUniqueMessageAttributeCache {
         }
     }
 
-<span class="pc" id="L70">    private Map&lt;Nonce, Calendar&gt; mapIdNonce = new HashMap&lt;Nonce, Calendar&gt;();</span>
+<span class="fc" id="L70">    private Map&lt;Nonce, Calendar&gt; mapIdNonce = new HashMap&lt;Nonce, Calendar&gt;();</span>
 
-<span class="pc" id="L72">    private final ReentrantLock lock = new ReentrantLock();</span>
+<span class="fc" id="L72">    private final ReentrantLock lock = new ReentrantLock();</span>
 
     public NonceCache()
     {
@@ -78,8 +78,8 @@ public class NonceCache extends AbstractUniqueMessageAttributeCache {
     
     public NonceCache(int maxLifeTime)
     {
-<span class="nc" id="L81">        super(maxLifeTime);</span>
-<span class="nc" id="L82">    }</span>
+<span class="fc" id="L81">        super(maxLifeTime);</span>
+<span class="fc" id="L82">    }</span>
 
     /**
      * @inheritdoc
@@ -140,12 +140,12 @@ public class NonceCache extends AbstractUniqueMessageAttributeCache {
 <span class="fc" id="L140">        rightNow.add(Calendar.SECOND, -(maxLifeTime));</span>
 <span class="fc" id="L141">        long timeBeforeMaxLifeTime = rightNow.getTimeInMillis();</span>
         
-<span class="fc" id="L143">        Iterator iterator = mapIdNonce.entrySet().iterator();</span>
+<span class="fc" id="L143">        Iterator&lt;Map.Entry&lt;Nonce, Calendar&gt;&gt; iterator = mapIdNonce.entrySet().iterator();</span>
 
 <span class="fc bfc" id="L145" title="All 2 branches covered.">        while (iterator.hasNext()) {</span>
 
-<span class="fc" id="L147">            Map.Entry pair = (Map.Entry)iterator.next();</span>
-<span class="fc" id="L148">            Calendar itemDate = (Calendar)pair.getValue();</span>
+<span class="fc" id="L147">            Map.Entry&lt;Nonce, Calendar&gt; pair = iterator.next();</span>
+<span class="fc" id="L148">            Calendar itemDate = pair.getValue();</span>
 
 <span class="fc" id="L150">            long itemAddedTime = itemDate.getTimeInMillis();</span>
 

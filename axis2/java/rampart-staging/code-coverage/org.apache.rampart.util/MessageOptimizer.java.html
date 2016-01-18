@@ -80,41 +80,41 @@ import java.util.StringTokenizer;
 	 * @throws WSSecurityException
 	 */
 	public static void optimize(SOAPEnvelope env, String optimizeParts) throws WSSecurityException {
-<span class="fc" id="L83">		String separater = &quot;&lt;&gt;&quot;;</span>
-<span class="fc" id="L84">		StringTokenizer tokenizer = new StringTokenizer(optimizeParts, separater);</span>
+<span class="nc" id="L83">		String separater = &quot;&lt;&gt;&quot;;</span>
+<span class="nc" id="L84">		StringTokenizer tokenizer = new StringTokenizer(optimizeParts, separater);</span>
 
-<span class="fc bfc" id="L86" title="All 2 branches covered.">		while(tokenizer.hasMoreTokens()) {</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		while(tokenizer.hasMoreTokens()) {</span>
 
-<span class="fc" id="L88">			String xpathExpr = tokenizer.nextToken(); </span>
+<span class="nc" id="L88">			String xpathExpr = tokenizer.nextToken(); </span>
 
 			//Find binary content
-<span class="fc" id="L91">			List list = findElements(env,xpathExpr);</span>
+<span class="nc" id="L91">			List list = findElements(env,xpathExpr);</span>
 
-<span class="fc" id="L93">			Iterator cipherValueElements = list.iterator();</span>
+<span class="nc" id="L93">			Iterator cipherValueElements = list.iterator();</span>
 
-<span class="fc bfc" id="L95" title="All 2 branches covered.">			while (cipherValueElements.hasNext()) {</span>
-<span class="fc" id="L96">				OMElement element = (OMElement) cipherValueElements.next();</span>
-<span class="fc" id="L97">				OMText text = (OMText)element.getFirstOMChild();</span>
-<span class="fc" id="L98">				text.setOptimize(true);</span>
-<span class="fc" id="L99">			}</span>
-<span class="fc" id="L100">		}</span>
-<span class="fc" id="L101">	}</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">			while (cipherValueElements.hasNext()) {</span>
+<span class="nc" id="L96">				OMElement element = (OMElement) cipherValueElements.next();</span>
+<span class="nc" id="L97">				OMText text = (OMText)element.getFirstOMChild();</span>
+<span class="nc" id="L98">				text.setOptimize(true);</span>
+<span class="nc" id="L99">			}</span>
+<span class="nc" id="L100">		}</span>
+<span class="nc" id="L101">	}</span>
 
 
 	private static List findElements(OMElement elem, String expression) throws WSSecurityException {
 		try {
-<span class="fc" id="L106">			XPath xp = new AXIOMXPath(expression);</span>
+<span class="nc" id="L106">			XPath xp = new AXIOMXPath(expression);</span>
 
 			//Set namespaces
-<span class="fc" id="L109">			SimpleNamespaceContext nsCtx = new SimpleNamespaceContext();</span>
-<span class="fc" id="L110">			nsCtx.addNamespace(WSConstants.ENC_PREFIX,WSConstants.ENC_NS);</span>
-<span class="fc" id="L111">			nsCtx.addNamespace(WSConstants.SIG_PREFIX,WSConstants.SIG_NS);</span>
-<span class="fc" id="L112">			nsCtx.addNamespace(WSConstants.WSSE_PREFIX,WSConstants.WSSE_NS);</span>
-<span class="fc" id="L113">			nsCtx.addNamespace(WSConstants.WSU_PREFIX,WSConstants.WSU_NS);</span>
+<span class="nc" id="L109">			SimpleNamespaceContext nsCtx = new SimpleNamespaceContext();</span>
+<span class="nc" id="L110">			nsCtx.addNamespace(WSConstants.ENC_PREFIX,WSConstants.ENC_NS);</span>
+<span class="nc" id="L111">			nsCtx.addNamespace(WSConstants.SIG_PREFIX,WSConstants.SIG_NS);</span>
+<span class="nc" id="L112">			nsCtx.addNamespace(WSConstants.WSSE_PREFIX,WSConstants.WSSE_NS);</span>
+<span class="nc" id="L113">			nsCtx.addNamespace(WSConstants.WSU_PREFIX,WSConstants.WSU_NS);</span>
 
-<span class="fc" id="L115">			xp.setNamespaceContext(nsCtx);</span>
+<span class="nc" id="L115">			xp.setNamespaceContext(nsCtx);</span>
 
-<span class="fc" id="L117">			return xp.selectNodes(elem);</span>
+<span class="nc" id="L117">			return xp.selectNodes(elem);</span>
 
 <span class="nc" id="L119">		} catch (JaxenException e) {</span>
 <span class="nc" id="L120">			throw new WSSecurityException(e.getMessage(), e);</span>

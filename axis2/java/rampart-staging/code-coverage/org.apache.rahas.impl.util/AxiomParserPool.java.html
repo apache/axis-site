@@ -30,7 +30,7 @@ import org.opensaml.xml.parse.ParserPool;
 import org.opensaml.xml.parse.StaticBasicParserPool;
 
 /**
- * Custom OpenSAML 1.x {@link ParserPool} implementation that uses a DOM aware Axiom implementation
+ * Custom OpenSAML {@link ParserPool} implementation that uses a DOM aware Axiom implementation
  * instead of requesting a {@link DocumentBuilderFactory} using JAXP.
  */
 public class AxiomParserPool extends StaticBasicParserPool {

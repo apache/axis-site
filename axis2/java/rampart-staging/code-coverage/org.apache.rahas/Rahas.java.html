@@ -25,12 +25,9 @@ import org.apache.axis2.description.AxisModule;
 import org.apache.axis2.modules.Module;
 import org.apache.neethi.Assertion;
 import org.apache.neethi.Policy;
-import org.apache.rahas.impl.util.AxiomParserPool;
-import org.opensaml.Configuration;
-import org.opensaml.DefaultBootstrap;
 import org.opensaml.xml.ConfigurationException;
 
-<span class="fc" id="L33">public class Rahas implements Module {</span>
+<span class="fc" id="L30">public class Rahas implements Module {</span>
 
     public void init(ConfigurationContext configContext, AxisModule module)
             throws AxisFault {
@@ -38,7 +35,10 @@ import org.opensaml.xml.ConfigurationException;
         // Axiom Parser pool is also set within the RampartSAMLBootstrap class.
 
         try {
-<span class="fc" id="L41">            RampartSAMLBootstrap.bootstrap();</span>
+<span class="fc" id="L38">            RampartSAMLBootstrap.bootstrap();</span>
+
+            // Initialize XML security
+<span class="fc" id="L41">            org.apache.xml.security.Init.init();</span>
 <span class="nc" id="L42">        } catch (ConfigurationException ex) {</span>
 <span class="nc" id="L43">            throw new AxisFault(&quot;Failed to bootstrap OpenSAML&quot;, ex);</span>
 <span class="fc" id="L44">        }</span>

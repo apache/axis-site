@@ -171,7 +171,7 @@
 <dt><span class="strong">Returns:</span></dt><dd>The response <code>soap:Envelope</code> for the given issue
          request.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the token.</dd></dl>
 </li>
 </ul>
 <a name="getResponseAction(org.apache.rahas.RahasData)">
@@ -186,7 +186,7 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>data</code> - A populated <code>RahasData</code> instance</dd>
 <dt><span class="strong">Returns:</span></dt><dd>Returns the <code>wsa:Action</code> of the response</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+<dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while during operation.</dd></dl>
 </li>
 </ul>
 <a name="setConfigurationFile(java.lang.String)">
@@ -200,7 +200,7 @@
  <p/>
  This is the text value of the &lt;configuration-file&gt; element of the
  token-dispatcher-configuration</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>configFile</code> - </dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>configFile</code> - Sets the token issuer configuration file.</dd></dl>
 </li>
 </ul>
 <a name="setConfigurationElement(org.apache.axiom.om.OMElement)">
@@ -229,7 +229,7 @@
  If this is used then there must be a
  <code>org.apache.axis2.description.Parameter</code> object available in
  the via the messageContext when the <code>TokenIssuer</code> is called.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>configParamName</code> - </dd><dt><span class="strong">See Also:</span></dt><dd><code>Parameter</code></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>configParamName</code> - The configuration parameter to be set.</dd><dt><span class="strong">See Also:</span></dt><dd><code>Parameter</code></dd></dl>
 </li>
 </ul>
 </li>

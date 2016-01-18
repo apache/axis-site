@@ -231,7 +231,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 <span class="pc bpc" id="L231" title="1 of 2 branches missed.">        } else if(child.getQName().equals(Reference.TOKEN)) {</span>
 <span class="fc" id="L232">            String uri = child.getAttributeValue(new QName(&quot;URI&quot;));</span>
 <span class="fc bfc" id="L233" title="All 2 branches covered.">            if (uri.charAt(0) == '#') {</span>
-<span class="fc" id="L234">	        uri = uri.substring(1);</span>
+<span class="fc" id="L234">                uri = uri.substring(1);</span>
             }
 <span class="fc" id="L236">            return uri;</span>
         } else {

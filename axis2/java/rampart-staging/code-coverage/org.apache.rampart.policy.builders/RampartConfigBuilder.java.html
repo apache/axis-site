@@ -154,11 +154,17 @@ import org.apache.rampart.policy.model.SSLConfig;
 <span class="nc" id="L154">        	rampartConfig.setOptimizeParts(config);</span>
         }
 
-<span class="fc" id="L157">        return rampartConfig;</span>
+<span class="fc" id="L157">        childElement = element.getFirstChildWithName(new QName(</span>
+                RampartConfig.NS, RampartConfig.TIMESTAMP_STRICT_LN));
+<span class="pc bpc" id="L159" title="1 of 2 branches missed.">        if (childElement != null) {</span>
+<span class="nc" id="L160">            rampartConfig.setTimeStampStrict(childElement.getText().trim());</span>
+        }
+
+<span class="fc" id="L163">        return rampartConfig;</span>
     }
 
     public QName[] getKnownElements() {
-<span class="fc" id="L161">        return new QName[] {new QName(RampartConfig.NS, RampartConfig.RAMPART_CONFIG_LN)};</span>
+<span class="fc" id="L167">        return new QName[] {new QName(RampartConfig.NS, RampartConfig.RAMPART_CONFIG_LN)};</span>
     }
 
 }

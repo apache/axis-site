@@ -259,12 +259,23 @@ extends <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html" ti
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#getCallbackHandlerName()">getCallbackHandlerName</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#getIssuerKeyAlias()">getIssuerKeyAlias</a></strong>()</code>&nbsp;</td>
+<td class="colFirst"><code>org.apache.ws.security.components.crypto.Crypto</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#getIssuerCrypto(java.lang.ClassLoader)">getIssuerCrypto</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader)</code>
+<div class="block">This method will create a Crypto object based on property values defined in cryptoElement or
+ cryptoPropertiesFile.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#getIssuerKeyAlias()">getIssuerKeyAlias</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#getIssuerKeyPassword()">getIssuerKeyPassword</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#getIssuerName()">getIssuerName</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>org.apache.axis2.description.Parameter</code></td>
@@ -287,43 +298,47 @@ extends <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html" ti
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#getTrustStorePropFile()">getTrustStorePropFile</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#setCallbackHander(org.apache.rahas.impl.util.SAMLCallbackHandler)">setCallbackHander</a></strong>(<a href="../../../../org/apache/rahas/impl/util/SAMLCallbackHandler.html" title="interface in org.apache.rahas.impl.util">SAMLCallbackHandler</a>&nbsp;callbackHandler)</code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#setCallbackHandler(org.apache.rahas.impl.util.SAMLCallbackHandler)">setCallbackHandler</a></strong>(<a href="../../../../org/apache/rahas/impl/util/SAMLCallbackHandler.html" title="interface in org.apache.rahas.impl.util">SAMLCallbackHandler</a>&nbsp;callbackHandler)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#setCallbackHandlerName(java.lang.String)">setCallbackHandlerName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;callbackHandlerName)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#setCryptoProperties(java.lang.String, java.util.Properties)">setCryptoProperties</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;providerClassName,
                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;props)</code>
 <div class="block">Set crypto information using WSS4J mechanisms</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#setIssuerKeyAlias(java.lang.String)">setIssuerKeyAlias</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerKeyAlias)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#setIssuerKeyPassword(java.lang.String)">setIssuerKeyPassword</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerKeyPassword)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#setIssuerName(java.lang.String)">setIssuerName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerName)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#setTrustedServices(java.util.Map)">setTrustedServices</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&nbsp;trustedServices)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html#setTrustStorePropFile(java.lang.String)">setTrustStorePropFile</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;trustStorePropFile)</code>&nbsp;</td>
 </tr>
@@ -333,7 +348,7 @@ extends <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html" ti
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.rahas.impl.<a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html" title="class in org.apache.rahas.impl">AbstractIssuerConfig</a></h3>
-<code><a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#getKeyComputation()">getKeyComputation</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#getKeySize()">getKeySize</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#getProofKeyType()">getProofKeyType</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setAddRequestedAttachedRef(boolean)">setAddRequestedAttachedRef</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setAddRequestedUnattachedRef(boolean)">setAddRequestedUnattachedRef</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setKeyComputation(int)">setKeyComputation</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setKeySize(int)">setKeySize</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setProofKeyType(java.lang.String)">setProofKeyType</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setTtl(long)">setTtl</a></code></li>
+<code><a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#getCryptoElement()">getCryptoElement</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#getCryptoPropertiesElement()">getCryptoPropertiesElement</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#getCryptoPropertiesFile()">getCryptoPropertiesFile</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#getKeyComputation()">getKeyComputation</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#getKeySize()">getKeySize</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#getProofKeyType()">getProofKeyType</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#getTtl()">getTtl</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#isAddRequestedAttachedRef()">isAddRequestedAttachedRef</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#isAddRequestedUnattachedRef()">isAddRequestedUnattachedRef</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setAddRequestedAttachedRef(boolean)">setAddRequestedAttachedRef</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setAddRequestedUnattachedRef(boolean)">setAddRequestedUnattachedRef</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setKeyComputation(int)">setKeyComputation</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setKeySize(int)">setKeySize</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setProofKeyType(java.lang.String)">setProofKeyType</a>, <a href="../../../../org/apache/rahas/impl/AbstractIssuerConfig.html#setTtl(long)">setTtl</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -657,6 +672,24 @@ public&nbsp;void&nbsp;setCallbackHander(<a href="../../../../org/apache/rahas/im
 <pre>public&nbsp;<a href="../../../../org/apache/rahas/impl/util/SAMLCallbackHandler.html" title="interface in org.apache.rahas.impl.util">SAMLCallbackHandler</a>&nbsp;getCallbackHandler()</pre>
 </li>
 </ul>
+<a name="getIssuerName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIssuerName</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getIssuerName()</pre>
+</li>
+</ul>
+<a name="getTrustStorePropFile()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTrustStorePropFile</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getTrustStorePropFile()</pre>
+</li>
+</ul>
 <a name="setCallbackHandler(org.apache.rahas.impl.util.SAMLCallbackHandler)">
 <!--   -->
 </a>
@@ -687,7 +720,7 @@ public&nbsp;void&nbsp;setCallbackHander(<a href="../../../../org/apache/rahas/im
 <a name="getServiceCert(org.apache.ws.security.components.crypto.Crypto, java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getServiceCert</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;getServiceCert(org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
@@ -699,6 +732,22 @@ public&nbsp;void&nbsp;setCallbackHander(<a href="../../../../org/apache/rahas/im
 <dt><span class="strong">Returns:</span></dt><dd></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find certificate by given alias.</dd></dl>
+</li>
+</ul>
+<a name="getIssuerCrypto(java.lang.ClassLoader)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getIssuerCrypto</h4>
+<pre>public&nbsp;org.apache.ws.security.components.crypto.Crypto&nbsp;getIssuerCrypto(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader)
+                                                                throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method will create a Crypto object based on property values defined in cryptoElement or
+ cryptoPropertiesFile.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>classLoader</code> - A class loader to pass into CryptoFactory.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>A Crypto object</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the Crypto object.</dd></dl>
 </li>
 </ul>
 </li>

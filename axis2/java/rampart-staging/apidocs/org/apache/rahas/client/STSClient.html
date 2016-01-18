@@ -145,6 +145,20 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/client/STSClient.html#createIssueRequest(java.lang.String)">createIssueRequest</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;appliesTo)</code>
+<div class="block">This creates a request security token (RST) message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/rahas/Token.html" title="class in org.apache.rahas">Token</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/client/STSClient.html#processIssueResponse(int, org.apache.axiom.om.OMElement, java.lang.String)">processIssueResponse</a></strong>(int&nbsp;version,
+                    org.apache.axiom.om.OMElement&nbsp;result,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerAddress)</code>
+<div class="block">Processes the response from Token issuer.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/client/STSClient.html#renewToken(java.lang.String, java.lang.String, org.apache.neethi.Policy)">renewToken</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tokenId,
           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerAddress,
@@ -351,6 +365,38 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <dt><span class="strong">Returns:</span></dt><dd>status</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="processIssueResponse(int, org.apache.axiom.om.OMElement, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>processIssueResponse</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/rahas/Token.html" title="class in org.apache.rahas">Token</a>&nbsp;processIssueResponse(int&nbsp;version,
+                         org.apache.axiom.om.OMElement&nbsp;result,
+                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerAddress)
+                              throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Processes the response from Token issuer.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>version</code> - The supported version.</dd><dd><code>result</code> - Resulting token response from token issuer.</dd><dd><code>issuerAddress</code> - The respective token applying entity (as a url)</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The issued token.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while extracting token from response.</dd></dl>
+</li>
+</ul>
+<a name="createIssueRequest(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createIssueRequest</h4>
+<pre>protected&nbsp;org.apache.axiom.om.OMElement&nbsp;createIssueRequest(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;appliesTo)
+                                                    throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This creates a request security token (RST) message.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>appliesTo</code> - The address which token is applicable to.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The axiom object representation of RST.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the RST.</dd></dl>
 </li>
 </ul>
 <a name="setTrust10(org.apache.ws.secpolicy.model.Trust10)">

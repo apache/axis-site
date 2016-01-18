@@ -36,15 +36,15 @@ import java.util.Map;
     public void addNonceForService(String service, String userName, String nonceValue, int nonceLifeTime) {
 
         UniqueMessageAttributeCache nonceCache;
-<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (this.mapServiceNonceCache.containsKey(service)) {</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        if (this.mapServiceNonceCache.containsKey(service)) {</span>
 <span class="nc" id="L40">            nonceCache = this.mapServiceNonceCache.get(service);</span>
         } else {
-<span class="nc" id="L42">            nonceCache = new NonceCache(nonceLifeTime);</span>
-<span class="nc" id="L43">            this.mapServiceNonceCache.put(service, nonceCache);</span>
+<span class="fc" id="L42">            nonceCache = new NonceCache(nonceLifeTime);</span>
+<span class="fc" id="L43">            this.mapServiceNonceCache.put(service, nonceCache);</span>
         }
                 
-<span class="nc" id="L46">        nonceCache.addToCache(nonceValue, userName);</span>
-<span class="nc" id="L47">    }</span>
+<span class="fc" id="L46">        nonceCache.addToCache(nonceValue, userName);</span>
+<span class="fc" id="L47">    }</span>
 
     /**
      * This method will check whether the nonce value is repeating for the given service.
@@ -55,14 +55,14 @@ import java.util.Map;
      */
     public boolean isNonceRepeatingForService(String service, String userName, String nonceValue){
 
-<span class="nc bnc" id="L58" title="All 2 branches missed.">        if (this.mapServiceNonceCache.containsKey(service)) {</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (this.mapServiceNonceCache.containsKey(service)) {</span>
 
 <span class="nc" id="L60">            UniqueMessageAttributeCache nonceCache = this.mapServiceNonceCache.get(service);</span>
 <span class="nc" id="L61">            return nonceCache.valueExistsInCache(nonceValue, userName);           </span>
 
         }
 
-<span class="nc" id="L65">        return false;</span>
+<span class="fc" id="L65">        return false;</span>
 
     }
 

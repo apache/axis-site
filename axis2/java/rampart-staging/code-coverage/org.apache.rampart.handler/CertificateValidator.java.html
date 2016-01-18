@@ -27,9 +27,9 @@ import java.security.cert.X509Certificate;
  */
 public class CertificateValidator extends SignatureTrustValidator {
 
-<span class="fc" id="L30">    CertificateValidator() {</span>
+<span class="nc" id="L30">    CertificateValidator() {</span>
 
-<span class="fc" id="L32">    }</span>
+<span class="nc" id="L32">    }</span>
 
     /**
      * Checks the validity of the given certificate. For more info see SignatureTrustValidator.verifyTrustInCert.
@@ -39,7 +39,7 @@ public class CertificateValidator extends SignatureTrustValidator {
      * @throws WSSecurityException If an error occurred while trying to access Crypto and Certificate properties.
      */
     boolean validateCertificate(X509Certificate certificate, Crypto signatureCrypto) throws WSSecurityException {
-<span class="fc" id="L42">        return verifyTrustInCert(certificate, signatureCrypto, false);</span>
+<span class="nc" id="L42">        return verifyTrustInCert(certificate, signatureCrypto, false);</span>
     }
 
 }
