@@ -216,85 +216,81 @@ implements <a href="../../../../org/apache/axis2/engine/Handler.html" title="int
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#cleanup()">cleanup</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#flowComplete(org.apache.axis2.context.MessageContext)">flowComplete</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
 <div class="block">This method will be called on each registered handler that had its
  invoke(...) method called during the processing of the message, once
  the message processing has completed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#getHandlerCount()">getHandlerCount</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/description/HandlerDescription.html" title="class in org.apache.axis2.description">HandlerDescription</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#getHandlerDesc()">getHandlerDesc</a></strong>()</code>
 <div class="block">Gets the HandlerDescription of a handler.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../org/apache/axis2/engine/Handler.html" title="interface in org.apache.axis2.engine">Handler</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#getHandlers()">getHandlers</a></strong>()</code>
 <div class="block">Gets all the handlers in the phase.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#getName()">getName</a></strong>()</code>
 <div class="block">Return the name of this Handler</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/description/Parameter.html" title="class in org.apache.axis2.description">Parameter</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#getParameter(java.lang.String)">getParameter</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Get a Parameter from this Handler</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#getPhaseName()">getPhaseName</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#init(org.apache.axis2.description.HandlerDescription)">init</a></strong>(<a href="../../../../org/apache/axis2/description/HandlerDescription.html" title="class in org.apache.axis2.description">HandlerDescription</a>&nbsp;handlerdesc)</code>
 <div class="block">Initialize a Handler.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/engine/Handler.InvocationResponse.html" title="class in org.apache.axis2.engine">Handler.InvocationResponse</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#invoke(org.apache.axis2.context.MessageContext)">invoke</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgctx)</code>
 <div class="block">Invoke all the handlers in this Phase</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#removeHandler(org.apache.axis2.description.HandlerDescription)">removeHandler</a></strong>(<a href="../../../../org/apache/axis2/description/HandlerDescription.html" title="class in org.apache.axis2.description">HandlerDescription</a>&nbsp;handlerDesc)</code>
 <div class="block">Remove a given Handler from a phase using a HandlerDescription</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#setName(java.lang.String)">setName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;phaseName)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#setPhaseFirst(org.apache.axis2.engine.Handler)">setPhaseFirst</a></strong>(<a href="../../../../org/apache/axis2/engine/Handler.html" title="interface in org.apache.axis2.engine">Handler</a>&nbsp;handler)</code>
 <div class="block">Add a Handler to the Phase in the very first position, and ensure no other Handler
  will come before it.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#setPhaseLast(org.apache.axis2.engine.Handler)">setPhaseLast</a></strong>(<a href="../../../../org/apache/axis2/engine/Handler.html" title="interface in org.apache.axis2.engine">Handler</a>&nbsp;handler)</code>
 <div class="block">Add a Handler to the Phase in the very last position, and ensure no other Handler
  will come after it.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/Phase.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -437,19 +433,6 @@ implements <a href="../../../../org/apache/axis2/engine/Handler.html" title="int
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - the active MessageContext</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - if a precondition is not met, or in case of other problem</dd></dl>
-</li>
-</ul>
-<a name="cleanup()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>cleanup</h4>
-<pre>public&nbsp;void&nbsp;cleanup()</pre>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../org/apache/axis2/engine/Handler.html#cleanup()">cleanup</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/axis2/engine/Handler.html" title="interface in org.apache.axis2.engine">Handler</a></code></dd>
-</dl>
 </li>
 </ul>
 <a name="init(org.apache.axis2.description.HandlerDescription)">

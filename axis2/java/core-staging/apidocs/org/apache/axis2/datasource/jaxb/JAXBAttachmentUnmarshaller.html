@@ -89,12 +89,7 @@
 <li><a href="http://docs.oracle.com/javaee/5/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true" title="class or interface in javax.xml.bind.attachment">javax.xml.bind.attachment.AttachmentUnmarshaller</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAttachmentUnmarshaller.html" title="class in org.apache.axis2.datasource.jaxb">org.apache.axis2.datasource.jaxb.AbstractJAXBAttachmentUnmarshaller</a></li>
-<li>
-<ul class="inheritance">
 <li>org.apache.axis2.datasource.jaxb.JAXBAttachmentUnmarshaller</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -105,12 +100,12 @@
 <li class="blockList">
 <hr>
 <br>
-<pre>public class <span class="strong">JAXBAttachmentUnmarshaller</span>
-extends <a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAttachmentUnmarshaller.html" title="class in org.apache.axis2.datasource.jaxb">AbstractJAXBAttachmentUnmarshaller</a></pre>
-<div class="block">JAXBAttachmentUnmarshaller
- <p/>
- An implementation of the <link>javax.xml.bind.attachment.AttachmentUnmarshaller</link> that is
- used for deserializing XOP elements into their corresponding binary data packages.</div>
+<pre>public final class <span class="strong">JAXBAttachmentUnmarshaller</span>
+extends <a href="http://docs.oracle.com/javaee/5/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true" title="class or interface in javax.xml.bind.attachment">AttachmentUnmarshaller</a></pre>
+<div class="block">Implementation of the <a href="http://docs.oracle.com/javaee/5/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true" title="class or interface in javax.xml.bind.attachment"><code>AttachmentUnmarshaller</code></a> class that handles the attachments provided
+ by Axiom through the <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/util/stax/xop/MimePartProvider.html?is-external=true" title="class or interface in org.apache.axiom.util.stax.xop"><code>MimePartProvider</code></a> interface. It should be noted that while Axiom only
+ handles attachments referenced using XOP, <a href="http://docs.oracle.com/javaee/5/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true" title="class or interface in javax.xml.bind.attachment"><code>AttachmentUnmarshaller</code></a> is also used to retrieve
+ attachments from SwA messages. Hence the <code>#getDataHandlerForSwA(String)</code> method.</div>
 </li>
 </ul>
 </div>
@@ -129,8 +124,8 @@ extends <a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAtt
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../../org/apache/axis2/datasource/jaxb/JAXBAttachmentUnmarshaller.html#JAXBAttachmentUnmarshaller(org.apache.axiom.util.stax.xop.MimePartProvider, org.apache.axis2.context.MessageContext)">JAXBAttachmentUnmarshaller</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/util/stax/xop/MimePartProvider.html?is-external=true" title="class or interface in org.apache.axiom.util.stax.xop">MimePartProvider</a>&nbsp;mimePartProvider,
-                          <a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>&nbsp;</td>
+<td class="colOne"><code><strong><a href="../../../../../org/apache/axis2/datasource/jaxb/JAXBAttachmentUnmarshaller.html#JAXBAttachmentUnmarshaller(org.apache.axis2.datasource.jaxb.AttachmentContext, org.apache.axiom.util.stax.xop.MimePartProvider)">JAXBAttachmentUnmarshaller</a></strong>(<a href="../../../../../org/apache/axis2/datasource/jaxb/AttachmentContext.html" title="interface in org.apache.axis2.datasource.jaxb">AttachmentContext</a>&nbsp;context,
+                          <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/util/stax/xop/MimePartProvider.html?is-external=true" title="class or interface in org.apache.axiom.util.stax.xop">MimePartProvider</a>&nbsp;mimePartProvider)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -148,17 +143,18 @@ extends <a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAtt
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javaee/5/api/javax/activation/DataHandler.html?is-external=true" title="class or interface in javax.activation">DataHandler</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/datasource/jaxb/JAXBAttachmentUnmarshaller.html#getDataHandlerForSwA(java.lang.String)">getDataHandlerForSwA</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;blobcid)</code>&nbsp;</td>
+<td class="colFirst"><code>byte[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/datasource/jaxb/JAXBAttachmentUnmarshaller.html#getAttachmentAsByteArray(java.lang.String)">getAttachmentAsByteArray</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;cid)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/5/api/javax/activation/DataHandler.html?is-external=true" title="class or interface in javax.activation">DataHandler</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/datasource/jaxb/JAXBAttachmentUnmarshaller.html#getAttachmentAsDataHandler(java.lang.String)">getAttachmentAsDataHandler</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;cid)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/datasource/jaxb/JAXBAttachmentUnmarshaller.html#isXOPPackage()">isXOPPackage</a></strong>()</code>&nbsp;</td>
 </tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a name="methods_inherited_from_class_org.apache.axis2.datasource.jaxb.AbstractJAXBAttachmentUnmarshaller">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;org.apache.axis2.datasource.jaxb.<a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAttachmentUnmarshaller.html" title="class in org.apache.axis2.datasource.jaxb">AbstractJAXBAttachmentUnmarshaller</a></h3>
-<code><a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAttachmentUnmarshaller.html#getAttachmentAsByteArray(java.lang.String)">getAttachmentAsByteArray</a>, <a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAttachmentUnmarshaller.html#getAttachmentAsDataHandler(java.lang.String)">getAttachmentAsDataHandler</a>, <a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAttachmentUnmarshaller.html#isXOPPackage()">isXOPPackage</a></code></li>
-</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
@@ -180,14 +176,14 @@ extends <a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAtt
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="JAXBAttachmentUnmarshaller(org.apache.axiom.util.stax.xop.MimePartProvider, org.apache.axis2.context.MessageContext)">
+<a name="JAXBAttachmentUnmarshaller(org.apache.axis2.datasource.jaxb.AttachmentContext, org.apache.axiom.util.stax.xop.MimePartProvider)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>JAXBAttachmentUnmarshaller</h4>
-<pre>public&nbsp;JAXBAttachmentUnmarshaller(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/util/stax/xop/MimePartProvider.html?is-external=true" title="class or interface in org.apache.axiom.util.stax.xop">MimePartProvider</a>&nbsp;mimePartProvider,
-                          <a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</pre>
+<pre>public&nbsp;JAXBAttachmentUnmarshaller(<a href="../../../../../org/apache/axis2/datasource/jaxb/AttachmentContext.html" title="interface in org.apache.axis2.datasource.jaxb">AttachmentContext</a>&nbsp;context,
+                          <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/util/stax/xop/MimePartProvider.html?is-external=true" title="class or interface in org.apache.axiom.util.stax.xop">MimePartProvider</a>&nbsp;mimePartProvider)</pre>
 </li>
 </ul>
 </li>
@@ -198,16 +194,42 @@ extends <a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAtt
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getDataHandlerForSwA(java.lang.String)">
+<a name="isXOPPackage()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isXOPPackage</h4>
+<pre>public final&nbsp;boolean&nbsp;isXOPPackage()</pre>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true#isXOPPackage()" title="class or interface in javax.xml.bind.attachment">isXOPPackage</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true" title="class or interface in javax.xml.bind.attachment">AttachmentUnmarshaller</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getAttachmentAsByteArray(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAttachmentAsByteArray</h4>
+<pre>public final&nbsp;byte[]&nbsp;getAttachmentAsByteArray(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;cid)</pre>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true#getAttachmentAsByteArray(java.lang.String)" title="class or interface in javax.xml.bind.attachment">getAttachmentAsByteArray</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true" title="class or interface in javax.xml.bind.attachment">AttachmentUnmarshaller</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getAttachmentAsDataHandler(java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getDataHandlerForSwA</h4>
-<pre>protected&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/activation/DataHandler.html?is-external=true" title="class or interface in javax.activation">DataHandler</a>&nbsp;getDataHandlerForSwA(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;blobcid)</pre>
+<h4>getAttachmentAsDataHandler</h4>
+<pre>public final&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/activation/DataHandler.html?is-external=true" title="class or interface in javax.activation">DataHandler</a>&nbsp;getAttachmentAsDataHandler(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;cid)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAttachmentUnmarshaller.html#getDataHandlerForSwA(java.lang.String)">getDataHandlerForSwA</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis2/datasource/jaxb/AbstractJAXBAttachmentUnmarshaller.html" title="class in org.apache.axis2.datasource.jaxb">AbstractJAXBAttachmentUnmarshaller</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true#getAttachmentAsDataHandler(java.lang.String)" title="class or interface in javax.xml.bind.attachment">getAttachmentAsDataHandler</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true" title="class or interface in javax.xml.bind.attachment">AttachmentUnmarshaller</a></code></dd>
 </dl>
 </li>
 </ul>

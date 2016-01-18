@@ -162,30 +162,53 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;schemaType)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html#getClassNameForQName(javax.xml.namespace.QName)">getClassNameForQName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;qname)</code>&nbsp;</td>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html#addSimpleTypeEnum(java.lang.String, javax.xml.namespace.QName)">addSimpleTypeEnum</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;simpleSchemaType)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html#getClassNameForQName(javax.xml.namespace.QName)">getClassNameForQName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;qname)</code>
+<div class="block">Gets the class name for QName.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html#getComplexSchemaMap()">getComplexSchemaMap</a></strong>()</code>
 <div class="block">Return the complex type map</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html#getComplexSchemaType(java.lang.String)">getComplexSchemaType</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html#getQNamefortheType(java.lang.String)">getQNamefortheType</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;typeName)</code>
 <div class="block">Get the qname for a type
  first try the simple types if not try the complex types</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html#getSchemaTypeName(java.lang.String)">getSchemaTypeName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">Gets the schema type name.</div>
+</td>
+</tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html#getSimpleSchemaTypeName(java.lang.String)">getSimpleSchemaTypeName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;typeName)</code>
 <div class="block">Return the schema type QName given the type class name</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html#getSimpleTypeEnum(java.lang.String)">getSimpleTypeEnum</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html#getSimpleTypeEnumMap()">getSimpleTypeEnumMap</a></strong>()</code>
+<div class="block">Return the complex type map</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -274,13 +297,43 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <dt><span class="strong">Returns:</span></dt><dd>true if the type is a simple type</dd></dl>
 </li>
 </ul>
+<a name="getSimpleTypeEnumMap()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSimpleTypeEnumMap</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;&nbsp;getSimpleTypeEnumMap()</pre>
+<div class="block">Return the complex type map</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the map with complex types</dd></dl>
+</li>
+</ul>
+<a name="addSimpleTypeEnum(java.lang.String, javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addSimpleTypeEnum</h4>
+<pre>public&nbsp;void&nbsp;addSimpleTypeEnum(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className,
+                     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;simpleSchemaType)</pre>
+</li>
+</ul>
+<a name="getSimpleTypeEnum(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSimpleTypeEnum</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;getSimpleTypeEnum(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</pre>
+</li>
+</ul>
 <a name="getComplexSchemaMap()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getComplexSchemaMap</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&nbsp;getComplexSchemaMap()</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;&nbsp;getComplexSchemaMap()</pre>
 <div class="block">Return the complex type map</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the map with complex types</dd></dl>
 </li>
@@ -311,6 +364,10 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <li class="blockList">
 <h4>getClassNameForQName</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getClassNameForQName(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;qname)</pre>
+<div class="block">Gets the class name for QName.
+ first try the complex types if not try the simple types.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>qname</code> - the qname</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the class name for QName</dd></dl>
 </li>
 </ul>
 <a name="addClassNameForQName(javax.xml.namespace.QName, java.lang.String)">
@@ -326,7 +383,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <a name="getQNamefortheType(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getQNamefortheType</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;getQNamefortheType(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;typeName)</pre>
@@ -334,6 +391,18 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
  first try the simple types if not try the complex types</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>typeName</code> - name of the type</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the Qname for this type</dd></dl>
+</li>
+</ul>
+<a name="getSchemaTypeName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getSchemaTypeName</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;getSchemaTypeName(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">Gets the schema type name.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the name</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the schema type name</dd></dl>
 </li>
 </ul>
 </li>

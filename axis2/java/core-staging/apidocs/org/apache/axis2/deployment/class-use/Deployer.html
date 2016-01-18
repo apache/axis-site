@@ -132,7 +132,11 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/ModuleDeployer.html" title="class in org.apache.axis2.deployment">ModuleDeployer</a></strong></code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/ModuleDeployer.html" title="class in org.apache.axis2.deployment">ModuleDeployer</a></strong></code>
+<div class="block">
+ Standard Axis2 Module Deployer which use module.xml file to deploy
+ Modules.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
@@ -140,7 +144,11 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/ServiceDeployer.html" title="class in org.apache.axis2.deployment">ServiceDeployer</a></strong></code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/ServiceDeployer.html" title="class in org.apache.axis2.deployment">ServiceDeployer</a></strong></code>
+<div class="block">
+ Standard Axis2 service Deployer which use services.xml file to build
+ services.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
@@ -195,6 +203,17 @@
 <td class="colLast"><span class="strong">RepositoryListener.</span><code><strong><a href="../../../../../org/apache/axis2/deployment/RepositoryListener.html#addFileToDeploy(java.io.File, org.apache.axis2.deployment.Deployer, int)">addFileToDeploy</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
                <a href="../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer,
                int&nbsp;type)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">RepositoryListener.</span><code><strong><a href="../../../../../org/apache/axis2/deployment/RepositoryListener.html#addURLToDeploy(java.net.URL, org.apache.axis2.deployment.Deployer, int)">addURLToDeploy</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+              <a href="../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer,
+              int&nbsp;type)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">ServiceDeployer.</span><code><strong><a href="../../../../../org/apache/axis2/deployment/ServiceDeployer.html#deployFromUrl(org.apache.axis2.deployment.Deployer, java.net.URL)">deployFromUrl</a></strong>(<a href="../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;servicesURL)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -251,6 +270,12 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">WSInfoList.</span><code><strong><a href="../../../../../org/apache/axis2/deployment/repository/util/WSInfoList.html#addWSInfoItem(java.net.URL, org.apache.axis2.deployment.Deployer, int)">addWSInfoItem</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+             <a href="../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer,
+             int&nbsp;type)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="strong">DeploymentFileData.</span><code><strong><a href="../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#setDeployer(org.apache.axis2.deployment.Deployer)">setDeployer</a></strong>(<a href="../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer)</code>&nbsp;</td>
 </tr>
 </tbody>
@@ -266,6 +291,11 @@
                   <a href="../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#DeploymentFileData(java.net.URL, org.apache.axis2.deployment.Deployer, java.lang.ClassLoader)">DeploymentFileData</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+                  <a href="../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer,
+                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/repository/util/WSInfo.html#WSInfo(java.lang.String, long, org.apache.axis2.deployment.Deployer, int)">WSInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fileName,
       long&nbsp;lastModifiedDate,
       <a href="../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer,

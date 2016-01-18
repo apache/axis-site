@@ -208,20 +208,24 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/SchemaCompiler.html#getCompilerProperties()">getCompilerProperties</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,org.apache.ws.commons.schema.XmlSchema&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/SchemaCompiler.html#getLoadedSchemaMap()">getLoadedSchemaMap</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/SchemaCompiler.html#getProcessedElementMap()">getProcessedElementMap</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/SchemaCompiler.html#getProcessedModelMap()">getProcessedModelMap</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/SchemaCompiler.html#isSOAP_ENC(java.lang.String)">isSOAP_ENC</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;s)</code>
 <div class="block">Returns true if SOAP_ENC Namespace.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/SchemaCompiler.html#processAttribute(org.apache.ws.commons.schema.XmlSchemaAttribute, org.apache.axis2.schema.BeanWriterMetaInfoHolder, org.apache.ws.commons.schema.XmlSchema)">processAttribute</a></strong>(org.apache.ws.commons.schema.XmlSchemaAttribute&nbsp;att,
                 <a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html" title="class in org.apache.axis2.schema">BeanWriterMetaInfoHolder</a>&nbsp;metainf,
@@ -229,7 +233,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <div class="block">Process the attribute</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/SchemaCompiler.html#processSimpleExtensionBaseType(javax.xml.namespace.QName, org.apache.axis2.schema.BeanWriterMetaInfoHolder, org.apache.ws.commons.schema.XmlSchema)">processSimpleExtensionBaseType</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;extBaseType,
                               <a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html" title="class in org.apache.axis2.schema">BeanWriterMetaInfoHolder</a>&nbsp;metaInfHolder,
@@ -237,7 +241,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <div class="block">Process Simple Extension Base Type.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/SchemaCompiler.html#processSimpleRestrictionBaseType(javax.xml.namespace.QName, javax.xml.namespace.QName, org.apache.axis2.schema.BeanWriterMetaInfoHolder, org.apache.ws.commons.schema.XmlSchema)">processSimpleRestrictionBaseType</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;qName,
                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;resBaseType,
@@ -512,7 +516,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <a name="processAttribute(org.apache.ws.commons.schema.XmlSchemaAttribute, org.apache.axis2.schema.BeanWriterMetaInfoHolder, org.apache.ws.commons.schema.XmlSchema)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>processAttribute</h4>
 <pre>public&nbsp;void&nbsp;processAttribute(org.apache.ws.commons.schema.XmlSchemaAttribute&nbsp;att,
@@ -523,6 +527,15 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>att</code> - </dd><dd><code>metainf</code> - </dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/axis2/schema/SchemaCompilationException.html" title="class in org.apache.axis2.schema">SchemaCompilationException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getLoadedSchemaMap()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getLoadedSchemaMap</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,org.apache.ws.commons.schema.XmlSchema&gt;&nbsp;getLoadedSchemaMap()</pre>
 </li>
 </ul>
 </li>

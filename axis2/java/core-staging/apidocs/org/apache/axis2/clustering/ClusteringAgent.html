@@ -157,8 +157,22 @@ extends <a href="../../../../org/apache/axis2/description/ParameterInclude.html"
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html#addGroupManagementAgent(org.apache.axis2.clustering.management.GroupManagementAgent, java.lang.String, java.lang.String)">addGroupManagementAgent</a></strong>(<a href="../../../../org/apache/axis2/clustering/management/GroupManagementAgent.html" title="interface in org.apache.axis2.clustering.management">GroupManagementAgent</a>&nbsp;agent,
+                       <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationDomain,
+                       <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationSubDomain)</code>
+<div class="block">Add a GroupManagementAgent to an application domain + sub-domain</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html#finalize()">finalize</a></strong>()</code>
 <div class="block">Do cleanup & leave the cluster</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html#getAliveMemberCount()">getAliveMemberCount</a></strong>()</code>
+<div class="block">Get the number of members alive.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -170,11 +184,18 @@ extends <a href="../../../../org/apache/axis2/description/ParameterInclude.html"
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/clustering/management/GroupManagementAgent.html" title="interface in org.apache.axis2.clustering.management">GroupManagementAgent</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html#getGroupManagementAgent(java.lang.String)">getGroupManagementAgent</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationDomain)</code>
-<div class="block">Get the LoadBalanceEventHandler which corresponds to the <code>applicationDomain</code>
- This will be valid only when this node is running in loadBalance mode</div>
+<div class="block">Get the GroupManagementAgent which corresponds to the <code>applicationDomain</code>
+ This will be valid only when this node is running in groupManagement</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/clustering/management/GroupManagementAgent.html" title="interface in org.apache.axis2.clustering.management">GroupManagementAgent</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html#getGroupManagementAgent(java.lang.String, java.lang.String)">getGroupManagementAgent</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationDomain,
+                       <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationSubDomain)</code>
+<div class="block">Get the GroupManagementAgent which corresponds to the <code>applicationDomain + sub-domain</code></div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../org/apache/axis2/clustering/Member.html" title="class in org.apache.axis2.clustering">Member</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html#getMembers()">getMembers</a></strong>()</code>
 <div class="block">Get the list of members in a
@@ -183,18 +204,24 @@ extends <a href="../../../../org/apache/axis2/description/ParameterInclude.html"
  </a></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/clustering/management/NodeManager.html" title="interface in org.apache.axis2.clustering.management">NodeManager</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html#getNodeManager()">getNodeManager</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/clustering/state/StateManager.html" title="interface in org.apache.axis2.clustering.state">StateManager</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html#getStateManager()">getStateManager</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html#init()">init</a></strong>()</code>
 <div class="block">Initialize this node, and join the cluster</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html#isCoordinator()">isCoordinator</a></strong>()</code>
+<div class="block">Checks whether this member is the coordinator for the cluster</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -397,6 +424,17 @@ extends <a href="../../../../org/apache/axis2/description/ParameterInclude.html"
          the values returned may not be valid</dd></dl>
 </li>
 </ul>
+<a name="getAliveMemberCount()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAliveMemberCount</h4>
+<pre>int&nbsp;getAliveMemberCount()</pre>
+<div class="block">Get the number of members alive.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the number of members alive.</dd></dl>
+</li>
+</ul>
 <a name="addGroupManagementAgent(org.apache.axis2.clustering.management.GroupManagementAgent, java.lang.String)">
 <!--   -->
 </a>
@@ -407,7 +445,20 @@ extends <a href="../../../../org/apache/axis2/description/ParameterInclude.html"
                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationDomain)</pre>
 <div class="block">Set the load balance event handler which will be notified when load balance events occur.
  This will be valid only when this node is running in loadBalance mode</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>agent</code> - The load balance event handler</dd><dd><code>applicationDomain</code> - The application domain which is handled by the eventHandler</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>agent</code> - The GroupManagementAgent to be added</dd><dd><code>applicationDomain</code> - The application domain which is handled by the GroupManagementAgent</dd></dl>
+</li>
+</ul>
+<a name="addGroupManagementAgent(org.apache.axis2.clustering.management.GroupManagementAgent, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addGroupManagementAgent</h4>
+<pre>void&nbsp;addGroupManagementAgent(<a href="../../../../org/apache/axis2/clustering/management/GroupManagementAgent.html" title="interface in org.apache.axis2.clustering.management">GroupManagementAgent</a>&nbsp;agent,
+                           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationDomain,
+                           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationSubDomain)</pre>
+<div class="block">Add a GroupManagementAgent to an application domain + sub-domain</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>agent</code> - The GroupManagementAgent to be added</dd><dd><code>applicationDomain</code> - The application domain which is handled by the GroupManagementAgent</dd><dd><code>applicationSubDomain</code> - The application sub-domain which is handled by the GroupManagementAgent</dd></dl>
 </li>
 </ul>
 <a name="getGroupManagementAgent(java.lang.String)">
@@ -417,11 +468,24 @@ extends <a href="../../../../org/apache/axis2/description/ParameterInclude.html"
 <li class="blockList">
 <h4>getGroupManagementAgent</h4>
 <pre><a href="../../../../org/apache/axis2/clustering/management/GroupManagementAgent.html" title="interface in org.apache.axis2.clustering.management">GroupManagementAgent</a>&nbsp;getGroupManagementAgent(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationDomain)</pre>
-<div class="block">Get the LoadBalanceEventHandler which corresponds to the <code>applicationDomain</code>
- This will be valid only when this node is running in loadBalance mode</div>
+<div class="block">Get the GroupManagementAgent which corresponds to the <code>applicationDomain</code>
+ This will be valid only when this node is running in groupManagement</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>applicationDomain</code> - The application domain to which the application nodes being
                           load balanced belong to</dd>
-<dt><span class="strong">Returns:</span></dt><dd>LoadBalanceEventHandler which corresponds to the <code>applicationDomain</code></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>GroupManagementAgent which corresponds to the <code>applicationDomain</code></dd></dl>
+</li>
+</ul>
+<a name="getGroupManagementAgent(java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getGroupManagementAgent</h4>
+<pre><a href="../../../../org/apache/axis2/clustering/management/GroupManagementAgent.html" title="interface in org.apache.axis2.clustering.management">GroupManagementAgent</a>&nbsp;getGroupManagementAgent(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationDomain,
+                                           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;applicationSubDomain)</pre>
+<div class="block">Get the GroupManagementAgent which corresponds to the <code>applicationDomain + sub-domain</code></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>applicationDomain</code> - The application domain which is handled by the GroupManagementAgent</dd><dd><code>applicationSubDomain</code> - The application sub-domain which is handled by the GroupManagementAgent</dd>
+<dt><span class="strong">Returns:</span></dt><dd>GroupManagementAgent which corresponds to the <code>applicationDomain + sub-domain</code></dd></dl>
 </li>
 </ul>
 <a name="getDomains()">
@@ -433,6 +497,17 @@ extends <a href="../../../../org/apache/axis2/description/ParameterInclude.html"
 <pre><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getDomains()</pre>
 <div class="block">Get all the domains that this ClusteringAgent belongs to</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the domains of this ClusteringAgent</dd></dl>
+</li>
+</ul>
+<a name="isCoordinator()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isCoordinator</h4>
+<pre>boolean&nbsp;isCoordinator()</pre>
+<div class="block">Checks whether this member is the coordinator for the cluster</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>true if this member is the coordinator, and false otherwise</dd></dl>
 </li>
 </ul>
 <a name="sendMessage(org.apache.axis2.clustering.ClusteringMessage, boolean)">

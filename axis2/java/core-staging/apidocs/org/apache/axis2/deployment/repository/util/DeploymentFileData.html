@@ -123,6 +123,11 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <td class="colOne"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#DeploymentFileData(java.io.File, org.apache.axis2.deployment.Deployer)">DeploymentFileData</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
                   <a href="../../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer)</code>&nbsp;</td>
 </tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#DeploymentFileData(java.net.URL, org.apache.axis2.deployment.Deployer, java.lang.ClassLoader)">DeploymentFileData</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+                  <a href="../../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer,
+                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader)</code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -169,37 +174,45 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#getServiceName()">getServiceName</a></strong>()</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>please use getName() instead - this will disappear after 1.3.</i></div>
-</div>
-</td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#getServiceMetaData()">getServiceMetaData</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#getUrl()">getUrl</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#isModuleArchiveFile(java.lang.String)">isModuleArchiveFile</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filename)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#isServiceArchiveFile(java.lang.String)">isServiceArchiveFile</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filename)</code>
 <div class="block">Checks whether a given file is a jar or an aar file.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#setClassLoader(boolean, java.lang.ClassLoader, java.io.File, boolean)">setClassLoader</a></strong>(boolean&nbsp;isDirectory,
               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;parent,
               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
               boolean&nbsp;isChildFirstClassLoading)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#setClassLoader(java.lang.ClassLoader)">setClassLoader</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#setDeployer(org.apache.axis2.deployment.Deployer)">setDeployer</a></strong>(<a href="../../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#setServiceMetaData(java.lang.Object)">setServiceMetaData</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceMetaData)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html#setUrl(java.net.URL)">setUrl</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -235,11 +248,22 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <a name="DeploymentFileData(java.io.File, org.apache.axis2.deployment.Deployer)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>DeploymentFileData</h4>
 <pre>public&nbsp;DeploymentFileData(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
                   <a href="../../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer)</pre>
+</li>
+</ul>
+<a name="DeploymentFileData(java.net.URL, org.apache.axis2.deployment.Deployer, java.lang.ClassLoader)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>DeploymentFileData</h4>
+<pre>public&nbsp;DeploymentFileData(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+                  <a href="../../../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment">Deployer</a>&nbsp;deployer,
+                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader)</pre>
 </li>
 </ul>
 </li>
@@ -250,6 +274,24 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getUrl()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUrl</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;getUrl()</pre>
+</li>
+</ul>
+<a name="setUrl(java.net.URL)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUrl</h4>
+<pre>public&nbsp;void&nbsp;setUrl(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url)</pre>
+</li>
+</ul>
 <a name="getAbsolutePath()">
 <!--   -->
 </a>
@@ -284,18 +326,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <li class="blockList">
 <h4>getName</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getName()</pre>
-<div class="block">Get the name of the file.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the name of the referenced file</dd></dl>
-</li>
-</ul>
-<a name="getServiceName()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getServiceName</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getServiceName()</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>please use getName() instead - this will disappear after 1.3.</i></div>
 <div class="block">Get the name of the file.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the name of the referenced file</dd></dl>
 </li>
@@ -375,13 +405,31 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <a name="deploy()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>deploy</h4>
 <pre>public&nbsp;void&nbsp;deploy()
             throws <a href="../../../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></pre>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getServiceMetaData()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServiceMetaData</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getServiceMetaData()</pre>
+</li>
+</ul>
+<a name="setServiceMetaData(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setServiceMetaData</h4>
+<pre>public&nbsp;void&nbsp;setServiceMetaData(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceMetaData)</pre>
 </li>
 </ul>
 </li>

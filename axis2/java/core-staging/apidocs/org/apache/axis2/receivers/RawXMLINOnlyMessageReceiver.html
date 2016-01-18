@@ -35,8 +35,8 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/axis2/receivers/AbstractRobustInMessageReceiver.html" title="class in org.apache.axis2.receivers"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../org/apache/axis2/receivers/RawXMLINOutAsyncMessageReceiver.html" title="class in org.apache.axis2.receivers"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.AsyncMessageReceiverWorker.html" title="class in org.apache.axis2.receivers"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/receivers/RawXMLINOutMessageReceiver.html" title="class in org.apache.axis2.receivers"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/axis2/receivers/RawXMLINOnlyMessageReceiver.html" target="_top">Frames</a></li>
@@ -89,12 +89,7 @@
 <li><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html" title="class in org.apache.axis2.receivers">org.apache.axis2.receivers.AbstractMessageReceiver</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../org/apache/axis2/receivers/AbstractInMessageReceiver.html" title="class in org.apache.axis2.receivers">org.apache.axis2.receivers.AbstractInMessageReceiver</a></li>
-<li>
-<ul class="inheritance">
 <li>org.apache.axis2.receivers.RawXMLINOnlyMessageReceiver</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -110,7 +105,7 @@
 <hr>
 <br>
 <pre>public class <span class="strong">RawXMLINOnlyMessageReceiver</span>
-extends <a href="../../../../org/apache/axis2/receivers/AbstractInMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInMessageReceiver</a>
+extends <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver</a>
 implements <a href="../../../../org/apache/axis2/engine/MessageReceiver.html" title="interface in org.apache.axis2.engine">MessageReceiver</a></pre>
 <div class="block">The RawXMLINOnlyMessageReceiver MessageReceiver hands over the raw request received to
  the service implementation class as an OMElement. The implementation class is NOT
@@ -119,7 +114,7 @@ implements <a href="../../../../org/apache/axis2/engine/MessageReceiver.html" ti
  referring to the "ServiceClass" parameter value specified in the service.xml and
  looking at the methods of the form void <<methodName>>(OMElement request)</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis2/receivers/RawXMLINOutMessageReceiver.html" title="class in org.apache.axis2.receivers"><code>RawXMLINOutMessageReceiver</code></a>, 
-<a href="../../../../org/apache/axis2/receivers/RawXMLINOutAsyncMessageReceiver.html" title="class in org.apache.axis2.receivers"><code>RawXMLINOutAsyncMessageReceiver</code></a></dd></dl>
+<code>RawXMLINOutAsyncMessageReceiver</code></dd></dl>
 </li>
 </ul>
 </div>
@@ -137,7 +132,7 @@ implements <a href="../../../../org/apache/axis2/engine/MessageReceiver.html" ti
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from class&nbsp;org.apache.axis2.receivers.<a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver</a></h3>
-<code><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.AsyncMessageReceiverWorker.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.AsyncMessageReceiverWorker</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.ThreadContextDescriptor.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.ThreadContextDescriptor</a></code></li>
+<code><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.AsyncMessageReceiverWorker.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.AsyncMessageReceiverWorker</a></code></li>
 </ul>
 </li>
 </ul>
@@ -197,7 +192,7 @@ implements <a href="../../../../org/apache/axis2/engine/MessageReceiver.html" ti
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.axis2.receivers.<a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver</a></h3>
-<code><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#getSOAPFactory(org.apache.axis2.context.MessageContext)">getSOAPFactory</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#getTheImplementationObject(org.apache.axis2.context.MessageContext)">getTheImplementationObject</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#makeNewServiceObject(org.apache.axis2.context.MessageContext)">makeNewServiceObject</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#receive(org.apache.axis2.context.MessageContext)">receive</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#replicateState(org.apache.axis2.context.MessageContext)">replicateState</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#restoreThreadContext(org.apache.axis2.receivers.AbstractMessageReceiver.ThreadContextDescriptor)">restoreThreadContext</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#setThreadContext(org.apache.axis2.context.MessageContext)">setThreadContext</a></code></li>
+<code><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#getSOAPFactory(org.apache.axis2.context.MessageContext)">getSOAPFactory</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#getTheImplementationObject(org.apache.axis2.context.MessageContext)">getTheImplementationObject</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#makeNewServiceObject(org.apache.axis2.context.MessageContext)">makeNewServiceObject</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#receive(org.apache.axis2.context.MessageContext)">receive</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#replicateState(org.apache.axis2.context.MessageContext)">replicateState</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#restoreThreadContext(org.apache.axis2.classloader.ThreadContextDescriptor)">restoreThreadContext</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -287,8 +282,8 @@ implements <a href="../../../../org/apache/axis2/engine/MessageReceiver.html" ti
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/axis2/receivers/AbstractRobustInMessageReceiver.html" title="class in org.apache.axis2.receivers"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../org/apache/axis2/receivers/RawXMLINOutAsyncMessageReceiver.html" title="class in org.apache.axis2.receivers"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.AsyncMessageReceiverWorker.html" title="class in org.apache.axis2.receivers"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/receivers/RawXMLINOutMessageReceiver.html" title="class in org.apache.axis2.receivers"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/axis2/receivers/RawXMLINOnlyMessageReceiver.html" target="_top">Frames</a></li>

@@ -89,7 +89,7 @@
 <li><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html" title="class in org.apache.axis2.receivers">org.apache.axis2.receivers.AbstractMessageReceiver</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../org/apache/axis2/receivers/AbstractInOutSyncMessageReceiver.html" title="class in org.apache.axis2.receivers">org.apache.axis2.receivers.AbstractInOutSyncMessageReceiver</a></li>
+<li><a href="../../../../org/apache/axis2/receivers/AbstractInOutMessageReceiver.html" title="class in org.apache.axis2.receivers">org.apache.axis2.receivers.AbstractInOutMessageReceiver</a></li>
 <li>
 <ul class="inheritance">
 <li>org.apache.axis2.ping.PingMessageReceiver</li>
@@ -110,7 +110,7 @@
 <hr>
 <br>
 <pre>public class <span class="strong">PingMessageReceiver</span>
-extends <a href="../../../../org/apache/axis2/receivers/AbstractInOutSyncMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInOutSyncMessageReceiver</a>
+extends <a href="../../../../org/apache/axis2/receivers/AbstractInOutMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInOutMessageReceiver</a>
 implements <a href="../../../../org/apache/axis2/ping/PingConstants.html" title="interface in org.apache.axis2.ping">PingConstants</a></pre>
 </li>
 </ul>
@@ -129,7 +129,7 @@ implements <a href="../../../../org/apache/axis2/ping/PingConstants.html" title=
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from class&nbsp;org.apache.axis2.receivers.<a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver</a></h3>
-<code><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.AsyncMessageReceiverWorker.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.AsyncMessageReceiverWorker</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.ThreadContextDescriptor.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.ThreadContextDescriptor</a></code></li>
+<code><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.AsyncMessageReceiverWorker.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.AsyncMessageReceiverWorker</a></code></li>
 </ul>
 </li>
 </ul>
@@ -191,18 +191,18 @@ implements <a href="../../../../org/apache/axis2/ping/PingConstants.html" title=
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods_inherited_from_class_org.apache.axis2.receivers.AbstractInOutSyncMessageReceiver">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.axis2.receivers.AbstractInOutMessageReceiver">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;org.apache.axis2.receivers.<a href="../../../../org/apache/axis2/receivers/AbstractInOutSyncMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInOutSyncMessageReceiver</a></h3>
-<code><a href="../../../../org/apache/axis2/receivers/AbstractInOutSyncMessageReceiver.html#invokeBusinessLogic(org.apache.axis2.context.MessageContext)">invokeBusinessLogic</a></code></li>
+<h3>Methods inherited from class&nbsp;org.apache.axis2.receivers.<a href="../../../../org/apache/axis2/receivers/AbstractInOutMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInOutMessageReceiver</a></h3>
+<code><a href="../../../../org/apache/axis2/receivers/AbstractInOutMessageReceiver.html#invokeBusinessLogic(org.apache.axis2.context.MessageContext)">invokeBusinessLogic</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.axis2.receivers.AbstractMessageReceiver">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.axis2.receivers.<a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver</a></h3>
-<code><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#getSOAPFactory(org.apache.axis2.context.MessageContext)">getSOAPFactory</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#getTheImplementationObject(org.apache.axis2.context.MessageContext)">getTheImplementationObject</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#makeNewServiceObject(org.apache.axis2.context.MessageContext)">makeNewServiceObject</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#receive(org.apache.axis2.context.MessageContext)">receive</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#replicateState(org.apache.axis2.context.MessageContext)">replicateState</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#restoreThreadContext(org.apache.axis2.receivers.AbstractMessageReceiver.ThreadContextDescriptor)">restoreThreadContext</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#setThreadContext(org.apache.axis2.context.MessageContext)">setThreadContext</a></code></li>
+<code><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#getSOAPFactory(org.apache.axis2.context.MessageContext)">getSOAPFactory</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#getTheImplementationObject(org.apache.axis2.context.MessageContext)">getTheImplementationObject</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#makeNewServiceObject(org.apache.axis2.context.MessageContext)">makeNewServiceObject</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#receive(org.apache.axis2.context.MessageContext)">receive</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#replicateState(org.apache.axis2.context.MessageContext)">replicateState</a>, <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#restoreThreadContext(org.apache.axis2.classloader.ThreadContextDescriptor)">restoreThreadContext</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -253,7 +253,7 @@ implements <a href="../../../../org/apache/axis2/ping/PingConstants.html" title=
                          throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../org/apache/axis2/receivers/AbstractInOutSyncMessageReceiver.html#invokeBusinessLogic(org.apache.axis2.context.MessageContext, org.apache.axis2.context.MessageContext)">invokeBusinessLogic</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/receivers/AbstractInOutSyncMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInOutSyncMessageReceiver</a></code></dd>
+<dd><code><a href="../../../../org/apache/axis2/receivers/AbstractInOutMessageReceiver.html#invokeBusinessLogic(org.apache.axis2.context.MessageContext, org.apache.axis2.context.MessageContext)">invokeBusinessLogic</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/receivers/AbstractInOutMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInOutMessageReceiver</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
 </li>

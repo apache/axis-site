@@ -36,7 +36,7 @@
 <div class="subNav">
 <ul class="navList">
 <li>Prev Class</li>
-<li>Next Class</li>
+<li><a href="../../../../../org/apache/axis2/jaxws/framework/JAXWSDeployerSupport.html" title="class in org.apache.axis2.jaxws.framework"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/axis2/jaxws/framework/JAXWSDeployer.html" target="_top">Frames</a></li>
@@ -172,23 +172,10 @@ extends <a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.htm
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/framework/JAXWSDeployer.html#createAxisService(java.lang.ClassLoader, java.lang.String, java.net.URL)">createAxisService</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader,
-                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className,
-                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;serviceLocation)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/framework/JAXWSDeployer.html#deploy(org.apache.axis2.deployment.repository.util.DeploymentFileData)">deploy</a></strong>(<a href="../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;deploymentFileData)</code>
 <div class="block">Process a file and add it to the configuration</div>
 </td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/framework/JAXWSDeployer.html#deployClasses(java.lang.String, java.net.URL, java.lang.ClassLoader, java.util.List)">deployClasses</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;groupName,
-             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;location,
-             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader,
-             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;classList)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
@@ -240,7 +227,7 @@ extends <a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.htm
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.axis2.deployment.<a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.html" title="class in org.apache.axis2.deployment">AbstractDeployer</a></h3>
-<code><a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.html#cleanup()">cleanup</a></code></li>
+<code><a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.html#addServiceBuilderExtensions(org.apache.axis2.deployment.ServiceBuilderExtension)">addServiceBuilderExtensions</a>, <a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.html#cleanup()">cleanup</a>, <a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.html#executeServiceBuilderExtensions(org.apache.axis2.deployment.repository.util.DeploymentFileData, org.apache.axis2.context.ConfigurationContext)">executeServiceBuilderExtensions</a>, <a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.html#getServiceBuilderExtensions()">getServiceBuilderExtensions</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -353,27 +340,6 @@ extends <a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.htm
 <dt><span class="strong">Parameters:</span></dt><dd><code>deploymentFileData</code> - the DeploymentFileData object to deploy</dd></dl>
 </li>
 </ul>
-<a name="deployClasses(java.lang.String, java.net.URL, java.lang.ClassLoader, java.util.List)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>deployClasses</h4>
-<pre>protected&nbsp;<a href="../../../../../org/apache/axis2/description/AxisServiceGroup.html" title="class in org.apache.axis2.description">AxisServiceGroup</a>&nbsp;deployClasses(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;groupName,
-                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;location,
-                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader,
-                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;classList)
-                                  throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a>,
-                                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/InstantiationException.html?is-external=true" title="class or interface in java.lang">InstantiationException</a>,
-                                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/IllegalAccessException.html?is-external=true" title="class or interface in java.lang">IllegalAccessException</a>,
-                                         <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a></code></dd>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/InstantiationException.html?is-external=true" title="class or interface in java.lang">InstantiationException</a></code></dd>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/IllegalAccessException.html?is-external=true" title="class or interface in java.lang">IllegalAccessException</a></code></dd>
-<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
-</li>
-</ul>
 <a name="storeFaultyService(org.apache.axis2.deployment.repository.util.DeploymentFileData, java.lang.Throwable)">
 <!--   -->
 </a>
@@ -382,26 +348,6 @@ extends <a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.htm
 <h4>storeFaultyService</h4>
 <pre>protected&nbsp;void&nbsp;storeFaultyService(<a href="../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;deploymentFileData,
                       <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;t)</pre>
-</li>
-</ul>
-<a name="createAxisService(java.lang.ClassLoader, java.lang.String, java.net.URL)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>createAxisService</h4>
-<pre>protected&nbsp;<a href="../../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;createAxisService(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;classLoader,
-                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className,
-                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;serviceLocation)
-                                 throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a>,
-                                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/InstantiationException.html?is-external=true" title="class or interface in java.lang">InstantiationException</a>,
-                                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/IllegalAccessException.html?is-external=true" title="class or interface in java.lang">IllegalAccessException</a>,
-                                        <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a></code></dd>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/InstantiationException.html?is-external=true" title="class or interface in java.lang">InstantiationException</a></code></dd>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/IllegalAccessException.html?is-external=true" title="class or interface in java.lang">IllegalAccessException</a></code></dd>
-<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
 </li>
 </ul>
 <a name="setDirectory(java.lang.String)">
@@ -485,7 +431,7 @@ extends <a href="../../../../../org/apache/axis2/deployment/AbstractDeployer.htm
 <div class="subNav">
 <ul class="navList">
 <li>Prev Class</li>
-<li>Next Class</li>
+<li><a href="../../../../../org/apache/axis2/jaxws/framework/JAXWSDeployerSupport.html" title="class in org.apache.axis2.jaxws.framework"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/axis2/jaxws/framework/JAXWSDeployer.html" target="_top">Frames</a></li>

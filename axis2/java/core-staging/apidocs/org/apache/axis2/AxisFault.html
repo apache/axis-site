@@ -61,7 +61,7 @@
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_java.rmi.RemoteException">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
@@ -158,6 +158,21 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_java.rmi.RemoteException">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;java.rmi.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteException.html?is-external=true#detail" title="class or interface in java.rmi">detail</a></code></li>
+</ul>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor_summary">
@@ -173,7 +188,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <tr class="altColor">
 <td class="colFirst"><code>&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#AxisFault(javax.xml.namespace.QName, java.util.List, java.lang.String, java.lang.Throwable)">AxisFault</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;faultCode,
-         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;faultSubCodes,
+         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;&nbsp;faultSubCodes,
          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;faultReason,
          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</code>
 <div class="block">Constructor</div>
@@ -312,100 +327,112 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getDetail()">getDetail</a></strong>()</code>
-<div class="block">Get the current fault detail</div>
+<div class="block">Get the current fault detail.</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getDetails()">getDetails</a></strong>()</code>
+<div class="block">Get the SOAP fault detail elements.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultAction()">getFaultAction</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultCode()">getFaultCode</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultCode.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultCode</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultCodeElement()">getFaultCodeElement</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultDetailElement()">getFaultDetailElement</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultMessageContext()">getFaultMessageContext</a></strong>()</code>
 <div class="block">Returns the MessageContext representation of the fault if the fault
  was created by providing that.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultNode()">getFaultNode</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultNode.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultNode</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultNodeElement()">getFaultNodeElement</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultReason.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultReason</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultReasonElement()">getFaultReasonElement</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultRole()">getFaultRole</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultRole.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultRole</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultRoleElement()">getFaultRoleElement</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultSubCodes()">getFaultSubCodes</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getFaultType()">getFaultType</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getMessage()">getMessage</a></strong>()</code>
 <div class="block">Returns the detail message, including the message from the cause, if any, of this exception.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getNodeURI()">getNodeURI</a></strong>()</code>
 <div class="block">Get the faulting node uri.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#getReason()">getReason</a></strong>()</code>
 <div class="block">Returns the first fault reason, if available.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ListIterator.html?is-external=true" title="class or interface in java.util">ListIterator</a></code></td>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ListIterator.html?is-external=true" title="class or interface in java.util">ListIterator</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPHeaderBlock.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPHeaderBlock</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#headerIterator()">headerIterator</a></strong>()</code>
 <div class="block">Iterate over all of the headers</div>
 </td>
 </tr>
-<tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPHeaderBlock.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPHeaderBlock</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#headers()">headers</a></strong>()</code>
 <div class="block">Get at the headers.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#makeFault(java.lang.Throwable)">makeFault</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;e)</code>
 <div class="block">Make an AxisFault based on a passed Exception.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#setDetail(org.apache.axiom.om.OMElement)">setDetail</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;detail)</code>
 <div class="block">Set the entire detail element of the fault</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#setDetails(java.util.List)">setDetails</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&gt;&nbsp;details)</code>
+<div class="block">Set the SOAP fault details.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -424,7 +451,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#setFaultSubCodes(java.util.List)">setFaultSubCodes</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;faultSubCodes)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../org/apache/axis2/AxisFault.html#setFaultSubCodes(java.util.List)">setFaultSubCodes</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;&nbsp;faultSubCodes)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -503,7 +530,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <li class="blockList">
 <h4>AxisFault</h4>
 <pre>public&nbsp;AxisFault(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;faultCode,
-         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;faultSubCodes,
+         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;&nbsp;faultSubCodes,
          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;faultReason,
          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</pre>
 <div class="block">Constructor</div>
@@ -718,7 +745,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <ul class="blockList">
 <li class="blockList">
 <h4>headerIterator</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ListIterator.html?is-external=true" title="class or interface in java.util">ListIterator</a>&nbsp;headerIterator()</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ListIterator.html?is-external=true" title="class or interface in java.util">ListIterator</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPHeaderBlock.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPHeaderBlock</a>&gt;&nbsp;headerIterator()</pre>
 <div class="block">Iterate over all of the headers</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>iterator</dd></dl>
 </li>
@@ -729,7 +756,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <ul class="blockList">
 <li class="blockList">
 <h4>headers</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;headers()</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPHeaderBlock.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPHeaderBlock</a>&gt;&nbsp;headers()</pre>
 <div class="block">Get at the headers. Useful for java1.5 iteration.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the headers for this fault</dd></dl>
 </li>
@@ -757,8 +784,21 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <li class="blockList">
 <h4>getDetail</h4>
 <pre>public&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;getDetail()</pre>
-<div class="block">Get the current fault detail</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>om element</dd></dl>
+<div class="block">Get the current fault detail. If the fault has several detail elements, only the first one is
+ returned.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the (first) detail element, or <code>null</code> if there is no detail element</dd></dl>
+</li>
+</ul>
+<a name="getDetails()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDetails</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&gt;&nbsp;getDetails()</pre>
+<div class="block">Get the SOAP fault detail elements.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the list of SOAP fault detail elements, or <code>null</code> if no detail elements
+         have been set for this fault</dd></dl>
 </li>
 </ul>
 <a name="getFaultCode()">
@@ -776,7 +816,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <ul class="blockList">
 <li class="blockList">
 <h4>getFaultSubCodes</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;getFaultSubCodes()</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;&nbsp;getFaultSubCodes()</pre>
 </li>
 </ul>
 <a name="getFaultCodeElement()">
@@ -857,6 +897,17 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>detail</code> - an OMElement which MUST be</dd></dl>
 </li>
 </ul>
+<a name="setDetails(java.util.List)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDetails</h4>
+<pre>public&nbsp;void&nbsp;setDetails(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&gt;&nbsp;details)</pre>
+<div class="block">Set the SOAP fault details.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>details</code> - a list of elements for the SOAP fault details</dd></dl>
+</li>
+</ul>
 <a name="setFaultCode(javax.xml.namespace.QName)">
 <!--   -->
 </a>
@@ -872,7 +923,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <ul class="blockList">
 <li class="blockList">
 <h4>setFaultSubCodes</h4>
-<pre>public&nbsp;void&nbsp;setFaultSubCodes(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;faultSubCodes)</pre>
+<pre>public&nbsp;void&nbsp;setFaultSubCodes(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;&nbsp;faultSubCodes)</pre>
 </li>
 </ul>
 <a name="setFaultCode(java.lang.String)">
@@ -1031,7 +1082,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/rmi/RemoteExc
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_java.rmi.RemoteException">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>

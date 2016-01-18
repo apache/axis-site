@@ -106,6 +106,57 @@
 <br>
 <pre>public class <span class="strong">ModuleDeployer</span>
 extends <a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html" title="class in org.apache.axis2.deployment">AbstractDeployer</a></pre>
+<div class="block"><p>
+ Standard Axis2 Module Deployer which use module.xml file to deploy
+ Modules. ModuleDeployer can be used with Axis2 Module archive (.mar) or exploded
+ directory structure. Some of the example formats given below.
+ </p>
+ <p>Examples :</p>
+  <ul>
+          <li> repository/modules/LogModule.mar/meta-inf/module.xml  </li>
+          <li> repository/modules/LogModule/meta-inf/module.xml </li>
+          <li> WEB-INF/modules/LogModule.mar/meta-inf/module.xml </li>
+          <li> WEB-INF/modules/LogModule/meta-inf/module.xml </li>
+  </ul>
+ <p>Further ModuleDeployer can be used to deploy Modules from a remote
+ repository or load a repository from a JAR file. In this case module files access through URLs.
+ To deploy Modules from a remote repository or JAR file it is expected to
+ present modules/modules.list file which contains names of Modules. </p>
+ 
+ <p>Example : </p><p>jar:file:/home/resources/repo.jar!/repo/modules/modules.list may contains following
+ list of service.</p>
+         <ul>
+            <li>LogModule.mar </li>
+            <li>Addressing.mar</li>
+          </ul>
+ 
+ <p>There are several approaches available to set repository URL to Axis2 run
+ time. As an example one can provide repository URL as a init-param of
+ AxisServlet. Some of the examples given below.</p>
+ <ul>
+ <li>
+ <p>Example -1 : </p>
+      <pre>
+                  <code>&lt;init-param&gt; 
+                      &lt;param-name&gt;axis2.repository.url&lt;/param-name&gt;
+                      &lt;param-value&gt;http://localhost/repo/&lt;/param-value&gt; 
+                 &lt;/init-param&gt; </code>
+      </pre>
+ </li>
+ <li>
+ <p>Example -2 : </p>
+     <pre> 
+                  <code>&lt;init-param&gt; 
+                      &lt;param-name&gt;axis2.repository.url&lt;/param-name&gt;
+                      &lt;param-value&gt;jar:file:/home/resources/repo.jar!/repo/&lt;/param-value&gt; 
+                  &lt;/init-param&gt;  </code> 
+    </pre>
+ </li>
+ </ul>
+ 
+ <p><b>NOTE</b> - It is discouraged to use above services.list based deployment approach
+ because it does not support hot-deployment, hot-update and some of other
+ important deployment features as well. </p></div>
 </li>
 </ul>
 </div>
@@ -161,30 +212,34 @@ extends <a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html" 
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/ModuleDeployer.html#deoloyFromUrl(org.apache.axis2.deployment.repository.util.DeploymentFileData)">deoloyFromUrl</a></strong>(<a href="../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;deploymentFileData)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/ModuleDeployer.html#deploy(org.apache.axis2.deployment.repository.util.DeploymentFileData)">deploy</a></strong>(<a href="../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;deploymentFileData)</code>
 <div class="block">Process a file and add it to the configuration</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/ModuleDeployer.html#init(org.apache.axis2.context.ConfigurationContext)">init</a></strong>(<a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configCtx)</code>
 <div class="block">Initialize the Deployer</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/ModuleDeployer.html#setDirectory(java.lang.String)">setDirectory</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory)</code>
 <div class="block">Set the directory</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/ModuleDeployer.html#setExtension(java.lang.String)">setExtension</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extension)</code>
 <div class="block">Set the extension to look for
  TODO: Support multiple extensions?</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/deployment/ModuleDeployer.html#undeploy(java.lang.String)">undeploy</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fileName)</code>
 <div class="block">Remove a given file from the configuration</div>
@@ -196,7 +251,7 @@ extends <a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html" 
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.axis2.deployment.<a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html" title="class in org.apache.axis2.deployment">AbstractDeployer</a></h3>
-<code><a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html#cleanup()">cleanup</a></code></li>
+<code><a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html#addServiceBuilderExtensions(org.apache.axis2.deployment.ServiceBuilderExtension)">addServiceBuilderExtensions</a>, <a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html#cleanup()">cleanup</a>, <a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html#executeServiceBuilderExtensions(org.apache.axis2.deployment.repository.util.DeploymentFileData, org.apache.axis2.context.ConfigurationContext)">executeServiceBuilderExtensions</a>, <a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html#getServiceBuilderExtensions()">getServiceBuilderExtensions</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -272,6 +327,15 @@ extends <a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html" 
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html#deploy(org.apache.axis2.deployment.repository.util.DeploymentFileData)">deploy</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/deployment/AbstractDeployer.html" title="class in org.apache.axis2.deployment">AbstractDeployer</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>deploymentFileData</code> - the DeploymentFileData object to deploy</dd></dl>
+</li>
+</ul>
+<a name="deoloyFromUrl(org.apache.axis2.deployment.repository.util.DeploymentFileData)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deoloyFromUrl</h4>
+<pre>public&nbsp;void&nbsp;deoloyFromUrl(<a href="../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;deploymentFileData)</pre>
 </li>
 </ul>
 <a name="setDirectory(java.lang.String)">

@@ -293,25 +293,9 @@ extends <a href="../../../../org/apache/axis2/context/AbstractContext.html" titl
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Hashtable.html?is-external=true" title="class or interface in java.util">Hashtable</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/axis2/context/ServiceGroupContext.html" title="class in org.apache.axis2.context">ServiceGroupContext</a>&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/context/ConfigurationContext.html#getServiceGroupContexts()">getServiceGroupContexts</a></strong>()</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>Use <a href="../../../../org/apache/axis2/context/ConfigurationContext.html#getServiceGroupContextIDs()"><code>getServiceGroupContextIDs()</code></a> & <a href="../../../../org/apache/axis2/context/ConfigurationContext.html#getServiceGroupContext(java.lang.String)"><code>getServiceGroupContext(String)</code></a></i></div>
-</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/context/ConfigurationContext.html#getServiceGroupContextTimeoutInterval()">getServiceGroupContextTimeoutInterval</a></strong>()</code>
 <div class="block">This will be used to fetch the serviceGroupContextTimoutInterval from any place available.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/context/ConfigurationContext.html#getServiceGroupContextTimoutInterval()">getServiceGroupContextTimoutInterval</a></strong>()</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>MISSPELLING - Please use getServiceGroupContextTimeoutInterval()</i></div>
-</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -738,17 +722,6 @@ extends <a href="../../../../org/apache/axis2/context/AbstractContext.html" titl
 <dl><dt><span class="strong">Returns:</span></dt><dd>Returns hashmap of ServiceGroupContexts.</dd></dl>
 </li>
 </ul>
-<a name="getServiceGroupContexts()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getServiceGroupContexts</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Hashtable.html?is-external=true" title="class or interface in java.util">Hashtable</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/axis2/context/ServiceGroupContext.html" title="class in org.apache.axis2.context">ServiceGroupContext</a>&gt;&nbsp;getServiceGroupContexts()</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../org/apache/axis2/context/ConfigurationContext.html#getServiceGroupContextIDs()"><code>getServiceGroupContextIDs()</code></a> & <a href="../../../../org/apache/axis2/context/ConfigurationContext.html#getServiceGroupContext(java.lang.String)"><code>getServiceGroupContext(String)</code></a></i></div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>The ServiceGroupContexts</dd></dl>
-</li>
-</ul>
 <a name="getThreadPool()">
 <!--   -->
 </a>
@@ -907,17 +880,6 @@ extends <a href="../../../../org/apache/axis2/context/AbstractContext.html" titl
 <pre>public&nbsp;void&nbsp;setContextRoot(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contextRoot)</pre>
 <div class="block">Sets the context root to the given string</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>contextRoot</code> - The context root for which to set</dd></dl>
-</li>
-</ul>
-<a name="getServiceGroupContextTimoutInterval()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getServiceGroupContextTimoutInterval</h4>
-<pre>public&nbsp;long&nbsp;getServiceGroupContextTimoutInterval()</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>MISSPELLING - Please use getServiceGroupContextTimeoutInterval()</i></div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the service group context timeout interval</dd></dl>
 </li>
 </ul>
 <a name="getServiceGroupContextTimeoutInterval()">
