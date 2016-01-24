@@ -135,53 +135,44 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisEngine.html#createFaultMessageContext(org.apache.axis2.context.MessageContext, java.lang.Throwable)">createFaultMessageContext</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;processingContext,
-                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;e)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>(post 1.1 branch)</i></div>
-</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/axis2/engine/Handler.InvocationResponse.html" title="class in org.apache.axis2.engine">Handler.InvocationResponse</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisEngine.html#receive(org.apache.axis2.context.MessageContext)">receive</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
 <div class="block">This methods represents the inflow of the Axis, this could be either at the server side or the client side.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/axis2/engine/Handler.InvocationResponse.html" title="class in org.apache.axis2.engine">Handler.InvocationResponse</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisEngine.html#resume(org.apache.axis2.context.MessageContext)">resume</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgctx)</code>
 <div class="block">Resume processing of a message.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/axis2/engine/Handler.InvocationResponse.html" title="class in org.apache.axis2.engine">Handler.InvocationResponse</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisEngine.html#resumeReceive(org.apache.axis2.context.MessageContext)">resumeReceive</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
 <div class="block">If the msgConetext is puased and try to invoke then
  first invoke the phase list and after the message receiver</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/axis2/engine/Handler.InvocationResponse.html" title="class in org.apache.axis2.engine">Handler.InvocationResponse</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisEngine.html#resumeSend(org.apache.axis2.context.MessageContext)">resumeSend</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
 <div class="block">To resume the invocation at the send path , this is neened since it is require to call
  TransportSender at the end</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisEngine.html#resumeSendFault(org.apache.axis2.context.MessageContext)">resumeSendFault</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
 <div class="block">here we assume that it is resume from an operation level handler</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisEngine.html#send(org.apache.axis2.context.MessageContext)">send</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
 <div class="block">This methods represents the outflow of the Axis, this could be either at the server side or the client side.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisEngine.html#sendFault(org.apache.axis2.context.MessageContext)">sendFault</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
 <div class="block">Sends the SOAP Fault to another SOAP node.</div>
@@ -226,23 +217,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="createFaultMessageContext(org.apache.axis2.context.MessageContext, java.lang.Throwable)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>createFaultMessageContext</h4>
-<pre>public static&nbsp;<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;createFaultMessageContext(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;processingContext,
-                                       <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;e)
-                                                throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>(post 1.1 branch)</i></div>
-<div class="block">This method is called to handle any error that occurs at inflow or outflow. But if the
- method is called twice, it implies that sending the error handling has failed, in which case
- the method logs the error and exists.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
-</li>
-</ul>
 <a name="receive(org.apache.axis2.context.MessageContext)">
 <!--   -->
 </a>

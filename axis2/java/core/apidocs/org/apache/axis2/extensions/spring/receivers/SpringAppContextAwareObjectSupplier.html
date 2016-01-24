@@ -159,7 +159,8 @@ implements <a href="../../../../../../org/apache/axis2/ServiceObjectSupplier.htm
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/extensions/spring/receivers/SpringAppContextAwareObjectSupplier.html#getServiceObject(org.apache.axis2.description.AxisService)">getServiceObject</a></strong>(<a href="../../../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;axisService)</code>
-<div class="block">Method getServiceObject that is Spring aware via Spring interface ApplicationContextAware.</div>
+<div class="block">Method getServiceObject used to get the spring beans from the spring application context
+ for the given spring service</div>
 </td>
 </tr>
 </table>
@@ -227,12 +228,13 @@ implements <a href="../../../../../../org/apache/axis2/ServiceObjectSupplier.htm
 <h4>getServiceObject</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getServiceObject(<a href="../../../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;axisService)
                         throws <a href="../../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
-<div class="block">Method getServiceObject that is Spring aware via Spring interface ApplicationContextAware.</div>
+<div class="block">Method getServiceObject used to get the spring beans from the spring application context
+ for the given spring service</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../../org/apache/axis2/ServiceObjectSupplier.html#getServiceObject(org.apache.axis2.description.AxisService)">getServiceObject</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/axis2/ServiceObjectSupplier.html" title="interface in org.apache.axis2">ServiceObjectSupplier</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>axisService</code> - </dd>
-<dt><span class="strong">Returns:</span></dt><dd>Returns Object.</dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>axisService</code> - - spring service</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Object</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
 </li>

@@ -33,7 +33,7 @@ import org.apache.axiom.om.OMElement;
  *
  */
 public class EncryptedKeyToken extends Token {
-	
+    
     /**
      * SHA1 value of the encrypted key
      */
@@ -42,29 +42,29 @@ public class EncryptedKeyToken extends Token {
     public EncryptedKeyToken(){
 <span class="nc" id="L43">        super();</span>
 <span class="nc" id="L44">    }</span>
-	
-	public EncryptedKeyToken (String id,Date created, Date expires) {
-<span class="fc" id="L47">		super(id,created,expires);</span>
-<span class="fc" id="L48">	}</span>
-	
-	public EncryptedKeyToken (String id, OMElement tokenElem, 
-			                    Date created, Date expires)throws TrustException{
-<span class="fc" id="L52">		super(id,tokenElem,created,expires);</span>
-<span class="fc" id="L53">	}</span>
-	
-	/**
-	 * @param sha SHA1 of the encrypted key
-	 */
-	public void setSHA1(String sha) {
-<span class="fc" id="L59">		this.sha = sha;</span>
-<span class="fc" id="L60">	}</span>
-	
-	/** 
-	 * @return SHA1 value of the encrypted key 
-	 */
-	public String getSHA1() {
-<span class="fc" id="L66">		return sha;</span>
-	}
+    
+    public EncryptedKeyToken (String id,Date created, Date expires) {
+<span class="fc" id="L47">        super(id,created,expires);</span>
+<span class="fc" id="L48">    }</span>
+    
+    public EncryptedKeyToken (String id, OMElement tokenElem, 
+                                Date created, Date expires)throws TrustException{
+<span class="fc" id="L52">        super(id,tokenElem,created,expires);</span>
+<span class="fc" id="L53">    }</span>
+    
+    /**
+     * @param sha SHA1 of the encrypted key
+     */
+    public void setSHA1(String sha) {
+<span class="fc" id="L59">        this.sha = sha;</span>
+<span class="fc" id="L60">    }</span>
+    
+    /** 
+     * @return SHA1 value of the encrypted key 
+     */
+    public String getSHA1() {
+<span class="fc" id="L66">        return sha;</span>
+    }
 
     public void writeExternal(ObjectOutput out)
         throws IOException {

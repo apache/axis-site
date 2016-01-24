@@ -121,7 +121,7 @@ import java.util.Iterator;
 <span class="fc" id="L121">                return document;</span>
             }
             
-<span class="fc bfc" id="L124" title="All 2 branches covered.">            if (useDoom) {</span>
+<span class="pc bpc" id="L124" title="1 of 2 branches missed.">            if (useDoom) {</span>
 <span class="fc" id="L125">                env.build();</span>
 
                 // Workaround to prevent a bug in AXIOM where
@@ -177,15 +177,15 @@ import java.util.Iterator;
 <span class="fc" id="L177">                Element envElem = (Element) envelope;</span>
 <span class="fc" id="L178">                return envElem.getOwnerDocument();</span>
             } else {
-<span class="fc" id="L180">                ByteArrayOutputStream baos = new ByteArrayOutputStream();</span>
-<span class="fc" id="L181">                env.build();</span>
-<span class="fc" id="L182">                env.serialize(baos);</span>
-<span class="fc" id="L183">                ByteArrayInputStream bais = new ByteArrayInputStream(baos</span>
+<span class="nc" id="L180">                ByteArrayOutputStream baos = new ByteArrayOutputStream();</span>
+<span class="nc" id="L181">                env.build();</span>
+<span class="nc" id="L182">                env.serialize(baos);</span>
+<span class="nc" id="L183">                ByteArrayInputStream bais = new ByteArrayInputStream(baos</span>
                         .toByteArray());
-<span class="fc" id="L185">                DocumentBuilderFactory factory = DocumentBuilderFactory</span>
+<span class="nc" id="L185">                DocumentBuilderFactory factory = DocumentBuilderFactory</span>
                         .newInstance();
-<span class="fc" id="L187">                factory.setNamespaceAware(true);</span>
-<span class="fc" id="L188">                return factory.newDocumentBuilder().parse(bais);</span>
+<span class="nc" id="L187">                factory.setNamespaceAware(true);</span>
+<span class="nc" id="L188">                return factory.newDocumentBuilder().parse(bais);</span>
             }
 <span class="nc" id="L190">		} catch (Exception e) {</span>
 <span class="nc" id="L191">			throw new WSSecurityException(</span>
@@ -204,7 +204,7 @@ import java.util.Iterator;
             throws WSSecurityException {
 
 <span class="fc" id="L206">	    Element documentElement = doc.getDocumentElement();</span>
-<span class="fc bfc" id="L207" title="All 2 branches covered.">	    if (documentElement instanceof SOAPEnvelope) {</span>
+<span class="pc bpc" id="L207" title="1 of 2 branches missed.">	    if (documentElement instanceof SOAPEnvelope) {</span>
 <span class="fc" id="L208">	        SOAPEnvelope env = (SOAPEnvelope)documentElement;</span>
 	        // If the DOM tree already implements the Axiom API and the corresponding
 	        // Axiom implementation is also used as default implementation, then just return
@@ -215,7 +215,7 @@ import java.util.Iterator;
 	        }
 	    }
 	    
-<span class="fc bfc" id="L218" title="All 2 branches covered.">        if(useDoom) {</span>
+<span class="pc bpc" id="L218" title="1 of 2 branches missed.">        if(useDoom) {</span>
             try {
                 //Get processed headers
 <span class="fc" id="L221">                SOAPEnvelope env = (SOAPEnvelope)doc.getDocumentElement(); </span>
@@ -296,12 +296,12 @@ import java.util.Iterator;
             }
         } else {
             try {
-<span class="fc" id="L299">                ByteArrayOutputStream os = new ByteArrayOutputStream();</span>
-<span class="fc" id="L300">                XMLUtils.outputDOM(doc.getDocumentElement(), os, true);</span>
-<span class="fc" id="L301">                ByteArrayInputStream bais =  new ByteArrayInputStream(os.toByteArray());</span>
+<span class="nc" id="L299">                ByteArrayOutputStream os = new ByteArrayOutputStream();</span>
+<span class="nc" id="L300">                XMLUtils.outputDOM(doc.getDocumentElement(), os, true);</span>
+<span class="nc" id="L301">                ByteArrayInputStream bais =  new ByteArrayInputStream(os.toByteArray());</span>
 
-<span class="fc" id="L303">                SOAPModelBuilder stAXSOAPModelBuilder = OMXMLBuilderFactory.createSOAPModelBuilder(bais, null);</span>
-<span class="fc" id="L304">                return stAXSOAPModelBuilder.getSOAPEnvelope();</span>
+<span class="nc" id="L303">                SOAPModelBuilder stAXSOAPModelBuilder = OMXMLBuilderFactory.createSOAPModelBuilder(bais, null);</span>
+<span class="nc" id="L304">                return stAXSOAPModelBuilder.getSOAPEnvelope();</span>
 <span class="nc" id="L305">            } catch (Exception e) {</span>
 <span class="nc" id="L306">                throw new WSSecurityException(e.getMessage());</span>
             }
@@ -321,13 +321,13 @@ import java.util.Iterator;
 	 */
 	public static String getKey(String originalKey, boolean inHandler, int repetition) {
 		
-<span class="pc bpc" id="L324" title="1 of 8 branches missed.">		if(repetition &gt; 0 &amp;&amp; !inHandler &amp;&amp; </span>
+<span class="nc bnc" id="L324" title="All 8 branches missed.">		if(repetition &gt; 0 &amp;&amp; !inHandler &amp;&amp; </span>
 				!originalKey.equals(WSSHandlerConstants.OUTFLOW_SECURITY)&amp;&amp;	
 				!originalKey.equals(WSSHandlerConstants.SENDER_REPEAT_COUNT)) {
 			
-<span class="fc" id="L328">				return originalKey + repetition;</span>
+<span class="nc" id="L328">				return originalKey + repetition;</span>
 		}
-<span class="fc" id="L330">		return originalKey;</span>
+<span class="nc" id="L330">		return originalKey;</span>
 	}
 	
     /**

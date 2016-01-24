@@ -184,7 +184,7 @@ import org.w3c.dom.Element;
                         inMsgCtx.getAxisService().getClassLoader());
             }
 
-<span class="nc" id="L187">            X509Certificate issuerCert = CommonUtil.getCertificateByAlias(crypto,config.issuerKeyAlias);</span>
+<span class="nc" id="L187">            X509Certificate issuerCert = CommonUtil.getCertificateByAlias(crypto,config.getIssuerKeyAlias());</span>
 
 <span class="nc" id="L189">            issuerPBKey = issuerCert.getPublicKey();</span>
 

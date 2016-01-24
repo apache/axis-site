@@ -35,7 +35,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/axis2/engine/AddressingBasedDispatcher.html" title="class in org.apache.axis2.engine"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/engine/AbstractDispatcher.html" title="class in org.apache.axis2.engine"><span class="strong">Prev Class</span></a></li>
 <li><a href="../../../../org/apache/axis2/engine/AxisConfigurator.html" title="interface in org.apache.axis2.engine"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -249,7 +249,9 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#addObservers(org.apache.axis2.engine.AxisObserver)">addObservers</a></strong>(<a href="../../../../org/apache/axis2/engine/AxisObserver.html" title="interface in org.apache.axis2.engine">AxisObserver</a>&nbsp;axisObserver)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#addObservers(org.apache.axis2.engine.AxisObserver)">addObservers</a></strong>(<a href="../../../../org/apache/axis2/engine/AxisObserver.html" title="interface in org.apache.axis2.engine">AxisObserver</a>&nbsp;axisObserver)</code>
+<div class="block">Register given AxisObserver object to the <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine"><code>AxisConfiguration</code></a>.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -304,81 +306,65 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#engageModule(javax.xml.namespace.QName)">engageModule</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;moduleref)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>Please use the String version instead</i></div>
-</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#engageModule(java.lang.String)">engageModule</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleref)</code>
 <div class="block">Engages the default module version corresponding to given module name ,
  or if the module name contains version number in it then it will engage
  the correct module.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#engageModule(java.lang.String, java.lang.String)">engageModule</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleName,
             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;versionID)</code>
 <div class="block">Engages a module using given name and its version ID.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/clustering/ClusteringAgent.html" title="interface in org.apache.axis2.clustering">ClusteringAgent</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getClusteringAgent()">getClusteringAgent</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/engine/AxisConfigurator.html" title="interface in org.apache.axis2.engine">AxisConfigurator</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getConfigurator()">getConfigurator</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/dataretrieval/AxisDataLocator.html" title="interface in org.apache.axis2.dataretrieval">AxisDataLocator</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getDataLocator(java.lang.String)">getDataLocator</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;dialect)</code>
 <div class="block">Return DataLocator instance for specified dialect.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getDataLocatorClassName(java.lang.String)">getDataLocatorClassName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;dialect)</code>
 <div class="block">Return classname of DataLocator configured for specified dialect.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/description/AxisModule.html" title="class in org.apache.axis2.description">AxisModule</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getDefaultModule(java.lang.String)">getDefaultModule</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleName)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getDefaultModuleVersion(java.lang.String)">getDefaultModuleVersion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleName)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Hashtable.html?is-external=true" title="class or interface in java.util">Hashtable</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getFaultyModules()">getFaultyModules</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Hashtable.html?is-external=true" title="class or interface in java.util">Hashtable</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getFaultyServices()">getFaultyServices</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/axis2/util/FaultyServiceData.html" title="class in org.apache.axis2.util">FaultyServiceData</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getFaultyServicesDuetoModule(java.lang.String)">getFaultyServicesDuetoModule</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleName)</code>
 <div class="block">Returns a map which contains the faulty services due a particular module.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/axis2/util/FaultyServiceData.html" title="class in org.apache.axis2.util">FaultyServiceData</a>&gt;&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getFaultyServicesDuetoModules()">getFaultyServicesDuetoModules</a></strong>()</code>
 <div class="block">Returns the map which keeps track of faulty services due to modules.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getGlobalModules()">getGlobalModules</a></strong>()</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>please use addGlobalModule()</i></div>
-</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -451,7 +437,10 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&lt;<a href="../../../../org/apache/axis2/engine/AxisObserver.html" title="interface in org.apache.axis2.engine">AxisObserver</a>&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getObserversList()">getObserversList</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#getObserversList()">getObserversList</a></strong>()</code>
+<div class="block">This method returns read-only list of AxisObservers registered with this
+ <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine"><code>AxisConfiguration</code></a>.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../org/apache/axis2/engine/Phase.html" title="class in org.apache.axis2.engine">Phase</a>&gt;</code></td>
@@ -553,17 +542,13 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#isEngaged(javax.xml.namespace.QName)">isEngaged</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;qname)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>Use <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#isEngaged(java.lang.String)"><code>isEngaged(String)</code></a></i></div>
-</div>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#isEngaged(java.lang.String)">isEngaged</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleId)</code>
+<div class="block">Check if a given module is engaged at this level.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#isEngaged(java.lang.String)">isEngaged</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleId)</code>
-<div class="block">Check if a given module is engaged at this level.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#isGlobalModulesRegistered(java.lang.String)">isGlobalModulesRegistered</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleName)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -620,24 +605,23 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#removeModule(java.lang.String)">removeModule</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;module)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>Use <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#removeModule(java.lang.String, java.lang.String)"><code>removeModule(String,String)</code></a></i></div>
-</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#removeModule(java.lang.String, java.lang.String)">removeModule</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleName,
             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleVersion)</code>
 <div class="block">Remove a module with moduleName & moduleVersion</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#removeModule(java.lang.String, org.apache.axis2.description.Version)">removeModule</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleName,
             <a href="../../../../org/apache/axis2/description/Version.html" title="class in org.apache.axis2.description">Version</a>&nbsp;moduleVersion)</code>
 <div class="block">Remove a module with moduleName & moduleVersion</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#removeObserver(org.apache.axis2.engine.AxisObserver)">removeObserver</a></strong>(<a href="../../../../org/apache/axis2/engine/AxisObserver.html" title="interface in org.apache.axis2.engine">AxisObserver</a>&nbsp;axisObserver)</code>
+<div class="block">Unregister the given AxisObserver object if it is registered with
+ the <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine"><code>AxisConfiguration</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -852,18 +836,6 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 <dd><code><a href="../../../../org/apache/axis2/deployment/DeploymentException.html" title="class in org.apache.axis2.deployment">DeploymentException</a></code></dd></dl>
 </li>
 </ul>
-<a name="removeModule(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>removeModule</h4>
-<pre>public&nbsp;void&nbsp;removeModule(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;module)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#removeModule(java.lang.String, java.lang.String)"><code>removeModule(String,String)</code></a></i></div>
-<div class="block">To remove a given module from the system</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>module</code> - name of module to remove</dd></dl>
-</li>
-</ul>
 <a name="removeModule(java.lang.String, java.lang.String)">
 <!--   -->
 </a>
@@ -906,6 +878,20 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 <li class="blockList">
 <h4>addObservers</h4>
 <pre>public&nbsp;void&nbsp;addObservers(<a href="../../../../org/apache/axis2/engine/AxisObserver.html" title="interface in org.apache.axis2.engine">AxisObserver</a>&nbsp;axisObserver)</pre>
+<div class="block">Register given AxisObserver object to the <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine"><code>AxisConfiguration</code></a>.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>axisObserver</code> - the axis observer</dd></dl>
+</li>
+</ul>
+<a name="removeObserver(org.apache.axis2.engine.AxisObserver)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeObserver</h4>
+<pre>public&nbsp;void&nbsp;removeObserver(<a href="../../../../org/apache/axis2/engine/AxisObserver.html" title="interface in org.apache.axis2.engine">AxisObserver</a>&nbsp;axisObserver)</pre>
+<div class="block">Unregister the given AxisObserver object if it is registered with
+ the <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine"><code>AxisConfiguration</code></a>.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>axisObserver</code> - the axis observer</dd></dl>
 </li>
 </ul>
 <a name="addService(org.apache.axis2.description.AxisService)">
@@ -1000,24 +986,6 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
                      throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
 <div class="block">Add an outgoing transport description (i.e. sender) to our configuration.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>transport</code> - TransportOutDescription to add.</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
-</li>
-</ul>
-<a name="engageModule(javax.xml.namespace.QName)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>engageModule</h4>
-<pre>public&nbsp;void&nbsp;engageModule(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;moduleref)
-                  throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Please use the String version instead</i></div>
-<div class="block">Engages the default module version corresponding to the given module name,
- or if the module name contains version number in it then it will engage
- the correct module. Both the below cases are valid : -
- 1. engageModule("addressing"); 2. engageModule("addressing-1.23");</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>moduleref</code> - QName of module to engage</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
 </li>
@@ -1366,18 +1334,6 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 <dl><dt><span class="strong">Returns:</span></dt><dd>Returns HashMap.</dd></dl>
 </li>
 </ul>
-<a name="getGlobalModules()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getGlobalModules</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getGlobalModules()</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>please use addGlobalModule()</i></div>
-<div class="block">Get a list of the global modules</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the global module list.  BE CAREFUL, this list is mutable.</dd></dl>
-</li>
-</ul>
 <a name="getOutFaultFlowPhases()">
 <!--   -->
 </a>
@@ -1513,22 +1469,6 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 <li class="blockList">
 <h4>getTransportsOut</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../org/apache/axis2/description/TransportOutDescription.html" title="class in org.apache.axis2.description">TransportOutDescription</a>&gt;&nbsp;getTransportsOut()</pre>
-</li>
-</ul>
-<a name="isEngaged(javax.xml.namespace.QName)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isEngaged</h4>
-<pre>public&nbsp;boolean&nbsp;isEngaged(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;qname)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html#isEngaged(java.lang.String)"><code>isEngaged(String)</code></a></i></div>
-<div class="block">Find out whether a given module is engaged.
-
- This method needs to remain for a few Axis2 releases to support
- legacy apps still using it.  It will be disappearing in 1.6.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>qname</code> - QName of the module</dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if a module matching the passed QName is engaged globally</dd></dl>
 </li>
 </ul>
 <a name="isEngaged(java.lang.String)">
@@ -1792,6 +1732,9 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 <li class="blockList">
 <h4>getObserversList</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&lt;<a href="../../../../org/apache/axis2/engine/AxisObserver.html" title="interface in org.apache.axis2.engine">AxisObserver</a>&gt;&nbsp;getObserversList()</pre>
+<div class="block">This method returns read-only list of AxisObservers registered with this
+ <a href="../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine"><code>AxisConfiguration</code></a>.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>ArrayList<AxisObserver></dd></dl>
 </li>
 </ul>
 <a name="isStart()">
@@ -1992,10 +1935,19 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 <a name="isChildFirstClassLoading()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isChildFirstClassLoading</h4>
 <pre>public&nbsp;boolean&nbsp;isChildFirstClassLoading()</pre>
+</li>
+</ul>
+<a name="isGlobalModulesRegistered(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isGlobalModulesRegistered</h4>
+<pre>public&nbsp;boolean&nbsp;isGlobalModulesRegistered(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;moduleName)</pre>
 </li>
 </ul>
 </li>
@@ -2024,7 +1976,7 @@ extends <a href="../../../../org/apache/axis2/description/AxisDescription.html" 
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/axis2/engine/AddressingBasedDispatcher.html" title="class in org.apache.axis2.engine"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/engine/AbstractDispatcher.html" title="class in org.apache.axis2.engine"><span class="strong">Prev Class</span></a></li>
 <li><a href="../../../../org/apache/axis2/engine/AxisConfigurator.html" title="interface in org.apache.axis2.engine"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">

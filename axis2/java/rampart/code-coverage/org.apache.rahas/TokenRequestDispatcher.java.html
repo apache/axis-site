@@ -49,9 +49,9 @@ public class TokenRequestDispatcher {
     public SOAPEnvelope handle(MessageContext inMsgCtx,
                                MessageContext outMsgCtx) throws TrustException {
         
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">    	if(mlog.isDebugEnabled()){</span>
-<span class="nc" id="L53">    		mlog.debug(&quot;*********************** TokenRequestDispatcher received \n&quot;+inMsgCtx.getEnvelope());</span>
-    	}
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if(mlog.isDebugEnabled()){</span>
+<span class="nc" id="L53">            mlog.debug(&quot;*********************** TokenRequestDispatcher received \n&quot;+inMsgCtx.getEnvelope());</span>
+        }
 <span class="fc" id="L55">        RahasData data = new RahasData(inMsgCtx);</span>
         
 <span class="fc" id="L57">        String reqType = data.getRequestType();</span>
@@ -72,8 +72,8 @@ public class TokenRequestDispatcher {
 <span class="fc" id="L72">            outMsgCtx.getOptions().setAction(issuer.getResponseAction(data));</span>
             
 <span class="pc bpc" id="L74" title="1 of 2 branches missed.">            if(mlog.isDebugEnabled()){</span>
-<span class="nc" id="L75">        		mlog.debug(&quot;*********************** TokenRequestDispatcher sent out \n&quot;+response);</span>
-        	}
+<span class="nc" id="L75">                mlog.debug(&quot;*********************** TokenRequestDispatcher sent out \n&quot;+response);</span>
+            }
             
 <span class="fc" id="L78">            return response;</span>
 <span class="pc bpc" id="L79" title="2 of 4 branches missed.">        } else if((RahasConstants.WST_NS_05_02 + RahasConstants.REQ_TYPE_VALIDATE).equals(reqType) ||</span>
@@ -94,9 +94,9 @@ public class TokenRequestDispatcher {
                                 RahasConstants.RSTR_ACTION_VALIDATE));
 
 <span class="nc" id="L96">                return response;</span>
-        	
-        	
-        	
+            
+            
+            
 <span class="pc bpc" id="L100" title="2 of 4 branches missed.">        } else if((RahasConstants.WST_NS_05_02 + RahasConstants.REQ_TYPE_RENEW).equals(reqType) ||</span>
                 (RahasConstants.WST_NS_05_12 + RahasConstants.REQ_TYPE_RENEW).equals(reqType)) {
 <span class="nc" id="L102">            log.debug(&quot;renew&quot;);</span>
@@ -114,8 +114,8 @@ public class TokenRequestDispatcher {
                         TrustUtil.getActionValue(data.getVersion(),
                                 RahasConstants.RSTR_ACTION_RENEW));
 
-<span class="nc" id="L117">                return response;    	</span>
-        	         
+<span class="nc" id="L117">                return response;        </span>
+                     
 <span class="pc bpc" id="L119" title="1 of 4 branches missed.">        } else if((RahasConstants.WST_NS_05_02 + RahasConstants.REQ_TYPE_CANCEL).equals(reqType) ||</span>
                 (RahasConstants.WST_NS_05_12 + RahasConstants.REQ_TYPE_CANCEL).equals(reqType)) {
 <span class="fc" id="L121">            log.debug(&quot;cancel&quot;);</span>

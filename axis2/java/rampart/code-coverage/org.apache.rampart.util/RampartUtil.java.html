@@ -128,7 +128,7 @@ import java.util.concurrent.ConcurrentHashMap;
         
         CallbackHandler cbHandler;
 
-<span class="pc bpc" id="L131" title="2 of 4 branches missed.">        if (rpd.getRampartConfig() != null &amp;&amp; rpd.getRampartConfig().getPwCbClass() != null) {</span>
+<span class="pc bpc" id="L131" title="1 of 4 branches missed.">        if (rpd.getRampartConfig() != null &amp;&amp; rpd.getRampartConfig().getPwCbClass() != null) {</span>
             
 <span class="fc" id="L133">            String cbHandlerClass = rpd.getRampartConfig().getPwCbClass();</span>
 <span class="fc" id="L134">            ClassLoader classLoader = msgContext.getAxisService().getClassLoader();</span>
@@ -151,12 +151,12 @@ import java.util.concurrent.ConcurrentHashMap;
                         new String[]{cbHandlerClass}, e);
 <span class="fc" id="L152">            }</span>
 <span class="fc" id="L153">        } else {</span>
-<span class="nc" id="L154">            cbHandler = (CallbackHandler) msgContext.getProperty(</span>
+<span class="fc" id="L154">            cbHandler = (CallbackHandler) msgContext.getProperty(</span>
                     WSHandlerConstants.PW_CALLBACK_REF);
-<span class="nc bnc" id="L156" title="All 2 branches missed.">            if(cbHandler == null) {</span>
-<span class="nc" id="L157">                Parameter param = msgContext.getParameter(</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">            if(cbHandler == null) {</span>
+<span class="fc" id="L157">                Parameter param = msgContext.getParameter(</span>
                         WSHandlerConstants.PW_CALLBACK_REF);
-<span class="nc bnc" id="L159" title="All 2 branches missed.">                if(param != null) {</span>
+<span class="pc bpc" id="L159" title="1 of 2 branches missed.">                if(param != null) {</span>
 <span class="nc" id="L160">                    cbHandler = (CallbackHandler)param.getValue();</span>
                 }
             }
@@ -177,7 +177,7 @@ import java.util.concurrent.ConcurrentHashMap;
         
        PolicyValidatorCallbackHandler cbHandler;
 
-<span class="pc bpc" id="L180" title="2 of 4 branches missed.">        if (rpd.getRampartConfig() != null &amp;&amp; rpd.getRampartConfig().getPolicyValidatorCbClass() != null) {</span>
+<span class="pc bpc" id="L180" title="1 of 4 branches missed.">        if (rpd.getRampartConfig() != null &amp;&amp; rpd.getRampartConfig().getPolicyValidatorCbClass() != null) {</span>
             
 <span class="nc" id="L182">            String cbHandlerClass = rpd.getRampartConfig().getPolicyValidatorCbClass();</span>
 <span class="nc" id="L183">            ClassLoader classLoader = msgContext.getAxisService().getClassLoader();</span>
@@ -212,7 +212,7 @@ import java.util.concurrent.ConcurrentHashMap;
        
        RampartConfigCallbackHandler rampartConfigCB;
    
-<span class="pc bpc" id="L215" title="1 of 4 branches missed.">       if (rpd.getRampartConfig() != null &amp;&amp; rpd.getRampartConfig().getRampartConfigCbClass() != null) {</span>
+<span class="fc bfc" id="L215" title="All 4 branches covered.">       if (rpd.getRampartConfig() != null &amp;&amp; rpd.getRampartConfig().getRampartConfigCbClass() != null) {</span>
            
 <span class="fc" id="L217">           String cbHandlerClass = rpd.getRampartConfig().getRampartConfigCbClass();</span>
 <span class="fc" id="L218">           ClassLoader classLoader = msgContext.getAxisService().getClassLoader();</span>
@@ -298,7 +298,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 <span class="fc" id="L299">        Crypto crypto = null;</span>
 
-<span class="pc bpc" id="L301" title="1 of 4 branches missed.">        if (config != null &amp;&amp; config.getEncrCryptoConfig() != null) {</span>
+<span class="fc bfc" id="L301" title="All 4 branches covered.">        if (config != null &amp;&amp; config.getEncrCryptoConfig() != null) {</span>
 <span class="fc" id="L302">            CryptoConfig cryptoConfig = config.getEncrCryptoConfig();</span>
 <span class="fc" id="L303">            String provider = cryptoConfig.getProvider();</span>
 <span class="pc bpc" id="L304" title="1 of 2 branches missed.">            if (log.isDebugEnabled()) {</span>
@@ -366,7 +366,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 <span class="fc" id="L367">        Crypto crypto = null;</span>
 
-<span class="pc bpc" id="L369" title="1 of 4 branches missed.">        if (config != null &amp;&amp; config.getSigCryptoConfig() != null) {</span>
+<span class="fc bfc" id="L369" title="All 4 branches covered.">        if (config != null &amp;&amp; config.getSigCryptoConfig() != null) {</span>
 <span class="fc" id="L370">            CryptoConfig cryptoConfig = config.getSigCryptoConfig();</span>
 <span class="fc" id="L371">            String provider = cryptoConfig.getProvider();</span>
 <span class="pc bpc" id="L372" title="1 of 2 branches missed.">            if (log.isDebugEnabled()) {</span>
@@ -548,7 +548,7 @@ import java.util.concurrent.ConcurrentHashMap;
     public static int getTimeToLive(RampartMessageData messageData) {
 
 <span class="fc" id="L550">        RampartConfig rampartConfig = messageData.getPolicyData().getRampartConfig();</span>
-<span class="pc bpc" id="L551" title="1 of 2 branches missed.">        if (rampartConfig != null) {</span>
+<span class="fc bfc" id="L551" title="All 2 branches covered.">        if (rampartConfig != null) {</span>
 <span class="fc" id="L552">            String ttl = rampartConfig.getTimestampTTL();</span>
 <span class="fc" id="L553">            int ttl_i = 0;</span>
 <span class="pc bpc" id="L554" title="1 of 2 branches missed.">            if (ttl != null) {</span>
@@ -563,14 +563,14 @@ import java.util.concurrent.ConcurrentHashMap;
             }
 <span class="fc" id="L564">            return ttl_i;</span>
         } else {
-<span class="nc" id="L566">            return RampartConfig.DEFAULT_TIMESTAMP_TTL;</span>
+<span class="fc" id="L566">            return RampartConfig.DEFAULT_TIMESTAMP_TTL;</span>
         }
     }
 
     public static int getTimestampMaxSkew(RampartMessageData messageData) {
 
 <span class="fc" id="L572">        RampartConfig rampartConfig = messageData.getPolicyData().getRampartConfig();</span>
-<span class="pc bpc" id="L573" title="1 of 2 branches missed.">        if (rampartConfig != null) {</span>
+<span class="fc bfc" id="L573" title="All 2 branches covered.">        if (rampartConfig != null) {</span>
 <span class="fc" id="L574">            String maxSkew = rampartConfig.getTimestampMaxSkew();</span>
 <span class="fc" id="L575">            int maxSkew_i = 0;</span>
 <span class="pc bpc" id="L576" title="1 of 2 branches missed.">            if (maxSkew != null) {</span>
@@ -585,7 +585,7 @@ import java.util.concurrent.ConcurrentHashMap;
             }
 <span class="fc" id="L586">            return maxSkew_i;</span>
         } else {
-<span class="nc" id="L588">            return RampartConfig.DEFAULT_TIMESTAMP_MAX_SKEW;</span>
+<span class="fc" id="L588">            return RampartConfig.DEFAULT_TIMESTAMP_MAX_SKEW;</span>
         }
     }
 
@@ -815,203 +815,221 @@ import java.util.concurrent.ConcurrentHashMap;
 <span class="fc" id="L815">        return id;</span>
     }
     
+    /**
+     * Change the owner document of the given node. The method first attempts to move the node using
+     * {@link Document#adoptNode(Node)}. If that fails, it will import the node into the target
+     * document using {@link Document#importNode(Node, boolean)}.
+     * 
+     * @param targetDocument
+     *            the target document
+     * @param node
+     *            the node to adopt or import
+     * @return the adopted or imported node
+     */
+    public static Node adoptNode(Document targetDocument, Node node) {
+<span class="fc" id="L830">        Node result = targetDocument.adoptNode(node);</span>
+<span class="pc bpc" id="L831" title="1 of 2 branches missed.">        if (result == null) {</span>
+<span class="nc" id="L832">            result = targetDocument.importNode(node, true);</span>
+        }
+<span class="fc" id="L834">        return result;</span>
+    }
+    
     public static Element appendChildToSecHeader(RampartMessageData rmd,
             OMElement elem) {
-<span class="fc" id="L820">        return appendChildToSecHeader(rmd, (Element)elem);</span>
+<span class="fc" id="L839">        return appendChildToSecHeader(rmd, (Element)elem);</span>
     }
     
     public static Element appendChildToSecHeader(RampartMessageData rmd,
             Element elem) {
-<span class="fc" id="L825">        Element secHeaderElem = rmd.getSecHeader().getSecurityHeader();</span>
-<span class="fc" id="L826">        Node node = secHeaderElem.getOwnerDocument().importNode(</span>
-                        elem, true);
-<span class="fc" id="L828">        return (Element)secHeaderElem.appendChild(node);</span>
+<span class="fc" id="L844">        Element secHeaderElem = rmd.getSecHeader().getSecurityHeader();</span>
+<span class="fc" id="L845">        Node node = adoptNode(secHeaderElem.getOwnerDocument(), elem);</span>
+<span class="fc" id="L846">        return (Element)secHeaderElem.appendChild(node);</span>
     }
 
     public static Element insertSiblingAfter(RampartMessageData rmd,
             Element child, Element sibling) {
-<span class="fc bfc" id="L833" title="All 2 branches covered.">        if (child == null) {</span>
-<span class="fc" id="L834">            return appendChildToSecHeader(rmd, sibling);</span>
+<span class="fc bfc" id="L851" title="All 2 branches covered.">        if (child == null) {</span>
+<span class="fc" id="L852">            return appendChildToSecHeader(rmd, sibling);</span>
         } else {
-<span class="fc bfc" id="L836" title="All 2 branches covered.">            if (child.getOwnerDocument().equals(sibling.getOwnerDocument())) {</span>
+<span class="fc bfc" id="L854" title="All 2 branches covered.">            if (child.getOwnerDocument().equals(sibling.getOwnerDocument())) {</span>
 
-<span class="pc bpc" id="L838" title="3 of 4 branches missed.">                if (child.getParentNode() == null</span>
+<span class="pc bpc" id="L856" title="3 of 4 branches missed.">                if (child.getParentNode() == null</span>
                         &amp;&amp; !child.getLocalName().equals(&quot;UsernameToken&quot;)) {
-<span class="nc" id="L840">                    rmd.getSecHeader().getSecurityHeader().appendChild(child);</span>
+<span class="nc" id="L858">                    rmd.getSecHeader().getSecurityHeader().appendChild(child);</span>
                 }
-<span class="fc" id="L842">                ((OMElement) child).insertSiblingAfter((OMElement) sibling);</span>
-<span class="fc" id="L843">                return sibling;</span>
+<span class="fc" id="L860">                ((OMElement) child).insertSiblingAfter((OMElement) sibling);</span>
+<span class="fc" id="L861">                return sibling;</span>
             } else {
-<span class="fc" id="L845">                Element newSib = (Element) child.getOwnerDocument().importNode(</span>
+<span class="fc" id="L863">                Element newSib = (Element) child.getOwnerDocument().importNode(</span>
                         sibling, true);
-<span class="fc" id="L847">                ((OMElement) child).insertSiblingAfter((OMElement) newSib);</span>
-<span class="fc" id="L848">                return newSib;</span>
+<span class="fc" id="L865">                ((OMElement) child).insertSiblingAfter((OMElement) newSib);</span>
+<span class="fc" id="L866">                return newSib;</span>
             }
         }
     }
     
     public static Element insertSiblingBefore(RampartMessageData rmd, Element child, Element sibling) {
-<span class="pc bpc" id="L854" title="1 of 2 branches missed.">        if(child == null) {</span>
-<span class="nc" id="L855">            return appendChildToSecHeader(rmd, sibling);</span>
+<span class="pc bpc" id="L872" title="1 of 2 branches missed.">        if(child == null) {</span>
+<span class="nc" id="L873">            return appendChildToSecHeader(rmd, sibling);</span>
         } else {
-<span class="pc bpc" id="L857" title="1 of 2 branches missed.">            if(child.getOwnerDocument().equals(sibling.getOwnerDocument())) {</span>
-<span class="fc" id="L858">                ((OMElement)child).insertSiblingBefore((OMElement)sibling);</span>
-<span class="fc" id="L859">                return sibling;</span>
+<span class="pc bpc" id="L875" title="1 of 2 branches missed.">            if(child.getOwnerDocument().equals(sibling.getOwnerDocument())) {</span>
+<span class="fc" id="L876">                ((OMElement)child).insertSiblingBefore((OMElement)sibling);</span>
+<span class="fc" id="L877">                return sibling;</span>
             } else {
-<span class="nc" id="L861">                Element newSib = (Element)child.getOwnerDocument().importNode(sibling, true);</span>
-<span class="nc" id="L862">                ((OMElement)child).insertSiblingBefore((OMElement)newSib);</span>
-<span class="nc" id="L863">                return newSib;</span>
+<span class="nc" id="L879">                Element newSib = (Element)child.getOwnerDocument().importNode(sibling, true);</span>
+<span class="nc" id="L880">                ((OMElement)child).insertSiblingBefore((OMElement)newSib);</span>
+<span class="nc" id="L881">                return newSib;</span>
             }
         }
         
     }
     
     public static List&lt;WSEncryptionPart&gt; getEncryptedParts(RampartMessageData rmd) {
-<span class="fc" id="L870">		RampartPolicyData rpd = rmd.getPolicyData();</span>
-<span class="fc" id="L871">		SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
-<span class="pc bpc" id="L872" title="1 of 4 branches missed.">		List&lt;WSEncryptionPart&gt; encryptedPartsElements = getPartsAndElements(false, envelope,</span>
+<span class="fc" id="L888">		RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc" id="L889">		SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
+<span class="pc bpc" id="L890" title="1 of 4 branches missed.">		List&lt;WSEncryptionPart&gt; encryptedPartsElements = getPartsAndElements(false, envelope,</span>
 				rpd.isEncryptBody() &amp;&amp; !rpd.isEncryptBodyOptional(), rpd
 						.getEncryptedParts(), rpd.getEncryptedElements(), rpd
 						.getDeclaredNamespaces());
-<span class="fc" id="L876">		return getContentEncryptedElements(encryptedPartsElements, envelope,</span>
+<span class="fc" id="L894">		return getContentEncryptedElements(encryptedPartsElements, envelope,</span>
 				rpd.getContentEncryptedElements(), rpd.getDeclaredNamespaces());
 	}
 
 	public static List&lt;WSEncryptionPart&gt; getSignedParts(RampartMessageData rmd) {
-<span class="fc" id="L881">		RampartPolicyData rpd = rmd.getPolicyData();</span>
-<span class="fc" id="L882">		SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
+<span class="fc" id="L899">		RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc" id="L900">		SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
 
         //&quot;signAllHeaders&quot; indicates that all the headers should be signed.
-<span class="fc bfc" id="L885" title="All 2 branches covered.">        if (rpd.isSignAllHeaders()) {</span>
-<span class="fc" id="L886">            Iterator childHeaders = envelope.getHeader().getChildElements();</span>
-<span class="fc bfc" id="L887" title="All 2 branches covered.">            while (childHeaders.hasNext()) {</span>
-<span class="fc" id="L888">               OMElement hb = (OMElement) childHeaders.next();</span>
-<span class="pc bpc" id="L889" title="1 of 4 branches missed.">                if (!(hb.getLocalName().equals(WSConstants.WSSE_LN)</span>
+<span class="fc bfc" id="L903" title="All 2 branches covered.">        if (rpd.isSignAllHeaders()) {</span>
+<span class="fc" id="L904">            Iterator childHeaders = envelope.getHeader().getChildElements();</span>
+<span class="fc bfc" id="L905" title="All 2 branches covered.">            while (childHeaders.hasNext()) {</span>
+<span class="fc" id="L906">               OMElement hb = (OMElement) childHeaders.next();</span>
+<span class="pc bpc" id="L907" title="1 of 4 branches missed.">                if (!(hb.getLocalName().equals(WSConstants.WSSE_LN)</span>
                         &amp;&amp; hb.getNamespace().getNamespaceURI().equals(WSConstants.WSSE_NS))) {
-<span class="fc" id="L891">                    rpd.addSignedPart(hb.getNamespace().getNamespaceURI(),hb.getLocalName());</span>
+<span class="fc" id="L909">                    rpd.addSignedPart(hb.getNamespace().getNamespaceURI(),hb.getLocalName());</span>
                 }
-<span class="fc" id="L893">           }</span>
+<span class="fc" id="L911">           }</span>
         }
 
-<span class="pc bpc" id="L896" title="1 of 4 branches missed.">		return getPartsAndElements(true, envelope, rpd.isSignBody()</span>
+<span class="pc bpc" id="L914" title="1 of 4 branches missed.">		return getPartsAndElements(true, envelope, rpd.isSignBody()</span>
 				&amp;&amp; !rpd.isSignBodyOptional(), rpd.getSignedParts(), rpd
 				.getSignedElements(), rpd.getDeclaredNamespaces());
 	}
 
 	public static List&lt;WSEncryptionPart&gt; getSupportingEncryptedParts(RampartMessageData rmd,
 			SupportingPolicyData rpd) {
-<span class="fc" id="L903">		SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
-<span class="pc bpc" id="L904" title="3 of 4 branches missed.">		return getPartsAndElements(false, envelope, rpd.isEncryptBody()</span>
+<span class="fc" id="L921">		SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
+<span class="pc bpc" id="L922" title="3 of 4 branches missed.">		return getPartsAndElements(false, envelope, rpd.isEncryptBody()</span>
 				&amp;&amp; !rpd.isEncryptBodyOptional(), rpd.getEncryptedParts(), rpd
 				.getEncryptedElements(), rpd.getDeclaredNamespaces());
 	}
 
 	public static List&lt;WSEncryptionPart&gt; getSupportingSignedParts(RampartMessageData rmd,
 			SupportingPolicyData rpd) {
-<span class="fc" id="L911">		SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
-<span class="pc bpc" id="L912" title="3 of 4 branches missed.">		return getPartsAndElements(true, envelope, rpd.isSignBody()</span>
+<span class="fc" id="L929">		SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
+<span class="pc bpc" id="L930" title="3 of 4 branches missed.">		return getPartsAndElements(true, envelope, rpd.isSignBody()</span>
 				&amp;&amp; !rpd.isSignBodyOptional(), rpd.getSignedParts(), rpd
 				.getSignedElements(), rpd.getDeclaredNamespaces());
 	}
     
     public static Set findAllPrefixNamespaces(OMElement currentElement, HashMap decNamespacess)
     {
-<span class="fc" id="L919">    	Set&lt;OMNamespace&gt; results = new HashSet&lt;OMNamespace&gt;();</span>
+<span class="fc" id="L937">    	Set&lt;OMNamespace&gt; results = new HashSet&lt;OMNamespace&gt;();</span>
     	
     	//Find declared namespaces
-<span class="fc" id="L922">    	findPrefixNamespaces(currentElement,results);</span>
+<span class="fc" id="L940">    	findPrefixNamespaces(currentElement,results);</span>
     	
     	//Get all default namespaces
-<span class="fc" id="L925">    	List defaultNamespaces = getDefaultPrefixNamespaces(currentElement.getOMFactory());</span>
-<span class="fc bfc" id="L926" title="All 2 branches covered.">        for (Object defaultNamespace : defaultNamespaces) {</span>
-<span class="fc" id="L927">            OMNamespace ns = (OMNamespace) defaultNamespace;</span>
-<span class="fc" id="L928">            results.add(ns);</span>
-<span class="fc" id="L929">        }</span>
+<span class="fc" id="L943">    	List defaultNamespaces = getDefaultPrefixNamespaces(currentElement.getOMFactory());</span>
+<span class="fc bfc" id="L944" title="All 2 branches covered.">        for (Object defaultNamespace : defaultNamespaces) {</span>
+<span class="fc" id="L945">            OMNamespace ns = (OMNamespace) defaultNamespace;</span>
+<span class="fc" id="L946">            results.add(ns);</span>
+<span class="fc" id="L947">        }</span>
 
-<span class="fc bfc" id="L931" title="All 2 branches covered.">        for (Object o : decNamespacess.keySet()) {</span>
-<span class="fc" id="L932">            String prefix = (String) o;</span>
-<span class="fc" id="L933">            String ns = (String) decNamespacess.get(prefix);</span>
-<span class="fc" id="L934">            OMFactory omFactory = currentElement.getOMFactory();</span>
-<span class="fc" id="L935">            OMNamespace namespace = omFactory.createOMNamespace(ns, prefix);</span>
-<span class="fc" id="L936">            results.add(namespace);</span>
+<span class="fc bfc" id="L949" title="All 2 branches covered.">        for (Object o : decNamespacess.keySet()) {</span>
+<span class="fc" id="L950">            String prefix = (String) o;</span>
+<span class="fc" id="L951">            String ns = (String) decNamespacess.get(prefix);</span>
+<span class="fc" id="L952">            OMFactory omFactory = currentElement.getOMFactory();</span>
+<span class="fc" id="L953">            OMNamespace namespace = omFactory.createOMNamespace(ns, prefix);</span>
+<span class="fc" id="L954">            results.add(namespace);</span>
 
-<span class="fc" id="L938">        }</span>
+<span class="fc" id="L956">        }</span>
     	
-<span class="fc" id="L940">    	return results;</span>
+<span class="fc" id="L958">    	return results;</span>
     }
 
     private static void findPrefixNamespaces(OMElement e, Set&lt;OMNamespace&gt; results) {
 
-<span class="fc" id="L945">        Iterator iterator = e.getAllDeclaredNamespaces();</span>
+<span class="fc" id="L963">        Iterator iterator = e.getAllDeclaredNamespaces();</span>
 
-<span class="pc bpc" id="L947" title="1 of 2 branches missed.">        if (iterator != null) {</span>
-<span class="fc bfc" id="L948" title="All 2 branches covered.">            while (iterator.hasNext())</span>
-<span class="fc" id="L949">                results.add((OMNamespace)iterator.next());</span>
+<span class="pc bpc" id="L965" title="1 of 2 branches missed.">        if (iterator != null) {</span>
+<span class="fc bfc" id="L966" title="All 2 branches covered.">            while (iterator.hasNext())</span>
+<span class="fc" id="L967">                results.add((OMNamespace)iterator.next());</span>
         }
 
-<span class="fc" id="L952">        Iterator children = e.getChildElements();</span>
+<span class="fc" id="L970">        Iterator children = e.getChildElements();</span>
 
-<span class="fc bfc" id="L954" title="All 2 branches covered.">        while (children.hasNext()) {</span>
-<span class="fc" id="L955">            findPrefixNamespaces((OMElement) children.next(), results);</span>
+<span class="fc bfc" id="L972" title="All 2 branches covered.">        while (children.hasNext()) {</span>
+<span class="fc" id="L973">            findPrefixNamespaces((OMElement) children.next(), results);</span>
         }
-<span class="fc" id="L957">    }</span>
+<span class="fc" id="L975">    }</span>
     
     private static List getDefaultPrefixNamespaces(OMFactory factory)
     {
-<span class="fc" id="L961">    	List&lt;OMNamespace&gt; namespaces = new ArrayList&lt;OMNamespace&gt;();</span>
+<span class="fc" id="L979">    	List&lt;OMNamespace&gt; namespaces = new ArrayList&lt;OMNamespace&gt;();</span>
 
     	// put default namespaces here (sp, soapenv, wsu, etc...)
-<span class="fc" id="L964">    	namespaces.add(factory.createOMNamespace(WSConstants.ENC_NS, WSConstants.ENC_PREFIX));</span>
-<span class="fc" id="L965">    	namespaces.add(factory.createOMNamespace(WSConstants.SIG_NS, WSConstants.SIG_PREFIX));</span>
-<span class="fc" id="L966">    	namespaces.add(factory.createOMNamespace(WSConstants.WSSE_NS, WSConstants.WSSE_PREFIX));</span>
-<span class="fc" id="L967">    	namespaces.add(factory.createOMNamespace(WSConstants.WSU_NS, WSConstants.WSU_PREFIX));</span>
+<span class="fc" id="L982">    	namespaces.add(factory.createOMNamespace(WSConstants.ENC_NS, WSConstants.ENC_PREFIX));</span>
+<span class="fc" id="L983">    	namespaces.add(factory.createOMNamespace(WSConstants.SIG_NS, WSConstants.SIG_PREFIX));</span>
+<span class="fc" id="L984">    	namespaces.add(factory.createOMNamespace(WSConstants.WSSE_NS, WSConstants.WSSE_PREFIX));</span>
+<span class="fc" id="L985">    	namespaces.add(factory.createOMNamespace(WSConstants.WSU_NS, WSConstants.WSU_PREFIX));</span>
     	
-<span class="fc" id="L969">    	return namespaces;</span>
+<span class="fc" id="L987">    	return namespaces;</span>
     	
     }
     
     public static List&lt;WSEncryptionPart&gt; getContentEncryptedElements (List&lt;WSEncryptionPart&gt; encryptedPartsElements,
                                                  SOAPEnvelope envelope,List&lt;String&gt; elements, HashMap decNamespaces ) {
         
-<span class="fc" id="L976">        Set namespaces = findAllPrefixNamespaces(envelope, decNamespaces);</span>
+<span class="fc" id="L994">        Set namespaces = findAllPrefixNamespaces(envelope, decNamespaces);</span>
 
-<span class="fc bfc" id="L978" title="All 2 branches covered.">        for (String expression : elements) {</span>
+<span class="fc bfc" id="L996" title="All 2 branches covered.">        for (String expression : elements) {</span>
             try {
-<span class="fc" id="L980">                XPath xp = new AXIOMXPath(expression);</span>
+<span class="fc" id="L998">                XPath xp = new AXIOMXPath(expression);</span>
 
-<span class="fc bfc" id="L982" title="All 2 branches covered.">                for (Object objectNamespace : namespaces) {</span>
-<span class="fc" id="L983">                    OMNamespace tmpNs = (OMNamespace) objectNamespace;</span>
-<span class="fc" id="L984">                    xp.addNamespace(tmpNs.getPrefix(), tmpNs.getNamespaceURI());</span>
-<span class="fc" id="L985">                }</span>
+<span class="fc bfc" id="L1000" title="All 2 branches covered.">                for (Object objectNamespace : namespaces) {</span>
+<span class="fc" id="L1001">                    OMNamespace tmpNs = (OMNamespace) objectNamespace;</span>
+<span class="fc" id="L1002">                    xp.addNamespace(tmpNs.getPrefix(), tmpNs.getNamespaceURI());</span>
+<span class="fc" id="L1003">                }</span>
 
-<span class="fc" id="L987">                List selectedNodes = xp.selectNodes(envelope);</span>
+<span class="fc" id="L1005">                List selectedNodes = xp.selectNodes(envelope);</span>
 
-<span class="fc bfc" id="L989" title="All 2 branches covered.">                for (Object selectedNode : selectedNodes) {</span>
-<span class="fc" id="L990">                    OMElement e = (OMElement) selectedNode;</span>
+<span class="fc bfc" id="L1007" title="All 2 branches covered.">                for (Object selectedNode : selectedNodes) {</span>
+<span class="fc" id="L1008">                    OMElement e = (OMElement) selectedNode;</span>
 
-<span class="fc" id="L992">                    String localName = e.getLocalName();</span>
-<span class="pc bpc" id="L993" title="1 of 2 branches missed.">                    String namespace = e.getNamespace() != null ? e.getNamespace().getNamespaceURI() : null;</span>
+<span class="fc" id="L1010">                    String localName = e.getLocalName();</span>
+<span class="pc bpc" id="L1011" title="1 of 2 branches missed.">                    String namespace = e.getNamespace() != null ? e.getNamespace().getNamespaceURI() : null;</span>
 
-<span class="fc" id="L995">                    OMAttribute wsuIdAttribute = e.getAttribute(new QName(WSConstants.WSU_NS, &quot;Id&quot;));</span>
+<span class="fc" id="L1013">                    OMAttribute wsuIdAttribute = e.getAttribute(new QName(WSConstants.WSU_NS, &quot;Id&quot;));</span>
 
-<span class="fc" id="L997">                    String wsuId = null;</span>
-<span class="pc bpc" id="L998" title="1 of 2 branches missed.">                    if (wsuIdAttribute != null) {</span>
-<span class="nc" id="L999">                        wsuId = wsuIdAttribute.getAttributeValue();</span>
+<span class="fc" id="L1015">                    String wsuId = null;</span>
+<span class="pc bpc" id="L1016" title="1 of 2 branches missed.">                    if (wsuIdAttribute != null) {</span>
+<span class="nc" id="L1017">                        wsuId = wsuIdAttribute.getAttributeValue();</span>
                     }
 
-<span class="fc" id="L1002">                    encryptedPartsElements.add(createEncryptionPart(localName,</span>
+<span class="fc" id="L1020">                    encryptedPartsElements.add(createEncryptionPart(localName,</span>
                             wsuId, namespace, &quot;Content&quot;, expression));
 
-<span class="fc" id="L1005">                }</span>
+<span class="fc" id="L1023">                }</span>
 
-<span class="nc" id="L1007">            } catch (JaxenException e) {</span>
+<span class="nc" id="L1025">            } catch (JaxenException e) {</span>
                 // This has to be changed to propagate an instance of a RampartException up
-<span class="nc" id="L1009">                throw new RuntimeException(e);</span>
-<span class="fc" id="L1010">            }</span>
-<span class="fc" id="L1011">        }</span>
+<span class="nc" id="L1027">                throw new RuntimeException(e);</span>
+<span class="fc" id="L1028">            }</span>
+<span class="fc" id="L1029">        }</span>
         
      
-<span class="fc" id="L1014">        return encryptedPartsElements;</span>
+<span class="fc" id="L1032">        return encryptedPartsElements;</span>
         
     }
 
@@ -1024,7 +1042,7 @@ import java.util.concurrent.ConcurrentHashMap;
      */
     public static WSEncryptionPart createEncryptionPart (String name, String id) {
 
-<span class="fc" id="L1027">        return createEncryptionPart(name, id, null, null, null);</span>
+<span class="fc" id="L1045">        return createEncryptionPart(name, id, null, null, null);</span>
     }
 
     /**
@@ -1038,7 +1056,7 @@ import java.util.concurrent.ConcurrentHashMap;
     public static WSEncryptionPart createEncryptionPart(String name, String id,
                                                          String namespace, String modifier) {
 
-<span class="fc" id="L1041">        return createEncryptionPart(name, id, namespace, modifier, null);</span>
+<span class="fc" id="L1059">        return createEncryptionPart(name, id, namespace, modifier, null);</span>
     }
 
      /**
@@ -1054,138 +1072,138 @@ import java.util.concurrent.ConcurrentHashMap;
                                                          String namespace, String modifier,String xPath) {
 
         // The part name must not be null !!
-<span class="pc bpc" id="L1057" title="1 of 4 branches missed.">        assert name != null;</span>
+<span class="pc bpc" id="L1075" title="1 of 4 branches missed.">        assert name != null;</span>
 
-<span class="fc" id="L1059">        WSEncryptionPart wsEncryptionPart = new WSEncryptionPart(name, namespace, modifier);</span>
-<span class="fc" id="L1060">        wsEncryptionPart.setId(id);</span>
-<span class="fc" id="L1061">        wsEncryptionPart.setXpath(xPath);</span>
+<span class="fc" id="L1077">        WSEncryptionPart wsEncryptionPart = new WSEncryptionPart(name, namespace, modifier);</span>
+<span class="fc" id="L1078">        wsEncryptionPart.setId(id);</span>
+<span class="fc" id="L1079">        wsEncryptionPart.setXpath(xPath);</span>
 
-<span class="fc" id="L1063">        return wsEncryptionPart;</span>
+<span class="fc" id="L1081">        return wsEncryptionPart;</span>
     }
     
     public static List&lt;WSEncryptionPart&gt; getPartsAndElements(boolean sign, SOAPEnvelope envelope, boolean includeBody,
                                                              List&lt;WSEncryptionPart&gt; parts, List&lt;String&gt; elements,
                                                              HashMap decNamespaces) {
 
-<span class="fc" id="L1070">        List&lt;OMElement&gt; found = new ArrayList&lt;OMElement&gt;();</span>
-<span class="fc" id="L1071">        List&lt;WSEncryptionPart&gt; result = new ArrayList&lt;WSEncryptionPart&gt;();</span>
+<span class="fc" id="L1088">        List&lt;OMElement&gt; found = new ArrayList&lt;OMElement&gt;();</span>
+<span class="fc" id="L1089">        List&lt;WSEncryptionPart&gt; result = new ArrayList&lt;WSEncryptionPart&gt;();</span>
 
         // check body
-<span class="fc bfc" id="L1074" title="All 2 branches covered.">        if(includeBody) {</span>
+<span class="fc bfc" id="L1092" title="All 2 branches covered.">        if(includeBody) {</span>
 
-<span class="fc" id="L1076">            String wsuId = addWsuIdToElement(envelope.getBody());</span>
+<span class="fc" id="L1094">            String wsuId = addWsuIdToElement(envelope.getBody());</span>
 
-<span class="fc bfc" id="L1078" title="All 2 branches covered.">            if( sign ) {</span>
-<span class="fc" id="L1079">                result.add(createEncryptionPart(envelope.getBody().getLocalName(), wsuId,</span>
+<span class="fc bfc" id="L1096" title="All 2 branches covered.">            if( sign ) {</span>
+<span class="fc" id="L1097">                result.add(createEncryptionPart(envelope.getBody().getLocalName(), wsuId,</span>
                         null, null));
             } else {
-<span class="fc" id="L1082">                result.add(createEncryptionPart(envelope.getBody().getLocalName(), wsuId, null, &quot;Content&quot;));</span>
+<span class="fc" id="L1100">                result.add(createEncryptionPart(envelope.getBody().getLocalName(), wsuId, null, &quot;Content&quot;));</span>
             }
 
             // TODO can we remove this ?
-<span class="fc" id="L1086">            found.add( envelope.getBody() );</span>
+<span class="fc" id="L1104">            found.add( envelope.getBody() );</span>
         }
         
         // Search envelope header for 'parts' from Policy (SignedParts/EncryptedParts)
 
-<span class="fc" id="L1091">        SOAPHeader header = envelope.getHeader();</span>
+<span class="fc" id="L1109">        SOAPHeader header = envelope.getHeader();</span>
 
-<span class="fc bfc" id="L1093" title="All 2 branches covered.">        for (WSEncryptionPart part : parts) {</span>
-<span class="pc bpc" id="L1094" title="1 of 2 branches missed.">            if (part.getName() == null) {</span>
+<span class="fc bfc" id="L1111" title="All 2 branches covered.">        for (WSEncryptionPart part : parts) {</span>
+<span class="pc bpc" id="L1112" title="1 of 2 branches missed.">            if (part.getName() == null) {</span>
                 // NO name - search by namespace
-<span class="nc" id="L1096">                ArrayList headerList = header.getHeaderBlocksWithNSURI(part.getNamespace());</span>
+<span class="nc" id="L1114">                ArrayList headerList = header.getHeaderBlocksWithNSURI(part.getNamespace());</span>
 
-<span class="nc bnc" id="L1098" title="All 2 branches missed.">                for (Object aHeaderList : headerList) {</span>
-<span class="nc" id="L1099">                    SOAPHeaderBlock shb = (SOAPHeaderBlock) aHeaderList;</span>
+<span class="nc bnc" id="L1116" title="All 2 branches missed.">                for (Object aHeaderList : headerList) {</span>
+<span class="nc" id="L1117">                    SOAPHeaderBlock shb = (SOAPHeaderBlock) aHeaderList;</span>
 
                     // find reference in envelope
-<span class="nc" id="L1102">                    OMElement e = header.getFirstChildWithName(shb.getQName());</span>
+<span class="nc" id="L1120">                    OMElement e = header.getFirstChildWithName(shb.getQName());</span>
 
-<span class="nc bnc" id="L1104" title="All 2 branches missed.">                    if (!found.contains(e)) {</span>
+<span class="nc bnc" id="L1122" title="All 2 branches missed.">                    if (!found.contains(e)) {</span>
                         // found new
-<span class="nc" id="L1106">                        found.add(e);</span>
+<span class="nc" id="L1124">                        found.add(e);</span>
 
-<span class="nc bnc" id="L1108" title="All 2 branches missed.">                        if (sign) {</span>
-<span class="nc" id="L1109">                            result.add(createEncryptionPart(e.getLocalName(), null,</span>
+<span class="nc bnc" id="L1126" title="All 2 branches missed.">                        if (sign) {</span>
+<span class="nc" id="L1127">                            result.add(createEncryptionPart(e.getLocalName(), null,</span>
                                     part.getNamespace(), &quot;Content&quot;));
                         } else {
 
-<span class="nc" id="L1113">                            OMAttribute wsuIdAttribute = e.getAttribute(new QName(WSConstants.WSU_NS, &quot;Id&quot;));</span>
+<span class="nc" id="L1131">                            OMAttribute wsuIdAttribute = e.getAttribute(new QName(WSConstants.WSU_NS, &quot;Id&quot;));</span>
 
-<span class="nc" id="L1115">                            String wsuId = null;</span>
-<span class="nc bnc" id="L1116" title="All 2 branches missed.">                            if (wsuIdAttribute != null) {</span>
-<span class="nc" id="L1117">                                wsuId = wsuIdAttribute.getAttributeValue();</span>
+<span class="nc" id="L1133">                            String wsuId = null;</span>
+<span class="nc bnc" id="L1134" title="All 2 branches missed.">                            if (wsuIdAttribute != null) {</span>
+<span class="nc" id="L1135">                                wsuId = wsuIdAttribute.getAttributeValue();</span>
                             }
 
-<span class="nc" id="L1120">                            result.add(createEncryptionPart(e.getLocalName(),wsuId,</span>
+<span class="nc" id="L1138">                            result.add(createEncryptionPart(e.getLocalName(),wsuId,</span>
                                     part.getNamespace(), &quot;Element&quot;));
                         }
                     }
-<span class="nc" id="L1124">                }</span>
-<span class="nc" id="L1125">            } else {</span>
+<span class="nc" id="L1142">                }</span>
+<span class="nc" id="L1143">            } else {</span>
                 // try to find
-<span class="fc" id="L1127">                OMElement e = header.getFirstChildWithName(new QName(part.getNamespace(), part.getName()));</span>
-<span class="fc bfc" id="L1128" title="All 2 branches covered.">                if (e != null) {</span>
-<span class="pc bpc" id="L1129" title="1 of 2 branches missed.">                    if (!found.contains(e)) {</span>
+<span class="fc" id="L1145">                OMElement e = header.getFirstChildWithName(new QName(part.getNamespace(), part.getName()));</span>
+<span class="fc bfc" id="L1146" title="All 2 branches covered.">                if (e != null) {</span>
+<span class="pc bpc" id="L1147" title="1 of 2 branches missed.">                    if (!found.contains(e)) {</span>
                         // found new (reuse wsep)
-<span class="fc" id="L1131">                        found.add(e);</span>
-<span class="fc" id="L1132">                        OMAttribute wsuId = e.getAttribute(new QName(WSConstants.WSU_NS, &quot;Id&quot;));</span>
+<span class="fc" id="L1149">                        found.add(e);</span>
+<span class="fc" id="L1150">                        OMAttribute wsuId = e.getAttribute(new QName(WSConstants.WSU_NS, &quot;Id&quot;));</span>
 
-<span class="fc bfc" id="L1134" title="All 2 branches covered.">                        if (wsuId != null) {</span>
-<span class="fc" id="L1135">                            part.setEncId(wsuId.getAttributeValue());</span>
+<span class="fc bfc" id="L1152" title="All 2 branches covered.">                        if (wsuId != null) {</span>
+<span class="fc" id="L1153">                            part.setEncId(wsuId.getAttributeValue());</span>
                         }
 
-<span class="fc" id="L1138">                        result.add(part);</span>
+<span class="fc" id="L1156">                        result.add(part);</span>
                     }
                 }
             }
-<span class="fc" id="L1142">        }</span>
+<span class="fc" id="L1160">        }</span>
         
         // ?? Search for 'Elements' here
         
         // decide what exactly is going to be used - only the default namespaces, or the list of all declared namespaces in the message !
-<span class="fc" id="L1147">        Set namespaces = findAllPrefixNamespaces(envelope, decNamespaces);</span>
+<span class="fc" id="L1165">        Set namespaces = findAllPrefixNamespaces(envelope, decNamespaces);</span>
 
-<span class="fc bfc" id="L1149" title="All 2 branches covered.">        for (String expression : elements) {</span>
+<span class="fc bfc" id="L1167" title="All 2 branches covered.">        for (String expression : elements) {</span>
             try {
-<span class="fc" id="L1151">                XPath xp = new AXIOMXPath(expression);</span>
+<span class="fc" id="L1169">                XPath xp = new AXIOMXPath(expression);</span>
 
-<span class="fc bfc" id="L1153" title="All 2 branches covered.">                for (Object objectNamespace : namespaces) {</span>
-<span class="fc" id="L1154">                    OMNamespace tmpNs = (OMNamespace) objectNamespace;</span>
-<span class="fc" id="L1155">                    xp.addNamespace(tmpNs.getPrefix(), tmpNs.getNamespaceURI());</span>
-<span class="fc" id="L1156">                }</span>
+<span class="fc bfc" id="L1171" title="All 2 branches covered.">                for (Object objectNamespace : namespaces) {</span>
+<span class="fc" id="L1172">                    OMNamespace tmpNs = (OMNamespace) objectNamespace;</span>
+<span class="fc" id="L1173">                    xp.addNamespace(tmpNs.getPrefix(), tmpNs.getNamespaceURI());</span>
+<span class="fc" id="L1174">                }</span>
 
-<span class="fc" id="L1158">                List selectedNodes = xp.selectNodes(envelope);</span>
+<span class="fc" id="L1176">                List selectedNodes = xp.selectNodes(envelope);</span>
 
-<span class="fc bfc" id="L1160" title="All 2 branches covered.">                for (Object selectedNode : selectedNodes) {</span>
-<span class="fc" id="L1161">                    OMElement e = (OMElement) selectedNode;</span>
-<span class="fc" id="L1162">                    String localName = e.getLocalName();</span>
-<span class="pc bpc" id="L1163" title="1 of 2 branches missed.">                    String namespace = e.getNamespace() != null ? e.getNamespace().getNamespaceURI() : null;</span>
+<span class="fc bfc" id="L1178" title="All 2 branches covered.">                for (Object selectedNode : selectedNodes) {</span>
+<span class="fc" id="L1179">                    OMElement e = (OMElement) selectedNode;</span>
+<span class="fc" id="L1180">                    String localName = e.getLocalName();</span>
+<span class="pc bpc" id="L1181" title="1 of 2 branches missed.">                    String namespace = e.getNamespace() != null ? e.getNamespace().getNamespaceURI() : null;</span>
 
-<span class="fc bfc" id="L1165" title="All 2 branches covered.">                    if (sign) {</span>
+<span class="fc bfc" id="L1183" title="All 2 branches covered.">                    if (sign) {</span>
 
-<span class="fc" id="L1167">                        result.add(createEncryptionPart(localName, null, namespace, &quot;Content&quot;, expression));</span>
+<span class="fc" id="L1185">                        result.add(createEncryptionPart(localName, null, namespace, &quot;Content&quot;, expression));</span>
 
                     } else {
 
-<span class="fc" id="L1171">                        OMAttribute wsuIdAttribute = e.getAttribute(new QName(WSConstants.WSU_NS, &quot;Id&quot;));</span>
+<span class="fc" id="L1189">                        OMAttribute wsuIdAttribute = e.getAttribute(new QName(WSConstants.WSU_NS, &quot;Id&quot;));</span>
 
-<span class="fc" id="L1173">                        String wsuId = null;</span>
-<span class="fc bfc" id="L1174" title="All 2 branches covered.">                        if (wsuIdAttribute != null) {</span>
-<span class="fc" id="L1175">                            wsuId = wsuIdAttribute.getAttributeValue();</span>
+<span class="fc" id="L1191">                        String wsuId = null;</span>
+<span class="fc bfc" id="L1192" title="All 2 branches covered.">                        if (wsuIdAttribute != null) {</span>
+<span class="fc" id="L1193">                            wsuId = wsuIdAttribute.getAttributeValue();</span>
                         }
 
-<span class="fc" id="L1178">                        result.add(createEncryptionPart(localName, wsuId, namespace, &quot;Element&quot;, expression));</span>
+<span class="fc" id="L1196">                        result.add(createEncryptionPart(localName, wsuId, namespace, &quot;Element&quot;, expression));</span>
                     }
-<span class="fc" id="L1180">                }</span>
+<span class="fc" id="L1198">                }</span>
 
-<span class="nc" id="L1182">            } catch (JaxenException e) {</span>
+<span class="nc" id="L1200">            } catch (JaxenException e) {</span>
                 // This has to be changed to propagate an instance of a RampartException up
-<span class="nc" id="L1184">                throw new RuntimeException(e);</span>
-<span class="fc" id="L1185">            }</span>
-<span class="fc" id="L1186">        }</span>
+<span class="nc" id="L1202">                throw new RuntimeException(e);</span>
+<span class="fc" id="L1203">            }</span>
+<span class="fc" id="L1204">        }</span>
 
-<span class="fc" id="L1188">        return result;</span>
+<span class="fc" id="L1206">        return result;</span>
     }
     
     /**
@@ -1199,29 +1217,29 @@ import java.util.concurrent.ConcurrentHashMap;
 
         // The XPath expression must be evaluated against the SOAP header
         // http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/ws-securitypolicy-1.2-spec-os.html#_Toc161826519
-<span class="fc" id="L1202">        SOAPHeader header = envelope.getHeader();</span>
-<span class="fc" id="L1203">        Set namespaces = findAllPrefixNamespaces(header, decNamespaces);</span>
+<span class="fc" id="L1220">        SOAPHeader header = envelope.getHeader();</span>
+<span class="fc" id="L1221">        Set namespaces = findAllPrefixNamespaces(header, decNamespaces);</span>
 
         try {
-<span class="fc" id="L1206">            XPath xp = new AXIOMXPath(expression);</span>
+<span class="fc" id="L1224">            XPath xp = new AXIOMXPath(expression);</span>
 
-<span class="fc bfc" id="L1208" title="All 2 branches covered.">            for (Object namespace : namespaces) {</span>
-<span class="fc" id="L1209">                OMNamespace tmpNs = (OMNamespace) namespace;</span>
-<span class="fc" id="L1210">                xp.addNamespace(tmpNs.getPrefix(), tmpNs.getNamespaceURI());</span>
-<span class="fc" id="L1211">            }</span>
+<span class="fc bfc" id="L1226" title="All 2 branches covered.">            for (Object namespace : namespaces) {</span>
+<span class="fc" id="L1227">                OMNamespace tmpNs = (OMNamespace) namespace;</span>
+<span class="fc" id="L1228">                xp.addNamespace(tmpNs.getPrefix(), tmpNs.getNamespaceURI());</span>
+<span class="fc" id="L1229">            }</span>
 
-<span class="fc" id="L1213">            List selectedNodes = xp.selectNodes(header);</span>
+<span class="fc" id="L1231">            List selectedNodes = xp.selectNodes(header);</span>
 
-<span class="fc bfc" id="L1215" title="All 2 branches covered.">            if (selectedNodes.size() == 0) {</span>
-<span class="fc" id="L1216">                return false;</span>
+<span class="fc bfc" id="L1233" title="All 2 branches covered.">            if (selectedNodes.size() == 0) {</span>
+<span class="fc" id="L1234">                return false;</span>
             }
 
-<span class="nc" id="L1219">        } catch (JaxenException e) {</span>
+<span class="nc" id="L1237">        } catch (JaxenException e) {</span>
             // This has to be changed to propagate an instance of a RampartException up
-<span class="nc" id="L1221">            throw new RuntimeException(e);</span>
-<span class="fc" id="L1222">        }</span>
+<span class="nc" id="L1239">            throw new RuntimeException(e);</span>
+<span class="fc" id="L1240">        }</span>
 
-<span class="fc" id="L1224">        return true;</span>
+<span class="fc" id="L1242">        return true;</span>
     }
     
     
@@ -1231,23 +1249,23 @@ import java.util.concurrent.ConcurrentHashMap;
             /*
              * Assume AES as default, so initialize it
              */
-<span class="nc" id="L1234">            keyGen = KeyGenerator.getInstance(&quot;AES&quot;);</span>
-<span class="nc bnc" id="L1235" title="All 2 branches missed.">            if (symEncrAlgo.equalsIgnoreCase(WSConstants.TRIPLE_DES)) {</span>
-<span class="nc" id="L1236">                keyGen = KeyGenerator.getInstance(&quot;DESede&quot;);</span>
-<span class="nc bnc" id="L1237" title="All 2 branches missed.">            } else if (symEncrAlgo.equalsIgnoreCase(WSConstants.AES_128)) {</span>
-<span class="nc" id="L1238">                keyGen.init(128);</span>
-<span class="nc bnc" id="L1239" title="All 2 branches missed.">            } else if (symEncrAlgo.equalsIgnoreCase(WSConstants.AES_192)) {</span>
-<span class="nc" id="L1240">                keyGen.init(192);</span>
-<span class="nc bnc" id="L1241" title="All 2 branches missed.">            } else if (symEncrAlgo.equalsIgnoreCase(WSConstants.AES_256)) {</span>
-<span class="nc" id="L1242">                keyGen.init(256);</span>
+<span class="nc" id="L1252">            keyGen = KeyGenerator.getInstance(&quot;AES&quot;);</span>
+<span class="nc bnc" id="L1253" title="All 2 branches missed.">            if (symEncrAlgo.equalsIgnoreCase(WSConstants.TRIPLE_DES)) {</span>
+<span class="nc" id="L1254">                keyGen = KeyGenerator.getInstance(&quot;DESede&quot;);</span>
+<span class="nc bnc" id="L1255" title="All 2 branches missed.">            } else if (symEncrAlgo.equalsIgnoreCase(WSConstants.AES_128)) {</span>
+<span class="nc" id="L1256">                keyGen.init(128);</span>
+<span class="nc bnc" id="L1257" title="All 2 branches missed.">            } else if (symEncrAlgo.equalsIgnoreCase(WSConstants.AES_192)) {</span>
+<span class="nc" id="L1258">                keyGen.init(192);</span>
+<span class="nc bnc" id="L1259" title="All 2 branches missed.">            } else if (symEncrAlgo.equalsIgnoreCase(WSConstants.AES_256)) {</span>
+<span class="nc" id="L1260">                keyGen.init(256);</span>
             } else {
-<span class="nc" id="L1244">                return null;</span>
+<span class="nc" id="L1262">                return null;</span>
             }
-<span class="nc" id="L1246">        } catch (NoSuchAlgorithmException e) {</span>
-<span class="nc" id="L1247">            throw new WSSecurityException(</span>
+<span class="nc" id="L1264">        } catch (NoSuchAlgorithmException e) {</span>
+<span class="nc" id="L1265">            throw new WSSecurityException(</span>
                     WSSecurityException.UNSUPPORTED_ALGORITHM, null, null, e);
-<span class="nc" id="L1249">        }</span>
-<span class="nc" id="L1250">        return keyGen;</span>
+<span class="nc" id="L1267">        }</span>
+<span class="nc" id="L1268">        return keyGen;</span>
     }
     
     /**
@@ -1256,7 +1274,7 @@ import java.util.concurrent.ConcurrentHashMap;
      * @return Id to hold the context identifier in the message context
      */
     public static String getContextIdentifierKey(MessageContext msgContext) {
-<span class="fc" id="L1259">        return msgContext.getAxisService().getName();</span>
+<span class="fc" id="L1277">        return msgContext.getAxisService().getName();</span>
     }
     
     
@@ -1266,66 +1284,66 @@ import java.util.concurrent.ConcurrentHashMap;
      */
     public static Hashtable getContextMap(MessageContext msgContext) {
         //Fist check whether its there
-<span class="fc" id="L1269">        Object map = msgContext.getConfigurationContext().getProperty(</span>
+<span class="fc" id="L1287">        Object map = msgContext.getConfigurationContext().getProperty(</span>
                 ConversationConstants.KEY_CONTEXT_MAP);
         
-<span class="fc bfc" id="L1272" title="All 2 branches covered.">        if(map == null) {</span>
+<span class="fc bfc" id="L1290" title="All 2 branches covered.">        if(map == null) {</span>
             //If not create a new one
-<span class="fc" id="L1274">            map = new Hashtable();</span>
+<span class="fc" id="L1292">            map = new Hashtable();</span>
             //Set the map globally
-<span class="fc" id="L1276">            msgContext.getConfigurationContext().setProperty(</span>
+<span class="fc" id="L1294">            msgContext.getConfigurationContext().setProperty(</span>
                     ConversationConstants.KEY_CONTEXT_MAP, map);
         }
         
-<span class="fc" id="L1280">        return (Hashtable)map;</span>
+<span class="fc" id="L1298">        return (Hashtable)map;</span>
     }
     
     public static boolean isTokenValid(RampartMessageData rmd, String id) throws RampartException {
         try {
-<span class="fc" id="L1285">            org.apache.rahas.Token token = rmd.getTokenStorage().getToken(id);</span>
-<span class="pc bpc" id="L1286" title="1 of 4 branches missed.">            return token!= null &amp;&amp; token.getState() == org.apache.rahas.Token.ISSUED;</span>
-<span class="nc" id="L1287">        } catch (TrustException e) {</span>
-<span class="nc" id="L1288">            throw new RampartException(&quot;errorExtractingToken&quot;);</span>
+<span class="fc" id="L1303">            org.apache.rahas.Token token = rmd.getTokenStorage().getToken(id);</span>
+<span class="pc bpc" id="L1304" title="1 of 4 branches missed.">            return token!= null &amp;&amp; token.getState() == org.apache.rahas.Token.ISSUED;</span>
+<span class="nc" id="L1305">        } catch (TrustException e) {</span>
+<span class="nc" id="L1306">            throw new RampartException(&quot;errorExtractingToken&quot;);</span>
         } 
     }
     
     public static void setEncryptionUser(RampartMessageData rmd, WSSecEncryptedKey encrKeyBuilder)
             throws RampartException {
-<span class="fc" id="L1294">        RampartPolicyData rpd = rmd.getPolicyData();</span>
-<span class="fc" id="L1295">        String encrUser = rpd.getRampartConfig().getEncryptionUser();</span>
-<span class="fc" id="L1296">        setEncryptionUser(rmd, encrKeyBuilder, encrUser);</span>
-<span class="fc" id="L1297">    }</span>
+<span class="fc" id="L1312">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc" id="L1313">        String encrUser = rpd.getRampartConfig().getEncryptionUser();</span>
+<span class="fc" id="L1314">        setEncryptionUser(rmd, encrKeyBuilder, encrUser);</span>
+<span class="fc" id="L1315">    }</span>
     
     public static void setEncryptionUser(RampartMessageData rmd, WSSecEncryptedKey encrKeyBuilder,
             String encrUser) throws RampartException {
-<span class="fc" id="L1301">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc" id="L1319">        RampartPolicyData rpd = rmd.getPolicyData();</span>
         
-<span class="pc bpc" id="L1303" title="1 of 2 branches missed.">        if (encrUser == null) {</span>
-<span class="nc" id="L1304">            encrUser = rpd.getRampartConfig().getEncryptionUser();</span>
+<span class="pc bpc" id="L1321" title="1 of 2 branches missed.">        if (encrUser == null) {</span>
+<span class="nc" id="L1322">            encrUser = rpd.getRampartConfig().getEncryptionUser();</span>
         }
         
-<span class="pc bpc" id="L1307" title="2 of 4 branches missed.">        if (encrUser == null || &quot;&quot;.equals(encrUser)) {</span>
-<span class="nc" id="L1308">            throw new RampartException(&quot;missingEncryptionUser&quot;);</span>
+<span class="pc bpc" id="L1325" title="2 of 4 branches missed.">        if (encrUser == null || &quot;&quot;.equals(encrUser)) {</span>
+<span class="nc" id="L1326">            throw new RampartException(&quot;missingEncryptionUser&quot;);</span>
         }
-<span class="pc bpc" id="L1310" title="1 of 2 branches missed.">        if(encrUser.equals(WSHandlerConstants.USE_REQ_SIG_CERT)) {</span>
-<span class="nc" id="L1311">            List&lt;WSHandlerResult&gt; resultsObj</span>
+<span class="fc bfc" id="L1328" title="All 2 branches covered.">        if(encrUser.equals(WSHandlerConstants.USE_REQ_SIG_CERT)) {</span>
+<span class="fc" id="L1329">            List&lt;WSHandlerResult&gt; resultsObj</span>
                     = (List&lt;WSHandlerResult&gt;)rmd.getMsgContext().getProperty(WSHandlerConstants.RECV_RESULTS);
-<span class="nc bnc" id="L1313" title="All 2 branches missed.">            if(resultsObj != null) {</span>
-<span class="nc" id="L1314">                encrKeyBuilder.setUseThisCert(getReqSigCert(resultsObj));</span>
+<span class="pc bpc" id="L1331" title="1 of 2 branches missed.">            if(resultsObj != null) {</span>
+<span class="fc" id="L1332">                encrKeyBuilder.setUseThisCert(getReqSigCert(resultsObj));</span>
                  
                 //TODO This is a hack, this should not come under USE_REQ_SIG_CERT
-<span class="nc bnc" id="L1317" title="All 2 branches missed.">                if(encrKeyBuilder.isCertSet()) {</span>
-<span class="nc" id="L1318">                	encrKeyBuilder.setUserInfo(getUsername(resultsObj));</span>
+<span class="pc bpc" id="L1335" title="1 of 2 branches missed.">                if(encrKeyBuilder.isCertSet()) {</span>
+<span class="fc" id="L1336">                	encrKeyBuilder.setUserInfo(getUsername(resultsObj));</span>
                 }
                 	
                 
             } else {
-<span class="nc" id="L1323">                throw new RampartException(&quot;noSecurityResults&quot;);</span>
+<span class="nc" id="L1341">                throw new RampartException(&quot;noSecurityResults&quot;);</span>
             }
-<span class="nc" id="L1325">        } else {</span>
-<span class="fc" id="L1326">            encrKeyBuilder.setUserInfo(encrUser);</span>
+<span class="fc" id="L1343">        } else {</span>
+<span class="fc" id="L1344">            encrKeyBuilder.setUserInfo(encrUser);</span>
         }
-<span class="fc" id="L1328">    }</span>
+<span class="fc" id="L1346">    }</span>
     
     /**
      * Sets the keyIdentifierType of &lt;code&gt;WSSecSignature&lt;/code&gt; or &lt;code&gt;WSSecEncryptedKey&lt;/code&gt; 
@@ -1339,72 +1357,72 @@ import java.util.concurrent.ConcurrentHashMap;
         // Use a reference rather than the binary security token if: the policy never allows the token to be
         // included; or this is the recipient and the token should only be included in requests; or this is
         // the initiator and the token should only be included in responses.
-<span class="pc bpc" id="L1342" title="3 of 10 branches missed.">        final boolean useReference = token.getInclusion() == SPConstants.INCLUDE_TOKEN_NEVER</span>
+<span class="pc bpc" id="L1360" title="3 of 10 branches missed.">        final boolean useReference = token.getInclusion() == SPConstants.INCLUDE_TOKEN_NEVER</span>
                                      || !rmd.isInitiator() &amp;&amp; token.getInclusion() == SPConstants.INCLUDE_TOEKN_ALWAYS_TO_RECIPIENT
                                      || rmd.isInitiator() &amp;&amp; token.getInclusion() == SPConstants.INCLUDE_TOEKN_ALWAYS_TO_INITIATOR;
-<span class="fc bfc" id="L1345" title="All 2 branches covered.">        if (useReference) {</span>
+<span class="fc bfc" id="L1363" title="All 2 branches covered.">        if (useReference) {</span>
 
-<span class="fc" id="L1347">    		boolean tokenTypeSet = false;</span>
+<span class="fc" id="L1365">    		boolean tokenTypeSet = false;</span>
     		
-<span class="pc bpc" id="L1349" title="1 of 2 branches missed.">    		if(token instanceof X509Token) {</span>
-<span class="fc" id="L1350">    			X509Token x509Token = (X509Token)token;</span>
+<span class="pc bpc" id="L1367" title="1 of 2 branches missed.">    		if(token instanceof X509Token) {</span>
+<span class="fc" id="L1368">    			X509Token x509Token = (X509Token)token;</span>
     			
-<span class="pc bpc" id="L1352" title="1 of 2 branches missed.">    			if(x509Token.isRequireIssuerSerialReference()) {</span>
-<span class="nc" id="L1353">    				secBase.setKeyIdentifierType(WSConstants.ISSUER_SERIAL);</span>
-<span class="nc" id="L1354">    				tokenTypeSet = true;</span>
-<span class="fc bfc" id="L1355" title="All 2 branches covered.">    			} else if (x509Token.isRequireKeyIdentifierReference()) {</span>
-<span class="fc" id="L1356">    				secBase.setKeyIdentifierType(WSConstants.SKI_KEY_IDENTIFIER);</span>
-<span class="fc" id="L1357">    				tokenTypeSet = true;</span>
-<span class="fc bfc" id="L1358" title="All 2 branches covered.">    			} else if (x509Token.isRequireThumbprintReference()) {</span>
-<span class="fc" id="L1359">    				secBase.setKeyIdentifierType(WSConstants.THUMBPRINT_IDENTIFIER);</span>
-<span class="fc" id="L1360">    				tokenTypeSet = true;</span>
+<span class="pc bpc" id="L1370" title="1 of 2 branches missed.">    			if(x509Token.isRequireIssuerSerialReference()) {</span>
+<span class="nc" id="L1371">    				secBase.setKeyIdentifierType(WSConstants.ISSUER_SERIAL);</span>
+<span class="nc" id="L1372">    				tokenTypeSet = true;</span>
+<span class="fc bfc" id="L1373" title="All 2 branches covered.">    			} else if (x509Token.isRequireKeyIdentifierReference()) {</span>
+<span class="fc" id="L1374">    				secBase.setKeyIdentifierType(WSConstants.SKI_KEY_IDENTIFIER);</span>
+<span class="fc" id="L1375">    				tokenTypeSet = true;</span>
+<span class="fc bfc" id="L1376" title="All 2 branches covered.">    			} else if (x509Token.isRequireThumbprintReference()) {</span>
+<span class="fc" id="L1377">    				secBase.setKeyIdentifierType(WSConstants.THUMBPRINT_IDENTIFIER);</span>
+<span class="fc" id="L1378">    				tokenTypeSet = true;</span>
     			}
     		} 
     		
-<span class="fc bfc" id="L1364" title="All 2 branches covered.">    		if (!tokenTypeSet) {</span>
-<span class="fc" id="L1365">                final RampartPolicyData rpd = rmd.getPolicyData();</span>
-<span class="fc" id="L1366">	    		Wss10 wss = rpd.getWss11();</span>
-<span class="pc bpc" id="L1367" title="1 of 2 branches missed.">				if (wss == null) {</span>
-<span class="fc" id="L1368">					wss = rpd.getWss10();</span>
+<span class="fc bfc" id="L1382" title="All 2 branches covered.">    		if (!tokenTypeSet) {</span>
+<span class="fc" id="L1383">                final RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc" id="L1384">	    		Wss10 wss = rpd.getWss11();</span>
+<span class="pc bpc" id="L1385" title="1 of 2 branches missed.">				if (wss == null) {</span>
+<span class="fc" id="L1386">					wss = rpd.getWss10();</span>
 				}
 				
-<span class="fc bfc" id="L1371" title="All 2 branches covered.">				if (wss.isMustSupportRefKeyIdentifier()) {</span>
-<span class="fc" id="L1372">					secBase.setKeyIdentifierType(WSConstants.SKI_KEY_IDENTIFIER);</span>
-<span class="pc bpc" id="L1373" title="1 of 2 branches missed.">				} else if (wss.isMustSupportRefIssuerSerial()) {</span>
-<span class="nc" id="L1374">					secBase.setKeyIdentifierType(WSConstants.ISSUER_SERIAL);</span>
-<span class="pc bpc" id="L1375" title="3 of 4 branches missed.">				} else if (wss instanceof Wss11</span>
+<span class="fc bfc" id="L1389" title="All 2 branches covered.">				if (wss.isMustSupportRefKeyIdentifier()) {</span>
+<span class="fc" id="L1390">					secBase.setKeyIdentifierType(WSConstants.SKI_KEY_IDENTIFIER);</span>
+<span class="pc bpc" id="L1391" title="1 of 2 branches missed.">				} else if (wss.isMustSupportRefIssuerSerial()) {</span>
+<span class="nc" id="L1392">					secBase.setKeyIdentifierType(WSConstants.ISSUER_SERIAL);</span>
+<span class="pc bpc" id="L1393" title="3 of 4 branches missed.">				} else if (wss instanceof Wss11</span>
 						&amp;&amp; ((Wss11) wss).isMustSupportRefThumbprint()) {
-<span class="nc" id="L1377">					secBase.setKeyIdentifierType(WSConstants.THUMBPRINT_IDENTIFIER);</span>
+<span class="nc" id="L1395">					secBase.setKeyIdentifierType(WSConstants.THUMBPRINT_IDENTIFIER);</span>
 				}
     		}
     		
-<span class="fc" id="L1381">		} else {</span>
-<span class="fc" id="L1382">			secBase.setKeyIdentifierType(WSConstants.BST_DIRECT_REFERENCE);</span>
+<span class="fc" id="L1399">		} else {</span>
+<span class="fc" id="L1400">			secBase.setKeyIdentifierType(WSConstants.BST_DIRECT_REFERENCE);</span>
 		}
-<span class="fc" id="L1384">    }</span>
+<span class="fc" id="L1402">    }</span>
     
     private static X509Certificate getReqSigCert(List&lt;WSHandlerResult&gt; results) {
         /*
         * Scan the results for a matching actor. Use results only if the
         * receiving Actor and the sending Actor match.
         */
-<span class="nc bnc" id="L1391" title="All 2 branches missed.">        for (WSHandlerResult result : results) {</span>
+<span class="pc bpc" id="L1409" title="1 of 2 branches missed.">        for (WSHandlerResult result : results) {</span>
 
-<span class="nc" id="L1393">            List&lt;WSSecurityEngineResult&gt; wsSecEngineResults = result.getResults();</span>
+<span class="fc" id="L1411">            List&lt;WSSecurityEngineResult&gt; wsSecEngineResults = result.getResults();</span>
             /*
             * Scan the results for the first Signature action. Use the
             * certificate of this Signature to set the certificate for the
             * encryption action :-).
             */
-<span class="nc bnc" id="L1399" title="All 2 branches missed.">            for (WSSecurityEngineResult wsSecEngineResult : wsSecEngineResults) {</span>
-<span class="nc" id="L1400">                Integer actInt = (Integer) wsSecEngineResult.get(WSSecurityEngineResult.TAG_ACTION);</span>
-<span class="nc bnc" id="L1401" title="All 2 branches missed.">                if (actInt == WSConstants.SIGN) {</span>
-<span class="nc" id="L1402">                    return (X509Certificate) wsSecEngineResult.get(WSSecurityEngineResult.TAG_X509_CERTIFICATE);</span>
+<span class="pc bpc" id="L1417" title="1 of 2 branches missed.">            for (WSSecurityEngineResult wsSecEngineResult : wsSecEngineResults) {</span>
+<span class="fc" id="L1418">                Integer actInt = (Integer) wsSecEngineResult.get(WSSecurityEngineResult.TAG_ACTION);</span>
+<span class="pc bpc" id="L1419" title="1 of 2 branches missed.">                if (actInt == WSConstants.SIGN) {</span>
+<span class="fc" id="L1420">                    return (X509Certificate) wsSecEngineResult.get(WSSecurityEngineResult.TAG_X509_CERTIFICATE);</span>
                 }
-<span class="nc" id="L1404">            }</span>
-<span class="nc" id="L1405">        }</span>
+<span class="nc" id="L1422">            }</span>
+<span class="nc" id="L1423">        }</span>
         
-<span class="nc" id="L1407">        return null;</span>
+<span class="nc" id="L1425">        return null;</span>
     }
     
     /**
@@ -1419,75 +1437,75 @@ import java.util.concurrent.ConcurrentHashMap;
          * Scan the results for a matching actor. Use results only if the
          * receiving Actor and the sending Actor match.
          */
-<span class="nc bnc" id="L1422" title="All 2 branches missed.">        for (WSHandlerResult result : results) {</span>
+<span class="fc bfc" id="L1440" title="All 2 branches covered.">        for (WSHandlerResult result : results) {</span>
 
-<span class="nc" id="L1424">            List&lt;WSSecurityEngineResult&gt; wsSecEngineResults = result.getResults();</span>
+<span class="fc" id="L1442">            List&lt;WSSecurityEngineResult&gt; wsSecEngineResults = result.getResults();</span>
             /*
             * Scan the results for a username token. Use the username
             * of this token to set the alias for the encryption user
             */
-<span class="nc bnc" id="L1429" title="All 2 branches missed.">            for (WSSecurityEngineResult wsSecEngineResult : wsSecEngineResults) {</span>
-<span class="nc" id="L1430">                Integer actInt = (Integer) wsSecEngineResult.get(WSSecurityEngineResult.TAG_ACTION);</span>
-<span class="nc bnc" id="L1431" title="All 2 branches missed.">                if (actInt == WSConstants.UT) {</span>
-<span class="nc" id="L1432">                    WSUsernameTokenPrincipal principal = (WSUsernameTokenPrincipal) wsSecEngineResult.</span>
+<span class="fc bfc" id="L1447" title="All 2 branches covered.">            for (WSSecurityEngineResult wsSecEngineResult : wsSecEngineResults) {</span>
+<span class="fc" id="L1448">                Integer actInt = (Integer) wsSecEngineResult.get(WSSecurityEngineResult.TAG_ACTION);</span>
+<span class="pc bpc" id="L1449" title="1 of 2 branches missed.">                if (actInt == WSConstants.UT) {</span>
+<span class="nc" id="L1450">                    WSUsernameTokenPrincipal principal = (WSUsernameTokenPrincipal) wsSecEngineResult.</span>
                             get(WSSecurityEngineResult.TAG_PRINCIPAL);
-<span class="nc" id="L1434">                    return principal.getName();</span>
+<span class="nc" id="L1452">                    return principal.getName();</span>
                 }
-<span class="nc" id="L1436">            }</span>
-<span class="nc" id="L1437">        }</span>
+<span class="fc" id="L1454">            }</span>
+<span class="fc" id="L1455">        }</span>
          
-<span class="nc" id="L1439">         return null;</span>
+<span class="fc" id="L1457">         return null;</span>
     }
 
     public static String getRequestEncryptedKeyId(List&lt;WSHandlerResult&gt; results) {
 
-<span class="pc bpc" id="L1444" title="1 of 2 branches missed.">        for (WSHandlerResult result : results) {</span>
+<span class="pc bpc" id="L1462" title="1 of 2 branches missed.">        for (WSHandlerResult result : results) {</span>
 
-<span class="fc" id="L1446">            List&lt;WSSecurityEngineResult&gt; wsSecEngineResults = result.getResults();</span>
+<span class="fc" id="L1464">            List&lt;WSSecurityEngineResult&gt; wsSecEngineResults = result.getResults();</span>
             /*
             * Scan the results for the first Signature action. Use the
             * certificate of this Signature to set the certificate for the
             * encryption action :-).
             */
-<span class="pc bpc" id="L1452" title="1 of 2 branches missed.">            for (WSSecurityEngineResult wsSecEngineResult : wsSecEngineResults) {</span>
-<span class="fc" id="L1453">                Integer actInt = (Integer) wsSecEngineResult.get(WSSecurityEngineResult.TAG_ACTION);</span>
-<span class="fc" id="L1454">                String encrKeyId = (String) wsSecEngineResult.get(WSSecurityEngineResult.TAG_ID);</span>
-<span class="pc bpc" id="L1455" title="1 of 4 branches missed.">                if (actInt == WSConstants.ENCR &amp;&amp;</span>
+<span class="pc bpc" id="L1470" title="1 of 2 branches missed.">            for (WSSecurityEngineResult wsSecEngineResult : wsSecEngineResults) {</span>
+<span class="fc" id="L1471">                Integer actInt = (Integer) wsSecEngineResult.get(WSSecurityEngineResult.TAG_ACTION);</span>
+<span class="fc" id="L1472">                String encrKeyId = (String) wsSecEngineResult.get(WSSecurityEngineResult.TAG_ID);</span>
+<span class="pc bpc" id="L1473" title="1 of 4 branches missed.">                if (actInt == WSConstants.ENCR &amp;&amp;</span>
                         encrKeyId != null) {
-<span class="fc bfc" id="L1457" title="All 2 branches covered.">                    if (encrKeyId.length() &gt; 0) {</span>
-<span class="fc" id="L1458">                        return encrKeyId;</span>
+<span class="fc bfc" id="L1475" title="All 2 branches covered.">                    if (encrKeyId.length() &gt; 0) {</span>
+<span class="fc" id="L1476">                        return encrKeyId;</span>
                     }
-<span class="pc bpc" id="L1460" title="1 of 2 branches missed.">                    else if (log.isDebugEnabled()) {</span>
-<span class="nc" id="L1461">                        log.debug(&quot;Found encryption security processing result with empty id, skipping it: &quot; + wsSecEngineResult);</span>
+<span class="pc bpc" id="L1478" title="1 of 2 branches missed.">                    else if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L1479">                        log.debug(&quot;Found encryption security processing result with empty id, skipping it: &quot; + wsSecEngineResult);</span>
                     }
                 }
-<span class="fc" id="L1464">            }</span>
-<span class="nc" id="L1465">        }</span>
+<span class="fc" id="L1482">            }</span>
+<span class="nc" id="L1483">        }</span>
 
-<span class="nc" id="L1467">        return null;</span>
+<span class="nc" id="L1485">        return null;</span>
     }
     
     public static byte[] getRequestEncryptedKeyValue(List&lt;WSHandlerResult&gt; results) {
 
-<span class="pc bpc" id="L1472" title="1 of 2 branches missed.">        for (WSHandlerResult result : results) {</span>
+<span class="pc bpc" id="L1490" title="1 of 2 branches missed.">        for (WSHandlerResult result : results) {</span>
 
-<span class="fc" id="L1474">            List&lt;WSSecurityEngineResult&gt; wsSecEngineResults = result.getResults();</span>
+<span class="fc" id="L1492">            List&lt;WSSecurityEngineResult&gt; wsSecEngineResults = result.getResults();</span>
             /*
             * Scan the results for the first Signature action. Use the
             * certificate of this Signature to set the certificate for the
             * encryption action :-).
             */
-<span class="pc bpc" id="L1480" title="1 of 2 branches missed.">            for (WSSecurityEngineResult wsSecEngineResult : wsSecEngineResults) {</span>
-<span class="fc" id="L1481">                Integer actInt = (Integer) wsSecEngineResult.get(WSSecurityEngineResult.TAG_ACTION);</span>
-<span class="fc" id="L1482">                byte[] decryptedKey = (byte[]) wsSecEngineResult.get(WSSecurityEngineResult.TAG_SECRET);</span>
-<span class="fc bfc" id="L1483" title="All 4 branches covered.">                if (actInt == WSConstants.ENCR &amp;&amp;</span>
+<span class="pc bpc" id="L1498" title="1 of 2 branches missed.">            for (WSSecurityEngineResult wsSecEngineResult : wsSecEngineResults) {</span>
+<span class="fc" id="L1499">                Integer actInt = (Integer) wsSecEngineResult.get(WSSecurityEngineResult.TAG_ACTION);</span>
+<span class="fc" id="L1500">                byte[] decryptedKey = (byte[]) wsSecEngineResult.get(WSSecurityEngineResult.TAG_SECRET);</span>
+<span class="fc bfc" id="L1501" title="All 4 branches covered.">                if (actInt == WSConstants.ENCR &amp;&amp;</span>
                         decryptedKey != null) {
-<span class="fc" id="L1485">                    return decryptedKey;</span>
+<span class="fc" id="L1503">                    return decryptedKey;</span>
                 }
-<span class="fc" id="L1487">            }</span>
-<span class="nc" id="L1488">        }</span>
+<span class="fc" id="L1505">            }</span>
+<span class="nc" id="L1506">        }</span>
         
-<span class="nc" id="L1490">        return null;</span>
+<span class="nc" id="L1508">        return null;</span>
     }
     
     /**
@@ -1501,49 +1519,49 @@ import java.util.concurrent.ConcurrentHashMap;
      * @return
      */
     public static Element insertSiblingAfterOrPrepend(RampartMessageData rmd, Element child, Element elem) {
-<span class="fc" id="L1504">        Element retElem = null;</span>
-<span class="fc bfc" id="L1505" title="All 2 branches covered.">        if (child != null) { // child is not null so insert sibling after</span>
-<span class="fc" id="L1506">            retElem = RampartUtil.insertSiblingAfter(rmd, child, elem);</span>
+<span class="fc" id="L1522">        Element retElem = null;</span>
+<span class="fc bfc" id="L1523" title="All 2 branches covered.">        if (child != null) { // child is not null so insert sibling after</span>
+<span class="fc" id="L1524">            retElem = RampartUtil.insertSiblingAfter(rmd, child, elem);</span>
         } else { //Prepend
-<span class="fc" id="L1508">            retElem = prependSecHeader(rmd, elem);</span>
+<span class="fc" id="L1526">            retElem = prependSecHeader(rmd, elem);</span>
         }
 
-<span class="fc" id="L1511">        return retElem;</span>
+<span class="fc" id="L1529">        return retElem;</span>
     }
 
     public static Element insertSiblingBeforeOrPrepend(RampartMessageData rmd, Element child, Element elem) {
-<span class="fc" id="L1515">        Element retElem = null;</span>
-<span class="fc bfc" id="L1516" title="All 4 branches covered.">        if (child != null &amp;&amp; child.getPreviousSibling() != null) {</span>
-<span class="fc" id="L1517">            retElem = RampartUtil.insertSiblingBefore(rmd, child, elem);</span>
+<span class="fc" id="L1533">        Element retElem = null;</span>
+<span class="fc bfc" id="L1534" title="All 4 branches covered.">        if (child != null &amp;&amp; child.getPreviousSibling() != null) {</span>
+<span class="fc" id="L1535">            retElem = RampartUtil.insertSiblingBefore(rmd, child, elem);</span>
         } else { //Prepend
-<span class="fc" id="L1519">            retElem = prependSecHeader(rmd, elem);</span>
+<span class="fc" id="L1537">            retElem = prependSecHeader(rmd, elem);</span>
         }
 
-<span class="fc" id="L1522">        return retElem;</span>
+<span class="fc" id="L1540">        return retElem;</span>
     }
 
     private static Element prependSecHeader(RampartMessageData rmd, Element elem) {
-<span class="fc" id="L1526">        Element retElem = null;</span>
+<span class="fc" id="L1544">        Element retElem = null;</span>
 
-<span class="fc" id="L1528">        Element secHeaderElem = rmd.getSecHeader().getSecurityHeader();</span>
-<span class="fc" id="L1529">        Node node = secHeaderElem.getOwnerDocument().importNode(</span>
+<span class="fc" id="L1546">        Element secHeaderElem = rmd.getSecHeader().getSecurityHeader();</span>
+<span class="fc" id="L1547">        Node node = secHeaderElem.getOwnerDocument().importNode(</span>
                 elem, true);
-<span class="fc" id="L1531">        Element firstElem = (Element) secHeaderElem.getFirstChild();</span>
+<span class="fc" id="L1549">        Element firstElem = (Element) secHeaderElem.getFirstChild();</span>
 
-<span class="fc bfc" id="L1533" title="All 2 branches covered.">        if (firstElem == null) {</span>
-<span class="fc" id="L1534">            retElem = (Element) secHeaderElem.appendChild(node);</span>
+<span class="fc bfc" id="L1551" title="All 2 branches covered.">        if (firstElem == null) {</span>
+<span class="fc" id="L1552">            retElem = (Element) secHeaderElem.appendChild(node);</span>
         } else {
-<span class="pc bpc" id="L1536" title="1 of 2 branches missed.">            if (firstElem.getOwnerDocument().equals(elem.getOwnerDocument())) {</span>
-<span class="fc" id="L1537">                ((OMElement) firstElem).insertSiblingBefore((OMElement) elem);</span>
-<span class="fc" id="L1538">                retElem = elem;</span>
+<span class="pc bpc" id="L1554" title="1 of 2 branches missed.">            if (firstElem.getOwnerDocument().equals(elem.getOwnerDocument())) {</span>
+<span class="fc" id="L1555">                ((OMElement) firstElem).insertSiblingBefore((OMElement) elem);</span>
+<span class="fc" id="L1556">                retElem = elem;</span>
             } else {
-<span class="nc" id="L1540">                Element newSib = (Element) firstElem.getOwnerDocument().importNode(elem, true);</span>
-<span class="nc" id="L1541">                ((OMElement) firstElem).insertSiblingBefore((OMElement) newSib);</span>
-<span class="nc" id="L1542">                retElem = newSib;</span>
+<span class="nc" id="L1558">                Element newSib = (Element) firstElem.getOwnerDocument().importNode(elem, true);</span>
+<span class="nc" id="L1559">                ((OMElement) firstElem).insertSiblingBefore((OMElement) newSib);</span>
+<span class="nc" id="L1560">                retElem = newSib;</span>
             }
         }
 
-<span class="fc" id="L1546">        return retElem;</span>
+<span class="fc" id="L1564">        return retElem;</span>
     }
     
     /**
@@ -1555,71 +1573,71 @@ import java.util.concurrent.ConcurrentHashMap;
                                                                                 boolean inflow ) {
         
         // Checking for time stamp
-<span class="fc bfc" id="L1558" title="All 2 branches covered.">        if ( rpd.isIncludeTimestamp() ) {</span>
-<span class="fc" id="L1559">            return true;</span>
+<span class="fc bfc" id="L1576" title="All 2 branches covered.">        if ( rpd.isIncludeTimestamp() ) {</span>
+<span class="fc" id="L1577">            return true;</span>
         } 
         
         // Checking for signed parts and elements
-<span class="pc bpc" id="L1563" title="2 of 6 branches missed.">        if (rpd.isSignBody() || rpd.getSignedParts().size() != 0 || </span>
+<span class="pc bpc" id="L1581" title="2 of 6 branches missed.">        if (rpd.isSignBody() || rpd.getSignedParts().size() != 0 || </span>
                                     rpd.getSignedElements().size() != 0) {
-<span class="fc" id="L1565">            return true;</span>
+<span class="fc" id="L1583">            return true;</span>
         }
         
         // Checking for encrypted parts and elements
-<span class="pc bpc" id="L1569" title="2 of 6 branches missed.">        if (rpd.isEncryptBody() || rpd.getEncryptedParts().size() != 0 || </span>
+<span class="pc bpc" id="L1587" title="1 of 6 branches missed.">        if (rpd.isEncryptBody() || rpd.getEncryptedParts().size() != 0 || </span>
                                     rpd.getEncryptedElements().size() != 0 ) {
-<span class="fc" id="L1571">            return true;</span>
+<span class="fc" id="L1589">            return true;</span>
         }   
         
         // Checking for supporting tokens
         SupportingToken supportingTokens;
         
-<span class="nc bnc" id="L1577" title="All 8 branches missed.">        if (!initiator &amp;&amp; inflow || initiator &amp;&amp; !inflow ) {</span>
+<span class="pc bpc" id="L1595" title="3 of 8 branches missed.">        if (!initiator &amp;&amp; inflow || initiator &amp;&amp; !inflow ) {</span>
         
-<span class="nc" id="L1579">            List&lt;SupportingToken&gt; supportingToks = rpd.getSupportingTokensList();</span>
-<span class="nc bnc" id="L1580" title="All 2 branches missed.">            for (SupportingToken supportingTok : supportingToks) {</span>
-<span class="nc bnc" id="L1581" title="All 4 branches missed.">                if (supportingTok != null &amp;&amp; supportingTok.getTokens().size() != 0) {</span>
-<span class="nc" id="L1582">                    return true;</span>
+<span class="fc" id="L1597">            List&lt;SupportingToken&gt; supportingToks = rpd.getSupportingTokensList();</span>
+<span class="pc bpc" id="L1598" title="1 of 2 branches missed.">            for (SupportingToken supportingTok : supportingToks) {</span>
+<span class="nc bnc" id="L1599" title="All 4 branches missed.">                if (supportingTok != null &amp;&amp; supportingTok.getTokens().size() != 0) {</span>
+<span class="nc" id="L1600">                    return true;</span>
                 }
-<span class="nc" id="L1584">            }</span>
+<span class="nc" id="L1602">            }</span>
             
-<span class="nc" id="L1586">            supportingTokens = rpd.getSignedSupportingTokens();</span>
-<span class="nc bnc" id="L1587" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
-<span class="nc" id="L1588">                return true;</span>
+<span class="fc" id="L1604">            supportingTokens = rpd.getSignedSupportingTokens();</span>
+<span class="pc bpc" id="L1605" title="2 of 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
+<span class="fc" id="L1606">                return true;</span>
             }
             
-<span class="nc" id="L1591">            supportingTokens = rpd.getEndorsingSupportingTokens();</span>
-<span class="nc bnc" id="L1592" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
-<span class="nc" id="L1593">                return true;</span>
+<span class="nc" id="L1609">            supportingTokens = rpd.getEndorsingSupportingTokens();</span>
+<span class="nc bnc" id="L1610" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
+<span class="nc" id="L1611">                return true;</span>
             }
             
-<span class="nc" id="L1596">            supportingTokens = rpd.getSignedEndorsingSupportingTokens();</span>
-<span class="nc bnc" id="L1597" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
-<span class="nc" id="L1598">                return true;</span>
+<span class="nc" id="L1614">            supportingTokens = rpd.getSignedEndorsingSupportingTokens();</span>
+<span class="nc bnc" id="L1615" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
+<span class="nc" id="L1616">                return true;</span>
             }
        
-<span class="nc" id="L1601">            supportingTokens = rpd.getEncryptedSupportingTokens();</span>
-<span class="nc bnc" id="L1602" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
-<span class="nc" id="L1603">                return true;</span>
+<span class="nc" id="L1619">            supportingTokens = rpd.getEncryptedSupportingTokens();</span>
+<span class="nc bnc" id="L1620" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
+<span class="nc" id="L1621">                return true;</span>
             }
             
-<span class="nc" id="L1606">            supportingTokens = rpd.getSignedEncryptedSupportingTokens();</span>
-<span class="nc bnc" id="L1607" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
-<span class="nc" id="L1608">                return true;</span>
+<span class="nc" id="L1624">            supportingTokens = rpd.getSignedEncryptedSupportingTokens();</span>
+<span class="nc bnc" id="L1625" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
+<span class="nc" id="L1626">                return true;</span>
             }
             
-<span class="nc" id="L1611">            supportingTokens = rpd.getEndorsingEncryptedSupportingTokens();</span>
-<span class="nc bnc" id="L1612" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
-<span class="nc" id="L1613">                return true;</span>
+<span class="nc" id="L1629">            supportingTokens = rpd.getEndorsingEncryptedSupportingTokens();</span>
+<span class="nc bnc" id="L1630" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
+<span class="nc" id="L1631">                return true;</span>
             }
             
-<span class="nc" id="L1616">            supportingTokens = rpd.getSignedEndorsingEncryptedSupportingTokens();</span>
-<span class="nc bnc" id="L1617" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
-<span class="nc" id="L1618">                return true;</span>
+<span class="nc" id="L1634">            supportingTokens = rpd.getSignedEndorsingEncryptedSupportingTokens();</span>
+<span class="nc bnc" id="L1635" title="All 4 branches missed.">            if (supportingTokens != null &amp;&amp; supportingTokens.getTokens().size() != 0) {</span>
+<span class="nc" id="L1636">                return true;</span>
             }
         }
         
-<span class="nc" id="L1622">        return false;</span>
+<span class="nc" id="L1640">        return false;</span>
         
     }
 
@@ -1627,81 +1645,81 @@ import java.util.concurrent.ConcurrentHashMap;
                                                     List&lt;WSEncryptionPart&gt; signedParts, Document doc) {
 
         //TODO Is there a more efficient  way to do this ? better search algorithm 
-<span class="fc bfc" id="L1630" title="All 2 branches covered.">        for (WSEncryptionPart signedPart : signedParts) {</span>
+<span class="fc bfc" id="L1648" title="All 2 branches covered.">        for (WSEncryptionPart signedPart : signedParts) {</span>
             //This signed part is not a header
-<span class="pc bpc" id="L1632" title="1 of 4 branches missed.">            if (signedPart.getNamespace() == null || signedPart.getName() == null) {</span>
-<span class="nc" id="L1633">                continue;</span>
+<span class="pc bpc" id="L1650" title="1 of 4 branches missed.">            if (signedPart.getNamespace() == null || signedPart.getName() == null) {</span>
+<span class="nc" id="L1651">                continue;</span>
             }
 
-<span class="fc bfc" id="L1636" title="All 2 branches covered.">            for (WSEncryptionPart encryptedPart : encryptedParts) {</span>
+<span class="fc bfc" id="L1654" title="All 2 branches covered.">            for (WSEncryptionPart encryptedPart : encryptedParts) {</span>
 
-<span class="pc bpc" id="L1638" title="1 of 4 branches missed.">                if (encryptedPart.getNamespace() == null || encryptedPart.getName() == null) {</span>
-<span class="nc" id="L1639">                    continue;</span>
+<span class="pc bpc" id="L1656" title="1 of 4 branches missed.">                if (encryptedPart.getNamespace() == null || encryptedPart.getName() == null) {</span>
+<span class="nc" id="L1657">                    continue;</span>
                 }
 
-<span class="pc bpc" id="L1642" title="2 of 4 branches missed.">                if (signedPart.getName().equals(encryptedPart.getName()) &amp;&amp;</span>
+<span class="pc bpc" id="L1660" title="2 of 4 branches missed.">                if (signedPart.getName().equals(encryptedPart.getName()) &amp;&amp;</span>
                         signedPart.getNamespace().equals(encryptedPart.getNamespace())) {
 
-<span class="fc" id="L1645">                    String encDataID = encryptedPart.getEncId();</span>
+<span class="fc" id="L1663">                    String encDataID = encryptedPart.getEncId();</span>
 
                     // TODO Do we need to go through the whole tree to find element by id ? Verify
-<span class="fc" id="L1648">                    Element encDataElem = WSSecurityUtil.findElementById(doc.getDocumentElement(), encDataID, false);</span>
+<span class="fc" id="L1666">                    Element encDataElem = WSSecurityUtil.findElementById(doc.getDocumentElement(), encDataID, false);</span>
 
-<span class="pc bpc" id="L1650" title="1 of 2 branches missed.">                    if (encDataElem != null) {</span>
-<span class="fc" id="L1651">                        Element encHeader = (Element) encDataElem.getParentNode();</span>
-<span class="fc" id="L1652">                        String encHeaderId = encHeader.getAttributeNS(WSConstants.WSU_NS, &quot;Id&quot;);</span>
+<span class="pc bpc" id="L1668" title="1 of 2 branches missed.">                    if (encDataElem != null) {</span>
+<span class="fc" id="L1669">                        Element encHeader = (Element) encDataElem.getParentNode();</span>
+<span class="fc" id="L1670">                        String encHeaderId = encHeader.getAttributeNS(WSConstants.WSU_NS, &quot;Id&quot;);</span>
 
                         //For some reason the id might not be available
                         // so the part/element with empty/null id won't be recognized afterwards. 
-<span class="pc bpc" id="L1656" title="2 of 4 branches missed.">                        if (encHeaderId != null &amp;&amp; !&quot;&quot;.equals(encHeaderId.trim())) {</span>
-<span class="fc" id="L1657">                            signedParts.remove(signedPart);</span>
+<span class="pc bpc" id="L1674" title="2 of 4 branches missed.">                        if (encHeaderId != null &amp;&amp; !&quot;&quot;.equals(encHeaderId.trim())) {</span>
+<span class="fc" id="L1675">                            signedParts.remove(signedPart);</span>
 
-<span class="fc" id="L1659">                            signedParts.add(createEncryptionPart(signedPart.getName(), encHeaderId,</span>
+<span class="fc" id="L1677">                            signedParts.add(createEncryptionPart(signedPart.getName(), encHeaderId,</span>
                                     signedPart.getNamespace(),
                                     signedPart.getEncModifier(), signedPart.getXpath()));
                         }
 
                     }
                 }
-<span class="fc" id="L1666">            }</span>
+<span class="fc" id="L1684">            }</span>
 
 
-<span class="fc" id="L1669">        }</span>
+<span class="fc" id="L1687">        }</span>
 
-<span class="fc" id="L1671">    }</span>
+<span class="fc" id="L1689">    }</span>
     
     public static String getSigElementId(RampartMessageData rmd) {
         
-<span class="fc" id="L1675">        SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
+<span class="fc" id="L1693">        SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
         
-<span class="fc" id="L1677">        SOAPHeader header = envelope.getHeader();</span>
+<span class="fc" id="L1695">        SOAPHeader header = envelope.getHeader();</span>
         
-<span class="pc bpc" id="L1679" title="1 of 2 branches missed.">        if (header == null ) {</span>
-<span class="nc" id="L1680">            return null;</span>
+<span class="pc bpc" id="L1697" title="1 of 2 branches missed.">        if (header == null ) {</span>
+<span class="nc" id="L1698">            return null;</span>
         }
         
-<span class="fc" id="L1683">        ArrayList secHeaders = header.getHeaderBlocksWithNSURI(WSConstants.WSSE_NS);</span>
+<span class="fc" id="L1701">        ArrayList secHeaders = header.getHeaderBlocksWithNSURI(WSConstants.WSSE_NS);</span>
         
-<span class="pc bpc" id="L1685" title="2 of 4 branches missed.">        if (secHeaders != null &amp;&amp; secHeaders.size() &gt; 0) {</span>
-<span class="fc" id="L1686">            QName sigQName = new QName(Constants.SignatureSpecNS,Constants._TAG_SIGNATURE);</span>
-<span class="fc" id="L1687">            QName wsuIdQName = new QName(WSConstants.WSU_NS,&quot;Id&quot;);</span>
-<span class="fc" id="L1688">            OMElement sigElem = ((SOAPHeaderBlock)secHeaders.get(0)).getFirstChildWithName(sigQName);</span>
-<span class="fc" id="L1689">            OMAttribute wsuId = sigElem.getAttribute(wsuIdQName);</span>
+<span class="pc bpc" id="L1703" title="2 of 4 branches missed.">        if (secHeaders != null &amp;&amp; secHeaders.size() &gt; 0) {</span>
+<span class="fc" id="L1704">            QName sigQName = new QName(Constants.SignatureSpecNS,Constants._TAG_SIGNATURE);</span>
+<span class="fc" id="L1705">            QName wsuIdQName = new QName(WSConstants.WSU_NS,&quot;Id&quot;);</span>
+<span class="fc" id="L1706">            OMElement sigElem = ((SOAPHeaderBlock)secHeaders.get(0)).getFirstChildWithName(sigQName);</span>
+<span class="fc" id="L1707">            OMAttribute wsuId = sigElem.getAttribute(wsuIdQName);</span>
             
-<span class="pc bpc" id="L1691" title="1 of 2 branches missed.">            if (wsuId != null) {</span>
-<span class="nc" id="L1692">                return wsuId.getAttributeValue();</span>
+<span class="pc bpc" id="L1709" title="1 of 2 branches missed.">            if (wsuId != null) {</span>
+<span class="nc" id="L1710">                return wsuId.getAttributeValue();</span>
             }
             
-<span class="fc" id="L1695">            wsuId = sigElem.getAttribute(new QName(&quot;Id&quot;));</span>
+<span class="fc" id="L1713">            wsuId = sigElem.getAttribute(new QName(&quot;Id&quot;));</span>
             
-<span class="pc bpc" id="L1697" title="1 of 2 branches missed.">            if (wsuId != null) {</span>
-<span class="fc" id="L1698">                return wsuId.getAttributeValue();</span>
+<span class="pc bpc" id="L1715" title="1 of 2 branches missed.">            if (wsuId != null) {</span>
+<span class="fc" id="L1716">                return wsuId.getAttributeValue();</span>
             }
             
             
         }
         
-<span class="nc" id="L1704">        return null;</span>
+<span class="nc" id="L1722">        return null;</span>
     }
     
     /**
@@ -1711,77 +1729,77 @@ import java.util.concurrent.ConcurrentHashMap;
     
     public static WSSConfig getWSSConfigInstance() {
         
-<span class="nc" id="L1714">        WSSConfig defaultWssConfig = WSSConfig.getNewInstance();</span>
-<span class="nc" id="L1715">        WSSConfig wssConfig = WSSConfig.getNewInstance();</span>
+<span class="nc" id="L1732">        WSSConfig defaultWssConfig = WSSConfig.getNewInstance();</span>
+<span class="nc" id="L1733">        WSSConfig wssConfig = WSSConfig.getNewInstance();</span>
         
-<span class="nc" id="L1717">        wssConfig.setEnableSignatureConfirmation(defaultWssConfig.isEnableSignatureConfirmation());</span>
-<span class="nc" id="L1718">        wssConfig.setTimeStampStrict(defaultWssConfig.isTimeStampStrict());</span>
-<span class="nc" id="L1719">        wssConfig.setWsiBSPCompliant(defaultWssConfig.isWsiBSPCompliant());</span>
-<span class="nc" id="L1720">        wssConfig.setPrecisionInMilliSeconds(defaultWssConfig.isPrecisionInMilliSeconds());</span>
+<span class="nc" id="L1735">        wssConfig.setEnableSignatureConfirmation(defaultWssConfig.isEnableSignatureConfirmation());</span>
+<span class="nc" id="L1736">        wssConfig.setTimeStampStrict(defaultWssConfig.isTimeStampStrict());</span>
+<span class="nc" id="L1737">        wssConfig.setWsiBSPCompliant(defaultWssConfig.isWsiBSPCompliant());</span>
+<span class="nc" id="L1738">        wssConfig.setPrecisionInMilliSeconds(defaultWssConfig.isPrecisionInMilliSeconds());</span>
         
-<span class="nc" id="L1722">        return  wssConfig;</span>
+<span class="nc" id="L1740">        return  wssConfig;</span>
        
     }
 
     public static void validateTransport(RampartMessageData rmd) throws RampartException {
 
-<span class="fc" id="L1728">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="fc" id="L1746">        RampartPolicyData rpd = rmd.getPolicyData();</span>
 
-<span class="fc bfc" id="L1730" title="All 2 branches covered.">        if (rpd == null) {</span>
-<span class="fc" id="L1731">            return;</span>
+<span class="pc bpc" id="L1748" title="1 of 2 branches missed.">        if (rpd == null) {</span>
+<span class="nc" id="L1749">            return;</span>
         }
 
-<span class="fc bfc" id="L1734" title="All 4 branches covered.">        if (rpd.isTransportBinding() &amp;&amp; !rmd.isInitiator()) {</span>
-<span class="pc bpc" id="L1735" title="1 of 2 branches missed.">            if (rpd.getTransportToken() instanceof HttpsToken) {</span>
-<span class="nc" id="L1736">                String incomingTransport = rmd.getMsgContext().getIncomingTransportName();</span>
-<span class="nc bnc" id="L1737" title="All 2 branches missed.">                if (!incomingTransport.equals(org.apache.axis2.Constants.TRANSPORT_HTTPS)) {</span>
-<span class="nc" id="L1738">                    throw new RampartException(&quot;invalidTransport&quot;,</span>
+<span class="fc bfc" id="L1752" title="All 4 branches covered.">        if (rpd.isTransportBinding() &amp;&amp; !rmd.isInitiator()) {</span>
+<span class="fc bfc" id="L1753" title="All 2 branches covered.">            if (rpd.getTransportToken() instanceof HttpsToken) {</span>
+<span class="fc" id="L1754">                String incomingTransport = rmd.getMsgContext().getIncomingTransportName();</span>
+<span class="pc bpc" id="L1755" title="1 of 2 branches missed.">                if (!incomingTransport.equals(org.apache.axis2.Constants.TRANSPORT_HTTPS)) {</span>
+<span class="nc" id="L1756">                    throw new RampartException(&quot;invalidTransport&quot;,</span>
                             new String[]{incomingTransport});
                 }
-<span class="nc bnc" id="L1741" title="All 2 branches missed.">                if (((HttpsToken) rpd.getTransportToken()).isRequireClientCertificate()) {</span>
+<span class="pc bpc" id="L1759" title="1 of 2 branches missed.">                if (((HttpsToken) rpd.getTransportToken()).isRequireClientCertificate()) {</span>
 
-<span class="nc" id="L1743">                    MessageContext messageContext = rmd.getMsgContext();</span>
-<span class="nc" id="L1744">                    HttpServletRequest request = ((HttpServletRequest) messageContext.getProperty(HTTPConstants.MC_HTTP_SERVLETREQUEST));</span>
-<span class="nc bnc" id="L1745" title="All 4 branches missed.">                    if (request == null || request.getAttribute(&quot;javax.servlet.request.X509Certificate&quot;) == null) {</span>
-<span class="nc" id="L1746">                        throw new RampartException(&quot;clientAuthRequired&quot;);</span>
+<span class="nc" id="L1761">                    MessageContext messageContext = rmd.getMsgContext();</span>
+<span class="nc" id="L1762">                    HttpServletRequest request = ((HttpServletRequest) messageContext.getProperty(HTTPConstants.MC_HTTP_SERVLETREQUEST));</span>
+<span class="nc bnc" id="L1763" title="All 4 branches missed.">                    if (request == null || request.getAttribute(&quot;javax.servlet.request.X509Certificate&quot;) == null) {</span>
+<span class="nc" id="L1764">                        throw new RampartException(&quot;clientAuthRequired&quot;);</span>
                     }
                 }
 
             }
         }
-<span class="fc" id="L1752">    }</span>
+<span class="fc" id="L1770">    }</span>
 
     private static Crypto retrieveCryptoFromCache(String cryptoKey, String refreshInterval) {
         // cache hit
-<span class="fc bfc" id="L1756" title="All 2 branches covered.">        if (cryptoStore.containsKey(cryptoKey)) {</span>
-<span class="fc" id="L1757">            CachedCrypto cachedCrypto = cryptoStore.get(cryptoKey);</span>
-<span class="pc bpc" id="L1758" title="1 of 2 branches missed.">            if (refreshInterval != null) {</span>
-<span class="nc bnc" id="L1759" title="All 2 branches missed.">                if (cachedCrypto.creationTime + new Long(refreshInterval).longValue() &gt; Calendar</span>
+<span class="fc bfc" id="L1774" title="All 2 branches covered.">        if (cryptoStore.containsKey(cryptoKey)) {</span>
+<span class="fc" id="L1775">            CachedCrypto cachedCrypto = cryptoStore.get(cryptoKey);</span>
+<span class="pc bpc" id="L1776" title="1 of 2 branches missed.">            if (refreshInterval != null) {</span>
+<span class="nc bnc" id="L1777" title="All 2 branches missed.">                if (cachedCrypto.creationTime + new Long(refreshInterval).longValue() &gt; Calendar</span>
                         .getInstance().getTimeInMillis()) {
-<span class="nc" id="L1761">                    log.debug(&quot;Cache Hit : Crypto Object was found in cache.&quot;);</span>
-<span class="nc" id="L1762">                    return cachedCrypto.crypto;</span>
+<span class="nc" id="L1779">                    log.debug(&quot;Cache Hit : Crypto Object was found in cache.&quot;);</span>
+<span class="nc" id="L1780">                    return cachedCrypto.crypto;</span>
                 } else {
-<span class="nc" id="L1764">                    log.debug(&quot;Cache Miss : Crypto Object found in cache is expired.&quot;);</span>
-<span class="nc" id="L1765">                    return null;</span>
+<span class="nc" id="L1782">                    log.debug(&quot;Cache Miss : Crypto Object found in cache is expired.&quot;);</span>
+<span class="nc" id="L1783">                    return null;</span>
                 }
             } else {
-<span class="fc" id="L1768">                log.debug(&quot;Cache Hit : Crypto Object was found in cache.&quot;);</span>
-<span class="fc" id="L1769">                return cachedCrypto.crypto;</span>
+<span class="fc" id="L1786">                log.debug(&quot;Cache Hit : Crypto Object was found in cache.&quot;);</span>
+<span class="fc" id="L1787">                return cachedCrypto.crypto;</span>
             }
         }
         // cache miss
         else {
-<span class="fc" id="L1774">            log.debug(&quot;Cache Miss : Crypto Object was not found in cache.&quot;);</span>
-<span class="fc" id="L1775">            return null;</span>
+<span class="fc" id="L1792">            log.debug(&quot;Cache Miss : Crypto Object was not found in cache.&quot;);</span>
+<span class="fc" id="L1793">            return null;</span>
         }
     }
 
     private static void cacheCrypto(String cryptoKey, Crypto crypto) {
-<span class="fc" id="L1780">        cryptoStore.put(cryptoKey, new CachedCrypto(crypto, Calendar.getInstance()</span>
+<span class="fc" id="L1798">        cryptoStore.put(cryptoKey, new CachedCrypto(crypto, Calendar.getInstance()</span>
                 .getTimeInMillis()));
-<span class="fc" id="L1782">        log.debug(&quot;Crypto object is inserted into the Cache.&quot;);</span>
+<span class="fc" id="L1800">        log.debug(&quot;Crypto object is inserted into the Cache.&quot;);</span>
 
-<span class="fc" id="L1784">    }</span>
+<span class="fc" id="L1802">    }</span>
 
     /**
      * Returns SAML10 Assertion namespace. As follows,
@@ -1790,10 +1808,10 @@ import java.util.concurrent.ConcurrentHashMap;
      */
     public static String getSAML10AssertionNamespace() {
 
-<span class="nc" id="L1793">        StringBuilder stringBuilder = new StringBuilder(WSConstants.SAMLTOKEN_NS);</span>
-<span class="nc" id="L1794">        stringBuilder.append(&quot;#&quot;).append(WSConstants.SAML_ASSERTION_ID);</span>
+<span class="nc" id="L1811">        StringBuilder stringBuilder = new StringBuilder(WSConstants.SAMLTOKEN_NS);</span>
+<span class="nc" id="L1812">        stringBuilder.append(&quot;#&quot;).append(WSConstants.SAML_ASSERTION_ID);</span>
 
-<span class="nc" id="L1796">        return stringBuilder.toString();</span>
+<span class="nc" id="L1814">        return stringBuilder.toString();</span>
 
     }
 
@@ -1804,9 +1822,9 @@ import java.util.concurrent.ConcurrentHashMap;
      * will be set to same message context.
      */
     public static void setEncryptionCrypto(MessageContext msgContext) {
-<span class="fc" id="L1807">        setEncryptionCryptoFileProperty(msgContext);</span>
-<span class="fc" id="L1808">        setEncryptionCryptoReferenceProperty(msgContext);</span>
-<span class="fc" id="L1809">    }</span>
+<span class="nc" id="L1825">        setEncryptionCryptoFileProperty(msgContext);</span>
+<span class="nc" id="L1826">        setEncryptionCryptoReferenceProperty(msgContext);</span>
+<span class="nc" id="L1827">    }</span>
 
     /**
      * Sets decryption crypto file or crypto reference key to signature crypto file or signature
@@ -1815,41 +1833,41 @@ import java.util.concurrent.ConcurrentHashMap;
      * will be set to same message context.
      */
     public static void setDecryptionCrypto(MessageContext msgContext) {
-<span class="fc" id="L1818">        setDecryptionCryptoFileProperty(msgContext);</span>
-<span class="fc" id="L1819">        setDecryptionCryptoReferenceProperty(msgContext);</span>
-<span class="fc" id="L1820">    }</span>
+<span class="nc" id="L1836">        setDecryptionCryptoFileProperty(msgContext);</span>
+<span class="nc" id="L1837">        setDecryptionCryptoReferenceProperty(msgContext);</span>
+<span class="nc" id="L1838">    }</span>
 
     /**
      * Sets encryption crypto property reference id.- WSHandlerConstants.ENC_PROP_REF_ID
      * @param msgContext The message context.
      */
     private static void setEncryptionCryptoReferenceProperty (MessageContext msgContext) {
-<span class="fc" id="L1827">        setCryptoProperty(msgContext, WSHandlerConstants.SIG_PROP_REF_ID, WSHandlerConstants.ENC_PROP_REF_ID);</span>
-<span class="fc" id="L1828">    }</span>
+<span class="nc" id="L1845">        setCryptoProperty(msgContext, WSHandlerConstants.SIG_PROP_REF_ID, WSHandlerConstants.ENC_PROP_REF_ID);</span>
+<span class="nc" id="L1846">    }</span>
 
     /**
      * Sets encryption crypto property file.- WSHandlerConstants.DEC_PROP_REF_ID
      * @param msgContext The message context.
      */
     private static void setDecryptionCryptoReferenceProperty (MessageContext msgContext) {
-<span class="fc" id="L1835">        setCryptoProperty(msgContext, WSHandlerConstants.SIG_PROP_REF_ID, WSHandlerConstants.DEC_PROP_REF_ID);</span>
-<span class="fc" id="L1836">    }</span>
+<span class="nc" id="L1853">        setCryptoProperty(msgContext, WSHandlerConstants.SIG_PROP_REF_ID, WSHandlerConstants.DEC_PROP_REF_ID);</span>
+<span class="nc" id="L1854">    }</span>
 
     /**
      * Sets encryption crypto property file.- WSHandlerConstants.ENC_PROP_FILE
      * @param msgContext The message context.
      */
     private static void setEncryptionCryptoFileProperty (MessageContext msgContext) {
-<span class="fc" id="L1843">        setCryptoProperty(msgContext, WSHandlerConstants.SIG_PROP_FILE, WSHandlerConstants.ENC_PROP_FILE);</span>
-<span class="fc" id="L1844">    }</span>
+<span class="nc" id="L1861">        setCryptoProperty(msgContext, WSHandlerConstants.SIG_PROP_FILE, WSHandlerConstants.ENC_PROP_FILE);</span>
+<span class="nc" id="L1862">    }</span>
 
     /**
      * Sets encryption crypto property file.- WSHandlerConstants.DEC_PROP_FILE
      * @param msgContext The message context.
      */
     private static void setDecryptionCryptoFileProperty (MessageContext msgContext) {
-<span class="fc" id="L1851">        setCryptoProperty(msgContext, WSHandlerConstants.SIG_PROP_FILE, WSHandlerConstants.DEC_PROP_FILE);</span>
-<span class="fc" id="L1852">    }</span>
+<span class="nc" id="L1869">        setCryptoProperty(msgContext, WSHandlerConstants.SIG_PROP_FILE, WSHandlerConstants.DEC_PROP_FILE);</span>
+<span class="nc" id="L1870">    }</span>
 
     private static void setCryptoProperty(MessageContext msgContext, String signaturePropertyName,
                                           String cryptoPropertyName){
@@ -1858,22 +1876,22 @@ import java.util.concurrent.ConcurrentHashMap;
          * Encryption Crypto is loaded using WSHandlerConstants.ENC_PROP_FILE. If this is not
          * set in the message context set WSHandlerConstants.SIG_PROP_FILE as WSHandlerConstants.ENC_PROP_FILE.
          */
-<span class="fc bfc" id="L1861" title="All 2 branches covered.">        if (msgContext.getProperty(cryptoPropertyName) == null) {</span>
+<span class="nc bnc" id="L1879" title="All 2 branches missed.">        if (msgContext.getProperty(cryptoPropertyName) == null) {</span>
 
 
-<span class="fc" id="L1864">            String signaturePropertyFile = (String)msgContext.getProperty(signaturePropertyName);</span>
+<span class="nc" id="L1882">            String signaturePropertyFile = (String)msgContext.getProperty(signaturePropertyName);</span>
 
-<span class="fc bfc" id="L1866" title="All 2 branches covered.">            if (signaturePropertyFile == null) {</span>
+<span class="nc bnc" id="L1884" title="All 2 branches missed.">            if (signaturePropertyFile == null) {</span>
 
-<span class="pc bpc" id="L1868" title="1 of 2 branches missed.">                if (log.isDebugEnabled()) {</span>
-<span class="nc" id="L1869">                    log.debug(&quot;Signature crypto property file is not set. Property file key - &quot;</span>
+<span class="nc bnc" id="L1886" title="All 2 branches missed.">                if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L1887">                    log.debug(&quot;Signature crypto property file is not set. Property file key - &quot;</span>
                             + WSHandlerConstants.SIG_PROP_FILE);
                 }
             } else {
-<span class="fc" id="L1873">                msgContext.setProperty(cryptoPropertyName, signaturePropertyFile);</span>
+<span class="nc" id="L1891">                msgContext.setProperty(cryptoPropertyName, signaturePropertyFile);</span>
             }
         }
-<span class="fc" id="L1876">    }</span>
+<span class="nc" id="L1894">    }</span>
 
     /**
      * Returns true if needed to encrypt first.
@@ -1881,7 +1899,7 @@ import java.util.concurrent.ConcurrentHashMap;
      * @return true if policy says we need to encrypt first else false.
      */
     public static boolean encryptFirst(RampartPolicyData rpd) {
-<span class="fc" id="L1884">        return SPConstants.ENCRYPT_BEFORE_SIGNING.equals(rpd.getProtectionOrder());</span>
+<span class="fc" id="L1902">        return SPConstants.ENCRYPT_BEFORE_SIGNING.equals(rpd.getProtectionOrder());</span>
     }
 
     /**
@@ -1892,24 +1910,24 @@ import java.util.concurrent.ConcurrentHashMap;
      * @return &lt;code&gt;true&lt;/code&gt; if the fault is a security fault; &lt;code&gt;false&lt;/code&gt; otherwise
      */
     public static boolean isSecurityFault(SOAPFault fault) {
-<span class="fc" id="L1895">        String soapVersionURI = fault.getNamespaceURI();</span>
-<span class="fc" id="L1896">        SOAPFaultCode code = fault.getCode();</span>
-<span class="pc bpc" id="L1897" title="1 of 2 branches missed.">        if (code == null) {</span>
+<span class="fc" id="L1913">        String soapVersionURI = fault.getNamespaceURI();</span>
+<span class="fc" id="L1914">        SOAPFaultCode code = fault.getCode();</span>
+<span class="pc bpc" id="L1915" title="1 of 2 branches missed.">        if (code == null) {</span>
             // If no fault code is given, then it can't be security fault
-<span class="nc" id="L1899">            return false;</span>
-<span class="fc bfc" id="L1900" title="All 2 branches covered.">        } else if (soapVersionURI.equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)) {</span>
-<span class="fc" id="L1901">            return isSecurityFaultCode(code);</span>
+<span class="nc" id="L1917">            return false;</span>
+<span class="fc bfc" id="L1918" title="All 2 branches covered.">        } else if (soapVersionURI.equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI)) {</span>
+<span class="fc" id="L1919">            return isSecurityFaultCode(code);</span>
         } else {
             // For SOAP 1.2 security faults, the fault code is env:Sender, and the security fault code is
             // specified in the subcode
-<span class="fc" id="L1905">            SOAPFaultSubCode subCode = code.getSubCode();</span>
-<span class="pc bpc" id="L1906" title="1 of 2 branches missed.">            return subCode == null ? false : isSecurityFaultCode(subCode);</span>
+<span class="fc" id="L1923">            SOAPFaultSubCode subCode = code.getSubCode();</span>
+<span class="pc bpc" id="L1924" title="1 of 2 branches missed.">            return subCode == null ? false : isSecurityFaultCode(subCode);</span>
         }
     }
     
     private static boolean isSecurityFaultCode(SOAPFaultClassifier code) {
-<span class="fc" id="L1911">        QName value = code.getValueAsQName();</span>
-<span class="fc bfc" id="L1912" title="All 2 branches covered.">        return value == null ? false : value.getNamespaceURI().equals(WSConstants.WSSE_NS);</span>
+<span class="fc" id="L1929">        QName value = code.getValueAsQName();</span>
+<span class="fc bfc" id="L1930" title="All 2 branches covered.">        return value == null ? false : value.getNamespaceURI().equals(WSConstants.WSSE_NS);</span>
     }
     
     /**
@@ -1927,22 +1945,22 @@ import java.util.concurrent.ConcurrentHashMap;
      * &lt;/ul&gt;
      */
     public static Collection&lt;UsernameToken&gt; getUsernameTokens(RampartPolicyData rpd) {
-<span class="fc" id="L1930">        Collection&lt;UsernameToken&gt; usernameTokens = new ArrayList&lt;UsernameToken&gt;();</span>
+<span class="fc" id="L1948">        Collection&lt;UsernameToken&gt; usernameTokens = new ArrayList&lt;UsernameToken&gt;();</span>
         
-<span class="fc" id="L1932">        List&lt;SupportingToken&gt; supportingToks = rpd.getSupportingTokensList();</span>
-<span class="fc bfc" id="L1933" title="All 2 branches covered.">        for (SupportingToken suppTok : supportingToks) {</span>
-<span class="fc" id="L1934">            usernameTokens.addAll(getUsernameTokens(suppTok));</span>
-<span class="fc" id="L1935">        }</span>
+<span class="fc" id="L1950">        List&lt;SupportingToken&gt; supportingToks = rpd.getSupportingTokensList();</span>
+<span class="fc bfc" id="L1951" title="All 2 branches covered.">        for (SupportingToken suppTok : supportingToks) {</span>
+<span class="fc" id="L1952">            usernameTokens.addAll(getUsernameTokens(suppTok));</span>
+<span class="fc" id="L1953">        }</span>
         
-<span class="fc" id="L1937">        usernameTokens.addAll(getUsernameTokens(rpd.getSignedSupportingTokens()));</span>
-<span class="fc" id="L1938">        usernameTokens.addAll(getUsernameTokens(rpd.getSignedEndorsingSupportingTokens()));</span>
-<span class="fc" id="L1939">        usernameTokens.addAll(getUsernameTokens(rpd.getEndorsingSupportingTokens()));</span>
-<span class="fc" id="L1940">        usernameTokens.addAll(getUsernameTokens(rpd.getEncryptedSupportingTokens()));</span>
-<span class="fc" id="L1941">        usernameTokens.addAll(getUsernameTokens(rpd.getSignedEncryptedSupportingTokens()));</span>
-<span class="fc" id="L1942">        usernameTokens.addAll(getUsernameTokens(rpd.getEndorsingEncryptedSupportingTokens()));</span>
-<span class="fc" id="L1943">        usernameTokens.addAll(getUsernameTokens(rpd.getSignedEndorsingEncryptedSupportingTokens()));</span>
+<span class="fc" id="L1955">        usernameTokens.addAll(getUsernameTokens(rpd.getSignedSupportingTokens()));</span>
+<span class="fc" id="L1956">        usernameTokens.addAll(getUsernameTokens(rpd.getSignedEndorsingSupportingTokens()));</span>
+<span class="fc" id="L1957">        usernameTokens.addAll(getUsernameTokens(rpd.getEndorsingSupportingTokens()));</span>
+<span class="fc" id="L1958">        usernameTokens.addAll(getUsernameTokens(rpd.getEncryptedSupportingTokens()));</span>
+<span class="fc" id="L1959">        usernameTokens.addAll(getUsernameTokens(rpd.getSignedEncryptedSupportingTokens()));</span>
+<span class="fc" id="L1960">        usernameTokens.addAll(getUsernameTokens(rpd.getEndorsingEncryptedSupportingTokens()));</span>
+<span class="fc" id="L1961">        usernameTokens.addAll(getUsernameTokens(rpd.getSignedEndorsingEncryptedSupportingTokens()));</span>
 
-<span class="fc" id="L1945">        return usernameTokens;</span>
+<span class="fc" id="L1963">        return usernameTokens;</span>
     }
     
     /**
@@ -1952,20 +1970,20 @@ import java.util.concurrent.ConcurrentHashMap;
      */
     public static Collection&lt;UsernameToken&gt; getUsernameTokens(SupportingToken suppTok) {
         
-<span class="fc bfc" id="L1955" title="All 2 branches covered.">        if (suppTok == null) {</span>
-<span class="fc" id="L1956">            return new ArrayList&lt;UsernameToken&gt;();</span>
+<span class="fc bfc" id="L1973" title="All 2 branches covered.">        if (suppTok == null) {</span>
+<span class="fc" id="L1974">            return new ArrayList&lt;UsernameToken&gt;();</span>
         }
         
-<span class="fc" id="L1959">        Collection&lt;UsernameToken&gt; usernameTokens = new ArrayList&lt;UsernameToken&gt;();</span>
-<span class="fc" id="L1960">        ArrayList tokens = suppTok.getTokens();</span>
-<span class="fc bfc" id="L1961" title="All 2 branches covered.">        for (Iterator iter = tokens.iterator(); iter.hasNext();) {</span>
-<span class="fc" id="L1962">            org.apache.ws.secpolicy.model.Token token = (org.apache.ws.secpolicy.model.Token) iter.next();</span>
-<span class="fc bfc" id="L1963" title="All 2 branches covered.">            if (token instanceof UsernameToken) {</span>
-<span class="fc" id="L1964">                usernameTokens.add((UsernameToken)token);</span>
+<span class="fc" id="L1977">        Collection&lt;UsernameToken&gt; usernameTokens = new ArrayList&lt;UsernameToken&gt;();</span>
+<span class="fc" id="L1978">        ArrayList tokens = suppTok.getTokens();</span>
+<span class="fc bfc" id="L1979" title="All 2 branches covered.">        for (Iterator iter = tokens.iterator(); iter.hasNext();) {</span>
+<span class="fc" id="L1980">            org.apache.ws.secpolicy.model.Token token = (org.apache.ws.secpolicy.model.Token) iter.next();</span>
+<span class="fc bfc" id="L1981" title="All 2 branches covered.">            if (token instanceof UsernameToken) {</span>
+<span class="fc" id="L1982">                usernameTokens.add((UsernameToken)token);</span>
             }
-<span class="fc" id="L1966">        }</span>
+<span class="fc" id="L1984">        }</span>
         
-<span class="fc" id="L1968">        return usernameTokens;</span>
+<span class="fc" id="L1986">        return usernameTokens;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

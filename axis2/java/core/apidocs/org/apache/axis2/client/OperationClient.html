@@ -132,22 +132,18 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/OperationClient.html#axisOp">axisOp</a></strong></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/client/async/Callback.html" title="class in org.apache.axis2.client.async">Callback</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/OperationClient.html#callback">callback</a></strong></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/OperationClient.html#completed">completed</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/context/OperationContext.html" title="class in org.apache.axis2.context">OperationContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/OperationClient.html#oc">oc</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/OperationClient.html#options">options</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/context/ServiceContext.html" title="class in org.apache.axis2.context">ServiceContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/OperationClient.html#sc">sc</a></strong></code>&nbsp;</td>
 </tr>
@@ -255,20 +251,12 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>abstract void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/OperationClient.html#setCallback(org.apache.axis2.client.async.Callback)">setCallback</a></strong>(<a href="../../../../org/apache/axis2/client/async/Callback.html" title="class in org.apache.axis2.client.async">Callback</a>&nbsp;callback)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>Please use the AxisCallback interface rather than Callback, which has been deprecated</i></div>
-</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/OperationClient.html#setMessageID(org.apache.axis2.context.MessageContext)">setMessageID</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;mc)</code>
 <div class="block">Create a message ID for the given message context if needed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/client/OperationClient.html#setOptions(org.apache.axis2.client.Options)">setOptions</a></strong>(<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;options)</code>
 <div class="block">Sets the options that should be used for this particular client.</div>
@@ -330,15 +318,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <li class="blockList">
 <h4>oc</h4>
 <pre>protected&nbsp;<a href="../../../../org/apache/axis2/context/OperationContext.html" title="class in org.apache.axis2.context">OperationContext</a> oc</pre>
-</li>
-</ul>
-<a name="callback">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>callback</h4>
-<pre>protected&nbsp;<a href="../../../../org/apache/axis2/client/async/Callback.html" title="class in org.apache.axis2.client.async">Callback</a> callback</pre>
 </li>
 </ul>
 <a name="axisCallback">
@@ -442,23 +421,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <dt><span class="strong">Returns:</span></dt><dd>the desired message context or null if its not available.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - if the message label is invalid</dd></dl>
-</li>
-</ul>
-<a name="setCallback(org.apache.axis2.client.async.Callback)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setCallback</h4>
-<pre>public abstract&nbsp;void&nbsp;setCallback(<a href="../../../../org/apache/axis2/client/async/Callback.html" title="class in org.apache.axis2.client.async">Callback</a>&nbsp;callback)</pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Please use the AxisCallback interface rather than Callback, which has been deprecated</i></div>
-<div class="block">Set the callback to be executed when a message comes into the MEP and the
- operation client is executed. This is the way the operation client
- provides notification that a message has been received by it. Exactly
- when its executed and under what conditions is a function of the specific
- operation client.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>callback</code> - the callback to be used when the client decides its time to
-                 use it</dd></dl>
 </li>
 </ul>
 <a name="setCallback(org.apache.axis2.client.async.AxisCallback)">

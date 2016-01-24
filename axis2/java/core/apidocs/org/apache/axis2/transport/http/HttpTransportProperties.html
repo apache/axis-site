@@ -35,8 +35,8 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html" title="class in org.apache.axis2.transport.http"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.Authenticator.html" title="class in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/transport/http/HTTPTransportConstants.html" title="class in org.apache.axis2.transport.http"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.MailProperties.html" title="class in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/axis2/transport/http/HttpTransportProperties.html" target="_top">Frames</a></li>
@@ -93,9 +93,13 @@
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../../org/apache/axis2/transport/http/impl/httpclient3/HttpTransportPropertiesImpl.html" title="class in org.apache.axis2.transport.http.impl.httpclient3">HttpTransportPropertiesImpl</a>, <a href="../../../../../org/apache/axis2/transport/http/impl/httpclient4/HttpTransportPropertiesImpl.html" title="class in org.apache.axis2.transport.http.impl.httpclient4">HttpTransportPropertiesImpl</a></dd>
+</dl>
 <hr>
 <br>
-<pre>public class <span class="strong">HttpTransportProperties</span>
+<pre>public abstract class <span class="strong">HttpTransportProperties</span>
 extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">Utility bean for setting transport properties in runtime.</div>
 </li>
@@ -118,10 +122,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.Authenticator.html" title="class in org.apache.axis2.transport.http">HttpTransportProperties.Authenticator</a></strong></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.MailProperties.html" title="class in org.apache.axis2.transport.http">HttpTransportProperties.MailProperties</a></strong></code>
 <div class="block"><strong>Deprecated.</strong>&nbsp;
 <div class="block"><i>org.apache.axis2.transport.http.HttpTransportProperties.MailProperties has been
@@ -129,7 +129,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.ProxyProperties.html" title="class in org.apache.axis2.transport.http">HttpTransportProperties.ProxyProperties</a></strong></code>&nbsp;</td>
 </tr>
@@ -153,10 +153,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html#chunked">chunked</a></strong></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected org.apache.commons.httpclient.HttpVersion</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html#httpVersion">httpVersion</a></strong></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html#protocol">protocol</a></strong></code>&nbsp;</td>
 </tr>
@@ -197,7 +193,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html#getChunked()">getChunked</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>org.apache.commons.httpclient.HttpVersion</code></td>
+<td class="colFirst"><code>abstract <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html#getHttpVersion()">getHttpVersion</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -209,8 +205,8 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html#setChunked(boolean)">setChunked</a></strong>(boolean&nbsp;chunked)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html#setHttpVersion(org.apache.commons.httpclient.HttpVersion)">setHttpVersion</a></strong>(org.apache.commons.httpclient.HttpVersion&nbsp;httpVerion)</code>&nbsp;</td>
+<td class="colFirst"><code>abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html#setHttpVersion(java.lang.Object)">setHttpVersion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;httpVerion)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -247,15 +243,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <pre>protected&nbsp;boolean chunked</pre>
 </li>
 </ul>
-<a name="httpVersion">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>httpVersion</h4>
-<pre>protected&nbsp;org.apache.commons.httpclient.HttpVersion httpVersion</pre>
-</li>
-</ul>
 <a name="protocol">
 <!--   -->
 </a>
@@ -290,13 +277,13 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getChunked()">
+<a name="setHttpVersion(java.lang.Object)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getChunked</h4>
-<pre>public&nbsp;boolean&nbsp;getChunked()</pre>
+<h4>setHttpVersion</h4>
+<pre>public abstract&nbsp;void&nbsp;setHttpVersion(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;httpVerion)</pre>
 </li>
 </ul>
 <a name="getHttpVersion()">
@@ -305,7 +292,16 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <ul class="blockList">
 <li class="blockList">
 <h4>getHttpVersion</h4>
-<pre>public&nbsp;org.apache.commons.httpclient.HttpVersion&nbsp;getHttpVersion()</pre>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getHttpVersion()</pre>
+</li>
+</ul>
+<a name="getChunked()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getChunked</h4>
+<pre>public&nbsp;boolean&nbsp;getChunked()</pre>
 </li>
 </ul>
 <a name="getProtocol()">
@@ -324,15 +320,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <li class="blockList">
 <h4>setChunked</h4>
 <pre>public&nbsp;void&nbsp;setChunked(boolean&nbsp;chunked)</pre>
-</li>
-</ul>
-<a name="setHttpVersion(org.apache.commons.httpclient.HttpVersion)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setHttpVersion</h4>
-<pre>public&nbsp;void&nbsp;setHttpVersion(org.apache.commons.httpclient.HttpVersion&nbsp;httpVerion)</pre>
 </li>
 </ul>
 <a name="setProtocol(java.lang.String)">
@@ -370,8 +357,8 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html" title="class in org.apache.axis2.transport.http"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.Authenticator.html" title="class in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/transport/http/HTTPTransportConstants.html" title="class in org.apache.axis2.transport.http"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.MailProperties.html" title="class in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/axis2/transport/http/HttpTransportProperties.html" target="_top">Frames</a></li>

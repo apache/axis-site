@@ -168,10 +168,8 @@ extends <a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html" 
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/json/JSONBadgerfishDataSource.html#getReader()">getReader</a></strong>()</code>
-<div class="block">Gives the StAX reader using the "Badgerfish" formatted input JSON String.</div>
-</td>
+<td class="colFirst"><code>protected org.codehaus.jettison.AbstractXMLInputFactory</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/json/JSONBadgerfishDataSource.html#getXMLInputFactory()">getXMLInputFactory</a></strong>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -179,7 +177,7 @@ extends <a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html" 
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.axis2.json.<a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html" title="class in org.apache.axis2.json">AbstractJSONDataSource</a></h3>
-<code><a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html#getJSONString()">getJSONString</a>, <a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html#isDestructiveRead()">isDestructiveRead</a></code></li>
+<code><a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html#getObject()">getObject</a>, <a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html#getReader()">getReader</a>, <a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html#isDestructiveRead()">isDestructiveRead</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.apache.axiom.om.ds.AbstractPullOMDataSource">
@@ -193,7 +191,7 @@ extends <a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html" 
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.axiom.om.ds.<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true" title="class or interface in org.apache.axiom.om.ds">AbstractOMDataSource</a></h3>
-<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#close()" title="class or interface in org.apache.axiom.om.ds">close</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#copy()" title="class or interface in org.apache.axiom.om.ds">copy</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#getObject()" title="class or interface in org.apache.axiom.om.ds">getObject</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#getProperty(java.lang.String)" title="class or interface in org.apache.axiom.om.ds">getProperty</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#getXMLBytes(java.lang.String)" title="class or interface in org.apache.axiom.om.ds">getXMLBytes</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#getXMLInputStream(java.lang.String)" title="class or interface in org.apache.axiom.om.ds">getXMLInputStream</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#hasProperty(java.lang.String)" title="class or interface in org.apache.axiom.om.ds">hasProperty</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#serialize(java.io.OutputStream, org.apache.axiom.om.OMOutputFormat)" title="class or interface in org.apache.axiom.om.ds">serialize</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#serialize(java.io.Writer, org.apache.axiom.om.OMOutputFormat)" title="class or interface in org.apache.axiom.om.ds">serialize</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#setProperty(java.lang.String, java.lang.Object)" title="class or interface in org.apache.axiom.om.ds">setProperty</a></code></li>
+<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#close()" title="class or interface in org.apache.axiom.om.ds">close</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#copy()" title="class or interface in org.apache.axiom.om.ds">copy</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#getProperty(java.lang.String)" title="class or interface in org.apache.axiom.om.ds">getProperty</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#getXMLBytes(java.lang.String)" title="class or interface in org.apache.axiom.om.ds">getXMLBytes</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#getXMLInputStream(java.lang.String)" title="class or interface in org.apache.axiom.om.ds">getXMLInputStream</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#hasProperty(java.lang.String)" title="class or interface in org.apache.axiom.om.ds">hasProperty</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#serialize(java.io.OutputStream, org.apache.axiom.om.OMOutputFormat)" title="class or interface in org.apache.axiom.om.ds">serialize</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#serialize(java.io.Writer, org.apache.axiom.om.OMOutputFormat)" title="class or interface in org.apache.axiom.om.ds">serialize</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/ds/AbstractOMDataSource.html?is-external=true#setProperty(java.lang.String, java.lang.Object)" title="class or interface in org.apache.axiom.om.ds">setProperty</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -233,23 +231,17 @@ extends <a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html" 
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getReader()">
+<a name="getXMLInputFactory()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getReader</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a>&nbsp;getReader()
-                          throws <a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></pre>
-<div class="block">Gives the StAX reader using the "Badgerfish" formatted input JSON String.</div>
+<h4>getXMLInputFactory</h4>
+<pre>protected&nbsp;org.codehaus.jettison.AbstractXMLInputFactory&nbsp;getXMLInputFactory()</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true#getReader()" title="class or interface in org.apache.axiom.om">getReader</a></code>&nbsp;in interface&nbsp;<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSource</a></code></dd>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html#getReader()">getReader</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html" title="class in org.apache.axis2.json">AbstractJSONDataSource</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>The XMLStreamReader according to the JSON String.</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code> - if there is an error while making the StAX reader.</dd></dl>
+<dd><code><a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html#getXMLInputFactory()">getXMLInputFactory</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/json/AbstractJSONDataSource.html" title="class in org.apache.axis2.json">AbstractJSONDataSource</a></code></dd>
+</dl>
 </li>
 </ul>
 </li>

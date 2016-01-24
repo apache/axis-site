@@ -162,7 +162,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#addExcludeMethods(java.util.ArrayList)">addExcludeMethods</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;excludeList)</code>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#addExcludeMethods(java.util.List)">addExcludeMethods</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;excludeList)</code>
 <div class="block">Add the Axis2 lifecycle / session methods to a pre-existing list of names that will be
  excluded when generating schemas.</div>
 </td>
@@ -261,29 +261,20 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getAnnotatedServiceName(java.lang.Class, org.apache.axis2.jsr181.WebServiceAnnotation)">getAnnotatedServiceName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceClass,
-                       <a href="../../../../../org/apache/axis2/jsr181/WebServiceAnnotation.html" title="class in org.apache.axis2.jsr181">WebServiceAnnotation</a>&nbsp;serviceAnnotation)</code>
-<div class="block">The util method to prepare the JSR 181 annotated service name from given annotation or for
- defaults JSR 181 specifies that the in javax.jws.WebService the parameter serviceName
- contains the wsdl:service name to mapp.</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/axis2/description/AxisOperation.html" title="class in org.apache.axis2.description">AxisOperation</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getAxisOperationForJmethod(java.lang.reflect.Method)">getAxisOperationForJmethod</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a>&nbsp;method)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/axis2/description/AxisBindingMessage.html" title="class in org.apache.axis2.description">AxisBindingMessage</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getBindingMessage(org.apache.axis2.description.AxisBindingOperation, org.apache.axis2.description.AxisMessage)">getBindingMessage</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisBindingOperation.html" title="class in org.apache.axis2.description">AxisBindingOperation</a>&nbsp;bindingOperation,
                  <a href="../../../../../org/apache/axis2/description/AxisMessage.html" title="class in org.apache.axis2.description">AxisMessage</a>&nbsp;message)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/axis2/description/AxisBindingOperation.html" title="class in org.apache.axis2.description">AxisBindingOperation</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getBindingOperation(org.apache.axis2.description.AxisBinding, org.apache.axis2.description.AxisOperation)">getBindingOperation</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisBinding.html" title="class in org.apache.axis2.description">AxisBinding</a>&nbsp;binding,
                    <a href="../../../../../org/apache/axis2/description/AxisOperation.html" title="class in org.apache.axis2.description">AxisOperation</a>&nbsp;operation)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getClassLoader(java.lang.ClassLoader, java.io.File, boolean)">getClassLoader</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;parent,
               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
@@ -292,117 +283,117 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
  inside the "lib/" or "Lib/" subdirectory of the passed directory.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getClassLoader(java.lang.ClassLoader, java.lang.String, boolean)">getClassLoader</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;parent,
               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path,
               boolean&nbsp;isChildFirstClassLoading)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getClassNameFromResourceName(java.lang.String)">getClassNameFromResourceName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName)</code>
 <div class="block">Get the class name from a resource name referring to a class file.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/axis2/description/AxisBinding.html" title="class in org.apache.axis2.description">AxisBinding</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getHttpBinding(org.apache.axis2.description.AxisService)">getHttpBinding</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;service)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getHTTPInputSerializationFromServicesXML(org.apache.axis2.description.AxisOperation)">getHTTPInputSerializationFromServicesXML</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisOperation.html" title="class in org.apache.axis2.description">AxisOperation</a>&nbsp;operation)</code>
 <div class="block">get http input mime type from the services xml</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getHTTPLoacationFromServicesXML(org.apache.axis2.description.AxisOperation)">getHTTPLoacationFromServicesXML</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisOperation.html" title="class in org.apache.axis2.description">AxisOperation</a>&nbsp;operation)</code>
 <div class="block">extract the http location from services xml related to given operation</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getHTTPMethodFromServicesXML(org.apache.axis2.description.AxisOperation)">getHTTPMethodFromServicesXML</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisOperation.html" title="class in org.apache.axis2.description">AxisOperation</a>&nbsp;operation)</code>
 <div class="block">extract the http method from services xml related to given operation</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getHTTPOutputSerializationFromservicesXML(org.apache.axis2.description.AxisOperation)">getHTTPOutputSerializationFromservicesXML</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisOperation.html" title="class in org.apache.axis2.description">AxisOperation</a>&nbsp;operation)</code>
 <div class="block">get http output mime type from the services xml</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getListOfClasses(org.apache.axis2.deployment.repository.util.DeploymentFileData)">getListOfClasses</a></strong>(<a href="../../../../../org/apache/axis2/deployment/repository/util/DeploymentFileData.html" title="class in org.apache.axis2.deployment.repository.util">DeploymentFileData</a>&nbsp;deploymentFileData)</code>
 <div class="block">Scan a JAR file and return the list of classes contained in the JAR.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getParameter(java.lang.String, java.lang.String, boolean)">getParameter</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
             boolean&nbsp;locked)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getPath(java.lang.String, java.lang.String)">getPath</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parent,
        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;childPath)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getServiceHierarchy(java.lang.String, java.lang.String)">getServiceHierarchy</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filePath,
                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceDir)</code>
 <div class="block">Computes the hierarchical part of the service name if this is such a service path.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getShortFileName(java.lang.String)">getShortFileName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filename)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/axis2/description/AxisBinding.html" title="class in org.apache.axis2.description">AxisBinding</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getSoap11Binding(org.apache.axis2.description.AxisService)">getSoap11Binding</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;service)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/axis2/description/AxisBinding.html" title="class in org.apache.axis2.description">AxisBinding</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getSoap12Binding(org.apache.axis2.description.AxisService)">getSoap12Binding</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;service)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#getURLsForAllJars(java.net.URL, java.io.File)">getURLsForAllJars</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;tmpDir)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#isHttpBinding(org.apache.axis2.description.AxisBinding)">isHttpBinding</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisBinding.html" title="class in org.apache.axis2.description">AxisBinding</a>&nbsp;binding)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#isSoap11Binding(org.apache.axis2.description.AxisBinding)">isSoap11Binding</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisBinding.html" title="class in org.apache.axis2.description">AxisBinding</a>&nbsp;binding)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#isSoap12Binding(org.apache.axis2.description.AxisBinding)">isSoap12Binding</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisBinding.html" title="class in org.apache.axis2.description">AxisBinding</a>&nbsp;binding)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#loadHandler(java.lang.ClassLoader, org.apache.axis2.description.HandlerDescription)">loadHandler</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;loader1,
            <a href="../../../../../org/apache/axis2/description/HandlerDescription.html" title="class in org.apache.axis2.description">HandlerDescription</a>&nbsp;desc)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#logFaultyServiceInfo(org.apache.axis2.engine.AxisConfiguration)">logFaultyServiceInfo</a></strong>(<a href="../../../../../org/apache/axis2/engine/AxisConfiguration.html" title="class in org.apache.axis2.engine">AxisConfiguration</a>&nbsp;axisConfig)</code>
 <div class="block">Log faulty services info due to unavailability of modules and transports</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#normalize(java.lang.String)">normalize</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;uri)</code>
 <div class="block">Normalize a uri containing ../ and ./ paths.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#processBeanPropertyExclude(org.apache.axis2.description.AxisService)">processBeanPropertyExclude</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;service)</code>
 <div class="block">This method is to process bean exclude parameter and the XML format of that would be
@@ -410,16 +401,16 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
  excludeProperties="name,age"/>+ </parameter></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#processPolicyAttachments(java.util.Iterator, org.apache.axis2.description.AxisService)">processPolicyAttachments</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a>&nbsp;attachmentElements,
                         <a href="../../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;service)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#setEndpointsToAllUsedBindings(org.apache.axis2.description.AxisService)">setEndpointsToAllUsedBindings</a></strong>(<a href="../../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;axisService)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/util/Utils.html#toFile(java.net.URL)">toFile</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url)</code>&nbsp;</td>
 </tr>
@@ -656,13 +647,13 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <dt><span class="strong">Returns:</span></dt><dd>a List containing file names (Strings) of all files matching "[lL]ib/*.jar"</dd></dl>
 </li>
 </ul>
-<a name="addExcludeMethods(java.util.ArrayList)">
+<a name="addExcludeMethods(java.util.List)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addExcludeMethods</h4>
-<pre>public static&nbsp;void&nbsp;addExcludeMethods(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;excludeList)</pre>
+<pre>public static&nbsp;void&nbsp;addExcludeMethods(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;excludeList)</pre>
 <div class="block">Add the Axis2 lifecycle / session methods to a pre-existing list of names that will be
  excluded when generating schemas.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>excludeList</code> - an ArrayList containing method names - we'll add ours to this.</dd></dl>
@@ -739,22 +730,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <li class="blockList">
 <h4>getShortFileName</h4>
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getShortFileName(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filename)</pre>
-</li>
-</ul>
-<a name="getAnnotatedServiceName(java.lang.Class, org.apache.axis2.jsr181.WebServiceAnnotation)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAnnotatedServiceName</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getAnnotatedServiceName(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceClass,
-                             <a href="../../../../../org/apache/axis2/jsr181/WebServiceAnnotation.html" title="class in org.apache.axis2.jsr181">WebServiceAnnotation</a>&nbsp;serviceAnnotation)</pre>
-<div class="block">The util method to prepare the JSR 181 annotated service name from given annotation or for
- defaults JSR 181 specifies that the in javax.jws.WebService the parameter serviceName
- contains the wsdl:service name to mapp. If its not available then the default will be Simple
- name of the class + "Service"</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceClass</code> - the service Class</dd><dd><code>serviceAnnotation</code> - a WebService annotation, or null</dd>
-<dt><span class="strong">Returns:</span></dt><dd>String version of the ServiceName according to the JSR 181 spec</dd></dl>
 </li>
 </ul>
 <a name="addEndpointsToService(org.apache.axis2.description.AxisService)">

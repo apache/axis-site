@@ -154,38 +154,90 @@
 </tr>
 <tbody>
 <tr class="altColor">
+<td class="colFirst"><code>protected org.opensaml.saml2.core.Assertion</code></td>
+<td class="colLast"><span class="strong">SAML2TokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#buildAssertion(org.w3c.dom.Document, org.apache.ws.security.components.crypto.Crypto, org.apache.rahas.RahasData)">buildAssertion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+              org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+              <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This methods builds the SAML2 assertion.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>org.apache.axiom.soap.SOAPEnvelope</code></td>
 <td class="colLast"><span class="strong">TokenCancelerImpl.</span><code><strong><a href="../../../../org/apache/rahas/impl/TokenCancelerImpl.html#cancel(org.apache.rahas.RahasData)">cancel</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
 <div class="block">Cancel the token specified in the request.</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected org.opensaml.saml2.core.AttributeStatement</code></td>
+<td class="colLast"><span class="strong">SAML2TokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createAttributeStatement(org.apache.rahas.RahasData)">createAttributeStatement</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This method creates an AttributeStatement.</div>
+</td>
+</tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected org.opensaml.saml2.core.AuthnStatement</code></td>
+<td class="colLast"><span class="strong">SAML2TokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createAuthenticationStatement(org.apache.rahas.RahasData)">createAuthenticationStatement</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This method creates an authentication statement.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected org.opensaml.xml.signature.KeyInfo</code></td>
+<td class="colLast"><span class="strong">SAML2TokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createKeyInfo(org.w3c.dom.Document, org.apache.ws.security.components.crypto.Crypto, org.apache.rahas.RahasData)">createKeyInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+             org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+             <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This method creates the KeyInfo relevant for the assertion.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected org.apache.axiom.soap.SOAPEnvelope</code></td>
+<td class="colLast"><span class="strong">SAML2TokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createRequestSecurityTokenResponse(org.apache.rahas.RahasData, org.opensaml.saml2.core.Assertion, org.apache.axiom.soap.SOAPEnvelope)">createRequestSecurityTokenResponse</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;rahasData,
+                                  org.opensaml.saml2.core.Assertion&nbsp;assertion,
+                                  org.apache.axiom.soap.SOAPEnvelope&nbsp;soapEnvelope)</code>
+<div class="block">This method prepares the final response.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected org.opensaml.saml2.core.Subject</code></td>
+<td class="colLast"><span class="strong">SAML2TokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createSubjectWithBearerSubjectConfirmation(org.apache.rahas.RahasData)">createSubjectWithBearerSubjectConfirmation</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This method creates a subject element with the bearer subject confirmation method.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected org.opensaml.saml2.core.Subject</code></td>
+<td class="colLast"><span class="strong">SAML2TokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createSubjectWithHolderOfKeySubjectConfirmation(org.w3c.dom.Document, org.apache.ws.security.components.crypto.Crypto, org.joda.time.DateTime, org.joda.time.DateTime, org.apache.rahas.RahasData)">createSubjectWithHolderOfKeySubjectConfirmation</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+                                               org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+                                               org.joda.time.DateTime&nbsp;creationTime,
+                                               org.joda.time.DateTime&nbsp;expirationTime,
+                                               <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This method will create a SAML 2 subject based on Holder of Key confirmation method.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><span class="strong">TokenCancelerImpl.</span><code><strong><a href="../../../../org/apache/rahas/impl/TokenCancelerImpl.html#getResponseAction(org.apache.rahas.RahasData)">getResponseAction</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
 <div class="block">Returns the <code>wsa:Action</code> of the response.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><span class="strong">SCTIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SCTIssuer.html#getResponseAction(org.apache.rahas.RahasData)">getResponseAction</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><span class="strong">SAMLTokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuer.html#getResponseAction(org.apache.rahas.RahasData)">getResponseAction</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
 <div class="block">Returns the <code>wsa:Action</code> of the response.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><span class="strong">SAML2TokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#getResponseAction(org.apache.rahas.RahasData)">getResponseAction</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static byte[]</code></td>
 <td class="colLast"><span class="strong">TokenIssuerUtil.</span><code><strong><a href="../../../../org/apache/rahas/impl/TokenIssuerUtil.html#getSharedSecret(org.apache.rahas.RahasData, int, int)">getSharedSecret</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data,
                int&nbsp;keyComputation,
                int&nbsp;keySize)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><span class="strong">TokenIssuerUtil.</span><code><strong><a href="../../../../org/apache/rahas/impl/TokenIssuerUtil.html#handleRequestedProofToken(org.apache.rahas.RahasData, int, org.apache.rahas.impl.AbstractIssuerConfig, org.apache.axiom.om.OMElement, org.apache.rahas.Token, org.w3c.dom.Document)">handleRequestedProofToken</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data,
                          int&nbsp;wstVersion,
@@ -194,7 +246,7 @@
                          <a href="../../../../org/apache/rahas/Token.html" title="class in org.apache.rahas">Token</a>&nbsp;token,
                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>org.apache.axiom.soap.SOAPEnvelope</code></td>
 <td class="colLast"><span class="strong">SCTIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SCTIssuer.html#issue(org.apache.rahas.RahasData)">issue</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
 <div class="block">Issue a <code>SecurityContextToken</code> based on the wsse:Signature or
@@ -209,19 +261,21 @@
  </div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>org.apache.axiom.soap.SOAPEnvelope</code></td>
 <td class="colLast"><span class="strong">SAMLTokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenIssuer.html#issue(org.apache.rahas.RahasData)">issue</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code>org.apache.axiom.soap.SOAPEnvelope</code></td>
-<td class="colLast"><span class="strong">SAML2TokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#issue(org.apache.rahas.RahasData)">issue</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>&nbsp;</td>
-</tr>
 <tr class="altColor">
+<td class="colFirst"><code>org.apache.axiom.soap.SOAPEnvelope</code></td>
+<td class="colLast"><span class="strong">SAML2TokenIssuer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#issue(org.apache.rahas.RahasData)">issue</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This is the main method which issues SAML2 assertions as security token responses.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>org.apache.axiom.soap.SOAPEnvelope</code></td>
 <td class="colLast"><span class="strong">SAMLTokenRenewer.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenRenewer.html#renew(org.apache.rahas.RahasData)">renew</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>org.apache.axiom.soap.SOAPEnvelope</code></td>
 <td class="colLast"><span class="strong">SAMLTokenValidator.</span><code><strong><a href="../../../../org/apache/rahas/impl/SAMLTokenValidator.html#validate(org.apache.rahas.RahasData)">validate</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
 <div class="block">Returns a SOAPEnvelope with the result of the validation.</div>
@@ -259,8 +313,15 @@
 </tr>
 <tbody>
 <tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../org/apache/rahas/impl/util/SAMLCallbackHandler.html" title="interface in org.apache.rahas.impl.util">SAMLCallbackHandler</a></code></td>
+<td class="colLast"><span class="strong">CommonUtil.</span><code><strong><a href="../../../../org/apache/rahas/impl/util/CommonUtil.html#getSAMLCallbackHandler(org.apache.rahas.impl.SAMLTokenIssuerConfig, org.apache.rahas.RahasData)">getSAMLCallbackHandler</a></strong>(<a href="../../../../org/apache/rahas/impl/SAMLTokenIssuerConfig.html" title="class in org.apache.rahas.impl">SAMLTokenIssuerConfig</a>&nbsp;tokenIssuerConfiguration,
+                      <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">Gets the SAML callback handler.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static org.opensaml.xml.signature.KeyInfo</code></td>
-<td class="colLast"><span class="strong">SAMLUtils.</span><code><strong><a href="../../../../org/apache/rahas/impl/util/SAMLUtils.html#getSymmetricKeyBasedKeyInfo(org.w3c.dom.Document, org.apache.rahas.RahasData, java.security.cert.X509Certificate, int, org.apache.ws.security.components.crypto.Crypto, int)">getSymmetricKeyBasedKeyInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+<td class="colLast"><span class="strong">CommonUtil.</span><code><strong><a href="../../../../org/apache/rahas/impl/util/CommonUtil.html#getSymmetricKeyBasedKeyInfo(org.w3c.dom.Document, org.apache.rahas.RahasData, java.security.cert.X509Certificate, int, org.apache.ws.security.components.crypto.Crypto, int)">getSymmetricKeyBasedKeyInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
                            <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data,
                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;serviceCert,
                            int&nbsp;keySize,

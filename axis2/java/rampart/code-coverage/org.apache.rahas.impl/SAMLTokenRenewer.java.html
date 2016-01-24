@@ -88,85 +88,77 @@ import org.w3c.dom.Node;
                     wstVersion, rstrcElem);
         }
 
-        Crypto crypto;
-<span class="nc" id="L92">        ClassLoader classLoader = inMsgCtx.getAxisService().getClassLoader();</span>
-<span class="nc bnc" id="L93" title="All 2 branches missed.">        if (config.cryptoElement != null) {</span>
-            // crypto props defined as elements
-<span class="nc" id="L95">            crypto = CommonUtil.getCrypto(TrustUtil</span>
-                    .toProperties(config.cryptoElement), classLoader);
-        } else {
-            // crypto props defined in a properties file
-<span class="nc" id="L99">            crypto = CommonUtil.getCrypto(config.cryptoPropertiesFile, classLoader);</span>
-        }
+<span class="nc" id="L91">        ClassLoader classLoader = inMsgCtx.getAxisService().getClassLoader();</span>
+<span class="nc" id="L92">        Crypto crypto = config.getIssuerCrypto(classLoader);</span>
 
         // Create TokenType element
-<span class="nc" id="L103">        TrustUtil.createTokenTypeElement(wstVersion, rstrElem).setText(</span>
+<span class="nc" id="L95">        TrustUtil.createTokenTypeElement(wstVersion, rstrElem).setText(</span>
                 RahasConstants.TOK_TYPE_SAML_10);
 
         // Creation and expiration times
-<span class="nc" id="L107">        Date creationTime = new Date();</span>
-<span class="nc" id="L108">        Date expirationTime = new Date();</span>
-<span class="nc" id="L109">        expirationTime.setTime(creationTime.getTime() + config.ttl);</span>
+<span class="nc" id="L99">        Date creationTime = new Date();</span>
+<span class="nc" id="L100">        Date expirationTime = new Date();</span>
+<span class="nc" id="L101">        expirationTime.setTime(creationTime.getTime() + config.getTtl());</span>
 
         // Use GMT time in milliseconds
-<span class="nc" id="L112">        DateFormat zulu = new XmlSchemaDateFormat();</span>
+<span class="nc" id="L104">        DateFormat zulu = new XmlSchemaDateFormat();</span>
 
         // Add the Lifetime element
-<span class="nc" id="L115">        TrustUtil.createLifetimeElement(wstVersion, rstrElem, zulu</span>
+<span class="nc" id="L107">        TrustUtil.createLifetimeElement(wstVersion, rstrElem, zulu</span>
                 .format(creationTime), zulu.format(expirationTime));
 
         // Obtain the token
-<span class="nc" id="L119">        Token tk = tkStorage.getToken(data.getTokenId());</span>
+<span class="nc" id="L111">        Token tk = tkStorage.getToken(data.getTokenId());</span>
 
-<span class="nc" id="L121">        OMElement assertionOMElement = tk.getToken();</span>
+<span class="nc" id="L113">        OMElement assertionOMElement = tk.getToken();</span>
         Assertion samlAssertion;
 
+<span class="nc" id="L116">        samlAssertion = SAMLUtils.buildAssertion((Element) assertionOMElement);</span>
 
-<span class="nc" id="L125">        samlAssertion = SAMLUtils.buildAssertion((Element) assertionOMElement);</span>
-<span class="nc bnc" id="L126" title="All 2 branches missed.">        if (samlAssertion.getConditions() == null) {</span>
-<span class="nc" id="L127">            samlAssertion.setConditions((Conditions) SAMLUtils.buildXMLObject(Conditions.DEFAULT_ELEMENT_NAME));</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (samlAssertion.getConditions() == null) {</span>
+<span class="nc" id="L119">            samlAssertion.setConditions((Conditions) CommonUtil.buildXMLObject(Conditions.DEFAULT_ELEMENT_NAME));</span>
+
         }
 
-<span class="nc" id="L130">        samlAssertion.getConditions().setNotBefore(new DateTime(creationTime));</span>
-<span class="nc" id="L131">        samlAssertion.getConditions().setNotOnOrAfter(new DateTime(expirationTime));</span>
+<span class="nc" id="L123">        samlAssertion.getConditions().setNotBefore(new DateTime(creationTime));</span>
+<span class="nc" id="L124">        samlAssertion.getConditions().setNotOnOrAfter(new DateTime(expirationTime));</span>
 
         // sign the assertion
-<span class="nc" id="L134">        SAMLUtils.signAssertion(samlAssertion, crypto, config.getIssuerKeyAlias(), config.getIssuerKeyPassword());</span>
+<span class="nc" id="L127">        SAMLUtils.signAssertion(samlAssertion, crypto, config.getIssuerKeyAlias(), config.getIssuerKeyPassword());</span>
 
         // Create the RequestedSecurityToken element and add the SAML token
         // to it
-<span class="nc" id="L138">        OMElement reqSecTokenElem = TrustUtil</span>
+<span class="nc" id="L131">        OMElement reqSecTokenElem = TrustUtil</span>
                 .createRequestedSecurityTokenElement(wstVersion, rstrElem);
 
-<span class="nc" id="L141">        Node tempNode = samlAssertion.getDOM();</span>
-<span class="nc" id="L142">        reqSecTokenElem.addChild((OMNode) ((Element) rstrElem)</span>
+<span class="nc" id="L134">        Node tempNode = samlAssertion.getDOM();</span>
+<span class="nc" id="L135">        reqSecTokenElem.addChild((OMNode) ((Element) rstrElem)</span>
                 .getOwnerDocument().importNode(tempNode, true));
 
-<span class="nc" id="L145">        return env;</span>
-
+<span class="nc" id="L138">        return env;</span>
     }
 
     /**
      * {@inheritDoc}
      */
     public void setConfigurationFile(String configFile) {
-<span class="nc" id="L153">        this.configFile = configFile;</span>
+<span class="nc" id="L145">        this.configFile = configFile;</span>
 
-<span class="nc" id="L155">    }</span>
+<span class="nc" id="L147">    }</span>
     
     /**
      * {@inheritDoc}
      */
     public void setConfigurationElement(OMElement configElement) {
-<span class="nc" id="L161">        this.configElement = configElement;</span>
-<span class="nc" id="L162">    }</span>
+<span class="nc" id="L153">        this.configElement = configElement;</span>
+<span class="nc" id="L154">    }</span>
 
     /**
      * {@inheritDoc}
      */
     public void setConfigurationParamName(String configParamName) {
-<span class="nc" id="L168">        this.configParamName = configParamName;</span>
-<span class="nc" id="L169">    }</span>
+<span class="nc" id="L160">        this.configParamName = configParamName;</span>
+<span class="nc" id="L161">    }</span>
 
 
 }

@@ -99,7 +99,7 @@
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../org/apache/axis2/engine/AbstractDispatcher.html" title="class in org.apache.axis2.engine">AbstractDispatcher</a>, <a href="../../../../org/apache/axis2/dispatchers/AbstractOperationDispatcher.html" title="class in org.apache.axis2.dispatchers">AbstractOperationDispatcher</a>, <a href="../../../../org/apache/axis2/dispatchers/AbstractServiceDispatcher.html" title="class in org.apache.axis2.dispatchers">AbstractServiceDispatcher</a>, <a href="../../../../org/apache/axis2/handlers/AbstractTemplatedHandler.html" title="class in org.apache.axis2.handlers">AbstractTemplatedHandler</a>, <a href="../../../../org/apache/axis2/transport/base/AbstractTransportSender.html" title="class in org.apache.axis2.transport.base">AbstractTransportSender</a>, <a href="../../../../org/apache/axis2/handlers/addressing/AddressingInFaultHandler.html" title="class in org.apache.axis2.handlers.addressing">AddressingInFaultHandler</a>, <a href="../../../../org/apache/axis2/handlers/addressing/AddressingValidationHandler.html" title="class in org.apache.axis2.handlers.addressing">AddressingValidationHandler</a>, <a href="../../../../org/apache/axis2/transport/http/CommonsHTTPTransportSender.html" title="class in org.apache.axis2.transport.http">CommonsHTTPTransportSender</a>, <a href="../../../../org/apache/axis2/jaxws/client/dispatch/DispatchOperationHandler.html" title="class in org.apache.axis2.jaxws.client.dispatch">DispatchOperationHandler</a>, <a href="../../../../org/apache/axis2/engine/InstanceDispatcher.html" title="class in org.apache.axis2.engine">InstanceDispatcher</a>, <a href="../../../../org/apache/axis2/transport/java/JavaTransportSender.html" title="class in org.apache.axis2.transport.java">JavaTransportSender</a>, <a href="../../../../org/apache/axis2/transport/local/LocalResponder.html" title="class in org.apache.axis2.transport.local">LocalResponder</a>, <a href="../../../../org/apache/axis2/transport/local/LocalTransportSender.html" title="class in org.apache.axis2.transport.local">LocalTransportSender</a>, <a href="../../../../org/apache/axis2/mtompolicy/MTOMInHandler.html" title="class in org.apache.axis2.mtompolicy">MTOMInHandler</a>, <a href="../../../../org/apache/axis2/mtompolicy/MTOMOutHandler.html" title="class in org.apache.axis2.mtompolicy">MTOMOutHandler</a>, <a href="../../../../org/apache/axis2/clustering/RequestBlockingHandler.html" title="class in org.apache.axis2.clustering">RequestBlockingHandler</a>, <a href="../../../../org/apache/axis2/handlers/soapmonitor/SOAPMonitorHandler.html" title="class in org.apache.axis2.handlers.soapmonitor">SOAPMonitorHandler</a>, <a href="../../../../org/apache/axis2/saaj/util/UnderstandAllHeadersHandler.html" title="class in org.apache.axis2.saaj.util">UnderstandAllHeadersHandler</a>, <a href="../../../../org/apache/axis2/transport/xmpp/XMPPSender.html" title="class in org.apache.axis2.transport.xmpp">XMPPSender</a></dd>
+<dd><a href="../../../../org/apache/axis2/engine/AbstractDispatcher.html" title="class in org.apache.axis2.engine">AbstractDispatcher</a>, <a href="../../../../org/apache/axis2/dispatchers/AbstractOperationDispatcher.html" title="class in org.apache.axis2.dispatchers">AbstractOperationDispatcher</a>, <a href="../../../../org/apache/axis2/dispatchers/AbstractServiceDispatcher.html" title="class in org.apache.axis2.dispatchers">AbstractServiceDispatcher</a>, <a href="../../../../org/apache/axis2/handlers/AbstractTemplatedHandler.html" title="class in org.apache.axis2.handlers">AbstractTemplatedHandler</a>, <a href="../../../../org/apache/axis2/transport/base/AbstractTransportSender.html" title="class in org.apache.axis2.transport.base">AbstractTransportSender</a>, <a href="../../../../org/apache/axis2/handlers/addressing/AddressingInFaultHandler.html" title="class in org.apache.axis2.handlers.addressing">AddressingInFaultHandler</a>, <a href="../../../../org/apache/axis2/handlers/addressing/AddressingValidationHandler.html" title="class in org.apache.axis2.handlers.addressing">AddressingValidationHandler</a>, <a href="../../../../org/apache/axis2/transport/http/CommonsHTTPTransportSender.html" title="class in org.apache.axis2.transport.http">CommonsHTTPTransportSender</a>, <a href="../../../../org/apache/axis2/jaxws/client/dispatch/DispatchOperationHandler.html" title="class in org.apache.axis2.jaxws.client.dispatch">DispatchOperationHandler</a>, <a href="../../../../org/apache/axis2/transport/java/JavaTransportSender.html" title="class in org.apache.axis2.transport.java">JavaTransportSender</a>, <a href="../../../../org/apache/axis2/json/gson/JSONMessageHandler.html" title="class in org.apache.axis2.json.gson">JSONMessageHandler</a>, <a href="../../../../org/apache/axis2/transport/local/LocalResponder.html" title="class in org.apache.axis2.transport.local">LocalResponder</a>, <a href="../../../../org/apache/axis2/transport/local/LocalTransportSender.html" title="class in org.apache.axis2.transport.local">LocalTransportSender</a>, <a href="../../../../org/apache/axis2/mtompolicy/MTOMInHandler.html" title="class in org.apache.axis2.mtompolicy">MTOMInHandler</a>, <a href="../../../../org/apache/axis2/mtompolicy/MTOMOutHandler.html" title="class in org.apache.axis2.mtompolicy">MTOMOutHandler</a>, <a href="../../../../org/apache/axis2/clustering/RequestBlockingHandler.html" title="class in org.apache.axis2.clustering">RequestBlockingHandler</a>, <a href="../../../../org/apache/axis2/handlers/soapmonitor/SOAPMonitorHandler.html" title="class in org.apache.axis2.handlers.soapmonitor">SOAPMonitorHandler</a>, <a href="../../../../org/apache/axis2/saaj/util/UnderstandAllHeadersHandler.html" title="class in org.apache.axis2.saaj.util">UnderstandAllHeadersHandler</a>, <a href="../../../../org/apache/axis2/transport/xmpp/XMPPSender.html" title="class in org.apache.axis2.transport.xmpp">XMPPSender</a></dd>
 </dl>
 <hr>
 <br>
@@ -182,44 +182,37 @@ implements <a href="../../../../org/apache/axis2/engine/Handler.html" title="int
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/handlers/AbstractHandler.html#cleanup()">cleanup</a></strong>()</code>
-<div class="block">Since this might change the whole behavior of Axis2 handlers, and since this is still under discussion
- (http://marc.theaimsgroup.com/?</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/handlers/AbstractHandler.html#flowComplete(org.apache.axis2.context.MessageContext)">flowComplete</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
 <div class="block">This method will be called on each registered handler that had its
  invoke(...) method called during the processing of the message, once
  the message processing has completed.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/description/HandlerDescription.html" title="class in org.apache.axis2.description">HandlerDescription</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/handlers/AbstractHandler.html#getHandlerDesc()">getHandlerDesc</a></strong>()</code>
 <div class="block">Gets the phaseRule of a handler.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/handlers/AbstractHandler.html#getName()">getName</a></strong>()</code>
 <div class="block">Method getName.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/description/Parameter.html" title="class in org.apache.axis2.description">Parameter</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/handlers/AbstractHandler.html#getParameter(java.lang.String)">getParameter</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Method getParameter.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/handlers/AbstractHandler.html#init(org.apache.axis2.description.HandlerDescription)">init</a></strong>(<a href="../../../../org/apache/axis2/description/HandlerDescription.html" title="class in org.apache.axis2.description">HandlerDescription</a>&nbsp;handlerdesc)</code>
 <div class="block">Method init.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/handlers/AbstractHandler.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -288,22 +281,6 @@ implements <a href="../../../../org/apache/axis2/engine/Handler.html" title="int
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="cleanup()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>cleanup</h4>
-<pre>public&nbsp;void&nbsp;cleanup()</pre>
-<div class="block">Since this might change the whole behavior of Axis2 handlers, and since this is still under discussion
- (http://marc.theaimsgroup.com/?l=axis-dev&m=114504084929285&w=2) implementation of this method is deferred.
- Note : This method will not be automatically called, from Axis2 engine, until this is fully implemented.</div>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../org/apache/axis2/engine/Handler.html#cleanup()">cleanup</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/axis2/engine/Handler.html" title="interface in org.apache.axis2.engine">Handler</a></code></dd>
-</dl>
-</li>
-</ul>
 <a name="init(org.apache.axis2.description.HandlerDescription)">
 <!--   -->
 </a>

@@ -102,6 +102,8 @@
 <pre>public class <span class="strong">SAML2TokenIssuer</span>
 extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="../../../../org/apache/rahas/TokenIssuer.html" title="interface in org.apache.rahas">TokenIssuer</a></pre>
+<div class="block">WS-Trust based SAML2 token issuer. This issuer will generate request security token responses with SAML2
+ assertions.</div>
 </li>
 </ul>
 </div>
@@ -157,9 +159,55 @@ implements <a href="../../../../org/apache/rahas/TokenIssuer.html" title="interf
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected static org.opensaml.xml.XMLObject</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#buildXMLObject(javax.xml.namespace.QName)">buildXMLObject</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;objectQName)</code>
-<div class="block">This method is used to build the assertion elements</div>
+<td class="colFirst"><code>protected org.opensaml.saml2.core.Assertion</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#buildAssertion(org.w3c.dom.Document, org.apache.ws.security.components.crypto.Crypto, org.apache.rahas.RahasData)">buildAssertion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+              org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+              <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This methods builds the SAML2 assertion.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected org.opensaml.saml2.core.AttributeStatement</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createAttributeStatement(org.apache.rahas.RahasData)">createAttributeStatement</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This method creates an AttributeStatement.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected org.opensaml.saml2.core.AuthnStatement</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createAuthenticationStatement(org.apache.rahas.RahasData)">createAuthenticationStatement</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This method creates an authentication statement.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected org.opensaml.xml.signature.KeyInfo</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createKeyInfo(org.w3c.dom.Document, org.apache.ws.security.components.crypto.Crypto, org.apache.rahas.RahasData)">createKeyInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+             org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+             <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This method creates the KeyInfo relevant for the assertion.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected org.apache.axiom.soap.SOAPEnvelope</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createRequestSecurityTokenResponse(org.apache.rahas.RahasData, org.opensaml.saml2.core.Assertion, org.apache.axiom.soap.SOAPEnvelope)">createRequestSecurityTokenResponse</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;rahasData,
+                                  org.opensaml.saml2.core.Assertion&nbsp;assertion,
+                                  org.apache.axiom.soap.SOAPEnvelope&nbsp;soapEnvelope)</code>
+<div class="block">This method prepares the final response.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected org.opensaml.saml2.core.Subject</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createSubjectWithBearerSubjectConfirmation(org.apache.rahas.RahasData)">createSubjectWithBearerSubjectConfirmation</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This method creates a subject element with the bearer subject confirmation method.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected org.opensaml.saml2.core.Subject</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#createSubjectWithHolderOfKeySubjectConfirmation(org.w3c.dom.Document, org.apache.ws.security.components.crypto.Crypto, org.joda.time.DateTime, org.joda.time.DateTime, org.apache.rahas.RahasData)">createSubjectWithHolderOfKeySubjectConfirmation</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+                                               org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+                                               org.joda.time.DateTime&nbsp;creationTime,
+                                               org.joda.time.DateTime&nbsp;expirationTime,
+                                               <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
+<div class="block">This method will create a SAML 2 subject based on Holder of Key confirmation method.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -171,8 +219,7 @@ implements <a href="../../../../org/apache/rahas/TokenIssuer.html" title="interf
 <tr class="altColor">
 <td class="colFirst"><code>org.apache.axiom.soap.SOAPEnvelope</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#issue(org.apache.rahas.RahasData)">issue</a></strong>(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)</code>
-<div class="block">Create the response <code>soap:Envelope</code> for the given issue
- request.</div>
+<div class="block">This is the main method which issues SAML2 assertions as security token responses.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -194,10 +241,19 @@ implements <a href="../../../../org/apache/rahas/TokenIssuer.html" title="interf
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>org.opensaml.saml2.core.Assertion</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#setSignature(org.opensaml.saml2.core.Assertion, org.apache.rahas.impl.util.SignKeyHolder)">setSignature</a></strong>(org.opensaml.saml2.core.Assertion&nbsp;assertion,
-            <a href="../../../../org/apache/rahas/impl/util/SignKeyHolder.html" title="class in org.apache.rahas.impl.util">SignKeyHolder</a>&nbsp;cred)</code>
-<div class="block">This method is used to sign the assertion</div>
+<td class="colFirst"><code>protected static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#setSubjectNamedIdentifierData(org.opensaml.saml2.core.Subject, java.lang.String, java.lang.String)">setSubjectNamedIdentifierData</a></strong>(org.opensaml.saml2.core.Subject&nbsp;subject,
+                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;subjectNameId,
+                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;format)</code>
+<div class="block">This method will set the subject principal details to the given subject.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected org.opensaml.saml2.core.Assertion</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/rahas/impl/SAML2TokenIssuer.html#signAssertion(org.w3c.dom.Document, org.opensaml.saml2.core.Assertion, org.apache.ws.security.components.crypto.Crypto)">signAssertion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;document,
+             org.opensaml.saml2.core.Assertion&nbsp;assertion,
+             org.apache.ws.security.components.crypto.Crypto&nbsp;crypto)</code>
+<div class="block">This method signs the given assertion with issuer's private key.</div>
 </td>
 </tr>
 </table>
@@ -264,48 +320,299 @@ implements <a href="../../../../org/apache/rahas/TokenIssuer.html" title="interf
 <h4>issue</h4>
 <pre>public&nbsp;org.apache.axiom.soap.SOAPEnvelope&nbsp;issue(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)
                                          throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/apache/rahas/TokenIssuer.html#issue(org.apache.rahas.RahasData)">TokenIssuer</a></code></strong></div>
-<div class="block">Create the response <code>soap:Envelope</code> for the given issue
- request.</div>
+<div class="block">This is the main method which issues SAML2 assertions as security token responses. This method will
+ read issuer configuration and in message context properties (Basically request security token properties)
+ and will create a security token response with SAML2 assertion. The attributes are retrieved from a callback
+ class.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/rahas/TokenIssuer.html#issue(org.apache.rahas.RahasData)">issue</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/rahas/TokenIssuer.html" title="interface in org.apache.rahas">TokenIssuer</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>data</code> - A populated <code>RahasData</code> instance</dd>
-<dt><span class="strong">Returns:</span></dt><dd>The response <code>soap:Envelope</code> for the given issue
-         request.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>A SOAP message with security token response (as per ws-trust spec) with a SAML2 assertion.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the response.</dd></dl>
 </li>
 </ul>
-<a name="setSignature(org.opensaml.saml2.core.Assertion, org.apache.rahas.impl.util.SignKeyHolder)">
+<a name="createRequestSecurityTokenResponse(org.apache.rahas.RahasData, org.opensaml.saml2.core.Assertion, org.apache.axiom.soap.SOAPEnvelope)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setSignature</h4>
-<pre>public&nbsp;org.opensaml.saml2.core.Assertion&nbsp;setSignature(org.opensaml.saml2.core.Assertion&nbsp;assertion,
-                                             <a href="../../../../org/apache/rahas/impl/util/SignKeyHolder.html" title="class in org.apache.rahas.impl.util">SignKeyHolder</a>&nbsp;cred)
-                                               throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
-<div class="block">This method is used to sign the assertion</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>assertion</code> - </dd><dd><code>cred</code> - </dd>
-<dt><span class="strong">Returns:</span></dt><dd>Assertion</dd>
+<h4>createRequestSecurityTokenResponse</h4>
+<pre>protected&nbsp;org.apache.axiom.soap.SOAPEnvelope&nbsp;createRequestSecurityTokenResponse(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;rahasData,
+                                                                    org.opensaml.saml2.core.Assertion&nbsp;assertion,
+                                                                    org.apache.axiom.soap.SOAPEnvelope&nbsp;soapEnvelope)
+                                                                         throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method prepares the final response. This method will create a request security token response as
+ specified in WS-Trust specification. The equivalent XML would take following format,
+ <wst:RequestSecurityTokenResponse xmlns:wst="...">
+       <wst:TokenType>...</wst:TokenType>
+       <wst:RequestedSecurityToken>...</wst:RequestedSecurityToken>
+       ...
+       <wsp:AppliesTo xmlns:wsp="...”>...</wsp:AppliesTo>
+       <wst:RequestedAttachedReference>
+       ...
+       </wst:RequestedAttachedReference>
+       <wst:RequestedUnattachedReference>
+       ...
+       </wst:RequestedUnattachedReference>
+       <wst:RequestedProofToken>...</wst:RequestedProofToken>
+       <wst:Entropy>
+       <wst:BinarySecret>...</wst:BinarySecret>
+       </wst:Entropy>
+       <wst:Lifetime>...</wst:Lifetime>
+   </wst:RequestSecurityTokenResponse>
+
+   Thus the RequestedSecurityToken will have SAML2 assertion passed.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>rahasData</code> - The configuration data which comes with RST</dd><dd><code>assertion</code> - OpenSAM representation of SAML2 assertion.</dd><dd><code>soapEnvelope</code> - SOAP message envelope</dd>
+<dt><span class="strong">Returns:</span></dt><dd>SOAPEnvelope which includes RequestSecurityTokenResponse</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating RequestSecurityTokenResponse.</dd></dl>
 </li>
 </ul>
-<a name="buildXMLObject(javax.xml.namespace.QName)">
+<a name="buildAssertion(org.w3c.dom.Document, org.apache.ws.security.components.crypto.Crypto, org.apache.rahas.RahasData)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>buildXMLObject</h4>
-<pre>protected static&nbsp;org.opensaml.xml.XMLObject&nbsp;buildXMLObject(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;objectQName)
-                                                    throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
-<div class="block">This method is used to build the assertion elements</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>objectQName</code> - </dd>
-<dt><span class="strong">Returns:</span></dt><dd></dd>
+<h4>buildAssertion</h4>
+<pre>protected&nbsp;org.opensaml.saml2.core.Assertion&nbsp;buildAssertion(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+                                               org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+                                               <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)
+                                                    throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This methods builds the SAML2 assertion. The equivalent XML would look as follows,
+ <saml:Assertion
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      ID="b07b804c-7c29-ea16-7300-4f3d6f7928ac"
+      Version="2.0"
+      IssueInstant="2004-12-05T09:22:05Z">
+      <saml:Issuer>https://idp.example.org/SAML2</saml:Issuer>
+      <ds:Signature
+        xmlns:ds="http://www.w3.org/2000/09/xmldsig#">...</ds:Signature>
+      <saml:Subject>
+        <saml:NameID
+          Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">
+          3f7b3dcf-1674-4ecd-92c8-1544f346baf8
+        </saml:NameID>
+        <saml:SubjectConfirmation
+          Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+          <saml:SubjectConfirmationData
+            InResponseTo="aaf23196-1773-2113-474a-fe114412ab72"
+            Recipient="https://sp.example.com/SAML2/SSO/POST"
+            NotOnOrAfter="2004-12-05T09:27:05Z"/>
+        </saml:SubjectConfirmation>
+      </saml:Subject>
+      <saml:Conditions
+        NotBefore="2004-12-05T09:17:05Z"
+        NotOnOrAfter="2004-12-05T09:27:05Z">
+        <saml:AudienceRestriction>
+          <saml:Audience>https://sp.example.com/SAML2</saml:Audience>
+        </saml:AudienceRestriction>
+      </saml:Conditions>
+      <saml:AuthnStatement
+        AuthnInstant="2004-12-05T09:22:00Z"
+        SessionIndex="b07b804c-7c29-ea16-7300-4f3d6f7928ac">
+        <saml:AuthnContext>
+          <saml:AuthnContextClassRef>
+            urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+         </saml:AuthnContextClassRef>
+        </saml:AuthnContext>
+      </saml:AuthnStatement>
+      <saml:AttributeStatement>
+        <saml:Attribute
+          xmlns:x500="urn:oasis:names:tc:SAML:2.0:profiles:attribute:X500"
+          x500:Encoding="LDAP"
+          NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+          Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1"
+          FriendlyName="eduPersonAffiliation">
+          <saml:AttributeValue
+            xsi:type="xs:string">member</saml:AttributeValue>
+          <saml:AttributeValue
+            xsi:type="xs:string">staff</saml:AttributeValue>
+        </saml:Attribute>
+      </saml:AttributeStatement>
+    </saml:Assertion>
+
+    Reference - en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>doc</code> - The Document which comprises SAML 2 assertion.</dd><dd><code>crypto</code> - Crypto properties.</dd><dd><code>data</code> - The RST data and other configuration information.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of an Assertion.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the Assertion.</dd></dl>
+</li>
+</ul>
+<a name="createSubjectWithHolderOfKeySubjectConfirmation(org.w3c.dom.Document, org.apache.ws.security.components.crypto.Crypto, org.joda.time.DateTime, org.joda.time.DateTime, org.apache.rahas.RahasData)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSubjectWithHolderOfKeySubjectConfirmation</h4>
+<pre>protected&nbsp;org.opensaml.saml2.core.Subject&nbsp;createSubjectWithHolderOfKeySubjectConfirmation(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+                                                                              org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+                                                                              org.joda.time.DateTime&nbsp;creationTime,
+                                                                              org.joda.time.DateTime&nbsp;expirationTime,
+                                                                              <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)
+                                                                                   throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method will create a SAML 2 subject based on Holder of Key confirmation method.
+ The relevant XML would look as follows,
+ <saml2:Subject>
+       <saml2:NameID>
+           ...
+       </saml2:NameID>
+       <saml2:SubjectConfirmation
+               Method=”urn:oasis:names:tc:SAML:2.0:cm:holder-of-key”>
+           <saml2:SubjectConfirmationData
+                   xsi:type="saml2:KeyInfoConfirmationDataType">
+               <ds:KeyInfo>
+                   <ds:KeyValue>...</ds:KeyValue>
+               </ds:KeyInfo>
+           </saml2:SubjectConfirmationData>
+       </saml2:SubjectConfirmation>
+   </saml2:Subject>
+
+ KeyInfo can be created based on public key or symmetric key. That is decided by looking at
+ the RahasData.getKeyType. TODO make sure this implementation is correct.
+ Theoretically we should be able to have many subject confirmation methods in a SAML2 subject.
+ TODO - Do we need to support that ?</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>doc</code> - The original XML document which we need to include the assertion.</dd><dd><code>crypto</code> - The relevant crypto properties</dd><dd><code>creationTime</code> - The time that assertion was created.</dd><dd><code>expirationTime</code> - The expiring time</dd><dd><code>data</code> - The configuration data relevant request.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of the SAML2 object.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the subject.</dd></dl>
+</li>
+</ul>
+<a name="createSubjectWithBearerSubjectConfirmation(org.apache.rahas.RahasData)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSubjectWithBearerSubjectConfirmation</h4>
+<pre>protected&nbsp;org.opensaml.saml2.core.Subject&nbsp;createSubjectWithBearerSubjectConfirmation(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)
+                                                                              throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method creates a subject element with the bearer subject confirmation method.
+ <saml:Subject>
+       <saml:NameIdentifier
+                   NameQualifier="www.example.com"
+                   Format=“urn:oasis:names:tc:SAML:1.1:nameid-
+           format:X509SubjectName”>
+           uid=joe,ou=people,ou=saml-demo,o=baltimore.com
+       </saml:NameIdentifier>
+       <saml:SubjectConfirmation>
+           <saml:ConfirmationMethod>
+               urn:oasis:names:tc:SAML:1.0:cm:bearer
+           </saml:ConfirmationMethod>
+       </saml:SubjectConfirmation>
+   </saml:Subject></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>data</code> - RahasData element</dd>
+<dt><span class="strong">Returns:</span></dt><dd>SAML 2.0 Subject element with Bearer subject confirmation</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - if an error occurred while creating the subject.</dd></dl>
+</li>
+</ul>
+<a name="signAssertion(org.w3c.dom.Document, org.opensaml.saml2.core.Assertion, org.apache.ws.security.components.crypto.Crypto)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>signAssertion</h4>
+<pre>protected&nbsp;org.opensaml.saml2.core.Assertion&nbsp;signAssertion(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;document,
+                                              org.opensaml.saml2.core.Assertion&nbsp;assertion,
+                                              org.apache.ws.security.components.crypto.Crypto&nbsp;crypto)
+                                                   throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method signs the given assertion with issuer's private key.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>document</code> - The original RST document.</dd><dd><code>assertion</code> - Assertion to be signed.</dd><dd><code>crypto</code> - The cryptographic properties.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The signed assertion.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while signing the assertion.</dd></dl>
+</li>
+</ul>
+<a name="createAttributeStatement(org.apache.rahas.RahasData)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createAttributeStatement</h4>
+<pre>protected&nbsp;org.opensaml.saml2.core.AttributeStatement&nbsp;createAttributeStatement(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)
+                                                                       throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method creates an AttributeStatement. The relevant XML would look like as follows,
+ <saml:AttributeStatement>
+    <saml:Attribute
+      xmlns:x500="urn:oasis:names:tc:SAML:2.0:profiles:attribute:X500"
+      x500:Encoding="LDAP"
+      NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+      Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1"
+      FriendlyName="eduPersonAffiliation">
+      <saml:AttributeValue
+        xsi:type="xs:string">member</saml:AttributeValue>
+      <saml:AttributeValue
+        xsi:type="xs:string">staff</saml:AttributeValue>
+    </saml:Attribute>
+  </saml:AttributeStatement>
+  Reference -  http://en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>data</code> - The RahasData which carry information about RST.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>An AttributeStatement with filled attributes retrieved by calling callback class.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the AttributeStatement.</dd></dl>
+</li>
+</ul>
+<a name="createAuthenticationStatement(org.apache.rahas.RahasData)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createAuthenticationStatement</h4>
+<pre>protected&nbsp;org.opensaml.saml2.core.AuthnStatement&nbsp;createAuthenticationStatement(<a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)
+                                                                        throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method creates an authentication statement. The equivalent XML would look as follows,
+ <saml:AuthnStatement
+    AuthnInstant="2004-12-05T09:22:00Z"
+    SessionIndex="b07b804c-7c29-ea16-7300-4f3d6f7928ac">
+    <saml:AuthnContext>
+      <saml:AuthnContextClassRef>
+        urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+     </saml:AuthnContextClassRef>
+    </saml:AuthnContext>
+  </saml:AuthnStatement></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>data</code> - The RahasData which carry information about RST.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of an AuthnStatement class.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the authentication statement.</dd></dl>
+</li>
+</ul>
+<a name="setSubjectNamedIdentifierData(org.opensaml.saml2.core.Subject, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSubjectNamedIdentifierData</h4>
+<pre>protected static&nbsp;void&nbsp;setSubjectNamedIdentifierData(org.opensaml.saml2.core.Subject&nbsp;subject,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;subjectNameId,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;format)
+                                             throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method will set the subject principal details to the given subject.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>subject</code> - The subject.</dd><dd><code>subjectNameId</code> - Subject name id, to identify the principal</dd><dd><code>format</code> - Format of the subjectNameId, i.e. email, x509subject etc ...</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while building NameID.</dd></dl>
+</li>
+</ul>
+<a name="createKeyInfo(org.w3c.dom.Document, org.apache.ws.security.components.crypto.Crypto, org.apache.rahas.RahasData)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createKeyInfo</h4>
+<pre>protected&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;createKeyInfo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
+                                               org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
+                                               <a href="../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data)
+                                                    throws <a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">This method creates the KeyInfo relevant for the assertion. The KeyInfo could be created in 2 ways.
+ 1. Using symmetric key - KeyInfo is created using a symmetric key
+ 2. Using a public key - KeyInfo created using a public key
+ The methodology is decided by looking at RahasData.getKeyType() method.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>doc</code> - The document which we are processing.</dd><dd><code>crypto</code> - Includes crypto properties relevant to issuer.</dd><dd><code>data</code> - Includes metadata about the RST.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of KeyInfo.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the KeyInfo object.</dd></dl>
 </li>
 </ul>
 <a name="getResponseAction(org.apache.rahas.RahasData)">
@@ -324,7 +631,7 @@ implements <a href="../../../../org/apache/rahas/TokenIssuer.html" title="interf
 <dt><span class="strong">Parameters:</span></dt><dd><code>data</code> - A populated <code>RahasData</code> instance</dd>
 <dt><span class="strong">Returns:</span></dt><dd>Returns the <code>wsa:Action</code> of the response</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+<dd><code><a href="../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while during operation.</dd></dl>
 </li>
 </ul>
 <a name="setConfigurationFile(java.lang.String)">
@@ -342,7 +649,7 @@ implements <a href="../../../../org/apache/rahas/TokenIssuer.html" title="interf
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/rahas/TokenIssuer.html#setConfigurationFile(java.lang.String)">setConfigurationFile</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/rahas/TokenIssuer.html" title="interface in org.apache.rahas">TokenIssuer</a></code></dd>
-</dl>
+<dt><span class="strong">Parameters:</span></dt><dd><code>configFile</code> - Sets the token issuer configuration file.</dd></dl>
 </li>
 </ul>
 <a name="setConfigurationElement(org.apache.axiom.om.OMElement)">
@@ -379,7 +686,7 @@ implements <a href="../../../../org/apache/rahas/TokenIssuer.html" title="interf
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/apache/rahas/TokenIssuer.html#setConfigurationParamName(java.lang.String)">setConfigurationParamName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/rahas/TokenIssuer.html" title="interface in org.apache.rahas">TokenIssuer</a></code></dd>
-<dt><span class="strong">See Also:</span></dt><dd><code>Parameter</code></dd></dl>
+<dt><span class="strong">Parameters:</span></dt><dd><code>configParamName</code> - The configuration parameter to be set.</dd><dt><span class="strong">See Also:</span></dt><dd><code>Parameter</code></dd></dl>
 </li>
 </ul>
 </li>

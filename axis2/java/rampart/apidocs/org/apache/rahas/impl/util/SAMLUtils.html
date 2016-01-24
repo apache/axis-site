@@ -141,18 +141,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>static org.opensaml.xml.XMLObject</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#buildXMLObject(javax.xml.namespace.QName)">buildXMLObject</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;objectQName)</code>
-<div class="block">Builds the requested XMLObject.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static org.joda.time.DateTime</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#convertToDateTime(java.util.Date)">convertToDateTime</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date)</code>
-<div class="block">Converts java.util.Date to opensaml DateTime object.</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>static org.opensaml.saml1.core.Assertion</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#createAssertion(java.lang.String, org.joda.time.DateTime, org.joda.time.DateTime, java.util.List)">createAssertion</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerName,
                org.joda.time.DateTime&nbsp;notBefore,
@@ -247,26 +235,9 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getCertChainCollection(java.security.cert.X509Certificate[])">getCertChainCollection</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>[]&nbsp;issuerCerts)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static org.opensaml.xml.signature.KeyInfo</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getCertificateBasedKeyInfo(java.security.cert.X509Certificate)">getCertificateBasedKeyInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;certificate)</code>
-<div class="block">Creates the certificate based KeyInfo object.</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getSAML11SubjectConfirmationMethod(org.opensaml.saml1.core.Assertion)">getSAML11SubjectConfirmationMethod</a></strong>(org.opensaml.saml1.core.Assertion&nbsp;assertion)</code>
 <div class="block">Get subject confirmation method of the given SAML 1.1 Assertion.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static org.opensaml.xml.signature.KeyInfo</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAMLUtils.html#getSymmetricKeyBasedKeyInfo(org.w3c.dom.Document, org.apache.rahas.RahasData, java.security.cert.X509Certificate, int, org.apache.ws.security.components.crypto.Crypto, int)">getSymmetricKeyBasedKeyInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
-                           <a href="../../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data,
-                           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;serviceCert,
-                           int&nbsp;keySize,
-                           org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
-                           int&nbsp;keyComputation)</code>
-<div class="block">This method creates KeyInfo element of an assertion.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -324,21 +295,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <li class="blockList">
 <h4>getCertChainCollection</h4>
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&gt;&nbsp;getCertChainCollection(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>[]&nbsp;issuerCerts)</pre>
-</li>
-</ul>
-<a name="buildXMLObject(javax.xml.namespace.QName)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>buildXMLObject</h4>
-<pre>public static&nbsp;org.opensaml.xml.XMLObject&nbsp;buildXMLObject(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;objectQName)
-                                                 throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
-<div class="block">Builds the requested XMLObject.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>objectQName</code> - name of the XMLObject</dd>
-<dt><span class="strong">Returns:</span></dt><dd>the build XMLObject</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the appropriate builder.</dd></dl>
 </li>
 </ul>
 <a name="buildAssertion(org.w3c.dom.Element)">
@@ -690,7 +646,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <a name="createKeyInfo(org.opensaml.xml.signature.X509Data)">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>createKeyInfo</h4>
 <pre>public static&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;createKeyInfo(org.opensaml.xml.signature.X509Data&nbsp;x509Data)
@@ -705,59 +661,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <dt><span class="strong">Returns:</span></dt><dd>The appropriate opensaml representation of the KeyInfo.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the builder.</dd></dl>
-</li>
-</ul>
-<a name="getCertificateBasedKeyInfo(java.security.cert.X509Certificate)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCertificateBasedKeyInfo</h4>
-<pre>public static&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;getCertificateBasedKeyInfo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;certificate)
-                                                                     throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
-<div class="block">Creates the certificate based KeyInfo object.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>certificate</code> - The public key certificate used to create the KeyInfo object.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of KeyInfo object.</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating the KeyInfo</dd></dl>
-</li>
-</ul>
-<a name="getSymmetricKeyBasedKeyInfo(org.w3c.dom.Document, org.apache.rahas.RahasData, java.security.cert.X509Certificate, int, org.apache.ws.security.components.crypto.Crypto, int)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSymmetricKeyBasedKeyInfo</h4>
-<pre>public static&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;getSymmetricKeyBasedKeyInfo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc,
-                                                             <a href="../../../../../org/apache/rahas/RahasData.html" title="class in org.apache.rahas">RahasData</a>&nbsp;data,
-                                                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/cert/X509Certificate.html?is-external=true" title="class or interface in java.security.cert">X509Certificate</a>&nbsp;serviceCert,
-                                                             int&nbsp;keySize,
-                                                             org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
-                                                             int&nbsp;keyComputation)
-                                                                      throws org.apache.ws.security.WSSecurityException,
-                                                                             <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
-<div class="block">This method creates KeyInfo element of an assertion. This is a facade, in which it calls
- to other helper methods to create KeyInfo. The TokenIssuer will call this method to
- create the KeyInfo.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>doc</code> - An Axiom based DOM Document.</dd><dd><code>data</code> - The ephemeral key which we use here need in encrypting the message also. Therefore
-              we need to save the ephemeral key in RahasData passed here.</dd><dd><code>serviceCert</code> - Public key used to encrypt the assertion is extracted from this certificate.</dd><dd><code>keySize</code> - Size of the key to be used</dd><dd><code>crypto</code> - The relevant private key</dd><dd><code>keyComputation</code> - Key computation mechanism.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>OpenSAML KeyInfo representation.</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>org.apache.ws.security.WSSecurityException</code> - We use WSS4J to generate encrypted key. This exception will trigger if an
-                      error occurs while generating the encrypted key.</dd>
-<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If an error occurred while creating KeyInfo object.</dd></dl>
-</li>
-</ul>
-<a name="convertToDateTime(java.util.Date)">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>convertToDateTime</h4>
-<pre>public static&nbsp;org.joda.time.DateTime&nbsp;convertToDateTime(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date)</pre>
-<div class="block">Converts java.util.Date to opensaml DateTime object.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>date</code> - Java util date</dd>
-<dt><span class="strong">Returns:</span></dt><dd>opensaml specific DateTime object.</dd></dl>
 </li>
 </ul>
 </li>

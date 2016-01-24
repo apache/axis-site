@@ -196,6 +196,13 @@ implements javax.wsdl.xml.WSDLLocator, org.apache.woden.resolver.URIResolver</pr
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/resolver/AARBasedWSDLLocator.html#isAbsolute(java.lang.String)">isAbsolute</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;uri)</code>
+<div class="block">Override logic in DefaultURIResolver class
+ to include more schemes (protocols)</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net">URI</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/deployment/resolver/AARBasedWSDLLocator.html#resolveURI(java.net.URI)">resolveURI</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net">URI</a>&nbsp;uri)</code>&nbsp;</td>
 </tr>
@@ -205,7 +212,7 @@ implements javax.wsdl.xml.WSDLLocator, org.apache.woden.resolver.URIResolver</pr
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.ws.commons.schema.resolver.DefaultURIResolver</h3>
-<code>getCollectionBaseURI, getFileURL, getURL, isAbsolute, resolveEntity, setCollectionBaseURI</code></li>
+<code>getCollectionBaseURI, getFileURL, getURL, resolveEntity, setCollectionBaseURI</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -336,7 +343,7 @@ implements javax.wsdl.xml.WSDLLocator, org.apache.woden.resolver.URIResolver</pr
 <a name="resolveURI(java.net.URI)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>resolveURI</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net">URI</a>&nbsp;resolveURI(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URI.html?is-external=true" title="class or interface in java.net">URI</a>&nbsp;uri)
@@ -345,6 +352,22 @@ implements javax.wsdl.xml.WSDLLocator, org.apache.woden.resolver.URIResolver</pr
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code>org.apache.woden.WSDLException</code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="isAbsolute(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isAbsolute</h4>
+<pre>protected&nbsp;boolean&nbsp;isAbsolute(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;uri)</pre>
+<div class="block">Override logic in DefaultURIResolver class
+ to include more schemes (protocols)</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code>isAbsolute</code>&nbsp;in class&nbsp;<code>org.apache.ws.commons.schema.resolver.DefaultURIResolver</code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>uri</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd>boolean</dd></dl>
 </li>
 </ul>
 </li>

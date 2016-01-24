@@ -116,6 +116,9 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../org/apache/rahas/RahasData.html#RahasData()">RahasData</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><strong><a href="../../../org/apache/rahas/RahasData.html#RahasData(org.apache.axis2.context.MessageContext)">RahasData</a></strong>(org.apache.axis2.context.MessageContext&nbsp;inMessageContext)</code>
 <div class="block">Create a new RahasData instance and populate it with the information from
  the request.</div>
@@ -149,6 +152,14 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getAppliesToEpr()">getAppliesToEpr</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getAssertionCreatedDate()">getAssertionCreatedDate</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getAssertionExpiringDate()">getAssertionExpiringDate</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getClaimDialect()">getClaimDialect</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -174,57 +185,87 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getKeysize()">getKeysize</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getKeysize()">getKeysize</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>As of Rampart 1.7. Use <code>getKeySize</code>.</i></div>
+</div>
+</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getKeyType()">getKeyType</a></strong>()</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getKeySize()">getKeySize</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getKeyType()">getKeyType</a></strong>()</code>
+<div class="block">// TODO changes this keytype to an enumeration</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/security/Principal.html?is-external=true" title="class or interface in java.security">Principal</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getPrincipal()">getPrincipal</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getRequestEntropy()">getRequestEntropy</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getRequestType()">getRequestType</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getResponseEntropy()">getResponseEntropy</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>org.apache.axiom.om.OMElement</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getRstElement()">getRstElement</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getSoapNs()">getSoapNs</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getTokenId()">getTokenId</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getTokenType()">getTokenType</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getVersion()">getVersion</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#getWstNs()">getWstNs</a></strong>()</code>&nbsp;</td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#setAssertionCreatedDate(java.util.Date)">setAssertionCreatedDate</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;assertionCreatedDate)</code>&nbsp;</td>
+</tr>
 <tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#setAssertionExpiringDate(java.util.Date)">setAssertionExpiringDate</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;assertionExpiringDate)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#setEphmeralKey(byte[])">setEphmeralKey</a></strong>(byte[]&nbsp;ephmeralKey)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#setInMessageContext(org.apache.axis2.context.MessageContext)">setInMessageContext</a></strong>(org.apache.axis2.context.MessageContext&nbsp;context)</code>
+<div class="block">Sets the given message context as in message context.</div>
+</td>
+</tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#setKeySize(int)">setKeySize</a></strong>(int&nbsp;size)</code>
+<div class="block">Sets the key size.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/apache/rahas/RahasData.html#setResponseEntropy(byte[])">setResponseEntropy</a></strong>(byte[]&nbsp;responseEntropy)</code>&nbsp;</td>
 </tr>
@@ -253,7 +294,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <a name="RahasData(org.apache.axis2.context.MessageContext)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>RahasData</h4>
 <pre>public&nbsp;RahasData(org.apache.axis2.context.MessageContext&nbsp;inMessageContext)
@@ -262,6 +303,15 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
  the request.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - <code>RequestSecurityToken</code> element is invalid.</dd></dl>
+</li>
+</ul>
+<a name="RahasData()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>RahasData</h4>
+<pre>public&nbsp;RahasData()</pre>
 </li>
 </ul>
 </li>
@@ -322,14 +372,48 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <dl><dt><span class="strong">Returns:</span></dt><dd>Returns the inMessageContext.</dd></dl>
 </li>
 </ul>
+<a name="setInMessageContext(org.apache.axis2.context.MessageContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setInMessageContext</h4>
+<pre>public&nbsp;void&nbsp;setInMessageContext(org.apache.axis2.context.MessageContext&nbsp;context)</pre>
+<div class="block">Sets the given message context as in message context.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The message context.</dd></dl>
+</li>
+</ul>
 <a name="getKeysize()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getKeysize</h4>
-<pre>public&nbsp;int&nbsp;getKeysize()</pre>
+<pre><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;int&nbsp;getKeysize()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>As of Rampart 1.7. Use <code>getKeySize</code>.</i></div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>Returns the keysize.</dd></dl>
+</li>
+</ul>
+<a name="getKeySize()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getKeySize</h4>
+<pre>public&nbsp;int&nbsp;getKeySize()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Returns the keySize.</dd></dl>
+</li>
+</ul>
+<a name="setKeySize(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setKeySize</h4>
+<pre>public&nbsp;void&nbsp;setKeySize(int&nbsp;size)</pre>
+<div class="block">Sets the key size.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>size</code> - Size of the key.</dd></dl>
 </li>
 </ul>
 <a name="getKeyType()">
@@ -339,6 +423,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <li class="blockList">
 <h4>getKeyType</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getKeyType()</pre>
+<div class="block">// TODO changes this keytype to an enumeration</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>Returns the keyType.</dd></dl>
 </li>
 </ul>
@@ -493,10 +578,46 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <a name="getAppliesToEpr()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getAppliesToEpr</h4>
 <pre>public&nbsp;org.apache.axiom.om.OMElement&nbsp;getAppliesToEpr()</pre>
+</li>
+</ul>
+<a name="getAssertionCreatedDate()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAssertionCreatedDate</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;getAssertionCreatedDate()</pre>
+</li>
+</ul>
+<a name="setAssertionCreatedDate(java.util.Date)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAssertionCreatedDate</h4>
+<pre>public&nbsp;void&nbsp;setAssertionCreatedDate(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;assertionCreatedDate)</pre>
+</li>
+</ul>
+<a name="getAssertionExpiringDate()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAssertionExpiringDate</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;getAssertionExpiringDate()</pre>
+</li>
+</ul>
+<a name="setAssertionExpiringDate(java.util.Date)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setAssertionExpiringDate</h4>
+<pre>public&nbsp;void&nbsp;setAssertionExpiringDate(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;assertionExpiringDate)</pre>
 </li>
 </ul>
 </li>

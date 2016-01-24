@@ -35,7 +35,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/axis2/receivers/AbstractInOutSyncMessageReceiver.html" title="class in org.apache.axis2.receivers"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/receivers/AbstractInOutMessageReceiver.html" title="class in org.apache.axis2.receivers"><span class="strong">Prev Class</span></a></li>
 <li><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.AsyncMessageReceiverWorker.html" title="class in org.apache.axis2.receivers"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -99,7 +99,7 @@
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../org/apache/axis2/receivers/AbstractInMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInMessageReceiver</a>, <a href="../../../../org/apache/axis2/receivers/AbstractInOutMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInOutMessageReceiver</a>, <a href="../../../../org/apache/axis2/receivers/AbstractInOutSyncMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInOutSyncMessageReceiver</a>, <a href="../../../../org/apache/axis2/receivers/AbstractRobustInMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractRobustInMessageReceiver</a></dd>
+<dd><a href="../../../../org/apache/axis2/receivers/AbstractInOutMessageReceiver.html" title="class in org.apache.axis2.receivers">AbstractInOutMessageReceiver</a>, <a href="../../../../org/apache/axis2/corba/receivers/CorbaInOnlyMessageReceiver.html" title="class in org.apache.axis2.corba.receivers">CorbaInOnlyMessageReceiver</a>, <a href="../../../../org/apache/axis2/receivers/RawXMLINOnlyMessageReceiver.html" title="class in org.apache.axis2.receivers">RawXMLINOnlyMessageReceiver</a>, <a href="../../../../org/apache/axis2/receivers/RawXMLINOutMessageReceiver.html" title="class in org.apache.axis2.receivers">RawXMLINOutMessageReceiver</a>, <a href="../../../../org/apache/axis2/rpc/receivers/RPCInOnlyMessageReceiver.html" title="class in org.apache.axis2.rpc.receivers">RPCInOnlyMessageReceiver</a>, <a href="../../../../org/apache/axis2/rpc/receivers/RPCInOutAsyncMessageReceiver.html" title="class in org.apache.axis2.rpc.receivers">RPCInOutAsyncMessageReceiver</a></dd>
 </dl>
 <hr>
 <br>
@@ -127,10 +127,6 @@ implements <a href="../../../../org/apache/axis2/engine/MessageReceiver.html" ti
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.AsyncMessageReceiverWorker.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.AsyncMessageReceiverWorker</a></strong></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.ThreadContextDescriptor.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.ThreadContextDescriptor</a></strong></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -235,14 +231,7 @@ implements <a href="../../../../org/apache/axis2/engine/MessageReceiver.html" ti
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#restoreThreadContext(org.apache.axis2.receivers.AbstractMessageReceiver.ThreadContextDescriptor)">restoreThreadContext</a></strong>(<a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.ThreadContextDescriptor.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.ThreadContextDescriptor</a>&nbsp;tc)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.ThreadContextDescriptor.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.ThreadContextDescriptor</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#setThreadContext(org.apache.axis2.context.MessageContext)">setThreadContext</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
-<div class="block">Several pieces of information need to be available to the service
- implementation class.</div>
-</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.html#restoreThreadContext(org.apache.axis2.classloader.ThreadContextDescriptor)">restoreThreadContext</a></strong>(<a href="../../../../org/apache/axis2/classloader/ThreadContextDescriptor.html" title="class in org.apache.axis2.classloader">ThreadContextDescriptor</a>&nbsp;tc)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -391,29 +380,13 @@ implements <a href="../../../../org/apache/axis2/engine/MessageReceiver.html" ti
 <dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - if a problem occurred</dd></dl>
 </li>
 </ul>
-<a name="setThreadContext(org.apache.axis2.context.MessageContext)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setThreadContext</h4>
-<pre>protected&nbsp;<a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.ThreadContextDescriptor.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.ThreadContextDescriptor</a>&nbsp;setThreadContext(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</pre>
-<div class="block">Several pieces of information need to be available to the service
- implementation class.  For one, the ThreadContextClassLoader needs
- to be correct, and for another we need to give the service code
- access to the MessageContext (getCurrentContext()).  So we toss these
- things in TLS.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - the current MessageContext</dd>
-<dt><span class="strong">Returns:</span></dt><dd>a ThreadContextDescriptor containing the old values</dd></dl>
-</li>
-</ul>
-<a name="restoreThreadContext(org.apache.axis2.receivers.AbstractMessageReceiver.ThreadContextDescriptor)">
+<a name="restoreThreadContext(org.apache.axis2.classloader.ThreadContextDescriptor)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>restoreThreadContext</h4>
-<pre>protected&nbsp;void&nbsp;restoreThreadContext(<a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.ThreadContextDescriptor.html" title="class in org.apache.axis2.receivers">AbstractMessageReceiver.ThreadContextDescriptor</a>&nbsp;tc)</pre>
+<pre>protected&nbsp;void&nbsp;restoreThreadContext(<a href="../../../../org/apache/axis2/classloader/ThreadContextDescriptor.html" title="class in org.apache.axis2.classloader">ThreadContextDescriptor</a>&nbsp;tc)</pre>
 </li>
 </ul>
 <a name="makeNewServiceObject(org.apache.axis2.context.MessageContext)">
@@ -487,7 +460,7 @@ implements <a href="../../../../org/apache/axis2/engine/MessageReceiver.html" ti
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/apache/axis2/receivers/AbstractInOutSyncMessageReceiver.html" title="class in org.apache.axis2.receivers"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/receivers/AbstractInOutMessageReceiver.html" title="class in org.apache.axis2.receivers"><span class="strong">Prev Class</span></a></li>
 <li><a href="../../../../org/apache/axis2/receivers/AbstractMessageReceiver.AsyncMessageReceiverWorker.html" title="class in org.apache.axis2.receivers"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">

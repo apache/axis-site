@@ -136,14 +136,14 @@ import java.util.Date;
 
 <span class="fc" id="L137">            OMElement reqAttachedRef = null;</span>
 <span class="fc" id="L138">            OMElement reqUnattachedRef = null;</span>
-<span class="pc bpc" id="L139" title="1 of 2 branches missed.">            if (config.addRequestedAttachedRef) {</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">            if (config.isAddRequestedAttachedRef()) {</span>
 <span class="fc" id="L140">                reqAttachedRef = TrustUtil.createRequestedAttachedRef(wstVersion,</span>
                                                          rstrElem,
                                                          &quot;#&quot; + sct.getID(),
                                                          tokenType);
             }
 
-<span class="pc bpc" id="L146" title="1 of 2 branches missed.">            if (config.addRequestedUnattachedRef) {</span>
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">            if (config.isAddRequestedUnattachedRef()) {</span>
 <span class="fc" id="L147">                reqUnattachedRef = TrustUtil.createRequestedUnattachedRef(wstVersion,</span>
                                                            rstrElem,
                                                            sct.getIdentifier(),
@@ -154,7 +154,7 @@ import java.util.Date;
 <span class="fc" id="L154">            Date creationTime = new Date();</span>
 <span class="fc" id="L155">            Date expirationTime = new Date();</span>
 
-<span class="fc" id="L157">            expirationTime.setTime(creationTime.getTime() + config.ttl);</span>
+<span class="fc" id="L157">            expirationTime.setTime(creationTime.getTime() + config.getTtl());</span>
 
             // Use GMT time in milliseconds
 <span class="fc" id="L160">            DateFormat zulu = new XmlSchemaDateFormat();</span>
@@ -171,15 +171,15 @@ import java.util.Date;
                                        creationTime,
                                        expirationTime);
             
-<span class="pc bpc" id="L174" title="1 of 2 branches missed.">            if(config.addRequestedAttachedRef) {</span>
+<span class="pc bpc" id="L174" title="1 of 2 branches missed.">            if(config.isAddRequestedAttachedRef()) {</span>
 <span class="fc" id="L175">                sctToken.setAttachedReference(reqAttachedRef.getFirstElement());</span>
             }
             
-<span class="pc bpc" id="L178" title="1 of 2 branches missed.">            if(config.addRequestedUnattachedRef) {</span>
+<span class="pc bpc" id="L178" title="1 of 2 branches missed.">            if(config.isAddRequestedUnattachedRef()) {</span>
 <span class="fc" id="L179">                sctToken.setUnattachedReference(reqUnattachedRef.getFirstElement());</span>
             }
 
-<span class="fc" id="L182">            byte[] secret = TokenIssuerUtil.getSharedSecret(data, config.keyComputation, config.keySize);</span>
+<span class="fc" id="L182">            byte[] secret = TokenIssuerUtil.getSharedSecret(data, config.getKeyComputation(), config.getKeySize());</span>
 <span class="fc" id="L183">            sctToken.setSecret(secret);</span>
             
             //Add the RequestedProofToken

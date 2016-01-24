@@ -36,7 +36,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/axis2/transport/http/CommonsHTTPTransportSender.html" title="class in org.apache.axis2.transport.http"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../../org/apache/axis2/transport/http/HTTPConstants.html" title="class in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/transport/http/HTTPAuthenticator.html" title="class in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/axis2/transport/http/CommonsTransportHeaders.html" target="_top">Frames</a></li>
@@ -97,9 +97,13 @@
 <dt>All Implemented Interfaces:</dt>
 <dd><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a></dd>
 </dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../../org/apache/axis2/transport/http/impl/httpclient3/HTTPTransportHeaders.html" title="class in org.apache.axis2.transport.http.impl.httpclient3">HTTPTransportHeaders</a>, <a href="../../../../../org/apache/axis2/transport/http/impl/httpclient4/HTTPTransportHeaders.html" title="class in org.apache.axis2.transport.http.impl.httpclient4">HTTPTransportHeaders</a></dd>
+</dl>
 <hr>
 <br>
-<pre>public class <span class="strong">CommonsTransportHeaders</span>
+<pre>public abstract class <span class="strong">CommonsTransportHeaders</span>
 extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a></pre>
 </li>
@@ -135,7 +139,7 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.h
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html#CommonsTransportHeaders(org.apache.commons.httpclient.Header[])">CommonsTransportHeaders</a></strong>(org.apache.commons.httpclient.Header[]&nbsp;headers)</code>&nbsp;</td>
+<td class="colOne"><code><strong><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html#CommonsTransportHeaders()">CommonsTransportHeaders</a></strong>()</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -173,6 +177,14 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.h
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html#get(java.lang.Object)">get</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html#getHeaderMap()">getHeaderMap</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html#init()">init</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html#isEmpty()">isEmpty</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -194,10 +206,14 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.h
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html#remove(java.lang.Object)">remove</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html#setHeaderMap(java.util.HashMap)">setHeaderMap</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;headerMap)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html#size()">size</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html#values()">values</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -230,13 +246,13 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.h
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="CommonsTransportHeaders(org.apache.commons.httpclient.Header[])">
+<a name="CommonsTransportHeaders()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CommonsTransportHeaders</h4>
-<pre>public&nbsp;CommonsTransportHeaders(org.apache.commons.httpclient.Header[]&nbsp;headers)</pre>
+<pre>public&nbsp;CommonsTransportHeaders()</pre>
 </li>
 </ul>
 </li>
@@ -247,6 +263,15 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.h
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="init()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>init</h4>
+<pre>protected abstract&nbsp;void&nbsp;init()</pre>
+</li>
+</ul>
 <a name="size()">
 <!--   -->
 </a>
@@ -393,7 +418,7 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.h
 <a name="put(java.lang.Object, java.lang.Object)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>put</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;put(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
@@ -402,6 +427,24 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.h
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true#put(K, V)" title="class or interface in java.util">put</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="getHeaderMap()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHeaderMap</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;getHeaderMap()</pre>
+</li>
+</ul>
+<a name="setHeaderMap(java.util.HashMap)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setHeaderMap</h4>
+<pre>public&nbsp;void&nbsp;setHeaderMap(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;headerMap)</pre>
 </li>
 </ul>
 </li>
@@ -431,7 +474,7 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.h
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/axis2/transport/http/CommonsHTTPTransportSender.html" title="class in org.apache.axis2.transport.http"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../../org/apache/axis2/transport/http/HTTPConstants.html" title="class in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/transport/http/HTTPAuthenticator.html" title="class in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/axis2/transport/http/CommonsTransportHeaders.html" target="_top">Frames</a></li>

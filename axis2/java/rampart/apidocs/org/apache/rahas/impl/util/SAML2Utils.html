@@ -133,6 +133,26 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.saml2.core.Assertion</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAML2Utils.html#createAssertion()">createAssertion</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.opensaml.saml2.core.Conditions</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAML2Utils.html#createConditions(org.joda.time.DateTime, org.joda.time.DateTime)">createConditions</a></strong>(org.joda.time.DateTime&nbsp;creationTime,
+                org.joda.time.DateTime&nbsp;expirationTime)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static org.opensaml.saml2.core.Issuer</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAML2Utils.html#createIssuer(java.lang.String)">createIssuer</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerName)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static org.opensaml.saml2.core.NameID</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAML2Utils.html#createNamedIdentifier(java.lang.String, java.lang.String)">createNamedIdentifier</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;principalName,
+                     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;format)</code>
+<div class="block">Create named identifier.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Element.html?is-external=true" title="class or interface in org.w3c.dom">Element</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rahas/impl/util/SAML2Utils.html#getElementFromAssertion(org.opensaml.xml.XMLObject)">getElementFromAssertion</a></strong>(org.opensaml.xml.XMLObject&nbsp;xmlObj)</code>&nbsp;</td>
 </tr>
@@ -216,14 +236,12 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <pre>public static&nbsp;<a href="../../../../../org/apache/rahas/impl/util/SAML2KeyInfo.html" title="class in org.apache.rahas.impl.util">SAML2KeyInfo</a>&nbsp;getSAML2KeyInfo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/org/w3c/dom/Element.html?is-external=true" title="class or interface in org.w3c.dom">Element</a>&nbsp;elem,
                            org.apache.ws.security.components.crypto.Crypto&nbsp;crypto,
                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/security/auth/callback/CallbackHandler.html?is-external=true" title="class or interface in javax.security.auth.callback">CallbackHandler</a>&nbsp;cb)
-                                    throws org.apache.ws.security.WSSecurityException,
-                                           <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+                                    throws org.apache.ws.security.WSSecurityException</pre>
 <div class="block">Extract certificates or the key available in the SAMLAssertion</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>elem</code> - </dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>elem</code> - The element to process.</dd><dd><code>crypto</code> - The crypto properties.</dd><dd><code>cb</code> - Callback class to get the Key</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the SAML2 Key Info</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>org.apache.ws.security.WSSecurityException</code></dd>
-<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+<dd><code>org.apache.ws.security.WSSecurityException</code> - If an error occurred while extracting KeyInfo.</dd></dl>
 </li>
 </ul>
 <a name="getSAML2KeyInfo(org.opensaml.saml2.core.Assertion, org.apache.ws.security.components.crypto.Crypto, javax.security.auth.callback.CallbackHandler)">
@@ -243,13 +261,66 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <a name="getSAML2SubjectConfirmationMethod(org.opensaml.saml2.core.Assertion)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getSAML2SubjectConfirmationMethod</h4>
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSAML2SubjectConfirmationMethod(org.opensaml.saml2.core.Assertion&nbsp;assertion)</pre>
 <div class="block">Get the subject confirmation method of a SAML 2.0 assertion</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>assertion</code> - SAML 2.0 assertion</dd>
 <dt><span class="strong">Returns:</span></dt><dd>Subject Confirmation method</dd></dl>
+</li>
+</ul>
+<a name="createAssertion()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createAssertion</h4>
+<pre>public static&nbsp;org.opensaml.saml2.core.Assertion&nbsp;createAssertion()
+                                                         throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createIssuer(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createIssuer</h4>
+<pre>public static&nbsp;org.opensaml.saml2.core.Issuer&nbsp;createIssuer(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;issuerName)
+                                                   throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createConditions(org.joda.time.DateTime, org.joda.time.DateTime)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createConditions</h4>
+<pre>public static&nbsp;org.opensaml.saml2.core.Conditions&nbsp;createConditions(org.joda.time.DateTime&nbsp;creationTime,
+                                                  org.joda.time.DateTime&nbsp;expirationTime)
+                                                           throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createNamedIdentifier(java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>createNamedIdentifier</h4>
+<pre>public static&nbsp;org.opensaml.saml2.core.NameID&nbsp;createNamedIdentifier(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;principalName,
+                                                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;format)
+                                                            throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
+<div class="block">Create named identifier.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>principalName</code> - Name of the subject.</dd><dd><code>format</code> - Format of the subject, whether it is an email, uid etc ...</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The NamedIdentifier object.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></code> - If unable to find the builder.</dd></dl>
 </li>
 </ul>
 </li>

@@ -36,7 +36,6 @@ import org.apache.ws.secpolicy.model.SignedEncryptedParts;
 import org.apache.ws.secpolicy.model.SupportingToken;
 import org.apache.ws.secpolicy.model.SymmetricAsymmetricBindingBase;
 import org.apache.ws.secpolicy.model.SymmetricBinding;
-import org.apache.ws.secpolicy.model.TokenWrapper;
 import org.apache.ws.secpolicy.model.TransportBinding;
 import org.apache.ws.secpolicy.model.TransportToken;
 import org.apache.ws.secpolicy.model.Trust10;
@@ -46,9 +45,9 @@ import org.apache.ws.secpolicy.model.Wss11;
 import java.util.Iterator;
 import java.util.List;
 
-<span class="nc" id="L49">public class RampartPolicyBuilder {</span>
+<span class="nc" id="L48">public class RampartPolicyBuilder {</span>
     
-<span class="fc" id="L51">    private static Log log = LogFactory.getLog(RampartPolicyBuilder.class);</span>
+<span class="fc" id="L50">    private static Log log = LogFactory.getLog(RampartPolicyBuilder.class);</span>
 
     /**
      * Compile the parsed security data into one Policy data block.
@@ -65,66 +64,66 @@ import java.util.List;
      * 
      * @param topLevelAssertions
      *            The iterator of the top level policy assertions
-     * @return The compile Poilcy data block.
+     * @return The compile Policy data block.
      * @throws WSSPolicyException
      */
-    public static RampartPolicyData build(List topLevelAssertions)
+    public static RampartPolicyData build(List&lt;Assertion&gt; topLevelAssertions)
             throws WSSPolicyException {
         
-<span class="fc" id="L74">        RampartPolicyData rpd = new RampartPolicyData();</span>
+<span class="fc" id="L73">        RampartPolicyData rpd = new RampartPolicyData();</span>
         
-<span class="fc bfc" id="L76" title="All 2 branches covered.">        for (Iterator iter = topLevelAssertions.iterator(); iter.hasNext();) {</span>
-<span class="fc" id="L77">            Assertion assertion = (Assertion) iter.next();</span>
-<span class="fc bfc" id="L78" title="All 2 branches covered.">            if (assertion instanceof Binding) {</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        for (Iterator&lt;Assertion&gt; iter = topLevelAssertions.iterator(); iter.hasNext();) {</span>
+<span class="fc" id="L76">            Assertion assertion = (Assertion) iter.next();</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">            if (assertion instanceof Binding) {</span>
 
-<span class="fc" id="L80">                setWebServiceSecurityPolicyNS(assertion, rpd);</span>
+<span class="fc" id="L79">                setWebServiceSecurityPolicyNS(assertion, rpd);</span>
 
-<span class="fc bfc" id="L82" title="All 2 branches covered.">                if (assertion instanceof SymmetricBinding) {</span>
-<span class="fc" id="L83">                    processSymmetricPolicyBinding((SymmetricBinding) assertion, rpd);</span>
-<span class="fc bfc" id="L84" title="All 2 branches covered.">                } else if(assertion instanceof AsymmetricBinding) {</span>
-<span class="fc" id="L85">                    processAsymmetricPolicyBinding((AsymmetricBinding) assertion, rpd);</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">                if (assertion instanceof SymmetricBinding) {</span>
+<span class="fc" id="L82">                    processSymmetricPolicyBinding((SymmetricBinding) assertion, rpd);</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">                } else if(assertion instanceof AsymmetricBinding) {</span>
+<span class="fc" id="L84">                    processAsymmetricPolicyBinding((AsymmetricBinding) assertion, rpd);</span>
                 } else {
-<span class="fc" id="L87">                    processTransportBinding((TransportBinding) assertion, rpd);</span>
+<span class="fc" id="L86">                    processTransportBinding((TransportBinding) assertion, rpd);</span>
                 }
                 
                 /*
                  * Don't change the order of Wss11 / Wss10 instance checks
                  * because Wss11 extends Wss10 - thus first check Wss11.
                  */
-<span class="fc bfc" id="L94" title="All 2 branches covered.">            } else if (assertion instanceof Wss11) {</span>
-<span class="fc" id="L95">                processWSS11((Wss11) assertion, rpd);</span>
-<span class="fc bfc" id="L96" title="All 2 branches covered.">            } else if (assertion instanceof Wss10) {</span>
-<span class="fc" id="L97">                processWSS10((Wss10) assertion, rpd);</span>
-<span class="fc bfc" id="L98" title="All 2 branches covered.">            } else if (assertion instanceof SignedEncryptedElements) {</span>
-<span class="fc" id="L99">                processSignedEncryptedElements((SignedEncryptedElements) assertion,</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">            } else if (assertion instanceof Wss11) {</span>
+<span class="fc" id="L94">                processWSS11((Wss11) assertion, rpd);</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">            } else if (assertion instanceof Wss10) {</span>
+<span class="fc" id="L96">                processWSS10((Wss10) assertion, rpd);</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">            } else if (assertion instanceof SignedEncryptedElements) {</span>
+<span class="fc" id="L98">                processSignedEncryptedElements((SignedEncryptedElements) assertion,</span>
                         rpd);
-<span class="fc bfc" id="L101" title="All 2 branches covered.">            } else if (assertion instanceof SignedEncryptedParts) {</span>
-<span class="fc" id="L102">                processSignedEncryptedParts((SignedEncryptedParts) assertion, rpd);</span>
-<span class="fc bfc" id="L103" title="All 2 branches covered.">            } else if ( assertion instanceof RequiredElements) {   </span>
-<span class="fc" id="L104">                processRequiredElements((RequiredElements)assertion, rpd);</span>
-<span class="fc bfc" id="L105" title="All 2 branches covered.">            } else if (assertion instanceof ContentEncryptedElements) { </span>
-<span class="fc" id="L106">                processContentEncryptedElements((ContentEncryptedElements) assertion, rpd);</span>
-<span class="fc bfc" id="L107" title="All 2 branches covered.">            }else if (assertion instanceof SupportingToken) {</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">            } else if (assertion instanceof SignedEncryptedParts) {</span>
+<span class="fc" id="L101">                processSignedEncryptedParts((SignedEncryptedParts) assertion, rpd);</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">            } else if ( assertion instanceof RequiredElements) {   </span>
+<span class="fc" id="L103">                processRequiredElements((RequiredElements)assertion, rpd);</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">            } else if (assertion instanceof ContentEncryptedElements) { </span>
+<span class="fc" id="L105">                processContentEncryptedElements((ContentEncryptedElements) assertion, rpd);</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">            }else if (assertion instanceof SupportingToken) {</span>
 
                 //Set policy version. Cos a supporting token can appear along without a binding
-<span class="fc" id="L110">                setWebServiceSecurityPolicyNS(assertion, rpd);</span>
+<span class="fc" id="L109">                setWebServiceSecurityPolicyNS(assertion, rpd);</span>
 
-<span class="fc" id="L112">                processSupportingTokens((SupportingToken) assertion, rpd);</span>
-<span class="fc bfc" id="L113" title="All 2 branches covered.">            } else if (assertion instanceof Trust10) {</span>
-<span class="fc" id="L114">                processTrust10((Trust10)assertion, rpd);</span>
-<span class="fc bfc" id="L115" title="All 2 branches covered.">            } else if (assertion instanceof RampartConfig) {</span>
-<span class="fc" id="L116">                processRampartConfig((RampartConfig)assertion, rpd);</span>
-<span class="pc bpc" id="L117" title="1 of 2 branches missed.">            } else if (assertion instanceof MTOMAssertion){</span>
-<span class="nc" id="L118">            	processMTOMSerialization((MTOMAssertion)assertion, rpd);</span>
+<span class="fc" id="L111">                processSupportingTokens((SupportingToken) assertion, rpd);</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">            } else if (assertion instanceof Trust10) {</span>
+<span class="fc" id="L113">                processTrust10((Trust10)assertion, rpd);</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">            } else if (assertion instanceof RampartConfig) {</span>
+<span class="fc" id="L115">                processRampartConfig((RampartConfig)assertion, rpd);</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">            } else if (assertion instanceof MTOMAssertion){</span>
+<span class="nc" id="L117">            	processMTOMSerialization((MTOMAssertion)assertion, rpd);</span>
             } else {
-<span class="pc bpc" id="L120" title="1 of 2 branches missed.">                if (log.isDebugEnabled()) {</span>
-<span class="nc" id="L121">                    log.debug(&quot;Unknown top level PED found: &quot;</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">                if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L120">                    log.debug(&quot;Unknown top level PED found: &quot;</span>
                             + assertion.getClass().getName());
                 }
             }
-<span class="fc" id="L125">        }</span>
+<span class="fc" id="L124">        }</span>
         
-<span class="fc" id="L127">        return rpd;</span>
+<span class="fc" id="L126">        return rpd;</span>
     }
 
     /**
@@ -134,10 +133,10 @@ import java.util.List;
      */
     private static void setWebServiceSecurityPolicyNS(Assertion assertion, RampartPolicyData policyData) {
 
-<span class="fc bfc" id="L137" title="All 2 branches covered.">        if (policyData.getWebServiceSecurityPolicyNS() == null) {</span>
-<span class="fc" id="L138">            policyData.setWebServiceSecurityPolicyNS(assertion.getName().getNamespaceURI());</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        if (policyData.getWebServiceSecurityPolicyNS() == null) {</span>
+<span class="fc" id="L137">            policyData.setWebServiceSecurityPolicyNS(assertion.getName().getNamespaceURI());</span>
         }        
-<span class="fc" id="L140">    }</span>
+<span class="fc" id="L139">    }</span>
 
  
     
@@ -146,14 +145,14 @@ import java.util.List;
      * @param rpd
      */
     private static void processTransportBinding(TransportBinding binding, RampartPolicyData rpd) {
-<span class="fc" id="L149">        binding(binding, rpd);</span>
-<span class="fc" id="L150">        rpd.setTransportBinding(true);</span>
-<span class="fc" id="L151">        rpd.setTokenProtection(binding.isTokenProtection());</span>
-<span class="fc" id="L152">        TransportToken transportToken = binding.getTransportToken();</span>
-<span class="pc bpc" id="L153" title="1 of 2 branches missed.">        if ( transportToken != null ) {</span>
-<span class="fc" id="L154">            rpd.setTransportToken(transportToken.getTransportToken());</span>
+<span class="fc" id="L148">        binding(binding, rpd);</span>
+<span class="fc" id="L149">        rpd.setTransportBinding(true);</span>
+<span class="fc" id="L150">        rpd.setTokenProtection(binding.isTokenProtection());</span>
+<span class="fc" id="L151">        TransportToken transportToken = binding.getTransportToken();</span>
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">        if ( transportToken != null ) {</span>
+<span class="fc" id="L153">            rpd.setTransportToken(transportToken.getTransportToken());</span>
         }
-<span class="fc" id="L156">    }</span>
+<span class="fc" id="L155">    }</span>
 
     /**
      * Add TRust10 assertion info into rampart policy data
@@ -161,8 +160,8 @@ import java.util.List;
      * @param rpd
      */
     private static void processTrust10(Trust10 trust10, RampartPolicyData rpd) {
-<span class="fc" id="L164">        rpd.setTrust10(trust10);</span>
-<span class="fc" id="L165">    }</span>
+<span class="fc" id="L163">        rpd.setTrust10(trust10);</span>
+<span class="fc" id="L164">    }</span>
 
     /**
      * Add the rampart configuration information into rampart policy data.
@@ -170,8 +169,8 @@ import java.util.List;
      * @param rpd
      */
     private static void processRampartConfig(RampartConfig config, RampartPolicyData rpd) {
-<span class="fc" id="L173">        rpd.setRampartConfig(config);</span>
-<span class="fc" id="L174">    }</span>
+<span class="fc" id="L172">        rpd.setRampartConfig(config);</span>
+<span class="fc" id="L173">    }</span>
 
     /**
      * Evaluate the symmetric policy binding data.
@@ -185,15 +184,15 @@ import java.util.List;
     private static void processSymmetricPolicyBinding(
             SymmetricBinding symmBinding, RampartPolicyData rpd)
             throws WSSPolicyException {
-<span class="fc" id="L188">        rpd.setSymmetricBinding(true);</span>
-<span class="fc" id="L189">        binding(symmBinding, rpd);</span>
-<span class="fc" id="L190">        symmAsymmBinding(symmBinding, rpd);</span>
-<span class="fc" id="L191">        symmetricBinding(symmBinding, rpd);</span>
-<span class="fc" id="L192">    }</span>
+<span class="fc" id="L187">        rpd.setSymmetricBinding(true);</span>
+<span class="fc" id="L188">        binding(symmBinding, rpd);</span>
+<span class="fc" id="L189">        symmAsymmBinding(symmBinding, rpd);</span>
+<span class="fc" id="L190">        symmetricBinding(symmBinding, rpd);</span>
+<span class="fc" id="L191">    }</span>
 
     private static void processWSS10(Wss10 wss10, RampartPolicyData rpd) {
-<span class="fc" id="L195">        rpd.setWss10(wss10);</span>
-<span class="fc" id="L196">    }</span>
+<span class="fc" id="L194">        rpd.setWss10(wss10);</span>
+<span class="fc" id="L195">    }</span>
 
     /**
      * Evaluate the asymmetric policy binding data.
@@ -207,16 +206,16 @@ import java.util.List;
     private static void processAsymmetricPolicyBinding(
             AsymmetricBinding binding, RampartPolicyData rpd)
             throws WSSPolicyException {
-<span class="fc" id="L210">        rpd.setAsymmetricBinding(true);</span>
-<span class="fc" id="L211">        binding(binding, rpd);</span>
-<span class="fc" id="L212">        symmAsymmBinding(binding, rpd);</span>
-<span class="fc" id="L213">        asymmetricBinding(binding, rpd);</span>
-<span class="fc" id="L214">    }</span>
+<span class="fc" id="L209">        rpd.setAsymmetricBinding(true);</span>
+<span class="fc" id="L210">        binding(binding, rpd);</span>
+<span class="fc" id="L211">        symmAsymmBinding(binding, rpd);</span>
+<span class="fc" id="L212">        asymmetricBinding(binding, rpd);</span>
+<span class="fc" id="L213">    }</span>
 
     private static void processWSS11(Wss11 wss11, RampartPolicyData rpd) {
-<span class="fc" id="L217">        rpd.setSignatureConfirmation(wss11.isRequireSignatureConfirmation());</span>
-<span class="fc" id="L218">        rpd.setWss11(wss11);</span>
-<span class="fc" id="L219">    }</span>
+<span class="fc" id="L216">        rpd.setSignatureConfirmation(wss11.isRequireSignatureConfirmation());</span>
+<span class="fc" id="L217">        rpd.setWss11(wss11);</span>
+<span class="fc" id="L218">    }</span>
 
     /**
      * Populate elements to sign and/or encrypt with the message tokens.
@@ -228,18 +227,18 @@ import java.util.List;
      */
     private static void processSignedEncryptedElements(
             SignedEncryptedElements see, RampartPolicyData rpd) {
-<span class="fc" id="L231">        Iterator it = see.getXPathExpressions().iterator();</span>
-<span class="fc bfc" id="L232" title="All 2 branches covered.">        if (see.isSignedElemets()) {</span>
-<span class="fc bfc" id="L233" title="All 2 branches covered.">            while (it.hasNext()) {</span>
-<span class="fc" id="L234">                rpd.setSignedElements((String) it.next());</span>
+<span class="fc" id="L230">        Iterator&lt;String&gt; it = see.getXPathExpressions().iterator();</span>
+<span class="fc bfc" id="L231" title="All 2 branches covered.">        if (see.isSignedElemets()) {</span>
+<span class="fc bfc" id="L232" title="All 2 branches covered.">            while (it.hasNext()) {</span>
+<span class="fc" id="L233">                rpd.setSignedElements(it.next());</span>
             }
         } else {
-<span class="fc bfc" id="L237" title="All 2 branches covered.">            while (it.hasNext()) {</span>
-<span class="fc" id="L238">                rpd.setEncryptedElements((String) it.next());</span>
+<span class="fc bfc" id="L236" title="All 2 branches covered.">            while (it.hasNext()) {</span>
+<span class="fc" id="L237">                rpd.setEncryptedElements(it.next());</span>
             }
         }
-<span class="fc" id="L241">        rpd.addDeclaredNamespaces(see.getDeclaredNamespaces());</span>
-<span class="fc" id="L242">    }</span>
+<span class="fc" id="L240">        rpd.addDeclaredNamespaces(see.getDeclaredNamespaces());</span>
+<span class="fc" id="L241">    }</span>
 
     /**
      * Populate parts to sign and/or encrypt with the message tokens.
@@ -251,48 +250,48 @@ import java.util.List;
      */
     private static void processSignedEncryptedParts(SignedEncryptedParts sep,
             RampartPolicyData rpd) {
-<span class="fc" id="L254">        Iterator it = sep.getHeaders().iterator();</span>
-<span class="fc bfc" id="L255" title="All 2 branches covered.">        if (sep.isSignedParts()) {</span>
-<span class="fc" id="L256">            rpd.setSignBody(sep.isBody());</span>
-<span class="fc" id="L257">            rpd.setSignAttachments(sep.isAttachments());</span>
-<span class="fc" id="L258">            rpd.setSignAllHeaders(sep.isSignAllHeaders());</span>
-<span class="fc" id="L259">           	rpd.setSignBodyOptional(sep.isOptional());</span>
-<span class="fc" id="L260">           	rpd.setSignAttachmentsOptional(sep.isOptional());</span>
-<span class="fc bfc" id="L261" title="All 2 branches covered.">            while (it.hasNext()) {</span>
-<span class="fc" id="L262">                Header header = (Header) it.next();</span>
-<span class="fc" id="L263">                rpd.addSignedPart(header.getNamespace(), header.getName());</span>
-<span class="fc" id="L264">            }</span>
+<span class="fc" id="L253">        Iterator&lt;Header&gt; it = sep.getHeaders().iterator();</span>
+<span class="fc bfc" id="L254" title="All 2 branches covered.">        if (sep.isSignedParts()) {</span>
+<span class="fc" id="L255">            rpd.setSignBody(sep.isBody());</span>
+<span class="fc" id="L256">            rpd.setSignAttachments(sep.isAttachments());</span>
+<span class="fc" id="L257">            rpd.setSignAllHeaders(sep.isSignAllHeaders());</span>
+<span class="fc" id="L258">           	rpd.setSignBodyOptional(sep.isOptional());</span>
+<span class="fc" id="L259">           	rpd.setSignAttachmentsOptional(sep.isOptional());</span>
+<span class="fc bfc" id="L260" title="All 2 branches covered.">            while (it.hasNext()) {</span>
+<span class="fc" id="L261">                Header header = it.next();</span>
+<span class="fc" id="L262">                rpd.addSignedPart(header.getNamespace(), header.getName());</span>
+<span class="fc" id="L263">            }</span>
         } else {
-<span class="fc" id="L266">            rpd.setEncryptBody(sep.isBody());</span>
-<span class="fc" id="L267">            rpd.setEncryptAttachments(sep.isAttachments());</span>
-<span class="fc" id="L268">            rpd.setEncryptBodyOptional(sep.isOptional());</span>
-<span class="fc" id="L269">           	rpd.setEncryptAttachmentsOptional(sep.isOptional());</span>
-<span class="fc bfc" id="L270" title="All 2 branches covered.">            while (it.hasNext()) {</span>
-<span class="fc" id="L271">                Header header = (Header) it.next();</span>
-<span class="fc" id="L272">                rpd.setEncryptedParts(header.getNamespace(), header.getName(),&quot;Header&quot;);</span>
-<span class="fc" id="L273">            }</span>
+<span class="fc" id="L265">            rpd.setEncryptBody(sep.isBody());</span>
+<span class="fc" id="L266">            rpd.setEncryptAttachments(sep.isAttachments());</span>
+<span class="fc" id="L267">            rpd.setEncryptBodyOptional(sep.isOptional());</span>
+<span class="fc" id="L268">           	rpd.setEncryptAttachmentsOptional(sep.isOptional());</span>
+<span class="fc bfc" id="L269" title="All 2 branches covered.">            while (it.hasNext()) {</span>
+<span class="fc" id="L270">                Header header = it.next();</span>
+<span class="fc" id="L271">                rpd.setEncryptedParts(header.getNamespace(), header.getName(),&quot;Header&quot;);</span>
+<span class="fc" id="L272">            }</span>
         }
-<span class="fc" id="L275">    }</span>
+<span class="fc" id="L274">    }</span>
     
     private static void processContentEncryptedElements(ContentEncryptedElements cee,
             RampartPolicyData rpd) {
         
-<span class="fc" id="L280">        Iterator it = cee.getXPathExpressions().iterator();     </span>
-<span class="fc bfc" id="L281" title="All 2 branches covered.">        while (it.hasNext()) {</span>
-<span class="fc" id="L282">            rpd.setContentEncryptedElements((String) it.next());</span>
+<span class="fc" id="L279">        Iterator&lt;String&gt; it = cee.getXPathExpressions().iterator();     </span>
+<span class="fc bfc" id="L280" title="All 2 branches covered.">        while (it.hasNext()) {</span>
+<span class="fc" id="L281">            rpd.setContentEncryptedElements(it.next());</span>
         }
-<span class="fc" id="L284">        rpd.addDeclaredNamespaces(cee.getDeclaredNamespaces());</span>
-<span class="fc" id="L285">    }</span>
+<span class="fc" id="L283">        rpd.addDeclaredNamespaces(cee.getDeclaredNamespaces());</span>
+<span class="fc" id="L284">    }</span>
 
     private static void processRequiredElements(RequiredElements req,
             RampartPolicyData rpd) {
         
-<span class="fc" id="L290">        Iterator it = req.getXPathExpressions().iterator();     </span>
-<span class="fc bfc" id="L291" title="All 2 branches covered.">        while (it.hasNext()) {</span>
-<span class="fc" id="L292">            rpd.setRequiredElements((String) it.next());</span>
+<span class="fc" id="L289">        Iterator&lt;String&gt; it = req.getXPathExpressions().iterator();     </span>
+<span class="fc bfc" id="L290" title="All 2 branches covered.">        while (it.hasNext()) {</span>
+<span class="fc" id="L291">            rpd.setRequiredElements(it.next());</span>
         }
-<span class="fc" id="L294">        rpd.addDeclaredNamespaces(req.getDeclaredNamespaces());</span>
-<span class="fc" id="L295">    }</span>
+<span class="fc" id="L293">        rpd.addDeclaredNamespaces(req.getDeclaredNamespaces());</span>
+<span class="fc" id="L294">    }</span>
     /**
      * Evaluate policy data that is common to all bindings.
      * 
@@ -302,11 +301,11 @@ import java.util.List;
      *            The WSS4J data to initialize
      */
     private static void binding(Binding binding, RampartPolicyData rpd) {
-<span class="fc" id="L305">        rpd.setLayout(binding.getLayout().getValue());</span>
-<span class="fc" id="L306">        rpd.setIncludeTimestamp(binding.isIncludeTimestamp());</span>
-<span class="fc" id="L307">        rpd.setIncludeTimestampOptional(binding.isIncludeTimestampOptional());</span>
-<span class="fc" id="L308">        rpd.setAlgorithmSuite(binding.getAlgorithmSuite());</span>
-<span class="fc" id="L309">    }</span>
+<span class="fc" id="L304">        rpd.setLayout(binding.getLayout().getValue());</span>
+<span class="fc" id="L305">        rpd.setIncludeTimestamp(binding.isIncludeTimestamp());</span>
+<span class="fc" id="L306">        rpd.setIncludeTimestampOptional(binding.isIncludeTimestampOptional());</span>
+<span class="fc" id="L307">        rpd.setAlgorithmSuite(binding.getAlgorithmSuite());</span>
+<span class="fc" id="L308">    }</span>
 
     /**
      * Evaluate policy data that is common to symmetric and asymmetric bindings.
@@ -318,13 +317,13 @@ import java.util.List;
      */
     private static void symmAsymmBinding(
             SymmetricAsymmetricBindingBase binding, RampartPolicyData rpd) {
-<span class="fc" id="L321">        rpd.setEntireHeadersAndBodySignatures(binding</span>
+<span class="fc" id="L320">        rpd.setEntireHeadersAndBodySignatures(binding</span>
                 .isEntireHeadersAndBodySignatures());
-<span class="fc" id="L323">        rpd.setProtectionOrder(binding.getProtectionOrder());</span>
-<span class="fc" id="L324">        rpd.setSignatureProtection(binding.isSignatureProtection());</span>
-<span class="fc" id="L325">        rpd.setTokenProtection(binding.isTokenProtection());</span>
-<span class="fc" id="L326">        rpd.setAlgorithmSuite(binding.getAlgorithmSuite());</span>
-<span class="fc" id="L327">    }</span>
+<span class="fc" id="L322">        rpd.setProtectionOrder(binding.getProtectionOrder());</span>
+<span class="fc" id="L323">        rpd.setSignatureProtection(binding.isSignatureProtection());</span>
+<span class="fc" id="L324">        rpd.setTokenProtection(binding.isTokenProtection());</span>
+<span class="fc" id="L325">        rpd.setAlgorithmSuite(binding.getAlgorithmSuite());</span>
+<span class="fc" id="L326">    }</span>
 
     /**
      * Evaluate policy data that is specific to symmetric binding.
@@ -336,22 +335,22 @@ import java.util.List;
      */
     private static void symmetricBinding(SymmetricBinding binding,
             RampartPolicyData rpd) throws WSSPolicyException {
-<span class="fc" id="L339">        Assertion token = binding.getProtectionToken();</span>
+<span class="fc" id="L338">        Assertion token = binding.getProtectionToken();</span>
         
-<span class="pc bpc" id="L341" title="1 of 2 branches missed.">        if (token != null) {</span>
-<span class="fc" id="L342">            rpd.setProtectionToken(((ProtectionToken)token).getProtectionToken());</span>
+<span class="pc bpc" id="L340" title="1 of 2 branches missed.">        if (token != null) {</span>
+<span class="fc" id="L341">            rpd.setProtectionToken(((ProtectionToken)token).getProtectionToken());</span>
         } else {
-<span class="nc" id="L344">            Assertion encrToken = binding.getEncryptionToken();</span>
-<span class="nc" id="L345">            Assertion sigToken = binding.getSignatureToken();</span>
-<span class="nc bnc" id="L346" title="All 4 branches missed.">            if (token == null &amp;&amp; sigToken == null) {</span>
-<span class="nc" id="L347">                throw new WSSPolicyException(&quot;Symmetric binding should have a Protection token or&quot; +</span>
+<span class="nc" id="L343">            Assertion encrToken = binding.getEncryptionToken();</span>
+<span class="nc" id="L344">            Assertion sigToken = binding.getSignatureToken();</span>
+<span class="nc bnc" id="L345" title="All 4 branches missed.">            if (token == null &amp;&amp; sigToken == null) {</span>
+<span class="nc" id="L346">                throw new WSSPolicyException(&quot;Symmetric binding should have a Protection token or&quot; +</span>
                 		                &quot; both Signature and Encryption tokens defined&quot;);
             }
-<span class="nc" id="L350">            rpd.setEncryptionToken(</span>
+<span class="nc" id="L349">            rpd.setEncryptionToken(</span>
                     ((EncryptionToken) encrToken).getEncryptionToken());
-<span class="nc" id="L352">            rpd.setSignatureToken(((SignatureToken) sigToken).getSignatureToken());</span>
+<span class="nc" id="L351">            rpd.setSignatureToken(((SignatureToken) sigToken).getSignatureToken());</span>
         }
-<span class="fc" id="L354">    }</span>
+<span class="fc" id="L353">    }</span>
 
     /**
      * Evaluate policy data that is specific to asymmetric binding.
@@ -363,25 +362,25 @@ import java.util.List;
      */
     private static void asymmetricBinding(AsymmetricBinding binding,
             RampartPolicyData rpd) throws WSSPolicyException {
-<span class="fc" id="L366">        TokenWrapper tokWrapper = binding.getRecipientToken();</span>
-<span class="fc" id="L367">        TokenWrapper tokWrapper1 = binding.getInitiatorToken();</span>
-<span class="pc bpc" id="L368" title="2 of 4 branches missed.">        if (tokWrapper == null || tokWrapper1 == null) {</span>
-<span class="nc" id="L369">            throw new WSSPolicyException(&quot;Asymmetric binding should have both Initiator and &quot; +</span>
+<span class="fc" id="L365">    	RecipientToken rt = binding.getRecipientToken();</span>
+<span class="fc" id="L366">    	InitiatorToken it = binding.getInitiatorToken();</span>
+<span class="pc bpc" id="L367" title="2 of 4 branches missed.">        if (rt == null || it == null) {</span>
+<span class="nc" id="L368">            throw new WSSPolicyException(&quot;Asymmetric binding should have both Initiator and &quot; +</span>
             		                                                &quot;Recipient tokens defined&quot;);
         }
-<span class="fc" id="L372">        rpd.setRecipientToken(((RecipientToken) tokWrapper).getReceipientToken());</span>
-<span class="fc" id="L373">        rpd.setInitiatorToken(((InitiatorToken) tokWrapper1).getInitiatorToken());</span>
-<span class="fc" id="L374">    }</span>
+<span class="fc" id="L371">        rpd.setRecipientToken(rt.getReceipientToken());</span>
+<span class="fc" id="L372">        rpd.setInitiatorToken(it.getInitiatorToken());</span>
+<span class="fc" id="L373">    }</span>
 
     private static void processSupportingTokens(SupportingToken token,
             RampartPolicyData rpd) throws WSSPolicyException {
-<span class="fc" id="L378">        rpd.setSupportingTokens(token);</span>
-<span class="fc" id="L379">    }</span>
+<span class="fc" id="L377">        rpd.setSupportingTokens(token);</span>
+<span class="fc" id="L378">    }</span>
     
    
     private static void processMTOMSerialization(MTOMAssertion mtomAssertion, RampartPolicyData rpd)
     {
-<span class="nc" id="L384">    		rpd.setMTOMAssertion(mtomAssertion);</span>
-<span class="nc" id="L385">    }</span>
+<span class="nc" id="L383">    		rpd.setMTOMAssertion(mtomAssertion);</span>
+<span class="nc" id="L384">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

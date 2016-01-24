@@ -134,19 +134,26 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#createDocumentElement(java.lang.String, org.apache.axis2.context.MessageContext, java.io.InputStream)">createDocumentElement</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#createDocumentElement(java.lang.String, org.apache.axis2.builder.Builder, org.apache.axis2.context.MessageContext, java.io.InputStream)">createDocumentElement</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
+                     <a href="../../../../org/apache/axis2/builder/Builder.html" title="interface in org.apache.axis2.builder">Builder</a>&nbsp;builder,
                      <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
                      <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#createSOAPEnvelope(org.apache.axiom.om.OMElement)">createSOAPEnvelope</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;documentElement)</code>&nbsp;</td>
+<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#createDocumentElement(java.lang.String, org.apache.axis2.context.MessageContext, java.io.InputStream)">createDocumentElement</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
+                     <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+                     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#createSOAPMessage(org.apache.axis2.context.MessageContext)">createSOAPMessage</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#createSOAPEnvelope(org.apache.axiom.om.OMElement)">createSOAPEnvelope</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;documentElement)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#createSOAPMessage(org.apache.axis2.context.MessageContext)">createSOAPMessage</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#createSOAPMessage(org.apache.axis2.context.MessageContext, boolean)">createSOAPMessage</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
                  boolean&nbsp;detach)</code>
@@ -154,11 +161,21 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
  the MessageContext.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#createSOAPMessage(org.apache.axis2.context.MessageContext, java.io.InputStream, java.lang.String)">createSOAPMessage</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</code>
+<div class="block">Objective of this method is to capture the SOAPEnvelope creation logic
+ and make it a common for all the transports and to in/out flows.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#createSOAPMessage(org.apache.axis2.context.MessageContext, java.io.InputStream, java.lang.String, org.apache.axis2.builder.Builder)">createSOAPMessage</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
+                 <a href="../../../../org/apache/axis2/builder/Builder.html" title="interface in org.apache.axis2.builder">Builder</a>&nbsp;builder)</code>
 <div class="block">Objective of this method is to capture the SOAPEnvelope creation logic
  and make it a common for all the transports and to in/out flows.</div>
 </td>
@@ -213,28 +230,22 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
               <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static <a href="../../../../org/apache/axis2/transport/MessageFormatter.html" title="interface in org.apache.axis2.transport">MessageFormatter</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#getMessageFormatter(org.apache.axis2.context.MessageContext)">getMessageFormatter</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
-<div class="block">Initial work for a builder selector which selects the builder for a given message format based on the the content type of the recieved message.</div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#isDoingREST(org.apache.axis2.context.MessageContext)">isDoingREST</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#isResponseWritten(org.apache.axis2.context.MessageContext)">isResponseWritten</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext)</code>
 <div class="block">This is a helper method to get the response written flag from the RequestResponseTransport
  instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#processContentTypeForAction(java.lang.String, org.apache.axis2.context.MessageContext)">processContentTypeForAction</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
                            <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#setResponseWritten(org.apache.axis2.context.MessageContext, boolean)">setResponseWritten</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
                   boolean&nbsp;responseWritten)</code>
@@ -242,7 +253,7 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
  instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportUtils.html#writeMessage(org.apache.axis2.context.MessageContext, java.io.OutputStream)">writeMessage</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;out)</code>&nbsp;</td>
@@ -331,12 +342,37 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                                              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/parsers/FactoryConfigurationError.html?is-external=true" title="class or interface in javax.xml.parsers">FactoryConfigurationError</a></pre>
 <div class="block">Objective of this method is to capture the SOAPEnvelope creation logic
  and make it a common for all the transports and to in/out flows.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - </dd><dd><code>inStream</code> - </dd><dd><code>contentType</code> - </dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - message context</dd><dd><code>inStream</code> - input stream</dd><dd><code>contentType</code> - content type of the message</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the SOAPEnvelope</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMException.html?is-external=true" title="class or interface in org.apache.axiom.om">OMException</a></code></dd>
-<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - if an error occurs</dd>
+<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMException.html?is-external=true" title="class or interface in org.apache.axiom.om">OMException</a></code> - if the xml is invalid</dd>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code> - if the stream is invalid</dd>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/parsers/FactoryConfigurationError.html?is-external=true" title="class or interface in javax.xml.parsers">FactoryConfigurationError</a></code></dd></dl>
+</li>
+</ul>
+<a name="createSOAPMessage(org.apache.axis2.context.MessageContext, java.io.InputStream, java.lang.String, org.apache.axis2.builder.Builder)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createSOAPMessage</h4>
+<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a>&nbsp;createSOAPMessage(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
+                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
+                             <a href="../../../../org/apache/axis2/builder/Builder.html" title="interface in org.apache.axis2.builder">Builder</a>&nbsp;builder)
+                                      throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a>,
+                                             <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMException.html?is-external=true" title="class or interface in org.apache.axiom.om">OMException</a>,
+                                             <a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
+                                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/parsers/FactoryConfigurationError.html?is-external=true" title="class or interface in javax.xml.parsers">FactoryConfigurationError</a></pre>
+<div class="block">Objective of this method is to capture the SOAPEnvelope creation logic
+ and make it a common for all the transports and to in/out flows.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - message context</dd><dd><code>inStream</code> - input stream</dd><dd><code>contentType</code> - content type of the message</dd><dd><code>builder</code> - the builder to be used</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the SOAPEnvelope</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - if an error occurs</dd>
+<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMException.html?is-external=true" title="class or interface in org.apache.axiom.om">OMException</a></code> - if the xml is invalid</dd>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code> - if the stream is invalid</dd>
 <dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/parsers/FactoryConfigurationError.html?is-external=true" title="class or interface in javax.xml.parsers">FactoryConfigurationError</a></code></dd></dl>
 </li>
 </ul>
@@ -356,6 +392,23 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <li class="blockList">
 <h4>createDocumentElement</h4>
 <pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;createDocumentElement(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
+                              <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+                              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream)
+                                       throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a>,
+                                              <a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createDocumentElement(java.lang.String, org.apache.axis2.builder.Builder, org.apache.axis2.context.MessageContext, java.io.InputStream)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createDocumentElement</h4>
+<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;createDocumentElement(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
+                              <a href="../../../../org/apache/axis2/builder/Builder.html" title="interface in org.apache.axis2.builder">Builder</a>&nbsp;builder,
                               <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
                               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream)
                                        throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a>,
@@ -399,22 +452,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;out)
                          throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
 <dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
-</li>
-</ul>
-<a name="getMessageFormatter(org.apache.axis2.context.MessageContext)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMessageFormatter</h4>
-<pre>public static&nbsp;<a href="../../../../org/apache/axis2/transport/MessageFormatter.html" title="interface in org.apache.axis2.transport">MessageFormatter</a>&nbsp;getMessageFormatter(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)
-                                            throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
-<div class="block">Initial work for a builder selector which selects the builder for a given message format based on the the content type of the recieved message.
- content-type to builder mapping can be specified through the Axis2.xml.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - </dd>
-<dt><span class="strong">Returns:</span></dt><dd>the builder registered against the given content-type</dd>
-<dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
 </li>
 </ul>

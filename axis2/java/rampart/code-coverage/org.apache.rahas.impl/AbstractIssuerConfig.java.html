@@ -60,29 +60,61 @@ import javax.xml.namespace.QName;
     public void setAddRequestedAttachedRef(boolean addRequestedAttachedRef) {
 <span class="nc" id="L61">        this.addRequestedAttachedRef = addRequestedAttachedRef;</span>
 <span class="nc" id="L62">    }</span>
+
     public void setAddRequestedUnattachedRef(boolean addRequestedUnattachedRef) {
-<span class="nc" id="L64">        this.addRequestedUnattachedRef = addRequestedUnattachedRef;</span>
-<span class="nc" id="L65">    }</span>
+<span class="nc" id="L65">        this.addRequestedUnattachedRef = addRequestedUnattachedRef;</span>
+<span class="nc" id="L66">    }</span>
+
     public void setKeyComputation(int keyComputation) {
-<span class="nc" id="L67">        this.keyComputation = keyComputation;</span>
-<span class="nc" id="L68">    }</span>
+<span class="nc" id="L69">        this.keyComputation = keyComputation;</span>
+<span class="nc" id="L70">    }</span>
+
     public int getKeyComputation() {
-<span class="nc" id="L70">        return keyComputation;</span>
+<span class="fc" id="L73">        return keyComputation;</span>
     }
+
     public void setProofKeyType(String proofKeyType) {
-<span class="nc" id="L73">        this.proofKeyType = proofKeyType;</span>
-<span class="nc" id="L74">    }</span>
+<span class="nc" id="L77">        this.proofKeyType = proofKeyType;</span>
+<span class="nc" id="L78">    }</span>
+
     public void setTtl(long ttl) {
-<span class="nc" id="L76">        this.ttl = ttl;</span>
-<span class="nc" id="L77">    }</span>
+<span class="nc" id="L81">        this.ttl = ttl;</span>
+<span class="nc" id="L82">    }</span>
+
     public void setKeySize(int keySize) {
-<span class="nc" id="L79">        this.keySize = keySize;</span>
-<span class="nc" id="L80">    }</span>
+<span class="nc" id="L85">        this.keySize = keySize;</span>
+<span class="nc" id="L86">    }</span>
+
     public int getKeySize() {
-<span class="nc" id="L82">        return keySize;</span>
+<span class="fc" id="L89">        return keySize;</span>
     }
+
     public String getProofKeyType() {
-<span class="nc" id="L85">        return proofKeyType;</span>
+<span class="fc" id="L93">        return proofKeyType;</span>
+    }
+
+    public boolean isAddRequestedAttachedRef() {
+<span class="fc" id="L97">        return addRequestedAttachedRef;</span>
+    }
+
+    public boolean isAddRequestedUnattachedRef() {
+<span class="fc" id="L101">        return addRequestedUnattachedRef;</span>
+    }
+
+    public long getTtl() {
+<span class="fc" id="L105">        return ttl;</span>
+    }
+
+    public String getCryptoPropertiesFile() {
+<span class="nc" id="L109">        return cryptoPropertiesFile;</span>
+    }
+
+    public OMElement getCryptoPropertiesElement() {
+<span class="fc" id="L113">        return cryptoPropertiesElement;</span>
+    }
+
+    public OMElement getCryptoElement() {
+<span class="nc" id="L117">        return cryptoElement;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

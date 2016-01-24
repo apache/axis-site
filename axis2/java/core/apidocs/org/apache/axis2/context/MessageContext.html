@@ -36,7 +36,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/axis2/context/ContextListener.html" title="interface in org.apache.axis2.context"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../org/apache/axis2/context/MessageContextConstants.html" title="interface in org.apache.axis2.context"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/context/NamedValue.html" title="class in org.apache.axis2.context"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/axis2/context/MessageContext.html" target="_top">Frames</a></li>
@@ -353,12 +353,20 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Externa
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/context/MessageContext.html#destroyCurrentMessageContext()">destroyCurrentMessageContext</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/context/MessageContext.html#extractCopyMessageContext()">extractCopyMessageContext</a></strong>()</code>
 <div class="block">Return a Read-Only copy of this message context
  that has been extracted from the object
  hierachy.</div>
 </td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis2/description/AxisEndpoint.html" title="class in org.apache.axis2.description">AxisEndpoint</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/context/MessageContext.html#findEndpoint()">findEndpoint</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javaee/5/api/javax/activation/DataHandler.html?is-external=true" title="class or interface in javax.activation">DataHandler</a></code></td>
@@ -1213,6 +1221,15 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Externa
 <li class="blockList">
 <h4>getCurrentMessageContext</h4>
 <pre>public static&nbsp;<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;getCurrentMessageContext()</pre>
+</li>
+</ul>
+<a name="destroyCurrentMessageContext()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>destroyCurrentMessageContext</h4>
+<pre>public static&nbsp;void&nbsp;destroyCurrentMessageContext()</pre>
 </li>
 </ul>
 <a name="setCurrentMessageContext(org.apache.axis2.context.MessageContext)">
@@ -2603,12 +2620,32 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Externa
 <a name="setFailureReason(java.lang.Exception)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setFailureReason</h4>
 <pre>public&nbsp;void&nbsp;setFailureReason(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a>&nbsp;failureReason)</pre>
 <div class="block">Set the failure reason.  Only AxisEngine should ever do this.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>failureReason</code> - an Exception which caused processing to halt.</dd></dl>
+</li>
+</ul>
+<a name="findEndpoint()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>findEndpoint</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis2/description/AxisEndpoint.html" title="class in org.apache.axis2.description">AxisEndpoint</a>&nbsp;findEndpoint()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Identifies and returns the service endpoint for this message context. The method will
+         use the following steps to identify the endpoint:
+         <ul>
+         <li>If a non-null <a href="../../../../org/apache/axis2/description/AxisEndpoint.html" title="class in org.apache.axis2.description"><code>AxisEndpoint</code></a> instance is set under the
+         <a href="../../../../org/apache/axis2/description/WSDL2Constants.html#ENDPOINT_LOCAL_NAME"><code>ENDPOINT_LOCAL_NAME</code></a> message context
+         property, return it</li>
+         <li>If a non-null <a href="../../../../org/apache/axis2/context/MessageContext.html#getAxisService()"><code>axisService</code></a> instance is set and it
+         specifies <a href="../../../../org/apache/axis2/description/AxisService.html#isClientSide()"><code>clientSide=true</code></a>, retrieve the endpoint
+         which matches its <a href="../../../../org/apache/axis2/description/AxisService.html#getEndpointName()"><code>enpointName</code></a></li>
+         <li>else, return <code>null</code></li>
+         </ul></dd></dl>
 </li>
 </ul>
 </li>
@@ -2638,7 +2675,7 @@ implements <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/Externa
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/axis2/context/ContextListener.html" title="interface in org.apache.axis2.context"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../org/apache/axis2/context/MessageContextConstants.html" title="interface in org.apache.axis2.context"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/context/NamedValue.html" title="class in org.apache.axis2.context"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/axis2/context/MessageContext.html" target="_top">Frames</a></li>

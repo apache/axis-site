@@ -87,7 +87,7 @@
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../org/apache/axis2/transport/base/datagram/AbstractDatagramTransportListener.html" title="class in org.apache.axis2.transport.base.datagram">AbstractDatagramTransportListener</a>, <a href="../../../../org/apache/axis2/transport/base/AbstractPollingTransportListener.html" title="class in org.apache.axis2.transport.base">AbstractPollingTransportListener</a>, <a href="../../../../org/apache/axis2/transport/base/AbstractTransportListener.html" title="class in org.apache.axis2.transport.base">AbstractTransportListener</a>, <a href="../../../../org/apache/axis2/transport/base/AbstractTransportListenerEx.html" title="class in org.apache.axis2.transport.base">AbstractTransportListenerEx</a>, <a href="../../../../org/apache/axis2/transport/http/AxisServletListener.html" title="class in org.apache.axis2.transport.http">AxisServletListener</a>, <a href="../../../../org/apache/axis2/osgi/tx/HttpListener.html" title="class in org.apache.axis2.osgi.tx">HttpListener</a>, <a href="../../../../org/apache/axis2/transport/jms/JMSListener.html" title="class in org.apache.axis2.transport.jms">JMSListener</a>, <a href="../../../../org/apache/axis2/transport/testkit/util/LifecycleFixTransportListenerProxy.html" title="class in org.apache.axis2.transport.testkit.util">LifecycleFixTransportListenerProxy</a>, <a href="../../../../org/apache/axis2/transport/mail/MailTransportListener.html" title="class in org.apache.axis2.transport.mail">MailTransportListener</a>, <a href="../../../../org/apache/axis2/transport/http/SimpleHTTPServer.html" title="class in org.apache.axis2.transport.http">SimpleHTTPServer</a>, <a href="../../../../org/apache/axis2/transport/tcp/TCPTransportListener.html" title="class in org.apache.axis2.transport.tcp">TCPTransportListener</a>, <a href="../../../../org/apache/axis2/transport/udp/UDPListener.html" title="class in org.apache.axis2.transport.udp">UDPListener</a>, <a href="../../../../org/apache/axis2/transport/xmpp/XMPPListener.html" title="class in org.apache.axis2.transport.xmpp">XMPPListener</a></dd>
+<dd><a href="../../../../org/apache/axis2/transport/base/datagram/AbstractDatagramTransportListener.html" title="class in org.apache.axis2.transport.base.datagram">AbstractDatagramTransportListener</a>, <a href="../../../../org/apache/axis2/transport/base/AbstractPollingTransportListener.html" title="class in org.apache.axis2.transport.base">AbstractPollingTransportListener</a>, <a href="../../../../org/apache/axis2/transport/base/AbstractTransportListener.html" title="class in org.apache.axis2.transport.base">AbstractTransportListener</a>, <a href="../../../../org/apache/axis2/transport/base/AbstractTransportListenerEx.html" title="class in org.apache.axis2.transport.base">AbstractTransportListenerEx</a>, <a href="../../../../org/apache/axis2/transport/http/AxisServletListener.html" title="class in org.apache.axis2.transport.http">AxisServletListener</a>, <a href="../../../../org/apache/axis2/osgi/tx/HttpListener.html" title="class in org.apache.axis2.osgi.tx">HttpListener</a>, <a href="../../../../org/apache/axis2/transport/jms/JMSListener.html" title="class in org.apache.axis2.transport.jms">JMSListener</a>, <a href="../../../../org/apache/axis2/transport/testkit/util/LifecycleFixTransportListenerProxy.html" title="class in org.apache.axis2.transport.testkit.util">LifecycleFixTransportListenerProxy</a>, <a href="../../../../org/apache/axis2/transport/local/LocalTransportReceiver.html" title="class in org.apache.axis2.transport.local">LocalTransportReceiver</a>, <a href="../../../../org/apache/axis2/transport/mail/MailTransportListener.html" title="class in org.apache.axis2.transport.mail">MailTransportListener</a>, <a href="../../../../org/apache/axis2/transport/http/SimpleHTTPServer.html" title="class in org.apache.axis2.transport.http">SimpleHTTPServer</a>, <a href="../../../../org/apache/axis2/transport/tcp/TCPTransportListener.html" title="class in org.apache.axis2.transport.tcp">TCPTransportListener</a>, <a href="../../../../org/apache/axis2/transport/udp/UDPListener.html" title="class in org.apache.axis2.transport.udp">UDPListener</a>, <a href="../../../../org/apache/axis2/transport/xmpp/XMPPListener.html" title="class in org.apache.axis2.transport.xmpp">XMPPListener</a></dd>
 </dl>
 <hr>
 <br>
@@ -139,38 +139,28 @@
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportListener.html#destroy()">destroy</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportListener.html#getEPRForService(java.lang.String, java.lang.String)">getEPRForService</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName,
-                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ip)</code>
-<div class="block"><strong>Deprecated.</strong>&nbsp;
-<div class="block"><i>Transport listener can expose more than EPRs. So this method should return an array of EPRs.
-             Deprecating this method for now and please use getEPRsForServices instead.</i></div>
-</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportListener.html#getEPRsForService(java.lang.String, java.lang.String)">getEPRsForService</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName,
                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ip)</code>
 <div class="block">Get the endpoint references for a given service.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/context/SessionContext.html" title="class in org.apache.axis2.context">SessionContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportListener.html#getSessionContext(org.apache.axis2.context.MessageContext)">getSessionContext</a></strong>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext)</code>
 <div class="block">To get the sessionContext transport dependent manner.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportListener.html#init(org.apache.axis2.context.ConfigurationContext, org.apache.axis2.description.TransportInDescription)">init</a></strong>(<a href="../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;axisConf,
     <a href="../../../../org/apache/axis2/description/TransportInDescription.html" title="class in org.apache.axis2.description">TransportInDescription</a>&nbsp;transprtIn)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportListener.html#start()">start</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/transport/TransportListener.html#stop()">stop</a></strong>()</code>&nbsp;</td>
 </tr>
@@ -251,22 +241,6 @@
 <pre>void&nbsp;stop()
           throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
 <dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
-</li>
-</ul>
-<a name="getEPRForService(java.lang.String, java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getEPRForService</h4>
-<pre><a href="../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;getEPRForService(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName,
-                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;ip)
-                                   throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
-<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Transport listener can expose more than EPRs. So this method should return an array of EPRs.
-             Deprecating this method for now and please use getEPRsForServices instead.</i></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceName</code> - </dd><dd><code>ip</code> - </dd>
-<dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
 </li>
 </ul>

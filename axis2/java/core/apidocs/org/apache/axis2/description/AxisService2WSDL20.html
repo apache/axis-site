@@ -61,13 +61,13 @@
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>
@@ -97,6 +97,10 @@
 <dt>All Implemented Interfaces:</dt>
 <dd><a href="../../../../org/apache/axis2/description/WSDL2Constants.html" title="interface in org.apache.axis2.description">WSDL2Constants</a></dd>
 </dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../org/apache/axis2/dataretrieval/WSDL20SupplierTemplate.html" title="class in org.apache.axis2.dataretrieval">WSDL20SupplierTemplate</a></dd>
+</dl>
 <hr>
 <br>
 <pre>public class <span class="strong">AxisService2WSDL20</span>
@@ -114,6 +118,21 @@ implements <a href="../../../../org/apache/axis2/description/WSDL2Constants.html
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#axisService">axisService</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#serviceName">serviceName</a></strong></code>&nbsp;</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a name="fields_inherited_from_class_org.apache.axis2.description.WSDL2Constants">
 <!--   -->
@@ -135,9 +154,12 @@ implements <a href="../../../../org/apache/axis2/description/WSDL2Constants.html
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#AxisService2WSDL20(org.apache.axis2.description.AxisService)">AxisService2WSDL20</a></strong>(<a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;service)</code>&nbsp;</td>
+<td class="colOne"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#AxisService2WSDL20()">AxisService2WSDL20</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#AxisService2WSDL20(org.apache.axis2.description.AxisService)">AxisService2WSDL20</a></strong>(<a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;service)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#AxisService2WSDL20(org.apache.axis2.description.AxisService, java.lang.String)">AxisService2WSDL20</a></strong>(<a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;service,
                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName)</code>&nbsp;</td>
 </tr>
@@ -157,6 +179,23 @@ implements <a href="../../../../org/apache/axis2/description/WSDL2Constants.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#addPoliciesToDescriptionElement(java.util.List, org.apache.axiom.om.OMElement)">addPoliciesToDescriptionElement</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;policies,
+                               <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;descriptionElement)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#generateDescription(org.apache.axiom.om.OMFactory)">generateDescription</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#generateDocumentation(org.apache.axiom.om.OMFactory)">generateDocumentation</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#generateInterface(org.apache.axiom.om.OMFactory)">generateInterface</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#generateInterfaceOperationElement(org.apache.axis2.description.AxisOperation, org.apache.axiom.om.OMNamespace, org.apache.axiom.om.OMNamespace, org.apache.axiom.om.OMNamespace, org.apache.axiom.om.OMNamespace)">generateInterfaceOperationElement</a></strong>(<a href="../../../../org/apache/axis2/description/AxisOperation.html" title="class in org.apache.axis2.description">AxisOperation</a>&nbsp;axisOperation,
                                  <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;wsdl,
@@ -170,6 +209,80 @@ implements <a href="../../../../org/apache/axis2/description/WSDL2Constants.html
 <td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#generateOM()">generateOM</a></strong>()</code>
 <div class="block">Generates a WSDL 2.0 document for this web service</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#generateService(org.apache.axiom.om.OMFactory, org.apache.axiom.om.OMElement, boolean, boolean, boolean)">generateService</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory,
+               <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;descriptionElement,
+               boolean&nbsp;disableREST,
+               boolean&nbsp;disableSOAP12,
+               boolean&nbsp;disableSOAP11)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#generateServiceElement(org.apache.axiom.om.OMFactory, org.apache.axiom.om.OMNamespace, org.apache.axiom.om.OMNamespace, org.apache.axis2.description.AxisService, boolean, boolean, boolean, java.lang.String)">generateServiceElement</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory,
+                      <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;wsdl,
+                      <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;tns,
+                      <a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;axisService,
+                      boolean&nbsp;disableREST,
+                      boolean&nbsp;disableSOAP12,
+                      boolean&nbsp;disableSOAP11,
+                      <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName)</code>
+<div class="block">Generates a default service element</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#generateServiceElement(org.apache.axiom.om.OMFactory, org.apache.axiom.om.OMNamespace, org.apache.axiom.om.OMNamespace, org.apache.axis2.description.AxisService, boolean, boolean, boolean, java.lang.String[], java.lang.String)">generateServiceElement</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory,
+                      <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;wsdl,
+                      <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;tns,
+                      <a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;axisService,
+                      boolean&nbsp;disableREST,
+                      boolean&nbsp;disableSOAP12,
+                      boolean&nbsp;disableSOAP11,
+                      <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;eprs,
+                      <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName)</code>
+<div class="block">Generates a default service element</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#generateTypes(org.apache.axiom.om.OMFactory)">generateTypes</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#getPoliciesInDefinitions()">getPoliciesInDefinitions</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#init()">init</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#isDisableREST()">isDisableREST</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#isDisableSOAP11()">isDisableSOAP11</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#isDisableSOAP12()">isDisableSOAP12</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#modifyBinding(org.apache.axiom.om.OMElement)">modifyBinding</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;binding)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#modifyEndpoint(org.apache.axiom.om.OMElement)">modifyEndpoint</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;endpoint)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/description/AxisService2WSDL20.html#setCheckIfEndPointActive(boolean)">setCheckIfEndPointActive</a></strong>(boolean&nbsp;flag)</code>
+<div class="block">Sets whether to make a check if endpoint is active before adding the endpoint 
+ to the WSDL.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -192,12 +305,47 @@ implements <a href="../../../../org/apache/axis2/description/WSDL2Constants.html
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="axisService">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>axisService</h4>
+<pre>protected&nbsp;<a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a> axisService</pre>
+</li>
+</ul>
+<a name="serviceName">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>serviceName</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> serviceName</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor_detail">
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
+<a name="AxisService2WSDL20()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>AxisService2WSDL20</h4>
+<pre>public&nbsp;AxisService2WSDL20()</pre>
+</li>
+</ul>
 <a name="AxisService2WSDL20(org.apache.axis2.description.AxisService)">
 <!--   -->
 </a>
@@ -225,6 +373,32 @@ implements <a href="../../../../org/apache/axis2/description/WSDL2Constants.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="init()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>init</h4>
+<pre>protected&nbsp;void&nbsp;init()
+             throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="setCheckIfEndPointActive(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setCheckIfEndPointActive</h4>
+<pre>public&nbsp;void&nbsp;setCheckIfEndPointActive(boolean&nbsp;flag)</pre>
+<div class="block">Sets whether to make a check if endpoint is active before adding the endpoint 
+ to the WSDL.  By default an endpoint is not added if a transport for the endpoint
+ is not found.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>flag</code> - true=check if endpoint is active before adding endpoint.
+             false=add endpoint independent of whether endpoint is active.</dd></dl>
+</li>
+</ul>
 <a name="generateOM()">
 <!--   -->
 </a>
@@ -269,10 +443,188 @@ implements <a href="../../../../org/apache/axis2/description/WSDL2Constants.html
 <a name="setEPRs(java.lang.String[])">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setEPRs</h4>
 <pre>public&nbsp;void&nbsp;setEPRs(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;eprs)</pre>
+</li>
+</ul>
+<a name="addPoliciesToDescriptionElement(java.util.List, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addPoliciesToDescriptionElement</h4>
+<pre>protected&nbsp;void&nbsp;addPoliciesToDescriptionElement(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;policies,
+                                   <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;descriptionElement)
+                                        throws <a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
+                                               <a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/FactoryConfigurationError.html?is-external=true" title="class or interface in javax.xml.stream">FactoryConfigurationError</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/FactoryConfigurationError.html?is-external=true" title="class or interface in javax.xml.stream">FactoryConfigurationError</a></code></dd></dl>
+</li>
+</ul>
+<a name="generateDescription(org.apache.axiom.om.OMFactory)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateDescription</h4>
+<pre>protected&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;generateDescription(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory)</pre>
+</li>
+</ul>
+<a name="generateDocumentation(org.apache.axiom.om.OMFactory)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateDocumentation</h4>
+<pre>protected&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;generateDocumentation(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory)</pre>
+</li>
+</ul>
+<a name="generateTypes(org.apache.axiom.om.OMFactory)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateTypes</h4>
+<pre>protected&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;generateTypes(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory)
+                           throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="generateInterface(org.apache.axiom.om.OMFactory)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateInterface</h4>
+<pre>protected&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;generateInterface(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory)
+                               throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a>,
+                                      <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URISyntaxException.html?is-external=true" title="class or interface in java.net">URISyntaxException</a>,
+                                      <a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
+                                      <a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/FactoryConfigurationError.html?is-external=true" title="class or interface in javax.xml.stream">FactoryConfigurationError</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URISyntaxException.html?is-external=true" title="class or interface in java.net">URISyntaxException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/FactoryConfigurationError.html?is-external=true" title="class or interface in javax.xml.stream">FactoryConfigurationError</a></code></dd></dl>
+</li>
+</ul>
+<a name="generateService(org.apache.axiom.om.OMFactory, org.apache.axiom.om.OMElement, boolean, boolean, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateService</h4>
+<pre>protected&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;generateService(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory,
+                        <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;descriptionElement,
+                        boolean&nbsp;disableREST,
+                        boolean&nbsp;disableSOAP12,
+                        boolean&nbsp;disableSOAP11)
+                             throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="isDisableREST()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isDisableREST</h4>
+<pre>protected&nbsp;boolean&nbsp;isDisableREST()</pre>
+</li>
+</ul>
+<a name="isDisableSOAP11()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isDisableSOAP11</h4>
+<pre>protected&nbsp;boolean&nbsp;isDisableSOAP11()</pre>
+</li>
+</ul>
+<a name="isDisableSOAP12()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isDisableSOAP12</h4>
+<pre>protected&nbsp;boolean&nbsp;isDisableSOAP12()</pre>
+</li>
+</ul>
+<a name="getPoliciesInDefinitions()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPoliciesInDefinitions</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;getPoliciesInDefinitions()</pre>
+</li>
+</ul>
+<a name="modifyEndpoint(org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>modifyEndpoint</h4>
+<pre>protected&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;modifyEndpoint(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;endpoint)</pre>
+</li>
+</ul>
+<a name="modifyBinding(org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>modifyBinding</h4>
+<pre>protected&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;modifyBinding(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;binding)</pre>
+</li>
+</ul>
+<a name="generateServiceElement(org.apache.axiom.om.OMFactory, org.apache.axiom.om.OMNamespace, org.apache.axiom.om.OMNamespace, org.apache.axis2.description.AxisService, boolean, boolean, boolean, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateServiceElement</h4>
+<pre>public&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;generateServiceElement(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory,
+                               <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;wsdl,
+                               <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;tns,
+                               <a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;axisService,
+                               boolean&nbsp;disableREST,
+                               boolean&nbsp;disableSOAP12,
+                               boolean&nbsp;disableSOAP11,
+                               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName)
+                                 throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Generates a default service element</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>omFactory</code> - - The OMFactory</dd><dd><code>wsdl</code> - the WSDL namespace</dd><dd><code>tns</code> - - The targetnamespace</dd><dd><code>axisService</code> - - The AxisService</dd><dd><code>disableREST</code> - only generate REST endpoint if this is false</dd><dd><code>disableSOAP12</code> - only generate SOAP 1.2 endpoint if this is false</dd>
+<dt><span class="strong">Returns:</span></dt><dd>- The generated service element</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - - Thrown in case an exception occurs</dd></dl>
+</li>
+</ul>
+<a name="generateServiceElement(org.apache.axiom.om.OMFactory, org.apache.axiom.om.OMNamespace, org.apache.axiom.om.OMNamespace, org.apache.axis2.description.AxisService, boolean, boolean, boolean, java.lang.String[], java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>generateServiceElement</h4>
+<pre>public&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;generateServiceElement(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;omFactory,
+                               <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;wsdl,
+                               <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;tns,
+                               <a href="../../../../org/apache/axis2/description/AxisService.html" title="class in org.apache.axis2.description">AxisService</a>&nbsp;axisService,
+                               boolean&nbsp;disableREST,
+                               boolean&nbsp;disableSOAP12,
+                               boolean&nbsp;disableSOAP11,
+                               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;eprs,
+                               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceName)
+                                 throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Generates a default service element</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>omFactory</code> - - The OMFactory</dd><dd><code>wsdl</code> - the WSDL namespace</dd><dd><code>tns</code> - - The targetnamespace</dd><dd><code>axisService</code> - - The AxisService</dd><dd><code>disableREST</code> - only generate REST endpoint if this is false</dd><dd><code>disableSOAP12</code> - only generate SOAP 1.2 endpoint if this is false</dd>
+<dt><span class="strong">Returns:</span></dt><dd>- The generated service element</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - - Thrown in case an exception occurs</dd></dl>
 </li>
 </ul>
 </li>
@@ -327,13 +679,13 @@ implements <a href="../../../../org/apache/axis2/description/WSDL2Constants.html
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_detail">Method</a></li>
 </ul>

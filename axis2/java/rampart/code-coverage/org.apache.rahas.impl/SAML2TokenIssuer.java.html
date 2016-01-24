@@ -18,44 +18,21 @@ package org.apache.rahas.impl;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNode;
-import org.apache.axiom.om.impl.dom.jaxp.DocumentBuilderFactoryImpl;
-import org.apache.axiom.om.util.UUIDGenerator;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axis2.context.MessageContext;
-import org.apache.axis2.description.Parameter;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.rahas.*;
-import org.apache.rahas.impl.util.CommonUtil;
-import org.apache.rahas.impl.util.SAMLAttributeCallback;
-import org.apache.rahas.impl.util.SAMLCallbackHandler;
-import org.apache.rahas.impl.util.SignKeyHolder;
-import org.apache.ws.security.WSConstants;
-import org.apache.ws.security.WSSecurityException;
+import org.apache.rahas.impl.util.*;
 import org.apache.ws.security.components.crypto.Crypto;
-import org.apache.ws.security.components.crypto.CryptoFactory;
-import org.apache.ws.security.message.WSSecEncryptedKey;
-import org.apache.ws.security.util.Base64;
-import org.apache.ws.security.util.Loader;
 import org.apache.ws.security.util.XmlSchemaDateFormat;
 import org.apache.xml.security.c14n.Canonicalizer;
 import org.apache.xml.security.signature.XMLSignature;
-import org.apache.xml.security.utils.EncryptionConstants;
 import org.joda.time.DateTime;
 import org.opensaml.Configuration;
-import org.opensaml.DefaultBootstrap;
 import org.opensaml.common.SAMLException;
 import org.opensaml.common.SAMLObjectBuilder;
-import org.opensaml.common.SAMLVersion;
-import org.opensaml.saml1.core.NameIdentifier;
 import org.opensaml.saml2.core.*;
-import org.opensaml.saml2.core.impl.AssertionBuilder;
-import org.opensaml.saml2.core.impl.ConditionsBuilder;
-import org.opensaml.saml2.core.impl.IssuerBuilder;
-import org.opensaml.saml2.core.impl.NameIDBuilder;
-import org.opensaml.xml.ConfigurationException;
-import org.opensaml.xml.XMLObject;
-import org.opensaml.xml.XMLObjectBuilder;
 import org.opensaml.xml.XMLObjectBuilderFactory;
 import org.opensaml.xml.io.*;
 import org.opensaml.xml.schema.XSString;
@@ -63,28 +40,20 @@ import org.opensaml.xml.schema.impl.XSStringBuilder;
 import org.opensaml.xml.signature.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.Text;
-import org.w3c.dom.bootstrap.DOMImplementationRegistry;
-import org.w3c.dom.ls.DOMImplementationLS;
-import org.w3c.dom.ls.LSOutput;
-import org.w3c.dom.ls.LSSerializer;
 
-import javax.xml.namespace.QName;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.security.PrivateKey;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
-<span class="fc" id="L87">public class SAML2TokenIssuer implements TokenIssuer {</span>
+/**
+ * WS-Trust based SAML2 token issuer. This issuer will generate request security token responses with SAML2
+ * assertions.
+ */
+<span class="fc" id="L56">public class SAML2TokenIssuer implements TokenIssuer {</span>
 
     private String configParamName;
 
@@ -92,715 +61,749 @@ import java.util.List;
 
     private String configFile;
 
-<span class="fc" id="L95">    protected List&lt;Signature&gt; signatureList = new ArrayList&lt;Signature&gt;();</span>
+<span class="fc" id="L64">    protected List&lt;Signature&gt; signatureList = new ArrayList&lt;Signature&gt;();</span>
 
-<span class="fc" id="L97">    private boolean isSymmetricKeyBasedHoK = false;</span>
+<span class="fc" id="L66">    private boolean isSymmetricKeyBasedHoK = false;</span>
 
-<span class="fc" id="L99">    private static Log log = LogFactory.getLog(SAML2TokenIssuer.class);</span>
+    private SAMLTokenIssuerConfig tokenIssuerConfiguration;
 
-    static {
-            try {
-                // Set the &quot;javax.xml.parsers.DocumentBuilderFactory&quot; system property
-                // to the endorsed JAXP impl.
-<span class="fc" id="L105">                System.setProperty(&quot;javax.xml.parsers.DocumentBuilderFactory&quot;,</span>
-                        &quot;org.apache.xerces.jaxp.DocumentBuilderFactoryImpl&quot;);
-<span class="fc" id="L107">                DefaultBootstrap.bootstrap();</span>
-<span class="nc" id="L108">            } catch (ConfigurationException e) {</span>
-<span class="nc" id="L109">                log.error(&quot;SAML2TokenIssuerBootstrapError&quot;, e);</span>
-<span class="nc" id="L110">                throw new RuntimeException(e);</span>
-            } finally {
-                // Unset the DOM impl to default
-<span class="pc" id="L113">                DocumentBuilderFactoryImpl.setDOOMRequired(false);</span>
-<span class="fc" id="L114">            }</span>
-<span class="fc" id="L115">        }</span>
-    
+<span class="fc" id="L70">    private static Log log = LogFactory.getLog(SAML2TokenIssuer.class);</span>
+
+    /**
+     * This is the main method which issues SAML2 assertions as security token responses. This method will
+     * read issuer configuration and in message context properties (Basically request security token properties)
+     * and will create a security token response with SAML2 assertion. The attributes are retrieved from a callback
+     * class.
+     * @param data A populated &lt;code&gt;RahasData&lt;/code&gt; instance
+     * @return A SOAP message with security token response (as per ws-trust spec) with a SAML2 assertion.
+     * @throws TrustException If an error occurred while creating the response.
+     */
     public SOAPEnvelope issue(RahasData data) throws TrustException {
-<span class="fc" id="L118">        MessageContext inMsgCtx = data.getInMessageContext();</span>
+<span class="fc" id="L82">        MessageContext inMsgCtx = data.getInMessageContext();</span>
 
-        try {
-<span class="fc" id="L121">            SAMLTokenIssuerConfig config = null;</span>
-<span class="pc bpc" id="L122" title="1 of 2 branches missed.">            if (this.configElement != null) {</span>
-<span class="nc" id="L123">                config = new SAMLTokenIssuerConfig(configElement</span>
-                        .getFirstChildWithName(SAMLTokenIssuerConfig.SAML_ISSUER_CONFIG));
-            }
+<span class="fc" id="L84">        this.tokenIssuerConfiguration = CommonUtil.getTokenIssuerConfiguration(this.configElement,</span>
+                this.configFile, inMsgCtx.getParameter(this.configParamName));
 
-            // Look for the file
-<span class="pc bpc" id="L128" title="2 of 4 branches missed.">            if (config == null &amp;&amp; this.configFile != null) {</span>
-<span class="nc" id="L129">                config = new SAMLTokenIssuerConfig(this.configFile);</span>
-                //config = new SAMLTokenIssuerConfig(&quot;/home/thilina/Desktop/saml-issuer-config.xml&quot;);
-            }
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">        if (tokenIssuerConfiguration == null) {</span>
 
-            // Look for the param
-<span class="pc bpc" id="L134" title="2 of 4 branches missed.">            if (config == null &amp;&amp; this.configParamName != null) {</span>
-<span class="fc" id="L135">                Parameter param = inMsgCtx.getParameter(this.configParamName);</span>
-<span class="pc bpc" id="L136" title="2 of 4 branches missed.">                if (param != null &amp;&amp; param.getParameterElement() != null) {</span>
-<span class="fc" id="L137">                    config = new SAMLTokenIssuerConfig(param</span>
-                            .getParameterElement().getFirstChildWithName(
-                            SAMLTokenIssuerConfig.SAML_ISSUER_CONFIG));
+<span class="nc bnc" id="L89" title="All 2 branches missed.">            if (log.isDebugEnabled()) {</span>
+                String parameterName;
+<span class="nc bnc" id="L91" title="All 2 branches missed.">                if (this.configElement != null) {</span>
+<span class="nc" id="L92">                    parameterName = &quot;OMElement - &quot; + this.configElement.toString();</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">                } else if (this.configFile != null) {</span>
+<span class="nc" id="L94">                    parameterName = &quot;File - &quot; + this.configFile;</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">                } else if (this.configParamName != null) {</span>
+<span class="nc" id="L96">                    parameterName = &quot;With message context parameter name - &quot; + this.configParamName;</span>
                 } else {
-<span class="nc" id="L141">                    throw new TrustException(&quot;expectedParameterMissing&quot;,</span>
-                            new String[]{this.configParamName});
+<span class="nc" id="L98">                    parameterName = &quot;No method to build configurations&quot;;</span>
                 }
+
+<span class="nc" id="L101">                log.debug(&quot;Unable to build token configurations, &quot; + parameterName);</span>
             }
 
-<span class="pc bpc" id="L146" title="1 of 2 branches missed.">            if (config == null) {</span>
-<span class="nc" id="L147">                throw new TrustException(&quot;configurationIsNull&quot;);</span>
-            }
-
-<span class="fc" id="L150">            SOAPEnvelope env = TrustUtil.createSOAPEnvelope(inMsgCtx</span>
-                    .getEnvelope().getNamespace().getNamespaceURI());
-
-            Crypto crypto;
-<span class="pc bpc" id="L154" title="1 of 2 branches missed.">            if (config.cryptoElement != null) { // crypto props</span>
-                // defined as
-                // elements
-<span class="fc" id="L157">                crypto = CryptoFactory.getInstance(TrustUtil</span>
-                        .toProperties(config.cryptoElement), inMsgCtx
-                        .getAxisService().getClassLoader());
-            } else { // crypto props defined in a properties file
-<span class="nc" id="L161">                crypto = CryptoFactory.getInstance(config.cryptoPropertiesFile,</span>
-                        inMsgCtx.getAxisService().getClassLoader());
-            }
-
-
-            // Get the document
-<span class="fc" id="L167">            Document doc = ((Element) env).getOwnerDocument();</span>
-
-            // Get the key size and create a new byte array of that size
-<span class="fc" id="L170">            int keySize = data.getKeysize();</span>
-<span class="fc" id="L171">            String keyType = data.getKeyType();</span>
-
-<span class="pc bpc" id="L173" title="1 of 2 branches missed.">            keySize = (keySize == -1) ? config.keySize : keySize;</span>
-
-            //Build the assertion
-<span class="fc" id="L176">            AssertionBuilder assertionBuilder = new AssertionBuilder();</span>
-<span class="fc" id="L177">            Assertion assertion = assertionBuilder.buildObject();</span>
-<span class="fc" id="L178">            assertion.setVersion(SAMLVersion.VERSION_20);</span>
-
-            // Set an UUID as the ID of an assertion
-<span class="fc" id="L181">            assertion.setID(UUIDGenerator.getUUID());</span>
-
-            //Set the issuer
-<span class="fc" id="L184">            IssuerBuilder issuerBuilder = new IssuerBuilder();</span>
-<span class="fc" id="L185">            Issuer issuer = issuerBuilder.buildObject();</span>
-<span class="fc" id="L186">            issuer.setValue(config.issuerName);</span>
-<span class="fc" id="L187">            assertion.setIssuer(issuer);</span>
-
-            // Set the issued time.
-<span class="fc" id="L190">            assertion.setIssueInstant(new DateTime());</span>
-
-            // Validity period
-<span class="fc" id="L193">            DateTime creationDate = new DateTime();</span>
-<span class="fc" id="L194">            DateTime expirationDate = new DateTime(creationDate.getMillis() + config.ttl);</span>
-
-            // These variables are used to build the trust assertion
-<span class="fc" id="L197">            Date creationTime = creationDate.toDate();</span>
-<span class="fc" id="L198">            Date expirationTime = expirationDate.toDate();</span>
-
-<span class="fc" id="L200">            Conditions conditions = new ConditionsBuilder().buildObject();</span>
-<span class="fc" id="L201">            conditions.setNotBefore(creationDate);</span>
-<span class="fc" id="L202">            conditions.setNotOnOrAfter(expirationDate);</span>
-<span class="fc" id="L203">            assertion.setConditions(conditions);</span>
-
-            // Create the subject
-            Subject subject;
-
-<span class="fc bfc" id="L208" title="All 2 branches covered.">            if (!data.getKeyType().endsWith(RahasConstants.KEY_TYPE_BEARER)) {</span>
-<span class="fc" id="L209">                subject = createSubjectWithHolderOfKeySC(config, doc, crypto, creationDate, expirationDate, data);</span>
-            }
-            else{
-<span class="fc" id="L212">                subject = createSubjectWithBearerSC(data);</span>
-            }
-
-            // Set the subject
-<span class="fc" id="L216">            assertion.setSubject(subject);</span>
-
-            // If a SymmetricKey is used build an attr stmt, if a public key is build an authn stmt. 
-<span class="fc bfc" id="L219" title="All 2 branches covered.">            if (isSymmetricKeyBasedHoK) {</span>
-<span class="fc" id="L220">                AttributeStatement attrStmt = createAttributeStatement(data, config);</span>
-<span class="fc" id="L221">                assertion.getAttributeStatements().add(attrStmt);</span>
-<span class="fc" id="L222">            } else {</span>
-<span class="fc" id="L223">                AuthnStatement authStmt = createAuthnStatement(data);</span>
-<span class="fc" id="L224">                assertion.getAuthnStatements().add(authStmt);</span>
-<span class="pc bpc" id="L225" title="3 of 4 branches missed.">                if (data.getClaimDialect() != null &amp;&amp; data.getClaimElem() != null) {</span>
-<span class="nc" id="L226">                    assertion.getAttributeStatements().add(createAttributeStatement(data, config));</span>
-                }
-            }
-
-            // Create a SignKeyHolder to hold the crypto objects that are used to sign the assertion
-<span class="fc" id="L231">            SignKeyHolder signKeyHolder = createSignKeyHolder(config, crypto);</span>
-
-            // Sign the assertion
-<span class="fc" id="L234">            assertion = setSignature(assertion, signKeyHolder);</span>
-
-
-            OMElement rstrElem;
-<span class="fc" id="L238">            int wstVersion = data.getVersion();</span>
-<span class="pc bpc" id="L239" title="1 of 2 branches missed.">            if (RahasConstants.VERSION_05_02 == wstVersion) {</span>
-<span class="fc" id="L240">                rstrElem = TrustUtil.createRequestSecurityTokenResponseElement(</span>
-                        wstVersion, env.getBody());
-            } else {
-<span class="nc" id="L243">                OMElement rstrcElem = TrustUtil</span>
-                        .createRequestSecurityTokenResponseCollectionElement(
-                                wstVersion, env.getBody());
-<span class="nc" id="L246">                rstrElem = TrustUtil.createRequestSecurityTokenResponseElement(</span>
-                        wstVersion, rstrcElem);
-            }
-
-<span class="fc" id="L250">            TrustUtil.createTokenTypeElement(wstVersion, rstrElem).setText(</span>
-                    RahasConstants.TOK_TYPE_SAML_20);
-
-<span class="fc bfc" id="L253" title="All 2 branches covered.">            if (keyType.endsWith(RahasConstants.KEY_TYPE_SYMM_KEY)) {</span>
-<span class="fc" id="L254">                TrustUtil.createKeySizeElement(wstVersion, rstrElem, keySize);</span>
-            }
-
-<span class="pc bpc" id="L257" title="1 of 2 branches missed.">            if (config.addRequestedAttachedRef) {</span>
-<span class="fc" id="L258">                TrustUtil.createRequestedAttachedRef(wstVersion, rstrElem, &quot;#&quot;</span>
-                        + assertion.getID(), RahasConstants.TOK_TYPE_SAML_20);
-            }
-
-<span class="pc bpc" id="L262" title="1 of 2 branches missed.">            if (config.addRequestedUnattachedRef) {</span>
-<span class="fc" id="L263">                TrustUtil.createRequestedUnattachedRef(wstVersion, rstrElem,</span>
-                        assertion.getID(), RahasConstants.TOK_TYPE_SAML_20);
-            }
-
-<span class="fc bfc" id="L267" title="All 2 branches covered.">            if (data.getAppliesToAddress() != null) {</span>
-<span class="fc" id="L268">                TrustUtil.createAppliesToElement(rstrElem, data</span>
-                        .getAppliesToAddress(), data.getAddressingNs());
-            }
-
-            // Use GMT time in milliseconds
-<span class="fc" id="L273">            DateFormat zulu = new XmlSchemaDateFormat();</span>
-
-            // Add the Lifetime element
-<span class="fc" id="L276">            TrustUtil.createLifetimeElement(wstVersion, rstrElem, zulu</span>
-                    .format(creationTime), zulu.format(expirationTime));
-
-            // Create the RequestedSecurityToken element and add the SAML token
-            // to it
-<span class="fc" id="L281">            OMElement reqSecTokenElem = TrustUtil</span>
-                    .createRequestedSecurityTokenElement(wstVersion, rstrElem);
-            Token assertionToken;
-
-<span class="fc" id="L285">            Node tempNode = assertion.getDOM();</span>
-
-            //Serializing and re-generating the AXIOM element using the DOM Element created using xerces
-<span class="fc" id="L288">            Element element = assertion.getDOM();</span>
-
-<span class="fc" id="L290">            ByteArrayOutputStream byteArrayOutputStrm = new ByteArrayOutputStream();</span>
-
-<span class="fc" id="L292">            DOMImplementationRegistry registry = DOMImplementationRegistry.newInstance();</span>
-
-<span class="fc" id="L294">            DOMImplementationLS impl =</span>
-                    (DOMImplementationLS) registry.getDOMImplementation(&quot;LS&quot;);
-
-<span class="fc" id="L297">            LSSerializer writer = impl.createLSSerializer();</span>
-<span class="fc" id="L298">            LSOutput output = impl.createLSOutput();</span>
-<span class="fc" id="L299">            output.setByteStream(byteArrayOutputStrm);</span>
-<span class="fc" id="L300">            writer.write(element, output);</span>
-<span class="fc" id="L301">            String elementString = byteArrayOutputStrm.toString();</span>
-
-<span class="fc" id="L303">            DocumentBuilderFactoryImpl.setDOOMRequired(true);</span>
-
-<span class="fc" id="L305">            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();</span>
-<span class="fc" id="L306">            documentBuilderFactory.setNamespaceAware(true);</span>
-<span class="fc" id="L307">            DocumentBuilder docBuilder = documentBuilderFactory.newDocumentBuilder();</span>
-<span class="fc" id="L308">            Document document = docBuilder.parse(new ByteArrayInputStream(elementString.trim().getBytes()));</span>
-<span class="fc" id="L309">            Element assertionElement = document.getDocumentElement();</span>
-
-<span class="fc" id="L311">            reqSecTokenElem.addChild((OMNode) ((Element) rstrElem)</span>
-                    .getOwnerDocument().importNode(tempNode, true));
-
-            // Store the token
-<span class="fc" id="L315">            assertionToken = new Token(assertion.getID(),</span>
-                    (OMElement) assertionElement, creationTime,
-                    expirationTime);
-
-            // At this point we definitely have the secret
-            // Otherwise it should fail with an exception earlier
-<span class="fc" id="L321">            assertionToken.setSecret(data.getEphmeralKey());</span>
-<span class="fc" id="L322">            TrustUtil.getTokenStore(inMsgCtx).add(assertionToken);</span>
-
-<span class="pc bpc" id="L324" title="1 of 4 branches missed.">            if (keyType.endsWith(RahasConstants.KEY_TYPE_SYMM_KEY)</span>
-                &amp;&amp; config.keyComputation != SAMLTokenIssuerConfig.KeyComputation.KEY_COMP_USE_REQ_ENT) {
-
-                // Add the RequestedProofToken
-<span class="fc" id="L328">                TokenIssuerUtil.handleRequestedProofToken(data, wstVersion,</span>
-                                                          config, rstrElem, assertionToken, doc);
-            }
-
-<span class="fc" id="L332">            return env;</span>
-
-<span class="nc" id="L334">        } catch (Exception e) {</span>
-<span class="nc" id="L335">            e.printStackTrace();</span>
+<span class="nc" id="L104">            throw new TrustException(&quot;configurationIsNull&quot;);</span>
         }
-        finally {
-            // Unset the DOM impl to default
-<span class="pc" id="L339">            DocumentBuilderFactoryImpl.setDOOMRequired(false);</span>
-<span class="nc" id="L340">        }</span>
 
+<span class="fc" id="L107">        SOAPEnvelope env = TrustUtil.createSOAPEnvelope(inMsgCtx</span>
+                .getEnvelope().getNamespace().getNamespaceURI());
 
-<span class="nc" id="L343">        return null;</span>
+<span class="fc" id="L110">        Crypto crypto = tokenIssuerConfiguration.getIssuerCrypto(inMsgCtx</span>
+                .getAxisService().getClassLoader());
+
+        // Get the document
+<span class="fc" id="L114">        Document doc = ((Element) env).getOwnerDocument();</span>
+
+        // Get the key size and create a new byte array of that size
+<span class="fc" id="L117">        int keySize = data.getKeySize();</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">        keySize = (keySize == -1) ? tokenIssuerConfiguration.getKeySize() : keySize;</span>
+
+<span class="fc" id="L120">        data.setKeySize(keySize);</span>
+
+        // Build the assertion
+<span class="fc" id="L123">        Assertion assertion = buildAssertion(doc, crypto, data);</span>
+
+        // Sign the assertion
+<span class="fc" id="L126">        Assertion signedAssertion = signAssertion(doc, assertion, crypto);</span>
+
+<span class="fc" id="L128">        return createRequestSecurityTokenResponse(data, signedAssertion, env);</span>
+
     }
 
     /**
-     * This method is used to create the subject of an assertion
-     * @param config
-     * @param doc
-     * @param crypto
-     * @param creationTime
-     * @param expirationTime
-     * @param data
-     * @return Subject
-     * @throws Exception
+     * This method prepares the final response. This method will create a request security token response as
+     * specified in WS-Trust specification. The equivalent XML would take following format,
+     * &lt;wst:RequestSecurityTokenResponse xmlns:wst=&quot;...&quot;&gt;
+     *       &lt;wst:TokenType&gt;...&lt;/wst:TokenType&gt;
+     *       &lt;wst:RequestedSecurityToken&gt;...&lt;/wst:RequestedSecurityToken&gt;
+     *       ...
+     *       &lt;wsp:AppliesTo xmlns:wsp=&quot;...”&gt;...&lt;/wsp:AppliesTo&gt;
+     *       &lt;wst:RequestedAttachedReference&gt;
+     *       ...
+     *       &lt;/wst:RequestedAttachedReference&gt;
+     *       &lt;wst:RequestedUnattachedReference&gt;
+     *       ...
+     *       &lt;/wst:RequestedUnattachedReference&gt;
+     *       &lt;wst:RequestedProofToken&gt;...&lt;/wst:RequestedProofToken&gt;
+     *       &lt;wst:Entropy&gt;
+     *       &lt;wst:BinarySecret&gt;...&lt;/wst:BinarySecret&gt;
+     *       &lt;/wst:Entropy&gt;
+     *       &lt;wst:Lifetime&gt;...&lt;/wst:Lifetime&gt;
+     *   &lt;/wst:RequestSecurityTokenResponse&gt;
+     *
+     *   Thus the RequestedSecurityToken will have SAML2 assertion passed.
+     * @param rahasData The configuration data which comes with RST
+     * @param assertion OpenSAM representation of SAML2 assertion.
+     * @param soapEnvelope SOAP message envelope
+     * @return SOAPEnvelope which includes RequestSecurityTokenResponse
+     * @throws TrustException If an error occurred while creating RequestSecurityTokenResponse.
      */
-    Subject createSubjectWithHolderOfKeySC(SAMLTokenIssuerConfig config,
-                                                   Document doc, Crypto crypto,
-                                                   DateTime creationTime,
-                                                   DateTime expirationTime, RahasData data) throws Exception {
+    protected SOAPEnvelope createRequestSecurityTokenResponse(RahasData rahasData,
+                                                      Assertion assertion,
+                                                      SOAPEnvelope soapEnvelope) throws TrustException {
 
-
-        // TODO modify these to use proper SAML apis
-
-<span class="fc" id="L365">        XMLObjectBuilderFactory builderFactory = Configuration.getBuilderFactory();</span>
-<span class="fc" id="L366">        SAMLObjectBuilder&lt;Subject&gt; subjectBuilder =</span>
-                (SAMLObjectBuilder&lt;Subject&gt;) builderFactory.getBuilder(Subject.DEFAULT_ELEMENT_NAME);
-<span class="fc" id="L368">        Subject subject = subjectBuilder.buildObject();</span>
-<span class="fc" id="L369">        Element keyInfoElem = null;</span>
-
-        // If it is a Symmetric Key
-<span class="fc bfc" id="L372" title="All 2 branches covered.">        if (data.getKeyType().endsWith(RahasConstants.KEY_TYPE_SYMM_KEY)) {</span>
-
-<span class="fc" id="L374">            isSymmetricKeyBasedHoK = true;</span>
-            Element encryptedKeyElem;
-<span class="fc" id="L376">            X509Certificate serviceCert = null;</span>
-            try {
-
-                // Get ApliesTo to figure out which service to issue the token
-                // for
-<span class="fc" id="L381">                serviceCert = config.getServiceCert(crypto, data.getAppliesToAddress());</span>
-
-                // Create the encrypted key
-<span class="fc" id="L384">                WSSecEncryptedKey encrKeyBuilder = new WSSecEncryptedKey();</span>
-
-                // Use thumbprint id
-<span class="fc" id="L387">                encrKeyBuilder</span>
-                        .setKeyIdentifierType(WSConstants.THUMBPRINT_IDENTIFIER);
-
-                // SEt the encryption cert
-<span class="fc" id="L391">                encrKeyBuilder.setUseThisCert(serviceCert);</span>
-
-                // set keysize
-<span class="fc" id="L394">                int keysize = data.getKeysize();</span>
-<span class="pc bpc" id="L395" title="1 of 2 branches missed.">                keysize = (keysize != -1) ? keysize : config.keySize;</span>
-
-                // TODO setting keysize is removed with wss4j 1.6 migration - do we actually need this ?
-
-<span class="fc" id="L399">                encrKeyBuilder.setEphemeralKey(TokenIssuerUtil.getSharedSecret(</span>
-                        data, config.keyComputation, keysize));
-
-
-                // Set key encryption algo
-<span class="fc" id="L404">                encrKeyBuilder</span>
-                        .setKeyEncAlgo(EncryptionConstants.ALGO_ID_KEYTRANSPORT_RSA15);
-
-                // Build
-<span class="fc" id="L408">                encrKeyBuilder.prepare(doc, crypto);</span>
-
-                // Extract the base64 encoded secret value
-<span class="fc" id="L411">                byte[] tempKey = new byte[keysize / 8];</span>
-<span class="fc" id="L412">                System.arraycopy(encrKeyBuilder.getEphemeralKey(), 0, tempKey,</span>
-                        0, keysize / 8);
-
-<span class="fc" id="L415">                data.setEphmeralKey(tempKey);</span>
-
-                // Extract the Encryptedkey DOM element
-<span class="fc" id="L418">                encryptedKeyElem = encrKeyBuilder.getEncryptedKeyElement();</span>
-<span class="nc" id="L419">            } catch (WSSecurityException e) {</span>
-<span class="nc" id="L420">                throw new TrustException(</span>
-                        &quot;errorInBuildingTheEncryptedKeyForPrincipal&quot;,
-                        new String[]{serviceCert.getSubjectDN().getName()},
-                        e);
-<span class="fc" id="L424">            }</span>
-
-<span class="fc" id="L426">            keyInfoElem = doc.createElementNS(WSConstants.SIG_NS,</span>
-                    &quot;ds:KeyInfo&quot;);
-<span class="fc" id="L428">            ((OMElement) encryptedKeyElem).declareNamespace(WSConstants.SIG_NS,</span>
-                    WSConstants.SIG_PREFIX);
-<span class="fc" id="L430">            ((OMElement) encryptedKeyElem).declareNamespace(WSConstants.ENC_NS,</span>
-                    WSConstants.ENC_PREFIX);
-
-<span class="fc" id="L433">            keyInfoElem.appendChild(encryptedKeyElem);</span>
-
-<span class="fc" id="L435">        }</span>
-
-        // If it is a public Key
-<span class="pc bpc" id="L438" title="1 of 2 branches missed.">        else if(data.getKeyType().endsWith(RahasConstants.KEY_TYPE_PUBLIC_KEY)){</span>
-            try {
-<span class="fc" id="L440">                String subjectNameId = data.getPrincipal().getName();</span>
-
-                //Create NameID and attach it to the subject
-<span class="fc" id="L443">                NameIDBuilder nb = new NameIDBuilder();</span>
-<span class="fc" id="L444">                NameID nameID = nb.buildObject();</span>
-<span class="fc" id="L445">                nameID.setValue(subjectNameId);</span>
-<span class="fc" id="L446">                nameID.setFormat(NameIdentifier.EMAIL);</span>
-<span class="fc" id="L447">                subject.setNameID(nameID);</span>
-
-
-                // Create the ds:KeyValue element with the ds:X509Data
-<span class="fc" id="L451">                X509Certificate clientCert = data.getClientCert();</span>
-
-<span class="pc bpc" id="L453" title="1 of 2 branches missed.">                if (clientCert == null) {</span>
-                    // TODO are we always looking up by alias ? Dont we need to lookup by any other attribute ?
-<span class="nc" id="L455">                    clientCert = CommonUtil.getCertificateByAlias(crypto, data.getPrincipal().getName());</span>
-                }
-
-<span class="fc" id="L458">                byte[] clientCertBytes = clientCert.getEncoded();</span>
-
-<span class="fc" id="L460">                String base64Cert = Base64.encode(clientCertBytes);</span>
-
-<span class="fc" id="L462">                Text base64CertText = doc.createTextNode(base64Cert);</span>
-
-                //-----------------------------------------
-
-<span class="fc" id="L466">                Element x509CertElem = doc.createElementNS(WSConstants.SIG_NS,</span>
-                        &quot;ds:X509Certificate&quot;);
-<span class="fc" id="L468">                x509CertElem.appendChild(base64CertText);</span>
-<span class="fc" id="L469">                Element x509DataElem = doc.createElementNS(WSConstants.SIG_NS,</span>
-                        &quot;ds:X509Data&quot;);
-<span class="fc" id="L471">                x509DataElem.appendChild(x509CertElem);</span>
-
-
-<span class="pc bpc" id="L474" title="1 of 2 branches missed.">                if (x509DataElem != null) {</span>
-<span class="fc" id="L475">                    keyInfoElem = doc.createElementNS(WSConstants.SIG_NS, &quot;ds:KeyInfo&quot;);</span>
-<span class="fc" id="L476">                    ((OMElement) x509DataElem).declareNamespace(</span>
-                            WSConstants.SIG_NS, WSConstants.SIG_PREFIX);
-<span class="fc" id="L478">                    keyInfoElem.appendChild(x509DataElem);</span>
-                }
-
-<span class="nc" id="L481">            } catch (Exception e) {</span>
-<span class="nc" id="L482">                throw new TrustException(&quot;samlAssertionCreationError&quot;, e);</span>
-<span class="fc" id="L483">            }</span>
+        OMElement requestSecurityTokenResponse;
+<span class="fc" id="L165">        int wstVersion = rahasData.getVersion();</span>
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">        if (RahasConstants.VERSION_05_02 == wstVersion) {</span>
+<span class="fc" id="L167">            requestSecurityTokenResponse = TrustUtil.createRequestSecurityTokenResponseElement(</span>
+                    wstVersion, soapEnvelope.getBody());
+        } else {
+<span class="nc" id="L170">            OMElement requestSecurityTokenResponseCollectionElement = TrustUtil</span>
+                    .createRequestSecurityTokenResponseCollectionElement(
+                            wstVersion, soapEnvelope.getBody());
+<span class="nc" id="L173">            requestSecurityTokenResponse = TrustUtil.createRequestSecurityTokenResponseElement(</span>
+                    wstVersion, requestSecurityTokenResponseCollectionElement);
         }
 
-        // Unmarshall the keyInfo DOM element into an XMLObject
-<span class="fc" id="L487">        String keyInfoElementString = keyInfoElem.toString();</span>
-<span class="fc" id="L488">        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();</span>
-<span class="fc" id="L489">        documentBuilderFactory.setNamespaceAware(true);</span>
-<span class="fc" id="L490">        DocumentBuilder docBuilder = documentBuilderFactory.newDocumentBuilder();</span>
-<span class="fc" id="L491">        Document document = docBuilder.parse(new ByteArrayInputStream(keyInfoElementString.trim().getBytes()));</span>
-<span class="fc" id="L492">        Element element = document.getDocumentElement();</span>
+<span class="fc" id="L177">        TrustUtil.createTokenTypeElement(wstVersion, requestSecurityTokenResponse).setText(</span>
+                RahasConstants.TOK_TYPE_SAML_20);
+
+<span class="fc bfc" id="L180" title="All 2 branches covered.">        if (rahasData.getKeyType().endsWith(RahasConstants.KEY_TYPE_SYMM_KEY)) {</span>
+<span class="fc" id="L181">            TrustUtil.createKeySizeElement(wstVersion, requestSecurityTokenResponse, rahasData.getKeySize());</span>
+        }
+
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">        if (tokenIssuerConfiguration.isAddRequestedAttachedRef()) {</span>
+<span class="fc" id="L185">            TrustUtil.createRequestedAttachedRef(wstVersion, requestSecurityTokenResponse, &quot;#&quot;</span>
+                    + assertion.getID(), RahasConstants.TOK_TYPE_SAML_20);
+        }
+
+<span class="pc bpc" id="L189" title="1 of 2 branches missed.">        if (tokenIssuerConfiguration.isAddRequestedUnattachedRef()) {</span>
+<span class="fc" id="L190">            TrustUtil.createRequestedUnattachedRef(wstVersion, requestSecurityTokenResponse,</span>
+                    assertion.getID(), RahasConstants.TOK_TYPE_SAML_20);
+        }
+
+<span class="fc bfc" id="L194" title="All 2 branches covered.">        if (rahasData.getAppliesToAddress() != null) {</span>
+<span class="fc" id="L195">            TrustUtil.createAppliesToElement(requestSecurityTokenResponse, rahasData</span>
+                    .getAppliesToAddress(), rahasData.getAddressingNs());
+        }
+
+        // Use GMT time in milliseconds
+<span class="fc" id="L200">        DateFormat xmlSchemaDateFormat = new XmlSchemaDateFormat();</span>
+
+        // Add the Lifetime element
+<span class="fc" id="L203">        TrustUtil.createLifetimeElement(wstVersion, requestSecurityTokenResponse, xmlSchemaDateFormat</span>
+                .format(rahasData.getAssertionCreatedDate()),
+                xmlSchemaDateFormat.format(rahasData.getAssertionExpiringDate()));
+
+        // Create the RequestedSecurityToken element and add the SAML token
+        // to it
+<span class="fc" id="L209">        OMElement requestedSecurityTokenElement = TrustUtil</span>
+                .createRequestedSecurityTokenElement(wstVersion, requestSecurityTokenResponse);
+
+<span class="fc" id="L212">        Element assertionElement = assertion.getDOM();</span>
+
+<span class="fc" id="L214">        requestedSecurityTokenElement.addChild((OMNode)assertionElement);</span>
+
+        // Store the token
+<span class="fc" id="L217">        Token assertionToken = new Token(assertion.getID(),</span>
+                (OMElement) assertionElement, rahasData.getAssertionCreatedDate(),
+                rahasData.getAssertionExpiringDate());
+
+        // At this point we definitely have the secret
+        // Otherwise it should fail with an exception earlier
+<span class="fc" id="L223">        assertionToken.setSecret(rahasData.getEphmeralKey());</span>
+<span class="fc" id="L224">        TrustUtil.getTokenStore(rahasData.getInMessageContext()).add(assertionToken);</span>
+
+<span class="pc bpc" id="L226" title="1 of 4 branches missed.">        if (rahasData.getKeyType().endsWith(RahasConstants.KEY_TYPE_SYMM_KEY)</span>
+                &amp;&amp; tokenIssuerConfiguration.getKeyComputation()
+                != SAMLTokenIssuerConfig.KeyComputation.KEY_COMP_USE_REQ_ENT) {
+
+<span class="fc" id="L230">            Document doc = ((Element) soapEnvelope).getOwnerDocument();</span>
+
+            // Add the RequestedProofToken
+<span class="fc" id="L233">            TokenIssuerUtil.handleRequestedProofToken(rahasData, wstVersion,</span>
+                    tokenIssuerConfiguration,
+                    requestSecurityTokenResponse, assertionToken, doc);
+        }
+
+<span class="fc" id="L238">        return soapEnvelope;</span>
+
+    }
+
+    /**
+     * This methods builds the SAML2 assertion. The equivalent XML would look as follows,
+     * &lt;saml:Assertion
+     *      xmlns:saml=&quot;urn:oasis:names:tc:SAML:2.0:assertion&quot;
+     *      xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+     *      xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+     *      ID=&quot;b07b804c-7c29-ea16-7300-4f3d6f7928ac&quot;
+     *      Version=&quot;2.0&quot;
+     *      IssueInstant=&quot;2004-12-05T09:22:05Z&quot;&gt;
+     *      &lt;saml:Issuer&gt;https://idp.example.org/SAML2&lt;/saml:Issuer&gt;
+     *      &lt;ds:Signature
+     *        xmlns:ds=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&gt;...&lt;/ds:Signature&gt;
+     *      &lt;saml:Subject&gt;
+     *        &lt;saml:NameID
+     *          Format=&quot;urn:oasis:names:tc:SAML:2.0:nameid-format:transient&quot;&gt;
+     *          3f7b3dcf-1674-4ecd-92c8-1544f346baf8
+     *        &lt;/saml:NameID&gt;
+     *        &lt;saml:SubjectConfirmation
+     *          Method=&quot;urn:oasis:names:tc:SAML:2.0:cm:bearer&quot;&gt;
+     *          &lt;saml:SubjectConfirmationData
+     *            InResponseTo=&quot;aaf23196-1773-2113-474a-fe114412ab72&quot;
+     *            Recipient=&quot;https://sp.example.com/SAML2/SSO/POST&quot;
+     *            NotOnOrAfter=&quot;2004-12-05T09:27:05Z&quot;/&gt;
+     *        &lt;/saml:SubjectConfirmation&gt;
+     *      &lt;/saml:Subject&gt;
+     *      &lt;saml:Conditions
+     *        NotBefore=&quot;2004-12-05T09:17:05Z&quot;
+     *        NotOnOrAfter=&quot;2004-12-05T09:27:05Z&quot;&gt;
+     *        &lt;saml:AudienceRestriction&gt;
+     *          &lt;saml:Audience&gt;https://sp.example.com/SAML2&lt;/saml:Audience&gt;
+     *        &lt;/saml:AudienceRestriction&gt;
+     *      &lt;/saml:Conditions&gt;
+     *      &lt;saml:AuthnStatement
+     *        AuthnInstant=&quot;2004-12-05T09:22:00Z&quot;
+     *        SessionIndex=&quot;b07b804c-7c29-ea16-7300-4f3d6f7928ac&quot;&gt;
+     *        &lt;saml:AuthnContext&gt;
+     *          &lt;saml:AuthnContextClassRef&gt;
+     *            urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+     *         &lt;/saml:AuthnContextClassRef&gt;
+     *        &lt;/saml:AuthnContext&gt;
+     *      &lt;/saml:AuthnStatement&gt;
+     *      &lt;saml:AttributeStatement&gt;
+     *        &lt;saml:Attribute
+     *          xmlns:x500=&quot;urn:oasis:names:tc:SAML:2.0:profiles:attribute:X500&quot;
+     *          x500:Encoding=&quot;LDAP&quot;
+     *          NameFormat=&quot;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&quot;
+     *          Name=&quot;urn:oid:1.3.6.1.4.1.5923.1.1.1.1&quot;
+     *          FriendlyName=&quot;eduPersonAffiliation&quot;&gt;
+     *          &lt;saml:AttributeValue
+     *            xsi:type=&quot;xs:string&quot;&gt;member&lt;/saml:AttributeValue&gt;
+     *          &lt;saml:AttributeValue
+     *            xsi:type=&quot;xs:string&quot;&gt;staff&lt;/saml:AttributeValue&gt;
+     *        &lt;/saml:Attribute&gt;
+     *      &lt;/saml:AttributeStatement&gt;
+     *    &lt;/saml:Assertion&gt;
+     *
+     *    Reference - en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions
+     * @param doc The Document which comprises SAML 2 assertion.
+     * @param crypto Crypto properties.
+     * @param data The RST data and other configuration information.
+     * @return OpenSAML representation of an Assertion.
+     * @throws TrustException If an error occurred while creating the Assertion.
+     */
+    protected Assertion buildAssertion(Document doc, Crypto crypto, RahasData data) throws TrustException {
+        //Build the assertion
+<span class="fc" id="L307">        Assertion assertion = SAML2Utils.createAssertion();</span>
+
+<span class="fc" id="L309">        Issuer issuer = SAML2Utils.createIssuer(this.tokenIssuerConfiguration.getIssuerName());</span>
+<span class="fc" id="L310">        assertion.setIssuer(issuer);</span>
+
+        // Validity period
+<span class="fc" id="L313">        DateTime creationDate = new DateTime();</span>
+<span class="fc" id="L314">        DateTime expirationDate = new DateTime(creationDate.getMillis() + tokenIssuerConfiguration.getTtl());</span>
+
+<span class="fc" id="L316">        data.setAssertionCreatedDate(creationDate.toDate());</span>
+<span class="fc" id="L317">        data.setAssertionExpiringDate(expirationDate.toDate());</span>
+
+        // Set the issued time.
+<span class="fc" id="L320">        assertion.setIssueInstant(creationDate);</span>
+
+        // These variables are used to build the trust assertion
+<span class="fc" id="L323">        Conditions conditions = SAML2Utils.createConditions(creationDate, expirationDate);</span>
+<span class="fc" id="L324">        assertion.setConditions(conditions);</span>
+
+        // Create the subject
+        Subject subject;
+
+<span class="fc bfc" id="L329" title="All 2 branches covered.">        if (!data.getKeyType().endsWith(RahasConstants.KEY_TYPE_BEARER)) {</span>
+<span class="fc" id="L330">            subject = createSubjectWithHolderOfKeySubjectConfirmation(doc, crypto,</span>
+                    creationDate, expirationDate, data);
+        } else {
+<span class="fc" id="L333">            subject = createSubjectWithBearerSubjectConfirmation(data);</span>
+        }
+
+        // Set the subject
+<span class="fc" id="L337">        assertion.setSubject(subject);</span>
+
+        // If a SymmetricKey is used build an attr stmt, if a public key is build an authn stmt.
+<span class="fc bfc" id="L340" title="All 2 branches covered.">        if (isSymmetricKeyBasedHoK) {</span>
+<span class="fc" id="L341">            AttributeStatement attrStmt = createAttributeStatement(data);</span>
+<span class="fc" id="L342">            assertion.getAttributeStatements().add(attrStmt);</span>
+<span class="fc" id="L343">        } else {</span>
+<span class="fc" id="L344">            AuthnStatement authStmt = createAuthenticationStatement(data);</span>
+<span class="fc" id="L345">            assertion.getAuthnStatements().add(authStmt);</span>
+<span class="pc bpc" id="L346" title="3 of 4 branches missed.">            if (data.getClaimDialect() != null &amp;&amp; data.getClaimElem() != null) {</span>
+<span class="nc" id="L347">                assertion.getAttributeStatements().add(createAttributeStatement(data));</span>
+            }
+        }
+
+<span class="fc" id="L351">        return assertion;</span>
+    }
+
+    /**
+     * This method will create a SAML 2 subject based on Holder of Key confirmation method.
+     * The relevant XML would look as follows,
+     * &lt;saml2:Subject&gt;
+     *       &lt;saml2:NameID&gt;
+     *           ...
+     *       &lt;/saml2:NameID&gt;
+     *       &lt;saml2:SubjectConfirmation
+     *               Method=”urn:oasis:names:tc:SAML:2.0:cm:holder-of-key”&gt;
+     *           &lt;saml2:SubjectConfirmationData
+     *                   xsi:type=&quot;saml2:KeyInfoConfirmationDataType&quot;&gt;
+     *               &lt;ds:KeyInfo&gt;
+     *                   &lt;ds:KeyValue&gt;...&lt;/ds:KeyValue&gt;
+     *               &lt;/ds:KeyInfo&gt;
+     *           &lt;/saml2:SubjectConfirmationData&gt;
+     *       &lt;/saml2:SubjectConfirmation&gt;
+     *   &lt;/saml2:Subject&gt;
+     *
+     * KeyInfo can be created based on public key or symmetric key. That is decided by looking at
+     * the RahasData.getKeyType. TODO make sure this implementation is correct.
+     * Theoretically we should be able to have many subject confirmation methods in a SAML2 subject.
+     * TODO - Do we need to support that ?
+     * @param doc The original XML document which we need to include the assertion.
+     * @param crypto The relevant crypto properties
+     * @param creationTime The time that assertion was created.
+     * @param expirationTime The expiring time
+     * @param data The configuration data relevant request.
+     * @return OpenSAML representation of the SAML2 object.
+     * @throws TrustException If an error occurred while creating the subject.
+     */
+    protected Subject createSubjectWithHolderOfKeySubjectConfirmation(Document doc, Crypto crypto,
+                                                            DateTime creationTime,
+                                                            DateTime expirationTime, RahasData data)
+            throws TrustException {
 
 
-        // Get appropriate unmarshaller
-<span class="fc" id="L496">        UnmarshallerFactory unmarshallerFactory = Configuration.getUnmarshallerFactory();</span>
-<span class="fc" id="L497">        Unmarshaller unmarshaller = unmarshallerFactory.getUnmarshaller(element);</span>
+        // Create the subject
+<span class="fc" id="L391">        Subject subject = (Subject)CommonUtil.buildXMLObject(Subject.DEFAULT_ELEMENT_NAME);</span>
 
-        // Unmarshall using the document root element, an keyInfo element in this case
-<span class="fc" id="L500">        XMLObject keyInfoElement = null;</span>
-        try {
-<span class="fc" id="L502">            keyInfoElement = unmarshaller.unmarshall(element);</span>
-<span class="nc" id="L503">        } catch (UnmarshallingException e) {</span>
-<span class="nc" id="L504">            throw new TrustException(&quot;Error unmarshalling KeyInfo Element&quot;, e);</span>
-<span class="fc" id="L505">        }</span>
+        // Set the subject name identifier
+<span class="pc bpc" id="L394" title="1 of 2 branches missed.">        if (data.getPrincipal() != null) {</span>
+<span class="fc" id="L395">            setSubjectNamedIdentifierData(subject, data.getPrincipal().getName(), NameID.EMAIL);</span>
+        }
 
+        // Create KeyInfo
+<span class="fc" id="L399">        KeyInfo keyInfo = createKeyInfo(doc, crypto, data);</span>
 
         //Build the Subject Confirmation
-<span class="fc" id="L509">        SAMLObjectBuilder&lt;SubjectConfirmation&gt; subjectConfirmationBuilder =</span>
-                (SAMLObjectBuilder&lt;SubjectConfirmation&gt;) builderFactory.getBuilder(SubjectConfirmation.DEFAULT_ELEMENT_NAME);
-<span class="fc" id="L511">        SubjectConfirmation subjectConfirmation = subjectConfirmationBuilder.buildObject();</span>
+<span class="fc" id="L402">        SubjectConfirmation subjectConfirmation</span>
+                = (SubjectConfirmation)CommonUtil.buildXMLObject(SubjectConfirmation.DEFAULT_ELEMENT_NAME);
 
         //Set the subject Confirmation method
-<span class="fc" id="L514">        subjectConfirmation.setMethod(&quot;urn:oasis:names:tc:SAML:2.0:cm:holder-of-key&quot;);</span>
-
-<span class="fc" id="L516">        SAMLObjectBuilder&lt;KeyInfoConfirmationDataType&gt; keyInfoSubjectConfirmationDataBuilder =</span>
-                (SAMLObjectBuilder&lt;KeyInfoConfirmationDataType&gt;) builderFactory.getBuilder(KeyInfoConfirmationDataType.TYPE_NAME);
+<span class="fc" id="L406">        subjectConfirmation.setMethod(&quot;urn:oasis:names:tc:SAML:2.0:cm:holder-of-key&quot;);</span>
 
         //Build the subject confirmation data element
-<span class="fc" id="L520">        KeyInfoConfirmationDataType scData = keyInfoSubjectConfirmationDataBuilder.</span>
-                buildObject(SubjectConfirmationData.DEFAULT_ELEMENT_NAME, KeyInfoConfirmationDataType.TYPE_NAME);
+<span class="fc" id="L409">        KeyInfoConfirmationDataType scData = createKeyInfoConfirmationDataType();</span>
 
         //Set the keyInfo element
-<span class="fc" id="L524">        scData.getKeyInfos().add(keyInfoElement);</span>
+<span class="fc" id="L412">        scData.getKeyInfos().add(keyInfo);</span>
 
         // Set the validity period
-<span class="fc" id="L527">        scData.setNotBefore(creationTime);</span>
-<span class="fc" id="L528">        scData.setNotOnOrAfter(expirationTime);</span>
+<span class="fc" id="L415">        scData.setNotBefore(creationTime);</span>
+<span class="fc" id="L416">        scData.setNotOnOrAfter(expirationTime);</span>
 
         //Set the subject confirmation data
-<span class="fc" id="L531">        subjectConfirmation.setSubjectConfirmationData(scData);</span>
+<span class="fc" id="L419">        subjectConfirmation.setSubjectConfirmationData(scData);</span>
 
         //set the subject confirmation
-<span class="fc" id="L534">        subject.getSubjectConfirmations().add(subjectConfirmation);</span>
+<span class="fc" id="L422">        subject.getSubjectConfirmations().add(subjectConfirmation);</span>
 
-<span class="fc" id="L536">        log.debug(&quot;SAML2.0 subject is constructed successfully.&quot;);</span>
-<span class="fc" id="L537">        return subject;</span>
+<span class="fc" id="L424">        log.debug(&quot;SAML2.0 subject is constructed successfully.&quot;);</span>
+<span class="fc" id="L425">        return subject;</span>
+    }
+
+    private KeyInfoConfirmationDataType createKeyInfoConfirmationDataType() {
+<span class="fc" id="L429">        XMLObjectBuilderFactory builderFactory = Configuration.getBuilderFactory();</span>
+<span class="fc" id="L430">        @SuppressWarnings({&quot;unchecked&quot;}) SAMLObjectBuilder&lt;KeyInfoConfirmationDataType&gt; keyInfoSubjectConfirmationDataBuilder =</span>
+                (SAMLObjectBuilder&lt;KeyInfoConfirmationDataType&gt;) builderFactory.getBuilder
+                        (KeyInfoConfirmationDataType.TYPE_NAME);
+
+        //Build the subject confirmation data element
+<span class="fc" id="L435">        return keyInfoSubjectConfirmationDataBuilder.</span>
+                buildObject(SubjectConfirmationData.DEFAULT_ELEMENT_NAME, KeyInfoConfirmationDataType.TYPE_NAME);
     }
 
     /**
-     * This method creates a subject element with the bearer subject confirmation method
+     * This method creates a subject element with the bearer subject confirmation method.
+     * &lt;saml:Subject&gt;
+     *       &lt;saml:NameIdentifier
+     *                   NameQualifier=&quot;www.example.com&quot;
+     *                   Format=“urn:oasis:names:tc:SAML:1.1:nameid-
+     *           format:X509SubjectName”&gt;
+     *           uid=joe,ou=people,ou=saml-demo,o=baltimore.com
+     *       &lt;/saml:NameIdentifier&gt;
+     *       &lt;saml:SubjectConfirmation&gt;
+     *           &lt;saml:ConfirmationMethod&gt;
+     *               urn:oasis:names:tc:SAML:1.0:cm:bearer
+     *           &lt;/saml:ConfirmationMethod&gt;
+     *       &lt;/saml:SubjectConfirmation&gt;
+     *   &lt;/saml:Subject&gt;
      * @param data RahasData element
      * @return  SAML 2.0 Subject element with Bearer subject confirmation
+     * @throws org.apache.rahas.TrustException if an error occurred while creating the subject.
      */
-    private Subject createSubjectWithBearerSC(RahasData data){
-<span class="fc" id="L546">        XMLObjectBuilderFactory builderFactory = Configuration.getBuilderFactory();</span>
-<span class="fc" id="L547">        SAMLObjectBuilder&lt;Subject&gt; subjectBuilder =</span>
-                (SAMLObjectBuilder&lt;Subject&gt;) builderFactory.getBuilder(Subject.DEFAULT_ELEMENT_NAME);
-<span class="fc" id="L549">        Subject subject = subjectBuilder.buildObject();</span>
+    protected Subject createSubjectWithBearerSubjectConfirmation(RahasData data) throws TrustException {
+
+        // Create the subject
+<span class="fc" id="L461">        Subject subject = (Subject)CommonUtil.buildXMLObject(Subject.DEFAULT_ELEMENT_NAME);</span>
 
         //Create NameID and attach it to the subject
-<span class="fc" id="L552">        NameID nameID = new NameIDBuilder().buildObject();</span>
-<span class="fc" id="L553">        nameID.setValue(data.getPrincipal().getName());</span>
-<span class="fc" id="L554">        nameID.setFormat(NameIdentifier.EMAIL);</span>
-<span class="fc" id="L555">        subject.setNameID(nameID);</span>
+<span class="fc" id="L464">        setSubjectNamedIdentifierData(subject, data.getPrincipal().getName(), NameID.EMAIL);</span>
 
         //Build the Subject Confirmation
-<span class="fc" id="L558">        SAMLObjectBuilder&lt;SubjectConfirmation&gt; subjectConfirmationBuilder =</span>
-                (SAMLObjectBuilder&lt;SubjectConfirmation&gt;) builderFactory.getBuilder(SubjectConfirmation.DEFAULT_ELEMENT_NAME);
-<span class="fc" id="L560">        SubjectConfirmation subjectConfirmation = subjectConfirmationBuilder.buildObject();</span>
+<span class="fc" id="L467">        SubjectConfirmation subjectConfirmation</span>
+                = (SubjectConfirmation)CommonUtil.buildXMLObject(SubjectConfirmation.DEFAULT_ELEMENT_NAME);
 
         //Set the subject Confirmation method
-<span class="fc" id="L563">        subjectConfirmation.setMethod(&quot;urn:oasis:names:tc:SAML:2.0:cm:bearer&quot;);</span>
+<span class="fc" id="L471">        subjectConfirmation.setMethod(&quot;urn:oasis:names:tc:SAML:2.0:cm:bearer&quot;);</span>
 
-<span class="fc" id="L565">        subject.getSubjectConfirmations().add(subjectConfirmation);</span>
-<span class="fc" id="L566">        return subject;</span>
+<span class="fc" id="L473">        subject.getSubjectConfirmations().add(subjectConfirmation);</span>
+<span class="fc" id="L474">        return subject;</span>
     }
 
 
     /**
-     * This method is used to sign the assertion
-     * @param assertion
-     * @param cred
-     * @return Assertion
-     * @throws Exception
+     * This method signs the given assertion with issuer's private key.
+     * @param document The original RST document.
+     * @param assertion Assertion to be signed.
+     * @param crypto  The cryptographic properties.
+     * @return The signed assertion.
+     * @throws TrustException If an error occurred while signing the assertion.
      */
-    public Assertion setSignature(Assertion assertion, SignKeyHolder cred) throws Exception {
+    protected Assertion signAssertion(Document document, Assertion assertion, Crypto crypto) throws TrustException {
+
+        // Create a SignKeyHolder to hold the crypto objects that are used to sign the assertion
+<span class="fc" id="L489">        SignKeyHolder signKeyHolder = createSignKeyHolder(crypto);</span>
 
         // Build the signature object and set the credentials.
-<span class="fc" id="L580">        Signature signature = (Signature) buildXMLObject(Signature.DEFAULT_ELEMENT_NAME);</span>
-<span class="fc" id="L581">        signature.setSigningCredential(cred);</span>
-<span class="fc" id="L582">        signature.setSignatureAlgorithm(cred.getSignatureAlgorithm());</span>
-<span class="fc" id="L583">        signature.setCanonicalizationAlgorithm(Canonicalizer.ALGO_ID_C14N_EXCL_OMIT_COMMENTS);</span>
+<span class="fc" id="L492">        Signature signature = (Signature) CommonUtil.buildXMLObject(Signature.DEFAULT_ELEMENT_NAME);</span>
+
+<span class="fc" id="L494">        signature.setSigningCredential(signKeyHolder);</span>
+<span class="fc" id="L495">        signature.setSignatureAlgorithm(signKeyHolder.getSignatureAlgorithm());</span>
+<span class="fc" id="L496">        signature.setCanonicalizationAlgorithm(Canonicalizer.ALGO_ID_C14N_EXCL_OMIT_COMMENTS);</span>
 
         //Build the KeyInfo element and set the certificate
         try {
-<span class="fc" id="L587">            KeyInfo keyInfo = (KeyInfo) buildXMLObject(KeyInfo.DEFAULT_ELEMENT_NAME);</span>
-<span class="fc" id="L588">            X509Data data = (X509Data) buildXMLObject(X509Data.DEFAULT_ELEMENT_NAME);</span>
-<span class="fc" id="L589">            org.opensaml.xml.signature.X509Certificate cert = (org.opensaml.xml.signature.X509Certificate) buildXMLObject(org.opensaml.xml.signature.X509Certificate.DEFAULT_ELEMENT_NAME);</span>
-<span class="fc" id="L590">            String value = org.apache.xml.security.utils.Base64.encode(cred.getEntityCertificate().getEncoded());</span>
-<span class="fc" id="L591">            cert.setValue(value);</span>
-<span class="fc" id="L592">            data.getX509Certificates().add(cert);</span>
-<span class="fc" id="L593">            keyInfo.getX509Datas().add(data);</span>
-<span class="fc" id="L594">            signature.setKeyInfo(keyInfo);</span>
-<span class="fc" id="L595">            assertion.setSignature(signature);</span>
-<span class="fc" id="L596">            signatureList.add(signature);</span>
+<span class="fc" id="L500">            KeyInfo keyInfo = (KeyInfo) CommonUtil.buildXMLObject(KeyInfo.DEFAULT_ELEMENT_NAME);</span>
+<span class="fc" id="L501">            X509Data x509Data = (X509Data) CommonUtil.buildXMLObject(X509Data.DEFAULT_ELEMENT_NAME);</span>
+<span class="fc" id="L502">            org.opensaml.xml.signature.X509Certificate cert</span>
+                    = (org.opensaml.xml.signature.X509Certificate) CommonUtil.buildXMLObject
+                    (org.opensaml.xml.signature.X509Certificate.DEFAULT_ELEMENT_NAME);
+<span class="fc" id="L505">            String value</span>
+                    = org.apache.xml.security.utils.Base64.encode(signKeyHolder.getEntityCertificate().getEncoded());
+
+<span class="fc" id="L508">            cert.setValue(value);</span>
+<span class="fc" id="L509">            x509Data.getX509Certificates().add(cert);</span>
+<span class="fc" id="L510">            keyInfo.getX509Datas().add(x509Data);</span>
+
+<span class="fc" id="L512">            signature.setKeyInfo(keyInfo);</span>
+<span class="fc" id="L513">            assertion.setSignature(signature);</span>
+
+<span class="fc" id="L515">            signatureList.add(signature);</span>
 
             //Marshall and Sign
-<span class="fc" id="L599">            MarshallerFactory marshallerFactory = org.opensaml.xml.Configuration.getMarshallerFactory();</span>
-<span class="fc" id="L600">            Marshaller marshaller = marshallerFactory.getMarshaller(assertion);</span>
-<span class="fc" id="L601">            marshaller.marshall(assertion);</span>
-<span class="fc" id="L602">            org.apache.xml.security.Init.init();</span>
-<span class="fc" id="L603">            Signer.signObjects(signatureList);</span>
-<span class="nc" id="L604">        } catch (CertificateEncodingException e) {</span>
-<span class="nc" id="L605">            throw new TrustException(&quot;Error in setting the signature&quot;, e);</span>
-<span class="nc" id="L606">        } catch (SignatureException e) {</span>
-<span class="nc" id="L607">            throw new TrustException(&quot;errorMarshellingOrSigning&quot;, e);</span>
-<span class="nc" id="L608">        } catch (MarshallingException e) {</span>
-<span class="nc" id="L609">            throw new TrustException(&quot;errorMarshellingOrSigning&quot;, e);</span>
-<span class="fc" id="L610">        }</span>
+<span class="fc" id="L518">            MarshallerFactory marshallerFactory = org.opensaml.xml.Configuration.getMarshallerFactory();</span>
+<span class="fc" id="L519">            Marshaller marshaller = marshallerFactory.getMarshaller(assertion);</span>
+<span class="fc" id="L520">            marshaller.marshall(assertion, document);</span>
 
-<span class="fc" id="L612">        log.debug(&quot;SAML2.0 assertion is marshalled and signed..&quot;);</span>
+<span class="fc" id="L522">            Signer.signObjects(signatureList);</span>
 
-<span class="fc" id="L614">        return assertion;</span>
-    }
+<span class="nc" id="L524">        } catch (CertificateEncodingException e) {</span>
+<span class="nc" id="L525">            throw new TrustException(&quot;Error in setting the signature&quot;, e);</span>
+<span class="nc" id="L526">        } catch (SignatureException e) {</span>
+<span class="nc" id="L527">            throw new TrustException(&quot;errorSigningAssertion&quot;, e);</span>
+<span class="nc" id="L528">        } catch (MarshallingException e) {</span>
+<span class="nc" id="L529">            throw new TrustException(&quot;errorMarshallingAssertion&quot;, e);</span>
+<span class="fc" id="L530">        }</span>
 
+<span class="fc" id="L532">        log.debug(&quot;SAML2.0 assertion is marshalled and signed..&quot;);</span>
 
-    /**
-     * This method is used to build the assertion elements
-     * @param objectQName
-     * @return
-     * @throws Exception
-     */
-    protected static XMLObject buildXMLObject(QName objectQName) throws Exception {
-<span class="fc" id="L625">        XMLObjectBuilder builder = org.opensaml.xml.Configuration.getBuilderFactory().getBuilder(objectQName);</span>
-<span class="pc bpc" id="L626" title="1 of 2 branches missed.">        if (builder == null) {</span>
-<span class="nc" id="L627">            throw new TrustException(&quot;Unable to retrieve builder for object QName &quot;</span>
-                    + objectQName);
-        }
-<span class="fc" id="L630">        return builder.buildObject(objectQName.getNamespaceURI(), objectQName.getLocalPart(),</span>
-                objectQName.getPrefix());
+<span class="fc" id="L534">        return assertion;</span>
     }
 
     /**
      * This method is used to create SignKeyHolder instances that contains the credentials required for signing the
      * assertion
-     * @param config
-     * @param crypto
-     * @return
-     * @throws TrustException
+     * @param crypto The crypto properties associated with the issuer.
+     * @return  SignKeyHolder object.
+     * @throws TrustException  If an error occurred while creating SignKeyHolder object.
      */
-    private SignKeyHolder createSignKeyHolder(SAMLTokenIssuerConfig config, Crypto crypto) throws TrustException {
+    private SignKeyHolder createSignKeyHolder(Crypto crypto) throws TrustException {
 
-<span class="fc" id="L644">        SignKeyHolder signKeyHolder = new SignKeyHolder();</span>
+<span class="fc" id="L546">        SignKeyHolder signKeyHolder = new SignKeyHolder();</span>
 
         try {
-<span class="fc" id="L647">            X509Certificate[] issuerCerts = CommonUtil.getCertificatesByAlias(crypto,config.issuerKeyAlias);</span>
+<span class="fc" id="L549">            X509Certificate[] issuerCerts = CommonUtil.getCertificatesByAlias(crypto,</span>
+                    this.tokenIssuerConfiguration.getIssuerKeyAlias());
 
-<span class="fc" id="L649">            String sigAlgo = XMLSignature.ALGO_ID_SIGNATURE_RSA;</span>
-<span class="fc" id="L650">            String pubKeyAlgo = issuerCerts[0].getPublicKey().getAlgorithm();</span>
-<span class="pc bpc" id="L651" title="1 of 2 branches missed.">            if (pubKeyAlgo.equalsIgnoreCase(&quot;DSA&quot;)) {</span>
-<span class="nc" id="L652">                sigAlgo = XMLSignature.ALGO_ID_SIGNATURE_DSA;</span>
+<span class="fc" id="L552">            String sigAlgo = XMLSignature.ALGO_ID_SIGNATURE_RSA;</span>
+<span class="fc" id="L553">            String pubKeyAlgo = issuerCerts[0].getPublicKey().getAlgorithm();</span>
+<span class="pc bpc" id="L554" title="1 of 2 branches missed.">            if (pubKeyAlgo.equalsIgnoreCase(&quot;DSA&quot;)) {</span>
+<span class="nc" id="L555">                sigAlgo = XMLSignature.ALGO_ID_SIGNATURE_DSA;</span>
             }
-<span class="fc" id="L654">            java.security.Key issuerPK = crypto.getPrivateKey(</span>
-                    config.issuerKeyAlias, config.issuerKeyPassword);
 
-<span class="fc" id="L657">            signKeyHolder.setIssuerCerts(issuerCerts);</span>
-<span class="fc" id="L658">            signKeyHolder.setIssuerPK((PrivateKey) issuerPK);</span>
-<span class="fc" id="L659">            signKeyHolder.setSignatureAlgorithm(sigAlgo);</span>
+<span class="fc" id="L558">            java.security.Key issuerPK = crypto.getPrivateKey(</span>
+                    this.tokenIssuerConfiguration.getIssuerKeyAlias(),
+                    this.tokenIssuerConfiguration.getIssuerKeyPassword());
 
-<span class="nc" id="L661">        } catch (Exception e) {</span>
-<span class="nc" id="L662">            throw new TrustException(&quot;Error creating issuer signature&quot;);</span>
-<span class="fc" id="L663">        }</span>
+<span class="fc" id="L562">            signKeyHolder.setIssuerCerts(issuerCerts);</span>
+<span class="fc" id="L563">            signKeyHolder.setIssuerPK((PrivateKey) issuerPK);</span>
+<span class="fc" id="L564">            signKeyHolder.setSignatureAlgorithm(sigAlgo);</span>
 
-<span class="fc" id="L665">        log.debug(&quot;SignKeyHolder object is created with the credentials..&quot;);</span>
+<span class="nc" id="L566">        } catch (Exception e) {</span>
+<span class="nc" id="L567">            throw new TrustException(&quot;Error creating issuer signature&quot;);</span>
+<span class="fc" id="L568">        }</span>
 
-<span class="fc" id="L667">        return signKeyHolder;</span>
+<span class="fc" id="L570">        log.debug(&quot;SignKeyHolder object is created with the credentials..&quot;);</span>
+
+<span class="fc" id="L572">        return signKeyHolder;</span>
     }
 
     /**
-     * Creates the Attribute Statement
-     * @param data
-     * @param config
-     * @return
-     * @throws SAMLException
+     * This method creates an AttributeStatement. The relevant XML would look like as follows,
+     * &lt;saml:AttributeStatement&gt;
+     *    &lt;saml:Attribute
+     *      xmlns:x500=&quot;urn:oasis:names:tc:SAML:2.0:profiles:attribute:X500&quot;
+     *      x500:Encoding=&quot;LDAP&quot;
+     *      NameFormat=&quot;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&quot;
+     *      Name=&quot;urn:oid:1.3.6.1.4.1.5923.1.1.1.1&quot;
+     *      FriendlyName=&quot;eduPersonAffiliation&quot;&gt;
+     *      &lt;saml:AttributeValue
+     *        xsi:type=&quot;xs:string&quot;&gt;member&lt;/saml:AttributeValue&gt;
+     *      &lt;saml:AttributeValue
+     *        xsi:type=&quot;xs:string&quot;&gt;staff&lt;/saml:AttributeValue&gt;
+     *    &lt;/saml:Attribute&gt;
+     *  &lt;/saml:AttributeStatement&gt;
+     *  Reference -  http://en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions
+     * @param data The RahasData which carry information about RST.
+     * @return An AttributeStatement with filled attributes retrieved by calling callback class.
+     * @throws TrustException If an error occurred while creating the AttributeStatement.
      */
-    private AttributeStatement createAttributeStatement(RahasData data, SAMLTokenIssuerConfig config) throws SAMLException, TrustException {
+    protected AttributeStatement createAttributeStatement(RahasData data) throws TrustException {
 
-<span class="fc" id="L679">        XMLObjectBuilderFactory builderFactory = Configuration.getBuilderFactory();</span>
-<span class="fc" id="L680">        SAMLObjectBuilder&lt;AttributeStatement&gt; attrStmtBuilder =</span>
-                (SAMLObjectBuilder&lt;AttributeStatement&gt;) builderFactory.getBuilder(AttributeStatement.DEFAULT_ELEMENT_NAME);
 
-<span class="fc" id="L683">        SAMLObjectBuilder&lt;Attribute&gt; attrBuilder =</span>
-                    (SAMLObjectBuilder&lt;Attribute&gt;) builderFactory.getBuilder(Attribute.DEFAULT_ELEMENT_NAME);
+<span class="fc" id="L598">        AttributeStatement attributeStatement</span>
+                = (AttributeStatement) CommonUtil.buildXMLObject(AttributeStatement.DEFAULT_ELEMENT_NAME);
 
-<span class="fc" id="L686">        AttributeStatement attrstmt = attrStmtBuilder.buildObject();</span>
+        Attribute[] attributes;
 
-<span class="fc" id="L688">        Attribute[] attributes = null;</span>
+<span class="fc" id="L603">        SAMLCallbackHandler handler = CommonUtil.getSAMLCallbackHandler(this.tokenIssuerConfiguration, data);</span>
 
-        //Call the attribute callback handlers to get any attributes if exists
-<span class="pc bpc" id="L691" title="1 of 2 branches missed.">        if (config.getCallbackHandler() != null) {</span>
-<span class="nc" id="L692">            SAMLAttributeCallback cb = new SAMLAttributeCallback(data);</span>
-<span class="nc" id="L693">            SAMLCallbackHandler handler = config.getCallbackHandler();</span>
-<span class="nc" id="L694">            handler.handle(cb);</span>
-<span class="nc" id="L695">            attributes = cb.getSAML2Attributes();</span>
-<span class="nc" id="L696">        }</span>
-<span class="pc bpc" id="L697" title="3 of 4 branches missed.">        else if (config.getCallbackHandlerName() != null</span>
-                &amp;&amp; config.getCallbackHandlerName().trim().length() &gt; 0) {
-<span class="nc" id="L699">            SAMLAttributeCallback cb = new SAMLAttributeCallback(data);</span>
-<span class="nc" id="L700">            SAMLCallbackHandler handler = null;</span>
-<span class="nc" id="L701">            MessageContext msgContext = data.getInMessageContext();</span>
-<span class="nc" id="L702">            ClassLoader classLoader = msgContext.getAxisService().getClassLoader();</span>
-<span class="nc" id="L703">            Class cbClass = null;</span>
+<span class="fc" id="L605">        SAMLAttributeCallback cb = new SAMLAttributeCallback(data);</span>
+<span class="pc bpc" id="L606" title="1 of 2 branches missed.">        if (handler != null) {</span>
             try {
-<span class="nc" id="L705">                cbClass = Loader.loadClass(classLoader, config.getCallbackHandlerName());</span>
-<span class="nc" id="L706">            } catch (ClassNotFoundException e) {</span>
-<span class="nc" id="L707">                throw new TrustException(&quot;cannotLoadPWCBClass&quot;, new String[]{config</span>
-                        .getCallbackHandlerName()}, e);
-<span class="nc" id="L709">            }</span>
-            try {
-<span class="nc" id="L711">                handler = (SAMLCallbackHandler) cbClass.newInstance();</span>
-<span class="nc" id="L712">            } catch (java.lang.Exception e) {</span>
-<span class="nc" id="L713">                throw new TrustException(&quot;cannotCreatePWCBInstance&quot;, new String[]{config</span>
-                        .getCallbackHandlerName()}, e);
-<span class="nc" id="L715">            }</span>
-<span class="nc" id="L716">            handler.handle(cb);</span>
-<span class="nc" id="L717">            attributes = cb.getSAML2Attributes();</span>
-            // else add the attribute with a default value
-<span class="nc" id="L719">        } </span>
+<span class="nc" id="L608">                handler.handle(cb);</span>
+<span class="nc" id="L609">            } catch (SAMLException e) {</span>
+<span class="nc" id="L610">                throw new TrustException(</span>
+                            &quot;errorCallingSAMLCallback&quot;,
+                            e);
+<span class="nc" id="L613">            }</span>
 
-        //else add the attribute with a default value
-        else {
-<span class="fc" id="L723">            Attribute attribute = attrBuilder.buildObject();</span>
-<span class="fc" id="L724">            attribute.setName(&quot;Name&quot;);</span>
-<span class="fc" id="L725">            attribute.setNameFormat(&quot;urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified&quot;);</span>
+<span class="nc" id="L615">            attributes = cb.getSAML2Attributes();</span>
+        } else { //else add the attribute with a default value
 
-<span class="fc" id="L727">            XSStringBuilder attributeValueBuilder = (XSStringBuilder) builderFactory</span>
+<span class="fc" id="L618">            log.debug(&quot;No callback registered to get attributes ... Using default attributes&quot;);</span>
+
+            // TODO do we need to remove this ?
+<span class="fc" id="L621">            Attribute attribute = (Attribute) CommonUtil.buildXMLObject(Attribute.DEFAULT_ELEMENT_NAME);</span>
+<span class="fc" id="L622">            attribute.setName(&quot;Name&quot;);</span>
+<span class="fc" id="L623">            attribute.setNameFormat(&quot;urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified&quot;);</span>
+
+<span class="fc" id="L625">            XMLObjectBuilderFactory builderFactory = Configuration.getBuilderFactory();</span>
+
+<span class="fc" id="L627">            XSStringBuilder attributeValueBuilder = (XSStringBuilder) builderFactory</span>
                     .getBuilder(XSString.TYPE_NAME);
 
-<span class="fc" id="L730">            XSString stringValue = attributeValueBuilder.buildObject(</span>
+<span class="fc" id="L630">            XSString stringValue = attributeValueBuilder.buildObject(</span>
                     AttributeValue.DEFAULT_ELEMENT_NAME, XSString.TYPE_NAME);
-<span class="fc" id="L732">            stringValue.setValue(&quot;Colombo/Rahas&quot;);</span>
-<span class="fc" id="L733">            attribute.getAttributeValues().add(stringValue);</span>
-<span class="fc" id="L734">            attributes = new Attribute[1];</span>
-<span class="fc" id="L735">            attributes[0] = attribute;</span>
+<span class="fc" id="L632">            stringValue.setValue(&quot;Colombo/Rahas&quot;);</span>
+<span class="fc" id="L633">            attribute.getAttributeValues().add(stringValue);</span>
+<span class="fc" id="L634">            attributes = new Attribute[1];</span>
+<span class="fc" id="L635">            attributes[0] = attribute;</span>
         }
         //add attributes to the attribute statement
-<span class="fc" id="L738">        attrstmt.getAttributes().addAll(Arrays.asList(attributes));</span>
+<span class="fc" id="L638">        attributeStatement.getAttributes().addAll(Arrays.asList(attributes));</span>
 
-<span class="fc" id="L740">        log.debug(&quot;SAML2.0 attribute statement is constructed successfully.&quot;);</span>
+<span class="fc" id="L640">        log.debug(&quot;SAML2.0 attribute statement is constructed successfully.&quot;);</span>
 
-<span class="fc" id="L742">        return attrstmt;</span>
+<span class="fc" id="L642">        return attributeStatement;</span>
     }
 
     /**
-     * build the authentication statement
-     * @param data
-     * @return
+     * This method creates an authentication statement. The equivalent XML would look as follows,
+     * &lt;saml:AuthnStatement
+     *    AuthnInstant=&quot;2004-12-05T09:22:00Z&quot;
+     *    SessionIndex=&quot;b07b804c-7c29-ea16-7300-4f3d6f7928ac&quot;&gt;
+     *    &lt;saml:AuthnContext&gt;
+     *      &lt;saml:AuthnContextClassRef&gt;
+     *        urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+     *     &lt;/saml:AuthnContextClassRef&gt;
+     *    &lt;/saml:AuthnContext&gt;
+     *  &lt;/saml:AuthnStatement&gt;
+     * @param data The RahasData which carry information about RST.
+     * @return OpenSAML representation of an AuthnStatement class.
+     * @throws TrustException If an error occurred while creating the authentication statement.
      */
-    private AuthnStatement createAuthnStatement(RahasData data) {
-<span class="fc" id="L751">        XMLObjectBuilderFactory builderFactory = Configuration.getBuilderFactory();</span>
-<span class="fc" id="L752">        MessageContext inMsgCtx = data.getInMessageContext();</span>
+    protected AuthnStatement createAuthenticationStatement(RahasData data) throws TrustException {
 
-<span class="fc" id="L754">        SAMLObjectBuilder&lt;AuthnStatement&gt; authStmtBuilder =</span>
-                (SAMLObjectBuilder&lt;AuthnStatement&gt;) builderFactory.getBuilder(AuthnStatement.DEFAULT_ELEMENT_NAME);
+<span class="fc" id="L662">        MessageContext inMsgCtx = data.getInMessageContext();</span>
 
         //build the auth stmt
-<span class="fc" id="L758">        AuthnStatement authStmt = authStmtBuilder.buildObject();</span>
+<span class="fc" id="L665">        AuthnStatement authenticationStatement</span>
+                = (AuthnStatement)CommonUtil.buildXMLObject(AuthnStatement.DEFAULT_ELEMENT_NAME);
 
         // set the authn instance
-<span class="fc" id="L761">        authStmt.setAuthnInstant(new DateTime());</span>
+        // TODO do we need to use the same time as specified in the conditions ?
+<span class="fc" id="L670">        authenticationStatement.setAuthnInstant(new DateTime());</span>
 
-<span class="fc" id="L763">        SAMLObjectBuilder&lt;AuthnContext&gt; authCtxBuilder =</span>
-                (SAMLObjectBuilder&lt;AuthnContext&gt;) builderFactory.getBuilder(AuthnContext.DEFAULT_ELEMENT_NAME);
-<span class="fc" id="L765">        AuthnContext authContext = authCtxBuilder.buildObject();</span>
+        // Create authentication context
+<span class="fc" id="L673">        AuthnContext authContext = (AuthnContext)CommonUtil.buildXMLObject(AuthnContext.DEFAULT_ELEMENT_NAME);</span>
 
-<span class="fc" id="L767">        SAMLObjectBuilder&lt;AuthnContextClassRef&gt; authCtxClassRefBuilder =</span>
-                (SAMLObjectBuilder&lt;AuthnContextClassRef&gt;) builderFactory.getBuilder(AuthnContextClassRef.DEFAULT_ELEMENT_NAME);
-<span class="fc" id="L769">        AuthnContextClassRef authCtxClassRef = authCtxClassRefBuilder.buildObject();</span>
+        // Create authentication context class reference
+<span class="fc" id="L676">        AuthnContextClassRef authCtxClassRef</span>
+                = (AuthnContextClassRef)CommonUtil.buildXMLObject(AuthnContextClassRef.DEFAULT_ELEMENT_NAME);
         
         //if username/password based authn
-<span class="pc bpc" id="L772" title="1 of 2 branches missed.">        if (inMsgCtx.getProperty(RahasConstants.USERNAME) != null) {</span>
-<span class="nc" id="L773">            authCtxClassRef.setAuthnContextClassRef(AuthnContext.PASSWORD_AUTHN_CTX);</span>
-        }
-        //if X.509 cert based authn
-<span class="pc bpc" id="L776" title="1 of 2 branches missed.">        else if (inMsgCtx.getProperty(RahasConstants.X509_CERT) != null) {</span>
-<span class="nc" id="L777">            authCtxClassRef.setAuthnContextClassRef(AuthnContext.X509_AUTHN_CTX);</span>
+<span class="fc bfc" id="L680" title="All 2 branches covered.">        if (inMsgCtx.getProperty(RahasConstants.USERNAME) != null) {</span>
+<span class="fc" id="L681">            authCtxClassRef.setAuthnContextClassRef(AuthnContext.PASSWORD_AUTHN_CTX);</span>
+<span class="pc bpc" id="L682" title="1 of 2 branches missed.">        } else if (inMsgCtx.getProperty(RahasConstants.X509_CERT) != null) { //if X.509 cert based authn</span>
+<span class="fc" id="L683">            authCtxClassRef.setAuthnContextClassRef(AuthnContext.X509_AUTHN_CTX);</span>
         }
 
-<span class="fc" id="L780">        authContext.setAuthnContextClassRef(authCtxClassRef);</span>
-<span class="fc" id="L781">        authStmt.setAuthnContext(authContext);</span>
+<span class="fc" id="L686">        authContext.setAuthnContextClassRef(authCtxClassRef);</span>
+<span class="fc" id="L687">        authenticationStatement.setAuthnContext(authContext);</span>
 
-<span class="fc" id="L783">        log.debug(&quot;SAML2.0 authentication statement is constructed successfully.&quot;);</span>
+<span class="fc" id="L689">        log.debug(&quot;SAML2.0 authentication statement is constructed successfully.&quot;);</span>
 
-<span class="fc" id="L785">        return authStmt;</span>
+<span class="fc" id="L691">        return authenticationStatement;</span>
     }
 
+    /**
+     * This method will set the subject principal details to the given subject.
+     * @param subject The subject.
+     * @param subjectNameId Subject name id, to identify the principal
+     * @param format Format of the subjectNameId, i.e. email, x509subject etc ...
+     * @throws TrustException If an error occurred while building NameID.
+     */
+    protected static void setSubjectNamedIdentifierData(Subject subject, String subjectNameId, String format)
+            throws TrustException {
 
+        //Create NameID and attach it to the subject
+<span class="fc" id="L705">        NameID nameID = SAML2Utils.createNamedIdentifier(subjectNameId, format);</span>
+<span class="fc" id="L706">        subject.setNameID(nameID);</span>
+<span class="fc" id="L707">    }</span>
+
+    /**
+     * This method creates the KeyInfo relevant for the assertion. The KeyInfo could be created in 2 ways.
+     * 1. Using symmetric key - KeyInfo is created using a symmetric key
+     * 2. Using a public key - KeyInfo created using a public key
+     * The methodology is decided by looking at RahasData.getKeyType() method.
+     * @param doc The document which we are processing.
+     * @param crypto Includes crypto properties relevant to issuer.
+     * @param data Includes metadata about the RST.
+     * @return OpenSAML representation of KeyInfo.
+     * @throws TrustException If an error occurred while creating the KeyInfo object.
+     */
+    protected KeyInfo createKeyInfo(Document doc, Crypto crypto, RahasData data)
+            throws TrustException {
+
+        KeyInfo keyInfo;
+
+        // If it is a Symmetric Key
+<span class="fc bfc" id="L726" title="All 2 branches covered.">        if (data.getKeyType().endsWith(RahasConstants.KEY_TYPE_SYMM_KEY)) {</span>
+
+<span class="fc" id="L728">            isSymmetricKeyBasedHoK = true;</span>
+<span class="fc" id="L729">            X509Certificate serviceCert = null;</span>
+            try {
+
+                // Get AppliesTo to figure out which service to issue the token
+                // for
+<span class="fc" id="L734">                serviceCert = this.tokenIssuerConfiguration.getServiceCert(crypto, data.getAppliesToAddress());</span>
+
+<span class="fc" id="L736">                keyInfo = CommonUtil.getSymmetricKeyBasedKeyInfo(doc, data, serviceCert, data.getKeySize(), crypto,</span>
+                        tokenIssuerConfiguration.getKeyComputation());
+
+<span class="nc" id="L739">            } catch (Exception e) {</span>
+<span class="nc bnc" id="L740" title="All 2 branches missed.">                if (serviceCert != null) {</span>
+<span class="nc" id="L741">                    throw new TrustException(</span>
+                            &quot;errorInBuildingTheEncryptedKeyForPrincipal&quot;,
+                            new String[]{serviceCert.getSubjectDN().getName()},
+                            e);
+                } else {
+<span class="nc" id="L746">                    throw new TrustException(</span>
+                            &quot;errorInBuildingTheEncryptedKeyForPrincipal&quot;,
+                            new String[]{&quot;UnknownSubjectDN&quot;},
+                            e);
+                }
+<span class="fc" id="L751">            }</span>
+
+<span class="pc bpc" id="L753" title="1 of 2 branches missed.">        } else if (data.getKeyType().endsWith(RahasConstants.KEY_TYPE_PUBLIC_KEY)) {    // If it is a public Key</span>
+
+            try {
+                // Create the ds:KeyValue element with the ds:X509Data
+<span class="fc" id="L757">                X509Certificate clientCert = data.getClientCert();</span>
+
+<span class="pc bpc" id="L759" title="1 of 2 branches missed.">                if (clientCert == null) {</span>
+                    // TODO are we always looking up by alias ? Dont we need to lookup by any other attribute ?
+<span class="nc" id="L761">                    clientCert = CommonUtil.getCertificateByAlias(crypto, data.getPrincipal().getName());</span>
+                }
+
+<span class="fc" id="L764">                keyInfo = CommonUtil.getCertificateBasedKeyInfo(clientCert);</span>
+
+<span class="nc" id="L766">            } catch (Exception e) {</span>
+<span class="nc" id="L767">                throw new TrustException(&quot;samlAssertionCreationError&quot;, e);</span>
+<span class="fc" id="L768">            }</span>
+        } else {
+<span class="nc" id="L770">            log.error(&quot;Unidentified key type &quot; + data.getKeyType());</span>
+<span class="nc" id="L771">            throw new TrustException(</span>
+                            &quot;unidentifiedKeyType&quot;,
+                            new String[]{data.getKeyType()});
+        }
+
+<span class="fc" id="L776">        return keyInfo;</span>
+
+    }
+
+    /**
+     * @inheritDoc
+     */
     public String getResponseAction(RahasData data) throws TrustException {
-<span class="fc" id="L790">        return null;</span>
+<span class="fc" id="L784">        return null;</span>
     }
 
+    /**
+     * @inheritDoc
+     */
     public void setConfigurationFile(String configFile) {
-<span class="fc" id="L794">        this.configFile = configFile;</span>
-<span class="fc" id="L795">    }</span>
+<span class="fc" id="L791">        this.configFile = configFile;</span>
+<span class="fc" id="L792">    }</span>
 
+    /**
+     * @inheritDoc
+     */
     public void setConfigurationElement(OMElement configElement) {
 <span class="fc" id="L798">        this.configElement = configElement;</span>
 <span class="fc" id="L799">    }</span>
 
+    /**
+     * @inheritDoc
+     */
     public void setConfigurationParamName(String configParamName) {
-<span class="fc" id="L802">        this.configParamName = configParamName;</span>
-<span class="fc" id="L803">    }</span>
+<span class="fc" id="L805">        this.configParamName = configParamName;</span>
+<span class="fc" id="L806">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

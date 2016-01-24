@@ -36,7 +36,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/axis2/transport/http/HTTPConstants.html" title="class in org.apache.axis2.transport.http"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html" title="class in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.HTTPStatusCodeFamily.html" title="enum in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/axis2/transport/http/HTTPSender.html" target="_top">Frames</a></li>
@@ -60,7 +60,7 @@
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested_class_summary">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#fields_inherited_from_class_org.apache.axis2.transport.http.AbstractHTTPSender">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
@@ -98,9 +98,13 @@
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../../org/apache/axis2/transport/http/impl/httpclient3/HTTPSenderImpl.html" title="class in org.apache.axis2.transport.http.impl.httpclient3">HTTPSenderImpl</a>, <a href="../../../../../org/apache/axis2/transport/http/impl/httpclient4/HTTPSenderImpl.html" title="class in org.apache.axis2.transport.http.impl.httpclient4">HTTPSenderImpl</a></dd>
+</dl>
 <hr>
 <br>
-<pre>public class <span class="strong">HTTPSender</span>
+<pre>public abstract class <span class="strong">HTTPSender</span>
 extends <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html" title="class in org.apache.axis2.transport.http">AbstractHTTPSender</a></pre>
 </li>
 </ul>
@@ -108,6 +112,27 @@ extends <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSend
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested_class_summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static class&nbsp;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.HTTPStatusCodeFamily.html" title="enum in org.apache.axis2.transport.http">HTTPSender.HTTPStatusCodeFamily</a></strong></code>
+<div class="block">The set of HTTP status code families.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- =========== FIELD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="field_summary">
@@ -119,7 +144,7 @@ extends <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSend
 <!--   -->
 </a>
 <h3>Fields inherited from class&nbsp;org.apache.axis2.transport.http.<a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html" title="class in org.apache.axis2.transport.http">AbstractHTTPSender</a></h3>
-<code><a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#ANONYMOUS">ANONYMOUS</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#chunked">chunked</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#format">format</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#httpVersion">httpVersion</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#isAllowedRetry">isAllowedRetry</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#PROTOCOL_HTTP">PROTOCOL_HTTP</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#PROTOCOL_HTTPS">PROTOCOL_HTTPS</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#PROXY_HOST_NAME">PROXY_HOST_NAME</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#PROXY_PORT">PROXY_PORT</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#proxyOutSetting">proxyOutSetting</a></code></li>
+<code><a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#chunked">chunked</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#format">format</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#httpVersion">httpVersion</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#isAllowedRetry">isAllowedRetry</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#proxyOutSetting">proxyOutSetting</a></code></li>
 </ul>
 </li>
 </ul>
@@ -153,10 +178,61 @@ extends <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSend
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html#cleanup(org.apache.axis2.context.MessageContext, java.lang.Object)">cleanup</a></strong>(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+       <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;httpMethod)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/axis2/transport/http/HTTPSender.HTTPStatusCodeFamily.html" title="enum in org.apache.axis2.transport.http">HTTPSender.HTTPStatusCodeFamily</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html#getHTTPStatusCodeFamily(int)">getHTTPStatusCodeFamily</a></strong>(int&nbsp;statusCode)</code>
+<div class="block">Used to determine the family of HTTP status codes to which the given code
+ belongs.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html#handleResponse(org.apache.axis2.context.MessageContext, java.lang.Object)">handleResponse</a></strong>(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;httpMethodBase)</code>
+<div class="block">Used to handle the HTTP Response</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html#send(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">send</a></strong>(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapActionString)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html#sendViaDelete(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">sendViaDelete</a></strong>(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapActiionString)</code>
+<div class="block">Used to send a request via HTTP Delete Method</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html#sendViaGet(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">sendViaGet</a></strong>(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapActiionString)</code>
+<div class="block">Used to send a request via HTTP Get method</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html#sendViaPost(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">sendViaPost</a></strong>(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapActionString)</code>
+<div class="block">Used to send a request via HTTP Post Method</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected abstract void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html#sendViaPut(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">sendViaPut</a></strong>(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapActionString)</code>
+<div class="block">Used to send a request via HTTP Put Method</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -164,7 +240,7 @@ extends <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSend
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.axis2.transport.http.<a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html" title="class in org.apache.axis2.transport.http">AbstractHTTPSender</a></h3>
-<code><a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#addCustomHeaders(org.apache.commons.httpclient.HttpMethod, org.apache.axis2.context.MessageContext)">addCustomHeaders</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#executeMethod(org.apache.commons.httpclient.HttpClient, org.apache.axis2.context.MessageContext, java.net.URL, org.apache.commons.httpclient.HttpMethod)">executeMethod</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#getHostConfiguration(org.apache.commons.httpclient.HttpClient, org.apache.axis2.context.MessageContext, java.net.URL)">getHostConfiguration</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#getHttpClient(org.apache.axis2.context.MessageContext)">getHttpClient</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#initializeTimeouts(org.apache.axis2.context.MessageContext, org.apache.commons.httpclient.HttpClient)">initializeTimeouts</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#isAuthenticationEnabled(org.apache.axis2.context.MessageContext)">isAuthenticationEnabled</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#obtainHTTPHeaderInformation(org.apache.commons.httpclient.HttpMethodBase, org.apache.axis2.context.MessageContext)">obtainHTTPHeaderInformation</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#populateCommonProperties(org.apache.axis2.context.MessageContext, java.net.URL, org.apache.commons.httpclient.HttpMethodBase, org.apache.commons.httpclient.HttpClient, java.lang.String)">populateCommonProperties</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#processResponse(org.apache.commons.httpclient.HttpMethodBase, org.apache.axis2.context.MessageContext)">processResponse</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#setAuthenticationInfo(org.apache.commons.httpclient.HttpClient, org.apache.axis2.context.MessageContext, org.apache.commons.httpclient.HostConfiguration)">setAuthenticationInfo</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#setChunked(boolean)">setChunked</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#setFormat(org.apache.axiom.om.OMOutputFormat)">setFormat</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#setHttpVersion(java.lang.String)">setHttpVersion</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#setTimeouts(org.apache.axis2.context.MessageContext, org.apache.commons.httpclient.HttpMethod)">setTimeouts</a></code></li>
+<code><a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#setChunked(boolean)">setChunked</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#setFormat(org.apache.axiom.om.OMOutputFormat)">setFormat</a>, <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#setHttpVersion(java.lang.String)">setHttpVersion</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -204,10 +280,99 @@ extends <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSend
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="sendViaGet(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sendViaGet</h4>
+<pre>protected abstract&nbsp;void&nbsp;sendViaGet(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapActiionString)
+                            throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Used to send a request via HTTP Get method</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - - The MessageContext of the message</dd><dd><code>url</code> - - The target URL</dd><dd><code>soapActiionString</code> - - The soapAction string of the request</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - - Thrown in case an exception occurs</dd></dl>
+</li>
+</ul>
+<a name="sendViaDelete(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sendViaDelete</h4>
+<pre>protected abstract&nbsp;void&nbsp;sendViaDelete(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapActiionString)
+                               throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Used to send a request via HTTP Delete Method</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - - The MessageContext of the message</dd><dd><code>url</code> - - The target URL</dd><dd><code>soapActiionString</code> - - The soapAction string of the request</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - - Thrown in case an exception occurs</dd></dl>
+</li>
+</ul>
+<a name="sendViaPost(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sendViaPost</h4>
+<pre>protected abstract&nbsp;void&nbsp;sendViaPost(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapActionString)
+                             throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Used to send a request via HTTP Post Method</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - - The MessageContext of the message</dd><dd><code>url</code> - - The target URL</dd><dd><code>soapActionString</code> - - The soapAction string of the request</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - - Thrown in case an exception occurs</dd></dl>
+</li>
+</ul>
+<a name="sendViaPut(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sendViaPut</h4>
+<pre>protected abstract&nbsp;void&nbsp;sendViaPut(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapActionString)
+                            throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Used to send a request via HTTP Put Method</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - - The MessageContext of the message</dd><dd><code>url</code> - - The target URL</dd><dd><code>soapActionString</code> - - The soapAction string of the request</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - - Thrown in case an exception occurs</dd></dl>
+</li>
+</ul>
+<a name="handleResponse(org.apache.axis2.context.MessageContext, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>handleResponse</h4>
+<pre>protected abstract&nbsp;void&nbsp;handleResponse(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+                  <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;httpMethodBase)
+                                throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Used to handle the HTTP Response</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msgContext</code> - - The MessageContext of the message</dd><dd><code>method</code> - - The HTTP method used</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - - Thrown in case an exception occurs</dd></dl>
+</li>
+</ul>
+<a name="cleanup(org.apache.axis2.context.MessageContext, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>cleanup</h4>
+<pre>protected abstract&nbsp;void&nbsp;cleanup(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;httpMethod)</pre>
+</li>
+</ul>
 <a name="send(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>send</h4>
 <pre>public&nbsp;void&nbsp;send(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
@@ -219,6 +384,18 @@ extends <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSend
 <dd><code><a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html#send(org.apache.axis2.context.MessageContext, java.net.URL, java.lang.String)">send</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html" title="class in org.apache.axis2.transport.http">AbstractHTTPSender</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getHTTPStatusCodeFamily(int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getHTTPStatusCodeFamily</h4>
+<pre>protected&nbsp;<a href="../../../../../org/apache/axis2/transport/http/HTTPSender.HTTPStatusCodeFamily.html" title="enum in org.apache.axis2.transport.http">HTTPSender.HTTPStatusCodeFamily</a>&nbsp;getHTTPStatusCodeFamily(int&nbsp;statusCode)</pre>
+<div class="block">Used to determine the family of HTTP status codes to which the given code
+ belongs.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>statusCode</code> - - The HTTP status code</dd></dl>
 </li>
 </ul>
 </li>
@@ -248,7 +425,7 @@ extends <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSend
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/axis2/transport/http/HTTPConstants.html" title="class in org.apache.axis2.transport.http"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html" title="class in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.HTTPStatusCodeFamily.html" title="enum in org.apache.axis2.transport.http"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/axis2/transport/http/HTTPSender.html" target="_top">Frames</a></li>
@@ -272,7 +449,7 @@ extends <a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSend
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested_class_summary">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#fields_inherited_from_class_org.apache.axis2.transport.http.AbstractHTTPSender">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>

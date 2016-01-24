@@ -62,17 +62,17 @@ import javax.xml.namespace.QName;
         
         
 <span class="fc" id="L64">        RampartPolicyData rpd = rmd.getPolicyData();</span>
-<span class="pc bpc" id="L65" title="2 of 6 branches missed.">        if(rpd == null || isSecurityValidationFault(msgCtx) || </span>
+<span class="pc bpc" id="L65" title="3 of 6 branches missed.">        if(rpd == null || isSecurityValidationFault(msgCtx) || </span>
                 !RampartUtil.isSecHeaderRequired(rpd, rmd.isInitiator(),false)) {
             
-<span class="fc" id="L68">            Document doc = rmd.getDocument();</span>
-<span class="fc" id="L69">            WSSecHeader secHeader = rmd.getSecHeader();</span>
+<span class="nc" id="L68">            Document doc = rmd.getDocument();</span>
+<span class="nc" id="L69">            WSSecHeader secHeader = rmd.getSecHeader();</span>
             
-<span class="pc bpc" id="L71" title="3 of 4 branches missed.">            if ( secHeader != null &amp;&amp; secHeader.isEmpty(doc) ) {</span>
+<span class="nc bnc" id="L71" title="All 4 branches missed.">            if ( secHeader != null &amp;&amp; secHeader.isEmpty(doc) ) {</span>
 <span class="nc" id="L72">                secHeader.removeSecurityHeader(doc);</span>
             }
             
-<span class="fc" id="L75">            return;</span>
+<span class="nc" id="L75">            return;</span>
         }
         
         //Copy the RECV_RESULTS if available

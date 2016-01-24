@@ -231,25 +231,29 @@ implements org.apache.neethi.Assertion</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#TOKEN_STORE_CLASS_LN">TOKEN_STORE_CLASS_LN</a></strong></code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#TIMESTAMP_STRICT_LN">TIMESTAMP_STRICT_LN</a></strong></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#TOKEN_STORE_CLASS_LN">TOKEN_STORE_CLASS_LN</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#TS_MAX_SKEW_LN">TS_MAX_SKEW_LN</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#TS_PRECISION_IN_MS_LN">TS_PRECISION_IN_MS_LN</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#TS_TTL_LN">TS_TTL_LN</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#USER_CERT_ALIAS_LN">USER_CERT_ALIAS_LN</a></strong></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#USER_LN">USER_LN</a></strong></code>&nbsp;</td>
 </tr>
@@ -347,7 +351,11 @@ implements org.apache.neethi.Assertion</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#getTimestampPrecisionInMilliseconds()">getTimestampPrecisionInMilliseconds</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#getTimestampPrecisionInMilliseconds()">getTimestampPrecisionInMilliseconds</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>As of version 1.7.0, replaced by isDefaultTimestampPrecisionInMs</i></div>
+</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
@@ -371,11 +379,19 @@ implements org.apache.neethi.Assertion</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#isIgnorable()">isIgnorable</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#isDefaultTimestampPrecisionInMs()">isDefaultTimestampPrecisionInMs</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#isIgnorable()">isIgnorable</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#isOptional()">isOptional</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#isTimeStampStrict()">isTimeStampStrict</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>org.apache.neethi.PolicyComponent</code></td>
@@ -443,17 +459,21 @@ implements org.apache.neethi.Assertion</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#setTimestampTTL(java.lang.String)">setTimestampTTL</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;timestampTTL)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#setTimeStampStrict(java.lang.String)">setTimeStampStrict</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;timeStampStrict)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#setTokenStoreClass(java.lang.String)">setTokenStoreClass</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tokenStoreClass)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#setTimestampTTL(java.lang.String)">setTimestampTTL</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;timestampTTL)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#setUser(java.lang.String)">setUser</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;user)</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#setTokenStoreClass(java.lang.String)">setTokenStoreClass</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;tokenStoreClass)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#setUser(java.lang.String)">setUser</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;user)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#setUserCertAlias(java.lang.String)">setUserCertAlias</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;userCertAlias)</code>&nbsp;</td>
 </tr>
@@ -697,6 +717,16 @@ implements org.apache.neethi.Assertion</pre>
 <h4>TOKEN_STORE_CLASS_LN</h4>
 <pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> TOKEN_STORE_CLASS_LN</pre>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.rampart.policy.model.RampartConfig.TOKEN_STORE_CLASS_LN">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="TIMESTAMP_STRICT_LN">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>TIMESTAMP_STRICT_LN</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> TIMESTAMP_STRICT_LN</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.rampart.policy.model.RampartConfig.TIMESTAMP_STRICT_LN">Constant Field Values</a></dd></dl>
 </li>
 </ul>
 <a name="NONCE_LIFE_TIME">
@@ -1075,7 +1105,19 @@ implements org.apache.neethi.Assertion</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getTimestampPrecisionInMilliseconds</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getTimestampPrecisionInMilliseconds()</pre>
+<pre><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Deprecated.html?is-external=true" title="class or interface in java.lang">@Deprecated</a>
+public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getTimestampPrecisionInMilliseconds()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>As of version 1.7.0, replaced by isDefaultTimestampPrecisionInMs</i></div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Returns "true" or "false".</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/rampart/policy/model/RampartConfig.html#isDefaultTimestampPrecisionInMs()"><code>isDefaultTimestampPrecisionInMs()</code></a></dd></dl>
+</li>
+</ul>
+<a name="isDefaultTimestampPrecisionInMs()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isDefaultTimestampPrecisionInMs</h4>
+<pre>public&nbsp;boolean&nbsp;isDefaultTimestampPrecisionInMs()</pre>
 </li>
 </ul>
 <a name="setTimestampPrecisionInMilliseconds(java.lang.String)">
@@ -1175,10 +1217,28 @@ implements org.apache.neethi.Assertion</pre>
 <a name="setStsCryptoConfig(org.apache.rampart.policy.model.CryptoConfig)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setStsCryptoConfig</h4>
 <pre>public&nbsp;void&nbsp;setStsCryptoConfig(<a href="../../../../../org/apache/rampart/policy/model/CryptoConfig.html" title="class in org.apache.rampart.policy.model">CryptoConfig</a>&nbsp;stsCryptoConfig)</pre>
+</li>
+</ul>
+<a name="isTimeStampStrict()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isTimeStampStrict</h4>
+<pre>public&nbsp;boolean&nbsp;isTimeStampStrict()</pre>
+</li>
+</ul>
+<a name="setTimeStampStrict(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setTimeStampStrict</h4>
+<pre>public&nbsp;void&nbsp;setTimeStampStrict(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;timeStampStrict)</pre>
 </li>
 </ul>
 </li>
