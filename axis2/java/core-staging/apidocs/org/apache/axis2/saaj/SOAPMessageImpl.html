@@ -1,0 +1,785 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>SOAPMessageImpl (Apache Axis2)</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="SOAPMessageImpl (Apache Axis2)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/SOAPMessageImpl.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/apache/axis2/saaj/SOAPHeaderImpl.html" title="class in org.apache.axis2.saaj"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/saaj/SOAPPartImpl.html" title="class in org.apache.axis2.saaj"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/apache/axis2/saaj/SOAPMessageImpl.html" target="_top">Frames</a></li>
+<li><a href="SOAPMessageImpl.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_javax.xml.soap.SOAPMessage">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis2.saaj</div>
+<h2 title="Class SOAPMessageImpl" class="title">Class SOAPMessageImpl</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">javax.xml.soap.SOAPMessage</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis2.saaj.SOAPMessageImpl</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public class <span class="strong">SOAPMessageImpl</span>
+extends <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></pre>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_javax.xml.soap.SOAPMessage">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;javax.xml.soap.<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></h3>
+<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#CHARACTER_SET_ENCODING" title="class or interface in javax.xml.soap">CHARACTER_SET_ENCODING</a>, <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#WRITE_XML_DECLARATION" title="class or interface in javax.xml.soap">WRITE_XML_DECLARATION</a></code></li>
+</ul>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#SOAPMessageImpl(java.io.InputStream, javax.xml.soap.MimeHeaders, boolean)">SOAPMessageImpl</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inputstream,
+               <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/MimeHeaders.html?is-external=true" title="class or interface in javax.xml.soap">MimeHeaders</a>&nbsp;mimeHeaders,
+               boolean&nbsp;processMTOM)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#SOAPMessageImpl(org.apache.axis2.saaj.SOAPEnvelopeImpl)">SOAPMessageImpl</a></strong>(<a href="../../../../org/apache/axis2/saaj/SOAPEnvelopeImpl.html" title="class in org.apache.axis2.saaj">SOAPEnvelopeImpl</a>&nbsp;soapEnvelope)</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#addAttachmentPart(javax.xml.soap.AttachmentPart)">addAttachmentPart</a></strong>(<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/AttachmentPart.html?is-external=true" title="class or interface in javax.xml.soap">AttachmentPart</a>&nbsp;attachmentPart)</code>
+<div class="block">Adds the given <CODE>AttachmentPart</CODE> object to this <CODE>SOAPMessage</CODE> object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#countAttachments()">countAttachments</a></strong>()</code>
+<div class="block">Gets a count of the number of attachments in this message.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/AttachmentPart.html?is-external=true" title="class or interface in javax.xml.soap">AttachmentPart</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#createAttachmentPart()">createAttachmentPart</a></strong>()</code>
+<div class="block">Creates a new empty <CODE>AttachmentPart</CODE> object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/AttachmentPart.html?is-external=true" title="class or interface in javax.xml.soap">AttachmentPart</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#getAttachment(javax.xml.soap.SOAPElement)">getAttachment</a></strong>(<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a>&nbsp;soapelement)</code>
+<div class="block">Returns an AttachmentPart object that is associated with an attachment that is referenced by
+ this SOAPElement or null if no such attachment exists.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#getAttachments()">getAttachments</a></strong>()</code>
+<div class="block">Retrieves all the <CODE>AttachmentPart</CODE> objects that are part of this
+ <CODE>SOAPMessage</CODE> object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#getAttachments(javax.xml.soap.MimeHeaders)">getAttachments</a></strong>(<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/MimeHeaders.html?is-external=true" title="class or interface in javax.xml.soap">MimeHeaders</a>&nbsp;headers)</code>
+<div class="block">Retrieves all the AttachmentPart objects that have header entries that match the specified
+ headers.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#getContentDescription()">getContentDescription</a></strong>()</code>
+<div class="block">Retrieves a description of this <CODE>SOAPMessage</CODE> object's content.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/MimeHeaders.html?is-external=true" title="class or interface in javax.xml.soap">MimeHeaders</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#getMimeHeaders()">getMimeHeaders</a></strong>()</code>
+<div class="block">Returns all the transport-specific MIME headers for this <CODE>SOAPMessage</CODE> object in a
+ transport-independent fashion.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#getProperty(java.lang.String)">getProperty</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;property)</code>
+<div class="block">Retrieves value of the specified property.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPBody.html?is-external=true" title="class or interface in javax.xml.soap">SOAPBody</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#getSOAPBody()">getSOAPBody</a></strong>()</code>
+<div class="block">Gets the SOAP Body contained in this <code>SOAPMessage</code> object.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPHeader.html?is-external=true" title="class or interface in javax.xml.soap">SOAPHeader</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#getSOAPHeader()">getSOAPHeader</a></strong>()</code>
+<div class="block">Gets the SOAP Header contained in this <code>SOAPMessage</code> object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPPart.html?is-external=true" title="class or interface in javax.xml.soap">SOAPPart</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#getSOAPPart()">getSOAPPart</a></strong>()</code>
+<div class="block">Gets the SOAP part of this <CODE>SOAPMessage</CODE> object.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#removeAllAttachments()">removeAllAttachments</a></strong>()</code>
+<div class="block">Removes all <CODE>AttachmentPart</CODE> objects that have been added to this
+ <CODE>SOAPMessage</CODE> object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#removeAttachments(javax.xml.soap.MimeHeaders)">removeAttachments</a></strong>(<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/MimeHeaders.html?is-external=true" title="class or interface in javax.xml.soap">MimeHeaders</a>&nbsp;headers)</code>
+<div class="block">Removes all the AttachmentPart objects that have header entries that match the specified
+ headers.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#saveChanges()">saveChanges</a></strong>()</code>
+<div class="block">Updates this <CODE>SOAPMessage</CODE> object with all the changes that have been made to it.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#saveRequired()">saveRequired</a></strong>()</code>
+<div class="block">Indicates whether this <CODE>SOAPMessage</CODE> object has had the method <a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#saveChanges()"><code>saveChanges()</code></a> called on it.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#setContentDescription(java.lang.String)">setContentDescription</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;description)</code>
+<div class="block">Sets the description of this <CODE>SOAPMessage</CODE> object's content with the given
+ description.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#setProperty(java.lang.String, java.lang.Object)">setProperty</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;property,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
+<div class="block">Associates the specified value with the specified property.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#setSaveRequired()">setSaveRequired</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#writeTo(java.io.OutputStream)">writeTo</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;out)</code>
+<div class="block">Writes this <CODE>SOAPMessage</CODE> object to the given output stream.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_javax.xml.soap.SOAPMessage">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;javax.xml.soap.<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></h3>
+<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#createAttachmentPart(javax.activation.DataHandler)" title="class or interface in javax.xml.soap">createAttachmentPart</a>, <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#createAttachmentPart(java.lang.Object, java.lang.String)" title="class or interface in javax.xml.soap">createAttachmentPart</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="SOAPMessageImpl(org.apache.axis2.saaj.SOAPEnvelopeImpl)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SOAPMessageImpl</h4>
+<pre>public&nbsp;SOAPMessageImpl(<a href="../../../../org/apache/axis2/saaj/SOAPEnvelopeImpl.html" title="class in org.apache.axis2.saaj">SOAPEnvelopeImpl</a>&nbsp;soapEnvelope)</pre>
+</li>
+</ul>
+<a name="SOAPMessageImpl(java.io.InputStream, javax.xml.soap.MimeHeaders, boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>SOAPMessageImpl</h4>
+<pre>public&nbsp;SOAPMessageImpl(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inputstream,
+               <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/MimeHeaders.html?is-external=true" title="class or interface in javax.xml.soap">MimeHeaders</a>&nbsp;mimeHeaders,
+               boolean&nbsp;processMTOM)
+                throws <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></code></dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getContentDescription()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getContentDescription</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getContentDescription()</pre>
+<div class="block">Retrieves a description of this <CODE>SOAPMessage</CODE> object's content.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#getContentDescription()" title="class or interface in javax.xml.soap">getContentDescription</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>a <CODE>String</CODE> describing the content of this message or <CODE>null</CODE> if
+         no description has been set</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#setContentDescription(java.lang.String)"><code>setContentDescription(java.lang.String)</code></a></dd></dl>
+</li>
+</ul>
+<a name="setContentDescription(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setContentDescription</h4>
+<pre>public&nbsp;void&nbsp;setContentDescription(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;description)</pre>
+<div class="block">Sets the description of this <CODE>SOAPMessage</CODE> object's content with the given
+ description.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#setContentDescription(java.lang.String)" title="class or interface in javax.xml.soap">setContentDescription</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>description</code> - a <CODE>String</CODE> describing the content of this message</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#getContentDescription()"><code>getContentDescription()</code></a></dd></dl>
+</li>
+</ul>
+<a name="getSOAPPart()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSOAPPart</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPPart.html?is-external=true" title="class or interface in javax.xml.soap">SOAPPart</a>&nbsp;getSOAPPart()</pre>
+<div class="block">Gets the SOAP part of this <CODE>SOAPMessage</CODE> object.
+ <p/>
+ <p/>
+ <P>If a <CODE>SOAPMessage</CODE> object contains one or more attachments, the SOAP Part must
+ be the first MIME body part in the message.</P></div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#getSOAPPart()" title="class or interface in javax.xml.soap">getSOAPPart</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the <CODE>SOAPPart</CODE> object for this <CODE> SOAPMessage</CODE> object</dd></dl>
+</li>
+</ul>
+<a name="removeAllAttachments()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeAllAttachments</h4>
+<pre>public&nbsp;void&nbsp;removeAllAttachments()</pre>
+<div class="block">Removes all <CODE>AttachmentPart</CODE> objects that have been added to this
+ <CODE>SOAPMessage</CODE> object.
+ <p/>
+ <P>This method does not touch the SOAP part.</P></div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#removeAllAttachments()" title="class or interface in javax.xml.soap">removeAllAttachments</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="countAttachments()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>countAttachments</h4>
+<pre>public&nbsp;int&nbsp;countAttachments()</pre>
+<div class="block">Gets a count of the number of attachments in this message. This count does not include the
+ SOAP part.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#countAttachments()" title="class or interface in javax.xml.soap">countAttachments</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the number of <CODE>AttachmentPart</CODE> objects that are part of this
+         <CODE>SOAPMessage</CODE> object</dd></dl>
+</li>
+</ul>
+<a name="getAttachments()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAttachments</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a>&nbsp;getAttachments()</pre>
+<div class="block">Retrieves all the <CODE>AttachmentPart</CODE> objects that are part of this
+ <CODE>SOAPMessage</CODE> object.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#getAttachments()" title="class or interface in javax.xml.soap">getAttachments</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>an iterator over all the attachments in this message</dd></dl>
+</li>
+</ul>
+<a name="getAttachments(javax.xml.soap.MimeHeaders)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAttachments</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a>&nbsp;getAttachments(<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/MimeHeaders.html?is-external=true" title="class or interface in javax.xml.soap">MimeHeaders</a>&nbsp;headers)</pre>
+<div class="block">Retrieves all the AttachmentPart objects that have header entries that match the specified
+ headers. Note that a returned attachment could have headers in addition to those specified.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#getAttachments(javax.xml.soap.MimeHeaders)" title="class or interface in javax.xml.soap">getAttachments</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>headers</code> - a <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/MimeHeaders.html?is-external=true" title="class or interface in javax.xml.soap"><code>MimeHeaders</code></a> object containing the MIME headers for
+                which to search</dd>
+<dt><span class="strong">Returns:</span></dt><dd>an iterator over all attachments(<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/AttachmentPart.html?is-external=true" title="class or interface in javax.xml.soap"><code>AttachmentPart</code></a>) that have a
+         header that matches one of the given headers</dd></dl>
+</li>
+</ul>
+<a name="addAttachmentPart(javax.xml.soap.AttachmentPart)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addAttachmentPart</h4>
+<pre>public&nbsp;void&nbsp;addAttachmentPart(<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/AttachmentPart.html?is-external=true" title="class or interface in javax.xml.soap">AttachmentPart</a>&nbsp;attachmentPart)</pre>
+<div class="block">Adds the given <CODE>AttachmentPart</CODE> object to this <CODE>SOAPMessage</CODE> object. An
+ <CODE> AttachmentPart</CODE> object must be created before it can be added to a message.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#addAttachmentPart(javax.xml.soap.AttachmentPart)" title="class or interface in javax.xml.soap">addAttachmentPart</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>attachmentPart</code> - an <CODE> AttachmentPart</CODE> object that is to become part of this
+                       <CODE>SOAPMessage</CODE> object</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createAttachmentPart()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createAttachmentPart</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/AttachmentPart.html?is-external=true" title="class or interface in javax.xml.soap">AttachmentPart</a>&nbsp;createAttachmentPart()</pre>
+<div class="block">Creates a new empty <CODE>AttachmentPart</CODE> object. Note that the method
+ <CODE>addAttachmentPart</CODE> must be called with this new <CODE>AttachmentPart</CODE>
+ object as the parameter in order for it to become an attachment to this
+ <CODE>SOAPMessage</CODE> object.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#createAttachmentPart()" title="class or interface in javax.xml.soap">createAttachmentPart</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>a new <CODE>AttachmentPart</CODE> object that can be populated and added to this
+         <CODE>SOAPMessage</CODE> object</dd></dl>
+</li>
+</ul>
+<a name="getMimeHeaders()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMimeHeaders</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/MimeHeaders.html?is-external=true" title="class or interface in javax.xml.soap">MimeHeaders</a>&nbsp;getMimeHeaders()</pre>
+<div class="block">Returns all the transport-specific MIME headers for this <CODE>SOAPMessage</CODE> object in a
+ transport-independent fashion.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#getMimeHeaders()" title="class or interface in javax.xml.soap">getMimeHeaders</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>a <CODE>MimeHeaders</CODE> object containing the <CODE>MimeHeader</CODE> objects</dd></dl>
+</li>
+</ul>
+<a name="saveChanges()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>saveChanges</h4>
+<pre>public&nbsp;void&nbsp;saveChanges()
+                 throws <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></pre>
+<div class="block">Updates this <CODE>SOAPMessage</CODE> object with all the changes that have been made to it.
+ This method is called automatically when a message is sent or written to by the methods
+ <CODE>ProviderConnection.send</CODE>, <CODE> SOAPConnection.call</CODE>, or <CODE>
+ SOAPMessage.writeTo</CODE>. However, if changes are made to a message that was received or to
+ one that has already been sent, the method <CODE>saveChanges</CODE> needs to be called
+ explicitly in order to save the changes. The method <CODE>saveChanges</CODE> also generates
+ any changes that can be read back (for example, a MessageId in profiles that support a
+ message id). All MIME headers in a message that is created for sending purposes are
+ guaranteed to have valid values only after <CODE>saveChanges</CODE> has been called.
+ <p/>
+ <P>In addition, this method marks the point at which the data from all constituent
+ <CODE>AttachmentPart</CODE> objects are pulled into the message.</P></div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#saveChanges()" title="class or interface in javax.xml.soap">saveChanges</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></code> - if there was a problem saving changes to this message.</dd></dl>
+</li>
+</ul>
+<a name="setSaveRequired()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSaveRequired</h4>
+<pre>public&nbsp;void&nbsp;setSaveRequired()</pre>
+</li>
+</ul>
+<a name="saveRequired()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>saveRequired</h4>
+<pre>public&nbsp;boolean&nbsp;saveRequired()</pre>
+<div class="block">Indicates whether this <CODE>SOAPMessage</CODE> object has had the method <a href="../../../../org/apache/axis2/saaj/SOAPMessageImpl.html#saveChanges()"><code>saveChanges()</code></a> called on it.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#saveRequired()" title="class or interface in javax.xml.soap">saveRequired</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd><CODE>true</CODE> if <CODE>saveChanges</CODE> has been called on this message at
+         least once; <CODE> false</CODE> otherwise.</dd></dl>
+</li>
+</ul>
+<a name="writeTo(java.io.OutputStream)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeTo</h4>
+<pre>public&nbsp;void&nbsp;writeTo(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;out)
+             throws <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a>,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Writes this <CODE>SOAPMessage</CODE> object to the given output stream. The externalization
+ format is as defined by the SOAP 1.1 with Attachments specification.
+ <p/>
+ <P>If there are no attachments, just an XML stream is written out. For those messages that
+ have attachments, <CODE>writeTo</CODE> writes a MIME-encoded byte stream.</P></div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#writeTo(java.io.OutputStream)" title="class or interface in javax.xml.soap">writeTo</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>out</code> - the <CODE>OutputStream</CODE> object to which this <CODE>SOAPMessage</CODE> object
+            will be written</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></code> - if there was a problem in externalizing this SOAP message</dd>
+<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O error occurs</dd></dl>
+</li>
+</ul>
+<a name="setProperty(java.lang.String, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setProperty</h4>
+<pre>public&nbsp;void&nbsp;setProperty(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;property,
+               <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
+<div class="block">Associates the specified value with the specified property. If there was already a value
+ associated with this property, the old value is replaced.
+ <p/>
+ The valid property names include <code>WRITE_XML_DECLARATION</code> and
+ <code>CHARACTER_SET_ENCODING</code>. All of these standard SAAJ properties are prefixed by
+ "javax.xml.soap". Vendors may also add implementation specific properties. These properties
+ must be prefixed with package names that are unique to the vendor.
+ <p/>
+ Setting the property <code>WRITE_XML_DECLARATION</code> to <code>"true"</code> will cause an
+ XML Declaration to be written out at the start of the SOAP message. The default value of
+ "false" suppresses this declaration.
+ <p/>
+ The property <code>CHARACTER_SET_ENCODING</code> defaults to the value <code>"utf-8"</code>
+ which causes the SOAP message to be encoded using UTF-8. Setting
+ <code>CHARACTER_SET_ENCODING</code> to <code>"utf-16"</code> causes the SOAP message to be
+ encoded using UTF-16.
+ <p/>
+ Some implementations may allow encodings in addition to UTF-8 and UTF-16. Refer to your
+ vendor's documentation for details.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#setProperty(java.lang.String, java.lang.Object)" title="class or interface in javax.xml.soap">setProperty</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>property</code> - the property with which the specified value is to be associated</dd><dd><code>value</code> - the value to be associated with the specified property</dd></dl>
+</li>
+</ul>
+<a name="getProperty(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProperty</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getProperty(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;property)
+                   throws <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></pre>
+<div class="block">Retrieves value of the specified property.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#getProperty(java.lang.String)" title="class or interface in javax.xml.soap">getProperty</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>property</code> - the name of the property to retrieve</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the value of the property or <code>null</code> if no such property exists</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></code> - if the property name is not recognized</dd></dl>
+</li>
+</ul>
+<a name="getAttachment(javax.xml.soap.SOAPElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAttachment</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/AttachmentPart.html?is-external=true" title="class or interface in javax.xml.soap">AttachmentPart</a>&nbsp;getAttachment(<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a>&nbsp;soapelement)
+                             throws <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></pre>
+<div class="block">Returns an AttachmentPart object that is associated with an attachment that is referenced by
+ this SOAPElement or null if no such attachment exists. References can be made via an href
+ attribute as described in SOAP Messages with Attachments (http://www.w3.org/TR/SOAPattachments#SOAPReferenceToAttachements)
+ , or via a single Text child node containing a URI as described in the WS-I Attachments
+ Profile 1.0 for elements of schema type ref:swaRef(ref:swaRef (http://www.wsi.org/Profiles/AttachmentsProfile-1.0-2004-08-24.html")
+ ). These two mechanisms must be supported. The support for references via href attribute also
+ implies that this method should also be supported on an element that is an xop:Include
+ element (XOP (http://www.w3.org/2000/xp/Group/3/06/Attachments/XOP.html) ). other reference
+ mechanisms may be supported by individual implementations of this standard. Contact your
+ vendor for details.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#getAttachment(javax.xml.soap.SOAPElement)" title="class or interface in javax.xml.soap">getAttachment</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>element</code> - - The SOAPElement containing the reference to an Attachment</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the referenced AttachmentPart or null if no such AttachmentPart exists or no
+         reference can be found in this SOAPElement.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></code> - - if there is an error in the attempt to access the attachment</dd></dl>
+</li>
+</ul>
+<a name="removeAttachments(javax.xml.soap.MimeHeaders)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeAttachments</h4>
+<pre>public&nbsp;void&nbsp;removeAttachments(<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/MimeHeaders.html?is-external=true" title="class or interface in javax.xml.soap">MimeHeaders</a>&nbsp;headers)</pre>
+<div class="block">Removes all the AttachmentPart objects that have header entries that match the specified
+ headers. Note that the removed attachment could have headers in addition to those specified.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#removeAttachments(javax.xml.soap.MimeHeaders)" title="class or interface in javax.xml.soap">removeAttachments</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>headers</code> - - a MimeHeaders object containing the MIME headers for which to search</dd><dt><span class="strong">Since:</span></dt>
+  <dd>SAAJ 1.3</dd></dl>
+</li>
+</ul>
+<a name="getSOAPHeader()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSOAPHeader</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPHeader.html?is-external=true" title="class or interface in javax.xml.soap">SOAPHeader</a>&nbsp;getSOAPHeader()
+                         throws <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></pre>
+<div class="block">Gets the SOAP Header contained in this <code>SOAPMessage</code> object.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#getSOAPHeader()" title="class or interface in javax.xml.soap">getSOAPHeader</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the <code>SOAPHeader</code> object contained by this <code>SOAPMessage</code> object</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></code> - if the SOAP Header does not exist or cannot be
+                                      retrieved</dd></dl>
+</li>
+</ul>
+<a name="getSOAPBody()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getSOAPBody</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPBody.html?is-external=true" title="class or interface in javax.xml.soap">SOAPBody</a>&nbsp;getSOAPBody()
+                     throws <a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></pre>
+<div class="block">Gets the SOAP Body contained in this <code>SOAPMessage</code> object.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true#getSOAPBody()" title="class or interface in javax.xml.soap">getSOAPBody</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPMessage.html?is-external=true" title="class or interface in javax.xml.soap">SOAPMessage</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the <code>SOAPBody</code> object contained by this <code>SOAPMessage</code> object</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/5/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></code> - if the SOAP Body does not exist or cannot be retrieved</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/SOAPMessageImpl.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/apache/axis2/saaj/SOAPHeaderImpl.html" title="class in org.apache.axis2.saaj"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/saaj/SOAPPartImpl.html" title="class in org.apache.axis2.saaj"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/apache/axis2/saaj/SOAPMessageImpl.html" target="_top">Frames</a></li>
+<li><a href="SOAPMessageImpl.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_javax.xml.soap.SOAPMessage">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &copy; <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>
