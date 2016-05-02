@@ -148,8 +148,8 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#extension">extension</a></strong></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#fixed">fixed</a></strong></code>&nbsp;</td>
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#fixedQNameList">fixedQNameList</a></strong></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
@@ -589,7 +589,9 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#isFixed()">isFixed</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#isFixed(javax.xml.namespace.QName)">isFixed</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;eltQName)</code>
+<div class="block">Returns whether a QName is fixed or not</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -648,13 +650,20 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#registerFixedQName(javax.xml.namespace.QName)">registerFixedQName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;eltQName)</code>
+<div class="block">Registers a Qname as fixed
+ The qName better be of an element</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#registerMapping(javax.xml.namespace.QName, javax.xml.namespace.QName, java.lang.String)">registerMapping</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;qName,
                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;schemaName,
                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;javaClassName)</code>
 <div class="block">Registers a mapping.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#registerMapping(javax.xml.namespace.QName, javax.xml.namespace.QName, java.lang.String, int)">registerMapping</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;qName,
                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;schemaName,
@@ -663,63 +672,59 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <div class="block">Registers a mapping.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#registerNillableQName(javax.xml.namespace.QName)">registerNillableQName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;eltQName)</code>
 <div class="block">Registers a Qname as nillable
  The qName better be of an element</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#registerQNameIndex(javax.xml.namespace.QName, int)">registerQNameIndex</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;qName,
                   int&nbsp;index)</code>
 <div class="block">Registers a QName for the order.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#setAnonymous(boolean)">setAnonymous</a></strong>(boolean&nbsp;anonymous)</code>
 <div class="block">Sets the anonymous flag.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#setAsParent(org.apache.axis2.schema.BeanWriterMetaInfoHolder)">setAsParent</a></strong>(<a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html" title="class in org.apache.axis2.schema">BeanWriterMetaInfoHolder</a>&nbsp;metaInfo)</code>
 <div class="block">Creates link to th</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#setChoice(boolean)">setChoice</a></strong>(boolean&nbsp;choice)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#setEnumFacet(java.util.ArrayList)">setEnumFacet</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;enumFacet)</code>
 <div class="block">Sets the enumeration.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#setExtension(boolean)">setExtension</a></strong>(boolean&nbsp;extension)</code>
 <div class="block">Sets the extension status.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#setExtensionBaseType(javax.xml.namespace.QName)">setExtensionBaseType</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;extensionBaseType)</code>
 <div class="block">Sets the extension basetype.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#setExtensionClassName(java.lang.String)">setExtensionClassName</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extensionClassName)</code>
 <div class="block">Sets the extensions base class name.</div>
 </td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/apache/axis2/schema/BeanWriterMetaInfoHolder.html#setFixed(boolean)">setFixed</a></strong>(boolean&nbsp;fixed)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -1157,15 +1162,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <pre>protected&nbsp;boolean isList</pre>
 </li>
 </ul>
-<a name="fixed">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>fixed</h4>
-<pre>protected&nbsp;boolean fixed</pre>
-</li>
-</ul>
 <a name="isParticleClass">
 <!--   -->
 </a>
@@ -1191,6 +1187,15 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <li class="blockList">
 <h4>nillableQNameList</h4>
 <pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt; nillableQNameList</pre>
+</li>
+</ul>
+<a name="fixedQNameList">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>fixedQNameList</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt; fixedQNameList</pre>
 </li>
 </ul>
 <a name="parent">
@@ -1519,6 +1524,29 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <h4>isNillable</h4>
 <pre>public&nbsp;boolean&nbsp;isNillable(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;eltQName)</pre>
 <div class="block">Returns whether a QName is nillable or not</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>eltQName</code> - </dd></dl>
+</li>
+</ul>
+<a name="registerFixedQName(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>registerFixedQName</h4>
+<pre>public&nbsp;void&nbsp;registerFixedQName(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;eltQName)</pre>
+<div class="block">Registers a Qname as fixed
+ The qName better be of an element</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>eltQName</code> - </dd></dl>
+</li>
+</ul>
+<a name="isFixed(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isFixed</h4>
+<pre>public&nbsp;boolean&nbsp;isFixed(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;eltQName)</pre>
+<div class="block">Returns whether a QName is fixed or not</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>eltQName</code> - </dd></dl>
 </li>
 </ul>
@@ -2274,24 +2302,6 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <li class="blockList">
 <h4>getRestrictionBaseType</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;getRestrictionBaseType()</pre>
-</li>
-</ul>
-<a name="isFixed()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isFixed</h4>
-<pre>public&nbsp;boolean&nbsp;isFixed()</pre>
-</li>
-</ul>
-<a name="setFixed(boolean)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setFixed</h4>
-<pre>public&nbsp;void&nbsp;setFixed(boolean&nbsp;fixed)</pre>
 </li>
 </ul>
 <a name="toString()">
