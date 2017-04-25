@@ -1,0 +1,560 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>DescriptionFactoryImpl (Apache Axis2)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="DescriptionFactoryImpl (Apache Axis2)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DescriptionFactoryImpl.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../../org/apache/axis2/jaxws/description/impl/AttachmentDescriptionImpl.html" title="class in org.apache.axis2.jaxws.description.impl"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionUtils.html" title="class in org.apache.axis2.jaxws.description.impl"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../../index.html?org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html" target="_top">Frames</a></li>
+<li><a href="DescriptionFactoryImpl.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis2.jaxws.description.impl</div>
+<h2 title="Class DescriptionFactoryImpl" class="title">Class DescriptionFactoryImpl</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis2.jaxws.description.impl.DescriptionFactoryImpl</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public class <span class="strong">DescriptionFactoryImpl</span>
+extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<div class="block">Creates the JAX-WS metadata descritpion hierachy from some combinations of WSDL, Java classes
+ with annotations, and (in the future) deployment descriptors.  This is the implementation and is
+ not intended to be a public API.  The API is:</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html" title="class in org.apache.axis2.jaxws.description"><code>DescriptionFactory</code></a></dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#clearServiceDescriptionCache()">clearServiceDescriptionCache</a></strong>()</code>
+<div class="block">Clears the entire ServiceDescription cache.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#clearServiceDescriptionCache(org.apache.axis2.context.ConfigurationContext)">clearServiceDescriptionCache</a></strong>(<a href="../../../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configContext)</code>
+<div class="block">Clears all the ServiceDescription objects in the cache associated with the specified 
+ configuration context.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/ResolvedHandlersDescription.html" title="interface in org.apache.axis2.jaxws.description">ResolvedHandlersDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#createResolvedHandlersDescription()">createResolvedHandlersDescription</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#createServiceDescription(java.lang.Class)">createServiceDescription</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceImplClass)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#createServiceDescription(java.lang.Class, org.apache.axis2.context.ConfigurationContext)">createServiceDescription</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceImplClass,
+                        <a href="../../../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configContext)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#createServiceDescription(java.net.URL, javax.xml.namespace.QName, java.lang.Class)">createServiceDescription</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;wsdlURL,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;serviceQName,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceClass)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#createServiceDescription(java.net.URL, javax.xml.namespace.QName, java.lang.Class, org.apache.axis2.jaxws.description.builder.DescriptionBuilderComposite, java.lang.Object)">createServiceDescription</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;wsdlURL,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;serviceQName,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceClass,
+                        <a href="../../../../../../org/apache/axis2/jaxws/description/builder/DescriptionBuilderComposite.html" title="class in org.apache.axis2.jaxws.description.builder">DescriptionBuilderComposite</a>&nbsp;sparseComposite,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;sparseCompositeKey)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#createServiceDescriptionFromDBCMap(java.util.HashMap, org.apache.axis2.context.ConfigurationContext)">createServiceDescriptionFromDBCMap</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../../../org/apache/axis2/jaxws/description/builder/DescriptionBuilderComposite.html" title="class in org.apache.axis2.jaxws.description.builder">DescriptionBuilderComposite</a>&gt;&nbsp;dbcMap,
+                                  <a href="../../../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configContext)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#createServiceDescriptionFromDBCMap(java.util.HashMap, org.apache.axis2.context.ConfigurationContext, boolean)">createServiceDescriptionFromDBCMap</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../../../org/apache/axis2/jaxws/description/builder/DescriptionBuilderComposite.html" title="class in org.apache.axis2.jaxws.description.builder">DescriptionBuilderComposite</a>&gt;&nbsp;dbcMap,
+                                  <a href="../../../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configContext,
+                                  boolean&nbsp;performVaidation)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/ClientConfigurationFactory.html" title="class in org.apache.axis2.jaxws">ClientConfigurationFactory</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#getClientConfigurationFactory()">getClientConfigurationFactory</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, org.apache.axis2.addressing.EndpointReference, java.lang.String, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, org.apache.axis2.jaxws.description.builder.DescriptionBuilderComposite, java.lang.Object, java.lang.String, java.lang.String)">updateEndpoint</a></strong>(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+              <a href="../../../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;epr,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;addressingNamespace,
+              <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+              <a href="../../../../../../org/apache/axis2/jaxws/description/builder/DescriptionBuilderComposite.html" title="class in org.apache.axis2.jaxws.description.builder">DescriptionBuilderComposite</a>&nbsp;composite,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;sparseCompositeKey,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, org.apache.axis2.addressing.EndpointReference, java.lang.String, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, java.lang.Object, java.lang.String, java.lang.String)">updateEndpoint</a></strong>(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+              <a href="../../../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;epr,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;addressingNamespace,
+              <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;sparseCompositeKey,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, org.apache.axis2.addressing.EndpointReference, java.lang.String, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, java.lang.String, java.lang.String)">updateEndpoint</a></strong>(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+              <a href="../../../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;epr,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;addressingNamespace,
+              <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, javax.xml.namespace.QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, org.apache.axis2.jaxws.description.builder.DescriptionBuilderComposite, java.lang.Object, java.lang.String, java.lang.String)">updateEndpoint</a></strong>(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName,
+              <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+              <a href="../../../../../../org/apache/axis2/jaxws/description/builder/DescriptionBuilderComposite.html" title="class in org.apache.axis2.jaxws.description.builder">DescriptionBuilderComposite</a>&nbsp;composite,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, javax.xml.namespace.QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, java.lang.Object, java.lang.String, java.lang.String)">updateEndpoint</a></strong>(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName,
+              <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, javax.xml.namespace.QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, java.lang.String, java.lang.String)">updateEndpoint</a></strong>(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName,
+              <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</code>&nbsp;</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="createServiceDescription(java.net.URL, javax.xml.namespace.QName, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createServiceDescription</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;createServiceDescription(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;wsdlURL,
+                                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;serviceQName,
+                                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceClass)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><code>org.apache.axis2.jaxws.description.DescriptionFactory#createServiceDescription(URL, QName, Class, DescriptionBuilderComposite)</code></dd></dl>
+</li>
+</ul>
+<a name="createServiceDescription(java.net.URL, javax.xml.namespace.QName, java.lang.Class, org.apache.axis2.jaxws.description.builder.DescriptionBuilderComposite, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createServiceDescription</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;createServiceDescription(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;wsdlURL,
+                                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;serviceQName,
+                                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceClass,
+                                          <a href="../../../../../../org/apache/axis2/jaxws/description/builder/DescriptionBuilderComposite.html" title="class in org.apache.axis2.jaxws.description.builder">DescriptionBuilderComposite</a>&nbsp;sparseComposite,
+                                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;sparseCompositeKey)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html#createServiceDescription(java.net.URL, javax.xml.namespace.QName, java.lang.Class)"><code>DescriptionFactory.createServiceDescription(URL,
+      QName, Class)</code></a></dd></dl>
+</li>
+</ul>
+<a name="clearServiceDescriptionCache()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clearServiceDescriptionCache</h4>
+<pre>public static&nbsp;void&nbsp;clearServiceDescriptionCache()</pre>
+<div class="block">Clears the entire ServiceDescription cache.
+ 
+ <h4>Note</h4>     
+ This function might cause unpredictable results when configuration contexts are being reused
+ and/or there are outstanding requests using the cached ServiceDescription objects. Also, 
+ in-flight requests (both client and server) using ServiceDelegates MUST be done and out of
+ scope before this method is called.</div>
+</li>
+</ul>
+<a name="clearServiceDescriptionCache(org.apache.axis2.context.ConfigurationContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clearServiceDescriptionCache</h4>
+<pre>public static&nbsp;void&nbsp;clearServiceDescriptionCache(<a href="../../../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configContext)</pre>
+<div class="block">Clears all the ServiceDescription objects in the cache associated with the specified 
+ configuration context.
+ 
+ <h4>Note</h4>
+ This function should only be used to clear the cache when the specified configuration context
+ will not be used anymore and there are no outstanding requests using the associated 
+ ServiceDescription objects. Also, in-flight requests (both client and server) using 
+ ServiceDelegates MUST be done and out of scope before this method is called.      
+ Otherwise, unpredictable results might occur.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>configContext</code> - The configuration context associated with the ServiceDescription 
+                      objects in the cache.</dd></dl>
+</li>
+</ul>
+<a name="createServiceDescription(java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createServiceDescription</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;createServiceDescription(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceImplClass)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html#createServiceDescription(java.lang.Class)"><code>DescriptionFactory.createServiceDescription(Class)</code></a></dd></dl>
+</li>
+</ul>
+<a name="createServiceDescription(java.lang.Class, org.apache.axis2.context.ConfigurationContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createServiceDescription</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;createServiceDescription(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceImplClass,
+                                          <a href="../../../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configContext)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html#createServiceDescription(java.lang.Class)"><code>DescriptionFactory.createServiceDescription(Class)</code></a></dd></dl>
+</li>
+</ul>
+<a name="createServiceDescriptionFromDBCMap(java.util.HashMap, org.apache.axis2.context.ConfigurationContext, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createServiceDescriptionFromDBCMap</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&gt;&nbsp;createServiceDescriptionFromDBCMap(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../../../org/apache/axis2/jaxws/description/builder/DescriptionBuilderComposite.html" title="class in org.apache.axis2.jaxws.description.builder">DescriptionBuilderComposite</a>&gt;&nbsp;dbcMap,
+                                                          <a href="../../../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configContext,
+                                                          boolean&nbsp;performVaidation)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html#createServiceDescriptionFromDBCMap(java.util.HashMap)"><code>DescriptionFactory.createServiceDescriptionFromDBCMap(HashMap)</code></a></dd></dl>
+</li>
+</ul>
+<a name="createServiceDescriptionFromDBCMap(java.util.HashMap, org.apache.axis2.context.ConfigurationContext)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createServiceDescriptionFromDBCMap</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&gt;&nbsp;createServiceDescriptionFromDBCMap(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="../../../../../../org/apache/axis2/jaxws/description/builder/DescriptionBuilderComposite.html" title="class in org.apache.axis2.jaxws.description.builder">DescriptionBuilderComposite</a>&gt;&nbsp;dbcMap,
+                                                          <a href="../../../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;configContext)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html#createServiceDescriptionFromDBCMap(java.util.HashMap)"><code>DescriptionFactory.createServiceDescriptionFromDBCMap(HashMap)</code></a></dd></dl>
+</li>
+</ul>
+<a name="updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, javax.xml.namespace.QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateEndpoint</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>&nbsp;updateEndpoint(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName,
+                                 <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, javax.xml.namespace.QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType)"><code>DescriptionFactory.updateEndpoint(ServiceDescription,
+      Class, QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType)</code></a></dd></dl>
+</li>
+</ul>
+<a name="updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, javax.xml.namespace.QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, java.lang.Object, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateEndpoint</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>&nbsp;updateEndpoint(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName,
+                                 <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, javax.xml.namespace.QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType)"><code>DescriptionFactory.updateEndpoint(ServiceDescription,
+      Class, QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType)</code></a></dd></dl>
+</li>
+</ul>
+<a name="updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, javax.xml.namespace.QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, org.apache.axis2.jaxws.description.builder.DescriptionBuilderComposite, java.lang.Object, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateEndpoint</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>&nbsp;updateEndpoint(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName,
+                                 <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+                                 <a href="../../../../../../org/apache/axis2/jaxws/description/builder/DescriptionBuilderComposite.html" title="class in org.apache.axis2.jaxws.description.builder">DescriptionBuilderComposite</a>&nbsp;composite,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><code>org.apache.axis2.jaxws.description.DescriptionFactory#updateEndpoint(ServiceDescription, Class, QName, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, DescriptionBuilderComposite)</code></dd></dl>
+</li>
+</ul>
+<a name="updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, org.apache.axis2.addressing.EndpointReference, java.lang.String, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateEndpoint</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>&nbsp;updateEndpoint(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+                                 <a href="../../../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;epr,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;addressingNamespace,
+                                 <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, org.apache.axis2.addressing.EndpointReference, java.lang.String, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType)"><code>DescriptionFactory.updateEndpoint(ServiceDescription,
+ Class, EndpointReference, String, DescriptionFactory.UpdateType)</code></a></dd></dl>
+</li>
+</ul>
+<a name="updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, org.apache.axis2.addressing.EndpointReference, java.lang.String, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, java.lang.Object, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateEndpoint</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>&nbsp;updateEndpoint(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+                                 <a href="../../../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;epr,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;addressingNamespace,
+                                 <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;sparseCompositeKey,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, org.apache.axis2.addressing.EndpointReference, java.lang.String, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, java.lang.Object)"><code>DescriptionFactory.updateEndpoint(ServiceDescription,
+ Class, EndpointReference, String, DescriptionFactory.UpdateType, Object)</code></a></dd></dl>
+</li>
+</ul>
+<a name="updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, org.apache.axis2.addressing.EndpointReference, java.lang.String, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, org.apache.axis2.jaxws.description.builder.DescriptionBuilderComposite, java.lang.Object, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateEndpoint</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>&nbsp;updateEndpoint(<a href="../../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceDescription</a>&nbsp;serviceDescription,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sei,
+                                 <a href="../../../../../../org/apache/axis2/addressing/EndpointReference.html" title="class in org.apache.axis2.addressing">EndpointReference</a>&nbsp;epr,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;addressingNamespace,
+                                 <a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.UpdateType.html" title="enum in org.apache.axis2.jaxws.description">DescriptionFactory.UpdateType</a>&nbsp;updateType,
+                                 <a href="../../../../../../org/apache/axis2/jaxws/description/builder/DescriptionBuilderComposite.html" title="class in org.apache.axis2.jaxws.description.builder">DescriptionBuilderComposite</a>&nbsp;composite,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;sparseCompositeKey,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingId,
+                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;endpointAddress)</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../../org/apache/axis2/jaxws/description/DescriptionFactory.html#updateEndpoint(org.apache.axis2.jaxws.description.ServiceDescription, java.lang.Class, org.apache.axis2.addressing.EndpointReference, java.lang.String, org.apache.axis2.jaxws.description.DescriptionFactory.UpdateType, org.apache.axis2.jaxws.description.builder.DescriptionBuilderComposite, java.lang.Object)"><code>DescriptionFactory.updateEndpoint(ServiceDescription,
+ Class, EndpointReference, String, DescriptionFactory.UpdateType, DescriptionBuilderComposite, Object)</code></a></dd></dl>
+</li>
+</ul>
+<a name="getClientConfigurationFactory()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getClientConfigurationFactory</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/ClientConfigurationFactory.html" title="class in org.apache.axis2.jaxws">ClientConfigurationFactory</a>&nbsp;getClientConfigurationFactory()</pre>
+</li>
+</ul>
+<a name="createResolvedHandlersDescription()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>createResolvedHandlersDescription</h4>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/axis2/jaxws/description/ResolvedHandlersDescription.html" title="interface in org.apache.axis2.jaxws.description">ResolvedHandlersDescription</a>&nbsp;createResolvedHandlersDescription()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/DescriptionFactoryImpl.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../../org/apache/axis2/jaxws/description/impl/AttachmentDescriptionImpl.html" title="class in org.apache.axis2.jaxws.description.impl"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../../org/apache/axis2/jaxws/description/impl/DescriptionUtils.html" title="class in org.apache.axis2.jaxws.description.impl"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../../index.html?org/apache/axis2/jaxws/description/impl/DescriptionFactoryImpl.html" target="_top">Frames</a></li>
+<li><a href="DescriptionFactoryImpl.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &copy; <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>
