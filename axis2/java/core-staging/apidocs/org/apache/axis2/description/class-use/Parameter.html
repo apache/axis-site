@@ -121,64 +121,7 @@
 <tr class="rowColor">
 <td class="colFirst"><a href="#org.apache.axis2.transport.jms">org.apache.axis2.transport.jms</a></td>
 <td class="colLast">
-<div class="block">JMS Listener Configuration (axis2.xml)
-
-e.g:
-
-
-    &lt;transportReceiver name="jms" class="org.apache.axis2.transport.jms.JMSListener"&gt;
-        &lt;parameter name="myTopicConnectionFactory"&gt;
-            &lt;parameter name="java.naming.factory.initial"&gt;org.apache.activemq.jndi.ActiveMQInitialContextFactory&lt;/parameter&gt;
-            &lt;parameter name="java.naming.provider.url"&gt;tcp://localhost:61616&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.ConnectionFactoryJNDIName"&gt;TopicConnectionFactory&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.ConnectionFactoryType"&gt;topic&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.JMSSpecVersion"&gt;1.0.2b&lt;/parameter&gt;
-        &lt;/parameter&gt;
-
-        &lt;parameter name="myQueueConnectionFactory"&gt;
-            &lt;parameter name="java.naming.factory.initial"&gt;org.apache.activemq.jndi.ActiveMQInitialContextFactory&lt;/parameter&gt;
-            &lt;parameter name="java.naming.provider.url"&gt;tcp://localhost:61616&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.ConnectionFactoryJNDIName"&gt;QueueConnectionFactory&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.ConnectionFactoryType"&gt;queue&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.JMSSpecVersion"&gt;1.1&lt;/parameter&gt;
-        &lt;/parameter&gt;
-
-        &lt;parameter name="default"&gt;
-            &lt;parameter name="java.naming.factory.initial"&gt;org.apache.activemq.jndi.ActiveMQInitialContextFactory&lt;/parameter&gt;
-            &lt;parameter name="java.naming.provider.url"&gt;tcp://localhost:61616&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.ConnectionFactoryJNDIName"&gt;ConnectionFactory&lt;/parameter&gt;
-        &lt;/parameter&gt;
-    &lt;/transportReceiver&gt;
-
-    &lt;transportSender name="jms" class="org.apache.axis2.transport.jms.JMSSender"&gt;
-        &lt;parameter name="myTopicConnectionFactory"&gt;
-            &lt;parameter name="java.naming.factory.initial"&gt;org.apache.activemq.jndi.ActiveMQInitialContextFactory&lt;/parameter&gt;
-            &lt;parameter name="java.naming.provider.url"&gt;tcp://localhost:61616&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.ConnectionFactoryJNDIName"&gt;TopicConnectionFactory&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.JMSSpecVersion"&gt;1.0.2b&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.CacheLevel"&gt;producer&lt;/parameter&gt;
-        &lt;/parameter&gt;
-
-        &lt;parameter name="myQueueConnectionFactory"&gt;
-            &lt;parameter name="java.naming.factory.initial"&gt;org.apache.activemq.jndi.ActiveMQInitialContextFactory&lt;/parameter&gt;
-            &lt;parameter name="java.naming.provider.url"&gt;tcp://localhost:61616&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.ConnectionFactoryJNDIName"&gt;QueueConnectionFactory&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.JMSSpecVersion"&gt;1.0.2b&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.CacheLevel"&gt;producer&lt;/parameter&gt;
-        &lt;/parameter&gt;
-
-        &lt;parameter name="default"&gt;
-            &lt;parameter name="java.naming.factory.initial"&gt;org.apache.activemq.jndi.ActiveMQInitialContextFactory&lt;/parameter&gt;
-            &lt;parameter name="java.naming.provider.url"&gt;tcp://localhost:61616&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.ConnectionFactoryJNDIName"&gt;ConnectionFactory&lt;/parameter&gt;
-            &lt;parameter name="transport.jms.CacheLevel"&gt;connection&lt;/parameter&gt;
-        &lt;/parameter&gt;
-    &lt;/transportSender&gt;
-
-
-
-    The Transport Listener and Sender both allows the user to configure one or more logical JMS Connection
-    Factories, which are named definitions as shown above.</div>
+<div class="block">Transport implementation for JMS.</div>
 </td>
 </tr>
 <tr class="altColor">
