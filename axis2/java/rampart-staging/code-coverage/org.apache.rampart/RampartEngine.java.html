@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RampartEngine.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart</a> &gt; <span class="el_source">RampartEngine.java</span></div><h1>RampartEngine.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart;
+
+import org.apache.axiom.soap.SOAPEnvelope;
+import org.apache.axiom.soap.SOAPFault;
+import org.apache.axiom.soap.SOAPHeader;
+import org.apache.axiom.soap.SOAPHeaderBlock;
+import org.apache.axis2.AxisFault;
+import org.apache.axis2.context.MessageContext;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rahas.Token;
+import org.apache.rahas.TokenStorage;
+import org.apache.rampart.policy.RampartPolicyData;
+import org.apache.rampart.saml.SAMLAssertionHandler;
+import org.apache.rampart.saml.SAMLAssertionHandlerFactory;
+import org.apache.rampart.util.Axis2Util;
+import org.apache.rampart.util.RampartUtil;
+import org.apache.ws.secpolicy.WSSPolicyException;
+import org.apache.ws.secpolicy.model.UsernameToken;
+import org.apache.ws.security.*;
+import org.apache.ws.security.components.crypto.Crypto;
+
+import javax.xml.namespace.QName;
+import java.security.cert.X509Certificate;
+import java.util.*;
+
+<span class="fc" id="L43">public class RampartEngine {</span>
+
+<span class="fc" id="L45">	private static Log log = LogFactory.getLog(RampartEngine.class);</span>
+<span class="fc" id="L46">	private static Log tlog = LogFactory.getLog(RampartConstants.TIME_LOG);</span>
+<span class="fc" id="L47">    private static ServiceNonceCache serviceNonceCache = new ServiceNonceCache();</span>
+
+	public List&lt;WSSecurityEngineResult&gt; process(MessageContext msgCtx) throws WSSPolicyException,
+	RampartException, WSSecurityException, AxisFault {
+
+<span class="fc" id="L52">		boolean dotDebug = tlog.isDebugEnabled();</span>
+		
+<span class="fc" id="L54">		log.debug(&quot;Enter process(MessageContext msgCtx)&quot;);</span>
+
+<span class="fc" id="L56">		RampartMessageData rmd = new RampartMessageData(msgCtx, false);</span>
+
+<span class="fc" id="L58">		RampartPolicyData rpd = rmd.getPolicyData();</span>
+		
+<span class="fc" id="L60">		msgCtx.setProperty(RampartMessageData.RAMPART_POLICY_DATA, rpd);</span>
+
+<span class="fc" id="L62">        RampartUtil.validateTransport(rmd);</span>
+
+        // If there is no policy information return immediately
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (rpd == null) {</span>
+<span class="nc" id="L66">           return null;</span>
+        }
+
+
+        //TODO these checks have to be done before the convertion to avoid unnecessary convertion to LLOM -&gt; DOOM
+        // If the message is a security fault or no security
+        // header required by the policy
+<span class="pc bpc" id="L73" title="1 of 4 branches missed.">        if(isSecurityFault(rmd) || !RampartUtil.isSecHeaderRequired(rpd,rmd.isInitiator(),true)) {</span>
+<span class="fc" id="L74">			SOAPEnvelope env = Axis2Util.getSOAPEnvelopeFromDOMDocument(rmd.getDocument(), true);</span>
+
+			//Convert back to llom since the inflow cannot use llom
+<span class="fc" id="L77">			msgCtx.setEnvelope(env);</span>
+<span class="fc" id="L78">			Axis2Util.useDOOM(false);</span>
+<span class="fc" id="L79">            log.debug(&quot;Return process MessageContext msgCtx)&quot;);</span>
+<span class="fc" id="L80">            return null;</span>
+		}
+
+
+		List&lt;WSSecurityEngineResult&gt; results;
+
+<span class="fc" id="L86">		WSSecurityEngine engine = new WSSecurityEngine();</span>
+		
+		//Set rampart's configuration of WSS4J
+<span class="fc" id="L89">		engine.setWssConfig(rmd.getConfig());</span>
+
+<span class="fc" id="L91">		ValidatorData data = new ValidatorData(rmd);</span>
+
+<span class="fc" id="L93">		SOAPHeader header = rmd.getMsgContext().getEnvelope().getHeader();</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">		if(header == null) {</span>
+<span class="nc" id="L95">		    throw new RampartException(&quot;missingSOAPHeader&quot;);</span>
+		}
+		
+<span class="fc" id="L98">        ArrayList headerBlocks = header.getHeaderBlocksWithNSURI(WSConstants.WSSE_NS);</span>
+<span class="fc" id="L99">		SOAPHeaderBlock secHeader = null;</span>
+		//Issue is axiom - a returned collection must not be null
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">		if(headerBlocks != null) {</span>
+<span class="fc" id="L102">    		Iterator headerBlocksIterator = headerBlocks.iterator();</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">    		while (headerBlocksIterator.hasNext()) {</span>
+<span class="fc" id="L104">    			SOAPHeaderBlock elem = (SOAPHeaderBlock) headerBlocksIterator.next();</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">    			if(elem.getLocalName().equals(WSConstants.WSSE_LN)) {</span>
+<span class="fc" id="L106">    				secHeader = elem;</span>
+<span class="fc" id="L107">    				break;</span>
+    			}
+<span class="nc" id="L109">    		}</span>
+		}
+		
+<span class="fc bfc" id="L112" title="All 2 branches covered.">		if(secHeader == null) {</span>
+<span class="fc" id="L113">		    throw new RampartException(&quot;missingSecurityHeader&quot;);</span>
+		}
+		
+<span class="fc" id="L116">		long t0=0, t1=0, t2=0, t3=0;</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">		if(dotDebug){</span>
+<span class="nc" id="L118">			t0 = System.currentTimeMillis();</span>
+		}
+
+		//wss4j does not allow username tokens with no password per default, see https://issues.apache.org/jira/browse/WSS-420
+		//configure it to allow them explicitly if at least one username token assertion with no password requirement is found
+<span class="fc bfc" id="L123" title="All 2 branches covered.">		if (!rmd.isInitiator()) {</span>
+<span class="fc" id="L124">		    Collection&lt;UsernameToken&gt; usernameTokens = RampartUtil.getUsernameTokens(rpd);</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">		    for (UsernameToken usernameTok : usernameTokens) {</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">		        if (usernameTok.isNoPassword()) {</span>
+<span class="fc" id="L127">		            log.debug(&quot;Found UsernameToken with no password assertion in policy, configuring ws security processing to allow username tokens without password.&quot; );</span>
+<span class="fc" id="L128">		            engine.getWssConfig().setAllowUsernameTokenNoPassword(true);</span>
+<span class="fc" id="L129">		            break;</span>
+		        }
+<span class="fc" id="L131">		    }</span>
+		}
+		
+<span class="fc" id="L134">		String actorValue = secHeader.getAttributeValue(new QName(rmd</span>
+				.getSoapConstants().getEnvelopeURI(), &quot;actor&quot;));
+
+<span class="fc" id="L137">		Crypto signatureCrypto = RampartUtil.getSignatureCrypto(rpd.getRampartConfig(), </span>
+        		msgCtx.getAxisService().getClassLoader());
+<span class="fc" id="L139">        TokenCallbackHandler tokenCallbackHandler = new TokenCallbackHandler(rmd.getTokenStorage(), RampartUtil.getPasswordCB(rmd));</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">        if(rpd.isSymmetricBinding()) {</span>
+			//Here we have to create the CB handler to get the tokens from the 
+			//token storage
+<span class="fc" id="L143">			log.debug(&quot;Processing security header using SymetricBinding&quot;);</span>
+<span class="fc" id="L144">			results = engine.processSecurityHeader(rmd.getDocument(),</span>
+					actorValue, 
+					tokenCallbackHandler,
+					signatureCrypto, 
+					        RampartUtil.getEncryptionCrypto(rpd.getRampartConfig(), 
+					                msgCtx.getAxisService().getClassLoader()));
+
+            // Remove encryption tokens if this is the initiator and if initiator is receiving a message
+
+<span class="pc bpc" id="L153" title="1 of 6 branches missed.">            if (rmd.isInitiator() &amp;&amp; (msgCtx.getFLOW() == MessageContext.IN_FLOW ||</span>
+                    msgCtx.getFLOW() == MessageContext.IN_FAULT_FLOW)) {
+<span class="fc" id="L155">                tokenCallbackHandler.removeEncryptedToken();</span>
+            }
+
+		} else {
+
+<span class="fc" id="L160">			log.debug(&quot;Processing security header in normal path&quot;);</span>
+<span class="fc" id="L161">			results = engine.processSecurityHeader(rmd.getDocument(),</span>
+					actorValue, 
+					tokenCallbackHandler,
+					signatureCrypto, 
+							RampartUtil.getEncryptionCrypto(rpd.getRampartConfig(), 
+									msgCtx.getAxisService().getClassLoader()));
+		}
+
+<span class="pc bpc" id="L169" title="1 of 2 branches missed.">		if(dotDebug){</span>
+<span class="nc" id="L170">			t1 = System.currentTimeMillis();</span>
+		}
+
+                //Store symm tokens
+                //Pick the first SAML token
+                //TODO : This is a hack , MUST FIX
+                //get the sec context id from the req msg ctx 
+		
+		//Store username in MessageContext property
+
+<span class="fc bfc" id="L180" title="All 2 branches covered.">        for (int j = 0; j &lt; results.size(); j++) {</span>
+<span class="fc" id="L181">            WSSecurityEngineResult wser = (WSSecurityEngineResult) results.get(j);</span>
+<span class="fc" id="L182">            final Integer actInt =</span>
+                    (Integer) wser.get(WSSecurityEngineResult.TAG_ACTION);
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">            if (WSConstants.ST_UNSIGNED == actInt.intValue()) {</span>
+
+<span class="nc" id="L186">                Object samlAssertion = wser.get(WSSecurityEngineResult.TAG_SAML_ASSERTION);</span>
+
+<span class="nc" id="L188">                SAMLAssertionHandler samlAssertionHandler</span>
+                        = SAMLAssertionHandlerFactory.createAssertionHandler(samlAssertion);
+
+<span class="nc bnc" id="L191" title="All 2 branches missed.">                if (samlAssertionHandler.isBearerAssertion()) {</span>
+<span class="nc" id="L192">                    break;</span>
+                }
+                //Store the token
+                try {
+<span class="nc" id="L196">                    TokenStorage store = rmd.getTokenStorage();</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">                    if (store.getToken(samlAssertionHandler.getAssertionId()) == null) {</span>
+<span class="nc" id="L198">                        Token token = new Token(samlAssertionHandler.getAssertionId(),</span>
+                                samlAssertionHandler.getAssertionElement(),
+                                samlAssertionHandler.getDateNotBefore(),
+                                samlAssertionHandler.getDateNotOnOrAfter());
+
+<span class="nc" id="L203">                        token.setSecret(samlAssertionHandler.</span>
+                                getAssertionKeyInfoSecret(signatureCrypto, tokenCallbackHandler));
+<span class="nc" id="L205">                        store.add(token);</span>
+                    }
+<span class="nc" id="L207">                } catch (Exception e) {</span>
+<span class="nc" id="L208">                    throw new RampartException(</span>
+                            &quot;errorInAddingTokenIntoStore&quot;, e);
+<span class="nc" id="L210">                }</span>
+<span class="pc bfc" id="L211" title="All 2 branches covered.">            } else if (WSConstants.UT == actInt) {</span>
+
+<span class="fc" id="L213">		        WSUsernameTokenPrincipal userNameTokenPrincipal = (WSUsernameTokenPrincipal)wser.get(WSSecurityEngineResult.TAG_PRINCIPAL);</span>
+
+<span class="fc" id="L215">                String username = userNameTokenPrincipal.getName();</span>
+<span class="fc" id="L216">                msgCtx.setProperty(RampartMessageData.USERNAME, username);</span>
+                
+<span class="fc bfc" id="L218" title="All 2 branches covered.">                if (userNameTokenPrincipal.getNonce() != null) {</span>
+                    // Check whether this is a replay attack. To verify that we need to check whether nonce value
+                    // is a repeating one
+<span class="fc" id="L221">                    int nonceLifeTimeInSeconds = 0;</span>
+
+<span class="pc bpc" id="L223" title="1 of 2 branches missed.">                    if (rpd.getRampartConfig() != null) {</span>
+                        
+<span class="nc" id="L225">                        String stringLifeTime = rpd.getRampartConfig().getNonceLifeTime();</span>
+
+                        try {
+<span class="nc" id="L228">                            nonceLifeTimeInSeconds = Integer.parseInt(stringLifeTime);</span>
+
+<span class="nc" id="L230">                        } catch (NumberFormatException e) {</span>
+<span class="nc" id="L231">                            log.error(&quot;Invalid value for nonceLifeTime in rampart configuration file.&quot;, e);</span>
+<span class="nc" id="L232">                            throw new RampartException(</span>
+                                        &quot;invalidNonceLifeTime&quot;, e);
+
+<span class="nc" id="L235">                        }</span>
+                    }
+
+<span class="fc" id="L238">                    String serviceEndpointName = msgCtx.getAxisService().getEndpointName();</span>
+
+<span class="fc" id="L240">                    boolean valueRepeating = serviceNonceCache.isNonceRepeatingForService(serviceEndpointName, username, userNameTokenPrincipal.getNonce());</span>
+
+<span class="pc bpc" id="L242" title="1 of 2 branches missed.">                    if (valueRepeating){</span>
+<span class="nc" id="L243">                        throw new RampartException(&quot;repeatingNonceValue&quot;, new Object[]{ userNameTokenPrincipal.getNonce(), username} );</span>
+                    }
+
+<span class="fc" id="L246">                    serviceNonceCache.addNonceForService(serviceEndpointName, username, userNameTokenPrincipal.getNonce(), nonceLifeTimeInSeconds);</span>
+                }
+<span class="fc bfc" id="L248" title="All 2 branches covered.">            } else if (WSConstants.SIGN == actInt) {</span>
+<span class="fc" id="L249">                X509Certificate cert = (X509Certificate) wser.get(WSSecurityEngineResult.TAG_X509_CERTIFICATE);</span>
+
+<span class="pc bpc" id="L251" title="1 of 8 branches missed.">                if (rpd.isAsymmetricBinding() &amp;&amp; cert == null &amp;&amp; rpd.getInitiatorToken() != null</span>
+                        &amp;&amp; !rpd.getInitiatorToken().isDerivedKeys()) {
+
+                    // If symmetric binding is used, the certificate should be null.
+                    // If certificate is not null then probably initiator and
+                    // recipient are using 2 different bindings.
+<span class="fc" id="L257">                    throw new RampartException(&quot;invalidSignatureAlgo&quot;);</span>
+                }
+
+<span class="fc" id="L260">                msgCtx.setProperty(RampartMessageData.X509_CERT, cert);</span>
+            }
+
+        }
+
+<span class="fc" id="L265">		SOAPEnvelope env = Axis2Util.getSOAPEnvelopeFromDOMDocument(rmd.getDocument(), true);</span>
+
+<span class="pc bpc" id="L267" title="1 of 2 branches missed.">		if(dotDebug){</span>
+<span class="nc" id="L268">			t2 = System.currentTimeMillis();</span>
+		}
+
+		//Convert back to llom since the inflow cannot use DOOM
+<span class="fc" id="L272">		msgCtx.setEnvelope(env);</span>
+<span class="fc" id="L273">		Axis2Util.useDOOM(false);</span>
+				
+<span class="fc" id="L275">		PolicyValidatorCallbackHandler validator = RampartUtil.getPolicyValidatorCB(msgCtx, rpd);</span>
+
+<span class="pc bpc" id="L277" title="1 of 2 branches missed.">        if (validator instanceof ExtendedPolicyValidatorCallbackHandler) {</span>
+<span class="fc" id="L278">            ExtendedPolicyValidatorCallbackHandler extendedPolicyValidatorCallbackHandler</span>
+                    = (ExtendedPolicyValidatorCallbackHandler)validator;
+<span class="fc" id="L280">            extendedPolicyValidatorCallbackHandler.validate(data,results);</span>
+<span class="fc" id="L281">        } else {</span>
+<span class="nc" id="L282">            Vector resultsVector = new Vector(results);</span>
+<span class="nc" id="L283">            validator.validate(data, resultsVector);</span>
+        }
+
+
+<span class="pc bpc" id="L287" title="1 of 2 branches missed.">		if(dotDebug){</span>
+<span class="nc" id="L288">			t3 = System.currentTimeMillis();</span>
+<span class="nc" id="L289">			tlog.debug(&quot;processHeader by WSSecurityEngine took : &quot; + (t1 - t0) +</span>
+					&quot;, DOOM conversion took :&quot; + (t2 - t1) +
+					&quot;, PolicyBasedResultsValidattor took &quot; + (t3 - t2));
+		}
+
+<span class="fc" id="L294">		log.debug(&quot;Return process(MessageContext msgCtx)&quot;);</span>
+<span class="fc" id="L295">		return results;</span>
+	}
+	
+	// Check whether this a soap fault because of failure in processing the security header 
+	//and if so, we don't expect the security header
+	//
+	//
+
+	
+	private boolean isSecurityFault(RampartMessageData rmd) {
+<span class="fc" id="L305">		SOAPFault soapFault = rmd.getMsgContext().getEnvelope().getBody().getFault();</span>
+<span class="fc bfc" id="L306" title="All 2 branches covered.">		return soapFault == null ? false : RampartUtil.isSecurityFault(soapFault);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

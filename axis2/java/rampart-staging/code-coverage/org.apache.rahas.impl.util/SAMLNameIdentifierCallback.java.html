@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SAMLNameIdentifierCallback.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.impl.util</a> &gt; <span class="el_source">SAMLNameIdentifierCallback.java</span></div><h1>SAMLNameIdentifierCallback.java</h1><pre class="source lang-java linenums">package org.apache.rahas.impl.util;
+
+import org.apache.rahas.RahasData;
+import org.opensaml.saml1.core.NameIdentifier;
+
+/**
+ * This is used retrieve data for the SAMLNameIdentifier.
+ * SAMLNameIdentifier can have different formats.
+ * Depending on it, NameIdentifier must have different values.
+ * It should be implementation specific.
+ *
+ */
+public class SAMLNameIdentifierCallback implements SAMLCallback{
+    
+<span class="nc" id="L15">    private NameIdentifier nameId = null;</span>
+<span class="nc" id="L16">    private String userId = null;</span>
+<span class="nc" id="L17">    private RahasData data = null;</span>
+    
+<span class="nc" id="L19">    public SAMLNameIdentifierCallback(RahasData data){</span>
+<span class="nc" id="L20">        this.data = data;</span>
+<span class="nc" id="L21">    }</span>
+    
+    public int getCallbackType(){
+<span class="nc" id="L24">        return SAMLCallback.NAME_IDENTIFIER_CALLBACK;</span>
+    }
+
+    public NameIdentifier getNameId() {
+<span class="nc" id="L28">        return nameId;</span>
+    }
+
+    public void setNameId(NameIdentifier nameId) {
+<span class="nc" id="L32">        this.nameId = nameId;</span>
+<span class="nc" id="L33">    }</span>
+
+    public void setUserId(String userId) {
+<span class="nc" id="L36">        this.userId = userId;</span>
+<span class="nc" id="L37">    }</span>
+
+    public String getUserId() {
+<span class="nc" id="L40">        return userId;</span>
+    }
+
+    public RahasData getData() {
+<span class="nc" id="L44">        return data;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

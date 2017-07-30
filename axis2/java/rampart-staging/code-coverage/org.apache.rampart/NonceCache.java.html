@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>NonceCache.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart</a> &gt; <span class="el_source">NonceCache.java</span></div><h1>NonceCache.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.rampart;
+
+import java.util.*;
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+ * This is a basic implementation of UniqueMessageAttributeCache. In this implementation we will cache incomming
+ * nonce value for a period of time. The life time can be defined in the services.xml. If not defined
+ * the default value will be 5 minutes.
+ */
+public class NonceCache extends AbstractUniqueMessageAttributeCache {
+
+    class Nonce
+    {
+        String nonceValue;
+        String userName;
+
+        public Nonce(String nonce, String user)
+<span class="fc" id="L34">        {</span>
+<span class="fc" id="L35">            this.nonceValue = nonce;</span>
+<span class="fc" id="L36">            this.userName = user;</span>
+<span class="fc" id="L37">        }</span>
+
+        @Override
+        public boolean equals(Object another)
+        {
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        	if (another == null){</span>
+<span class="nc" id="L43">        		return false;</span>
+        	} 
+        	
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        	if (another == this) {</span>
+<span class="nc" id="L47">        		return true;</span>
+        	}
+        	
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        	if (!(another instanceof Nonce)){</span>
+<span class="nc" id="L51">        		return false;</span>
+        	} 
+        	
+        	
+<span class="fc" id="L55">            Nonce otherNonce = (Nonce)another;</span>
+<span class="pc bpc" id="L56" title="2 of 4 branches missed.">            if (this.userName.equals(otherNonce.userName) &amp;&amp; this.nonceValue.equals(otherNonce.nonceValue))</span>
+            {
+<span class="fc" id="L58">                return true;</span>
+            }
+<span class="nc" id="L60">            return false;</span>
+        }
+
+        @Override
+        public int hashCode()
+        {
+<span class="fc" id="L66">            return (this.userName.hashCode() * 13 +  this.nonceValue.hashCode() * 7);</span>
+        }
+    }
+
+<span class="fc" id="L70">    private Map&lt;Nonce, Calendar&gt; mapIdNonce = new HashMap&lt;Nonce, Calendar&gt;();</span>
+
+<span class="fc" id="L72">    private final ReentrantLock lock = new ReentrantLock();</span>
+
+    public NonceCache()
+    {
+<span class="fc" id="L76">        super();</span>
+<span class="fc" id="L77">    }</span>
+    
+    public NonceCache(int maxLifeTime)
+    {
+<span class="fc" id="L81">        super(maxLifeTime);</span>
+<span class="fc" id="L82">    }</span>
+
+    /**
+     * @inheritdoc
+     */    
+    public void addToCache(String id, String userName) {
+
+<span class="fc" id="L89">        Nonce nonce = new Nonce(id, userName);</span>
+<span class="fc" id="L90">        Calendar rightNow = Calendar.getInstance();</span>
+
+<span class="fc" id="L92">        lock.lock();</span>
+        try {
+<span class="fc" id="L94">            mapIdNonce.put(nonce, rightNow);</span>
+        } finally {
+<span class="pc" id="L96">            lock.unlock();</span>
+<span class="fc" id="L97">        }</span>
+
+<span class="fc" id="L99">    }</span>
+
+    /**
+     * @inheritdoc
+     */
+    public boolean valueExistsInCache(String id, String userName) {
+
+<span class="fc" id="L106">        lock.lock();</span>
+
+        try {
+<span class="fc" id="L109">            clearStaleNonceIds();</span>
+        } finally {
+<span class="pc" id="L111">            lock.unlock();</span>
+<span class="fc" id="L112">        }</span>
+        
+<span class="fc" id="L114">        Nonce nonce = new Nonce(id, userName);</span>
+<span class="fc" id="L115">        return mapIdNonce.containsKey(nonce);</span>
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public void clearCache() {
+
+<span class="nc" id="L123">        lock.lock();</span>
+        try {
+<span class="nc" id="L125">            mapIdNonce.clear();</span>
+        } finally {
+<span class="nc" id="L127">            lock.unlock();</span>
+<span class="nc" id="L128">        }</span>
+<span class="nc" id="L129">    }</span>
+
+    /**
+     * This method will clear stale nonce ids from the map.
+     */
+    private void clearStaleNonceIds()
+    {
+<span class="fc" id="L136">        Calendar rightNow = Calendar.getInstance();</span>
+
+<span class="fc" id="L138">        int maxLifeTime = getMaximumLifeTimeOfAnAttribute();</span>
+
+<span class="fc" id="L140">        rightNow.add(Calendar.SECOND, -(maxLifeTime));</span>
+<span class="fc" id="L141">        long timeBeforeMaxLifeTime = rightNow.getTimeInMillis();</span>
+        
+<span class="fc" id="L143">        Iterator&lt;Map.Entry&lt;Nonce, Calendar&gt;&gt; iterator = mapIdNonce.entrySet().iterator();</span>
+
+<span class="fc bfc" id="L145" title="All 2 branches covered.">        while (iterator.hasNext()) {</span>
+
+<span class="fc" id="L147">            Map.Entry&lt;Nonce, Calendar&gt; pair = iterator.next();</span>
+<span class="fc" id="L148">            Calendar itemDate = pair.getValue();</span>
+
+<span class="fc" id="L150">            long itemAddedTime = itemDate.getTimeInMillis();</span>
+
+<span class="fc bfc" id="L152" title="All 2 branches covered.">            if (timeBeforeMaxLifeTime &gt; itemAddedTime)</span>
+            {
+<span class="fc" id="L154">                iterator.remove();</span>
+            }
+<span class="fc" id="L156">        }</span>
+
+
+<span class="fc" id="L159">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TokenRequestDispatcherConfig.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas</a> &gt; <span class="el_source">TokenRequestDispatcherConfig.java</span></div><h1>TokenRequestDispatcherConfig.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rahas;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.om.OMXMLParserWrapper;
+import org.apache.ws.security.util.Loader;
+
+import javax.xml.namespace.QName;
+import java.io.FileInputStream;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
+
+<span class="fc" id="L30">public class TokenRequestDispatcherConfig {</span>
+
+    public final static String CONFIG_PARAM_KEY = &quot;token-dispatcher-configuration&quot;;
+    public final static String CONFIG_FILE_KEY = &quot;token-dispatcher-configuration-file&quot;;
+
+<span class="fc" id="L35">    private final static QName DISPATCHER_CONFIG = new QName(&quot;token-dispatcher-configuration&quot;);</span>
+<span class="fc" id="L36">    private final static QName ISSUER = new QName(&quot;issuer&quot;);</span>
+<span class="fc" id="L37">    private final static QName CANCELER = new QName(&quot;canceler&quot;);</span>
+<span class="fc" id="L38">    private final static QName VALIDATOR = new QName(&quot;validator&quot;);</span>
+<span class="fc" id="L39">    private final static QName RENEWER = new QName(&quot;renewer&quot;);</span>
+<span class="fc" id="L40">    private final static QName TOKEN_TYPE = new QName(&quot;tokenType&quot;);</span>
+<span class="fc" id="L41">    private final static QName CLASS_ATTR = new QName(&quot;class&quot;);</span>
+<span class="fc" id="L42">    private final static QName DEFAULT_ATTR = new QName(&quot;default&quot;);</span>
+<span class="fc" id="L43">    private final static QName CONFIGURATION_ELEMENT = new QName(&quot;configuration&quot;);</span>
+
+    private Map issuers;
+    private Map validators;
+    private Map renewers;
+<span class="fc" id="L48">    private Map configFiles = new Hashtable();</span>
+<span class="fc" id="L49">    private Map configElements = new Hashtable();</span>
+<span class="fc" id="L50">    private Map configParamNames = new Hashtable();</span>
+
+    private String defaultIssuerClassName;
+    private String defaultCancelerClassName;
+    private String defaultValidatorClassName;
+    private String defaultRenewerClassName;
+
+    public static TokenRequestDispatcherConfig load(OMElement configElem) throws TrustException {
+
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">        if (!DISPATCHER_CONFIG.equals(configElem.getQName())) {</span>
+<span class="nc" id="L60">            throw new TrustException(&quot;incorrectConfiguration&quot;);</span>
+        }
+<span class="fc" id="L62">        TokenRequestDispatcherConfig conf = new TokenRequestDispatcherConfig();</span>
+
+        // Issuers
+<span class="fc" id="L65">        handleIssuers(configElem, conf);</span>
+        
+        //Validators
+<span class="fc" id="L68">        handleValidators(configElem, conf);</span>
+        
+        //Renewers
+<span class="fc" id="L71">        handleRenewers(configElem, conf);</span>
+        
+        // Cancelers
+<span class="fc" id="L74">        handleCancelers(configElem, conf);</span>
+        
+        
+
+        //There must be a defulat issuer
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if (conf.defaultIssuerClassName == null) {</span>
+<span class="fc" id="L80">            throw new TrustException(&quot;defaultIssuerMissing&quot;);</span>
+        }
+<span class="fc" id="L82">        return conf;</span>
+    }
+
+    private static void handleCancelers(OMElement configElem,
+                                        TokenRequestDispatcherConfig conf) throws TrustException {
+
+<span class="fc" id="L88">        OMElement cancelerEle = configElem.getFirstChildWithName(CANCELER); // support only one canceler</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        if (cancelerEle != null) {</span>
+            //get the class attr
+<span class="fc" id="L91">            String cancelerClass = cancelerEle.getAttributeValue(CLASS_ATTR);</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">            if (cancelerClass == null) {</span>
+<span class="nc" id="L93">                throw new TrustException(&quot;missingClassName&quot;);</span>
+            }
+<span class="fc" id="L95">            conf.defaultCancelerClassName = cancelerClass;</span>
+<span class="fc" id="L96">            processConfiguration(cancelerEle, conf, cancelerClass);</span>
+        }
+
+        //TODO: imple
+<span class="fc" id="L100">    }</span>
+
+    private static void handleIssuers(OMElement configElem,
+                                      TokenRequestDispatcherConfig conf) throws TrustException {
+<span class="fc" id="L104">        for (Iterator issuerElems = configElem.getChildrenWithName(ISSUER);</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">             issuerElems.hasNext();) {</span>
+
+<span class="fc" id="L107">            OMElement element = (OMElement) issuerElems.next();</span>
+
+            //get the class attr
+<span class="fc" id="L110">            String issuerClass = element.getAttributeValue(CLASS_ATTR);</span>
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">            if (issuerClass == null) {</span>
+<span class="nc" id="L112">                throw new TrustException(&quot;missingClassName&quot;);</span>
+            }
+<span class="fc" id="L114">            String isDefault = element.getAttributeValue(DEFAULT_ATTR);</span>
+<span class="pc bpc" id="L115" title="1 of 4 branches missed.">            if (isDefault != null &amp;&amp; &quot;true&quot;.equalsIgnoreCase(isDefault)) {</span>
+                //Use the first default issuer as the default isser
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">                if (conf.defaultIssuerClassName == null) {</span>
+<span class="fc" id="L118">                    conf.defaultIssuerClassName = issuerClass;</span>
+                } else {
+<span class="nc" id="L120">                    throw new TrustException(&quot;badDispatcherConfigMultipleDefaultIssuers&quot;);</span>
+                }
+            }
+
+<span class="fc" id="L124">            processConfiguration(element, conf, issuerClass);</span>
+
+            //Process token types
+<span class="fc" id="L127">            for (Iterator tokenTypes = element.getChildrenWithName(TOKEN_TYPE);</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">                 tokenTypes.hasNext();) {</span>
+<span class="fc" id="L129">                OMElement type = (OMElement) tokenTypes.next();</span>
+<span class="fc" id="L130">                String value = type.getText();</span>
+<span class="pc bpc" id="L131" title="1 of 4 branches missed.">                if (value == null || value.trim().length() == 0) {</span>
+<span class="fc" id="L132">                    throw new TrustException(&quot;invalidTokenTypeDefinition&quot;,</span>
+                                             new String[]{&quot;Issuer&quot;, issuerClass});
+                }
+<span class="fc bfc" id="L135" title="All 2 branches covered.">                if (conf.issuers == null) {</span>
+<span class="fc" id="L136">                    conf.issuers = new Hashtable();</span>
+                }
+                //If the token type is not already declared then add it to the
+                //table with the issuer classname
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">                if (!conf.issuers.keySet().contains(value)) {</span>
+<span class="fc" id="L141">                    conf.issuers.put(value, issuerClass);</span>
+                }
+<span class="fc" id="L143">            }</span>
+<span class="fc" id="L144">        }</span>
+<span class="fc" id="L145">    }</span>
+    
+    private static void handleValidators(OMElement configElem,
+            TokenRequestDispatcherConfig conf) throws TrustException {
+        
+<span class="fc" id="L150">        for (Iterator validatorElems = configElem.getChildrenWithName(VALIDATOR);</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">        validatorElems.hasNext();) {</span>
+
+<span class="fc" id="L153">            OMElement element = (OMElement) validatorElems.next();</span>
+
+           //get the class attr
+<span class="fc" id="L156">           String validatorClass = element.getAttributeValue(CLASS_ATTR);</span>
+<span class="pc bpc" id="L157" title="1 of 2 branches missed.">           if (validatorClass == null) {</span>
+<span class="nc" id="L158">               throw new TrustException(&quot;missingClassName&quot;);</span>
+           }
+<span class="fc" id="L160">           String isDefault = element.getAttributeValue(DEFAULT_ATTR);</span>
+<span class="pc bpc" id="L161" title="2 of 4 branches missed.">           if (isDefault != null &amp;&amp; &quot;true&quot;.equalsIgnoreCase(isDefault)) {</span>
+               //Use the first default issuer as the default isser
+<span class="pc bpc" id="L163" title="1 of 2 branches missed.">               if (conf.defaultValidatorClassName == null) {</span>
+<span class="fc" id="L164">                   conf.defaultValidatorClassName = validatorClass;</span>
+               } else {
+<span class="nc" id="L166">                   throw new TrustException(&quot;badDispatcherConfigMultipleDefaultValidators&quot;);</span>
+               }
+           }
+
+<span class="fc" id="L170">           processConfiguration(element, conf, validatorClass);</span>
+    
+           //Process token types
+<span class="fc" id="L173">           for (Iterator tokenTypes = element.getChildrenWithName(TOKEN_TYPE);</span>
+<span class="fc bfc" id="L174" title="All 2 branches covered.">                tokenTypes.hasNext();) {</span>
+<span class="fc" id="L175">               OMElement type = (OMElement) tokenTypes.next();</span>
+<span class="fc" id="L176">               String value = type.getText();</span>
+<span class="pc bpc" id="L177" title="2 of 4 branches missed.">               if (value == null || value.trim().length() == 0) {</span>
+<span class="nc" id="L178">                   throw new TrustException(&quot;invalidTokenTypeDefinition&quot;,</span>
+                                            new String[]{&quot;Validator&quot;, validatorClass});
+               }
+<span class="pc bpc" id="L181" title="1 of 2 branches missed.">               if (conf.validators == null) {</span>
+<span class="fc" id="L182">                   conf.validators = new Hashtable();</span>
+               }
+               //If the token type is not already declared then add it to the
+               //table with the validator classname
+<span class="pc bpc" id="L186" title="1 of 2 branches missed.">               if (!conf.validators.keySet().contains(value)) {</span>
+<span class="fc" id="L187">                   conf.validators.put(value, validatorClass);</span>
+               }
+<span class="fc" id="L189">           }</span>
+<span class="fc" id="L190">        }       </span>
+<span class="fc" id="L191">    }</span>
+    
+    private static void handleRenewers(OMElement configElem,
+            TokenRequestDispatcherConfig conf) throws TrustException {
+        
+<span class="fc" id="L196">        for (Iterator renewerElems = configElem.getChildrenWithName(RENEWER);</span>
+<span class="fc bfc" id="L197" title="All 2 branches covered.">        renewerElems.hasNext();) {</span>
+
+<span class="fc" id="L199">            OMElement element = (OMElement) renewerElems.next();</span>
+
+           //get the class attr
+<span class="fc" id="L202">           String renewerClass = element.getAttributeValue(CLASS_ATTR);</span>
+<span class="pc bpc" id="L203" title="1 of 2 branches missed.">           if (renewerClass == null) {</span>
+<span class="nc" id="L204">               throw new TrustException(&quot;missingClassName&quot;);</span>
+           }
+<span class="fc" id="L206">           String isDefault = element.getAttributeValue(DEFAULT_ATTR);</span>
+<span class="pc bpc" id="L207" title="2 of 4 branches missed.">           if (isDefault != null &amp;&amp; &quot;true&quot;.equalsIgnoreCase(isDefault)) {</span>
+               //Use the first default issuer as the default isser
+<span class="pc bpc" id="L209" title="1 of 2 branches missed.">               if (conf.defaultRenewerClassName == null) {</span>
+<span class="fc" id="L210">                   conf.defaultRenewerClassName = renewerClass;</span>
+               } else {
+<span class="nc" id="L212">                   throw new TrustException(&quot;badDispatcherConfigMultipleDefaultRenewers&quot;);</span>
+               }
+           }
+
+<span class="fc" id="L216">           processConfiguration(element, conf, renewerClass);</span>
+    
+           //Process token types
+<span class="fc" id="L219">           for (Iterator tokenTypes = element.getChildrenWithName(TOKEN_TYPE);</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">                tokenTypes.hasNext();) {</span>
+<span class="fc" id="L221">               OMElement type = (OMElement) tokenTypes.next();</span>
+<span class="fc" id="L222">               String value = type.getText();</span>
+<span class="pc bpc" id="L223" title="2 of 4 branches missed.">               if (value == null || value.trim().length() == 0) {</span>
+<span class="nc" id="L224">                   throw new TrustException(&quot;invalidTokenTypeDefinition&quot;,</span>
+                                            new String[]{&quot;Renewer&quot;, renewerClass});
+               }
+<span class="pc bpc" id="L227" title="1 of 2 branches missed.">               if (conf.renewers == null) {</span>
+<span class="fc" id="L228">                   conf.renewers = new Hashtable();</span>
+               }
+               //If the token type is not already declared then add it to the
+               //table with the renwer classname
+<span class="pc bpc" id="L232" title="1 of 2 branches missed.">               if (!conf.renewers.keySet().contains(value)) {</span>
+<span class="fc" id="L233">                   conf.renewers.put(value, renewerClass);</span>
+               }
+<span class="fc" id="L235">           }</span>
+<span class="fc" id="L236">        }       </span>
+<span class="fc" id="L237">    }</span>
+
+    private static void processConfiguration(OMElement element,
+                                             TokenRequestDispatcherConfig conf,
+                                             String implClass) {
+
+<span class="fc" id="L243">        for (Iterator configs = element.getChildrenWithName(CONFIGURATION_ELEMENT);</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">             configs.hasNext();) {</span>
+<span class="fc" id="L245">            OMElement configEle = (OMElement) configs.next();</span>
+<span class="fc" id="L246">            String configType =</span>
+                    configEle.getAttribute(new QName(&quot;type&quot;)).getAttributeValue().trim();
+<span class="pc bpc" id="L248" title="1 of 2 branches missed.">            if (configType.equalsIgnoreCase(&quot;file&quot;)) { //Process configuration file information</span>
+<span class="nc" id="L249">                String issuerConfigFile = configEle.getText();</span>
+<span class="nc bnc" id="L250" title="All 2 branches missed.">                if (issuerConfigFile != null) {</span>
+<span class="nc" id="L251">                    conf.configFiles.put(implClass, issuerConfigFile);</span>
+                }
+<span class="pc bpc" id="L253" title="1 of 2 branches missed.">            } else if (configType.equalsIgnoreCase(&quot;element&quot;))</span>
+            { //Process configuration element information
+<span class="nc" id="L255">                conf.configElements.put(implClass, configEle);</span>
+<span class="pc bpc" id="L256" title="1 of 2 branches missed.">            } else if (configType.equalsIgnoreCase(&quot;parameter&quot;))</span>
+            { //Process configuration parameter name information
+<span class="fc" id="L258">                conf.configParamNames.put(implClass, configEle.getText());</span>
+            }
+<span class="fc" id="L260">        }</span>
+<span class="fc" id="L261">    }</span>
+
+    public static TokenRequestDispatcherConfig load(String configFilePath) throws TrustException {
+        FileInputStream fis;
+        OMXMLParserWrapper builder;
+        try {
+<span class="fc" id="L267">            fis = new FileInputStream(configFilePath);</span>
+<span class="fc" id="L268">            builder = OMXMLBuilderFactory.createOMBuilder(fis);</span>
+<span class="nc" id="L269">        } catch (Exception e) {</span>
+<span class="nc" id="L270">            throw new TrustException(&quot;errorLoadingConfigFile&quot;, new String[]{configFilePath}, e);</span>
+<span class="fc" id="L271">        }</span>
+<span class="fc" id="L272">        return load(builder.getDocumentElement());</span>
+    }
+
+    public TokenIssuer getDefaultIssuerInstace() throws TrustException {
+<span class="nc bnc" id="L276" title="All 2 branches missed.">        if (this.defaultIssuerClassName != null) {</span>
+            try {
+<span class="nc" id="L278">                return createIssuer(this.defaultIssuerClassName);</span>
+<span class="nc" id="L279">            } catch (Exception e) {</span>
+<span class="nc" id="L280">                throw new TrustException(&quot;cannotLoadClass&quot;,</span>
+                                         new String[]{this.defaultIssuerClassName}, e);
+            }
+        } else {
+<span class="nc" id="L284">            return null;</span>
+        }
+    }
+
+    public TokenCanceler getDefaultCancelerInstance() throws TrustException {
+<span class="pc bpc" id="L289" title="1 of 2 branches missed.">        if (this.defaultCancelerClassName != null) {</span>
+            try {
+<span class="fc" id="L291">                return createCanceler(this.defaultCancelerClassName);</span>
+<span class="nc" id="L292">            } catch (Exception e) {</span>
+<span class="nc" id="L293">                throw new TrustException(&quot;cannotLoadClass&quot;,</span>
+                                         new String[]{this.defaultCancelerClassName}, e);
+            }
+        } else {
+<span class="nc" id="L297">            return null;</span>
+        }
+    }
+    
+    public TokenValidator getDefaultValidatorInstance() throws TrustException {
+<span class="nc bnc" id="L302" title="All 2 branches missed.">        if (this.defaultValidatorClassName != null) {</span>
+            try {
+<span class="nc" id="L304">                return createValidator(this.defaultValidatorClassName);</span>
+<span class="nc" id="L305">            } catch (Exception e) {</span>
+<span class="nc" id="L306">                throw new TrustException(&quot;cannotLoadClass&quot;,</span>
+                                         new String[]{this.defaultValidatorClassName}, e);
+            }
+        } else {
+<span class="nc" id="L310">            return null;</span>
+        }
+    }
+    
+    public TokenRenewer getDefaultRenewerInstance() throws TrustException {
+<span class="nc bnc" id="L315" title="All 2 branches missed.">        if (this.defaultRenewerClassName != null) {</span>
+            try {
+<span class="nc" id="L317">                return createRenewer(this.defaultRenewerClassName);</span>
+<span class="nc" id="L318">            } catch (Exception e) {</span>
+<span class="nc" id="L319">                throw new TrustException(&quot;cannotLoadClass&quot;,</span>
+                                         new String[]{this.defaultRenewerClassName}, e);
+            }
+        } else {
+<span class="nc" id="L323">            return null;</span>
+        }
+    }
+    
+
+    public String getDefaultIssuerName() {
+<span class="fc" id="L329">        return this.defaultIssuerClassName;</span>
+    }
+
+
+    public TokenIssuer getIssuer(String tokenType) throws TrustException {
+<span class="fc" id="L334">        String issuerClassName = null;</span>
+        //try to find the issuer class name from the tokenType&lt;-&gt;issuer map
+<span class="pc bpc" id="L336" title="1 of 2 branches missed.">        if (this.issuers != null) {</span>
+<span class="fc" id="L337">            issuerClassName = (String) this.issuers.get(tokenType);</span>
+        }
+        //If a specific issuer is not found use the default issuer
+<span class="pc bpc" id="L340" title="1 of 2 branches missed.">        if (issuerClassName == null) {</span>
+<span class="nc" id="L341">            issuerClassName = this.defaultIssuerClassName;</span>
+        }
+        try {
+<span class="fc" id="L344">            return createIssuer(issuerClassName);</span>
+<span class="nc" id="L345">        } catch (Exception e) {</span>
+<span class="nc" id="L346">            throw new TrustException(&quot;cannotLoadClass&quot;,</span>
+                                     new String[]{issuerClassName}, e);
+        }
+    }
+    
+    public TokenValidator getValidator(String tokenType) throws TrustException {
+<span class="nc" id="L352">        String validatorClassName = null;</span>
+        //try to find the validator class name from the tokenType&lt;-&gt;validator map
+<span class="nc bnc" id="L354" title="All 2 branches missed.">        if (this.validators != null) {</span>
+<span class="nc" id="L355">            validatorClassName = (String) this.validators.get(tokenType);</span>
+        }
+        //If a specific validator is not found use the default validator
+<span class="nc bnc" id="L358" title="All 2 branches missed.">        if (validatorClassName == null) {</span>
+<span class="nc" id="L359">            validatorClassName = this.defaultValidatorClassName;</span>
+        }
+        try {
+<span class="nc" id="L362">            return createValidator(validatorClassName);</span>
+<span class="nc" id="L363">        } catch (Exception e) {</span>
+<span class="nc" id="L364">            throw new TrustException(&quot;cannotLoadClass&quot;,</span>
+                                     new String[]{validatorClassName}, e);
+        }
+    }
+    
+    public TokenRenewer getRenewer(String tokenType) throws TrustException {
+<span class="nc" id="L370">        String renewerClassName = null;</span>
+        //try to find the renewer class name from the tokenType&lt;-&gt;Renewer map
+<span class="nc bnc" id="L372" title="All 2 branches missed.">        if (this.renewers != null) {</span>
+<span class="nc" id="L373">            renewerClassName = (String) this.renewers.get(tokenType);</span>
+        }
+        //If a specific renewer is not found use the default renewer
+<span class="nc bnc" id="L376" title="All 2 branches missed.">        if (renewerClassName == null) {</span>
+<span class="nc" id="L377">            renewerClassName = this.defaultRenewerClassName;</span>
+        }
+        try {
+<span class="nc" id="L380">            return createRenewer(renewerClassName);</span>
+<span class="nc" id="L381">        } catch (Exception e) {</span>
+<span class="nc" id="L382">            throw new TrustException(&quot;cannotLoadClass&quot;,</span>
+                                     new String[]{renewerClassName}, e);
+        }
+    }
+
+    /**
+     * @param issuerClassName
+     * @return TokenIssuer
+     */
+    private TokenIssuer createIssuer(String issuerClassName) throws Exception {
+<span class="fc" id="L392">        TokenIssuer issuer = (TokenIssuer) Loader.loadClass(this.getClass().getClassLoader(), </span>
+                                                                    issuerClassName).newInstance();
+<span class="fc" id="L394">        issuer.setConfigurationElement((OMElement) this.configElements.get(issuerClassName));</span>
+<span class="fc" id="L395">        issuer.setConfigurationFile((String) this.configFiles.get(issuerClassName));</span>
+<span class="fc" id="L396">        issuer.setConfigurationParamName((String) this.configParamNames.get(issuerClassName));</span>
+<span class="fc" id="L397">        return issuer;</span>
+    }
+
+    private TokenCanceler createCanceler(String cancelerClassName) throws Exception {
+<span class="fc" id="L401">        TokenCanceler canceler = (TokenCanceler) Loader.loadClass(this.getClass().getClassLoader(),</span>
+                                                                   cancelerClassName).newInstance();
+<span class="fc" id="L403">        canceler.setConfigurationElement((OMElement) this.configElements.get(cancelerClassName));</span>
+<span class="fc" id="L404">        canceler.setConfigurationFile((String) this.configFiles.get(cancelerClassName));</span>
+<span class="fc" id="L405">        canceler.setConfigurationParamName((String) this.configParamNames.get(cancelerClassName));</span>
+<span class="fc" id="L406">        return canceler;</span>
+    }
+    
+    private TokenValidator createValidator(String validatorClassName) throws Exception {
+<span class="nc" id="L410">        TokenValidator validator = (TokenValidator) Loader.loadClass(this.getClass().getClassLoader(),</span>
+                                                                validatorClassName).newInstance();
+<span class="nc" id="L412">        validator.setConfigurationElement((OMElement) this.configElements.get(validatorClassName));</span>
+<span class="nc" id="L413">        validator.setConfigurationFile((String) this.configFiles.get(validatorClassName));</span>
+<span class="nc" id="L414">        validator.setConfigurationParamName((String) this.configParamNames.get(validatorClassName));</span>
+<span class="nc" id="L415">        return validator;</span>
+    }
+    
+    private TokenRenewer createRenewer (String renewerClassName) throws Exception {
+<span class="nc" id="L419">        TokenRenewer renewer = (TokenRenewer) Loader.loadClass(this.getClass().getClassLoader(),</span>
+                                                                    renewerClassName).newInstance();
+<span class="nc" id="L421">        renewer.setConfigurationElement((OMElement) this.configElements.get(renewerClassName));</span>
+<span class="nc" id="L422">        renewer.setConfigurationFile((String) this.configFiles.get(renewerClassName));</span>
+<span class="nc" id="L423">        renewer.setConfigurationParamName((String) this.configParamNames.get(renewerClassName));</span>
+<span class="nc" id="L424">        return renewer;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

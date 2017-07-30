@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RahasData.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas</a> &gt; <span class="el_source">RahasData.java</span></div><h1>RahasData.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rahas;
+
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.util.base64.Base64Utils;
+import org.apache.axis2.addressing.AddressingConstants;
+import org.apache.axis2.context.MessageContext;
+import org.apache.ws.security.WSConstants;
+import org.apache.ws.security.WSSecurityEngineResult;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.handler.WSHandlerConstants;
+import org.apache.ws.security.handler.WSHandlerResult;
+import org.apache.ws.security.message.token.SecurityTokenReference;
+import org.opensaml.saml1.core.Assertion;
+import org.w3c.dom.Element;
+
+import javax.xml.namespace.QName;
+
+import java.security.Principal;
+import java.security.cert.X509Certificate;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * Common data items on WS-Trust request messages
+ */
+public class RahasData {
+
+    private MessageContext inMessageContext;
+
+    private OMElement rstElement;
+
+<span class="fc" id="L50">    private int version = -1;</span>
+
+    private String wstNs;
+
+    private String requestType;
+
+    private String tokenType;
+    
+    private String tokenId;
+
+<span class="fc" id="L60">    private int keySize = -1;</span>
+
+    private String computedKeyAlgo;
+
+    private String keyType;
+
+    private String appliesToAddress;
+    
+    private OMElement appliesToEpr;
+
+    private Principal principal;
+
+    private X509Certificate clientCert;
+
+    private byte[] ephmeralKey;
+
+    private byte[] requestEntropy;
+
+    private byte[] responseEntropy;
+
+    private String addressingNs;
+
+    private String soapNs;
+    
+    private OMElement claimElem;
+    
+    private String  claimDialect;
+    
+    private Assertion assertion;
+
+    private Date assertionCreatedDate;
+
+    private Date assertionExpiringDate;
+
+    /**
+     * Create a new RahasData instance and populate it with the information from
+     * the request.
+     *
+     * @throws TrustException &lt;code&gt;RequestSecurityToken&lt;/code&gt; element is invalid.
+     */
+<span class="fc" id="L100">    public RahasData(MessageContext inMessageContext) throws TrustException {</span>
+
+<span class="fc" id="L102">        this.inMessageContext = inMessageContext;</span>
+
+        //Check for an authenticated Principal
+<span class="fc" id="L105">        this.processWSS4JSecurityResults();</span>
+
+        // Find out the incoming addressing version
+<span class="fc" id="L108">        this.addressingNs = (String) this.inMessageContext</span>
+                .getProperty(AddressingConstants.WS_ADDRESSING_VERSION);
+
+<span class="fc" id="L111">        this.rstElement = this.inMessageContext.getEnvelope().getBody()</span>
+                .getFirstElement();
+
+<span class="fc" id="L114">        this.soapNs = this.inMessageContext.getEnvelope().getNamespace()</span>
+                .getNamespaceURI();
+
+<span class="fc" id="L117">        this.wstNs = this.rstElement.getNamespace().getNamespaceURI();</span>
+
+<span class="fc" id="L119">        int ver = TrustUtil.getWSTVersion(this.wstNs);</span>
+
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">        if (ver == -1) {</span>
+<span class="nc" id="L122">            throw new TrustException(TrustException.INVALID_REQUEST);</span>
+        } else {
+<span class="fc" id="L124">            this.version = ver;</span>
+        }
+
+<span class="fc" id="L127">        this.processRequestType();</span>
+
+<span class="fc" id="L129">        this.processTokenType();</span>
+
+<span class="fc" id="L131">        this.processKeyType();</span>
+
+<span class="fc" id="L133">        this.processKeySize();</span>
+
+<span class="fc" id="L135">        this.processAppliesTo();</span>
+
+<span class="fc" id="L137">        this.processEntropy();</span>
+        
+<span class="fc" id="L139">        this.processClaims();</span>
+        
+<span class="fc" id="L141">        this.processValidateTarget();</span>
+        
+<span class="fc" id="L143">        this.processRenewTarget();</span>
+
+<span class="fc" id="L145">    }</span>
+
+<span class="fc" id="L147">    public RahasData() {</span>
+
+<span class="fc" id="L149">    }</span>
+
+    /**
+     * Processes the authenticated user information from the WSS4J security
+     * results.
+     *
+     * @throws TrustException
+     */
+    private void processWSS4JSecurityResults() throws TrustException {
+
+        /*
+         * User can be identifier using a UsernameToken or a certificate - If a
+         * certificate is found then we use that to - identify the user and -
+         * encrypt the response (if required) - If a UsernameToken is found then
+         * we will not be encrypting the response
+         */
+
+        List&lt;WSHandlerResult&gt; results;
+<span class="pc bpc" id="L167" title="1 of 2 branches missed.">        if ((results = (List&lt;WSHandlerResult&gt;) this.inMessageContext</span>
+                .getProperty(WSHandlerConstants.RECV_RESULTS)) == null) {
+<span class="nc" id="L169">            throw new TrustException(TrustException.REQUEST_FAILED);</span>
+        } else {
+
+<span class="fc bfc" id="L172" title="All 2 branches covered.">            for (WSHandlerResult result : results) {</span>
+<span class="fc" id="L173">                List&lt;WSSecurityEngineResult&gt; wsSecEngineResults = result.getResults();</span>
+
+<span class="fc bfc" id="L175" title="All 2 branches covered.">                for (WSSecurityEngineResult wser : wsSecEngineResults) {</span>
+<span class="fc" id="L176">                    Object principalObject = wser.get(WSSecurityEngineResult.TAG_PRINCIPAL);</span>
+<span class="fc" id="L177">                    int act = (Integer) wser.get(WSSecurityEngineResult.TAG_ACTION);</span>
+
+<span class="pc bpc" id="L179" title="1 of 4 branches missed.">                    if (act == WSConstants.SIGN &amp;&amp; principalObject != null) {</span>
+<span class="fc" id="L180">                        this.clientCert = (X509Certificate) wser</span>
+                                .get(WSSecurityEngineResult.TAG_X509_CERTIFICATE);
+<span class="fc" id="L182">                        this.principal = (Principal) principalObject;</span>
+<span class="pc bpc" id="L183" title="1 of 4 branches missed.">                    } else if (act == WSConstants.UT &amp;&amp; principalObject != null) {</span>
+<span class="fc" id="L184">                        this.principal = (Principal) principalObject;</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">                    } else if (act == WSConstants.BST) {</span>
+<span class="fc" id="L186">                        final X509Certificate[] certificates =</span>
+                                (X509Certificate[]) wser
+                                        .get(WSSecurityEngineResult.TAG_X509_CERTIFICATES);
+<span class="fc" id="L189">                        this.clientCert = certificates[0];</span>
+<span class="fc" id="L190">                        this.principal = this.clientCert.getSubjectDN();</span>
+<span class="pc bpc" id="L191" title="1 of 2 branches missed.">                    } else if (act == WSConstants.ST_UNSIGNED) {</span>
+<span class="nc" id="L192">                        this.assertion = (Assertion) wser</span>
+                                .get(WSSecurityEngineResult.TAG_SAML_ASSERTION);
+
+                    }
+<span class="fc" id="L196">                }</span>
+<span class="fc" id="L197">            }</span>
+            // If the principal or a SAML assertion is missing
+<span class="pc bpc" id="L199" title="3 of 4 branches missed.">            if (this.principal == null &amp;&amp; this.assertion == null) {</span>
+<span class="nc" id="L200">                throw new TrustException(TrustException.REQUEST_FAILED);</span>
+            }
+        }
+<span class="fc" id="L203">    }</span>
+
+    private void processAppliesTo() throws TrustException {
+
+<span class="fc" id="L207">        OMElement appliesToElem = this.rstElement</span>
+                .getFirstChildWithName(new QName(RahasConstants.WSP_NS,
+                                                 RahasConstants.IssuanceBindingLocalNames.
+                                                         APPLIES_TO));
+
+<span class="fc bfc" id="L212" title="All 2 branches covered.">        if (appliesToElem != null) {</span>
+<span class="fc" id="L213">            OMElement eprElem = appliesToElem.getFirstElement();</span>
+<span class="fc" id="L214">            this.appliesToEpr = eprElem;</span>
+            
+            // If there were no addressing headers
+            // The find the addressing version using the EPR element
+<span class="fc bfc" id="L218" title="All 2 branches covered.">            if (this.addressingNs == null) {</span>
+<span class="fc" id="L219">                this.addressingNs = eprElem.getNamespace()</span>
+                        .getNamespaceURI();
+            }
+
+<span class="pc bpc" id="L223" title="1 of 2 branches missed.">            if (eprElem != null) {</span>
+                
+                //Of the epr is a web service then try to get the addr
+                
+<span class="fc" id="L227">                OMElement addrElem = eprElem</span>
+                        .getFirstChildWithName(new QName(
+                                this.addressingNs,
+                                AddressingConstants.EPR_ADDRESS));
+<span class="pc bpc" id="L231" title="3 of 6 branches missed.">                if (addrElem != null &amp;&amp; addrElem.getText() != null</span>
+                    &amp;&amp; !&quot;&quot;.equals(addrElem.getText().trim())) {
+<span class="fc" id="L233">                    this.appliesToAddress = addrElem.getText().trim();</span>
+                } 
+<span class="fc" id="L235">            } else {</span>
+<span class="nc" id="L236">                throw new TrustException(&quot;invalidAppliesToElem&quot;);</span>
+            }
+        }
+<span class="fc" id="L239">    }</span>
+
+    private void processRequestType() throws TrustException {
+<span class="fc" id="L242">        OMElement reqTypeElem = this.rstElement</span>
+                .getFirstChildWithName(new QName(this.wstNs,
+                                                 RahasConstants.LocalNames.REQUEST_TYPE));
+
+<span class="pc bpc" id="L246" title="3 of 6 branches missed.">        if (reqTypeElem == null ||</span>
+            reqTypeElem.getText() == null ||
+            reqTypeElem.getText().trim().length() == 0) {
+<span class="nc" id="L249">            throw new TrustException(TrustException.INVALID_REQUEST);</span>
+        } else {
+<span class="fc" id="L251">            this.requestType = reqTypeElem.getText().trim();</span>
+        }
+<span class="fc" id="L253">    }</span>
+
+    private void processTokenType() {
+<span class="fc" id="L256">        OMElement tokTypeElem = this.rstElement</span>
+                .getFirstChildWithName(new QName(this.wstNs,
+                                                 RahasConstants.LocalNames.TOKEN_TYPE));
+
+<span class="pc bpc" id="L260" title="2 of 6 branches missed.">        if (tokTypeElem != null &amp;&amp; tokTypeElem.getText() != null</span>
+            &amp;&amp; !&quot;&quot;.equals(tokTypeElem.getText().trim())) {
+<span class="fc" id="L262">            this.tokenType = tokTypeElem.getText().trim();</span>
+        }
+<span class="fc" id="L264">    }</span>
+
+    /**
+     * Find the value of the KeyType element of the RST
+     */
+    private void processKeyType() {
+<span class="fc" id="L270">        OMElement keyTypeElem = this.rstElement</span>
+                .getFirstChildWithName(new QName(this.wstNs,
+                                                 RahasConstants.IssuanceBindingLocalNames.KEY_TYPE));
+<span class="fc bfc" id="L273" title="All 2 branches covered.">        if (keyTypeElem != null) {</span>
+<span class="fc" id="L274">            String text = keyTypeElem.getText();</span>
+<span class="pc bpc" id="L275" title="2 of 4 branches missed.">            if (text != null &amp;&amp; !&quot;&quot;.equals(text.trim())) {</span>
+<span class="fc" id="L276">                this.keyType = text.trim();</span>
+            }
+        }
+<span class="fc" id="L279">    }</span>
+
+    /**
+     * Finds the KeySize and creates an empty ephmeral key.
+     *
+     * @throws TrustException
+     */
+    private void processKeySize() throws TrustException {
+<span class="fc" id="L287">        OMElement keySizeElem =</span>
+                this.rstElement
+                        .getFirstChildWithName(new QName(this.wstNs,
+                                                         RahasConstants.IssuanceBindingLocalNames.
+                                                                 KEY_SIZE));
+<span class="fc bfc" id="L292" title="All 2 branches covered.">        if (keySizeElem != null) {</span>
+<span class="fc" id="L293">            String text = keySizeElem.getText();</span>
+<span class="pc bpc" id="L294" title="2 of 4 branches missed.">            if (text != null &amp;&amp; !&quot;&quot;.equals(text.trim())) {</span>
+                try {
+                    //Set key size
+<span class="fc" id="L297">                    this.keySize = Integer.parseInt(text.trim());</span>
+
+                    //Create an empty array to hold the key
+<span class="fc" id="L300">                    this.ephmeralKey = new byte[this.keySize/8];</span>
+<span class="nc" id="L301">                } catch (NumberFormatException e) {</span>
+<span class="nc" id="L302">                    throw new TrustException(TrustException.INVALID_REQUEST,</span>
+                                             new String[]{&quot;invalid wst:Keysize value&quot;}, e);
+<span class="fc" id="L304">                }</span>
+            }
+        }
+<span class="fc" id="L307">        this.keySize = -1;</span>
+<span class="fc" id="L308">    }</span>
+    
+    /**
+     * Processes a claims.
+     *
+     */
+    private void processClaims() throws TrustException{
+<span class="fc" id="L315">        claimElem = this.rstElement</span>
+                .getFirstChildWithName(new QName(this.wstNs,
+                        RahasConstants.IssuanceBindingLocalNames.CLAIMS));
+        
+<span class="fc bfc" id="L319" title="All 2 branches covered.">        if(claimElem != null){</span>
+<span class="fc" id="L320">            claimDialect = claimElem.getAttributeValue(new QName(this.wstNs,</span>
+                    RahasConstants.ATTR_CLAIMS_DIALECT));
+        }
+        
+<span class="fc" id="L324">    }</span>
+    
+    private void processValidateTarget()throws TrustException{
+        
+<span class="fc" id="L328">        OMElement validateTargetElem  = this.rstElement</span>
+                                .getFirstChildWithName(new QName(this.wstNs,
+                                               RahasConstants.LocalNames.VALIDATE_TARGET));
+        
+<span class="pc bpc" id="L332" title="1 of 2 branches missed.">        if (validateTargetElem != null) {</span>
+        
+<span class="nc" id="L334">            OMElement strElem = validateTargetElem.getFirstChildWithName(new QName(WSConstants.WSSE_NS,</span>
+                                                   &quot;SecurityTokenReference&quot;));
+            
+<span class="nc" id="L337">            Element elem = (Element)OMXMLBuilderFactory.createStAXOMBuilder(</span>
+                    OMAbstractFactory.getMetaFactory(OMAbstractFactory.FEATURE_DOM).getOMFactory(),
+                    strElem.getXMLStreamReader()).getDocumentElement();
+            
+            try {
+<span class="nc" id="L342">                SecurityTokenReference str = new SecurityTokenReference((Element)elem);</span>
+<span class="nc bnc" id="L343" title="All 2 branches missed.">                if (str.containsReference()) {</span>
+<span class="nc" id="L344">                    tokenId = str.getReference().getURI();</span>
+<span class="nc bnc" id="L345" title="All 2 branches missed.">                } else if(str.containsKeyIdentifier()){</span>
+<span class="nc" id="L346">                    tokenId = str.getKeyIdentifierValue();</span>
+                }
+<span class="nc" id="L348">            } catch (WSSecurityException e) {</span>
+<span class="nc" id="L349">                throw new TrustException(&quot;errorExtractingTokenId&quot;,e);</span>
+<span class="nc" id="L350">            } </span>
+        }
+<span class="fc" id="L352">    }</span>
+    
+    private void processRenewTarget()throws TrustException{
+        
+<span class="fc" id="L356">        OMElement renewTargetElem  = this.rstElement</span>
+                                .getFirstChildWithName(new QName(this.wstNs,
+                                               RahasConstants.LocalNames.RENEW_TARGET));
+<span class="pc bpc" id="L359" title="1 of 2 branches missed.">        if (renewTargetElem != null) {</span>
+        
+<span class="nc" id="L361">            OMElement strElem = renewTargetElem.getFirstChildWithName(new QName(WSConstants.WSSE_NS,</span>
+                                                   &quot;SecurityTokenReference&quot;));
+            
+<span class="nc" id="L364">            Element elem = (Element)OMXMLBuilderFactory.createStAXOMBuilder(</span>
+                    OMAbstractFactory.getMetaFactory(OMAbstractFactory.FEATURE_DOM).getOMFactory(),
+                    strElem.getXMLStreamReader()).getDocumentElement();
+            
+            try {
+<span class="nc" id="L369">                SecurityTokenReference str = new SecurityTokenReference((Element)elem);</span>
+<span class="nc bnc" id="L370" title="All 2 branches missed.">                if (str.containsReference()) {</span>
+<span class="nc" id="L371">                    tokenId = str.getReference().getURI();</span>
+<span class="nc bnc" id="L372" title="All 2 branches missed.">                } else if(str.containsKeyIdentifier()){</span>
+<span class="nc" id="L373">                    tokenId = str.getKeyIdentifierValue();</span>
+                }
+<span class="nc bnc" id="L375" title="All 2 branches missed.">                if(tokenId == null){</span>
+<span class="nc bnc" id="L376" title="All 2 branches missed.">                    if(str.containsKeyIdentifier()){</span>
+<span class="nc" id="L377">                        tokenId = str.getKeyIdentifierValue();</span>
+                    }
+                }
+<span class="nc" id="L380">            } catch (WSSecurityException e) {</span>
+<span class="nc" id="L381">                throw new TrustException(&quot;errorExtractingTokenId&quot;,e);</span>
+<span class="nc" id="L382">            }      </span>
+        }
+<span class="fc" id="L384">    }</span>
+
+    /**
+     * Process wst:Entropy element in the request.
+     */
+    private void processEntropy() throws TrustException {
+<span class="fc" id="L390">        OMElement entropyElem = this.rstElement</span>
+                .getFirstChildWithName(new QName(this.wstNs,
+                        RahasConstants.IssuanceBindingLocalNames.ENTROPY));
+
+<span class="fc bfc" id="L394" title="All 2 branches covered.">        if (entropyElem != null) {</span>
+<span class="fc" id="L395">            OMElement binSecElem = entropyElem.getFirstElement();</span>
+<span class="pc bpc" id="L396" title="3 of 6 branches missed.">            if (binSecElem != null &amp;&amp; binSecElem.getText() != null</span>
+                &amp;&amp; !&quot;&quot;.equals(binSecElem.getText())) {
+<span class="fc" id="L398">                this.requestEntropy = Base64Utils.decode(binSecElem.getText());</span>
+            } else {
+<span class="nc" id="L400">                throw new TrustException(&quot;malformedEntropyElement&quot;,</span>
+                                         new String[]{entropyElem.toString()});
+            }
+
+        }
+<span class="fc" id="L405">    }</span>
+
+    /**
+     * @return Returns the appliesToAddress.
+     */
+    public String getAppliesToAddress() {
+<span class="fc" id="L411">        return appliesToAddress;</span>
+    }
+
+    /**
+     * @return Returns the clientCert.
+     */
+    public X509Certificate getClientCert() {
+<span class="fc" id="L418">        return clientCert;</span>
+    }
+
+    /**
+     * @return Returns the computedKeyAlgo.
+     */
+    public String getComputedKeyAlgo() {
+<span class="nc" id="L425">        return computedKeyAlgo;</span>
+    }
+
+    /**
+     * @return Returns the ephmeralKey.
+     */
+    public byte[] getEphmeralKey() {
+<span class="fc" id="L432">        return ephmeralKey;</span>
+    }
+
+    /**
+     * @return Returns the inMessageContext.
+     */
+    public MessageContext getInMessageContext() {
+<span class="fc" id="L439">        return inMessageContext;</span>
+    }
+
+    /**
+     * Sets the given message context as in message context.
+     * @param context The message context.
+     */
+    public void setInMessageContext(MessageContext context) {
+<span class="fc" id="L447">        this.inMessageContext = context;</span>
+<span class="fc" id="L448">    }</span>
+
+    /**
+     * @deprecated  As of Rampart 1.7. Use {@code getKeySize}.
+     * @return Returns the keysize.
+     */
+    @Deprecated
+    public int getKeysize() {
+<span class="fc" id="L456">        return keySize;</span>
+    }
+
+    /**
+     * @return Returns the keySize.
+     */
+    public int getKeySize() {
+<span class="fc" id="L463">        return keySize;</span>
+    }
+
+    /**
+     * Sets the key size.
+     * @param size Size of the key.
+     */
+    public void setKeySize(int size) {
+<span class="fc" id="L471">        this.keySize = size;</span>
+<span class="fc" id="L472">    }</span>
+
+    /**
+     * // TODO changes this keytype to an enumeration
+     * @return Returns the keyType.
+     */
+    public String getKeyType() {
+<span class="fc" id="L479">        return keyType;</span>
+    }
+
+    /**
+     * @return Returns the principal.
+     */
+    public Principal getPrincipal() {
+<span class="fc" id="L486">        return principal;</span>
+    }
+
+    /**
+     * @return Returns the requestEntropy.
+     */
+    public byte[] getRequestEntropy() {
+<span class="fc" id="L493">        return requestEntropy;</span>
+    }
+
+    /**
+     * @return Returns the requestType.
+     */
+    public String getRequestType() {
+<span class="fc" id="L500">        return requestType;</span>
+    }
+
+    /**
+     * @return Returns the responseEntropy.
+     */
+    public byte[] getResponseEntropy() {
+<span class="fc" id="L507">        return responseEntropy;</span>
+    }
+
+    /**
+     * @return Returns the rstElement.
+     */
+    public OMElement getRstElement() {
+<span class="fc" id="L514">        return rstElement;</span>
+    }
+
+    /**
+     * @return Returns the tokenType.
+     */
+    public String getTokenType() {
+<span class="fc" id="L521">        return tokenType;</span>
+    }
+
+    /**
+     * @return Returns the version.
+     */
+    public int getVersion() {
+<span class="fc" id="L528">        return version;</span>
+    }
+
+    /**
+     * @return Returns the addressingNs.
+     */
+    public String getAddressingNs() {
+<span class="fc" id="L535">        return addressingNs;</span>
+    }
+
+    /**
+     * @return Returns the wstNs.
+     */
+    public String getWstNs() {
+<span class="fc" id="L542">        return wstNs;</span>
+    }
+
+    /**
+     * @return Returns the soapNs.
+     */
+    public String getSoapNs() {
+<span class="fc" id="L549">        return soapNs;</span>
+    }
+
+    /**
+     * @return Returns the tokenId.
+     */
+    public String getTokenId() {
+<span class="nc" id="L556">        return tokenId;</span>
+    }
+
+    /**
+     * @param responseEntropy The responseEntropy to set.
+     */
+    public void setResponseEntropy(byte[] responseEntropy) {
+<span class="fc" id="L563">        this.responseEntropy = responseEntropy;</span>
+<span class="fc" id="L564">    }</span>
+
+    /**
+     * @param ephmeralKey The ephmeralKey to set.
+     */
+    public void setEphmeralKey(byte[] ephmeralKey) {
+<span class="fc" id="L570">        this.ephmeralKey = ephmeralKey;</span>
+<span class="fc" id="L571">    }</span>
+
+    public String getClaimDialect() {
+<span class="fc" id="L574">        return claimDialect;</span>
+    }
+
+    public OMElement getClaimElem() {
+<span class="nc" id="L578">        return claimElem;</span>
+    }
+
+    public OMElement getAppliesToEpr() {
+<span class="nc" id="L582">        return appliesToEpr;</span>
+    }
+
+    public Date getAssertionCreatedDate() {
+<span class="fc" id="L586">        return assertionCreatedDate;</span>
+    }
+
+    public void setAssertionCreatedDate(Date assertionCreatedDate) {
+<span class="fc" id="L590">        this.assertionCreatedDate = assertionCreatedDate;</span>
+<span class="fc" id="L591">    }</span>
+
+    public Date getAssertionExpiringDate() {
+<span class="fc" id="L594">        return assertionExpiringDate;</span>
+    }
+
+    public void setAssertionExpiringDate(Date assertionExpiringDate) {
+<span class="fc" id="L598">        this.assertionExpiringDate = assertionExpiringDate;</span>
+<span class="fc" id="L599">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

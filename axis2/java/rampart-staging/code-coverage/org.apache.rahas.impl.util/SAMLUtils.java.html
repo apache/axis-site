@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SAMLUtils.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.impl.util</a> &gt; <span class="el_source">SAMLUtils.java</span></div><h1>SAMLUtils.java</h1><pre class="source lang-java linenums">package org.apache.rahas.impl.util;
+
+import org.apache.axiom.util.UIDGenerator;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rahas.RahasConstants;
+import org.apache.rahas.TrustException;
+import org.apache.ws.security.components.crypto.Crypto;
+import org.apache.ws.security.message.WSSecEncryptedKey;
+import org.apache.ws.security.util.Base64;
+import org.apache.xml.security.signature.XMLSignature;
+import org.apache.xml.security.utils.EncryptionConstants;
+import org.joda.time.DateTime;
+import org.opensaml.Configuration;
+import org.opensaml.saml1.core.*;
+import org.opensaml.ws.wssecurity.KeyIdentifier;
+import org.opensaml.ws.wssecurity.SecurityTokenReference;
+import org.opensaml.ws.wssecurity.WSSecurityConstants;
+import org.opensaml.xml.encryption.CipherData;
+import org.opensaml.xml.encryption.CipherValue;
+import org.opensaml.xml.encryption.EncryptedKey;
+import org.opensaml.xml.encryption.EncryptionMethod;
+import org.opensaml.xml.io.MarshallingException;
+import org.opensaml.xml.schema.XSString;
+import org.opensaml.xml.schema.impl.XSStringBuilder;
+import org.opensaml.xml.security.SecurityHelper;
+import org.opensaml.xml.security.credential.Credential;
+import org.opensaml.xml.signature.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.cert.CertificateEncodingException;
+import java.security.cert.X509Certificate;
+import java.util.*;
+
+/**
+ * Utility class for SAML 1 assertions. Responsible for manipulating all SAML1 specific objects
+ * like Assertion, ConfirmationMethod etc ...
+ */
+<span class="nc" id="L44">public class SAMLUtils {</span>
+
+<span class="fc" id="L46">    private static final Log log = LogFactory.getLog(SAMLUtils.class);</span>
+
+    @SuppressWarnings({&quot;UnusedDeclaration&quot;})
+    public static Collection&lt;X509Certificate&gt; getCertChainCollection(X509Certificate[] issuerCerts) {
+<span class="nc" id="L50">        ArrayList&lt;X509Certificate&gt; certCollection = new ArrayList&lt;X509Certificate&gt;();</span>
+
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        if (issuerCerts == null) {</span>
+<span class="nc" id="L53">            return certCollection;</span>
+        } else {
+<span class="nc" id="L55">            Collections.addAll(certCollection, issuerCerts);</span>
+        }
+
+<span class="nc" id="L58">        return certCollection;</span>
+    }
+
+    /**
+     * Builds an assertion from an XML element.
+     * @param assertionElement The XML element.
+     * @return An Assertion object.
+     */
+    public static Assertion buildAssertion(Element assertionElement) {
+
+<span class="nc" id="L68">       return (Assertion) Configuration.getBuilderFactory().</span>
+               getBuilder(Assertion.DEFAULT_ELEMENT_NAME).buildObject(assertionElement);
+
+    }
+
+/**
+     * Signs the SAML assertion. The steps to sign SAML assertion is as follows,
+     * &lt;ol&gt;
+     *     &lt;li&gt;Get certificate for issuer alias&lt;/li&gt;
+     *     &lt;li&gt;Extract private key&lt;/li&gt;
+     *     &lt;li&gt;Create {@link org.opensaml.xml.security.credential.Credential} object&lt;/li&gt;
+     *     &lt;li&gt;Create {@link org.opensaml.xml.signature.Signature} object&lt;/li&gt;
+     *     &lt;li&gt;Set Signature object in Assertion&lt;/li&gt;
+     *     &lt;li&gt;Prepare signing environment - SecurityHelper.prepareSignatureParams&lt;/li&gt;
+     *     &lt;li&gt;Perform signing action - Signer.signObject&lt;/li&gt;
+     * &lt;/ol&gt;
+     * @param assertion The assertion to be signed.
+     * @param crypto Certificate and private key data are stored in Crypto object
+     * @param issuerKeyAlias Key alias
+     * @param issuerKeyPassword Key password
+     * @throws TrustException If an error occurred while signing the assertion.
+     */
+    public static void signAssertion(Assertion assertion, Crypto crypto,
+                                     String issuerKeyAlias, String issuerKeyPassword)
+            throws TrustException {
+
+<span class="fc" id="L94">        X509Certificate issuerCerts = CommonUtil.getCertificateByAlias(crypto, issuerKeyAlias);</span>
+
+<span class="fc" id="L96">        String signatureAlgorithm = XMLSignature.ALGO_ID_SIGNATURE_RSA;</span>
+
+<span class="fc" id="L98">        PublicKey issuerPublicKey = issuerCerts.getPublicKey();</span>
+
+<span class="fc" id="L100">        String publicKeyAlgorithm = issuerPublicKey.getAlgorithm();</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">        if (publicKeyAlgorithm.equalsIgnoreCase(&quot;DSA&quot;)) {</span>
+<span class="nc" id="L102">            signatureAlgorithm = XMLSignature.ALGO_ID_SIGNATURE_DSA;</span>
+        }
+
+        PrivateKey issuerPrivateKey;
+        try {
+<span class="fc" id="L107">            issuerPrivateKey = crypto.getPrivateKey(</span>
+                    issuerKeyAlias, issuerKeyPassword);
+<span class="nc" id="L109">        } catch (Exception e) {</span>
+<span class="nc" id="L110">            log.debug(&quot;Unable to get issuer private key for issuer alias &quot; + issuerKeyAlias);</span>
+<span class="nc" id="L111">            throw new TrustException(&quot;issuerPrivateKeyNotFound&quot;, new Object[]{issuerKeyAlias});</span>
+<span class="fc" id="L112">        }</span>
+
+<span class="fc" id="L114">        Credential signingCredential = SecurityHelper.getSimpleCredential(issuerPublicKey, issuerPrivateKey);</span>
+
+<span class="fc" id="L116">        Signature signature = (Signature) CommonUtil.buildXMLObject(Signature.DEFAULT_ELEMENT_NAME);</span>
+<span class="fc" id="L117">        signature.setCanonicalizationAlgorithm(SignatureConstants.ALGO_ID_C14N_EXCL_OMIT_COMMENTS);</span>
+<span class="fc" id="L118">        signature.setSigningCredential(signingCredential);</span>
+<span class="fc" id="L119">        signature.setSignatureAlgorithm(signatureAlgorithm);</span>
+
+<span class="fc" id="L121">        X509Data x509Data = CommonUtil.createX509Data(issuerCerts);</span>
+<span class="fc" id="L122">        KeyInfo keyInfo = createKeyInfo(x509Data);</span>
+
+<span class="fc" id="L124">        signature.setKeyInfo(keyInfo);</span>
+<span class="fc" id="L125">        assertion.setSignature(signature);</span>
+
+        try {
+
+<span class="fc" id="L129">            Document document = CommonUtil.getOMDOMDocument();</span>
+
+<span class="fc" id="L131">            Configuration.getMarshallerFactory().getMarshaller(assertion).marshall(assertion, document);</span>
+<span class="nc" id="L132">        } catch (MarshallingException e) {</span>
+<span class="nc" id="L133">            log.debug(&quot;Error while marshalling assertion &quot;, e);</span>
+<span class="nc" id="L134">            throw new TrustException(&quot;errorMarshallingAssertion&quot;, e);</span>
+<span class="fc" id="L135">        }</span>
+
+        try {
+<span class="fc" id="L138">            Signer.signObject(signature);</span>
+<span class="nc" id="L139">        } catch (SignatureException e) {</span>
+<span class="nc" id="L140">            log.debug(&quot;Error signing SAML Assertion. An error occurred while signing SAML Assertion with alias &quot;</span>
+                    + issuerKeyAlias, e);
+<span class="nc" id="L142">            throw new TrustException(&quot;errorSigningAssertion&quot;, e);</span>
+<span class="fc" id="L143">        }</span>
+<span class="fc" id="L144">    }</span>
+
+    /**
+     * Get subject confirmation method of the given SAML 1.1 Assertion.
+     * This is used in rampart-core.
+     * @param assertion SAML 1.1 Assertion
+     * @return subject confirmation method
+     */
+    public static String getSAML11SubjectConfirmationMethod(Assertion assertion) {
+<span class="nc" id="L153">        String subjectConfirmationMethod = RahasConstants.SAML11_SUBJECT_CONFIRMATION_HOK;</span>
+        // iterate the statements and get the subject confirmation method.
+<span class="nc" id="L155">        List&lt;Statement&gt; statements = assertion.getStatements();</span>
+
+        // TODO check whether there is an efficient method of doing this
+<span class="nc bnc" id="L158" title="All 2 branches missed.">        if (!statements.isEmpty()) {</span>
+<span class="nc" id="L159">            SubjectStatement subjectStatement = (SubjectStatement) statements.get(0);</span>
+<span class="nc" id="L160">            Subject subject = subjectStatement.getSubject();</span>
+
+<span class="nc bnc" id="L162" title="All 2 branches missed.">            if (subject != null) {</span>
+<span class="nc" id="L163">                SubjectConfirmation subjectConfirmation = subject.getSubjectConfirmation();</span>
+
+<span class="nc bnc" id="L165" title="All 2 branches missed.">                if (subjectConfirmation != null) {</span>
+<span class="nc" id="L166">                    List&lt;ConfirmationMethod&gt; confirmationMethods = subjectConfirmation.getConfirmationMethods();</span>
+
+<span class="nc bnc" id="L168" title="All 2 branches missed.">                    if (!confirmationMethods.isEmpty()) {</span>
+<span class="nc" id="L169">                        subjectConfirmationMethod = confirmationMethods.get(0).getConfirmationMethod();</span>
+                    }
+                }
+            }
+        }
+
+
+<span class="nc" id="L176">        return subjectConfirmationMethod;</span>
+    }
+
+    /**
+     * Create named identifier.
+     * @param principalName Name of the subject.
+     * @param format Format of the subject, whether it is an email, uid etc ...
+     * @return The NamedIdentifier object.
+     * @throws org.apache.rahas.TrustException If unable to find the builder.
+     */
+    public static NameIdentifier createNamedIdentifier(String principalName, String format) throws TrustException{
+
+<span class="fc" id="L188">        NameIdentifier nameId = (NameIdentifier)CommonUtil.buildXMLObject(NameIdentifier.DEFAULT_ELEMENT_NAME);</span>
+<span class="fc" id="L189">        nameId.setNameIdentifier(principalName);</span>
+<span class="fc" id="L190">        nameId.setFormat(format);</span>
+
+<span class="fc" id="L192">        return nameId;</span>
+    }
+
+    /**
+     * Creates the subject confirmation method.
+     * Relevant XML element would look like as follows,
+     * &lt;saml:ConfirmationMethod&gt;
+     *       urn:oasis:names:tc:SAML:1.0:cm:holder-of-key
+     *  &lt;/saml:ConfirmationMethod&gt;
+     * @param confirmationMethod Name of the actual confirmation method. Could be
+     *      holder-of-key - &quot;urn:oasis:names:tc:SAML:1.0:cm:holder-of-key&quot;
+     *      sender-vouches - &quot;urn:oasis:names:tc:SAML:1.0:cm:sender-vouches&quot;
+     *      bearer - TODO
+     * @return Returns the opensaml representation of the ConfirmationMethod.
+     * @throws TrustException If unable to find appropriate XMLObject builder for confirmation QName.
+     */
+    public static ConfirmationMethod createSubjectConfirmationMethod(final String confirmationMethod)
+            throws TrustException {
+
+<span class="fc" id="L211">        ConfirmationMethod confirmationMethodObject</span>
+                = (ConfirmationMethod)CommonUtil.buildXMLObject(ConfirmationMethod.DEFAULT_ELEMENT_NAME);
+<span class="fc" id="L213">        confirmationMethodObject.setConfirmationMethod(confirmationMethod);</span>
+
+<span class="fc" id="L215">        return confirmationMethodObject;</span>
+    }
+
+    /**
+     * Creates opensaml SubjectConfirmation representation. The relevant XML would looks as follows,
+     *  &lt;saml:SubjectConfirmation&gt;
+     *       &lt;saml:ConfirmationMethod&gt;
+     *           urn:oasis:names:tc:SAML:1.0:cm:sender-vouches
+     *       &lt;/saml:ConfirmationMethod&gt;
+     *   &lt;/saml:SubjectConfirmation&gt;
+     * @param confirmationMethod The subject confirmation method. Bearer, Sender-Vouches or Holder-Of-Key.
+     * @param keyInfoContent The KeyInfo content. According to SPEC (SAML 1.1) this could be null.
+     * @return OpenSAML representation of SubjectConfirmation.
+     * @throws TrustException If unable to find any of the XML builders.
+     */
+    public static SubjectConfirmation createSubjectConfirmation(final String confirmationMethod,
+                                                          KeyInfo keyInfoContent) throws TrustException {
+
+<span class="fc" id="L233">        SubjectConfirmation subjectConfirmation</span>
+                = (SubjectConfirmation)CommonUtil.buildXMLObject(SubjectConfirmation.DEFAULT_ELEMENT_NAME);
+
+<span class="fc" id="L236">        ConfirmationMethod method = SAMLUtils.createSubjectConfirmationMethod(confirmationMethod);</span>
+<span class="fc" id="L237">        subjectConfirmation.getConfirmationMethods().add(method);</span>
+
+<span class="fc bfc" id="L239" title="All 2 branches covered.">        if (keyInfoContent != null) {</span>
+<span class="fc" id="L240">            subjectConfirmation.setKeyInfo(keyInfoContent);</span>
+        }
+
+<span class="fc" id="L243">        return subjectConfirmation;</span>
+    }
+
+    /**
+     * Creates an opensaml Subject representation. The relevant XML would looks as follows,
+     * &lt;saml:Subject&gt;
+     *       &lt;saml:NameIdentifier
+     *       NameQualifier=&quot;www.example.com&quot;
+     *       Format=&quot;...&quot;&gt;
+     *       uid=joe,ou=people,ou=saml-demo,o=baltimore.com
+     *       &lt;/saml:NameIdentifier&gt;
+     *       &lt;saml:SubjectConfirmation&gt;
+     *           &lt;saml:ConfirmationMethod&gt;
+     *           urn:oasis:names:tc:SAML:1.0:cm:holder-of-key
+     *           &lt;/saml:ConfirmationMethod&gt;
+     *       &lt;ds:KeyInfo&gt;
+     *           &lt;ds:KeyValue&gt;...&lt;/ds:KeyValue&gt;
+     *       &lt;/ds:KeyInfo&gt;
+     *       &lt;/saml:SubjectConfirmation&gt;
+     *   &lt;/saml:Subject&gt;
+     * @param nameIdentifier Represent the &quot;NameIdentifier&quot; of XML element above.
+     * @param confirmationMethod Represent the bearer, HOK or Sender-Vouches.
+     * @param keyInfoContent Key info information. This could be null.
+     * @return OpenSAML representation of the Subject.
+     * @throws TrustException If a relevant XML builder is unable to find.
+     */
+    public static Subject createSubject(final NameIdentifier nameIdentifier, final String confirmationMethod,
+                                                          KeyInfo keyInfoContent) throws TrustException {
+
+<span class="fc" id="L272">        Subject subject = (Subject)CommonUtil.buildXMLObject(Subject.DEFAULT_ELEMENT_NAME);</span>
+<span class="fc" id="L273">        subject.setNameIdentifier(nameIdentifier);</span>
+
+<span class="fc" id="L275">        SubjectConfirmation subjectConfirmation</span>
+                = SAMLUtils.createSubjectConfirmation(confirmationMethod,keyInfoContent);
+<span class="fc" id="L277">        subject.setSubjectConfirmation(subjectConfirmation);</span>
+
+<span class="fc" id="L279">        return subject;</span>
+    }
+
+    /**
+     * Creates an AuthenticationStatement. The relevant XML element looks as follows,
+     * &lt;AuthenticationStatement
+     *       AuthenticationInstant=&quot;2003-04-17T00:46:00Z&quot;
+     *       AuthenticationMethod=&quot;urn:oasis:names:tc:SAML:1.0:am:password&quot;&gt;
+     *       &lt;Subject&gt;
+     *           &lt;NameIdentifier
+     *           Format=&quot;urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress&quot;&gt;
+     *           scott@example.org&lt;/NameIdentifier&gt;
+     *               &lt;SubjectConfirmation&gt;
+     *                   &lt;ConfirmationMethod&gt;urn:oasis:names:tc:SAML:1.0:cm:bearer&lt;/ConfirmationMethod&gt;
+     *               &lt;/SubjectConfirmation&gt;
+     *       &lt;/Subject&gt;
+     *       &lt;SubjectLocality IPAddress=&quot;127.0.0.1&quot;/&gt;
+     *   &lt;/AuthenticationStatement&gt;
+     * @param subject OpenSAML Subject implementation.
+     * @param authenticationMethod How subject is authenticated ? i.e. by using a password, kerberos, certificate
+     *          etc ... The method is defined as a URL in SAML specification.
+     * @param authenticationInstant Time which authentication took place.
+     * @return opensaml AuthenticationStatement object.
+     * @throws org.apache.rahas.TrustException If unable to find the builder.
+     */
+    public static AuthenticationStatement createAuthenticationStatement(Subject subject, String authenticationMethod,
+                                                                    DateTime authenticationInstant)
+                                                                    throws TrustException {
+
+<span class="fc" id="L308">        AuthenticationStatement authenticationStatement</span>
+                = (AuthenticationStatement)CommonUtil.buildXMLObject(AuthenticationStatement.DEFAULT_ELEMENT_NAME);
+
+<span class="fc" id="L311">        authenticationStatement.setSubject(subject);</span>
+<span class="fc" id="L312">        authenticationStatement.setAuthenticationMethod(authenticationMethod);</span>
+<span class="fc" id="L313">        authenticationStatement.setAuthenticationInstant(authenticationInstant);</span>
+
+<span class="fc" id="L315">        return authenticationStatement;</span>
+    }
+
+    /**Creates an attribute statement. Sample attribute statement would look like follows,
+     *  &lt;saml:AttributeStatement&gt;
+     *       &lt;saml:Subject&gt;
+     *           &lt;saml:NameIdentifier
+     *               NameQualifier=&quot;www.example.com&quot;
+     *               Format=&quot;...&quot;&gt;
+     *               uid=joe,ou=people,ou=saml-demo,o=baltimore.com
+     *           &lt;/saml:NameIdentifier&gt;
+     *           &lt;saml:SubjectConfirmation&gt;
+     *               &lt;saml:ConfirmationMethod&gt;
+     *               urn:oasis:names:tc:SAML:1.0:cm:holder-of-key
+     *               &lt;/saml:ConfirmationMethod&gt;
+     *               &lt;ds:KeyInfo&gt;
+     *                 &lt;ds:KeyValue&gt;...&lt;/ds:KeyValue&gt;
+     *               &lt;/ds:KeyInfo&gt;
+     *           &lt;/saml:SubjectConfirmation&gt;
+     *       &lt;/saml:Subject&gt;
+     *       &lt;saml:Attribute
+     *           AttributeName=&quot;MemberLevel&quot;
+     *           AttributeNamespace=&quot;http://www.oasis.open.org/Catalyst2002/attributes&quot;&gt;
+     *           &lt;saml:AttributeValue&gt;gold&lt;/saml:AttributeValue&gt;
+     *       &lt;/saml:Attribute&gt;
+     *       &lt;saml:Attribute
+     *           AttributeName=&quot;E-mail&quot;
+     *           AttributeNamespace=&quot;http://www.oasis.open.org/Catalyst2002/attributes&quot;&gt;
+     *           &lt;saml:AttributeValue&gt;joe@yahoo.com&lt;/saml:AttributeValue&gt;
+     *       &lt;/saml:Attribute&gt;
+     *   &lt;/saml:AttributeStatement&gt;
+     *
+     * @param subject The OpenSAML representation of the Subject.
+     * @param attributeList List of attribute values to include within the message.
+     * @return OpenSAML representation of AttributeStatement.
+     * @throws org.apache.rahas.TrustException If unable to find the appropriate builder.
+     */
+    public static AttributeStatement createAttributeStatement(Subject subject, List&lt;Attribute&gt; attributeList)
+            throws TrustException {
+
+<span class="fc" id="L355">        AttributeStatement attributeStatement</span>
+                = (AttributeStatement)CommonUtil.buildXMLObject(AttributeStatement.DEFAULT_ELEMENT_NAME);
+
+<span class="fc" id="L358">        attributeStatement.setSubject(subject);</span>
+<span class="fc" id="L359">        attributeStatement.getAttributes().addAll(attributeList);</span>
+
+<span class="fc" id="L361">        return attributeStatement;</span>
+    }
+
+    /**
+     * Creates Conditions object. Analogous XML element is as follows,
+     * &lt;saml:Conditions&gt;
+     *       NotBefore=&quot;2002-06-19T16:53:33.173Z&quot;
+     *       NotOnOrAfter=&quot;2002-06-19T17:08:33.173Z&quot;/&gt;
+     * @param notBefore The validity of the Assertion starts from this value.
+     * @param notOnOrAfter The validity ends from this value.
+     * @return OpenSAML Conditions object.
+     * @throws org.apache.rahas.TrustException If unable to find appropriate builder.
+     */
+    public static Conditions createConditions(DateTime notBefore, DateTime notOnOrAfter) throws TrustException {
+
+<span class="fc" id="L376">        Conditions conditions = (Conditions)CommonUtil.buildXMLObject(Conditions.DEFAULT_ELEMENT_NAME);</span>
+
+<span class="fc" id="L378">        conditions.setNotBefore(notBefore);</span>
+<span class="fc" id="L379">        conditions.setNotOnOrAfter(notOnOrAfter);</span>
+
+<span class="fc" id="L381">        return conditions;</span>
+    }
+
+    /**
+     * This method creates the final SAML assertion. The final SAML assertion would looks like as follows,
+     *  &lt;saml:Assertion  AssertionID=&quot;_a75adf55-01d7-40cc-929f-dbd8372ebdfc&quot;
+     *                   IssueInstant=&quot;2003-04-17T00:46:02Z&quot;
+     *                   Issuer=”www.opensaml.org”
+     *                   MajorVersion=&quot;1&quot;
+     *                   MinorVersion=&quot;1&quot;
+     *                   xmlns=&quot;urn:oasis:names:tc:SAML:1.0:assertion&quot;&gt;
+     *       &lt;saml:Conditions&gt;
+     *           NotBefore=&quot;2002-06-19T16:53:33.173Z&quot;
+     *           NotOnOrAfter=&quot;2002-06-19T17:08:33.173Z&quot;/&gt;
+     *       &lt;saml:AttributeStatement&gt;
+     *           &lt;saml:Subject&gt;
+     *               &lt;saml:NameIdentifier
+     *                       NameQualifier=&quot;www.example.com&quot;
+     *                       Format=&quot;...&quot;&gt;
+     *                       uid=joe,ou=people,ou=saml-demo,o=baltimore.com
+     *               &lt;/saml:NameIdentifier&gt;
+     *               &lt;saml:SubjectConfirmation&gt;
+     *                   &lt;saml:ConfirmationMethod&gt;
+     *                       urn:oasis:names:tc:SAML:1.0:cm:holder-of-key
+     *                   &lt;/saml:ConfirmationMethod&gt;
+     *                   &lt;ds:KeyInfo&gt;
+     *                       &lt;ds:KeyValue&gt;...&lt;/ds:KeyValue&gt;
+     *                   &lt;/ds:KeyInfo&gt;
+     *               &lt;/saml:SubjectConfirmation&gt;
+     *           &lt;/saml:Subject&gt;
+     *           &lt;saml:Attribute
+     *               AttributeName=&quot;MemberLevel&quot;
+     *               AttributeNamespace=&quot;http://www.oasis.open.org/Catalyst2002/attributes&quot;&gt;
+     *               &lt;saml:AttributeValue&gt;gold&lt;/saml:AttributeValue&gt;
+     *           &lt;/saml:Attribute&gt;
+     *           &lt;saml:Attribute
+     *               AttributeName=&quot;E-mail&quot; AttributeNamespace=&quot;http://www.oasis.open.org/Catalyst2002/attributes&quot;&gt;
+     *               &lt;saml:AttributeValue&gt;joe@yahoo.com&lt;/saml:AttributeValue&gt;
+     *           &lt;/saml:Attribute&gt;
+     *       &lt;/saml:AttributeStatement&gt;
+     *       &lt;ds:Signature&gt;...&lt;/ds:Signature&gt;
+     *   &lt;/saml:Assertion&gt;
+     * @param issuerName Represents the &quot;Issuer&quot; in Assertion.
+     * @param notBefore The Condition's NotBefore value
+     * @param notOnOrAfter The Condition's NotOnOrAfter value
+     * @param statements  Other statements.
+     * @return An opensaml Assertion object.
+     * @throws org.apache.rahas.TrustException If unable to find the appropriate builder.
+     */
+    public static Assertion createAssertion(String issuerName, DateTime notBefore, DateTime notOnOrAfter,
+                                        List&lt;Statement&gt; statements) throws TrustException {
+
+<span class="fc" id="L433">        Assertion assertion = (Assertion)CommonUtil.buildXMLObject(Assertion.DEFAULT_ELEMENT_NAME);</span>
+
+<span class="fc" id="L435">        assertion.setIssuer(issuerName);</span>
+<span class="fc" id="L436">        assertion.setConditions(SAMLUtils.createConditions(notBefore, notOnOrAfter));</span>
+<span class="fc" id="L437">        assertion.getStatements().addAll(statements);</span>
+<span class="fc" id="L438">        assertion.setID(UIDGenerator.generateUID());</span>
+<span class="fc" id="L439">        assertion.setIssueInstant(new DateTime());</span>
+<span class="fc" id="L440">        return assertion;</span>
+    }
+
+    /**
+     * Creates a SAML attribute similar to following,
+     * &lt;saml:Attribute
+     *       AttributeName=&quot;MemberLevel&quot;
+     *       AttributeNamespace=&quot;http://www.oasis.open.org/Catalyst2002/attributes&quot;&gt;
+     *       &lt;saml:AttributeValue&gt;gold&lt;/saml:AttributeValue&gt;
+     *   &lt;/saml:Attribute&gt;
+     * @param name attribute name
+     * @param namespace attribute namespace.
+     * @param value attribute value.
+     * @return OpenSAML representation of the attribute.
+     * @throws org.apache.rahas.TrustException If unable to find the appropriate builder.
+     */
+    public static Attribute createAttribute(String name, String namespace, String value) throws TrustException {
+
+<span class="fc" id="L458">        Attribute attribute = (Attribute)CommonUtil.buildXMLObject(Attribute.DEFAULT_ELEMENT_NAME);</span>
+
+<span class="fc" id="L460">        attribute.setAttributeName(name);</span>
+<span class="fc" id="L461">        attribute.setAttributeNamespace(namespace);</span>
+
+<span class="fc" id="L463">        XSStringBuilder attributeValueBuilder = (XSStringBuilder)Configuration.getBuilderFactory().</span>
+                getBuilder(XSString.TYPE_NAME);
+
+<span class="fc" id="L466">        XSString stringValue</span>
+                = attributeValueBuilder.buildObject(AttributeValue.DEFAULT_ELEMENT_NAME, XSString.TYPE_NAME);
+<span class="fc" id="L468">        stringValue.setValue(value);</span>
+
+<span class="fc" id="L470">        attribute.getAttributeValues().add(stringValue);</span>
+
+<span class="fc" id="L472">        return attribute;</span>
+
+    }
+
+    /**
+     * Creates a KeyInfo object
+     * @return OpenSAML KeyInfo representation.
+     * @throws TrustException If an error occurred while creating KeyInfo.
+     */
+    public static KeyInfo createKeyInfo() throws TrustException {
+
+<span class="fc" id="L483">        return (KeyInfo)CommonUtil.buildXMLObject(KeyInfo.DEFAULT_ELEMENT_NAME);</span>
+    }
+
+     /**
+     * Creates a KeyInfo element given EncryptedKey. The relevant XML would looks as follows,
+     *  &lt;KeyInfo xmlns=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&gt;
+     *     &lt;xenc:EncryptedKey xmlns:xenc=&quot;http://www.w3.org/2001/04/xmlenc#&quot;
+     *           ....
+     *     &lt;/xenc:EncryptedKey&gt;
+     *   &lt;/ds:KeyInfo&gt;
+     * @param encryptedKey The OpemSAML representation of encrypted key.
+     * @return The appropriate opensaml representation of the KeyInfo.
+     * @throws org.apache.rahas.TrustException If unable to find the builder.
+     */
+    public static KeyInfo createKeyInfo(EncryptedKey encryptedKey) throws TrustException {
+
+<span class="fc" id="L499">        KeyInfo keyInfo = createKeyInfo();</span>
+<span class="fc" id="L500">        keyInfo.getEncryptedKeys().add(encryptedKey);</span>
+
+<span class="fc" id="L502">        return keyInfo;</span>
+    }
+
+    /**
+     * Creates a KeyInfo element given EncryptedKey. The relevant XML would looks as follows,
+     *  &lt;KeyInfo xmlns=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&gt;
+     *     &lt;X509Data xmlns:xenc=&quot;http://www.w3.org/2001/04/xmlenc#&quot;
+     *           ....
+     *     &lt;/X509Data&gt;
+     *   &lt;/ds:KeyInfo&gt;
+     * @param x509Data The OpemSAML representation X509Data
+     * @return The appropriate opensaml representation of the KeyInfo.
+     * @throws org.apache.rahas.TrustException If unable to find the builder.
+     */
+    public static KeyInfo createKeyInfo(X509Data x509Data) throws TrustException {
+
+<span class="fc" id="L518">        KeyInfo keyInfo = createKeyInfo();</span>
+<span class="fc" id="L519">        keyInfo.getX509Datas().add(x509Data);</span>
+
+<span class="fc" id="L521">        return keyInfo;</span>
+    }
+
+
+
+    /**
+     * This method will created the &quot;EncryptedKey&quot; of a SAML assertion.
+     * An encrypted key would look like as follows,
+     * &lt;xenc:EncryptedKey xmlns:xenc=&quot;http://www.w3.org/2001/04/xmlenc#&quot;
+     *    xmlns:ds=&quot;http://www.w3.org/2000/09/xmldsig#&quot;
+     *   Id=&quot;EncKeyId-E5CEA44F9C25F55C4913269595550814&quot;&gt;
+     *    &lt;xenc:EncryptionMethod Algorithm=&quot;http://www.w3.org/2001/04/xmlenc#rsa-1_5&quot;/&gt;
+     *    &lt;ds:KeyInfo&gt;
+     *      &lt;wsse:SecurityTokenReference
+     *        xmlns:wsse=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot;&gt;
+     *      &lt;wsse:KeyIdentifier
+     *             EncodingType=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0
+     *             #Base64Binary&quot;
+     *             ValueType=&quot;http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#ThumbprintSHA1&quot;&gt;
+     *             a/jhNus21KVuoFx65LmkW2O/l10=
+     *       &lt;/wsse:KeyIdentifier&gt;
+     *     &lt;/wsse:SecurityTokenReference&gt;
+     *    &lt;/ds:KeyInfo&gt;
+     *    &lt;xenc:CipherData&gt;
+     *       &lt;xenc:CipherValue&gt;
+     *             dnP0MBHiMLlSmnjJhGFs/I8/z...
+     *        &lt;/xenc:CipherValue&gt;
+     *     &lt;/xenc:CipherData&gt;
+     *  &lt;/xenc:EncryptedKey&gt;
+     * @param certificate Certificate which holds the public key to encrypt ephemeral key.
+     * @param wsSecEncryptedKey WS Security object which contains encrypted ephemeral key.
+     *          TODO Passing WSSecEncryptedKey is an overhead. We should be able to create encrypted ephemeral
+     *          key without WSS4J
+     * @return OpenSAML EncryptedKey representation.
+     * @throws TrustException If an error occurred while creating EncryptedKey.
+     */
+    static EncryptedKey createEncryptedKey(X509Certificate certificate, WSSecEncryptedKey wsSecEncryptedKey)
+            throws TrustException {
+
+<span class="fc" id="L560">        SecurityTokenReference securityTokenReference</span>
+                = (SecurityTokenReference)CommonUtil.buildXMLObject(SecurityTokenReference.ELEMENT_NAME);
+
+<span class="fc" id="L563">        KeyIdentifier keyIdentifier = (KeyIdentifier)CommonUtil.buildXMLObject(KeyIdentifier.ELEMENT_NAME);</span>
+
+        // Encoding type set to http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0
+        // #Base64Binary
+<span class="fc" id="L567">        keyIdentifier.setEncodingType(KeyIdentifier.ENCODING_TYPE_BASE64_BINARY);</span>
+<span class="fc" id="L568">        keyIdentifier.setValueType(WSSecurityConstants.WS_SECURITY11_NS+&quot;#ThumbprintSHA1&quot;);</span>
+<span class="fc" id="L569">        keyIdentifier.setValue(getThumbprintSha1(certificate));</span>
+
+<span class="fc" id="L571">        securityTokenReference.getUnknownXMLObjects().add(keyIdentifier);</span>
+
+<span class="fc" id="L573">        KeyInfo keyInfo = SAMLUtils.createKeyInfo();</span>
+<span class="fc" id="L574">        keyInfo.getXMLObjects().add(securityTokenReference);</span>
+
+<span class="fc" id="L576">        CipherValue cipherValue = (CipherValue)CommonUtil.buildXMLObject(CipherValue.DEFAULT_ELEMENT_NAME);</span>
+<span class="fc" id="L577">        cipherValue.setValue(Base64.encode(wsSecEncryptedKey.getEncryptedEphemeralKey()));</span>
+
+<span class="fc" id="L579">        CipherData cipherData = (CipherData)CommonUtil.buildXMLObject(CipherData.DEFAULT_ELEMENT_NAME);</span>
+<span class="fc" id="L580">        cipherData.setCipherValue(cipherValue);</span>
+
+<span class="fc" id="L582">        EncryptionMethod encryptionMethod = (EncryptionMethod)CommonUtil.buildXMLObject(EncryptionMethod.DEFAULT_ELEMENT_NAME);</span>
+<span class="fc" id="L583">        encryptionMethod.setAlgorithm(EncryptionConstants.ALGO_ID_KEYTRANSPORT_RSA15);</span>
+
+<span class="fc" id="L585">        EncryptedKey encryptedKey = (EncryptedKey)CommonUtil.buildXMLObject(EncryptedKey.DEFAULT_ELEMENT_NAME);</span>
+
+<span class="fc" id="L587">        encryptedKey.setID(wsSecEncryptedKey.getId());</span>
+<span class="fc" id="L588">        encryptedKey.setEncryptionMethod(encryptionMethod);</span>
+<span class="fc" id="L589">        encryptedKey.setCipherData(cipherData);</span>
+<span class="fc" id="L590">        encryptedKey.setKeyInfo(keyInfo);</span>
+
+<span class="fc" id="L592">        return encryptedKey;</span>
+
+    }
+
+    private static String getThumbprintSha1(X509Certificate cert) throws TrustException {
+
+        MessageDigest sha;
+        try {
+<span class="fc" id="L600">            sha = MessageDigest.getInstance(&quot;SHA-1&quot;);</span>
+<span class="nc" id="L601">        } catch (NoSuchAlgorithmException e1) {</span>
+<span class="nc" id="L602">            throw new TrustException(&quot;sha1NotFound&quot;, e1);</span>
+<span class="fc" id="L603">        }</span>
+<span class="fc" id="L604">        sha.reset();</span>
+        try {
+<span class="fc" id="L606">            sha.update(cert.getEncoded());</span>
+<span class="nc" id="L607">        } catch (CertificateEncodingException e1) {</span>
+<span class="nc" id="L608">            throw new TrustException(&quot;certificateEncodingError&quot;, e1);</span>
+<span class="fc" id="L609">        }</span>
+<span class="fc" id="L610">        byte[] data = sha.digest();</span>
+
+<span class="fc" id="L612">        return Base64.encode(data);</span>
+    }
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

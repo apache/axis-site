@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SCTIssuer.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.impl</a> &gt; <span class="el_source">SCTIssuer.java</span></div><h1>SCTIssuer.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rahas.impl;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.soap.SOAPEnvelope;
+import org.apache.axis2.description.Parameter;
+import org.apache.rahas.RahasConstants;
+import org.apache.rahas.RahasData;
+import org.apache.rahas.Token;
+import org.apache.rahas.TokenIssuer;
+import org.apache.rahas.TrustException;
+import org.apache.rahas.TrustUtil;
+import org.apache.ws.security.conversation.ConversationConstants;
+import org.apache.ws.security.conversation.ConversationException;
+import org.apache.ws.security.message.token.SecurityContextToken;
+import org.apache.ws.security.util.XmlSchemaDateFormat;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import java.text.DateFormat;
+import java.util.Date;
+
+<span class="fc" id="L38">public class SCTIssuer implements TokenIssuer {</span>
+
+    public final static String COMPUTED_KEY = &quot;ComputedKey&quot;;
+
+    private String configFile;
+
+    private OMElement configElement;
+
+    private String configParamName;
+
+    /**
+     * Issue a {@link SecurityContextToken} based on the wsse:Signature or
+     * wsse:UsernameToken
+     * &lt;p/&gt;
+     * This will support returning the SecurityContextToken with the following
+     * types of wst:RequestedProof tokens:
+     * &lt;ul&gt;
+     * &lt;li&gt;xenc:EncryptedKey&lt;/li&gt;
+     * &lt;li&gt;wst:ComputedKey&lt;/li&gt;
+     * &lt;li&gt;wst:BinarySecret (for secure transport)&lt;/li&gt;
+     * &lt;/ul&gt;
+     */
+    public SOAPEnvelope issue(RahasData data) throws TrustException {
+
+<span class="fc" id="L62">        SCTIssuerConfig config = null;</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if (this.configElement != null) {</span>
+<span class="nc" id="L64">            config = SCTIssuerConfig</span>
+                    .load(configElement
+                            .getFirstChildWithName(SCTIssuerConfig.SCT_ISSUER_CONFIG));
+        }
+
+        // Look for the file
+<span class="pc bpc" id="L70" title="2 of 4 branches missed.">        if (config == null &amp;&amp; this.configFile != null) {</span>
+<span class="nc" id="L71">            config = SCTIssuerConfig.load(this.configFile);</span>
+        }
+
+        // Look for the param
+<span class="pc bpc" id="L75" title="2 of 4 branches missed.">        if (config == null &amp;&amp; this.configParamName != null) {</span>
+<span class="fc" id="L76">            Parameter param = data.getInMessageContext().getParameter(this.configParamName);</span>
+<span class="pc bpc" id="L77" title="2 of 4 branches missed.">            if (param != null &amp;&amp; param.getParameterElement() != null) {</span>
+<span class="fc" id="L78">                config = SCTIssuerConfig.load(param.getParameterElement()</span>
+                        .getFirstChildWithName(
+                        SCTIssuerConfig.SCT_ISSUER_CONFIG));
+            } else {
+<span class="nc" id="L82">                throw new TrustException(&quot;expectedParameterMissing&quot;,</span>
+                                         new String[]{this.configParamName});
+            }
+        }
+
+<span class="pc bpc" id="L87" title="1 of 2 branches missed.">        if (config == null) {</span>
+<span class="nc" id="L88">            throw new TrustException(&quot;missingConfiguration&quot;,</span>
+                                     new String[]{SCTIssuerConfig.SCT_ISSUER_CONFIG
+                                             .getLocalPart()});
+        }
+
+        // Env
+<span class="fc" id="L94">        return createEnvelope(data, config);</span>
+    }
+
+    private SOAPEnvelope createEnvelope(RahasData data,
+                                        SCTIssuerConfig config) throws TrustException {
+        try {
+<span class="fc" id="L100">            SOAPEnvelope env = TrustUtil.createSOAPEnvelope(data.getSoapNs());</span>
+<span class="fc" id="L101">            int wstVersion = data.getVersion();</span>
+
+            // Get the document
+<span class="fc" id="L104">            Document doc = ((Element) env).getOwnerDocument();</span>
+
+<span class="fc" id="L106">            SecurityContextToken sct =</span>
+                    new SecurityContextToken(this.getWSCVersion(data.getTokenType()), doc);
+
+            OMElement rstrElem;
+<span class="fc bfc" id="L110" title="All 2 branches covered.">            if (wstVersion == RahasConstants.VERSION_05_12) {</span>
+                /**
+                 * If secure conversation version is http://docs.oasis-open.org/ws-sx/ws-trust/200512
+                 * We have to wrap &quot;request security token response&quot; in a &quot;request security token response
+                 * collection&quot;.
+                 * See WS-SecureConversation 1.3 spec's Section 3 - Establishing Security Contexts
+                 * for more details.
+                 */
+<span class="fc" id="L118">                OMElement requestedSecurityTokenResponseCollection = TrustUtil</span>
+                        .createRequestSecurityTokenResponseCollectionElement(wstVersion, env.getBody());
+<span class="fc" id="L120">                rstrElem =</span>
+                        TrustUtil.createRequestSecurityTokenResponseElement(wstVersion,
+                                requestedSecurityTokenResponseCollection);
+<span class="fc" id="L123">            } else {</span>
+<span class="fc" id="L124">                rstrElem =</span>
+                        TrustUtil.createRequestSecurityTokenResponseElement(wstVersion,
+                                env.getBody());
+            }
+
+
+<span class="fc" id="L130">            OMElement rstElem =</span>
+                    TrustUtil.createRequestedSecurityTokenElement(wstVersion, rstrElem);
+
+<span class="fc" id="L133">            rstElem.addChild((OMElement) sct.getElement());</span>
+
+<span class="fc" id="L135">            String tokenType = data.getTokenType();</span>
+
+<span class="fc" id="L137">            OMElement reqAttachedRef = null;</span>
+<span class="fc" id="L138">            OMElement reqUnattachedRef = null;</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">            if (config.isAddRequestedAttachedRef()) {</span>
+<span class="fc" id="L140">                reqAttachedRef = TrustUtil.createRequestedAttachedRef(wstVersion,</span>
+                                                         rstrElem,
+                                                         &quot;#&quot; + sct.getID(),
+                                                         tokenType);
+            }
+
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">            if (config.isAddRequestedUnattachedRef()) {</span>
+<span class="fc" id="L147">                reqUnattachedRef = TrustUtil.createRequestedUnattachedRef(wstVersion,</span>
+                                                           rstrElem,
+                                                           sct.getIdentifier(),
+                                                           tokenType);
+            }
+
+            //Creation and expiration times
+<span class="fc" id="L154">            Date creationTime = new Date();</span>
+<span class="fc" id="L155">            Date expirationTime = new Date();</span>
+
+<span class="fc" id="L157">            expirationTime.setTime(creationTime.getTime() + config.getTtl());</span>
+
+            // Use GMT time in milliseconds
+<span class="fc" id="L160">            DateFormat zulu = new XmlSchemaDateFormat();</span>
+
+            // Add the Lifetime element
+<span class="fc" id="L163">            TrustUtil.createLifetimeElement(wstVersion,</span>
+                                            rstrElem,
+                                            zulu.format(creationTime),
+                                            zulu.format(expirationTime));
+
+            // Store the tokens
+<span class="fc" id="L169">            Token sctToken = new Token(sct.getIdentifier(),</span>
+                                       (OMElement) sct.getElement(),
+                                       creationTime,
+                                       expirationTime);
+            
+<span class="pc bpc" id="L174" title="1 of 2 branches missed.">            if(config.isAddRequestedAttachedRef()) {</span>
+<span class="fc" id="L175">                sctToken.setAttachedReference(reqAttachedRef.getFirstElement());</span>
+            }
+            
+<span class="pc bpc" id="L178" title="1 of 2 branches missed.">            if(config.isAddRequestedUnattachedRef()) {</span>
+<span class="fc" id="L179">                sctToken.setUnattachedReference(reqUnattachedRef.getFirstElement());</span>
+            }
+
+<span class="fc" id="L182">            byte[] secret = TokenIssuerUtil.getSharedSecret(data, config.getKeyComputation(), config.getKeySize());</span>
+<span class="fc" id="L183">            sctToken.setSecret(secret);</span>
+            
+            //Add the RequestedProofToken
+<span class="fc" id="L186">            TokenIssuerUtil.handleRequestedProofToken(data,</span>
+                                                      wstVersion,
+                                                      config,
+                                                      rstrElem,
+                                                      sctToken,
+                                                      doc);
+            
+<span class="fc" id="L193">            sctToken.setState(Token.ISSUED);</span>
+<span class="fc" id="L194">            TrustUtil.getTokenStore(data.getInMessageContext()).add(sctToken);</span>
+<span class="fc" id="L195">            return env;</span>
+<span class="nc" id="L196">        } catch (ConversationException e) {</span>
+<span class="nc" id="L197">            throw new TrustException(e.getMessage(), e);</span>
+        }
+    }
+
+    public String getResponseAction(RahasData data) throws TrustException {
+<span class="fc" id="L202">        return TrustUtil.getActionValue(data.getVersion(), RahasConstants.RSTR_ACTION_SCT);</span>
+    }
+
+    /**
+     * @see org.apache.rahas.TokenIssuer#setConfigurationFile(java.lang.String)
+     */
+    public void setConfigurationFile(String configFile) {
+<span class="fc" id="L209">        this.configFile = configFile;</span>
+<span class="fc" id="L210">    }</span>
+
+    /**
+     * @see org.apache.rahas.TokenIssuer#setConfigurationElement(OMElement)
+     */
+    public void setConfigurationElement(OMElement configElement) {
+<span class="fc" id="L216">        this.configElement = configElement;</span>
+<span class="fc" id="L217">    }</span>
+
+    public void setConfigurationParamName(String configParamName) {
+<span class="fc" id="L220">        this.configParamName = configParamName;</span>
+<span class="fc" id="L221">    }</span>
+
+    private int getWSCVersion(String tokenTypeValue) throws ConversationException {
+
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">        if (tokenTypeValue == null) {</span>
+<span class="nc" id="L226">            return ConversationConstants.DEFAULT_VERSION;</span>
+        }
+
+<span class="fc bfc" id="L229" title="All 2 branches covered.">        if (tokenTypeValue.startsWith(ConversationConstants.WSC_NS_05_02)) {</span>
+<span class="fc" id="L230">            return ConversationConstants.getWSTVersion(ConversationConstants.WSC_NS_05_02);</span>
+<span class="pc bpc" id="L231" title="1 of 2 branches missed.">        } else if (tokenTypeValue.startsWith(ConversationConstants.WSC_NS_05_12)) {</span>
+<span class="fc" id="L232">            return ConversationConstants.getWSTVersion(ConversationConstants.WSC_NS_05_12);</span>
+        } else {
+<span class="nc" id="L234">            throw new ConversationException(&quot;unsupportedSecConvVersion&quot;);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TokenIssuerUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.impl</a> &gt; <span class="el_source">TokenIssuerUtil.java</span></div><h1>TokenIssuerUtil.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.rahas.impl;
+
+import java.security.SecureRandom;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.util.base64.Base64Utils;
+import org.apache.rahas.RahasConstants;
+import org.apache.rahas.RahasData;
+import org.apache.rahas.Token;
+import org.apache.rahas.TrustException;
+import org.apache.rahas.TrustUtil;
+import org.apache.rahas.impl.util.CommonUtil;
+import org.apache.ws.security.WSConstants;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.components.crypto.Crypto;
+import org.apache.ws.security.conversation.ConversationException;
+import org.apache.ws.security.conversation.dkalgo.P_SHA1;
+import org.apache.ws.security.message.WSSecEncryptedKey;
+import org.apache.ws.security.util.WSSecurityUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+/**
+ * 
+ */
+<span class="nc" id="L41">public class TokenIssuerUtil {</span>
+
+    public final static String ENCRYPTED_KEY = &quot;EncryptedKey&quot;;
+    public final static String BINARY_SECRET = &quot;BinarySecret&quot;;
+
+    public static byte[] getSharedSecret(RahasData data,
+                                         int keyComputation,
+                                         int keySize) throws TrustException {
+
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        boolean reqEntrPresent = data.getRequestEntropy() != null;</span>
+
+        try {
+<span class="fc bfc" id="L53" title="All 4 branches covered.">            if (reqEntrPresent &amp;&amp;</span>
+                keyComputation != SAMLTokenIssuerConfig.KeyComputation.KEY_COMP_USE_OWN_KEY) {
+                //If there is requester entropy and if the issuer is not
+                //configured to use its own key
+
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">                if (keyComputation ==</span>
+                    SAMLTokenIssuerConfig.KeyComputation.KEY_COMP_PROVIDE_ENT) {
+<span class="fc" id="L60">                    data.setResponseEntropy(WSSecurityUtil.generateNonce(keySize / 8));</span>
+<span class="fc" id="L61">                    P_SHA1 p_sha1 = new P_SHA1();</span>
+<span class="fc" id="L62">                    return p_sha1.createKey(data.getRequestEntropy(),</span>
+                                            data.getResponseEntropy(),
+                                            0,
+                                            keySize / 8);
+                } else {
+                    //If we reach this its expected to use the requestor's
+                    //entropy
+<span class="nc" id="L69">                    return data.getRequestEntropy();</span>
+                }
+            } else { // need to use a generated key
+<span class="fc" id="L72">                return generateEphemeralKey(keySize);</span>
+            }
+<span class="nc" id="L74">        } catch (WSSecurityException e) {</span>
+<span class="nc" id="L75">            throw new TrustException(&quot;errorCreatingSymmKey&quot;, e);</span>
+<span class="nc" id="L76">        } catch (ConversationException e) {</span>
+<span class="nc" id="L77">            throw new TrustException(&quot;errorCreatingSymmKey&quot;, e);</span>
+        }
+    }
+
+    public static void handleRequestedProofToken(RahasData data,
+                                                 int wstVersion,
+                                                 AbstractIssuerConfig config,
+                                                 OMElement rstrElem,
+                                                 Token token,
+                                                 Document doc) throws TrustException {
+<span class="fc" id="L87">        OMElement reqProofTokElem =</span>
+                TrustUtil.createRequestedProofTokenElement(wstVersion, rstrElem);
+
+<span class="fc bfc" id="L90" title="All 4 branches covered.">        if (config.keyComputation == AbstractIssuerConfig.KeyComputation.KEY_COMP_PROVIDE_ENT</span>
+            &amp;&amp; data.getRequestEntropy() != null) {
+            //If we there's requester entropy and its configured to provide
+            //entropy then we have to set the entropy value and
+            //set the RPT to include a ComputedKey element
+
+<span class="fc" id="L96">            OMElement respEntrElem = TrustUtil.createEntropyElement(wstVersion, rstrElem);</span>
+<span class="fc" id="L97">            String entr = Base64Utils.encode(data.getResponseEntropy());</span>
+<span class="fc" id="L98">            OMElement binSecElem = TrustUtil.createBinarySecretElement(wstVersion,</span>
+                                                            respEntrElem,
+                                                            RahasConstants.BIN_SEC_TYPE_NONCE);
+<span class="fc" id="L101">            binSecElem.setText(entr);</span>
+
+<span class="fc" id="L103">            OMElement compKeyElem =</span>
+                    TrustUtil.createComputedKeyElement(wstVersion, reqProofTokElem);
+<span class="fc" id="L105">            compKeyElem.setText(data.getWstNs() + RahasConstants.COMPUTED_KEY_PSHA1);</span>
+<span class="fc" id="L106">        } else {</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">            if (TokenIssuerUtil.ENCRYPTED_KEY.equals(config.proofKeyType)) {</span>
+<span class="nc" id="L108">                WSSecEncryptedKey encrKeyBuilder = new WSSecEncryptedKey();</span>
+                Crypto crypto;
+
+<span class="nc" id="L111">                ClassLoader classLoader = data.getInMessageContext().getAxisService().getClassLoader();</span>
+
+<span class="nc bnc" id="L113" title="All 2 branches missed.">                if (config.cryptoElement != null) { // crypto props defined as elements</span>
+<span class="nc" id="L114">                    crypto = CommonUtil.getCrypto(TrustUtil.toProperties(config.cryptoElement),classLoader);</span>
+                } else { // crypto props defined in a properties file
+<span class="nc" id="L116">                    crypto = CommonUtil.getCrypto(config.cryptoPropertiesFile, classLoader);</span>
+                }
+
+<span class="nc" id="L119">                encrKeyBuilder.setKeyIdentifierType(WSConstants.THUMBPRINT_IDENTIFIER);</span>
+                try {
+<span class="nc" id="L121">                    encrKeyBuilder.setUseThisCert(data.getClientCert());</span>
+<span class="nc" id="L122">                    encrKeyBuilder.prepare(doc, crypto);</span>
+<span class="nc" id="L123">                } catch (WSSecurityException e) {</span>
+<span class="nc" id="L124">                    throw new TrustException(&quot;errorInBuildingTheEncryptedKeyForPrincipal&quot;,</span>
+                                             new String[]{data.
+                                                     getClientCert().getSubjectDN().getName()});
+<span class="nc" id="L127">                }</span>
+<span class="nc" id="L128">                Element encryptedKeyElem = encrKeyBuilder.getEncryptedKeyElement();</span>
+<span class="nc" id="L129">                Element bstElem = encrKeyBuilder.getBinarySecurityTokenElement();</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">                if (bstElem != null) {</span>
+<span class="nc" id="L131">                    reqProofTokElem.addChild((OMElement) bstElem);</span>
+                }
+
+<span class="nc" id="L134">                reqProofTokElem.addChild((OMElement) encryptedKeyElem);</span>
+
+<span class="nc" id="L136">                token.setSecret(encrKeyBuilder.getEphemeralKey());</span>
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">            } else if (TokenIssuerUtil.BINARY_SECRET.equals(config.proofKeyType)) {</span>
+<span class="fc" id="L138">                byte[] secret = TokenIssuerUtil.getSharedSecret(data,</span>
+                                                                config.keyComputation,
+                                                                config.keySize);
+<span class="fc" id="L141">                OMElement binSecElem = TrustUtil.createBinarySecretElement(wstVersion,</span>
+                                                                           reqProofTokElem,
+                                                                           null);
+<span class="fc" id="L144">                binSecElem.setText(Base64Utils.encode(secret));</span>
+<span class="fc" id="L145">                token.setSecret(secret);</span>
+<span class="fc" id="L146">            } else {</span>
+<span class="nc" id="L147">                throw new IllegalArgumentException(config.proofKeyType);</span>
+            }
+        }
+<span class="fc" id="L150">    }</span>
+
+    private static byte[] generateEphemeralKey(int keySize) throws TrustException {
+        try {
+<span class="fc" id="L154">            SecureRandom random = SecureRandom.getInstance(&quot;SHA1PRNG&quot;);</span>
+<span class="fc" id="L155">            byte[] temp = new byte[keySize / 8];</span>
+<span class="fc" id="L156">            random.nextBytes(temp);</span>
+<span class="fc" id="L157">            return temp;</span>
+<span class="nc" id="L158">        } catch (Exception e) {</span>
+<span class="nc" id="L159">            throw new TrustException(&quot;errorCreatingSymmKey&quot;, e);</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>

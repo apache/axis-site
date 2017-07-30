@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Token.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas</a> &gt; <span class="el_source">Token.java</span></div><h1>Token.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rahas;
+
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.io.Reader;
+import java.io.StringReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.Properties;
+
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMException;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.om.OMXMLParserWrapper;
+import org.apache.axiom.om.OMXMLStreamReaderConfiguration;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.ws.security.WSConstants;
+import org.apache.ws.security.util.XmlSchemaDateFormat;
+
+/**
+ * This represents a security token which can have either one of 4 states. &lt;ul&gt; &lt;li&gt;ISSUED&lt;/li&gt; &lt;li&gt;EXPIRED&lt;/li&gt;
+ * &lt;li&gt;CACELLED&lt;/li&gt; &lt;li&gt;RENEWED&lt;/li&gt; &lt;/ul&gt; Also this holds the &lt;code&gt;OMElement&lt;/code&gt;s representing the token in its
+ * present state and the previous state.
+ * &lt;p/&gt;
+ * These tokens are stored using the storage mechanism provided via the &lt;code&gt;TokenStorage&lt;/code&gt; interface.
+ *
+ * @see org.apache.rahas.TokenStorage
+ */
+public class Token implements Externalizable {
+
+<span class="fc" id="L59">    private static Log log = LogFactory.getLog(Token.class);</span>
+
+    public final static int ISSUED = 1;
+
+    public final static int EXPIRED = 2;
+
+    public final static int CANCELLED = 3;
+
+    public final static int RENEWED = 4;
+
+    /**
+     * Token identifier
+     */
+    private String id;
+
+    /**
+     * Current state of the token
+     */
+<span class="fc" id="L77">    private int state = -1;</span>
+
+    /**
+     * The actual token in its current state
+     */
+    private OMElement token;
+
+    /**
+     * The token in its previous state
+     */
+    private OMElement previousToken;
+
+    /**
+     * The RequestedAttachedReference element NOTE : The oasis-200401-wss-soap-message-security-1.0 spec allows an
+     * extensibility mechanism for wsse:SecurityTokenReference and wsse:Reference. Hence we cannot limit to the
+     * wsse:SecurityTokenReference\wsse:Reference case and only hold the URI and the ValueType values.
+     */
+    private OMElement attachedReference;
+
+    /**
+     * The RequestedUnattachedReference element NOTE : The oasis-200401-wss-soap-message-security-1.0 spec allows an
+     * extensibility mechanism for wsse:SecurityTokenRefence and wsse:Reference. Hence we cannot limit to the
+     * wsse:SecurityTokenReference\wsse:Reference case and only hold the URI and the ValueType values.
+     */
+    private OMElement unattachedReference;
+
+    /**
+     * A bag to hold any other properties
+     */
+    private Properties properties;
+
+    /**
+     * A flag to assist the TokenStorage
+     */
+    private boolean changed;
+
+    /**
+     * The secret associated with the Token
+     */
+    private byte[] secret;
+
+    /**
+     * Created time
+     */
+    private Date created;
+
+    /**
+     * Expiration time
+     */
+    private Date expires;
+
+    /**
+     * Issuer end point address
+     */
+    private String issuerAddress;
+
+    private String encrKeySha1Value;
+
+<span class="fc" id="L135">    public Token() {</span>
+<span class="fc" id="L136">    }</span>
+
+<span class="fc" id="L138">    public Token(String id, Date created, Date expires) {</span>
+<span class="fc" id="L139">        this.id = id;</span>
+<span class="fc" id="L140">        this.created = created;</span>
+<span class="fc" id="L141">        this.expires = expires;</span>
+<span class="fc" id="L142">    }</span>
+
+    public Token(String id, OMElement tokenElem, Date created, Date expires)
+<span class="fc" id="L145">        throws TrustException {</span>
+<span class="fc" id="L146">        this.id = id;</span>
+<span class="fc" id="L147">        OMMetaFactory metaFactory = OMAbstractFactory.getMetaFactory(OMAbstractFactory.FEATURE_DOM);</span>
+<span class="fc" id="L148">        OMXMLStreamReaderConfiguration configuration = new OMXMLStreamReaderConfiguration();</span>
+<span class="fc" id="L149">        configuration.setNamespaceURIInterning(true);</span>
+<span class="fc" id="L150">        this.token = OMXMLBuilderFactory.createStAXOMBuilder(metaFactory.getOMFactory(),</span>
+                tokenElem.getXMLStreamReader(true, configuration)).getDocumentElement();
+<span class="fc" id="L152">        this.created = created;</span>
+<span class="fc" id="L153">        this.expires = expires;</span>
+<span class="fc" id="L154">    }</span>
+
+    public Token(String id, OMElement tokenElem, OMElement lifetimeElem)
+<span class="fc" id="L157">        throws TrustException {</span>
+<span class="fc" id="L158">        this.id = id;</span>
+<span class="fc" id="L159">        OMMetaFactory metaFactory = OMAbstractFactory.getMetaFactory(OMAbstractFactory.FEATURE_DOM);</span>
+<span class="fc" id="L160">        OMXMLStreamReaderConfiguration configuration = new OMXMLStreamReaderConfiguration();</span>
+<span class="fc" id="L161">        configuration.setNamespaceURIInterning(true);</span>
+<span class="fc" id="L162">        this.token = OMXMLBuilderFactory.createStAXOMBuilder(metaFactory.getOMFactory(),</span>
+                tokenElem.getXMLStreamReader(true, configuration)).getDocumentElement();
+<span class="fc" id="L164">        this.processLifeTime(lifetimeElem);</span>
+<span class="fc" id="L165">    }</span>
+
+    /**
+     * @param lifetimeElem
+     * @throws TrustException
+     */
+    private void processLifeTime(OMElement lifetimeElem)
+        throws TrustException {
+        try {
+<span class="fc" id="L174">            DateFormat zulu = new XmlSchemaDateFormat();</span>
+<span class="fc" id="L175">            OMElement createdElem =</span>
+                lifetimeElem.getFirstChildWithName(new QName(WSConstants.WSU_NS, WSConstants.CREATED_LN));
+<span class="fc" id="L177">            this.created = zulu.parse(createdElem.getText());</span>
+
+<span class="fc" id="L179">            OMElement expiresElem =</span>
+                lifetimeElem.getFirstChildWithName(new QName(WSConstants.WSU_NS, WSConstants.EXPIRES_LN));
+<span class="fc" id="L181">            this.expires = zulu.parse(expiresElem.getText());</span>
+<span class="nc" id="L182">        } catch (OMException e) {</span>
+<span class="nc" id="L183">            throw new TrustException(&quot;lifeTimeProcessingError&quot;, new String[]{lifetimeElem.toString()}, e);</span>
+<span class="nc" id="L184">        } catch (ParseException e) {</span>
+<span class="nc" id="L185">            throw new TrustException(&quot;lifeTimeProcessingError&quot;, new String[]{lifetimeElem.toString()}, e);</span>
+<span class="fc" id="L186">        }</span>
+<span class="fc" id="L187">    }</span>
+
+    /**
+     * @return Returns the changed.
+     */
+    public boolean isChanged() {
+<span class="nc" id="L193">        return changed;</span>
+    }
+
+    /**
+     * @param chnaged The changed to set.
+     */
+    public void setChanged(boolean chnaged) {
+<span class="nc" id="L200">        this.changed = chnaged;</span>
+<span class="nc" id="L201">    }</span>
+
+    /**
+     * @return Returns the properties.
+     */
+    public Properties getProperties() {
+<span class="nc" id="L207">        return properties;</span>
+    }
+
+    /**
+     * @param properties The properties to set.
+     */
+    public void setProperties(Properties properties) {
+<span class="nc" id="L214">        this.properties = properties;</span>
+<span class="nc" id="L215">    }</span>
+
+    /**
+     * @return Returns the state.
+     */
+    public int getState() {
+<span class="fc" id="L221">        return state;</span>
+    }
+
+    /**
+     * @param state The state to set.
+     */
+    public void setState(int state) {
+<span class="fc" id="L228">        this.state = state;</span>
+<span class="fc" id="L229">    }</span>
+
+    /**
+     * @return Returns the token.
+     */
+    public OMElement getToken() {
+<span class="fc" id="L235">        return token;</span>
+    }
+
+    /**
+     * @param token The token to set.
+     */
+    public void setToken(OMElement token) {
+<span class="nc" id="L242">        this.token = token;</span>
+<span class="nc" id="L243">    }</span>
+
+    /**
+     * @return Returns the id.
+     */
+    public String getId() {
+<span class="fc" id="L249">        return id;</span>
+    }
+
+    /**
+     * @return Returns the presivousToken.
+     */
+    public OMElement getPreviousToken() {
+<span class="nc" id="L256">        return previousToken;</span>
+    }
+
+    /**
+     * @param presivousToken The presivousToken to set.
+     */
+    public void setPreviousToken(OMElement presivousToken) {
+<span class="fc" id="L263">    	OMMetaFactory metaFactory = OMAbstractFactory.getMetaFactory(OMAbstractFactory.FEATURE_DOM);</span>
+<span class="fc" id="L264">        this.previousToken = OMXMLBuilderFactory.createStAXOMBuilder(metaFactory.getOMFactory(),</span>
+                presivousToken.getXMLStreamReader()).getDocumentElement();
+<span class="fc" id="L266">    }</span>
+
+    /**
+     * @return Returns the secret.
+     */
+    public byte[] getSecret() {
+<span class="fc" id="L272">        return secret;</span>
+    }
+
+    /**
+     * @param secret The secret to set.
+     */
+    public void setSecret(byte[] secret) {
+<span class="fc" id="L279">        this.secret = secret;</span>
+<span class="fc" id="L280">    }</span>
+
+    /**
+     * @return Returns the attachedReference.
+     */
+    public OMElement getAttachedReference() {
+<span class="fc" id="L286">        return attachedReference;</span>
+    }
+
+    /**
+     * @param attachedReference The attachedReference to set.
+     */
+    public void setAttachedReference(OMElement attachedReference) {
+<span class="pc bpc" id="L293" title="1 of 2 branches missed.">        if (attachedReference != null) {</span>
+<span class="fc" id="L294">        	OMMetaFactory metaFactory = OMAbstractFactory.getMetaFactory(OMAbstractFactory.FEATURE_DOM);</span>
+<span class="fc" id="L295">            this.attachedReference =</span>
+                OMXMLBuilderFactory.createStAXOMBuilder(metaFactory.getOMFactory(),
+                        attachedReference.getXMLStreamReader()).getDocumentElement();
+        }
+<span class="fc" id="L299">    }</span>
+
+    /**
+     * @return Returns the unattachedReference.
+     */
+    public OMElement getUnattachedReference() {
+<span class="fc" id="L305">        return unattachedReference;</span>
+    }
+
+    /**
+     * @param unattachedReference The unattachedReference to set.
+     */
+    public void setUnattachedReference(OMElement unattachedReference) {
+<span class="pc bpc" id="L312" title="1 of 2 branches missed.">        if (unattachedReference != null) {</span>
+<span class="fc" id="L313">        	OMMetaFactory metaFactory = OMAbstractFactory.getMetaFactory(OMAbstractFactory.FEATURE_DOM);</span>
+<span class="fc" id="L314">            this.unattachedReference =</span>
+                OMXMLBuilderFactory.createStAXOMBuilder(metaFactory.getOMFactory(),
+                        unattachedReference.getXMLStreamReader()).getDocumentElement();
+        }
+<span class="fc" id="L318">    }</span>
+
+    /**
+     * @return Returns the created.
+     */
+    public Date getCreated() {
+<span class="fc" id="L324">        return created;</span>
+    }
+
+    /**
+     * @return Returns the expires.
+     */
+    public Date getExpires() {
+<span class="fc" id="L331">        return expires;</span>
+    }
+
+    /**
+     * @param expires The expires to set.
+     */
+    public void setExpires(Date expires) {
+<span class="nc" id="L338">        this.expires = expires;</span>
+<span class="nc" id="L339">    }</span>
+
+    public String getIssuerAddress() {
+<span class="nc" id="L342">        return issuerAddress;</span>
+    }
+
+    public void setIssuerAddress(String issuerAddress) {
+<span class="fc" id="L346">        this.issuerAddress = issuerAddress;</span>
+<span class="fc" id="L347">    }</span>
+
+    /**
+     * Implementing serialize logic according to our own protocol. We had to follow this, because
+     * OMElement class is not serializable. Making OMElement serializable will have an huge impact
+     * on other components. Therefore implementing serialization logic according to a manual
+     * protocol.
+     * @param out Stream which writes serialized bytes.
+     * @throws IOException If unable to serialize particular member.
+     */
+    public void writeExternal(ObjectOutput out)
+        throws IOException {
+
+<span class="fc" id="L360">        out.writeObject(this.id);</span>
+
+<span class="fc" id="L362">        out.writeInt(this.state);</span>
+        
+<span class="fc" id="L364">        String stringElement = convertOMElementToString(this.token);</span>
+<span class="fc" id="L365">        out.writeObject(stringElement);</span>
+
+<span class="fc" id="L367">        stringElement = convertOMElementToString(this.previousToken);</span>
+<span class="fc" id="L368">        out.writeObject(stringElement);</span>
+
+<span class="fc" id="L370">        stringElement = convertOMElementToString(this.attachedReference);</span>
+<span class="fc" id="L371">        out.writeObject(stringElement);</span>
+
+<span class="fc" id="L373">        stringElement = convertOMElementToString(this.unattachedReference);</span>
+<span class="fc" id="L374">        out.writeObject(stringElement);</span>
+
+<span class="fc" id="L376">        out.writeObject(this.properties);</span>
+
+<span class="fc" id="L378">        out.writeBoolean(this.changed);</span>
+
+<span class="fc" id="L380">        int secretLength = 0;</span>
+<span class="pc bpc" id="L381" title="1 of 2 branches missed.">        if (null != this.secret) {</span>
+<span class="nc" id="L382">            secretLength = this.secret.length;</span>
+        }
+
+        // First write the length of secret
+<span class="fc" id="L386">        out.writeInt(secretLength);</span>
+<span class="pc bpc" id="L387" title="1 of 2 branches missed.">        if (0 != secretLength) {</span>
+<span class="nc" id="L388">            out.write(this.secret);</span>
+        }
+
+<span class="fc" id="L391">        out.writeObject(this.created);</span>
+
+<span class="fc" id="L393">        out.writeObject(this.expires);</span>
+
+<span class="fc" id="L395">        out.writeObject(this.issuerAddress);</span>
+
+<span class="fc" id="L397">        out.writeObject(this.encrKeySha1Value);</span>
+<span class="fc" id="L398">    }</span>
+
+    /**
+     * Implementing de-serialization logic in accordance with the serialization logic.
+     * @param in Stream which used to read data.
+     * @throws IOException If unable to de-serialize particular data member.
+     * @throws ClassNotFoundException 
+     */
+    public void readExternal(ObjectInput in)
+        throws IOException, ClassNotFoundException {
+
+<span class="fc" id="L409">        this.id = (String)in.readObject();</span>
+
+<span class="fc" id="L411">        this.state = in.readInt();</span>
+
+<span class="fc" id="L413">        String stringElement = (String)in.readObject();</span>
+<span class="fc" id="L414">        this.token = convertStringToOMElement(stringElement);</span>
+
+<span class="fc" id="L416">        stringElement = (String)in.readObject();</span>
+<span class="fc" id="L417">        this.previousToken = convertStringToOMElement(stringElement);</span>
+
+<span class="fc" id="L419">        stringElement = (String)in.readObject();</span>
+<span class="fc" id="L420">        this.attachedReference = convertStringToOMElement(stringElement);</span>
+
+<span class="fc" id="L422">        stringElement = (String)in.readObject();</span>
+<span class="fc" id="L423">        this.unattachedReference = convertStringToOMElement(stringElement);</span>
+
+<span class="fc" id="L425">        this.properties = (Properties)in.readObject();</span>
+
+<span class="fc" id="L427">        this.changed = in.readBoolean();</span>
+
+        // Read the length of the secret
+<span class="fc" id="L430">        int secretLength = in.readInt();</span>
+
+<span class="pc bpc" id="L432" title="1 of 2 branches missed.">        if (0 != secretLength) {</span>
+<span class="nc" id="L433">            byte[] buffer = new byte[secretLength];</span>
+<span class="nc bnc" id="L434" title="All 2 branches missed.">            if (secretLength != in.read(buffer)) {</span>
+<span class="nc" id="L435">                throw new IllegalStateException(&quot;Bytes read from the secret key is not equal to serialized length&quot;);</span>
+            }
+<span class="nc" id="L437">            this.secret = buffer;</span>
+<span class="nc" id="L438">        }else{</span>
+<span class="fc" id="L439">            this.secret = null;</span>
+        }
+
+<span class="fc" id="L442">        this.created = (Date)in.readObject();</span>
+
+<span class="fc" id="L444">        this.expires = (Date)in.readObject();</span>
+
+<span class="fc" id="L446">        this.issuerAddress = (String)in.readObject();</span>
+
+<span class="fc" id="L448">        this.encrKeySha1Value = (String)in.readObject();</span>
+<span class="fc" id="L449">    }</span>
+
+    private String convertOMElementToString(OMElement element)
+        throws IOException {
+<span class="fc" id="L453">        String serializedToken = &quot;&quot;;</span>
+
+<span class="fc bfc" id="L455" title="All 2 branches covered.">        if (null == element) {</span>
+<span class="fc" id="L456">            return serializedToken;</span>
+        }
+
+        try {
+<span class="fc" id="L460">            serializedToken = element.toStringWithConsume();</span>
+<span class="nc" id="L461">        } catch (XMLStreamException e) {</span>
+<span class="nc" id="L462">            throw new IOException(&quot;Could not serialize token OM element&quot;);</span>
+<span class="fc" id="L463">        }</span>
+
+<span class="fc" id="L465">        return serializedToken;</span>
+    }
+
+    private OMElement convertStringToOMElement(String stringElement)
+        throws IOException {
+
+<span class="pc bpc" id="L471" title="1 of 4 branches missed.">        if (null == stringElement || stringElement.trim().equals(&quot;&quot;)) {</span>
+<span class="fc" id="L472">            return null;</span>
+        }
+
+        try {
+<span class="fc" id="L476">            Reader in = new StringReader(stringElement);</span>
+<span class="fc" id="L477">            XMLStreamReader parser = XMLInputFactory.newInstance().createXMLStreamReader(in);</span>
+<span class="fc" id="L478">            OMXMLParserWrapper builder = OMXMLBuilderFactory.createStAXOMBuilder(parser);</span>
+<span class="fc" id="L479">            OMElement documentElement = builder.getDocumentElement();</span>
+
+<span class="fc" id="L481">            XMLStreamReader llomReader = documentElement.getXMLStreamReader();</span>
+<span class="fc" id="L482">            OMMetaFactory metaFactory = OMAbstractFactory.getMetaFactory(OMAbstractFactory.FEATURE_DOM);</span>
+<span class="fc" id="L483">            OMFactory doomFactory = metaFactory.getOMFactory();</span>
+<span class="fc" id="L484">            OMXMLParserWrapper doomBuilder = OMXMLBuilderFactory.createStAXOMBuilder(doomFactory, llomReader);</span>
+<span class="fc" id="L485">            return doomBuilder.getDocumentElement();</span>
+            
+<span class="nc" id="L487">        } catch (XMLStreamException e) {</span>
+<span class="nc" id="L488">            log.error(&quot;Cannot convert de-serialized string to OMElement. Could not create XML stream.&quot;, e);</span>
+            // IOException only has a constructor supporting exception chaining starting with Java 1.6
+<span class="nc" id="L490">            IOException ex = new IOException(&quot;Cannot convert de-serialized string to OMElement. Could not create XML stream.&quot;);</span>
+<span class="nc" id="L491">            ex.initCause(e);</span>
+<span class="nc" id="L492">            throw ex;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>
