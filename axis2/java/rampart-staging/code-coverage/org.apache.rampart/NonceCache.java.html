@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>NonceCache.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart</a> &gt; <span class="el_source">NonceCache.java</span></div><h1>NonceCache.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>NonceCache.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rampart</a> &gt; <span class="el_source">NonceCache.java</span></div><h1>NonceCache.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2004,2005 The Apache Software Foundation.
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -81,81 +81,72 @@ public class NonceCache extends AbstractUniqueMessageAttributeCache {
 <span class="fc" id="L81">        super(maxLifeTime);</span>
 <span class="fc" id="L82">    }</span>
 
-    /**
-     * @inheritdoc
-     */    
     public void addToCache(String id, String userName) {
 
-<span class="fc" id="L89">        Nonce nonce = new Nonce(id, userName);</span>
-<span class="fc" id="L90">        Calendar rightNow = Calendar.getInstance();</span>
+<span class="fc" id="L86">        Nonce nonce = new Nonce(id, userName);</span>
+<span class="fc" id="L87">        Calendar rightNow = Calendar.getInstance();</span>
 
-<span class="fc" id="L92">        lock.lock();</span>
+<span class="fc" id="L89">        lock.lock();</span>
         try {
-<span class="fc" id="L94">            mapIdNonce.put(nonce, rightNow);</span>
+<span class="fc" id="L91">            mapIdNonce.put(nonce, rightNow);</span>
         } finally {
-<span class="pc" id="L96">            lock.unlock();</span>
-<span class="fc" id="L97">        }</span>
+<span class="pc" id="L93">            lock.unlock();</span>
+<span class="fc" id="L94">        }</span>
 
-<span class="fc" id="L99">    }</span>
+<span class="fc" id="L96">    }</span>
 
-    /**
-     * @inheritdoc
-     */
     public boolean valueExistsInCache(String id, String userName) {
 
-<span class="fc" id="L106">        lock.lock();</span>
+<span class="fc" id="L100">        lock.lock();</span>
 
         try {
-<span class="fc" id="L109">            clearStaleNonceIds();</span>
+<span class="fc" id="L103">            clearStaleNonceIds();</span>
         } finally {
-<span class="pc" id="L111">            lock.unlock();</span>
-<span class="fc" id="L112">        }</span>
+<span class="pc" id="L105">            lock.unlock();</span>
+<span class="fc" id="L106">        }</span>
         
-<span class="fc" id="L114">        Nonce nonce = new Nonce(id, userName);</span>
-<span class="fc" id="L115">        return mapIdNonce.containsKey(nonce);</span>
+<span class="fc" id="L108">        Nonce nonce = new Nonce(id, userName);</span>
+<span class="fc" id="L109">        return mapIdNonce.containsKey(nonce);</span>
     }
 
-    /**
-     * @inheritdoc
-     */
     public void clearCache() {
 
-<span class="nc" id="L123">        lock.lock();</span>
+<span class="nc" id="L114">        lock.lock();</span>
         try {
-<span class="nc" id="L125">            mapIdNonce.clear();</span>
+<span class="nc" id="L116">            mapIdNonce.clear();</span>
         } finally {
-<span class="nc" id="L127">            lock.unlock();</span>
-<span class="nc" id="L128">        }</span>
-<span class="nc" id="L129">    }</span>
+<span class="nc" id="L118">            lock.unlock();</span>
+<span class="nc" id="L119">        }</span>
+<span class="nc" id="L120">    }</span>
 
     /**
      * This method will clear stale nonce ids from the map.
      */
     private void clearStaleNonceIds()
     {
-<span class="fc" id="L136">        Calendar rightNow = Calendar.getInstance();</span>
+<span class="fc" id="L127">        Calendar rightNow = Calendar.getInstance();</span>
 
-<span class="fc" id="L138">        int maxLifeTime = getMaximumLifeTimeOfAnAttribute();</span>
+<span class="fc" id="L129">        int maxLifeTime = getMaximumLifeTimeOfAnAttribute();</span>
 
-<span class="fc" id="L140">        rightNow.add(Calendar.SECOND, -(maxLifeTime));</span>
-<span class="fc" id="L141">        long timeBeforeMaxLifeTime = rightNow.getTimeInMillis();</span>
+<span class="fc" id="L131">        rightNow.add(Calendar.SECOND, -(maxLifeTime));</span>
+<span class="fc" id="L132">        long timeBeforeMaxLifeTime = rightNow.getTimeInMillis();</span>
         
-<span class="fc" id="L143">        Iterator&lt;Map.Entry&lt;Nonce, Calendar&gt;&gt; iterator = mapIdNonce.entrySet().iterator();</span>
+<span class="fc" id="L134">        Iterator&lt;Map.Entry&lt;Nonce, Calendar&gt;&gt; iterator = mapIdNonce.entrySet().iterator();</span>
 
-<span class="fc bfc" id="L145" title="All 2 branches covered.">        while (iterator.hasNext()) {</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        while (iterator.hasNext()) {</span>
 
-<span class="fc" id="L147">            Map.Entry&lt;Nonce, Calendar&gt; pair = iterator.next();</span>
-<span class="fc" id="L148">            Calendar itemDate = pair.getValue();</span>
+<span class="fc" id="L138">            Map.Entry&lt;Nonce, Calendar&gt; pair = iterator.next();</span>
+<span class="fc" id="L139">            Calendar itemDate = pair.getValue();</span>
 
-<span class="fc" id="L150">            long itemAddedTime = itemDate.getTimeInMillis();</span>
+<span class="fc" id="L141">            long itemAddedTime = itemDate.getTimeInMillis();</span>
 
-<span class="fc bfc" id="L152" title="All 2 branches covered.">            if (timeBeforeMaxLifeTime &gt; itemAddedTime)</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">            if (timeBeforeMaxLifeTime &gt; itemAddedTime)</span>
             {
-<span class="fc" id="L154">                iterator.remove();</span>
+<span class="fc" id="L145">                iterator.remove();</span>
             }
-<span class="fc" id="L156">        }</span>
+<span class="fc" id="L147">        }</span>
 
 
-<span class="fc" id="L159">    }</span>
+<span class="fc" id="L150">    }</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

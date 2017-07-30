@@ -155,11 +155,11 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
                <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
 <div class="block">Creates a SAML attribute similar to following,
- <saml:Attribute
+    &lt;saml:Attribute
        AttributeName="MemberLevel"
-       AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes">
-       <saml:AttributeValue>gold</saml:AttributeValue>
-   </saml:Attribute></div>
+       AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes"&gt;
+       &lt;saml:AttributeValue&gt;gold&lt;/saml:AttributeValue&gt;
+   &lt;/saml:Attribute&gt;</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -374,9 +374,9 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                                                                                   throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
 <div class="block">Creates the subject confirmation method.
  Relevant XML element would look like as follows,
- <saml:ConfirmationMethod>
+ <pre>  &lt;saml:ConfirmationMethod&gt;
        urn:oasis:names:tc:SAML:1.0:cm:holder-of-key
-  </saml:ConfirmationMethod></div>
+  &lt;/saml:ConfirmationMethod&gt;</pre></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>confirmationMethod</code> - Name of the actual confirmation method. Could be
       holder-of-key - "urn:oasis:names:tc:SAML:1.0:cm:holder-of-key"
       sender-vouches - "urn:oasis:names:tc:SAML:1.0:cm:sender-vouches"
@@ -396,11 +396,11 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                                                                     org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)
                                                                              throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
 <div class="block">Creates opensaml SubjectConfirmation representation. The relevant XML would looks as follows,
-  <saml:SubjectConfirmation>
-       <saml:ConfirmationMethod>
+ <pre>   &lt;saml:SubjectConfirmation&gt;
+       &lt;saml:ConfirmationMethod&gt;
            urn:oasis:names:tc:SAML:1.0:cm:sender-vouches
-       </saml:ConfirmationMethod>
-   </saml:SubjectConfirmation></div>
+       &lt;/saml:ConfirmationMethod&gt;
+   &lt;/saml:SubjectConfirmation&gt;</pre></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>confirmationMethod</code> - The subject confirmation method. Bearer, Sender-Vouches or Holder-Of-Key.</dd><dd><code>keyInfoContent</code> - The KeyInfo content. According to SPEC (SAML 1.1) this could be null.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of SubjectConfirmation.</dd>
 <dt><span class="strong">Throws:</span></dt>
@@ -418,21 +418,21 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                                             org.opensaml.xml.signature.KeyInfo&nbsp;keyInfoContent)
                                                      throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
 <div class="block">Creates an opensaml Subject representation. The relevant XML would looks as follows,
- <saml:Subject>
-       <saml:NameIdentifier
+ <pre>   &lt;saml:Subject&gt;
+       &lt;saml:NameIdentifier
        NameQualifier="www.example.com"
-       Format="...">
+       Format="..."&gt;
        uid=joe,ou=people,ou=saml-demo,o=baltimore.com
-       </saml:NameIdentifier>
-       <saml:SubjectConfirmation>
-           <saml:ConfirmationMethod>
+       &lt;/saml:NameIdentifier&gt;
+       &lt;saml:SubjectConfirmation&gt;
+           &lt;saml:ConfirmationMethod&gt;
            urn:oasis:names:tc:SAML:1.0:cm:holder-of-key
-           </saml:ConfirmationMethod>
-       <ds:KeyInfo>
-           <ds:KeyValue>...</ds:KeyValue>
-       </ds:KeyInfo>
-       </saml:SubjectConfirmation>
-   </saml:Subject></div>
+           &lt;/saml:ConfirmationMethod&gt;
+       &lt;ds:KeyInfo&gt;
+           &lt;ds:KeyValue&gt;...&lt;/ds:KeyValue&gt;
+       &lt;/ds:KeyInfo&gt;
+       &lt;/saml:SubjectConfirmation&gt;
+   &lt;/saml:Subject&gt;</pre></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>nameIdentifier</code> - Represent the "NameIdentifier" of XML element above.</dd><dd><code>confirmationMethod</code> - Represent the bearer, HOK or Sender-Vouches.</dd><dd><code>keyInfoContent</code> - Key info information. This could be null.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of the Subject.</dd>
 <dt><span class="strong">Throws:</span></dt>
@@ -450,19 +450,19 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                                                                             org.joda.time.DateTime&nbsp;authenticationInstant)
                                                                                      throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
 <div class="block">Creates an AuthenticationStatement. The relevant XML element looks as follows,
- <AuthenticationStatement
+ <pre>   &lt;AuthenticationStatement
        AuthenticationInstant="2003-04-17T00:46:00Z"
-       AuthenticationMethod="urn:oasis:names:tc:SAML:1.0:am:password">
-       <Subject>
-           <NameIdentifier
-           Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">
-           scott@example.org</NameIdentifier>
-               <SubjectConfirmation>
-                   <ConfirmationMethod>urn:oasis:names:tc:SAML:1.0:cm:bearer</ConfirmationMethod>
-               </SubjectConfirmation>
-       </Subject>
-       <SubjectLocality IPAddress="127.0.0.1"/>
-   </AuthenticationStatement></div>
+       AuthenticationMethod="urn:oasis:names:tc:SAML:1.0:am:password"&gt;
+       &lt;Subject&gt;
+           &lt;NameIdentifier
+           Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"&gt;
+           scott@example.org&lt;/NameIdentifier&gt;
+               &lt;SubjectConfirmation&gt;
+                   &lt;ConfirmationMethod&gt;urn:oasis:names:tc:SAML:1.0:cm:bearer&lt;/ConfirmationMethod&gt;
+               &lt;/SubjectConfirmation&gt;
+       &lt;/Subject&gt;
+       &lt;SubjectLocality IPAddress="127.0.0.1"/&gt;
+   &lt;/AuthenticationStatement&gt;</pre></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>subject</code> - OpenSAML Subject implementation.</dd><dd><code>authenticationMethod</code> - How subject is authenticated ? i.e. by using a password, kerberos, certificate
           etc ... The method is defined as a URL in SAML specification.</dd><dd><code>authenticationInstant</code> - Time which authentication took place.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>opensaml AuthenticationStatement object.</dd>
@@ -480,33 +480,33 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                                                                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.opensaml.saml1.core.Attribute&gt;&nbsp;attributeList)
                                                                            throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
 <div class="block">Creates an attribute statement. Sample attribute statement would look like follows,
-  <saml:AttributeStatement>
-       <saml:Subject>
-           <saml:NameIdentifier
+ <pre>   &lt;saml:AttributeStatement&gt;
+       &lt;saml:Subject&gt;
+           &lt;saml:NameIdentifier
                NameQualifier="www.example.com"
-               Format="...">
+               Format="..."&gt;
                uid=joe,ou=people,ou=saml-demo,o=baltimore.com
-           </saml:NameIdentifier>
-           <saml:SubjectConfirmation>
-               <saml:ConfirmationMethod>
+           &lt;/saml:NameIdentifier&gt;
+           &lt;saml:SubjectConfirmation&gt;
+               &lt;saml:ConfirmationMethod&gt;
                urn:oasis:names:tc:SAML:1.0:cm:holder-of-key
-               </saml:ConfirmationMethod>
-               <ds:KeyInfo>
-                 <ds:KeyValue>...</ds:KeyValue>
-               </ds:KeyInfo>
-           </saml:SubjectConfirmation>
-       </saml:Subject>
-       <saml:Attribute
+               &lt;/saml:ConfirmationMethod&gt;
+               &lt;ds:KeyInfo&gt;
+                 &lt;ds:KeyValue&gt;...&lt;/ds:KeyValue&gt;
+               &lt;/ds:KeyInfo&gt;
+           &lt;/saml:SubjectConfirmation&gt;
+       &lt;/saml:Subject&gt;
+       &lt;saml:Attribute
            AttributeName="MemberLevel"
-           AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes">
-           <saml:AttributeValue>gold</saml:AttributeValue>
-       </saml:Attribute>
-       <saml:Attribute
+           AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes"&gt;
+           &lt;saml:AttributeValue&gt;gold&lt;/saml:AttributeValue&gt;
+       &lt;/saml:Attribute&gt;
+       &lt;saml:Attribute
            AttributeName="E-mail"
-           AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes">
-           <saml:AttributeValue>joe@yahoo.com</saml:AttributeValue>
-       </saml:Attribute>
-   </saml:AttributeStatement></div>
+           AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes"&gt;
+           &lt;saml:AttributeValue&gt;joe@yahoo.com&lt;/saml:AttributeValue&gt;
+       &lt;/saml:Attribute&gt;
+   &lt;/saml:AttributeStatement&gt;</pre></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>subject</code> - The OpenSAML representation of the Subject.</dd><dd><code>attributeList</code> - List of attribute values to include within the message.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of AttributeStatement.</dd>
 <dt><span class="strong">Throws:</span></dt>
@@ -523,9 +523,9 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                                                   org.joda.time.DateTime&nbsp;notOnOrAfter)
                                                            throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
 <div class="block">Creates Conditions object. Analogous XML element is as follows,
- <saml:Conditions>
+ <pre>&lt;saml:Conditions
        NotBefore="2002-06-19T16:53:33.173Z"
-       NotOnOrAfter="2002-06-19T17:08:33.173Z"/></div>
+       NotOnOrAfter="2002-06-19T17:08:33.173Z"/&gt;</pre></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>notBefore</code> - The validity of the Assertion starts from this value.</dd><dd><code>notOnOrAfter</code> - The validity ends from this value.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>OpenSAML Conditions object.</dd>
 <dt><span class="strong">Throws:</span></dt>
@@ -544,43 +544,43 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;org.opensaml.saml1.core.Statement&gt;&nbsp;statements)
                                                          throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
 <div class="block">This method creates the final SAML assertion. The final SAML assertion would looks like as follows,
-  <saml:Assertion  AssertionID="_a75adf55-01d7-40cc-929f-dbd8372ebdfc"
+ <pre>   &lt;saml:Assertion AssertionID="_a75adf55-01d7-40cc-929f-dbd8372ebdfc"
                    IssueInstant="2003-04-17T00:46:02Z"
-                   Issuer=”www.opensaml.org”
+                   Issuer="www.opensaml.org"
                    MajorVersion="1"
                    MinorVersion="1"
-                   xmlns="urn:oasis:names:tc:SAML:1.0:assertion">
-       <saml:Conditions>
+                   xmlns="urn:oasis:names:tc:SAML:1.0:assertion"&gt;
+       &lt;saml:Conditions&gt;
            NotBefore="2002-06-19T16:53:33.173Z"
-           NotOnOrAfter="2002-06-19T17:08:33.173Z"/>
-       <saml:AttributeStatement>
-           <saml:Subject>
-               <saml:NameIdentifier
+           NotOnOrAfter="2002-06-19T17:08:33.173Z"/&gt;
+       &lt;saml:AttributeStatement&gt;
+           &lt;saml:Subject&gt;
+               &lt;saml:NameIdentifier
                        NameQualifier="www.example.com"
-                       Format="...">
+                       Format="..."&gt;
                        uid=joe,ou=people,ou=saml-demo,o=baltimore.com
-               </saml:NameIdentifier>
-               <saml:SubjectConfirmation>
-                   <saml:ConfirmationMethod>
+               &lt;/saml:NameIdentifier&gt;
+               &lt;saml:SubjectConfirmation&gt;
+                   &lt;saml:ConfirmationMethod&gt;
                        urn:oasis:names:tc:SAML:1.0:cm:holder-of-key
-                   </saml:ConfirmationMethod>
-                   <ds:KeyInfo>
-                       <ds:KeyValue>...</ds:KeyValue>
-                   </ds:KeyInfo>
-               </saml:SubjectConfirmation>
-           </saml:Subject>
-           <saml:Attribute
+                   &lt;/saml:ConfirmationMethod&gt;
+                   &lt;ds:KeyInfo&gt;
+                       &lt;ds:KeyValue&gt;...&lt;/ds:KeyValue&gt;
+                   &lt;/ds:KeyInfo&gt;
+               &lt;/saml:SubjectConfirmation&gt;
+           &lt;/saml:Subject&gt;
+           &lt;saml:Attribute
                AttributeName="MemberLevel"
-               AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes">
-               <saml:AttributeValue>gold</saml:AttributeValue>
-           </saml:Attribute>
-           <saml:Attribute
-               AttributeName="E-mail" AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes">
-               <saml:AttributeValue>joe@yahoo.com</saml:AttributeValue>
-           </saml:Attribute>
-       </saml:AttributeStatement>
-       <ds:Signature>...</ds:Signature>
-   </saml:Assertion></div>
+               AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes"&gt;
+               &lt;saml:AttributeValue&gt;gold&lt;/saml:AttributeValue&gt;
+           &lt;/saml:Attribute&gt;
+           &lt;saml:Attribute
+               AttributeName="E-mail" AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes"&gt;
+               &lt;saml:AttributeValue&gt;joe@yahoo.com&lt;/saml:AttributeValue&gt;
+           &lt;/saml:Attribute&gt;
+       &lt;/saml:AttributeStatement&gt;
+       &lt;ds:Signature&gt;...&lt;/ds:Signature&gt;
+   &lt;/saml:Assertion&gt;</pre></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>issuerName</code> - Represents the "Issuer" in Assertion.</dd><dd><code>notBefore</code> - The Condition's NotBefore value</dd><dd><code>notOnOrAfter</code> - The Condition's NotOnOrAfter value</dd><dd><code>statements</code> - Other statements.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>An opensaml Assertion object.</dd>
 <dt><span class="strong">Throws:</span></dt>
@@ -598,11 +598,11 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
                                                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)
                                                          throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
 <div class="block">Creates a SAML attribute similar to following,
- <saml:Attribute
+ <pre>   &lt;saml:Attribute
        AttributeName="MemberLevel"
-       AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes">
-       <saml:AttributeValue>gold</saml:AttributeValue>
-   </saml:Attribute></div>
+       AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes"&gt;
+       &lt;saml:AttributeValue&gt;gold&lt;/saml:AttributeValue&gt;
+   &lt;/saml:Attribute&gt;</pre></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - attribute name</dd><dd><code>namespace</code> - attribute namespace.</dd><dd><code>value</code> - attribute value.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>OpenSAML representation of the attribute.</dd>
 <dt><span class="strong">Throws:</span></dt>
@@ -632,11 +632,11 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <pre>public static&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;createKeyInfo(org.opensaml.xml.encryption.EncryptedKey&nbsp;encryptedKey)
                                                         throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
 <div class="block">Creates a KeyInfo element given EncryptedKey. The relevant XML would looks as follows,
-  <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
-     <xenc:EncryptedKey xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+ <pre>   &lt;KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"&gt;
+     &lt;xenc:EncryptedKey xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
            ....
-     </xenc:EncryptedKey>
-   </ds:KeyInfo></div>
+     &lt;/xenc:EncryptedKey&gt;
+   &lt;/ds:KeyInfo&gt;</pre></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>encryptedKey</code> - The OpemSAML representation of encrypted key.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The appropriate opensaml representation of the KeyInfo.</dd>
 <dt><span class="strong">Throws:</span></dt>
@@ -652,11 +652,11 @@ extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.h
 <pre>public static&nbsp;org.opensaml.xml.signature.KeyInfo&nbsp;createKeyInfo(org.opensaml.xml.signature.X509Data&nbsp;x509Data)
                                                         throws <a href="../../../../../org/apache/rahas/TrustException.html" title="class in org.apache.rahas">TrustException</a></pre>
 <div class="block">Creates a KeyInfo element given EncryptedKey. The relevant XML would looks as follows,
-  <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
-     <X509Data xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+ <pre>   &lt;KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"&gt;
+     &lt;X509Data xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
            ....
-     </X509Data>
-   </ds:KeyInfo></div>
+     &lt;/X509Data&gt;
+   &lt;/ds:KeyInfo&gt;</pre></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>x509Data</code> - The OpemSAML representation X509Data</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The appropriate opensaml representation of the KeyInfo.</dd>
 <dt><span class="strong">Throws:</span></dt>

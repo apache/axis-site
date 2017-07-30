@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SAML2TokenIssuer.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.impl</a> &gt; <span class="el_source">SAML2TokenIssuer.java</span></div><h1>SAML2TokenIssuer.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SAML2TokenIssuer.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rahas.impl</a> &gt; <span class="el_source">SAML2TokenIssuer.java</span></div><h1>SAML2TokenIssuer.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2004,2005 The Apache Software Foundation.
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -132,23 +132,23 @@ import java.util.List;
     /**
      * This method prepares the final response. This method will create a request security token response as
      * specified in WS-Trust specification. The equivalent XML would take following format,
-     * &lt;wst:RequestSecurityTokenResponse xmlns:wst=&quot;...&quot;&gt;
-     *       &lt;wst:TokenType&gt;...&lt;/wst:TokenType&gt;
-     *       &lt;wst:RequestedSecurityToken&gt;...&lt;/wst:RequestedSecurityToken&gt;
+     * &lt;pre&gt;  &amp;lt;wst:RequestSecurityTokenResponse xmlns:wst=&quot;...&quot;&amp;gt;
+     *       &amp;lt;wst:TokenType&amp;gt;...&amp;lt;/wst:TokenType&amp;gt;
+     *       &amp;lt;wst:RequestedSecurityToken&amp;gt;...&amp;lt;/wst:RequestedSecurityToken&amp;gt;
      *       ...
-     *       &lt;wsp:AppliesTo xmlns:wsp=&quot;...”&gt;...&lt;/wsp:AppliesTo&gt;
-     *       &lt;wst:RequestedAttachedReference&gt;
+     *       &amp;lt;wsp:AppliesTo xmlns:wsp=&quot;...&quot;&amp;gt;...&amp;lt;/wsp:AppliesTo&amp;gt;
+     *       &amp;lt;wst:RequestedAttachedReference&amp;gt;
      *       ...
-     *       &lt;/wst:RequestedAttachedReference&gt;
-     *       &lt;wst:RequestedUnattachedReference&gt;
+     *       &amp;lt;/wst:RequestedAttachedReference&amp;gt;
+     *       &amp;lt;wst:RequestedUnattachedReference&amp;gt;
      *       ...
-     *       &lt;/wst:RequestedUnattachedReference&gt;
-     *       &lt;wst:RequestedProofToken&gt;...&lt;/wst:RequestedProofToken&gt;
-     *       &lt;wst:Entropy&gt;
-     *       &lt;wst:BinarySecret&gt;...&lt;/wst:BinarySecret&gt;
-     *       &lt;/wst:Entropy&gt;
-     *       &lt;wst:Lifetime&gt;...&lt;/wst:Lifetime&gt;
-     *   &lt;/wst:RequestSecurityTokenResponse&gt;
+     *       &amp;lt;/wst:RequestedUnattachedReference&amp;gt;
+     *       &amp;lt;wst:RequestedProofToken&amp;gt;...&amp;lt;/wst:RequestedProofToken&amp;gt;
+     *       &amp;lt;wst:Entropy&amp;gt;
+     *       &amp;lt;wst:BinarySecret&amp;gt;...&amp;lt;/wst:BinarySecret&amp;gt;
+     *       &amp;lt;/wst:Entropy&amp;gt;
+     *       &amp;lt;wst:Lifetime&amp;gt;...&amp;lt;/wst:Lifetime&amp;gt;
+     *   &amp;lt;/wst:RequestSecurityTokenResponse&amp;gt;&lt;/pre&gt;
      *
      *   Thus the RequestedSecurityToken will have SAML2 assertion passed.
      * @param rahasData The configuration data which comes with RST
@@ -241,59 +241,59 @@ import java.util.List;
 
     /**
      * This methods builds the SAML2 assertion. The equivalent XML would look as follows,
-     * &lt;saml:Assertion
+     * &lt;pre&gt;&amp;lt;saml:Assertion
      *      xmlns:saml=&quot;urn:oasis:names:tc:SAML:2.0:assertion&quot;
      *      xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
      *      xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
      *      ID=&quot;b07b804c-7c29-ea16-7300-4f3d6f7928ac&quot;
      *      Version=&quot;2.0&quot;
-     *      IssueInstant=&quot;2004-12-05T09:22:05Z&quot;&gt;
-     *      &lt;saml:Issuer&gt;https://idp.example.org/SAML2&lt;/saml:Issuer&gt;
-     *      &lt;ds:Signature
-     *        xmlns:ds=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&gt;...&lt;/ds:Signature&gt;
-     *      &lt;saml:Subject&gt;
-     *        &lt;saml:NameID
-     *          Format=&quot;urn:oasis:names:tc:SAML:2.0:nameid-format:transient&quot;&gt;
+     *      IssueInstant=&quot;2004-12-05T09:22:05Z&quot;&amp;gt;
+     *      &amp;lt;saml:Issuer&amp;gt;https://idp.example.org/SAML2&amp;lt;/saml:Issuer&amp;gt;
+     *      &amp;lt;ds:Signature
+     *        xmlns:ds=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&amp;gt;...&amp;lt;/ds:Signature&amp;gt;
+     *      &amp;lt;saml:Subject&amp;gt;
+     *        &amp;lt;saml:NameID
+     *          Format=&quot;urn:oasis:names:tc:SAML:2.0:nameid-format:transient&quot;&amp;gt;
      *          3f7b3dcf-1674-4ecd-92c8-1544f346baf8
-     *        &lt;/saml:NameID&gt;
-     *        &lt;saml:SubjectConfirmation
-     *          Method=&quot;urn:oasis:names:tc:SAML:2.0:cm:bearer&quot;&gt;
-     *          &lt;saml:SubjectConfirmationData
+     *        &amp;lt;/saml:NameID&amp;gt;
+     *        &amp;lt;saml:SubjectConfirmation
+     *          Method=&quot;urn:oasis:names:tc:SAML:2.0:cm:bearer&quot;&amp;gt;
+     *          &amp;lt;saml:SubjectConfirmationData
      *            InResponseTo=&quot;aaf23196-1773-2113-474a-fe114412ab72&quot;
      *            Recipient=&quot;https://sp.example.com/SAML2/SSO/POST&quot;
-     *            NotOnOrAfter=&quot;2004-12-05T09:27:05Z&quot;/&gt;
-     *        &lt;/saml:SubjectConfirmation&gt;
-     *      &lt;/saml:Subject&gt;
-     *      &lt;saml:Conditions
+     *            NotOnOrAfter=&quot;2004-12-05T09:27:05Z&quot;/&amp;gt;
+     *        &amp;lt;/saml:SubjectConfirmation&amp;gt;
+     *      &amp;lt;/saml:Subject&amp;gt;
+     *      &amp;lt;saml:Conditions
      *        NotBefore=&quot;2004-12-05T09:17:05Z&quot;
-     *        NotOnOrAfter=&quot;2004-12-05T09:27:05Z&quot;&gt;
-     *        &lt;saml:AudienceRestriction&gt;
-     *          &lt;saml:Audience&gt;https://sp.example.com/SAML2&lt;/saml:Audience&gt;
-     *        &lt;/saml:AudienceRestriction&gt;
-     *      &lt;/saml:Conditions&gt;
-     *      &lt;saml:AuthnStatement
+     *        NotOnOrAfter=&quot;2004-12-05T09:27:05Z&quot;&amp;gt;
+     *        &amp;lt;saml:AudienceRestriction&amp;gt;
+     *          &amp;lt;saml:Audience&amp;gt;https://sp.example.com/SAML2&amp;lt;/saml:Audience&amp;gt;
+     *        &amp;lt;/saml:AudienceRestriction&amp;gt;
+     *      &amp;lt;/saml:Conditions&amp;gt;
+     *      &amp;lt;saml:AuthnStatement
      *        AuthnInstant=&quot;2004-12-05T09:22:00Z&quot;
-     *        SessionIndex=&quot;b07b804c-7c29-ea16-7300-4f3d6f7928ac&quot;&gt;
-     *        &lt;saml:AuthnContext&gt;
-     *          &lt;saml:AuthnContextClassRef&gt;
+     *        SessionIndex=&quot;b07b804c-7c29-ea16-7300-4f3d6f7928ac&quot;&amp;gt;
+     *        &amp;lt;saml:AuthnContext&amp;gt;
+     *          &amp;lt;saml:AuthnContextClassRef&amp;gt;
      *            urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
-     *         &lt;/saml:AuthnContextClassRef&gt;
-     *        &lt;/saml:AuthnContext&gt;
-     *      &lt;/saml:AuthnStatement&gt;
-     *      &lt;saml:AttributeStatement&gt;
-     *        &lt;saml:Attribute
+     *         &amp;lt;/saml:AuthnContextClassRef&amp;gt;
+     *        &amp;lt;/saml:AuthnContext&amp;gt;
+     *      &amp;lt;/saml:AuthnStatement&amp;gt;
+     *      &amp;lt;saml:AttributeStatement&amp;gt;
+     *        &amp;lt;saml:Attribute
      *          xmlns:x500=&quot;urn:oasis:names:tc:SAML:2.0:profiles:attribute:X500&quot;
      *          x500:Encoding=&quot;LDAP&quot;
      *          NameFormat=&quot;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&quot;
      *          Name=&quot;urn:oid:1.3.6.1.4.1.5923.1.1.1.1&quot;
-     *          FriendlyName=&quot;eduPersonAffiliation&quot;&gt;
-     *          &lt;saml:AttributeValue
-     *            xsi:type=&quot;xs:string&quot;&gt;member&lt;/saml:AttributeValue&gt;
-     *          &lt;saml:AttributeValue
-     *            xsi:type=&quot;xs:string&quot;&gt;staff&lt;/saml:AttributeValue&gt;
-     *        &lt;/saml:Attribute&gt;
-     *      &lt;/saml:AttributeStatement&gt;
-     *    &lt;/saml:Assertion&gt;
+     *          FriendlyName=&quot;eduPersonAffiliation&quot;&amp;gt;
+     *          &amp;lt;saml:AttributeValue
+     *            xsi:type=&quot;xs:string&quot;&amp;gt;member&amp;lt;/saml:AttributeValue&amp;gt;
+     *          &amp;lt;saml:AttributeValue
+     *            xsi:type=&quot;xs:string&quot;&amp;gt;staff&amp;lt;/saml:AttributeValue&amp;gt;
+     *        &amp;lt;/saml:Attribute&amp;gt;
+     *      &amp;lt;/saml:AttributeStatement&amp;gt;
+     *    &amp;lt;/saml:Assertion&amp;gt;&lt;/pre&gt;
      *
      *    Reference - en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions
      * @param doc The Document which comprises SAML 2 assertion.
@@ -354,20 +354,20 @@ import java.util.List;
     /**
      * This method will create a SAML 2 subject based on Holder of Key confirmation method.
      * The relevant XML would look as follows,
-     * &lt;saml2:Subject&gt;
-     *       &lt;saml2:NameID&gt;
+     * &lt;pre&gt;  &amp;lt;saml2:Subject&amp;gt;
+     *       &amp;lt;saml2:NameID&amp;gt;
      *           ...
-     *       &lt;/saml2:NameID&gt;
-     *       &lt;saml2:SubjectConfirmation
-     *               Method=”urn:oasis:names:tc:SAML:2.0:cm:holder-of-key”&gt;
-     *           &lt;saml2:SubjectConfirmationData
-     *                   xsi:type=&quot;saml2:KeyInfoConfirmationDataType&quot;&gt;
-     *               &lt;ds:KeyInfo&gt;
-     *                   &lt;ds:KeyValue&gt;...&lt;/ds:KeyValue&gt;
-     *               &lt;/ds:KeyInfo&gt;
-     *           &lt;/saml2:SubjectConfirmationData&gt;
-     *       &lt;/saml2:SubjectConfirmation&gt;
-     *   &lt;/saml2:Subject&gt;
+     *       &amp;lt;/saml2:NameID&amp;gt;
+     *       &amp;lt;saml2:SubjectConfirmation
+     *               Method=&quot;urn:oasis:names:tc:SAML:2.0:cm:holder-of-key&quot;&amp;gt;
+     *           &amp;lt;saml2:SubjectConfirmationData
+     *                   xsi:type=&quot;saml2:KeyInfoConfirmationDataType&quot;&amp;gt;
+     *               &amp;lt;ds:KeyInfo&amp;gt;
+     *                   &amp;lt;ds:KeyValue&amp;gt;...&amp;lt;/ds:KeyValue&amp;gt;
+     *               &amp;lt;/ds:KeyInfo&amp;gt;
+     *           &amp;lt;/saml2:SubjectConfirmationData&amp;gt;
+     *       &amp;lt;/saml2:SubjectConfirmation&amp;gt;
+     *   &amp;lt;/saml2:Subject&amp;gt;&lt;/pre&gt;
      *
      * KeyInfo can be created based on public key or symmetric key. That is decided by looking at
      * the RahasData.getKeyType. TODO make sure this implementation is correct.
@@ -438,19 +438,19 @@ import java.util.List;
 
     /**
      * This method creates a subject element with the bearer subject confirmation method.
-     * &lt;saml:Subject&gt;
-     *       &lt;saml:NameIdentifier
+     * &lt;pre&gt;   &amp;lt;saml:Subject&amp;gt;
+     *       &amp;lt;saml:NameIdentifier
      *                   NameQualifier=&quot;www.example.com&quot;
-     *                   Format=“urn:oasis:names:tc:SAML:1.1:nameid-
-     *           format:X509SubjectName”&gt;
+     *                   Format=&quot;urn:oasis:names:tc:SAML:1.1:nameid-
+     *           format:X509SubjectName&quot;&amp;gt;
      *           uid=joe,ou=people,ou=saml-demo,o=baltimore.com
-     *       &lt;/saml:NameIdentifier&gt;
-     *       &lt;saml:SubjectConfirmation&gt;
-     *           &lt;saml:ConfirmationMethod&gt;
+     *       &amp;lt;/saml:NameIdentifier&amp;gt;
+     *       &amp;lt;saml:SubjectConfirmation&amp;gt;
+     *           &amp;lt;saml:ConfirmationMethod&amp;gt;
      *               urn:oasis:names:tc:SAML:1.0:cm:bearer
-     *           &lt;/saml:ConfirmationMethod&gt;
-     *       &lt;/saml:SubjectConfirmation&gt;
-     *   &lt;/saml:Subject&gt;
+     *           &amp;lt;/saml:ConfirmationMethod&amp;gt;
+     *       &amp;lt;/saml:SubjectConfirmation&amp;gt;
+     *   &amp;lt;/saml:Subject&amp;gt;&lt;/pre&gt;
      * @param data RahasData element
      * @return  SAML 2.0 Subject element with Bearer subject confirmation
      * @throws org.apache.rahas.TrustException if an error occurred while creating the subject.
@@ -574,19 +574,19 @@ import java.util.List;
 
     /**
      * This method creates an AttributeStatement. The relevant XML would look like as follows,
-     * &lt;saml:AttributeStatement&gt;
-     *    &lt;saml:Attribute
+     * &lt;pre&gt;  &amp;lt;saml:AttributeStatement&amp;gt;
+     *    &amp;lt;saml:Attribute
      *      xmlns:x500=&quot;urn:oasis:names:tc:SAML:2.0:profiles:attribute:X500&quot;
      *      x500:Encoding=&quot;LDAP&quot;
      *      NameFormat=&quot;urn:oasis:names:tc:SAML:2.0:attrname-format:uri&quot;
      *      Name=&quot;urn:oid:1.3.6.1.4.1.5923.1.1.1.1&quot;
-     *      FriendlyName=&quot;eduPersonAffiliation&quot;&gt;
-     *      &lt;saml:AttributeValue
-     *        xsi:type=&quot;xs:string&quot;&gt;member&lt;/saml:AttributeValue&gt;
-     *      &lt;saml:AttributeValue
-     *        xsi:type=&quot;xs:string&quot;&gt;staff&lt;/saml:AttributeValue&gt;
-     *    &lt;/saml:Attribute&gt;
-     *  &lt;/saml:AttributeStatement&gt;
+     *      FriendlyName=&quot;eduPersonAffiliation&quot;&amp;gt;
+     *      &amp;lt;saml:AttributeValue
+     *        xsi:type=&quot;xs:string&quot;&amp;gt;member&amp;lt;/saml:AttributeValue&amp;gt;
+     *      &amp;lt;saml:AttributeValue
+     *        xsi:type=&quot;xs:string&quot;&amp;gt;staff&amp;lt;/saml:AttributeValue&amp;gt;
+     *    &amp;lt;/saml:Attribute&amp;gt;
+     *  &amp;lt;/saml:AttributeStatement&amp;gt;&lt;/pre&gt;
      *  Reference -  http://en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions
      * @param data The RahasData which carry information about RST.
      * @return An AttributeStatement with filled attributes retrieved by calling callback class.
@@ -644,15 +644,15 @@ import java.util.List;
 
     /**
      * This method creates an authentication statement. The equivalent XML would look as follows,
-     * &lt;saml:AuthnStatement
+     * &lt;pre&gt;  &amp;lt;saml:AuthnStatement
      *    AuthnInstant=&quot;2004-12-05T09:22:00Z&quot;
-     *    SessionIndex=&quot;b07b804c-7c29-ea16-7300-4f3d6f7928ac&quot;&gt;
-     *    &lt;saml:AuthnContext&gt;
-     *      &lt;saml:AuthnContextClassRef&gt;
+     *    SessionIndex=&quot;b07b804c-7c29-ea16-7300-4f3d6f7928ac&quot;&amp;gt;
+     *    &amp;lt;saml:AuthnContext&amp;gt;
+     *      &amp;lt;saml:AuthnContextClassRef&amp;gt;
      *        urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
-     *     &lt;/saml:AuthnContextClassRef&gt;
-     *    &lt;/saml:AuthnContext&gt;
-     *  &lt;/saml:AuthnStatement&gt;
+     *     &amp;lt;/saml:AuthnContextClassRef&amp;gt;
+     *    &amp;lt;/saml:AuthnContext&amp;gt;
+     *  &amp;lt;/saml:AuthnStatement&amp;gt;&lt;/pre&gt;
      * @param data The RahasData which carry information about RST.
      * @return OpenSAML representation of an AuthnStatement class.
      * @throws TrustException If an error occurred while creating the authentication statement.
@@ -777,33 +777,21 @@ import java.util.List;
 
     }
 
-    /**
-     * @inheritDoc
-     */
     public String getResponseAction(RahasData data) throws TrustException {
-<span class="fc" id="L784">        return null;</span>
+<span class="fc" id="L781">        return null;</span>
     }
 
-    /**
-     * @inheritDoc
-     */
     public void setConfigurationFile(String configFile) {
-<span class="fc" id="L791">        this.configFile = configFile;</span>
-<span class="fc" id="L792">    }</span>
+<span class="fc" id="L785">        this.configFile = configFile;</span>
+<span class="fc" id="L786">    }</span>
 
-    /**
-     * @inheritDoc
-     */
     public void setConfigurationElement(OMElement configElement) {
-<span class="fc" id="L798">        this.configElement = configElement;</span>
-<span class="fc" id="L799">    }</span>
+<span class="fc" id="L789">        this.configElement = configElement;</span>
+<span class="fc" id="L790">    }</span>
 
-    /**
-     * @inheritDoc
-     */
     public void setConfigurationParamName(String configParamName) {
-<span class="fc" id="L805">        this.configParamName = configParamName;</span>
-<span class="fc" id="L806">    }</span>
+<span class="fc" id="L793">        this.configParamName = configParamName;</span>
+<span class="fc" id="L794">    }</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

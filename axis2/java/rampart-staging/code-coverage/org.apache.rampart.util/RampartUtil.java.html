@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RampartUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rampart.util</a> &gt; <span class="el_source">RampartUtil.java</span></div><h1>RampartUtil.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RampartUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rampart.util</a> &gt; <span class="el_source">RampartUtil.java</span></div><h1>RampartUtil.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2004,2005 The Apache Software Foundation.
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -244,7 +244,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
     /**
      * Perform a callback to get a password.
-     * &lt;p/&gt;
+     * &lt;p&gt;
      * The called back function gets an indication why to provide a password:
      * to produce a UsernameToken, Signature, or a password (key) for a given
      * name.
@@ -449,17 +449,17 @@ import java.util.concurrent.ConcurrentHashMap;
     
     /**
      * Retrieve policy using metadata reference 
-     * &lt;wsa:Metadata xmlns:wsa=&quot;http://www.w3.org/2005/08/addressing&quot;&gt;
-     *  &lt;mex:Metadata
+     * &lt;pre&gt; &amp;lt;wsa:Metadata xmlns:wsa=&quot;http://www.w3.org/2005/08/addressing&quot;&amp;gt;
+     *  &amp;lt;mex:Metadata
      *       xmlns:mex=&quot;http://schemas.xmlsoap.org/ws/2004/09/mex&quot;
-     *       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-     *           &lt;mex:MetadataSection&gt;
-     *                  &lt;mex:MetadataReference&gt;
-     *                      &lt;wsa:Address&gt;http://address/of/mex/service&lt;/wsa:Address&gt;
-     *                  &lt;/mex:MetadataReference&gt;
-     *           &lt;/mex:MetadataSection&gt;
-     *  &lt;/mex:Metadata&gt;
-     * &lt;/wsa:Metadata&gt;
+     *       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&amp;gt;
+     *           &amp;lt;mex:MetadataSection&amp;gt;
+     *                  &amp;lt;mex:MetadataReference&amp;gt;
+     *                      &amp;lt;wsa:Address&amp;gt;http://address/of/mex/service&amp;lt;/wsa:Address&amp;gt;
+     *                  &amp;lt;/mex:MetadataReference&amp;gt;
+     *           &amp;lt;/mex:MetadataSection&amp;gt;
+     *  &amp;lt;/mex:Metadata&amp;gt;
+     * &amp;lt;/wsa:Metadata&amp;gt;&lt;/pre&gt;
      * @param mex Metadata element 
      * @return Policy from the mex service
      */
@@ -1426,7 +1426,7 @@ import java.util.concurrent.ConcurrentHashMap;
     }
     
     /**
-     * Scan through &lt;code&gt;WSHandlerResult&lt;code&gt; list for a Username token and return
+     * Scan through {@link WSHandlerResult} list for a Username token and return
      * the username if a Username Token found 
      * @param results
      * @return
@@ -1986,4 +1986,4 @@ import java.util.concurrent.ConcurrentHashMap;
 <span class="fc" id="L1986">        return usernameTokens;</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
