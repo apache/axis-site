@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CommonUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.html" class="el_package">org.apache.rahas.impl.util</a> &gt; <span class="el_source">CommonUtil.java</span></div><h1>CommonUtil.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CommonUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rahas.impl.util</a> &gt; <span class="el_source">CommonUtil.java</span></div><h1>CommonUtil.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2004,2005 The Apache Software Foundation.
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -204,27 +204,27 @@ import static org.apache.axiom.om.OMAbstractFactory.FEATURE_DOM;
      * 3. Try create token configuration using a parameter name in message context.
      * The issuer configuration would look like as follows,
      *
-     *  &lt;saml-issuer-config&gt;
-     *       &lt;issuerName&gt;Test_STS&lt;/issuerName&gt;
-     *       &lt;issuerKeyAlias&gt;ip&lt;/issuerKeyAlias&gt;
-     *       &lt;issuerKeyPassword&gt;password&lt;/issuerKeyPassword&gt;
-     *       &lt;cryptoProperties&gt;
-     *          &lt;crypto provider=&quot;org.apache.ws.security.components.crypto.Merlin&quot;&gt;
-     *               &lt;property name=&quot;org.apache.ws.security.crypto.merlin.keystore.type&quot;&gt;JKS&lt;/property&gt;
-     *               &lt;property name=&quot;org.apache.ws.security.crypto.merlin.file&quot;&gt;META-INF/rahas-sts.jks&lt;/property&gt;
-     *               &lt;property name=&quot;org.apache.ws.security.crypto.merlin.keystore.password&quot;&gt;password&lt;/property&gt;
-     *           &lt;/crypto&gt;
-     *       &lt;/cryptoProperties&gt;
-     *       &lt;timeToLive&gt;300000&lt;/timeToLive&gt;
-     *       &lt;keySize&gt;256&lt;/keySize&gt;
-     *       &lt;addRequestedAttachedRef /&gt;
-     *       &lt;addRequestedUnattachedRef /&gt;
-     *       &lt;keyComputation&gt;2&lt;/keyComputation&gt;
-     *       &lt;proofKeyType&gt;BinarySecret&lt;/proofKeyType&gt;
-     *       &lt;trusted-services&gt;
-     *           &lt;service alias=&quot;bob&quot;&gt;http://localhost:8080/axis2/services/STS&lt;/service&gt;
-     *       &lt;/trusted-services&gt;
-     *   &lt;/saml-issuer-config&gt;
+     * &lt;pre&gt;   &amp;lt;saml-issuer-config&amp;gt;
+     *       &amp;lt;issuerName&amp;gt;Test_STS&amp;lt;/issuerName&amp;gt;
+     *       &amp;lt;issuerKeyAlias&amp;gt;ip&amp;lt;/issuerKeyAlias&amp;gt;
+     *       &amp;lt;issuerKeyPassword&amp;gt;password&amp;lt;/issuerKeyPassword&amp;gt;
+     *       &amp;lt;cryptoProperties&amp;gt;
+     *          &amp;lt;crypto provider=&quot;org.apache.ws.security.components.crypto.Merlin&quot;&amp;gt;
+     *               &amp;lt;property name=&quot;org.apache.ws.security.crypto.merlin.keystore.type&quot;&amp;gt;JKS&amp;lt;/property&amp;gt;
+     *               &amp;lt;property name=&quot;org.apache.ws.security.crypto.merlin.file&quot;&amp;gt;META-INF/rahas-sts.jks&amp;lt;/property&amp;gt;
+     *               &amp;lt;property name=&quot;org.apache.ws.security.crypto.merlin.keystore.password&quot;&amp;gt;password&amp;lt;/property&amp;gt;
+     *           &amp;lt;/crypto&amp;gt;
+     *       &amp;lt;/cryptoProperties&amp;gt;
+     *       &amp;lt;timeToLive&amp;gt;300000&amp;lt;/timeToLive&amp;gt;
+     *       &amp;lt;keySize&amp;gt;256&amp;lt;/keySize&amp;gt;
+     *       &amp;lt;addRequestedAttachedRef /&amp;gt;
+     *       &amp;lt;addRequestedUnattachedRef /&amp;gt;
+     *       &amp;lt;keyComputation&amp;gt;2&amp;lt;/keyComputation&amp;gt;
+     *       &amp;lt;proofKeyType&amp;gt;BinarySecret&amp;lt;/proofKeyType&amp;gt;
+     *       &amp;lt;trusted-services&amp;gt;
+     *           &amp;lt;service alias=&quot;bob&quot;&amp;gt;http://localhost:8080/axis2/services/STS&amp;lt;/service&amp;gt;
+     *       &amp;lt;/trusted-services&amp;gt;
+     *   &amp;lt;/saml-issuer-config&amp;gt;&lt;/pre&gt;
      *
      * @param configElement Configuration as an OMElement.
      * @param configFile Configuration as a file.
@@ -475,4 +475,4 @@ import static org.apache.axiom.om.OMAbstractFactory.FEATURE_DOM;
 
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.1.201212231917</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

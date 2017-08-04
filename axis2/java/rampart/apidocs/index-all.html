@@ -659,11 +659,11 @@
 <dt><span class="strong"><a href="./org/apache/rahas/impl/util/SAMLUtils.html#createAttribute(java.lang.String, java.lang.String, java.lang.String)">createAttribute(String, String, String)</a></span> - Static method in class org.apache.rahas.impl.util.<a href="./org/apache/rahas/impl/util/SAMLUtils.html" title="class in org.apache.rahas.impl.util">SAMLUtils</a></dt>
 <dd>
 <div class="block">Creates a SAML attribute similar to following,
- <saml:Attribute
+    &lt;saml:Attribute
        AttributeName="MemberLevel"
-       AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes">
-       <saml:AttributeValue>gold</saml:AttributeValue>
-   </saml:Attribute></div>
+       AttributeNamespace="http://www.oasis.open.org/Catalyst2002/attributes"&gt;
+       &lt;saml:AttributeValue&gt;gold&lt;/saml:AttributeValue&gt;
+   &lt;/saml:Attribute&gt;</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/rahas/impl/SAML2TokenIssuer.html#createAttributeStatement(org.apache.rahas.RahasData)">createAttributeStatement(RahasData)</a></span> - Method in class org.apache.rahas.impl.<a href="./org/apache/rahas/impl/SAML2TokenIssuer.html" title="class in org.apache.rahas.impl">SAML2TokenIssuer</a></dt>
 <dd>
@@ -1696,17 +1696,17 @@
 <dt><span class="strong"><a href="./org/apache/rampart/util/RampartUtil.html#getPolicyFromMetadataRef(org.apache.axiom.om.OMElement)">getPolicyFromMetadataRef(OMElement)</a></span> - Static method in class org.apache.rampart.util.<a href="./org/apache/rampart/util/RampartUtil.html" title="class in org.apache.rampart.util">RampartUtil</a></dt>
 <dd>
 <div class="block">Retrieve policy using metadata reference 
- <wsa:Metadata xmlns:wsa="http://www.w3.org/2005/08/addressing">
-  <mex:Metadata
+  &lt;wsa:Metadata xmlns:wsa="http://www.w3.org/2005/08/addressing"&gt;
+  &lt;mex:Metadata
        xmlns:mex="http://schemas.xmlsoap.org/ws/2004/09/mex"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-           <mex:MetadataSection>
-                  <mex:MetadataReference>
-                      <wsa:Address>http://address/of/mex/service</wsa:Address>
-                  </mex:MetadataReference>
-           </mex:MetadataSection>
-  </mex:Metadata>
- </wsa:Metadata></div>
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+           &lt;mex:MetadataSection&gt;
+                  &lt;mex:MetadataReference&gt;
+                      &lt;wsa:Address&gt;http://address/of/mex/service&lt;/wsa:Address&gt;
+                  &lt;/mex:MetadataReference&gt;
+           &lt;/mex:MetadataSection&gt;
+  &lt;/mex:Metadata&gt;
+ &lt;/wsa:Metadata&gt;</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/rampart/util/RampartUtil.html#getPolicyValidatorCB(org.apache.axis2.context.MessageContext, org.apache.rampart.policy.RampartPolicyData)">getPolicyValidatorCB(MessageContext, RampartPolicyData)</a></span> - Static method in class org.apache.rampart.util.<a href="./org/apache/rampart/util/RampartUtil.html" title="class in org.apache.rampart.util">RampartUtil</a></dt>
 <dd>
@@ -2073,7 +2073,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/apache/rampart/util/RampartUtil.html#getUsername(java.util.List)">getUsername(List&lt;WSHandlerResult&gt;)</a></span> - Static method in class org.apache.rampart.util.<a href="./org/apache/rampart/util/RampartUtil.html" title="class in org.apache.rampart.util">RampartUtil</a></dt>
 <dd>
-<div class="block">Scan through <code>WSHandlerResult<code> list for a Username token and return
+<div class="block">Scan through <code>WSHandlerResult</code> list for a Username token and return
  the username if a Username Token found</div>
 </dd>
 <dt><span class="strong"><a href="./org/apache/rampart/util/RampartUtil.html#getUsernameTokens(org.apache.rampart.policy.RampartPolicyData)">getUsernameTokens(RampartPolicyData)</a></span> - Static method in class org.apache.rampart.util.<a href="./org/apache/rampart/util/RampartUtil.html" title="class in org.apache.rampart.util">RampartUtil</a></dt>
@@ -2544,7 +2544,7 @@
 <dd>
 <div class="block">Issue a <code>SecurityContextToken</code> based on the wsse:Signature or
  wsse:UsernameToken
- <p/>
+ 
  This will support returning the SecurityContextToken with the following
  types of wst:RequestedProof tokens:
  
