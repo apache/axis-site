@@ -1,0 +1,707 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>BeanUtil (Apache Axis2)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="BeanUtil (Apache Axis2)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/BeanUtil.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>Prev Class</li>
+<li><a href="../../../../../org/apache/axis2/databinding/utils/Constants.html" title="interface in org.apache.axis2.databinding.utils"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis2/databinding/utils/BeanUtil.html" target="_top">Frames</a></li>
+<li><a href="BeanUtil.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis2.databinding.utils</div>
+<h2 title="Class BeanUtil" class="title">Class BeanUtil</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis2.databinding.utils.BeanUtil</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public class <span class="strong">BeanUtil</span>
+extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#BeanUtil()">BeanUtil</a></strong>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#addInstanceTypeAttribute(org.apache.axiom.om.OMFactory, org.apache.axiom.om.OMElement, java.lang.Object, org.apache.axis2.description.java2wsdl.TypeTable)">addInstanceTypeAttribute</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;fac,
+                        <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;element,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;resObject,
+                        <a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html" title="class in org.apache.axis2.description.java2wsdl">TypeTable</a>&nbsp;typeTable)</code>
+<div class="block">Adds the instance type attribute to the passed OMElement.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#convertDOMtoOM(org.apache.axiom.om.OMFactory, java.lang.Object)">convertDOMtoOM</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;fac,
+              <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;document)</code>
+<div class="block">Convert DOM Document to a OMElement.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDocument.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDocument</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#convertOMtoDOM(org.apache.axiom.om.OMContainer)">convertOMtoDOM</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMContainer.html?is-external=true" title="class or interface in org.apache.axiom.om">OMContainer</a>&nbsp;omElement)</code>
+<div class="block">Gets the DOOM implementation of org.w3c.dom.Document</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#deserialize(java.lang.Class, org.apache.axiom.om.OMElement, org.apache.axis2.databinding.utils.MultirefHelper, org.apache.axis2.engine.ObjectSupplier)">deserialize</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;beanClass,
+           <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;beanElement,
+           <a href="../../../../../org/apache/axis2/databinding/utils/MultirefHelper.html" title="class in org.apache.axis2.databinding.utils">MultirefHelper</a>&nbsp;helper,
+           <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#deserialize(java.lang.Class, org.apache.axiom.om.OMElement, org.apache.axis2.engine.ObjectSupplier, java.lang.String)">deserialize</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;beanClass,
+           <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;beanElement,
+           <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;arrayLocalName)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#deserialize(org.apache.axiom.om.OMElement, java.lang.Object[], org.apache.axis2.engine.ObjectSupplier)">deserialize</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;response,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;javaTypes,
+           <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier)</code>
+<div class="block">To get JavaObjects from XML element , the element most of the time contains only one element
+ in that case that element will be converted to the JavaType specified by the javaTypes array
+ The algo is as follows, get the childerns of the response element , and if it conatian more
+ than one element then check the retuen type of that element and conver that to corresponding
+ JavaType</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#deserialize(org.apache.axiom.om.OMElement, java.lang.Object[], org.apache.axis2.engine.ObjectSupplier, java.lang.String[], java.lang.reflect.Method)">deserialize</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;response,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;javaTypes,
+           <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;parameterNames,
+           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a>&nbsp;method)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#getCollectionElement(org.apache.axiom.om.OMFactory, java.lang.reflect.Type, java.util.Collection, java.lang.String, java.lang.String, javax.xml.namespace.QName, org.apache.axis2.description.java2wsdl.TypeTable, boolean)">getCollectionElement</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;fac,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;type,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&nbsp;results,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;innerName,
+                    <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;elementQName,
+                    <a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html" title="class in org.apache.axis2.description.java2wsdl">TypeTable</a>&nbsp;typeTable,
+                    boolean&nbsp;elementFormDefault)</code>
+<div class="block">Gets the collection element.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#getMapElement(org.apache.axiom.om.OMFactory, java.lang.reflect.Type, java.util.Map, org.apache.axis2.description.java2wsdl.TypeTable, boolean)">getMapElement</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;fac,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;type,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&nbsp;results,
+             <a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html" title="class in org.apache.axis2.description.java2wsdl">TypeTable</a>&nbsp;typeTable,
+             boolean&nbsp;elementFormDefault)</code>
+<div class="block">This method convert a instance of java.util.Map into
+ OM object model for serialization.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#getOMElement(javax.xml.namespace.QName, java.lang.Object[], javax.xml.namespace.QName, boolean, org.apache.axis2.description.java2wsdl.TypeTable)">getOMElement</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;opName,
+            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;args,
+            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;partName,
+            boolean&nbsp;qualifed,
+            <a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html" title="class in org.apache.axis2.description.java2wsdl">TypeTable</a>&nbsp;typeTable)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#getPullParser(java.lang.Object)">getPullParser</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;beanObject)</code>
+<div class="block">to get the pull parser for a given bean object , generate the wrpper element using class
+ name</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#getPullParser(java.lang.Object, javax.xml.namespace.QName, org.apache.axis2.description.java2wsdl.TypeTable, boolean, boolean)">getPullParser</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;beanObject,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;beanName,
+             <a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html" title="class in org.apache.axis2.description.java2wsdl">TypeTable</a>&nbsp;typeTable,
+             boolean&nbsp;qualified,
+             boolean&nbsp;processingDocLitBare)</code>
+<div class="block">To Serilize Bean object this method is used, this will create an object array using given
+ bean object</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#getUniquePrefix()">getUniquePrefix</a></strong>()</code>
+<div class="block">increments the namespace counter and returns a new prefix</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#getUniquePrifix()">getUniquePrifix</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Please use getUniquePrefix</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#processEnumObject(java.lang.Class, org.apache.axiom.om.OMElement)">processEnumObject</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;classType,
+                 <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#processGenericCollection(org.apache.axiom.om.OMElement, org.apache.axiom.om.OMElement[], java.lang.reflect.Type, org.apache.axis2.databinding.utils.MultirefHelper, org.apache.axis2.engine.ObjectSupplier, java.util.Iterator, boolean)">processGenericCollection</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement,
+                        <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>[]&nbsp;toReturn,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;generictype,
+                        <a href="../../../../../org/apache/axis2/databinding/utils/MultirefHelper.html" title="class in org.apache.axis2.databinding.utils">MultirefHelper</a>&nbsp;helper,
+                        <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a>&nbsp;parts,
+                        boolean&nbsp;bare)</code>
+<div class="block">Process collection.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#processGenericCollection(org.apache.axiom.om.OMElement, java.lang.reflect.Type, org.apache.axis2.databinding.utils.MultirefHelper, org.apache.axis2.engine.ObjectSupplier)">processGenericCollection</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement,
+                        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;generictype,
+                        <a href="../../../../../org/apache/axis2/databinding/utils/MultirefHelper.html" title="class in org.apache.axis2.databinding.utils">MultirefHelper</a>&nbsp;helper,
+                        <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier)</code>
+<div class="block">Process generic collection.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#processGenericsMapElement(java.lang.reflect.Type[], org.apache.axiom.om.OMElement, org.apache.axis2.databinding.utils.MultirefHelper, java.util.Iterator, org.apache.axis2.engine.ObjectSupplier, java.lang.reflect.Type)">processGenericsMapElement</a></strong>(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>[]&nbsp;parameterArgTypes,
+                         <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement,
+                         <a href="../../../../../org/apache/axis2/databinding/utils/MultirefHelper.html" title="class in org.apache.axis2.databinding.utils">MultirefHelper</a>&nbsp;helper,
+                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a>&nbsp;parts,
+                         <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier,
+                         <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;genericType)</code>
+<div class="block">This method deserialize OM model in to a instance of java.util.Map</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/databinding/utils/BeanUtil.html#processObject(org.apache.axiom.om.OMElement, java.lang.Class, org.apache.axis2.databinding.utils.MultirefHelper, boolean, org.apache.axis2.engine.ObjectSupplier, java.lang.reflect.Type)">processObject</a></strong>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;classType,
+             <a href="../../../../../org/apache/axis2/databinding/utils/MultirefHelper.html" title="class in org.apache.axis2.databinding.utils">MultirefHelper</a>&nbsp;helper,
+             boolean&nbsp;isArrayType,
+             <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier,
+             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;generictype)</code>&nbsp;</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="BeanUtil()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>BeanUtil</h4>
+<pre>public&nbsp;BeanUtil()</pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getPullParser(java.lang.Object, javax.xml.namespace.QName, org.apache.axis2.description.java2wsdl.TypeTable, boolean, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPullParser</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a>&nbsp;getPullParser(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;beanObject,
+                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;beanName,
+                            <a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html" title="class in org.apache.axis2.description.java2wsdl">TypeTable</a>&nbsp;typeTable,
+                            boolean&nbsp;qualified,
+                            boolean&nbsp;processingDocLitBare)</pre>
+<div class="block">To Serilize Bean object this method is used, this will create an object array using given
+ bean object</div>
+</li>
+</ul>
+<a name="getPullParser(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPullParser</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javaee/5/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a>&nbsp;getPullParser(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;beanObject)</pre>
+<div class="block">to get the pull parser for a given bean object , generate the wrpper element using class
+ name</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>beanObject</code> - </dd></dl>
+</li>
+</ul>
+<a name="deserialize(java.lang.Class, org.apache.axiom.om.OMElement, org.apache.axis2.engine.ObjectSupplier, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deserialize</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;deserialize(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;beanClass,
+                 <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;beanElement,
+                 <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier,
+                 <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;arrayLocalName)
+                          throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="deserialize(java.lang.Class, org.apache.axiom.om.OMElement, org.apache.axis2.databinding.utils.MultirefHelper, org.apache.axis2.engine.ObjectSupplier)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deserialize</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;deserialize(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;beanClass,
+                 <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;beanElement,
+                 <a href="../../../../../org/apache/axis2/databinding/utils/MultirefHelper.html" title="class in org.apache.axis2.databinding.utils">MultirefHelper</a>&nbsp;helper,
+                 <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier)
+                          throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="deserialize(org.apache.axiom.om.OMElement, java.lang.Object[], org.apache.axis2.engine.ObjectSupplier)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deserialize</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;deserialize(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;response,
+                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;javaTypes,
+                   <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier)
+                            throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">To get JavaObjects from XML element , the element most of the time contains only one element
+ in that case that element will be converted to the JavaType specified by the javaTypes array
+ The algo is as follows, get the childerns of the response element , and if it conatian more
+ than one element then check the retuen type of that element and conver that to corresponding
+ JavaType</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>response</code> - OMElement</dd><dd><code>javaTypes</code> - Array of JavaTypes</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Array of objects</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="deserialize(org.apache.axiom.om.OMElement, java.lang.Object[], org.apache.axis2.engine.ObjectSupplier, java.lang.String[], java.lang.reflect.Method)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deserialize</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;deserialize(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;response,
+                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;javaTypes,
+                   <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier,
+                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;parameterNames,
+                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a>&nbsp;method)
+                            throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="processObject(org.apache.axiom.om.OMElement, java.lang.Class, org.apache.axis2.databinding.utils.MultirefHelper, boolean, org.apache.axis2.engine.ObjectSupplier, java.lang.reflect.Type)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>processObject</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;processObject(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement,
+                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;classType,
+                   <a href="../../../../../org/apache/axis2/databinding/utils/MultirefHelper.html" title="class in org.apache.axis2.databinding.utils">MultirefHelper</a>&nbsp;helper,
+                   boolean&nbsp;isArrayType,
+                   <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier,
+                   <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;generictype)
+                            throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="processEnumObject(java.lang.Class, org.apache.axiom.om.OMElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>processEnumObject</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;processEnumObject(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;classType,
+                       <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement)
+                                throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="getOMElement(javax.xml.namespace.QName, java.lang.Object[], javax.xml.namespace.QName, boolean, org.apache.axis2.description.java2wsdl.TypeTable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOMElement</h4>
+<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;getOMElement(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;opName,
+                     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;args,
+                     <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;partName,
+                     boolean&nbsp;qualifed,
+                     <a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html" title="class in org.apache.axis2.description.java2wsdl">TypeTable</a>&nbsp;typeTable)</pre>
+</li>
+</ul>
+<a name="getUniquePrifix()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUniquePrifix</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getUniquePrifix()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Please use getUniquePrefix</i></div>
+</li>
+</ul>
+<a name="getUniquePrefix()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUniquePrefix</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getUniquePrefix()</pre>
+<div class="block">increments the namespace counter and returns a new prefix</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>unique prefix</dd></dl>
+</li>
+</ul>
+<a name="addInstanceTypeAttribute(org.apache.axiom.om.OMFactory, org.apache.axiom.om.OMElement, java.lang.Object, org.apache.axis2.description.java2wsdl.TypeTable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addInstanceTypeAttribute</h4>
+<pre>public static&nbsp;void&nbsp;addInstanceTypeAttribute(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;fac,
+                            <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;element,
+                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;resObject,
+                            <a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html" title="class in org.apache.axis2.description.java2wsdl">TypeTable</a>&nbsp;typeTable)</pre>
+<div class="block">Adds the instance type attribute to the passed OMElement.
+  
+  e.g - <sam:obj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xsi:type="xsd:string">
+                String Value
+        </sam:obj></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fac</code> - the SOAPFactory instance.</dd><dd><code>element</code> - the child OMElement to add attributes.</dd><dd><code>resObject</code> - the java reflection method</dd><dd><code>resObject</code> - the res object</dd><dd><code>typeTable</code> - the type table of particular Axis2 service</dd></dl>
+</li>
+</ul>
+<a name="convertOMtoDOM(org.apache.axiom.om.OMContainer)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>convertOMtoDOM</h4>
+<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDocument.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDocument</a>&nbsp;convertOMtoDOM(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMContainer.html?is-external=true" title="class or interface in org.apache.axiom.om">OMContainer</a>&nbsp;omElement)</pre>
+<div class="block">Gets the DOOM implementation of org.w3c.dom.Document</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>omElement</code> - the OMelement</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the DOOM document</dd></dl>
+</li>
+</ul>
+<a name="convertDOMtoOM(org.apache.axiom.om.OMFactory, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>convertDOMtoOM</h4>
+<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;convertDOMtoOM(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;fac,
+                       <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;document)</pre>
+<div class="block">Convert DOM Document to a OMElement.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fac</code> - the fac</dd><dd><code>document</code> - the document</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the OMElement</dd></dl>
+</li>
+</ul>
+<a name="processGenericsMapElement(java.lang.reflect.Type[], org.apache.axiom.om.OMElement, org.apache.axis2.databinding.utils.MultirefHelper, java.util.Iterator, org.apache.axis2.engine.ObjectSupplier, java.lang.reflect.Type)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>processGenericsMapElement</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;processGenericsMapElement(<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>[]&nbsp;parameterArgTypes,
+                                           <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement,
+                                           <a href="../../../../../org/apache/axis2/databinding/utils/MultirefHelper.html" title="class in org.apache.axis2.databinding.utils">MultirefHelper</a>&nbsp;helper,
+                                           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a>&nbsp;parts,
+                                           <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier,
+                                           <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;genericType)
+                                                    throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">This method deserialize OM model in to a instance of java.util.Map</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameterArgTypes</code> - the parameter argument types of Map <k,V></dd><dd><code>omElement</code> - the OMElement</dd><dd><code>helper</code> - the helper</dd><dd><code>parts</code> - the parts</dd><dd><code>objectSupplier</code> - the object supplier</dd><dd><code>genericType</code> - the generic type</dd>
+<dt><span class="strong">Returns:</span></dt><dd>a instance of java.util.Map</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - the axis fault</dd></dl>
+</li>
+</ul>
+<a name="getMapElement(org.apache.axiom.om.OMFactory, java.lang.reflect.Type, java.util.Map, org.apache.axis2.description.java2wsdl.TypeTable, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMapElement</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&gt;&nbsp;getMapElement(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;fac,
+                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;type,
+                            <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&nbsp;results,
+                            <a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html" title="class in org.apache.axis2.description.java2wsdl">TypeTable</a>&nbsp;typeTable,
+                            boolean&nbsp;elementFormDefault)</pre>
+<div class="block">This method convert a instance of java.util.Map into
+ OM object model for serialization.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fac</code> - the OMFactory</dd><dd><code>type</code> - of the java.util.Map</dd><dd><code>results</code> - the results values</dd><dd><code>typeTable</code> - the type table</dd><dd><code>elementFormDefault</code> - the element form default</dd>
+<dt><span class="strong">Returns:</span></dt><dd>list of OMElement</dd></dl>
+</li>
+</ul>
+<a name="processGenericCollection(org.apache.axiom.om.OMElement, java.lang.reflect.Type, org.apache.axis2.databinding.utils.MultirefHelper, org.apache.axis2.engine.ObjectSupplier)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>processGenericCollection</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;processGenericCollection(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement,
+                                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;generictype,
+                                          <a href="../../../../../org/apache/axis2/databinding/utils/MultirefHelper.html" title="class in org.apache.axis2.databinding.utils">MultirefHelper</a>&nbsp;helper,
+                                          <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier)
+                                                   throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Process generic collection.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>omElement</code> - the om element</dd><dd><code>generictype</code> - the generictype</dd><dd><code>helper</code> - the helper</dd><dd><code>objectSupplier</code> - the object supplier</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the collection</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - the axis fault</dd></dl>
+</li>
+</ul>
+<a name="processGenericCollection(org.apache.axiom.om.OMElement, org.apache.axiom.om.OMElement[], java.lang.reflect.Type, org.apache.axis2.databinding.utils.MultirefHelper, org.apache.axis2.engine.ObjectSupplier, java.util.Iterator, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>processGenericCollection</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;processGenericCollection(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement,
+                                          <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>[]&nbsp;toReturn,
+                                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;generictype,
+                                          <a href="../../../../../org/apache/axis2/databinding/utils/MultirefHelper.html" title="class in org.apache.axis2.databinding.utils">MultirefHelper</a>&nbsp;helper,
+                                          <a href="../../../../../org/apache/axis2/engine/ObjectSupplier.html" title="interface in org.apache.axis2.engine">ObjectSupplier</a>&nbsp;objectSupplier,
+                                          <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a>&nbsp;parts,
+                                          boolean&nbsp;bare)
+                                                   throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<div class="block">Process collection.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>omElement</code> - the om element</dd><dd><code>toReturn</code> - the to return</dd><dd><code>generictype</code> - the generictype</dd><dd><code>helper</code> - the helper</dd><dd><code>objectSupplier</code> - the object supplier</dd><dd><code>parts</code> - the parts</dd><dd><code>bare</code> - the bare</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the collection</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - the axis fault</dd></dl>
+</li>
+</ul>
+<a name="getCollectionElement(org.apache.axiom.om.OMFactory, java.lang.reflect.Type, java.util.Collection, java.lang.String, java.lang.String, javax.xml.namespace.QName, org.apache.axis2.description.java2wsdl.TypeTable, boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getCollectionElement</h4>
+<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;getCollectionElement(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;fac,
+                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/reflect/Type.html?is-external=true" title="class or interface in java.lang.reflect">Type</a>&nbsp;type,
+                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&nbsp;results,
+                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;innerName,
+                             <a href="http://docs.oracle.com/javase/1.5.0/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;elementQName,
+                             <a href="../../../../../org/apache/axis2/description/java2wsdl/TypeTable.html" title="class in org.apache.axis2.description.java2wsdl">TypeTable</a>&nbsp;typeTable,
+                             boolean&nbsp;elementFormDefault)</pre>
+<div class="block">Gets the collection element.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fac</code> - the fac</dd><dd><code>type</code> - the type</dd><dd><code>results</code> - the results</dd><dd><code>name</code> - the name</dd><dd><code>innerName</code> - the inner name</dd><dd><code>elementQName</code> - the element q name</dd><dd><code>typeTable</code> - the type table</dd><dd><code>elementFormDefault</code> - the element form default</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the collection element</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/BeanUtil.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>Prev Class</li>
+<li><a href="../../../../../org/apache/axis2/databinding/utils/Constants.html" title="interface in org.apache.axis2.databinding.utils"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis2/databinding/utils/BeanUtil.html" target="_top">Frames</a></li>
+<li><a href="BeanUtil.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &copy; <a href="https://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>
