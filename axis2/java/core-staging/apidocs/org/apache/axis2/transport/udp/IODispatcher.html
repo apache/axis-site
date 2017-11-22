@@ -83,7 +83,7 @@
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
 <li>org.apache.axis2.transport.udp.IODispatcher</li>
@@ -95,17 +95,17 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>, <a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcher.html" title="interface in org.apache.axis2.transport.base.datagram">DatagramDispatcher</a>&lt;<a href="../../../../../org/apache/axis2/transport/udp/Endpoint.html" title="class in org.apache.axis2.transport.udp">Endpoint</a>&gt;</dd>
+<dd><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a>, <a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcher.html" title="interface in org.apache.axis2.transport.base.datagram">DatagramDispatcher</a>&lt;<a href="../../../../../org/apache/axis2/transport/udp/Endpoint.html" title="class in org.apache.axis2.transport.udp">Endpoint</a>&gt;</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">IODispatcher</span>
-extends <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
-implements <a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcher.html" title="interface in org.apache.axis2.transport.base.datagram">DatagramDispatcher</a>&lt;<a href="../../../../../org/apache/axis2/transport/udp/Endpoint.html" title="class in org.apache.axis2.transport.udp">Endpoint</a>&gt;, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a></pre>
+extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcher.html" title="interface in org.apache.axis2.transport.base.datagram">DatagramDispatcher</a>&lt;<a href="../../../../../org/apache/axis2/transport/udp/Endpoint.html" title="class in org.apache.axis2.transport.udp">Endpoint</a>&gt;, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a></pre>
 <div class="block">I/O dispatcher for incoming UDP packets.
  This class is responsible for receiving UDP packets and dispatch
  the processing of these packets to worker threads.
- It uses a <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/nio/channels/Selector.html?is-external=true" title="class or interface in java.nio.channels"><code>Selector</code></a> to receive packets from multiple endpoints
+ It uses a <a href="https://docs.oracle.com/javase/7/docs/api/java/nio/channels/Selector.html?is-external=true" title="class or interface in java.nio.channels"><code>Selector</code></a> to receive packets from multiple endpoints
  and a <a href="../../../../../org/apache/axis2/transport/base/threads/WorkerPool.html" title="interface in org.apache.axis2.transport.base.threads"><code>WorkerPool</code></a> to dispatch the processing tasks.
  <p>
  The dispatcher uses the following thread model:
@@ -117,7 +117,7 @@ implements <a href="../../../../../org/apache/axis2/transport/base/datagram/Data
  The methods <a href="../../../../../org/apache/axis2/transport/udp/IODispatcher.html#addEndpoint(org.apache.axis2.transport.udp.Endpoint)"><code>addEndpoint(Endpoint)</code></a>, <a href="../../../../../org/apache/axis2/transport/udp/IODispatcher.html#removeEndpoint(org.apache.axis2.transport.udp.Endpoint)"><code>removeEndpoint(Endpoint)</code></a>
  and <a href="../../../../../org/apache/axis2/transport/udp/IODispatcher.html#stop()"><code>stop()</code></a> are thread safe and may be called from any thread.
  However, to avoid concurrency issues, the operation on the underlying
- <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/nio/channels/Selector.html?is-external=true" title="class or interface in java.nio.channels"><code>Selector</code></a> will always be executed by the thread executing the
+ <a href="https://docs.oracle.com/javase/7/docs/api/java/nio/channels/Selector.html?is-external=true" title="class or interface in java.nio.channels"><code>Selector</code></a> will always be executed by the thread executing the
  <a href="../../../../../org/apache/axis2/transport/udp/IODispatcher.html#run()"><code>run()</code></a> method. The three methods mentioned above will block until
  the operation has completed.</div>
 </li>
@@ -186,8 +186,8 @@ implements <a href="../../../../../org/apache/axis2/transport/base/datagram/Data
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -210,11 +210,11 @@ implements <a href="../../../../../org/apache/axis2/transport/base/datagram/Data
 <li class="blockList">
 <h4>IODispatcher</h4>
 <pre>public&nbsp;IODispatcher(<a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcherCallback.html" title="interface in org.apache.axis2.transport.base.datagram">DatagramDispatcherCallback</a>&nbsp;callback)
-             throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+             throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Constructor.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>callback</code> - </dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if the <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/nio/channels/Selector.html?is-external=true" title="class or interface in java.nio.channels"><code>Selector</code></a> instance could not be created</dd></dl>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if the <a href="https://docs.oracle.com/javase/7/docs/api/java/nio/channels/Selector.html?is-external=true" title="class or interface in java.nio.channels"><code>Selector</code></a> instance could not be created</dd></dl>
 </li>
 </ul>
 </li>
@@ -232,7 +232,7 @@ implements <a href="../../../../../org/apache/axis2/transport/base/datagram/Data
 <li class="blockList">
 <h4>addEndpoint</h4>
 <pre>public&nbsp;void&nbsp;addEndpoint(<a href="../../../../../org/apache/axis2/transport/udp/Endpoint.html" title="class in org.apache.axis2.transport.udp">Endpoint</a>&nbsp;endpoint)
-                 throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+                 throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Add a new endpoint. This method creates a new socket listening on
  the UDP port specified in the endpoint description and makes sure
  that incoming packets are routed to the specified service.</div>
@@ -241,7 +241,7 @@ implements <a href="../../../../../org/apache/axis2/transport/base/datagram/Data
 <dd><code><a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcher.html#addEndpoint(E)">addEndpoint</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcher.html" title="interface in org.apache.axis2.transport.base.datagram">DatagramDispatcher</a>&lt;<a href="../../../../../org/apache/axis2/transport/udp/Endpoint.html" title="class in org.apache.axis2.transport.udp">Endpoint</a>&gt;</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>endpoint</code> - the endpoint description</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if the socket could not be created or
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if the socket could not be created or
          registered with the selector</dd></dl>
 </li>
 </ul>
@@ -252,7 +252,7 @@ implements <a href="../../../../../org/apache/axis2/transport/base/datagram/Data
 <li class="blockList">
 <h4>removeEndpoint</h4>
 <pre>public&nbsp;void&nbsp;removeEndpoint(<a href="../../../../../org/apache/axis2/transport/udp/Endpoint.html" title="class in org.apache.axis2.transport.udp">Endpoint</a>&nbsp;endpoint)
-                    throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+                    throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Remove an endpoint. This causes the corresponding UDP socket to be
  closed.</div>
 <dl>
@@ -260,7 +260,7 @@ implements <a href="../../../../../org/apache/axis2/transport/base/datagram/Data
 <dd><code><a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcher.html#removeEndpoint(E)">removeEndpoint</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcher.html" title="interface in org.apache.axis2.transport.base.datagram">DatagramDispatcher</a>&lt;<a href="../../../../../org/apache/axis2/transport/udp/Endpoint.html" title="class in org.apache.axis2.transport.udp">Endpoint</a>&gt;</code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>endpoint</code> - the endpoint description</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an error occurred when closing the socket</dd></dl>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an error occurred when closing the socket</dd></dl>
 </li>
 </ul>
 <a name="stop()">
@@ -270,7 +270,7 @@ implements <a href="../../../../../org/apache/axis2/transport/base/datagram/Data
 <li class="blockList">
 <h4>stop</h4>
 <pre>public&nbsp;void&nbsp;stop()
-          throws <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+          throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Stop the dispatcher.
  This method closes all sockets and causes the execution of the
  <a href="../../../../../org/apache/axis2/transport/udp/IODispatcher.html#run()"><code>run()</code></a> method to stop.</div>
@@ -278,7 +278,7 @@ implements <a href="../../../../../org/apache/axis2/transport/base/datagram/Data
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcher.html#stop()">stop</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/axis2/transport/base/datagram/DatagramDispatcher.html" title="interface in org.apache.axis2.transport.base.datagram">DatagramDispatcher</a>&lt;<a href="../../../../../org/apache/axis2/transport/udp/Endpoint.html" title="class in org.apache.axis2.transport.udp">Endpoint</a>&gt;</code></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
 <a name="run()">
@@ -294,7 +294,7 @@ implements <a href="../../../../../org/apache/axis2/transport/base/datagram/Data
  It only returns when <a href="../../../../../org/apache/axis2/transport/udp/IODispatcher.html#stop()"><code>stop()</code></a> is called.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Runnable.html?is-external=true#run()" title="class or interface in java.lang">run</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true#run()" title="class or interface in java.lang">run</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang">Runnable</a></code></dd>
 </dl>
 </li>
 </ul>
