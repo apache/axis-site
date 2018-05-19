@@ -1,0 +1,754 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>ServiceDescription (Apache Axis2)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ServiceDescription (Apache Axis2)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ServiceDescription.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis2/jaxws/description/ResolvedHandlersDescription.html" title="interface in org.apache.axis2.jaxws.description"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescriptionJava.html" title="interface in org.apache.axis2.jaxws.description"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis2/jaxws/description/ServiceDescription.html" target="_top">Frames</a></li>
+<li><a href="ServiceDescription.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis2.jaxws.description</div>
+<h2 title="Interface ServiceDescription" class="title">Interface ServiceDescription</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Known Implementing Classes:</dt>
+<dd><a href="../../../../../org/apache/axis2/jaxws/description/impl/ServiceDescriptionImpl.html" title="class in org.apache.axis2.jaxws.description.impl">ServiceDescriptionImpl</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public interface <span class="strong">ServiceDescription</span></pre>
+<div class="block">A ServiceDescription corresponds to a Service under which there can be a collection of enpdoints.
+ In WSDL 1.1 terms, then, a ServiceDescription corresponds to a wsdl:Service under which there are
+ one or more wsdl:Port entries. The ServiceDescription is the root of the metdata abstraction
+ Description hierachy.
+ <p/>
+ The Description hierachy is:
+ <pre>
+ ServiceDescription
+     EndpointDescription[]
+         EndpointInterfaceDescription
+             OperationDescription[]
+                 ParameterDescription[]
+                 FaultDescription[]
+ <p/>
+ <b>ServiceDescription details</b>
+ <p/>
+     CORRESPONDS TO:
+         On the Client: The JAX-WS Service class or generated subclass.
+ <p/>
+         On the Server: The Service implementation.  Note that there is a 1..1
+         correspondence between a ServiceDescription and EndpointDescription
+         on the server side.
+ <p/>
+     AXIS2 DELEGATE:      None
+ <p/>
+     CHILDREN:            1..n EndpointDescription
+ <p/>
+     ANNOTATIONS:
+         None
+ <p/>
+     WSDL ELEMENTS:
+         service
+ <p/>
+  </pre></div>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/soap/AddressingFeature.Responses.html?is-external=true" title="class or interface in javax.xml.ws.soap">AddressingFeature.Responses</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getAddressingResponses(java.lang.Object, java.lang.Class)">getAddressingResponses</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</code>
+<div class="block">Answer the type of Addressing responses required by the service-requester.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getAxisConfigContext()">getAxisConfigContext</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getBindingProperties(java.lang.Object, java.lang.String)">getBindingProperties</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                    <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key)</code>
+<div class="block">This method is responsible for querying the metadata for properties associated with
+ a given BindingProvider instance.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/catalog/JAXWSCatalogManager.html" title="interface in org.apache.axis2.jaxws.catalog">JAXWSCatalogManager</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getCatalogManager()">getCatalogManager</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getEndpointDescription(java.lang.Class)">getEndpointDescription</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</code>
+<div class="block">Return the EndpointDescriptions corresponding to the SEI class.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getEndpointDescription(javax.xml.namespace.QName)">getEndpointDescription</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getEndpointDescription(javax.xml.namespace.QName, java.lang.Object)">getEndpointDescription</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName,
+                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getEndpointDescriptions_AsCollection()">getEndpointDescriptions_AsCollection</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getEndpointDescriptions()">getEndpointDescriptions</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/xml/handler/HandlerChainsType.html" title="class in org.apache.axis2.jaxws.description.xml.handler">HandlerChainsType</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getHandlerChain()">getHandlerChain</a></strong>()</code>
+<div class="block">Return the handler chain configuration information as a HandlerChainsType object.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/xml/handler/HandlerChainsType.html" title="class in org.apache.axis2.jaxws.description.xml.handler">HandlerChainsType</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getHandlerChain(java.lang.Object)">getHandlerChain</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey)</code>
+<div class="block">Return the handler chain configuration information as a HandlerChainsType object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getMTOMThreshold(java.lang.Object, java.lang.Class)">getMTOMThreshold</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</code>
+<div class="block">Return the MTOM Threshold as set by the Client via a sparse composite (such as a client deployment
+ descriptor).</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getPorts(java.lang.Object)">getPorts</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey)</code>
+<div class="block">Returns a list of the ports for this serivce.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getPreferredPort(java.lang.Object)">getPreferredPort</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/ResolvedHandlersDescription.html" title="interface in org.apache.axis2.jaxws.description">ResolvedHandlersDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getResolvedHandlersDescription(javax.xml.ws.handler.PortInfo)">getResolvedHandlersDescription</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/handler/PortInfo.html?is-external=true" title="class or interface in javax.xml.ws.handler">PortInfo</a>&nbsp;portInfo)</code>
+<div class="block">Answer information for resolved handlers for the given port.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/client/ServiceClient.html" title="class in org.apache.axis2.client">ServiceClient</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getServiceClient(javax.xml.namespace.QName, java.lang.Object)">getServiceClient</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName,
+                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getServiceQName()">getServiceQName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/ServiceRuntimeDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceRuntimeDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getServiceRuntimeDesc(java.lang.String)">getServiceRuntimeDesc</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isAddressingConfigured(java.lang.Object, java.lang.Class)">isAddressingConfigured</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</code>
+<div class="block">Answer whether Addressing was explicitly configured via metadata (such as a deployment descriptor) on the
+ service-requester.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isAddressingEnabled(java.lang.Object, java.lang.Class)">isAddressingEnabled</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                   <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</code>
+<div class="block">Answer whether Addressing is enabled on the service-requester.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isAddressingRequired(java.lang.Object, java.lang.Class)">isAddressingRequired</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                    <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</code>
+<div class="block">Answer whether Addressing is required on the service-requester.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isMTOMEnabled(java.lang.Object)">isMTOMEnabled</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</code>
+<div class="block">Answer if MTOM is enabled for the service represented by this Service Description.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isMTOMEnabled(java.lang.Object, java.lang.Class)">isMTOMEnabled</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
+             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</code>
+<div class="block">Answer if MTOM is enabled for the service represented by this Service Description  
+ and the service-endpoint-interface indicated.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isRespectBindingEnabled(java.lang.Object, java.lang.Class)">isRespectBindingEnabled</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                       <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</code>
+<div class="block">Return whether RespectBinding is enabled as set by the Client via a sparse composite (such as a client deployment
+ descriptor).</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isServerSide()">isServerSide</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#releaseResources(java.lang.Object)">releaseResources</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;delegate)</code>
+<div class="block">Check into releasing resources related to this ServiceDescription.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#setResolvedHandlersDescription(javax.xml.ws.handler.PortInfo, org.apache.axis2.jaxws.description.ResolvedHandlersDescription)">setResolvedHandlersDescription</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/handler/PortInfo.html?is-external=true" title="class or interface in javax.xml.ws.handler">PortInfo</a>&nbsp;portInfo,
+                              <a href="../../../../../org/apache/axis2/jaxws/description/ResolvedHandlersDescription.html" title="interface in org.apache.axis2.jaxws.description">ResolvedHandlersDescription</a>&nbsp;resolvedHandlersInfo)</code>
+<div class="block">Cache information for handlers which have been resolved for this port.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#setServiceRuntimeDesc(org.apache.axis2.jaxws.description.ServiceRuntimeDescription)">setServiceRuntimeDesc</a></strong>(<a href="../../../../../org/apache/axis2/jaxws/description/ServiceRuntimeDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceRuntimeDescription</a>&nbsp;ord)</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getEndpointDescriptions()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEndpointDescriptions</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>[]&nbsp;getEndpointDescriptions()</pre>
+</li>
+</ul>
+<a name="getEndpointDescriptions_AsCollection()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEndpointDescriptions_AsCollection</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>&gt;&nbsp;getEndpointDescriptions_AsCollection()</pre>
+</li>
+</ul>
+<a name="getEndpointDescription(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEndpointDescription</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>&nbsp;getEndpointDescription(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName)</pre>
+</li>
+</ul>
+<a name="getEndpointDescription(javax.xml.namespace.QName, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEndpointDescription</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>&nbsp;getEndpointDescription(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName,
+                                         <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey)</pre>
+</li>
+</ul>
+<a name="getEndpointDescription(java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEndpointDescription</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/EndpointDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointDescription</a>[]&nbsp;getEndpointDescription(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</pre>
+<div class="block">Return the EndpointDescriptions corresponding to the SEI class.  Note that Dispatch endpoints
+ will never be returned because they do not have an associated SEI.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>seiClass</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getAxisConfigContext()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAxisConfigContext</h4>
+<pre><a href="../../../../../org/apache/axis2/context/ConfigurationContext.html" title="class in org.apache.axis2.context">ConfigurationContext</a>&nbsp;getAxisConfigContext()</pre>
+</li>
+</ul>
+<a name="getServiceClient(javax.xml.namespace.QName, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServiceClient</h4>
+<pre><a href="../../../../../org/apache/axis2/client/ServiceClient.html" title="class in org.apache.axis2.client">ServiceClient</a>&nbsp;getServiceClient(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;portQName,
+                             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey)</pre>
+</li>
+</ul>
+<a name="getServiceQName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServiceQName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;getServiceQName()</pre>
+</li>
+</ul>
+<a name="getHandlerChain(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHandlerChain</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/xml/handler/HandlerChainsType.html" title="class in org.apache.axis2.jaxws.description.xml.handler">HandlerChainsType</a>&nbsp;getHandlerChain(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey)</pre>
+<div class="block">Return the handler chain configuration information as a HandlerChainsType object.  If the
+ key is non-null then it is used to look for handler chain configuration information in the
+ sparse metadata.  The order in which the configuration information is resolved is:
+ 1) Look in sparse composite if the key is not null
+ 2) Look in the composite
+ 3) Look for a HandlerChain annotation and read in the file it specifies</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceDelegateKey</code> - May be null.  If non-null, used to look for service-delegate
+     specific sparse composite information.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>A HandlerChainsType object or null</dd></dl>
+</li>
+</ul>
+<a name="getHandlerChain()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHandlerChain</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/xml/handler/HandlerChainsType.html" title="class in org.apache.axis2.jaxws.description.xml.handler">HandlerChainsType</a>&nbsp;getHandlerChain()</pre>
+<div class="block">Return the handler chain configuration information as a HandlerChainsType object.
+ This is the same as calling getHandlerChain(null).</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getHandlerChain(java.lang.Object)"><code>getHandlerChain(Object)</code></a></dd></dl>
+</li>
+</ul>
+<a name="getPorts(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPorts</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;&nbsp;getPorts(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey)</pre>
+<div class="block">Returns a list of the ports for this serivce.  The ports returned are the - Ports declared
+ ports for this Service.  They can be delcared in the WSDL or via annotations. - Dynamic ports
+ added to the service</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceDelegateKey</code> - This should always be non-null when called via ServiceDelegate and is
+                            used to help retrieve dynamic ports per client</dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getServiceRuntimeDesc(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServiceRuntimeDesc</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/ServiceRuntimeDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceRuntimeDescription</a>&nbsp;getServiceRuntimeDesc(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+</li>
+</ul>
+<a name="setServiceRuntimeDesc(org.apache.axis2.jaxws.description.ServiceRuntimeDescription)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setServiceRuntimeDesc</h4>
+<pre>void&nbsp;setServiceRuntimeDesc(<a href="../../../../../org/apache/axis2/jaxws/description/ServiceRuntimeDescription.html" title="interface in org.apache.axis2.jaxws.description">ServiceRuntimeDescription</a>&nbsp;ord)</pre>
+</li>
+</ul>
+<a name="isServerSide()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isServerSide</h4>
+<pre>boolean&nbsp;isServerSide()</pre>
+</li>
+</ul>
+<a name="isMTOMEnabled(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isMTOMEnabled</h4>
+<pre>boolean&nbsp;isMTOMEnabled(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</pre>
+<div class="block">Answer if MTOM is enabled for the service represented by this Service Description.  This
+ is currently only supported on the service-requester side; it is not supported on the 
+ service-provider side.  If the key is non-null, it is used to look up an sparse metadata
+ that may have been specified when the Service Description was created.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>key</code> - If non-null, used to look up any sparse metadata that may have been specified
+     when the service was created.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>TRUE if mtom was enabled either in the sparse metadata or in the composite; FALSE
+     othewise.</dd></dl>
+</li>
+</ul>
+<a name="isMTOMEnabled(java.lang.Object, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isMTOMEnabled</h4>
+<pre>boolean&nbsp;isMTOMEnabled(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key,
+                    <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</pre>
+<div class="block">Answer if MTOM is enabled for the service represented by this Service Description  
+ and the service-endpoint-interface indicated. This is currently only supported on the 
+ service-requester side; it is not supported on the service-provider side.  If the key is 
+ non-null, it is used to look up an sparse metadata that may have been specified when the 
+ Service Description was created. If the seiClass is non-null it is used to further scope
+ the enablement of MTOM to a specific SEI.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>key</code> - If non-null, used to look up any sparse metadata that may have been specified
+     when the service was created.</dd><dd><code>seiClass</code> - Represents client service-endpoint-interface class.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>TRUE if mtom was enabled either in the sparse metadata or in the composite; FALSE
+     othewise.</dd></dl>
+</li>
+</ul>
+<a name="getPreferredPort(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPreferredPort</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;getPreferredPort(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;key)</pre>
+</li>
+</ul>
+<a name="getCatalogManager()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCatalogManager</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/catalog/JAXWSCatalogManager.html" title="interface in org.apache.axis2.jaxws.catalog">JAXWSCatalogManager</a>&nbsp;getCatalogManager()</pre>
+</li>
+</ul>
+<a name="getResolvedHandlersDescription(javax.xml.ws.handler.PortInfo)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResolvedHandlersDescription</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/ResolvedHandlersDescription.html" title="interface in org.apache.axis2.jaxws.description">ResolvedHandlersDescription</a>&nbsp;getResolvedHandlersDescription(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/handler/PortInfo.html?is-external=true" title="class or interface in javax.xml.ws.handler">PortInfo</a>&nbsp;portInfo)</pre>
+<div class="block">Answer information for resolved handlers for the given port.  This information is set
+ when the handler resolver initially resolves the handlers based on the handler 
+ configuration information.  It is cached on the service description for performance 
+ so that subsequent queries by other handler resolvers for the same port do not have to
+ re-resolve the information from the handler configuration information.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>portInfo</code> - Port for which the handler information is desired</dd>
+<dt><span class="strong">Returns:</span></dt><dd>An object containing information for the resolved handlers, or null if no 
+     information is found in the cache.</dd></dl>
+</li>
+</ul>
+<a name="setResolvedHandlersDescription(javax.xml.ws.handler.PortInfo, org.apache.axis2.jaxws.description.ResolvedHandlersDescription)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setResolvedHandlersDescription</h4>
+<pre>void&nbsp;setResolvedHandlersDescription(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/handler/PortInfo.html?is-external=true" title="class or interface in javax.xml.ws.handler">PortInfo</a>&nbsp;portInfo,
+                                  <a href="../../../../../org/apache/axis2/jaxws/description/ResolvedHandlersDescription.html" title="interface in org.apache.axis2.jaxws.description">ResolvedHandlersDescription</a>&nbsp;resolvedHandlersInfo)</pre>
+<div class="block">Cache information for handlers which have been resolved for this port. This information is set
+ when the handler resolver initially resolves the handlers based on the handler 
+ configuration information.  It is cached on the service description for performance 
+ so that subsequent queries by other handler resolvers for the same port do not have to
+ re-resolve the information from the handler configuration information.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>portInfo</code> - Port for which the handler information should be cached</dd><dd><code>resolvedHandlersInfo</code> - An object containing information for the resolved handlers</dd></dl>
+</li>
+</ul>
+<a name="releaseResources(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>releaseResources</h4>
+<pre>void&nbsp;releaseResources(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;delegate)</pre>
+<div class="block">Check into releasing resources related to this ServiceDescription.  Those resources include
+ this ServiceDescription instance, the EndpointDescription instances it owns and their
+ associated AxisService and related objects.  
+ 
+ NOTE: This should only be called on ServiceDescrpition instances that are owned by
+ client ServiceDelegate instances; it SHOULD NOT be called on server-side 
+ ServiceDescriptions since those are built during server start and their life-cycle is
+ the life-cycle of the server.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>delegate</code> - The ServiceDelegate instance that owns this ServiceDescription.</dd></dl>
+</li>
+</ul>
+<a name="getBindingProperties(java.lang.Object, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBindingProperties</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;getBindingProperties(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;key)</pre>
+<div class="block">This method is responsible for querying the metadata for properties associated with
+ a given BindingProvider instance. This is only applicable for the requestor-side, and
+ the properties are scoped at the port level.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceDelegateKey</code> - This should always be non-null when called via ServiceDelegate and is
+                            used to help retrieve dynamic ports per client</dd><dd><code>key</code> - This should always be non-null and is used to retrieve properties for a given
+            client-side port</dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getMTOMThreshold(java.lang.Object, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMTOMThreshold</h4>
+<pre>int&nbsp;getMTOMThreshold(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                   <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</pre>
+<div class="block">Return the MTOM Threshold as set by the Client via a sparse composite (such as a client deployment
+ descriptor).</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceDelegateKey</code> - The instance of the service delegate related to this service</dd><dd><code>seiClass</code> - The SEI for the port to retrieve the MTOM threshold for</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the MTOM threshold if set, or 0 if not set.</dd></dl>
+</li>
+</ul>
+<a name="isRespectBindingEnabled(java.lang.Object, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isRespectBindingEnabled</h4>
+<pre>boolean&nbsp;isRespectBindingEnabled(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</pre>
+<div class="block">Return whether RespectBinding is enabled as set by the Client via a sparse composite (such as a client deployment
+ descriptor).</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceDelegateKey</code> - The instance of the service delegate related to this service</dd><dd><code>seiClass</code> - The SEI for the port to retrieve the RespectBinding setting for.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if RespectBinding is enabled; false otherwise.</dd></dl>
+</li>
+</ul>
+<a name="isAddressingConfigured(java.lang.Object, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isAddressingConfigured</h4>
+<pre>boolean&nbsp;isAddressingConfigured(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</pre>
+<div class="block">Answer whether Addressing was explicitly configured via metadata (such as a deployment descriptor) on the
+ service-requester.  Note that the related methods will return default values if Addressing was not explicitly
+ configured; otherwise they will return values set based on the metadata configuration.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceDelegateKey</code> - The instance of the service delegate related to this service</dd><dd><code>seiClass</code> - The SEI for the port to retrieve the setting for.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if Addressing was explicitly set via metadata, false otherwise.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isAddressingEnabled(java.lang.Object, java.lang.Class)"><code>isAddressingEnabled(Object, Class)</code></a>, 
+<a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isAddressingRequired(java.lang.Object, java.lang.Class)"><code>isAddressingRequired(Object, Class)</code></a>, 
+<a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#getAddressingResponses(java.lang.Object, java.lang.Class)"><code>getAddressingResponses(Object, Class)</code></a></dd></dl>
+</li>
+</ul>
+<a name="isAddressingEnabled(java.lang.Object, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isAddressingEnabled</h4>
+<pre>boolean&nbsp;isAddressingEnabled(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                          <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</pre>
+<div class="block">Answer whether Addressing is enabled on the service-requester.
+ Note that if addressing was not configured via metadata, then this method will return a default value,
+ otherwise it will return the value configured via metadata.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceDelegateKey</code> - The instance of the service delegate related to this service</dd><dd><code>seiClass</code> - The SEI for the port to retrieve the setting for.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if Addressing is enabled on the service-requester, false (default) otherwise</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isAddressingConfigured(java.lang.Object, java.lang.Class)"><code>isAddressingConfigured(Object, Class)</code></a></dd></dl>
+</li>
+</ul>
+<a name="isAddressingRequired(java.lang.Object, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isAddressingRequired</h4>
+<pre>boolean&nbsp;isAddressingRequired(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                           <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</pre>
+<div class="block">Answer whether Addressing is required on the service-requester.
+ Note that if addressing was not configured via metadata, then this method will return a default value,
+ otherwise it will return the value configured via metadata.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceDelegateKey</code> - The instance of the service delegate related to this service</dd><dd><code>seiClass</code> - The SEI for the port to retrieve the setting for.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if Addressing is required on the service-requester, false (default) otherwise</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isAddressingConfigured(java.lang.Object, java.lang.Class)"><code>isAddressingConfigured(Object, Class)</code></a></dd></dl>
+</li>
+</ul>
+<a name="getAddressingResponses(java.lang.Object, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getAddressingResponses</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/soap/AddressingFeature.Responses.html?is-external=true" title="class or interface in javax.xml.ws.soap">AddressingFeature.Responses</a>&nbsp;getAddressingResponses(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;serviceDelegateKey,
+                                                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;seiClass)</pre>
+<div class="block">Answer the type of Addressing responses required by the service-requester.
+ Note that if addressing was not configured via metadata, then this method will return a default value,
+ otherwise it will return the value configured via metadata.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceDelegateKey</code> - The instance of the service delegate related to this service</dd><dd><code>seiClass</code> - The SEI for the port to retrieve the setting for.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>AddressingFeature.Responses vale corresponding to the type of responses required by service-requester.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescription.html#isAddressingConfigured(java.lang.Object, java.lang.Class)"><code>isAddressingConfigured(Object, Class)</code></a></dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/ServiceDescription.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis2/jaxws/description/ResolvedHandlersDescription.html" title="interface in org.apache.axis2.jaxws.description"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/jaxws/description/ServiceDescriptionJava.html" title="interface in org.apache.axis2.jaxws.description"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis2/jaxws/description/ServiceDescription.html" target="_top">Frames</a></li>
+<li><a href="ServiceDescription.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &copy; <a href="https://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

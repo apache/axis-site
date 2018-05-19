@@ -1,0 +1,972 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>OperationDescription (Apache Axis2)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="OperationDescription (Apache Axis2)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/OperationDescription.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis2/jaxws/description/MethodRetriever.html" title="class in org.apache.axis2.jaxws.description"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescriptionJava.html" title="interface in org.apache.axis2.jaxws.description"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis2/jaxws/description/OperationDescription.html" target="_top">Frames</a></li>
+<li><a href="OperationDescription.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis2.jaxws.description</div>
+<h2 title="Interface OperationDescription" class="title">Interface OperationDescription</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public interface <span class="strong">OperationDescription</span></pre>
+<div class="block">An OperationDescripton corresponds to a method on an SEI.  That SEI could be explicit (i.e.
+ WebService.endpointInterface=sei.class) or implicit (i.e. public methods on the service
+ implementation are the contract and thus the implicit SEI).  Note that while
+ OperationDescriptions are created on both the client and service side, implicit SEIs will only
+ occur on the service side.
+ <p/>
+ OperationDescriptons contain information that is only relevent for and SEI-based service, i.e.
+ one that is invoked via specific methods.  This class does not exist for Provider-based services
+ (i.e. those that specify WebServiceProvider)
+ <p/>
+ <pre>
+ <b>OperationDescription details</b>
+ <p/>
+     CORRESPONDS TO:      A single operation on an SEI (on both Client and Server)
+ <p/>
+     AXIS2 DELEGATE:      AxisOperation
+ <p/>
+     CHILDREN:            0..n ParameterDescription
+                          0..n FaultDescription (Note: Not fully implemented)
+ <p/>
+     ANNOTATIONS:
+         WebMethod [181]
+         SOAPBinding [181]
+         Oneway [181]
+         WebResult [181]
+         RequestWrapper [224]
+         ResponseWrapper [224]
+ <p/>
+     WSDL ELEMENTS:
+         operation
+ <p/>
+  </pre></div>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#AXIS_OPERATION_PARAMETER">AXIS_OPERATION_PARAMETER</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#HEADER_PARAMETER_QNAMES">HEADER_PARAMETER_QNAMES</a></strong></code>
+<div class="block">Paramater set on AxisOperation which contains an ArrayList of SOAP header QNames
+ corresponding to SEI parameters.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getAction()">getAction</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/description/AxisOperation.html" title="class in org.apache.axis2.description">AxisOperation</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getAxisOperation()">getAxisOperation</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getBindingInputNamespace()">getBindingInputNamespace</a></strong>()</code>
+<div class="block">Returns the namespace of binding input message for the operation</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getBindingOutputNamespace()">getBindingOutputNamespace</a></strong>()</code>
+<div class="block">Returns the namespace of binding output message for the operation</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/EndpointInterfaceDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointInterfaceDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getEndpointInterfaceDescription()">getEndpointInterfaceDescription</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/FaultDescription.html" title="interface in org.apache.axis2.jaxws.description">FaultDescription</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getFaultDescriptions()">getFaultDescriptions</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getJavaDeclaringClassName()">getJavaDeclaringClassName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getJavaMethodName()">getJavaMethodName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getJavaParameters()">getJavaParameters</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getMethodFromServiceImpl(java.lang.Class)">getMethodFromServiceImpl</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceImpl)</code>
+<div class="block">Service implementation side only!</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getName()">getName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getOperationName()">getOperationName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/OperationRuntimeDescription.html" title="interface in org.apache.axis2.jaxws.description">OperationRuntimeDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getOperationRuntimeDesc(java.lang.String)">getOperationRuntimeDesc</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/ParameterDescription.html" title="interface in org.apache.axis2.jaxws.description">ParameterDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getParameterDescription(int)">getParameterDescription</a></strong>(int&nbsp;parameterNumber)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/ParameterDescription.html" title="interface in org.apache.axis2.jaxws.description">ParameterDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getParameterDescription(java.lang.String)">getParameterDescription</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameterName)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/ParameterDescription.html" title="interface in org.apache.axis2.jaxws.description">ParameterDescription</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getParameterDescriptions()">getParameterDescriptions</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getParamNames()">getParamNames</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getRequestWrapperClassName()">getRequestWrapperClassName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getRequestWrapperLocalName()">getRequestWrapperLocalName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getRequestWrapperPartName()">getRequestWrapperPartName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getRequestWrapperTargetNamespace()">getRequestWrapperTargetNamespace</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResponseWrapperClassName()">getResponseWrapperClassName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResponseWrapperLocalName()">getResponseWrapperLocalName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResponseWrapperPartName()">getResponseWrapperPartName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResponseWrapperTargetNamespace()">getResponseWrapperTargetNamespace</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResultActualType()">getResultActualType</a></strong>()</code>
+<div class="block">Return the actual Class of the type.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/AttachmentDescription.html" title="interface in org.apache.axis2.jaxws.description">AttachmentDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResultAttachmentDescription()">getResultAttachmentDescription</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResultName()">getResultName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResultPartName()">getResultPartName</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResultTargetNamespace()">getResultTargetNamespace</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResultType()">getResultType</a></strong>()</code>
+<div class="block">Return the Class of the return type.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getSEIMethod()">getSEIMethod</a></strong>()</code>
+<div class="block">Client side and non-DBC service side only!</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.ParameterStyle.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.ParameterStyle</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getSoapBindingParameterStyle()">getSoapBindingParameterStyle</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.Style.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.Style</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getSoapBindingStyle()">getSoapBindingStyle</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.Use.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.Use</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getSoapBindingUse()">getSoapBindingUse</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html" title="interface in org.apache.axis2.jaxws.description">OperationDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getSyncOperation()">getSyncOperation</a></strong>()</code>
+<div class="block">For JAX-WS client-side async operations, this will return the corresponding sync 
+ OperationDescription.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#hasRequestSwaRefAttachments()">hasRequestSwaRefAttachments</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#hasResponseSwaRefAttachments()">hasResponseSwaRefAttachments</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#isExcluded()">isExcluded</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#isJAXWSAsyncClientMethod()">isJAXWSAsyncClientMethod</a></strong>()</code>
+<div class="block">Answer if this operation corresponds to the JAX-WS Client-only async methods.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#isListType()">isListType</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#isOneWay()">isOneWay</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#isOperationReturningResult()">isOperationReturningResult</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#isResultHeader()">isResultHeader</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/description/FaultDescription.html" title="interface in org.apache.axis2.jaxws.description">FaultDescription</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#resolveFaultByExceptionName(java.lang.String)">resolveFaultByExceptionName</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;exceptionClassName)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#setHasRequestSwaRefAttachments(boolean)">setHasRequestSwaRefAttachments</a></strong>(boolean&nbsp;b)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#setHasResponseSwaRefAttachments(boolean)">setHasResponseSwaRefAttachments</a></strong>(boolean&nbsp;b)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#setOperationRuntimeDesc(org.apache.axis2.jaxws.description.OperationRuntimeDescription)">setOperationRuntimeDesc</a></strong>(<a href="../../../../../org/apache/axis2/jaxws/description/OperationRuntimeDescription.html" title="interface in org.apache.axis2.jaxws.description">OperationRuntimeDescription</a>&nbsp;ord)</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="HEADER_PARAMETER_QNAMES">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>HEADER_PARAMETER_QNAMES</h4>
+<pre>static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> HEADER_PARAMETER_QNAMES</pre>
+<div class="block">Paramater set on AxisOperation which contains an ArrayList of SOAP header QNames
+ corresponding to SEI parameters.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis2.jaxws.description.OperationDescription.HEADER_PARAMETER_QNAMES">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="AXIS_OPERATION_PARAMETER">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>AXIS_OPERATION_PARAMETER</h4>
+<pre>static final&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> AXIS_OPERATION_PARAMETER</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis2.jaxws.description.OperationDescription.AXIS_OPERATION_PARAMETER">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getEndpointInterfaceDescription()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEndpointInterfaceDescription</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/EndpointInterfaceDescription.html" title="interface in org.apache.axis2.jaxws.description">EndpointInterfaceDescription</a>&nbsp;getEndpointInterfaceDescription()</pre>
+</li>
+</ul>
+<a name="getFaultDescriptions()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFaultDescriptions</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/FaultDescription.html" title="interface in org.apache.axis2.jaxws.description">FaultDescription</a>[]&nbsp;getFaultDescriptions()</pre>
+</li>
+</ul>
+<a name="resolveFaultByExceptionName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resolveFaultByExceptionName</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/FaultDescription.html" title="interface in org.apache.axis2.jaxws.description">FaultDescription</a>&nbsp;resolveFaultByExceptionName(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;exceptionClassName)</pre>
+</li>
+</ul>
+<a name="getParameterDescription(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParameterDescription</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/ParameterDescription.html" title="interface in org.apache.axis2.jaxws.description">ParameterDescription</a>&nbsp;getParameterDescription(int&nbsp;parameterNumber)</pre>
+</li>
+</ul>
+<a name="getParameterDescription(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParameterDescription</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/ParameterDescription.html" title="interface in org.apache.axis2.jaxws.description">ParameterDescription</a>&nbsp;getParameterDescription(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameterName)</pre>
+</li>
+</ul>
+<a name="getParameterDescriptions()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParameterDescriptions</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/ParameterDescription.html" title="interface in org.apache.axis2.jaxws.description">ParameterDescription</a>[]&nbsp;getParameterDescriptions()</pre>
+</li>
+</ul>
+<a name="isListType()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isListType</h4>
+<pre>boolean&nbsp;isListType()</pre>
+</li>
+</ul>
+<a name="getAxisOperation()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAxisOperation</h4>
+<pre><a href="../../../../../org/apache/axis2/description/AxisOperation.html" title="class in org.apache.axis2.description">AxisOperation</a>&nbsp;getAxisOperation()</pre>
+</li>
+</ul>
+<a name="getJavaMethodName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getJavaMethodName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getJavaMethodName()</pre>
+</li>
+</ul>
+<a name="getJavaDeclaringClassName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getJavaDeclaringClassName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getJavaDeclaringClassName()</pre>
+</li>
+</ul>
+<a name="getJavaParameters()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getJavaParameters</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;getJavaParameters()</pre>
+</li>
+</ul>
+<a name="getSEIMethod()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSEIMethod</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a>&nbsp;getSEIMethod()</pre>
+<div class="block">Client side and non-DBC service side only! Return the SEI method for which a
+ service.getPort(Class SEIClass) created the EndpointDescriptionInterface and the associated
+ OperationDescriptions.  Returns null on the service implementation side.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getMethodFromServiceImpl(java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMethodFromServiceImpl</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a>&nbsp;getMethodFromServiceImpl(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;serviceImpl)</pre>
+<div class="block">Service implementation side only!  Given a service implementation class, find the method on
+ that class that corresponds to this operation description.  This is necessary because on the
+ service impl side, the OperationDescriptions can be built using byte-scanning and without the
+ class actually having been loaded.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceImpl</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="isJAXWSAsyncClientMethod()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isJAXWSAsyncClientMethod</h4>
+<pre>boolean&nbsp;isJAXWSAsyncClientMethod()</pre>
+<div class="block">Answer if this operation corresponds to the JAX-WS Client-only async methods.  These methods
+ are of the form: javax.xml.ws.Response<T> method(...) java.util.concurrent.Future<?>
+ method(..., javax.xml.ws.AsyncHandler<T>)</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;getName()</pre>
+</li>
+</ul>
+<a name="getOperationName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOperationName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getOperationName()</pre>
+</li>
+</ul>
+<a name="getAction()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAction</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getAction()</pre>
+</li>
+</ul>
+<a name="isOneWay()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isOneWay</h4>
+<pre>boolean&nbsp;isOneWay()</pre>
+</li>
+</ul>
+<a name="isExcluded()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isExcluded</h4>
+<pre>boolean&nbsp;isExcluded()</pre>
+</li>
+</ul>
+<a name="isOperationReturningResult()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isOperationReturningResult</h4>
+<pre>boolean&nbsp;isOperationReturningResult()</pre>
+</li>
+</ul>
+<a name="getResultName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResultName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getResultName()</pre>
+</li>
+</ul>
+<a name="getResultTargetNamespace()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResultTargetNamespace</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getResultTargetNamespace()</pre>
+</li>
+</ul>
+<a name="getResultPartName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResultPartName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getResultPartName()</pre>
+</li>
+</ul>
+<a name="isResultHeader()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isResultHeader</h4>
+<pre>boolean&nbsp;isResultHeader()</pre>
+</li>
+</ul>
+<a name="getResultType()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResultType</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;getResultType()</pre>
+<div class="block">Return the Class of the return type.  For JAX-WS async returns of type Response<T> or
+ AsyncHandler<T>, the class associated with Response or AsyncHanler respectively is returned.
+ To get the class associated with <T></div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Class</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html#getResultActualType()"><code>getResultActualType()</code></a></dd></dl>
+</li>
+</ul>
+<a name="getResultActualType()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResultActualType</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;getResultActualType()</pre>
+<div class="block">Return the actual Class of the type.  For a JAX-WS async return type of Response<T> or
+ AsyncHandler<T>, the class associated with <T> is returned.  For non-JAX-WS async returns,
+ the class associated with the return type is returned.  Note that for a Generic return type,
+ such as List<Foo>, the class associated with List will be returned.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>actual Class</dd></dl>
+</li>
+</ul>
+<a name="getRequestWrapperClassName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRequestWrapperClassName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestWrapperClassName()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the class name of the wrapper class. NOTE: This method will return null if the
+         request wrapper class is not known during the description layer processing. In such
+         cases the implementation may use proprietary code to find the class. For example,
+         JAXWS may look for a matching class in the sei package, in a special jaxws package or
+         proceed without the class name</dd></dl>
+</li>
+</ul>
+<a name="getRequestWrapperTargetNamespace()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRequestWrapperTargetNamespace</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestWrapperTargetNamespace()</pre>
+</li>
+</ul>
+<a name="getRequestWrapperLocalName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRequestWrapperLocalName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestWrapperLocalName()</pre>
+</li>
+</ul>
+<a name="getRequestWrapperPartName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRequestWrapperPartName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestWrapperPartName()</pre>
+</li>
+</ul>
+<a name="getResponseWrapperClassName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResponseWrapperClassName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getResponseWrapperClassName()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the class name of the wrapper class. NOTE: This method will return null if the
+         request wrapper class is not known during the description layer processing. In such
+         cases the implementation may use proprietary code to find the class. For example,
+         JAXWS may look for a matching class in the sei package, in a special jaxws package or
+         proceed without the class name</dd></dl>
+</li>
+</ul>
+<a name="getResponseWrapperTargetNamespace()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResponseWrapperTargetNamespace</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getResponseWrapperTargetNamespace()</pre>
+</li>
+</ul>
+<a name="getResponseWrapperLocalName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResponseWrapperLocalName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getResponseWrapperLocalName()</pre>
+</li>
+</ul>
+<a name="getResponseWrapperPartName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResponseWrapperPartName</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getResponseWrapperPartName()</pre>
+</li>
+</ul>
+<a name="getParamNames()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParamNames</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;getParamNames()</pre>
+</li>
+</ul>
+<a name="getSoapBindingParameterStyle()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSoapBindingParameterStyle</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.ParameterStyle.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.ParameterStyle</a>&nbsp;getSoapBindingParameterStyle()</pre>
+</li>
+</ul>
+<a name="getSoapBindingStyle()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSoapBindingStyle</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.Style.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.Style</a>&nbsp;getSoapBindingStyle()</pre>
+</li>
+</ul>
+<a name="getSoapBindingUse()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSoapBindingUse</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.Use.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.Use</a>&nbsp;getSoapBindingUse()</pre>
+</li>
+</ul>
+<a name="getOperationRuntimeDesc(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOperationRuntimeDesc</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/OperationRuntimeDescription.html" title="interface in org.apache.axis2.jaxws.description">OperationRuntimeDescription</a>&nbsp;getOperationRuntimeDesc(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+</li>
+</ul>
+<a name="setOperationRuntimeDesc(org.apache.axis2.jaxws.description.OperationRuntimeDescription)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperationRuntimeDesc</h4>
+<pre>void&nbsp;setOperationRuntimeDesc(<a href="../../../../../org/apache/axis2/jaxws/description/OperationRuntimeDescription.html" title="interface in org.apache.axis2.jaxws.description">OperationRuntimeDescription</a>&nbsp;ord)</pre>
+</li>
+</ul>
+<a name="getSyncOperation()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSyncOperation</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescription.html" title="interface in org.apache.axis2.jaxws.description">OperationDescription</a>&nbsp;getSyncOperation()</pre>
+<div class="block">For JAX-WS client-side async operations, this will return the corresponding sync 
+ OperationDescription.
+ 
+ Note that if this method is used within the metadata layer, it is possible that it will return
+ null.  That will happen if the metadata layer is constructed from annotations on the SEI 
+ (not WSDL).  In that case, it is possible that the async methods on the SEI are processed 
+ before the sync method.  In that case, there will be no sync method yet.  If this method
+ is called outside the metadata layer, then if the async methods exist, the sync method
+ should also exist.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>OperationDescription corresponding to the sync operation, or null (see note above).</dd></dl>
+</li>
+</ul>
+<a name="getResultAttachmentDescription()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResultAttachmentDescription</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/description/AttachmentDescription.html" title="interface in org.apache.axis2.jaxws.description">AttachmentDescription</a>&nbsp;getResultAttachmentDescription()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Attachment Description for the return type or null</dd></dl>
+</li>
+</ul>
+<a name="getBindingInputNamespace()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBindingInputNamespace</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getBindingInputNamespace()</pre>
+<div class="block">Returns the namespace of binding input message for the operation</div>
+</li>
+</ul>
+<a name="getBindingOutputNamespace()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBindingOutputNamespace</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getBindingOutputNamespace()</pre>
+<div class="block">Returns the namespace of binding output message for the operation</div>
+</li>
+</ul>
+<a name="hasRequestSwaRefAttachments()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasRequestSwaRefAttachments</h4>
+<pre>boolean&nbsp;hasRequestSwaRefAttachments()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>a boolean indicator of nested swaRef attachments on the request.</dd></dl>
+</li>
+</ul>
+<a name="setHasRequestSwaRefAttachments(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setHasRequestSwaRefAttachments</h4>
+<pre>void&nbsp;setHasRequestSwaRefAttachments(boolean&nbsp;b)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>sets</code> - the indicator of nested request swaRef attachments.</dd></dl>
+</li>
+</ul>
+<a name="hasResponseSwaRefAttachments()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hasResponseSwaRefAttachments</h4>
+<pre>boolean&nbsp;hasResponseSwaRefAttachments()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>a boolean indicator of nested swaRef attachments on the response.</dd></dl>
+</li>
+</ul>
+<a name="setHasResponseSwaRefAttachments(boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setHasResponseSwaRefAttachments</h4>
+<pre>void&nbsp;setHasResponseSwaRefAttachments(boolean&nbsp;b)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>sets</code> - the indicator of nested response swaRef attachments.</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/OperationDescription.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis2/jaxws/description/MethodRetriever.html" title="class in org.apache.axis2.jaxws.description"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis2/jaxws/description/OperationDescriptionJava.html" title="interface in org.apache.axis2.jaxws.description"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis2/jaxws/description/OperationDescription.html" target="_top">Frames</a></li>
+<li><a href="OperationDescription.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &copy; <a href="https://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>
