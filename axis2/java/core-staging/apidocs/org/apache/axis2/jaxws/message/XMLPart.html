@@ -1,0 +1,940 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>XMLPart (Apache Axis2)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="XMLPart (Apache Axis2)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/XMLPart.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis2/jaxws/message/XMLFaultReason.html" title="class in org.apache.axis2.jaxws.message"><span class="strong">Prev Class</span></a></li>
+<li>Next Class</li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis2/jaxws/message/XMLPart.html" target="_top">Frames</a></li>
+<li><a href="XMLPart.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis2.jaxws.message</div>
+<h2 title="Interface XMLPart" class="title">Interface XMLPart</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Known Subinterfaces:</dt>
+<dd><a href="../../../../../org/apache/axis2/jaxws/message/Message.html" title="interface in org.apache.axis2.jaxws.message">Message</a></dd>
+</dl>
+<dl>
+<dt>All Known Implementing Classes:</dt>
+<dd><a href="../../../../../org/apache/axis2/jaxws/message/impl/MessageImpl.html" title="class in org.apache.axis2.jaxws.message.impl">MessageImpl</a>, <a href="../../../../../org/apache/axis2/jaxws/message/impl/XMLPartBase.html" title="class in org.apache.axis2.jaxws.message.impl">XMLPartBase</a>, <a href="../../../../../org/apache/axis2/jaxws/message/impl/XMLPartImpl.html" title="class in org.apache.axis2.jaxws.message.impl">XMLPartImpl</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public interface <span class="strong">XMLPart</span></pre>
+<div class="block">XMLPart
+ 
+ The XML portion of a Message
+ 
+ The JAX-WS implementation (proxy, message receiver, etc.) interact with the 
+ Message via Blocks.  A Block is represented in the message as a root element tree 
+ in either the header, body or fault detail section.  The Blocks can be easily
+ decomposed into business objects (which are needed on the JAX-WS interfaces).
+ 
+ In addition, the JAX-WS handler model requires that the XMLPart be exposed as
+ an SAAJ SOAPEnvelope.  
+ 
+ The XMLPart abstraction hides the details of the message transformations from
+ the JAX-WS implementation.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis2/jaxws/message/Message.html" title="interface in org.apache.axis2.jaxws.message"><code>Message</code></a>, 
+<a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message"><code>Block</code></a>, 
+<a href="../../../../../org/apache/axis2/jaxws/message/impl/XMLPartBase.html" title="class in org.apache.axis2.jaxws.message.impl"><code>for implementation details</code></a></dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#appendHeaderBlock(java.lang.String, java.lang.String, org.apache.axis2.jaxws.message.Block)">appendHeaderBlock</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart,
+                 <a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;block)</code>
+<div class="block">appendHeaderBlock 
+ Append the block to the list of header blocks.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#close()">close</a></strong>()</code>
+<div class="block">Used primarily to ensure the parser is forwarded to the end so it can be closed.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getAsOMElement()">getAsOMElement</a></strong>()</code>
+<div class="block">getAsOMElement Get the xml part as a read/write OM...note this returns an OM SOAPEnvelope for
+ all protocols...even REST</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPEnvelope.html?is-external=true" title="class or interface in javax.xml.soap">SOAPEnvelope</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getAsSOAPEnvelope()">getAsSOAPEnvelope</a></strong>()</code>
+<div class="block">getAsEnvelope Get the xml part as a read/write SOAPEnvelope</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getBodyBlock(int, java.lang.Object, org.apache.axis2.jaxws.message.factory.BlockFactory)">getBodyBlock</a></strong>(int&nbsp;index,
+            <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;context,
+            <a href="../../../../../org/apache/axis2/jaxws/message/factory/BlockFactory.html" title="interface in org.apache.axis2.jaxws.message.factory">BlockFactory</a>&nbsp;blockFactory)</code>
+<div class="block">getBodyBlock Get the body block at the specificed index.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getBodyBlock(java.lang.Object, org.apache.axis2.jaxws.message.factory.BlockFactory)">getBodyBlock</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;context,
+            <a href="../../../../../org/apache/axis2/jaxws/message/factory/BlockFactory.html" title="interface in org.apache.axis2.jaxws.message.factory">BlockFactory</a>&nbsp;blockFactory)</code>
+<div class="block">getBodyBlock Get the single Body Block.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getBodyBlockQNames()">getBodyBlockQNames</a></strong>()</code>
+<div class="block">getBodyBlockQNames 
+ Calling this method will cache the OM.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getHeaderBlock(java.lang.String, java.lang.String, java.lang.Object, org.apache.axis2.jaxws.message.factory.BlockFactory)">getHeaderBlock</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart,
+              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;context,
+              <a href="../../../../../org/apache/axis2/jaxws/message/factory/BlockFactory.html" title="interface in org.apache.axis2.jaxws.message.factory">BlockFactory</a>&nbsp;blockFactory)</code>
+<div class="block">getHeaderBlock 
+ Get the firstheader block with the specified name.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getHeaderBlocks(java.lang.String, java.lang.String, java.lang.Object, org.apache.axis2.jaxws.message.factory.BlockFactory, org.apache.axiom.soap.RolePlayer)">getHeaderBlocks</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+               <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart,
+               <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;context,
+               <a href="../../../../../org/apache/axis2/jaxws/message/factory/BlockFactory.html" title="interface in org.apache.axis2.jaxws.message.factory">BlockFactory</a>&nbsp;blockFactory,
+               <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/RolePlayer.html?is-external=true" title="class or interface in org.apache.axiom.soap">RolePlayer</a>&nbsp;rolePlayer)</code>
+<div class="block">getHeaderBlock 
+ Get the header blocks with the specified name
+ The BlockFactory and object context
+ are passed in to help create the proper kind of block.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getHeaderQNames()">getHeaderQNames</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getIndirection()">getIndirection</a></strong>()</code>
+<div class="block">Get indirection.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getNumBodyBlocks()">getNumBodyBlocks</a></strong>()</code>
+<div class="block">getNumBodyBlocks Calling this method will cache the OM.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getNumHeaderBlocks()">getNumHeaderBlocks</a></strong>()</code>
+<div class="block">getNumHeaderBlocks</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getOperationElement()">getOperationElement</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/message/Message.html" title="interface in org.apache.axis2.jaxws.message">Message</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getParent()">getParent</a></strong>()</code>
+<div class="block">getParent Get the Message object that this XMLPart is attached to, if it is attached to one
+ at all.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/message/Protocol.html" title="enum in org.apache.axis2.jaxws.message">Protocol</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getProtocol()">getProtocol</a></strong>()</code>
+<div class="block">Get the protocol for this Message (soap11, soap12, etc.)</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.Style.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.Style</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getStyle()">getStyle</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis2/jaxws/message/XMLFault.html" title="class in org.apache.axis2.jaxws.message">XMLFault</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getXMLFault()">getXMLFault</a></strong>()</code>
+<div class="block">If the XMLPart represents a fault, an XMLFault is returned which describes the fault in a
+ protocol agnostic manner</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getXMLPartContentType()">getXMLPartContentType</a></strong>()</code>
+<div class="block">The representation of the XMLPart may be in a number of different forms.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getXMLStreamReader(boolean)">getXMLStreamReader</a></strong>(boolean&nbsp;consume)</code>
+<div class="block">Get the XMLStreamReader represented by this Message for the xml part</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#isConsumed()">isConsumed</a></strong>()</code>
+<div class="block">isConsumed Return true if the part is consumed.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#isFault()">isFault</a></strong>()</code>
+<div class="block">Determines whether the XMLPart represents a Fault</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#outputTo(javax.xml.stream.XMLStreamWriter, boolean)">outputTo</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamWriter.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamWriter</a>&nbsp;writer,
+        boolean&nbsp;consume)</code>
+<div class="block">Write out the Message</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#removeBodyBlock(int)">removeBodyBlock</a></strong>(int&nbsp;index)</code>
+<div class="block">removeBodyBlock Removes the indicated BodyBlock</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#removeHeaderBlock(java.lang.String, java.lang.String)">removeHeaderBlock</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart)</code>
+<div class="block">removeHeaderBlock
+ Removes all header blocks with this namespace/localpart</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#setBodyBlock(org.apache.axis2.jaxws.message.Block)">setBodyBlock</a></strong>(<a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;block)</code>
+<div class="block">setBodyBlock Set this as block as the single block for the message.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#setBodyBlock(int, org.apache.axis2.jaxws.message.Block)">setBodyBlock</a></strong>(int&nbsp;index,
+            <a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;block)</code>
+<div class="block">setBodyBlock Set the block at the specified index Once set, the Message owns the block.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#setHeaderBlock(java.lang.String, java.lang.String, org.apache.axis2.jaxws.message.Block)">setHeaderBlock</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart,
+              <a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;block)</code>
+<div class="block">setHeaderBlock 
+ replaces the first existing header block with this new block.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#setIndirection(int)">setIndirection</a></strong>(int&nbsp;indirection)</code>
+<div class="block">Set indirection.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#setOperationElement(javax.xml.namespace.QName)">setOperationElement</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;operationQName)</code>
+<div class="block">Set the operation element qname.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#setParent(org.apache.axis2.jaxws.message.Message)">setParent</a></strong>(<a href="../../../../../org/apache/axis2/jaxws/message/Message.html" title="interface in org.apache.axis2.jaxws.message">Message</a>&nbsp;m)</code>
+<div class="block">setParent Set the Message object that will hold this XMLPart</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#setStyle(javax.jws.soap.SOAPBinding.Style)">setStyle</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.Style.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.Style</a>&nbsp;style)</code>
+<div class="block">Set the Style.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#setXMLFault(org.apache.axis2.jaxws.message.XMLFault)">setXMLFault</a></strong>(<a href="../../../../../org/apache/axis2/jaxws/message/XMLFault.html" title="class in org.apache.axis2.jaxws.message">XMLFault</a>&nbsp;xmlFault)</code>
+<div class="block">Change the XMLPart so that it represents the fault described by XMLFault</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis2/jaxws/message/XMLPart.html#traceString(java.lang.String)">traceString</a></strong>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;indent)</code>
+<div class="block">Get a traceString...the trace string dumps the contents of the Block without forcing an
+ underlying ill-performant transformation of the message.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getProtocol()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProtocol</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/message/Protocol.html" title="enum in org.apache.axis2.jaxws.message">Protocol</a>&nbsp;getProtocol()</pre>
+<div class="block">Get the protocol for this Message (soap11, soap12, etc.)</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Protocl</dd></dl>
+</li>
+</ul>
+<a name="outputTo(javax.xml.stream.XMLStreamWriter, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>outputTo</h4>
+<pre>void&nbsp;outputTo(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamWriter.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamWriter</a>&nbsp;writer,
+            boolean&nbsp;consume)
+              throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
+                     <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">Write out the Message</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>writer</code> - XMLStreamWriter</dd><dd><code>consume</code> - true if this is the last request on the block.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getXMLStreamReader(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getXMLStreamReader</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a>&nbsp;getXMLStreamReader(boolean&nbsp;consume)
+                                   throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">Get the XMLStreamReader represented by this Message for the xml part</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>consume</code> - true if this is the last request on the Message</dd>
+<dt><span class="strong">Returns:</span></dt><dd>XMLStreamReader</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getStyle()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getStyle</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.Style.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.Style</a>&nbsp;getStyle()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the Style (document or rpc)</dd></dl>
+</li>
+</ul>
+<a name="setStyle(javax.jws.soap.SOAPBinding.Style)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setStyle</h4>
+<pre>void&nbsp;setStyle(<a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.Style.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.Style</a>&nbsp;style)
+              throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">Set the Style. If the style is DOCUMENT, the body blocks are located underneath the body
+ element. If the style is set to RPC, then the body blocks are located underneath the rpc
+ operation.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>style</code> - Style</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><code>indirection</code></dd></dl>
+</li>
+</ul>
+<a name="setIndirection(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setIndirection</h4>
+<pre>void&nbsp;setIndirection(int&nbsp;indirection)</pre>
+<div class="block">Set indirection.  Used to force the code to look for blocks at a particular location. For
+ DOCUMENT the default is 0 For RPC the default is 1 This method is used to override these
+ settings for special cases.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>indirection</code> - (0 or 1)</dd></dl>
+</li>
+</ul>
+<a name="getIndirection()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIndirection</h4>
+<pre>int&nbsp;getIndirection()</pre>
+<div class="block">Get indirection.  Used to force the code to look for blocks at a particular location. For
+ DOCUMENT the default is 0 For RPC the default is 1 This method is used to override these
+ settings for special cases.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>indirection (0 or 1)</dd></dl>
+</li>
+</ul>
+<a name="getOperationElement()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOperationElement</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;getOperationElement()
+                          throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the QName of the operation element if Style.rpc.  Otherwise null</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="setOperationElement(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperationElement</h4>
+<pre>void&nbsp;setOperationElement(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&nbsp;operationQName)
+                         throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">Set the operation element qname.  The operation qname is only used if Style.rpc</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>operationQName</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="isConsumed()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isConsumed</h4>
+<pre>boolean&nbsp;isConsumed()</pre>
+<div class="block">isConsumed Return true if the part is consumed.  Once consumed, the information in the part is
+ no longer available.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>true if the block is consumed (a method was called with consume=true)</dd></dl>
+</li>
+</ul>
+<a name="isFault()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isFault</h4>
+<pre>boolean&nbsp;isFault()
+                throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">Determines whether the XMLPart represents a Fault</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>true if the message represents a fault</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getXMLFault()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getXMLFault</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/message/XMLFault.html" title="class in org.apache.axis2.jaxws.message">XMLFault</a>&nbsp;getXMLFault()
+                     throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">If the XMLPart represents a fault, an XMLFault is returned which describes the fault in a
+ protocol agnostic manner</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the XMLFault object or null</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis2/jaxws/message/XMLFault.html" title="class in org.apache.axis2.jaxws.message"><code>XMLFault</code></a></dd></dl>
+</li>
+</ul>
+<a name="setXMLFault(org.apache.axis2.jaxws.message.XMLFault)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setXMLFault</h4>
+<pre>void&nbsp;setXMLFault(<a href="../../../../../org/apache/axis2/jaxws/message/XMLFault.html" title="class in org.apache.axis2.jaxws.message">XMLFault</a>&nbsp;xmlFault)
+                 throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">Change the XMLPart so that it represents the fault described by XMLFault</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>xmlfault</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis2/jaxws/message/XMLFault.html" title="class in org.apache.axis2.jaxws.message"><code>XMLFault</code></a></dd></dl>
+</li>
+</ul>
+<a name="getParent()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParent</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/message/Message.html" title="interface in org.apache.axis2.jaxws.message">Message</a>&nbsp;getParent()</pre>
+<div class="block">getParent Get the Message object that this XMLPart is attached to, if it is attached to one
+ at all.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setParent(org.apache.axis2.jaxws.message.Message)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setParent</h4>
+<pre>void&nbsp;setParent(<a href="../../../../../org/apache/axis2/jaxws/message/Message.html" title="interface in org.apache.axis2.jaxws.message">Message</a>&nbsp;m)</pre>
+<div class="block">setParent Set the Message object that will hold this XMLPart</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>m</code> - </dd></dl>
+</li>
+</ul>
+<a name="getAsSOAPEnvelope()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAsSOAPEnvelope</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPEnvelope.html?is-external=true" title="class or interface in javax.xml.soap">SOAPEnvelope</a>&nbsp;getAsSOAPEnvelope()
+                               throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">getAsEnvelope Get the xml part as a read/write SOAPEnvelope</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>SOAPEnvelope</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getAsOMElement()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAsOMElement</h4>
+<pre><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;getAsOMElement()
+                         throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">getAsOMElement Get the xml part as a read/write OM...note this returns an OM SOAPEnvelope for
+ all protocols...even REST</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>OMElement</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getNumBodyBlocks()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNumBodyBlocks</h4>
+<pre>int&nbsp;getNumBodyBlocks()
+                     throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">getNumBodyBlocks Calling this method will cache the OM.  Avoid it in performant situations.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>number of body blocks</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getBodyBlockQNames()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBodyBlockQNames</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;&nbsp;getBodyBlockQNames()
+                               throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">getBodyBlockQNames 
+ Calling this method will cache the OM.  Avoid it in performant situations.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>List of QNames</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getBodyBlock(int, java.lang.Object, org.apache.axis2.jaxws.message.factory.BlockFactory)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBodyBlock</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;getBodyBlock(int&nbsp;index,
+                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;context,
+                 <a href="../../../../../org/apache/axis2/jaxws/message/factory/BlockFactory.html" title="interface in org.apache.axis2.jaxws.message.factory">BlockFactory</a>&nbsp;blockFactory)
+                   throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">getBodyBlock Get the body block at the specificed index. The BlockFactory and object context are
+ passed in to help create the proper kind of block. Calling this method will cache the OM.  Avoid
+ it in performant situations.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - </dd><dd><code>context</code> - </dd><dd><code>blockFactory</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd>Block or null</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><code>getBodyBlock</code></dd></dl>
+</li>
+</ul>
+<a name="getBodyBlock(java.lang.Object, org.apache.axis2.jaxws.message.factory.BlockFactory)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBodyBlock</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;getBodyBlock(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;context,
+                 <a href="../../../../../org/apache/axis2/jaxws/message/factory/BlockFactory.html" title="interface in org.apache.axis2.jaxws.message.factory">BlockFactory</a>&nbsp;blockFactory)
+                   throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">getBodyBlock Get the single Body Block. The BlockFactory and object context are passed in to
+ help create the proper kind of block. This method should only be invoked when it is known
+ that there is zero or one block.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - </dd><dd><code>context</code> - </dd><dd><code>blockFactory</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd>Block or null</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="setBodyBlock(int, org.apache.axis2.jaxws.message.Block)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBodyBlock</h4>
+<pre>void&nbsp;setBodyBlock(int&nbsp;index,
+                <a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;block)
+                  throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">setBodyBlock Set the block at the specified index Once set, the Message owns the block.  You
+ must use the getBodyBlock method to access it.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - </dd><dd><code>block</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="setBodyBlock(org.apache.axis2.jaxws.message.Block)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBodyBlock</h4>
+<pre>void&nbsp;setBodyBlock(<a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;block)
+                  throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">setBodyBlock Set this as block as the single block for the message.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - </dd><dd><code>block</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="removeBodyBlock(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeBodyBlock</h4>
+<pre>void&nbsp;removeBodyBlock(int&nbsp;index)
+                     throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">removeBodyBlock Removes the indicated BodyBlock</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getNumHeaderBlocks()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNumHeaderBlocks</h4>
+<pre>int&nbsp;getNumHeaderBlocks()
+                       throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">getNumHeaderBlocks</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>number of header blocks</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getHeaderBlock(java.lang.String, java.lang.String, java.lang.Object, org.apache.axis2.jaxws.message.factory.BlockFactory)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHeaderBlock</h4>
+<pre><a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;getHeaderBlock(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+                   <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart,
+                   <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;context,
+                   <a href="../../../../../org/apache/axis2/jaxws/message/factory/BlockFactory.html" title="interface in org.apache.axis2.jaxws.message.factory">BlockFactory</a>&nbsp;blockFactory)
+                     throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">getHeaderBlock 
+ Get the firstheader block with the specified name.
+ The BlockFactory and object context
+ are passed in to help create the proper kind of block.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - </dd><dd><code>localPart</code> - </dd><dd><code>context</code> - </dd><dd><code>blockFactory</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd>Block</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getHeaderBlocks(java.lang.String, java.lang.String, java.lang.Object, org.apache.axis2.jaxws.message.factory.BlockFactory, org.apache.axiom.soap.RolePlayer)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHeaderBlocks</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&gt;&nbsp;getHeaderBlocks(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+                          <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart,
+                          <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;context,
+                          <a href="../../../../../org/apache/axis2/jaxws/message/factory/BlockFactory.html" title="interface in org.apache.axis2.jaxws.message.factory">BlockFactory</a>&nbsp;blockFactory,
+                          <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/RolePlayer.html?is-external=true" title="class or interface in org.apache.axiom.soap">RolePlayer</a>&nbsp;rolePlayer)
+                            throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">getHeaderBlock 
+ Get the header blocks with the specified name
+ The BlockFactory and object context
+ are passed in to help create the proper kind of block.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - uri of header</dd><dd><code>localPart</code> - local name of header</dd><dd><code>context</code> - context for blockFactory</dd><dd><code>blockFactory</code> - kind of factory (i.e. JAXB)</dd><dd><code>RolePlayer</code> - determines acceptable roles (or null)</dd>
+<dt><span class="strong">Returns:</span></dt><dd>List<Block></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="setHeaderBlock(java.lang.String, java.lang.String, org.apache.axis2.jaxws.message.Block)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setHeaderBlock</h4>
+<pre>void&nbsp;setHeaderBlock(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+                  <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart,
+                  <a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;block)
+                    throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">setHeaderBlock 
+ replaces the first existing header block with this new block.  If there is no
+ existing header block, one is added to the end of the headers</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - </dd><dd><code>localPart</code> - </dd><dd><code>block</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="appendHeaderBlock(java.lang.String, java.lang.String, org.apache.axis2.jaxws.message.Block)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>appendHeaderBlock</h4>
+<pre>void&nbsp;appendHeaderBlock(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+                     <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart,
+                     <a href="../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&nbsp;block)
+                       throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">appendHeaderBlock 
+ Append the block to the list of header blocks. The Message owns the block.
+ You must use the getHeaderBlock method to access it.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - </dd><dd><code>localPart</code> - </dd><dd><code>block</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getHeaderQNames()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHeaderQNames</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/namespace/QName.html?is-external=true" title="class or interface in javax.xml.namespace">QName</a>&gt;&nbsp;getHeaderQNames()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>QNames of headers</dd></dl>
+</li>
+</ul>
+<a name="removeHeaderBlock(java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeHeaderBlock</h4>
+<pre>void&nbsp;removeHeaderBlock(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+                     <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart)
+                       throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<div class="block">removeHeaderBlock
+ Removes all header blocks with this namespace/localpart</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - </dd><dd><code>localPart</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd></dl>
+</li>
+</ul>
+<a name="traceString(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>traceString</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;traceString(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;indent)</pre>
+<div class="block">Get a traceString...the trace string dumps the contents of the Block without forcing an
+ underlying ill-performant transformation of the message.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>String containing trace information</dd></dl>
+</li>
+</ul>
+<a name="getXMLPartContentType()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getXMLPartContentType</h4>
+<pre><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getXMLPartContentType()</pre>
+<div class="block">The representation of the XMLPart may be in a number of different forms.  Currently the forms
+ are UNKNOWN, OM, SOAPENVELOPE, and SPINE.  This method returns a String containing one of
+ these types.  This method should only be used for trace and testing purposes.  The consumer
+ of a Message should not make any decisions based on the representation of the XMLPart</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>String</dd></dl>
+</li>
+</ul>
+<a name="close()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>close</h4>
+<pre>void&nbsp;close()</pre>
+<div class="block">Used primarily to ensure the parser is forwarded to the end so it can be closed.</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/XMLPart.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis2/jaxws/message/XMLFaultReason.html" title="class in org.apache.axis2.jaxws.message"><span class="strong">Prev Class</span></a></li>
+<li>Next Class</li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis2/jaxws/message/XMLPart.html" target="_top">Frames</a></li>
+<li><a href="XMLPart.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright &copy; <a href="https://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>
