@@ -44,7 +44,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/axis2/transport/base/tracker/package-summary.html">Prev&nbsp;Package</a></li>
-<li><a href="../../../../../org/apache/axis2/transport/http/impl/httpclient3/package-summary.html">Next&nbsp;Package</a></li>
+<li><a href="../../../../../org/apache/axis2/transport/http/impl/httpclient4/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/axis2/transport/http/package-summary.html" target="_top">Frames</a></li>
@@ -86,6 +86,12 @@
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HTTPTransportSender.html" title="interface in org.apache.axis2.transport.http">HTTPTransportSender</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/Request.html" title="interface in org.apache.axis2.transport.http">Request</a></td>
+<td class="colLast">
+<div class="block">Interface to prepare and execute an HTTP request.</div>
+</td>
+</tr>
 </tbody>
 </table>
 </li>
@@ -104,8 +110,10 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPSender.html" title="class in org.apache.axis2.transport.http">AbstractHTTPSender</a></td>
-<td class="colLast">&nbsp;</td>
+<td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/AbstractHTTPTransportSender.html" title="class in org.apache.axis2.transport.http">AbstractHTTPTransportSender</a></td>
+<td class="colLast">
+<div class="block">Base class for Apache HttpClient (3.1 or 4.x) based transport senders.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/ApplicationXMLFormatter.html" title="class in org.apache.axis2.transport.http">ApplicationXMLFormatter</a></td>
@@ -139,132 +147,101 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/CommonsHTTPTransportSender.html" title="class in org.apache.axis2.transport.http">CommonsHTTPTransportSender</a></td>
-<td class="colLast">
-<div class="block">The Class CommonsHTTPTransportSender use Commons-HTTPclient 3.1.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/CommonsTransportHeaders.html" title="class in org.apache.axis2.transport.http">CommonsTransportHeaders</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/ForbidSessionCreationWrapper.html" title="class in org.apache.axis2.transport.http">ForbidSessionCreationWrapper</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HTTPAuthenticator.html" title="class in org.apache.axis2.transport.http">HTTPAuthenticator</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HTTPConstants.html" title="class in org.apache.axis2.transport.http">HTTPConstants</a></td>
 <td class="colLast">
 <div class="block">HTTP protocol and message context constants.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.html" title="class in org.apache.axis2.transport.http">HTTPSender</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HTTPTransportConstants.html" title="class in org.apache.axis2.transport.http">HTTPTransportConstants</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.html" title="class in org.apache.axis2.transport.http">HttpTransportProperties</a></td>
 <td class="colLast">
 <div class="block">Utility bean for setting transport properties in runtime.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.MailProperties.html" title="class in org.apache.axis2.transport.http">HttpTransportProperties.MailProperties</a></td>
 <td class="colLast">Deprecated
 <div class="block"><span class="deprecationComment">org.apache.axis2.transport.http.HttpTransportProperties.MailProperties has been
  deprecated and user are encourage the use of java.util.Properties instead.</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HttpTransportProperties.ProxyProperties.html" title="class in org.apache.axis2.transport.http">HttpTransportProperties.ProxyProperties</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HTTPTransportReceiver.html" title="class in org.apache.axis2.transport.http">HTTPTransportReceiver</a></td>
 <td class="colLast">
 <div class="block">Class HTTPTransportReceiver</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HTTPTransportUtils.html" title="class in org.apache.axis2.transport.http">HTTPTransportUtils</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HTTPWorker.html" title="class in org.apache.axis2.transport.http">HTTPWorker</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HTTPWorkerFactory.html" title="class in org.apache.axis2.transport.http">HTTPWorkerFactory</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/ListingAgent.html" title="class in org.apache.axis2.transport.http">ListingAgent</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/MultipartFormDataFormatter.html" title="class in org.apache.axis2.transport.http">MultipartFormDataFormatter</a></td>
 <td class="colLast">
 <div class="block">Formates the request message as multipart/form-data.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/RESTRequestEntity.html" title="class in org.apache.axis2.transport.http">RESTRequestEntity</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/RESTRequestEntity2.html" title="class in org.apache.axis2.transport.http">RESTRequestEntity2</a></td>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/ServletBasedOutTransportInfo.html" title="class in org.apache.axis2.transport.http">ServletBasedOutTransportInfo</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/SimpleHTTPServer.html" title="class in org.apache.axis2.transport.http">SimpleHTTPServer</a></td>
 <td class="colLast">
 <div class="block">This is a simple implementation of an HTTP server for processing
  SOAP requests via Apache's xml-axis2.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/SOAPMessageFormatter.html" title="class in org.apache.axis2.transport.http">SOAPMessageFormatter</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/TransportHeaders.html" title="class in org.apache.axis2.transport.http">TransportHeaders</a></td>
 <td class="colLast">
 <div class="block">Pass-Thru / delayed get and put of the values from HttpServletRequest</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/XFormURLEncodedFormatter.html" title="class in org.apache.axis2.transport.http">XFormURLEncodedFormatter</a></td>
 <td class="colLast">
 <div class="block">Formates the request message as application/x-www-form-urlencoded</div>
-</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li class="blockList">
-<table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Enum Summary table, listing enums, and an explanation">
-<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Enum</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../../../org/apache/axis2/transport/http/HTTPSender.HTTPStatusCodeFamily.html" title="enum in org.apache.axis2.transport.http">HTTPSender.HTTPStatusCodeFamily</a></td>
-<td class="colLast">
-<div class="block">The set of HTTP status code families.</div>
 </td>
 </tr>
 </tbody>
@@ -294,7 +271,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../org/apache/axis2/transport/base/tracker/package-summary.html">Prev&nbsp;Package</a></li>
-<li><a href="../../../../../org/apache/axis2/transport/http/impl/httpclient3/package-summary.html">Next&nbsp;Package</a></li>
+<li><a href="../../../../../org/apache/axis2/transport/http/impl/httpclient4/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?org/apache/axis2/transport/http/package-summary.html" target="_top">Frames</a></li>

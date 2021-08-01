@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -50,7 +50,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.ByteURLConnection.html" title="class in org.apache.axis2.deployment"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html" title="interface in org.apache.axis2.deployment"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/axis2/deployment/DeploymentClassLoader.html" target="_top">Frames</a></li>
@@ -74,7 +74,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -137,29 +137,6 @@ implements <a href="../../../../org/apache/axis2/classloader/BeanInfoCachingClas
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- ======== NESTED CLASS SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="nested.class.summary">
-<!--   -->
-</a>
-<h3>Nested Class Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
-<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Class and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.ByteURLConnection.html" title="class in org.apache.axis2.deployment">DeploymentClassLoader.ByteURLConnection</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.ByteUrlStreamHandler.html" title="class in org.apache.axis2.deployment">DeploymentClassLoader.ByteUrlStreamHandler</a></span></code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -172,11 +149,10 @@ implements <a href="../../../../org/apache/axis2/classloader/BeanInfoCachingClas
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.html#DeploymentClassLoader-java.net.URL:A-java.util.List-java.lang.ClassLoader-boolean-">DeploymentClassLoader</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>[]&nbsp;urls,
-                     <a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;embedded_jars,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.html#DeploymentClassLoader-java.net.URL:A-java.lang.ClassLoader-boolean-">DeploymentClassLoader</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>[]&nbsp;urls,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;parent,
                      boolean&nbsp;isChildFirstClassLoading)</code>
-<div class="block">DeploymentClassLoader is extended from URLClassLoader.</div>
+<div class="block">Constructor.</div>
 </td>
 </tr>
 </table>
@@ -195,45 +171,25 @@ implements <a href="../../../../org/apache/axis2/classloader/BeanInfoCachingClas
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.html#findClass-java.lang.String-">findClass</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
-<div class="block">Finds and loads the class with the specified name from the URL search
- path.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.html#findResource-java.lang.String-">findResource</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resource)</code>
-<div class="block">Finds the resource with the specified name on the URL search path.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Enumeration.html?is-external=true" title="class or interface in java.util">Enumeration</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.html#findResources-java.lang.String-">findResources</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resource)</code>
-<div class="block">Returns an Enumeration of URLs representing all of the resources
- on the URL search path having the specified name.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/apache/axis2/classloader/BeanInfoCache.html" title="class in org.apache.axis2.classloader">BeanInfoCache</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.html#getBeanInfoCache--">getBeanInfoCache</a></span>()</code>
 <div class="block">Get the <a href="https://docs.oracle.com/javase/7/docs/api/java/beans/BeanInfo.html?is-external=true" title="class or interface in java.beans"><code>BeanInfo</code></a> cache for this class loader.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.html#getResourceAsStream-java.lang.String-">getResourceAsStream</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.html#isChildFirstClassLoading--">isChildFirstClassLoading</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.html#loadClass-java.lang.String-boolean-">loadClass</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
          boolean&nbsp;resolve)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.html#setChildFirstClassLoading-boolean-">setChildFirstClassLoading</a></span>(boolean&nbsp;childFirstClassLoading)</code>&nbsp;</td>
 </tr>
@@ -243,7 +199,7 @@ implements <a href="../../../../org/apache/axis2/classloader/BeanInfoCachingClas
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.net.<a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true" title="class or interface in java.net">URLClassLoader</a></h3>
-<code><a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#addURL-java.net.URL-" title="class or interface in java.net">addURL</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#close--" title="class or interface in java.net">close</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#definePackage-java.lang.String-java.util.jar.Manifest-java.net.URL-" title="class or interface in java.net">definePackage</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#getPermissions-java.security.CodeSource-" title="class or interface in java.net">getPermissions</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#getURLs--" title="class or interface in java.net">getURLs</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#newInstance-java.net.URL:A-" title="class or interface in java.net">newInstance</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#newInstance-java.net.URL:A-java.lang.ClassLoader-" title="class or interface in java.net">newInstance</a></code></li>
+<code><a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#addURL-java.net.URL-" title="class or interface in java.net">addURL</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#close--" title="class or interface in java.net">close</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#definePackage-java.lang.String-java.util.jar.Manifest-java.net.URL-" title="class or interface in java.net">definePackage</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#findClass-java.lang.String-" title="class or interface in java.net">findClass</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#findResource-java.lang.String-" title="class or interface in java.net">findResource</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#findResources-java.lang.String-" title="class or interface in java.net">findResources</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#getPermissions-java.security.CodeSource-" title="class or interface in java.net">getPermissions</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#getURLs--" title="class or interface in java.net">getURLs</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#newInstance-java.net.URL:A-" title="class or interface in java.net">newInstance</a>, <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#newInstance-java.net.URL:A-java.lang.ClassLoader-" title="class or interface in java.net">newInstance</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.security.SecureClassLoader">
@@ -280,19 +236,16 @@ implements <a href="../../../../org/apache/axis2/classloader/BeanInfoCachingClas
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="DeploymentClassLoader-java.net.URL:A-java.util.List-java.lang.ClassLoader-boolean-">
+<a name="DeploymentClassLoader-java.net.URL:A-java.lang.ClassLoader-boolean-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>DeploymentClassLoader</h4>
 <pre>public&nbsp;DeploymentClassLoader(<a href="https://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>[]&nbsp;urls,
-                             <a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;embedded_jars,
                              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/ClassLoader.html?is-external=true" title="class or interface in java.lang">ClassLoader</a>&nbsp;parent,
                              boolean&nbsp;isChildFirstClassLoading)</pre>
-<div class="block">DeploymentClassLoader is extended from URLClassLoader. The constructor
- does not override the super constructor, but takes in an addition list of
- jar files inside /lib directory.</div>
+<div class="block">Constructor.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>urls</code> - <code>URL</code>s</dd>
@@ -308,70 +261,6 @@ implements <a href="../../../../org/apache/axis2/classloader/BeanInfoCachingClas
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="findClass-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>findClass</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;findClass(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)
-                   throws <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a></pre>
-<div class="block">Finds and loads the class with the specified name from the URL search
- path. Any URLs referring to JAR files are loaded and opened as needed
- until the class is found.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#findClass-java.lang.String-" title="class or interface in java.net">findClass</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true" title="class or interface in java.net">URLClassLoader</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - the name of the class</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the resulting class</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/ClassNotFoundException.html?is-external=true" title="class or interface in java.lang">ClassNotFoundException</a></code> - if the class could not be found</dd>
-</dl>
-</li>
-</ul>
-<a name="findResource-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>findResource</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;findResource(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resource)</pre>
-<div class="block">Finds the resource with the specified name on the URL search path.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#findResource-java.lang.String-" title="class or interface in java.net">findResource</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true" title="class or interface in java.net">URLClassLoader</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>resource</code> - the name of the resource</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a <code>URL</code> for the resource, or <code>null</code>
- if the resource could not be found.</dd>
-</dl>
-</li>
-</ul>
-<a name="findResources-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>findResources</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Enumeration.html?is-external=true" title="class or interface in java.util">Enumeration</a>&nbsp;findResources(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resource)
-                          throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Returns an Enumeration of URLs representing all of the resources
- on the URL search path having the specified name.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true#findResources-java.lang.String-" title="class or interface in java.net">findResources</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html?is-external=true" title="class or interface in java.net">URLClassLoader</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>resource</code> - the resource name</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>an <code>Enumeration</code> of <code>URL</code>s</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if an I/O exception occurs</dd>
-</dl>
-</li>
-</ul>
 <a name="getResourceAsStream-java.lang.String-">
 <!--   -->
 </a>
@@ -466,7 +355,7 @@ implements <a href="../../../../org/apache/axis2/classloader/BeanInfoCachingClas
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/apache/axis2/deployment/Deployer.html" title="interface in org.apache.axis2.deployment"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/apache/axis2/deployment/DeploymentClassLoader.ByteURLConnection.html" title="class in org.apache.axis2.deployment"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/apache/axis2/deployment/DeploymentConstants.html" title="interface in org.apache.axis2.deployment"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/apache/axis2/deployment/DeploymentClassLoader.html" target="_top">Frames</a></li>
@@ -490,7 +379,7 @@ implements <a href="../../../../org/apache/axis2/classloader/BeanInfoCachingClas
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

@@ -196,13 +196,13 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/client/Stub.html#addHeader-org.apache.axiom.om.OMElement-org.apache.axiom.soap.SOAPEnvelope-">addHeader</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElementToadd,
-         <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a>&nbsp;envelop)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/client/Stub.html#addHeader-org.apache.axiom.om.OMElement-org.apache.axiom.soap.SOAPEnvelope-">addHeader</a></span>(org.apache.axiom.om.OMElement&nbsp;omElementToadd,
+         org.apache.axiom.soap.SOAPEnvelope&nbsp;envelop)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/client/Stub.html#addHeader-org.apache.axiom.om.OMElement-org.apache.axiom.soap.SOAPEnvelope-boolean-">addHeader</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElementToadd,
-         <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a>&nbsp;envelop,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/client/Stub.html#addHeader-org.apache.axiom.om.OMElement-org.apache.axiom.soap.SOAPEnvelope-boolean-">addHeader</a></span>(org.apache.axiom.om.OMElement&nbsp;omElementToadd,
+         org.apache.axiom.soap.SOAPEnvelope&nbsp;envelop,
          boolean&nbsp;mustUnderstand)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -240,7 +240,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i10" class="altColor">
-<td class="colFirst"><code>protected static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a></code></td>
+<td class="colFirst"><code>protected static org.apache.axiom.soap.SOAPEnvelope</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/client/Stub.html#createEnvelope-org.apache.axis2.client.Options-">createEnvelope</a></span>(<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;options)</code>
 <div class="block">Create a SOAP message envelope using the supplied options.</div>
 </td>
@@ -252,15 +252,15 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code>protected static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFactory.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFactory</a></code></td>
+<td class="colFirst"><code>protected static org.apache.axiom.soap.SOAPFactory</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/client/Stub.html#getFactory-java.lang.String-">getFactory</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapVersionURI)</code>
 <div class="block">Get Axiom factory appropriate to selected SOAP version.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/client/Stub.html#setMustUnderstand-org.apache.axiom.om.OMElement-org.apache.axiom.om.OMNamespace-">setMustUnderstand</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;headerElement,
-                 <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;omNamespace)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/client/Stub.html#setMustUnderstand-org.apache.axiom.om.OMElement-org.apache.axiom.om.OMNamespace-">setMustUnderstand</a></span>(org.apache.axiom.om.OMElement&nbsp;headerElement,
+                 org.apache.axiom.om.OMNamespace&nbsp;omNamespace)</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
@@ -378,8 +378,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>createEnvelope</h4>
-<pre>protected static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a>&nbsp;createEnvelope(<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;options)
-                                      throws <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPProcessingException.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPProcessingException</a></pre>
+<pre>protected static&nbsp;org.apache.axiom.soap.SOAPEnvelope&nbsp;createEnvelope(<a href="../../../../org/apache/axis2/client/Options.html" title="class in org.apache.axis2.client">Options</a>&nbsp;options)
+                                                            throws org.apache.axiom.soap.SOAPProcessingException</pre>
 <div class="block">Create a SOAP message envelope using the supplied options.
  TODO generated stub code should use this method, or similar method taking
  an operation client</div>
@@ -389,7 +389,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>generated</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPProcessingException.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPProcessingException</a></code></dd>
+<dd><code>org.apache.axiom.soap.SOAPProcessingException</code></dd>
 </dl>
 </li>
 </ul>
@@ -399,7 +399,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getFactory</h4>
-<pre>protected static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFactory.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFactory</a>&nbsp;getFactory(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapVersionURI)</pre>
+<pre>protected static&nbsp;org.apache.axiom.soap.SOAPFactory&nbsp;getFactory(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapVersionURI)</pre>
 <div class="block">Get Axiom factory appropriate to selected SOAP version.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -521,8 +521,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>setMustUnderstand</h4>
-<pre>protected&nbsp;void&nbsp;setMustUnderstand(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;headerElement,
-                                 <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMNamespace.html?is-external=true" title="class or interface in org.apache.axiom.om">OMNamespace</a>&nbsp;omNamespace)</pre>
+<pre>protected&nbsp;void&nbsp;setMustUnderstand(org.apache.axiom.om.OMElement&nbsp;headerElement,
+                                 org.apache.axiom.om.OMNamespace&nbsp;omNamespace)</pre>
 </li>
 </ul>
 <a name="addHeader-org.apache.axiom.om.OMElement-org.apache.axiom.soap.SOAPEnvelope-boolean-">
@@ -531,8 +531,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>addHeader</h4>
-<pre>protected&nbsp;void&nbsp;addHeader(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElementToadd,
-                         <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a>&nbsp;envelop,
+<pre>protected&nbsp;void&nbsp;addHeader(org.apache.axiom.om.OMElement&nbsp;omElementToadd,
+                         org.apache.axiom.soap.SOAPEnvelope&nbsp;envelop,
                          boolean&nbsp;mustUnderstand)</pre>
 </li>
 </ul>
@@ -542,8 +542,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>addHeader</h4>
-<pre>protected&nbsp;void&nbsp;addHeader(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElementToadd,
-                         <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a>&nbsp;envelop)</pre>
+<pre>protected&nbsp;void&nbsp;addHeader(org.apache.axiom.om.OMElement&nbsp;omElementToadd,
+                         org.apache.axiom.soap.SOAPEnvelope&nbsp;envelop)</pre>
 </li>
 </ul>
 <a name="addAnonymousOperations--">

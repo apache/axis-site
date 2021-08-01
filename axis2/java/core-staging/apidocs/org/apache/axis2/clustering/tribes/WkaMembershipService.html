@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -203,70 +203,86 @@ implements org.apache.catalina.tribes.MembershipService</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#findMemberByName-java.lang.String-">findMemberByName</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>org.apache.catalina.tribes.Member</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#getLocalMember-boolean-">getLocalMember</a></span>(boolean&nbsp;b)</code>&nbsp;</td>
+<td class="colFirst"><code>org.apache.catalina.tribes.Channel</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#getChannel--">getChannel</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>org.apache.catalina.tribes.Member</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#getMember-org.apache.catalina.tribes.Member-">getMember</a></span>(org.apache.catalina.tribes.Member&nbsp;member)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#getLocalMember-boolean-">getLocalMember</a></span>(boolean&nbsp;b)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>org.apache.catalina.tribes.Member</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#getMember-org.apache.catalina.tribes.Member-">getMember</a></span>(org.apache.catalina.tribes.Member&nbsp;member)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>org.apache.catalina.tribes.Member[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#getMembers--">getMembers</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#getMembersByName--">getMembersByName</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>org.apache.catalina.tribes.MembershipProvider</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#getMembershipProvider--">getMembershipProvider</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#getProperties--">getProperties</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#hasMembers--">hasMembers</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#removeMembershipListener--">removeMembershipListener</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#setChannel-org.apache.catalina.tribes.Channel-">setChannel</a></span>(org.apache.catalina.tribes.Channel&nbsp;channel)</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#setDomain-byte:A-">setDomain</a></span>(byte[]&nbsp;domain)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#setLocalMemberProperties-java.lang.String-int-">setLocalMemberProperties</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;listenHost,
                         int&nbsp;listenPort)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#setLocalMemberProperties-java.lang.String-int-int-int-">setLocalMemberProperties</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;s,
                         int&nbsp;i,
                         int&nbsp;i1,
                         int&nbsp;i2)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#setMembershipListener-org.apache.catalina.tribes.MembershipListener-">setMembershipListener</a></span>(org.apache.catalina.tribes.MembershipListener&nbsp;membershipListener)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#setMembershipProvider-org.apache.catalina.tribes.MembershipProvider-">setMembershipProvider</a></span>(org.apache.catalina.tribes.MembershipProvider&nbsp;memberProvider)</code>&nbsp;</td>
+</tr>
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#setPayload-byte:A-">setPayload</a></span>(byte[]&nbsp;payload)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#setProperties-java.util.Properties-">setProperties</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/util/Properties.html?is-external=true" title="class or interface in java.util">Properties</a>&nbsp;properties)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#start--">start</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#start-int-">start</a></span>(int&nbsp;i)</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/clustering/tribes/WkaMembershipService.html#stop-int-">stop</a></span>(int&nbsp;i)</code>&nbsp;</td>
 </tr>
@@ -371,6 +387,32 @@ implements org.apache.catalina.tribes.MembershipService</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>getProperties</code>&nbsp;in interface&nbsp;<code>org.apache.catalina.tribes.MembershipService</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getChannel--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getChannel</h4>
+<pre>public&nbsp;org.apache.catalina.tribes.Channel&nbsp;getChannel()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>getChannel</code>&nbsp;in interface&nbsp;<code>org.apache.catalina.tribes.MembershipService</code></dd>
+</dl>
+</li>
+</ul>
+<a name="setChannel-org.apache.catalina.tribes.Channel-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setChannel</h4>
+<pre>public&nbsp;void&nbsp;setChannel(org.apache.catalina.tribes.Channel&nbsp;channel)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>setChannel</code>&nbsp;in interface&nbsp;<code>org.apache.catalina.tribes.MembershipService</code></dd>
 </dl>
 </li>
 </ul>
@@ -507,6 +549,10 @@ implements org.apache.catalina.tribes.MembershipService</pre>
                                      int&nbsp;i,
                                      int&nbsp;i1,
                                      int&nbsp;i2)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>setLocalMemberProperties</code>&nbsp;in interface&nbsp;<code>org.apache.catalina.tribes.MembershipService</code></dd>
+</dl>
 </li>
 </ul>
 <a name="setLocalMemberProperties-java.lang.String-int-">
@@ -517,10 +563,6 @@ implements org.apache.catalina.tribes.MembershipService</pre>
 <h4>setLocalMemberProperties</h4>
 <pre>public&nbsp;void&nbsp;setLocalMemberProperties(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;listenHost,
                                      int&nbsp;listenPort)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>setLocalMemberProperties</code>&nbsp;in interface&nbsp;<code>org.apache.catalina.tribes.MembershipService</code></dd>
-</dl>
 </li>
 </ul>
 <a name="setMembershipListener-org.apache.catalina.tribes.MembershipListener-">
@@ -578,15 +620,39 @@ implements org.apache.catalina.tribes.MembershipService</pre>
 <a name="broadcast-org.apache.catalina.tribes.ChannelMessage-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>broadcast</h4>
 <pre>public&nbsp;void&nbsp;broadcast(org.apache.catalina.tribes.ChannelMessage&nbsp;channelMessage)
                throws org.apache.catalina.tribes.ChannelException</pre>
 <dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>broadcast</code>&nbsp;in interface&nbsp;<code>org.apache.catalina.tribes.MembershipService</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>org.apache.catalina.tribes.ChannelException</code></dd>
 </dl>
+</li>
+</ul>
+<a name="getMembershipProvider--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMembershipProvider</h4>
+<pre>public&nbsp;org.apache.catalina.tribes.MembershipProvider&nbsp;getMembershipProvider()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>getMembershipProvider</code>&nbsp;in interface&nbsp;<code>org.apache.catalina.tribes.MembershipService</code></dd>
+</dl>
+</li>
+</ul>
+<a name="setMembershipProvider-org.apache.catalina.tribes.MembershipProvider-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setMembershipProvider</h4>
+<pre>public&nbsp;void&nbsp;setMembershipProvider(org.apache.catalina.tribes.MembershipProvider&nbsp;memberProvider)</pre>
 </li>
 </ul>
 </li>

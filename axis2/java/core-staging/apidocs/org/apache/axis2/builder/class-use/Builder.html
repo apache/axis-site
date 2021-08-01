@@ -205,9 +205,9 @@
 <td class="colFirst"><code>static <a href="../../../../../org/apache/axis2/builder/Builder.html" title="interface in org.apache.axis2.builder">Builder</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BuilderUtil.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/builder/BuilderUtil.html#getBuilderFromSelector-java.lang.String-org.apache.axis2.context.MessageContext-">getBuilderFromSelector</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
                       <a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
-<div class="block">Initial work for a builder selector which selects the builder for a given message format
- based on the the content type of the recieved message. content-type to builder mapping can be
- specified through the Axis2.xml.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Use <a href="../../../../../org/apache/axis2/util/MessageProcessorSelector.html#getMessageBuilder-java.lang.String-org.apache.axis2.context.MessageContext-"><code>MessageProcessorSelector.getMessageBuilder(String, MessageContext)</code></a>.</span></div>
+</div>
 </td>
 </tr>
 </tbody>
@@ -421,14 +421,14 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
 <td class="colLast"><span class="typeNameLabel">TransportUtils.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/transport/TransportUtils.html#createDocumentElement-java.lang.String-org.apache.axis2.builder.Builder-org.apache.axis2.context.MessageContext-java.io.InputStream-">createDocumentElement</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,
                      <a href="../../../../../org/apache/axis2/builder/Builder.html" title="interface in org.apache.axis2.builder">Builder</a>&nbsp;builder,
                      <a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
                      <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a></code></td>
+<td class="colFirst"><code>static org.apache.axiom.soap.SOAPEnvelope</code></td>
 <td class="colLast"><span class="typeNameLabel">TransportUtils.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/transport/TransportUtils.html#createSOAPMessage-org.apache.axis2.context.MessageContext-java.io.InputStream-java.lang.String-org.apache.axis2.builder.Builder-">createSOAPMessage</a></span>(<a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
                  <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
                  <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType,

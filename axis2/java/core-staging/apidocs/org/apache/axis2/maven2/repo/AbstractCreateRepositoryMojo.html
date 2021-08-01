@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":6,"i2":6};
+var methods = {"i0":10,"i1":6,"i2":6,"i3":6,"i4":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -179,10 +179,18 @@ extends org.apache.maven.plugin.AbstractMojo</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/maven2/repo/AbstractCreateRepositoryMojo.html#execute--">execute</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected abstract <a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/maven2/repo/AbstractCreateRepositoryMojo.html#getClassDirectories--">getClassDirectories</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>protected abstract <a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/maven2/repo/AbstractCreateRepositoryMojo.html#getInputDirectory--">getInputDirectory</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/maven2/repo/AbstractCreateRepositoryMojo.html#getOutputDirectory--">getOutputDirectory</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/maven2/repo/AbstractCreateRepositoryMojo.html#getScope--">getScope</a></span>()</code>&nbsp;</td>
 </tr>
@@ -241,6 +249,15 @@ extends org.apache.maven.plugin.AbstractMojo</pre>
 <pre>protected abstract&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getScope()</pre>
 </li>
 </ul>
+<a name="getInputDirectory--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getInputDirectory</h4>
+<pre>protected abstract&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getInputDirectory()</pre>
+</li>
+</ul>
 <a name="getOutputDirectory--">
 <!--   -->
 </a>
@@ -248,6 +265,15 @@ extends org.apache.maven.plugin.AbstractMojo</pre>
 <li class="blockList">
 <h4>getOutputDirectory</h4>
 <pre>protected abstract&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;getOutputDirectory()</pre>
+</li>
+</ul>
+<a name="getClassDirectories--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getClassDirectories</h4>
+<pre>protected abstract&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>[]&nbsp;getClassDirectories()</pre>
 </li>
 </ul>
 <a name="execute--">

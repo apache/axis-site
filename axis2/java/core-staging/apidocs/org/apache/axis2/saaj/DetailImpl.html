@@ -109,7 +109,7 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">org.apache.axis2.saaj.SOAPElementImpl</a>&lt;T&gt;</li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../org/apache/axis2/saaj/SOAPFaultElementImpl.html" title="class in org.apache.axis2.saaj">org.apache.axis2.saaj.SOAPFaultElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;</li>
+<li><a href="../../../../org/apache/axis2/saaj/SOAPFaultElementImpl.html" title="class in org.apache.axis2.saaj">org.apache.axis2.saaj.SOAPFaultElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;</li>
 <li>
 <ul class="inheritance">
 <li>org.apache.axis2.saaj.DetailImpl</li>
@@ -134,7 +134,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">DetailImpl</span>
-extends <a href="../../../../org/apache/axis2/saaj/SOAPFaultElementImpl.html" title="class in org.apache.axis2.saaj">SOAPFaultElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;
+extends <a href="../../../../org/apache/axis2/saaj/SOAPFaultElementImpl.html" title="class in org.apache.axis2.saaj">SOAPFaultElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;
 implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Detail.html?is-external=true" title="class or interface in javax.xml.soap">Detail</a></pre>
 <div class="block">A container for <code>DetailEntry</code> objects. <code>DetailEntry</code> objects give detailed
  error information that is application-specific and related to the <code>SOAPBody</code> object
@@ -194,7 +194,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/saaj/DetailImpl.html#DetailImpl-org.apache.axiom.soap.SOAPFaultDetail-">DetailImpl</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&nbsp;element)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/saaj/DetailImpl.html#DetailImpl-org.apache.axiom.soap.SOAPFaultDetail-">DetailImpl</a></span>(org.apache.axiom.soap.SOAPFaultDetail&nbsp;element)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -348,7 +348,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <ul class="blockListLast">
 <li class="blockList">
 <h4>DetailImpl</h4>
-<pre>public&nbsp;DetailImpl(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&nbsp;element)</pre>
+<pre>public&nbsp;DetailImpl(org.apache.axiom.soap.SOAPFaultDetail&nbsp;element)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>element</code> - </dd>
@@ -436,7 +436,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true#addAttribute-javax.xml.namespace.QName-java.lang.String-" title="class or interface in javax.xml.soap">addAttribute</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#addAttribute-javax.xml.namespace.QName-java.lang.String-">addAttribute</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;</code></dd>
+<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#addAttribute-javax.xml.namespace.QName-java.lang.String-">addAttribute</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></code></dd>
 </dl>
@@ -454,7 +454,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true#addChildElement-javax.xml.namespace.QName-" title="class or interface in javax.xml.soap">addChildElement</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#addChildElement-javax.xml.namespace.QName-">addChildElement</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;</code></dd>
+<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#addChildElement-javax.xml.namespace.QName-">addChildElement</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></code></dd>
 </dl>
@@ -477,7 +477,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true#createQName-java.lang.String-java.lang.String-" title="class or interface in javax.xml.soap">createQName</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#createQName-java.lang.String-java.lang.String-">createQName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;</code></dd>
+<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#createQName-java.lang.String-java.lang.String-">createQName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>localName</code> - - a String containing the local part of the name. prefix - a String
                   containing the prefix for the name.</dd>
@@ -502,7 +502,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true#getAllAttributesAsQNames--" title="class or interface in javax.xml.soap">getAllAttributesAsQNames</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#getAllAttributesAsQNames--">getAllAttributesAsQNames</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;</code></dd>
+<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#getAllAttributesAsQNames--">getAllAttributesAsQNames</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -517,7 +517,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true#getAttributeValue-javax.xml.namespace.QName-" title="class or interface in javax.xml.soap">getAttributeValue</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#getAttributeValue-javax.xml.namespace.QName-">getAttributeValue</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;</code></dd>
+<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#getAttributeValue-javax.xml.namespace.QName-">getAttributeValue</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -532,7 +532,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true#getChildElements-javax.xml.namespace.QName-" title="class or interface in javax.xml.soap">getChildElements</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#getChildElements-javax.xml.namespace.QName-">getChildElements</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;</code></dd>
+<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#getChildElements-javax.xml.namespace.QName-">getChildElements</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -547,7 +547,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true#getElementQName--" title="class or interface in javax.xml.soap">getElementQName</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#getElementQName--">getElementQName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;</code></dd>
+<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#getElementQName--">getElementQName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -562,7 +562,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true#removeAttribute-javax.xml.namespace.QName-" title="class or interface in javax.xml.soap">removeAttribute</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#removeAttribute-javax.xml.namespace.QName-">removeAttribute</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;</code></dd>
+<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#removeAttribute-javax.xml.namespace.QName-">removeAttribute</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -578,7 +578,7 @@ implements <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Det
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true#setElementQName-javax.xml.namespace.QName-" title="class or interface in javax.xml.soap">setElementQName</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPElement.html?is-external=true" title="class or interface in javax.xml.soap">SOAPElement</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#setElementQName-javax.xml.namespace.QName-">setElementQName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFaultDetail.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFaultDetail</a>&gt;</code></dd>
+<dd><code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html#setElementQName-javax.xml.namespace.QName-">setElementQName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/apache/axis2/saaj/SOAPElementImpl.html" title="class in org.apache.axis2.saaj">SOAPElementImpl</a>&lt;org.apache.axiom.soap.SOAPFaultDetail&gt;</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPException.html?is-external=true" title="class or interface in javax.xml.soap">SOAPException</a></code></dd>
 </dl>

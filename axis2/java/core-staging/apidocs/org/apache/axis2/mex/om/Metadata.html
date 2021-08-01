@@ -145,7 +145,7 @@ implements <a href="../../../../../org/apache/axis2/mex/om/IMexOM.html" title="i
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/mex/om/Metadata.html#Metadata-org.apache.axiom.om.OMFactory-java.lang.String-">Metadata</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;defaultFactory,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/mex/om/Metadata.html#Metadata-org.apache.axiom.om.OMFactory-java.lang.String-">Metadata</a></span>(org.apache.axiom.om.OMFactory&nbsp;defaultFactory,
         <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespaceValue)</code>&nbsp;</td>
 </tr>
 </table>
@@ -173,7 +173,7 @@ implements <a href="../../../../../org/apache/axis2/mex/om/IMexOM.html" title="i
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/axis2/mex/om/Metadata.html" title="class in org.apache.axis2.mex.om">Metadata</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/mex/om/Metadata.html#fromOM-org.apache.axiom.om.OMElement-">fromOM</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;inElement)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/mex/om/Metadata.html#fromOM-org.apache.axiom.om.OMElement-">fromOM</a></span>(org.apache.axiom.om.OMElement&nbsp;inElement)</code>
 <div class="block">Populates an Metadata object based on the <code>OMElement</code> passed.</div>
 </td>
 </tr>
@@ -196,14 +196,14 @@ implements <a href="../../../../../org/apache/axis2/mex/om/IMexOM.html" title="i
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/mex/om/Metadata.html#setAttribute-org.apache.axiom.om.OMAttribute-">setAttribute</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMAttribute.html?is-external=true" title="class or interface in org.apache.axiom.om">OMAttribute</a>&nbsp;in_attribute)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/mex/om/Metadata.html#setAttribute-org.apache.axiom.om.OMAttribute-">setAttribute</a></span>(org.apache.axiom.om.OMAttribute&nbsp;in_attribute)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/mex/om/Metadata.html#setMetadatSections-java.util.List-">setMetadatSections</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;in_metadataSections)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colFirst"><code>org.apache.axiom.om.OMElement</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/mex/om/Metadata.html#toOM--">toOM</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
@@ -263,7 +263,7 @@ implements <a href="../../../../../org/apache/axis2/mex/om/IMexOM.html" title="i
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Metadata</h4>
-<pre>public&nbsp;Metadata(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;defaultFactory,
+<pre>public&nbsp;Metadata(org.apache.axiom.om.OMFactory&nbsp;defaultFactory,
                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespaceValue)
          throws <a href="../../../../../org/apache/axis2/mex/om/MexOMException.html" title="class in org.apache.axis2.mex.om">MexOMException</a></pre>
 <dl>
@@ -342,7 +342,7 @@ implements <a href="../../../../../org/apache/axis2/mex/om/IMexOM.html" title="i
 <ul class="blockList">
 <li class="blockList">
 <h4>fromOM</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/axis2/mex/om/Metadata.html" title="class in org.apache.axis2.mex.om">Metadata</a>&nbsp;fromOM(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;inElement)
+<pre>public&nbsp;<a href="../../../../../org/apache/axis2/mex/om/Metadata.html" title="class in org.apache.axis2.mex.om">Metadata</a>&nbsp;fromOM(org.apache.axiom.om.OMElement&nbsp;inElement)
                 throws <a href="../../../../../org/apache/axis2/mex/om/MexOMException.html" title="class in org.apache.axis2.mex.om">MexOMException</a></pre>
 <div class="block">Populates an Metadata object based on the <code>OMElement</code> passed.</div>
 <dl>
@@ -361,8 +361,8 @@ implements <a href="../../../../../org/apache/axis2/mex/om/IMexOM.html" title="i
 <ul class="blockList">
 <li class="blockList">
 <h4>toOM</h4>
-<pre>public&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;toOM()
-               throws <a href="../../../../../org/apache/axis2/mex/om/MexOMException.html" title="class in org.apache.axis2.mex.om">MexOMException</a></pre>
+<pre>public&nbsp;org.apache.axiom.om.OMElement&nbsp;toOM()
+                                   throws <a href="../../../../../org/apache/axis2/mex/om/MexOMException.html" title="class in org.apache.axis2.mex.om">MexOMException</a></pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/axis2/mex/om/IMexOM.html#toOM--">toOM</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/axis2/mex/om/IMexOM.html" title="interface in org.apache.axis2.mex.om">IMexOM</a></code></dd>
@@ -408,7 +408,7 @@ implements <a href="../../../../../org/apache/axis2/mex/om/IMexOM.html" title="i
 <ul class="blockListLast">
 <li class="blockList">
 <h4>setAttribute</h4>
-<pre>public&nbsp;void&nbsp;setAttribute(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMAttribute.html?is-external=true" title="class or interface in org.apache.axiom.om">OMAttribute</a>&nbsp;in_attribute)</pre>
+<pre>public&nbsp;void&nbsp;setAttribute(org.apache.axiom.om.OMAttribute&nbsp;in_attribute)</pre>
 </li>
 </ul>
 </li>

@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -100,10 +100,15 @@ var activeTableTab = "activeTableTab";
 <li><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">org.apache.axis2.jaxws.message.impl.BlockImpl</a></li>
+<li>org.apache.axiom.om.ds.AbstractOMDataSource</li>
+<li>
+<ul class="inheritance">
+<li><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">org.apache.axis2.jaxws.message.impl.BlockImpl</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&gt;</li>
 <li>
 <ul class="inheritance">
 <li>org.apache.axis2.jaxws.message.databinding.impl.JAXBBlockImpl</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -114,12 +119,12 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSource</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlock.html" title="interface in org.apache.axis2.jaxws.message.databinding">JAXBBlock</a></dd>
+<dd>org.apache.axiom.om.OMDataSource, org.apache.axiom.om.OMDataSourceExt, <a href="../../../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&gt;, <a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlock.html" title="interface in org.apache.axis2.jaxws.message.databinding">JAXBBlock</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">JAXBBlockImpl</span>
-extends <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a>
+extends <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&gt;
 implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlock.html" title="interface in org.apache.axis2.jaxws.message.databinding">JAXBBlock</a></pre>
 <div class="block">JAXBBlockImpl <p/> A Block containing a JAXB business object (either a JAXBElement or an object
  with @XmlRootElement).</div>
@@ -142,13 +147,6 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 <h3>Fields inherited from class&nbsp;org.apache.axis2.jaxws.message.impl.<a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a></h3>
 <code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#busContext">busContext</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#busObject">busObject</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#consumed">consumed</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#factory">factory</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#omElement">omElement</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#parent">parent</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#qName">qName</a></code></li>
 </ul>
-<ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.org.apache.axiom.om.OMDataSourceExt">
-<!--   -->
-</a>
-<h3>Fields inherited from interface&nbsp;org.apache.axiom.om.<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></h3>
-<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#LOSSY_PREFIX" title="class or interface in org.apache.axiom.om">LOSSY_PREFIX</a></code></li>
-</ul>
 </li>
 </ul>
 <!-- ========== METHOD SUMMARY =========== -->
@@ -165,67 +163,51 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#Z:Z_getBOFromOM-org.apache.axiom.om.OMElement-java.lang.Object-">_getBOFromOM</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement,
-            <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busContext)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#Z:Z_getBOFromOM-org.apache.axiom.om.OMElement-org.apache.axis2.jaxws.message.databinding.JAXBBlockContext-">_getBOFromOM</a></span>(org.apache.axiom.om.OMElement&nbsp;omElement,
+            <a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&nbsp;busContext)</code>
 <div class="block">Default method for getting business object from OM.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#Z:Z_getBOFromReader-javax.xml.stream.XMLStreamReader-java.lang.Object-">_getBOFromReader</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a>&nbsp;reader,
-                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busContext)</code>
-<div class="block">The derived class must provide an implementation that builds the business object from the
- reader</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#Z:Z_getReaderFromBO-java.lang.Object-java.lang.Object-">_getReaderFromBO</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busObj,
-                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busContext)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#Z:Z_getReaderFromBO-java.lang.Object-org.apache.axis2.jaxws.message.databinding.JAXBBlockContext-">_getReaderFromBO</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busObj,
+                <a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&nbsp;busContext)</code>
 <div class="block">Get an XMLStreamReader for the BusinessObject The derived Block must implement this method</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#Z:Z_outputFromBO-java.lang.Object-java.lang.Object-javax.xml.stream.XMLStreamWriter-">_outputFromBO</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busObject,
-             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busContext,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#Z:Z_outputFromBO-java.lang.Object-org.apache.axis2.jaxws.message.databinding.JAXBBlockContext-javax.xml.stream.XMLStreamWriter-">_outputFromBO</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busObject,
+             <a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&nbsp;busContext,
              <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamWriter.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamWriter</a>&nbsp;writer)</code>
 <div class="block">Output BusinessObject contents to a Writer.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#close--">close</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></code></td>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>org.apache.axiom.om.OMDataSourceExt</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#copy--">copy</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#getObject--">getObject</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#getXMLBytes-java.lang.String-">getXMLBytes</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encoding)</code>&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#getXMLInputStream-java.lang.String-">getXMLInputStream</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encoding)</code>&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#isDestructiveRead--">isDestructiveRead</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#isDestructiveWrite--">isDestructiveWrite</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#isElementData--">isElementData</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/impl/JAXBBlockImpl.html#setParent-org.apache.axis2.jaxws.message.Message-">setParent</a></span>(<a href="../../../../../../../org/apache/axis2/jaxws/message/Message.html" title="interface in org.apache.axis2.jaxws.message">Message</a>&nbsp;message)</code>
 <div class="block">Set the Message associated with this block (This method is intended to be called by the
@@ -238,7 +220,14 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.axis2.jaxws.message.impl.<a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a></h3>
-<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getBOFromBO-java.lang.Object-java.lang.Object-boolean-">_getBOFromBO</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getOMFromBO-java.lang.Object-java.lang.Object-">_getOMFromBO</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_outputFromOM-org.apache.axiom.om.OMElement-javax.xml.stream.XMLStreamWriter-boolean-">_outputFromOM</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_outputFromReader-javax.xml.stream.XMLStreamReader-javax.xml.stream.XMLStreamWriter-">_outputFromReader</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_postPivot_getXMLStreamReader--">_postPivot_getXMLStreamReader</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_postPivot_outputTo-javax.xml.stream.XMLStreamWriter-">_postPivot_outputTo</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getBlockFactory--">getBlockFactory</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getBusinessContext--">getBusinessContext</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getBusinessObject-boolean-">getBusinessObject</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getOMElement--">getOMElement</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getParent--">getParent</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getProperty-java.lang.String-">getProperty</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getQName--">getQName</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getReader--">getReader</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getXMLStreamReader-boolean-">getXMLStreamReader</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#hasProperty-java.lang.String-">hasProperty</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#isBusinessObject--">isBusinessObject</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#isConsumed--">isConsumed</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#isQNameAvailable--">isQNameAvailable</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#outputTo-javax.xml.stream.XMLStreamWriter-boolean-">outputTo</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#serialize-java.io.OutputStream-org.apache.axiom.om.OMOutputFormat-">serialize</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#serialize-java.io.Writer-org.apache.axiom.om.OMOutputFormat-">serialize</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#serialize-javax.xml.stream.XMLStreamWriter-">serialize</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#setConsumed-boolean-">setConsumed</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#setProperty-java.lang.String-java.lang.Object-">setProperty</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#setQName-javax.xml.namespace.QName-">setQName</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#traceString-java.lang.String-">traceString</a></code></li>
+<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getBOFromBO-T-C-boolean-">_getBOFromBO</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getOMFromBO-T-C-">_getOMFromBO</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_outputFromOM-org.apache.axiom.om.OMElement-javax.xml.stream.XMLStreamWriter-boolean-">_outputFromOM</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_outputFromReader-javax.xml.stream.XMLStreamReader-javax.xml.stream.XMLStreamWriter-">_outputFromReader</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_postPivot_getXMLStreamReader--">_postPivot_getXMLStreamReader</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_postPivot_outputTo-javax.xml.stream.XMLStreamWriter-">_postPivot_outputTo</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getBlockFactory--">getBlockFactory</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getBusinessContext--">getBusinessContext</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getBusinessObject-boolean-">getBusinessObject</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getOMElement--">getOMElement</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getParent--">getParent</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getQName--">getQName</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getReader--">getReader</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#getXMLStreamReader-boolean-">getXMLStreamReader</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#isBusinessObject--">isBusinessObject</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#isConsumed--">isConsumed</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#isQNameAvailable--">isQNameAvailable</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#outputTo-javax.xml.stream.XMLStreamWriter-boolean-">outputTo</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#serialize-javax.xml.stream.XMLStreamWriter-">serialize</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#setConsumed-boolean-">setConsumed</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#setQName-javax.xml.namespace.QName-">setQName</a>, <a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#traceString-java.lang.String-">traceString</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.axiom.om.ds.AbstractOMDataSource">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.axiom.om.ds.AbstractOMDataSource</h3>
+<code>getProperty, getXMLBytes, getXMLInputStream, hasProperty, serialize, serialize, setProperty</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -258,15 +247,15 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.axiom.om.OMDataSourceExt">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;org.apache.axiom.om.<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></h3>
-<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#getProperty-java.lang.String-" title="class or interface in org.apache.axiom.om">getProperty</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#hasProperty-java.lang.String-" title="class or interface in org.apache.axiom.om">hasProperty</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#setProperty-java.lang.String-java.lang.Object-" title="class or interface in org.apache.axiom.om">setProperty</a></code></li>
+<h3>Methods inherited from interface&nbsp;org.apache.axiom.om.OMDataSourceExt</h3>
+<code>getProperty, getXMLBytes, getXMLInputStream, hasProperty, setProperty</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.axiom.om.OMDataSource">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;org.apache.axiom.om.<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSource</a></h3>
-<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true#getReader--" title="class or interface in org.apache.axiom.om">getReader</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true#serialize-java.io.OutputStream-org.apache.axiom.om.OMOutputFormat-" title="class or interface in org.apache.axiom.om">serialize</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true#serialize-java.io.Writer-org.apache.axiom.om.OMOutputFormat-" title="class or interface in org.apache.axiom.om">serialize</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true#serialize-javax.xml.stream.XMLStreamWriter-" title="class or interface in org.apache.axiom.om">serialize</a></code></li>
+<h3>Methods inherited from interface&nbsp;org.apache.axiom.om.OMDataSource</h3>
+<code>getReader, serialize, serialize, serialize</code></li>
 </ul>
 </li>
 </ul>
@@ -282,48 +271,23 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="Z:Z_getBOFromReader-javax.xml.stream.XMLStreamReader-java.lang.Object-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>_getBOFromReader</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;_getBOFromReader(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a>&nbsp;reader,
-                                  <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busContext)
-                           throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
-                                  <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getBOFromReader-javax.xml.stream.XMLStreamReader-java.lang.Object-">BlockImpl</a></code></span></div>
-<div class="block">The derived class must provide an implementation that builds the business object from the
- reader</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getBOFromReader-javax.xml.stream.XMLStreamReader-java.lang.Object-">_getBOFromReader</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>reader</code> - XMLStreamReader, which is consumed</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="Z:Z_getBOFromOM-org.apache.axiom.om.OMElement-java.lang.Object-">
+<a name="Z:Z_getBOFromOM-org.apache.axiom.om.OMElement-org.apache.axis2.jaxws.message.databinding.JAXBBlockContext-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>_getBOFromOM</h4>
-<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;_getBOFromOM(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;omElement,
-                              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busContext)
+<pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;_getBOFromOM(org.apache.axiom.om.OMElement&nbsp;omElement,
+                              <a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&nbsp;busContext)
                        throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
                               <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getBOFromOM-org.apache.axiom.om.OMElement-java.lang.Object-">BlockImpl</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getBOFromOM-org.apache.axiom.om.OMElement-C-">BlockImpl</a></code></span></div>
 <div class="block">Default method for getting business object from OM.
  Derived classes may override this method to get the business object from a
  data source.</div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getBOFromOM-org.apache.axiom.om.OMElement-java.lang.Object-">_getBOFromOM</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getBOFromOM-org.apache.axiom.om.OMElement-C-">_getBOFromOM</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Business Object</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -332,21 +296,21 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 </dl>
 </li>
 </ul>
-<a name="Z:Z_getReaderFromBO-java.lang.Object-java.lang.Object-">
+<a name="Z:Z_getReaderFromBO-java.lang.Object-org.apache.axis2.jaxws.message.databinding.JAXBBlockContext-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>_getReaderFromBO</h4>
 <pre>protected&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamReader.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamReader</a>&nbsp;_getReaderFromBO(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busObj,
-                                           <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busContext)
+                                           <a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&nbsp;busContext)
                                     throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
                                            <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getReaderFromBO-java.lang.Object-java.lang.Object-">BlockImpl</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getReaderFromBO-T-C-">BlockImpl</a></code></span></div>
 <div class="block">Get an XMLStreamReader for the BusinessObject The derived Block must implement this method</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getReaderFromBO-java.lang.Object-java.lang.Object-">_getReaderFromBO</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a></code></dd>
+<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_getReaderFromBO-T-C-">_getReaderFromBO</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
@@ -354,23 +318,23 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 </dl>
 </li>
 </ul>
-<a name="Z:Z_outputFromBO-java.lang.Object-java.lang.Object-javax.xml.stream.XMLStreamWriter-">
+<a name="Z:Z_outputFromBO-java.lang.Object-org.apache.axis2.jaxws.message.databinding.JAXBBlockContext-javax.xml.stream.XMLStreamWriter-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>_outputFromBO</h4>
 <pre>protected&nbsp;void&nbsp;_outputFromBO(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busObject,
-                             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;busContext,
+                             <a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&nbsp;busContext,
                              <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamWriter.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamWriter</a>&nbsp;writer)
                       throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
                              <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_outputFromBO-java.lang.Object-java.lang.Object-javax.xml.stream.XMLStreamWriter-">BlockImpl</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_outputFromBO-T-C-javax.xml.stream.XMLStreamWriter-">BlockImpl</a></code></span></div>
 <div class="block">Output BusinessObject contents to a Writer.
  Derived classes must provide this implementation</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_outputFromBO-java.lang.Object-java.lang.Object-javax.xml.stream.XMLStreamWriter-">_outputFromBO</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a></code></dd>
+<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#Z:Z_outputFromBO-T-C-javax.xml.stream.XMLStreamWriter-">_outputFromBO</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&gt;</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></code></dd>
@@ -386,7 +350,7 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 <pre>public&nbsp;boolean&nbsp;isElementData()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/Block.html#isElementData--">isElementData</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a></code></dd>
+<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/Block.html#isElementData--">isElementData</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&gt;</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if data is always an element; false if possibly mixed content or multiple
          elements</dd>
@@ -402,23 +366,9 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 <pre>public&nbsp;void&nbsp;close()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#close--" title="class or interface in org.apache.axiom.om">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getXMLInputStream-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getXMLInputStream</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;getXMLInputStream(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encoding)
-                              throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/UnsupportedEncodingException.html?is-external=true" title="class or interface in java.io">UnsupportedEncodingException</a></pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#getXMLInputStream-java.lang.String-" title="class or interface in org.apache.axiom.om">getXMLInputStream</a></code>&nbsp;in interface&nbsp;<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></code></dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/UnsupportedEncodingException.html?is-external=true" title="class or interface in java.io">UnsupportedEncodingException</a></code></dd>
+<dd><code>close</code>&nbsp;in interface&nbsp;<code>org.apache.axiom.om.OMDataSourceExt</code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>close</code>&nbsp;in class&nbsp;<code>org.apache.axiom.om.ds.AbstractOMDataSource</code></dd>
 </dl>
 </li>
 </ul>
@@ -431,7 +381,9 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getObject()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#getObject--" title="class or interface in org.apache.axiom.om">getObject</a></code>&nbsp;in interface&nbsp;<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></code></dd>
+<dd><code>getObject</code>&nbsp;in interface&nbsp;<code>org.apache.axiom.om.OMDataSourceExt</code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>getObject</code>&nbsp;in class&nbsp;<code>org.apache.axiom.om.ds.AbstractOMDataSource</code></dd>
 </dl>
 </li>
 </ul>
@@ -444,7 +396,7 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 <pre>public&nbsp;boolean&nbsp;isDestructiveRead()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#isDestructiveRead--" title="class or interface in org.apache.axiom.om">isDestructiveRead</a></code>&nbsp;in interface&nbsp;<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></code></dd>
+<dd><code>isDestructiveRead</code>&nbsp;in interface&nbsp;<code>org.apache.axiom.om.OMDataSourceExt</code></dd>
 </dl>
 </li>
 </ul>
@@ -457,7 +409,7 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 <pre>public&nbsp;boolean&nbsp;isDestructiveWrite()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#isDestructiveWrite--" title="class or interface in org.apache.axiom.om">isDestructiveWrite</a></code>&nbsp;in interface&nbsp;<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></code></dd>
+<dd><code>isDestructiveWrite</code>&nbsp;in interface&nbsp;<code>org.apache.axiom.om.OMDataSourceExt</code></dd>
 </dl>
 </li>
 </ul>
@@ -467,31 +419,15 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
 <ul class="blockList">
 <li class="blockList">
 <h4>copy</h4>
-<pre>public&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a>&nbsp;copy()
-                     throws <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMException.html?is-external=true" title="class or interface in org.apache.axiom.om">OMException</a></pre>
+<pre>public&nbsp;org.apache.axiom.om.OMDataSourceExt&nbsp;copy()
+                                         throws org.apache.axiom.om.OMException</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#copy--" title="class or interface in org.apache.axiom.om">copy</a></code>&nbsp;in interface&nbsp;<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></code></dd>
+<dd><code>copy</code>&nbsp;in interface&nbsp;<code>org.apache.axiom.om.OMDataSourceExt</code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#copy--">copy</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a></code></dd>
+<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#copy--">copy</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&gt;</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMException.html?is-external=true" title="class or interface in org.apache.axiom.om">OMException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getXMLBytes-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getXMLBytes</h4>
-<pre>public&nbsp;byte[]&nbsp;getXMLBytes(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encoding)
-                   throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/UnsupportedEncodingException.html?is-external=true" title="class or interface in java.io">UnsupportedEncodingException</a></pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#getXMLBytes-java.lang.String-" title="class or interface in org.apache.axiom.om">getXMLBytes</a></code>&nbsp;in interface&nbsp;<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></code></dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/UnsupportedEncodingException.html?is-external=true" title="class or interface in java.io">UnsupportedEncodingException</a></code></dd>
+<dd><code>org.apache.axiom.om.OMException</code></dd>
 </dl>
 </li>
 </ul>
@@ -507,9 +443,9 @@ implements <a href="../../../../../../../org/apache/axis2/jaxws/message/databind
  Message Implementation only)</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/Block.html#setParent-org.apache.axis2.jaxws.message.Message-">setParent</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a></code></dd>
+<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/Block.html#setParent-org.apache.axis2.jaxws.message.Message-">setParent</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/Block.html" title="interface in org.apache.axis2.jaxws.message">Block</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&gt;</code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#setParent-org.apache.axis2.jaxws.message.Message-">setParent</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a></code></dd>
+<dd><code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html#setParent-org.apache.axis2.jaxws.message.Message-">setParent</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../../org/apache/axis2/jaxws/message/impl/BlockImpl.html" title="class in org.apache.axis2.jaxws.message.impl">BlockImpl</a>&lt;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="../../../../../../../org/apache/axis2/jaxws/message/databinding/JAXBBlockContext.html" title="class in org.apache.axis2.jaxws.message.databinding">JAXBBlockContext</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>

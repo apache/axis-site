@@ -148,9 +148,10 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/transport/http/impl/httpclient4/HTTPProxyConfigurator.html#configure-org.apache.axis2.context.MessageContext-org.apache.http.impl.client.AbstractHttpClient-">configure</a></span>(<a href="../../../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-         org.apache.http.impl.client.AbstractHttpClient&nbsp;httpClient)</code>
-<div class="block">Configure HTTP Proxy settings of commons-httpclient HostConfiguration.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../org/apache/axis2/transport/http/impl/httpclient4/HTTPProxyConfigurator.html#configure-org.apache.axis2.context.MessageContext-org.apache.http.client.config.RequestConfig.Builder-org.apache.http.client.protocol.HttpClientContext-">configure</a></span>(<a href="../../../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
+         org.apache.http.client.config.RequestConfig.Builder&nbsp;requestConfig,
+         org.apache.http.client.protocol.HttpClientContext&nbsp;clientContext)</code>
+<div class="block">Configure HTTP Proxy settings of httpcomponents HostConfiguration.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -206,16 +207,17 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="configure-org.apache.axis2.context.MessageContext-org.apache.http.impl.client.AbstractHttpClient-">
+<a name="configure-org.apache.axis2.context.MessageContext-org.apache.http.client.config.RequestConfig.Builder-org.apache.http.client.protocol.HttpClientContext-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>configure</h4>
 <pre>public static&nbsp;void&nbsp;configure(<a href="../../../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-                             org.apache.http.impl.client.AbstractHttpClient&nbsp;httpClient)
+                             org.apache.http.client.config.RequestConfig.Builder&nbsp;requestConfig,
+                             org.apache.http.client.protocol.HttpClientContext&nbsp;clientContext)
                       throws <a href="../../../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
-<div class="block">Configure HTTP Proxy settings of commons-httpclient HostConfiguration.
+<div class="block">Configure HTTP Proxy settings of httpcomponents HostConfiguration.
  Proxy settings can be get from axis2.xml, Java proxy settings or can be
  override through property in message context.
  <p/>
@@ -226,7 +228,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>messageContext</code> - in message context for</dd>
-<dd><code>httpClient</code> - instance</dd>
+<dd><code>requestConfig</code> - the request configuration to fill in</dd>
+<dd><code>clientContext</code> - the HTTP client context</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code> - if Proxy settings are invalid</dd>
 </dl>

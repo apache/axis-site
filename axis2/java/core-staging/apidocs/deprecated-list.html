@@ -105,14 +105,6 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/axis2/transport/http/impl/httpclient3/HTTPProxcyConfigurator.html" title="class in org.apache.axis2.transport.http.impl.httpclient3">org.apache.axis2.transport.http.impl.httpclient3.HTTPProxcyConfigurator</a>
-<div class="block"><span class="deprecationComment">use <a href="org/apache/axis2/transport/http/impl/httpclient3/HTTPProxyConfigurator.html" title="class in org.apache.axis2.transport.http.impl.httpclient3"><code>HTTPProxyConfigurator</code></a></span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/axis2/transport/http/util/HTTPProxyConfigurationUtil.html" title="class in org.apache.axis2.transport.http.util">org.apache.axis2.transport.http.util.HTTPProxyConfigurationUtil</a></td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/transport/http/HttpTransportProperties.MailProperties.html" title="class in org.apache.axis2.transport.http">org.apache.axis2.transport.http.HttpTransportProperties.MailProperties</a>
 <div class="block"><span class="deprecationComment">org.apache.axis2.transport.http.HttpTransportProperties.MailProperties has been
  deprecated and user are encourage the use of java.util.Properties instead.</span></div>
@@ -141,6 +133,13 @@
 <tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/databinding/types/PositiveInteger.BigIntegerRep.html" title="class in org.apache.axis2.databinding.types">org.apache.axis2.databinding.types.PositiveInteger.BigIntegerRep</a>
 <div class="block"><span class="deprecationComment">As per https://issues.apache.org/jira/browse/AXIS2-3848</span></div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/axis2/maven2/wsdl2code/WSDL2CodeMojo.html" title="class in org.apache.axis2.maven2.wsdl2code">org.apache.axis2.maven2.wsdl2code.WSDL2CodeMojo</a>
+<div class="block"><span class="deprecationComment">This goal is identical to axis2-wsdl2code:generate-sources; either switch to that
+             goal or use the new axis2-wsdl2code:generate-test-sources goal if you need to
+             generate code for use in unit tests only.</span></div>
 </td>
 </tr>
 </tbody>
@@ -173,6 +172,12 @@
 <td class="colOne"><a href="org/apache/axis2/jaxws/description/builder/MDQConstants.html#SEI_MTOM_ENABLEMENT_MAP">org.apache.axis2.jaxws.description.builder.MDQConstants.SEI_MTOM_ENABLEMENT_MAP</a>
 <div class="block"><span class="deprecationComment">Replaced by SEI_FEATURES_MAP with a MTOMAnnot to indicate if MTOM is enabled.</span></div>
 </td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/axis2/Constants.html#TESTING_PATH">org.apache.axis2.Constants.TESTING_PATH</a></td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><a href="org/apache/axis2/Constants.html#TESTING_REPOSITORY">org.apache.axis2.Constants.TESTING_REPOSITORY</a></td>
 </tr>
 </tbody>
 </table>
@@ -211,19 +216,8 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/axis2/builder/BuilderUtil.html#getBuilder-java.io.InputStream-">org.apache.axis2.builder.BuilderUtil.getBuilder(InputStream)</a>
-<div class="block"><span class="deprecationComment">Please use <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMXMLBuilderFactory.html?is-external=true#createOMBuilder-java.io.InputStream-" title="class or interface in org.apache.axiom.om"><code>OMXMLBuilderFactory.createOMBuilder(InputStream)</code></a> instead.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/axis2/builder/BuilderUtil.html#getBuilder-java.io.InputStream-java.lang.String-">org.apache.axis2.builder.BuilderUtil.getBuilder(InputStream, String)</a>
-<div class="block"><span class="deprecationComment">Please use <a href="org/apache/axis2/builder/BuilderUtil.html#createSOAPModelBuilder-java.io.InputStream-java.lang.String-"><code>BuilderUtil.createSOAPModelBuilder(InputStream, String)</code></a> to enable usage
-             of non standard Axiom implementations.</span></div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/axis2/builder/BuilderUtil.html#getBuilder-java.io.Reader-">org.apache.axis2.builder.BuilderUtil.getBuilder(Reader)</a>
-<div class="block"><span class="deprecationComment">If some one really need this method, please shout.</span></div>
+<td class="colOne"><a href="org/apache/axis2/builder/BuilderUtil.html#getBuilderFromSelector-java.lang.String-org.apache.axis2.context.MessageContext-">org.apache.axis2.builder.BuilderUtil.getBuilderFromSelector(String, MessageContext)</a>
+<div class="block"><span class="deprecationComment">Use <a href="org/apache/axis2/util/MessageProcessorSelector.html#getMessageBuilder-java.lang.String-org.apache.axis2.context.MessageContext-"><code>MessageProcessorSelector.getMessageBuilder(String, MessageContext)</code></a>.</span></div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -285,71 +279,53 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/axis2/builder/BuilderUtil.html#getPOXBuilder-java.io.InputStream-java.lang.String-">org.apache.axis2.builder.BuilderUtil.getPOXBuilder(InputStream, String)</a>
-<div class="block"><span class="deprecationComment">Please use <a href="org/apache/axis2/builder/BuilderUtil.html#createPOXBuilder-java.io.InputStream-java.lang.String-"><code>BuilderUtil.createPOXBuilder(InputStream, String)</code></a> to enable usage of non
-             standard Axiom implementations.</span></div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/context/AbstractContext.html#getProperties--">org.apache.axis2.context.AbstractContext.getProperties()</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/axis2/context/AbstractContext.html#getPropertyNames--"><code>AbstractContext.getPropertyNames()</code></a>, <a href="org/apache/axis2/context/AbstractContext.html#getProperty-java.lang.String-"><code>AbstractContext.getProperty(String)</code></a>,
              <a href="org/apache/axis2/context/AbstractContext.html#setProperty-java.lang.String-java.lang.Object-"><code>AbstractContext.setProperty(String, Object)</code></a> & <a href="org/apache/axis2/context/AbstractContext.html#removeProperty-java.lang.String-"><code>AbstractContext.removeProperty(String)</code></a>instead.</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/builder/BuilderUtil.html#getPushbackInputStream-java.io.InputStream-">org.apache.axis2.builder.BuilderUtil.getPushbackInputStream(InputStream)</a>
 <div class="block"><span class="deprecationComment">If you need a <a href="https://docs.oracle.com/javase/7/docs/api/java/io/PushbackInputStream.html?is-external=true" title="class or interface in java.io"><code>PushbackInputStream</code></a> just construct one (with the
              appropriate size).</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/builder/BuilderUtil.html#getReader-java.io.InputStream-java.lang.String-">org.apache.axis2.builder.BuilderUtil.getReader(InputStream, String)</a>
 <div class="block"><span class="deprecationComment">Instead of using this method, you should probably pass the <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a>
              directly to the XML parser. If the stream is not XML, you shouldn't be using this
              method anyway.</span></div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/axis2/builder/BuilderUtil.html#getSOAPBuilder-java.io.InputStream-">org.apache.axis2.builder.BuilderUtil.getSOAPBuilder(InputStream)</a>
-<div class="block"><span class="deprecationComment">Please use <a href="org/apache/axis2/builder/BuilderUtil.html#createSOAPModelBuilder-java.io.InputStream-java.lang.String-"><code>BuilderUtil.createSOAPModelBuilder(InputStream, String)</code></a> to enable usage
-             of non standard Axiom implementations.</span></div>
-</td>
-</tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/axis2/builder/BuilderUtil.html#getSOAPBuilder-java.io.InputStream-java.lang.String-">org.apache.axis2.builder.BuilderUtil.getSOAPBuilder(InputStream, String)</a>
-<div class="block"><span class="deprecationComment">Please use <a href="org/apache/axis2/builder/BuilderUtil.html#createSOAPModelBuilder-java.io.InputStream-java.lang.String-"><code>BuilderUtil.createSOAPModelBuilder(InputStream, String)</code></a> to enable usage
-             of non standard Axiom implementations.</span></div>
-</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/jaxws/description/builder/WebServiceRefAnnot.html#getTypeString--">org.apache.axis2.jaxws.description.builder.WebServiceRefAnnot.getTypeString()</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/axis2/jaxws/description/builder/WebServiceRefAnnot.html#type--"><code>WebServiceRefAnnot.type()</code></a></span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/databinding/utils/BeanUtil.html#getUniquePrifix--">org.apache.axis2.databinding.utils.BeanUtil.getUniquePrifix()</a>
 <div class="block"><span class="deprecationComment">Please use getUniquePrefix</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/jaxws/description/builder/WebServiceRefAnnot.html#getValueString--">org.apache.axis2.jaxws.description.builder.WebServiceRefAnnot.getValueString()</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/axis2/jaxws/description/builder/WebServiceRefAnnot.html#value--"><code>WebServiceRefAnnot.value()</code></a></span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/wsdl/codegen/CodeGenConfiguration.html#getXsdConfigFile--">org.apache.axis2.wsdl.codegen.CodeGenConfiguration.getXsdConfigFile()</a>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/context/MessageContext.html#isHeaderPresent--">org.apache.axis2.context.MessageContext.isHeaderPresent()</a>
 <div class="block"><span class="deprecationComment">The bonus you used to get from this is now built in to SOAPEnvelope.getHeader()</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/transport/http/HTTPTransportUtils.html#processHTTPGetRequest-org.apache.axis2.context.MessageContext-java.io.OutputStream-java.lang.String-java.lang.String-org.apache.axis2.context.ConfigurationContext-java.util.Map-">org.apache.axis2.transport.http.HTTPTransportUtils.processHTTPGetRequest(MessageContext, OutputStream, String, String, ConfigurationContext, Map)</a>
 <div class="block"><span class="deprecationComment">use RESTUtil.processURLRequest(MessageContext msgContext, OutputStream out, String contentType) instead</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/description/PolicyInclude.html#setEffectivePolicy-org.apache.neethi.Policy-">org.apache.axis2.description.PolicyInclude.setEffectivePolicy(Policy)</a>
 <div class="block"><span class="deprecationComment">As of 1.4 release. You can't override a policies that
              applicable for the current policy scope via
@@ -360,15 +336,15 @@
              <a href="org/apache/axis2/description/PolicySubject.html" title="class in org.apache.axis2.description"><code>#attachPolicy(Policy)</code></a> accordingly.</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/description/AxisService.html#setEndpointURL-java.lang.String-">org.apache.axis2.description.AxisService.setEndpointURL(String)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/axis2/description/AxisEndpoint.html#setEndpointURL-java.lang.String-"><code>AxisEndpoint.setEndpointURL(String)</code></a></span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/addressing/EndpointReference.html#setName-java.lang.String-">org.apache.axis2.addressing.EndpointReference.setName(String)</a>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/description/PolicyInclude.html#setPolicy-org.apache.neethi.Policy-">org.apache.axis2.description.PolicyInclude.setPolicy(Policy)</a>
 <div class="block"><span class="deprecationComment">As of 1.4 release, replaced by
              <a href="org/apache/axis2/description/PolicySubject.html" title="class in org.apache.axis2.description"><code>#attachPolicy(Policy)</code></a> Use
@@ -376,46 +352,46 @@
              <a href="org/apache/axis2/description/AxisDescription.html" title="class in org.apache.axis2.description"><code>AxisDescription</code></a> has to be set as the argument.</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/description/AxisDescription.html#setPolicyInclude-org.apache.axis2.description.PolicyInclude-">org.apache.axis2.description.AxisDescription.setPolicyInclude(PolicyInclude)</a>
 <div class="block"><span class="deprecationComment">As of release 1.4, if you want to access the policy cache of a particular
              AxisDescription object use <a href="org/apache/axis2/description/AxisDescription.html#getPolicySubject--"><code>AxisDescription.getPolicySubject()</code></a> instead.</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/databinding/types/Duration.html#setSeconds-int-">org.apache.axis2.databinding.types.Duration.setSeconds(int)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/axis2/databinding/types/Duration.html#setSeconds-double-"><code>setSeconds(double)</code></a> instead</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/jaxws/description/builder/WebServiceRefAnnot.html#setTypeString-java.lang.String-">org.apache.axis2.jaxws.description.builder.WebServiceRefAnnot.setTypeString(String)</a>
 <div class="block"><span class="deprecationComment">Use <a href="org/apache/axis2/jaxws/description/builder/WebServiceRefAnnot.html#setType-java.lang.Class-"><code>WebServiceRefAnnot.setType(Class)</code></a></span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/jaxws/description/builder/WebServiceRefAnnot.html#setValueString-java.lang.String-">org.apache.axis2.jaxws.description.builder.WebServiceRefAnnot.setValueString(String)</a>
 <div class="block"><span class="deprecationComment"><a href="org/apache/axis2/jaxws/description/builder/WebServiceRefAnnot.html#setValue-java.lang.Class-"><code>WebServiceRefAnnot.setValue(Class)</code></a></span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/wsdl/codegen/CodeGenConfiguration.html#setXsdConfigFile-java.lang.String-">org.apache.axis2.wsdl.codegen.CodeGenConfiguration.setXsdConfigFile(String)</a>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/databinding/types/PositiveInteger.html#writeReplace--">org.apache.axis2.databinding.types.PositiveInteger.writeReplace()</a>
 <div class="block"><span class="deprecationComment">As per https://issues.apache.org/jira/browse/AXIS2-3848</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/databinding/types/NonPositiveInteger.html#writeReplace--">org.apache.axis2.databinding.types.NonPositiveInteger.writeReplace()</a>
 <div class="block"><span class="deprecationComment">As per https://issues.apache.org/jira/browse/AXIS2-3848</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/axis2/databinding/types/NonNegativeInteger.html#writeReplace--">org.apache.axis2.databinding.types.NonNegativeInteger.writeReplace()</a>
 <div class="block"><span class="deprecationComment">As per https://issues.apache.org/jira/browse/AXIS2-3848</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/axis2/databinding/types/NegativeInteger.html#writeReplace--">org.apache.axis2.databinding.types.NegativeInteger.writeReplace()</a>
 <div class="block"><span class="deprecationComment">As per https://issues.apache.org/jira/browse/AXIS2-3848</span></div>
 </td>

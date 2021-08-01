@@ -117,7 +117,7 @@ var activeTableTab = "activeTableTab";
 <pre>public final class <span class="typeNameLabel">JAXBAttachmentUnmarshaller</span>
 extends <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true" title="class or interface in javax.xml.bind.attachment">AttachmentUnmarshaller</a></pre>
 <div class="block">Implementation of the <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true" title="class or interface in javax.xml.bind.attachment"><code>AttachmentUnmarshaller</code></a> class that handles the attachments provided
- by Axiom through the <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/util/stax/xop/MimePartProvider.html?is-external=true" title="class or interface in org.apache.axiom.util.stax.xop"><code>MimePartProvider</code></a> interface. It should be noted that while Axiom only
+ by Axiom through the <code>MimePartProvider</code> interface. It should be noted that while Axiom only
  handles attachments referenced using XOP, <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/bind/attachment/AttachmentUnmarshaller.html?is-external=true" title="class or interface in javax.xml.bind.attachment"><code>AttachmentUnmarshaller</code></a> is also used to retrieve
  attachments from SwA messages. Hence the <code>#getDataHandlerForSwA(String)</code> method.</div>
 </li>
@@ -138,8 +138,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/bind/attach
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/datasource/jaxb/JAXBAttachmentUnmarshaller.html#JAXBAttachmentUnmarshaller-org.apache.axis2.datasource.jaxb.AttachmentContext-org.apache.axiom.util.stax.xop.MimePartProvider-">JAXBAttachmentUnmarshaller</a></span>(<a href="../../../../../org/apache/axis2/datasource/jaxb/AttachmentContext.html" title="interface in org.apache.axis2.datasource.jaxb">AttachmentContext</a>&nbsp;context,
-                          <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/util/stax/xop/MimePartProvider.html?is-external=true" title="class or interface in org.apache.axiom.util.stax.xop">MimePartProvider</a>&nbsp;mimePartProvider)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/datasource/jaxb/JAXBAttachmentUnmarshaller.html#JAXBAttachmentUnmarshaller-org.apache.axis2.datasource.jaxb.AttachmentContext-org.apache.axiom.om.OMAttachmentAccessor-">JAXBAttachmentUnmarshaller</a></span>(<a href="../../../../../org/apache/axis2/datasource/jaxb/AttachmentContext.html" title="interface in org.apache.axis2.datasource.jaxb">AttachmentContext</a>&nbsp;context,
+                          org.apache.axiom.om.OMAttachmentAccessor&nbsp;attachmentAccessor)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -190,14 +190,14 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/bind/attach
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="JAXBAttachmentUnmarshaller-org.apache.axis2.datasource.jaxb.AttachmentContext-org.apache.axiom.util.stax.xop.MimePartProvider-">
+<a name="JAXBAttachmentUnmarshaller-org.apache.axis2.datasource.jaxb.AttachmentContext-org.apache.axiom.om.OMAttachmentAccessor-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>JAXBAttachmentUnmarshaller</h4>
 <pre>public&nbsp;JAXBAttachmentUnmarshaller(<a href="../../../../../org/apache/axis2/datasource/jaxb/AttachmentContext.html" title="interface in org.apache.axis2.datasource.jaxb">AttachmentContext</a>&nbsp;context,
-                                  <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/util/stax/xop/MimePartProvider.html?is-external=true" title="class or interface in org.apache.axiom.util.stax.xop">MimePartProvider</a>&nbsp;mimePartProvider)</pre>
+                                  org.apache.axiom.om.OMAttachmentAccessor&nbsp;attachmentAccessor)</pre>
 </li>
 </ul>
 </li>

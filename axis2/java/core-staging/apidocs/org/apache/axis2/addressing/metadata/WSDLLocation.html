@@ -152,7 +152,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/addressing/metadata/WSDLLocation.html#fromOM-org.apache.axiom.om.OMAttribute-">fromOM</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMAttribute.html?is-external=true" title="class or interface in org.apache.axiom.om">OMAttribute</a>&nbsp;omAttribute)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/addressing/metadata/WSDLLocation.html#fromOM-org.apache.axiom.om.OMAttribute-">fromOM</a></span>(org.apache.axiom.om.OMAttribute&nbsp;omAttribute)</code>
 <div class="block">Convenience method for converting an OMAttribute to an instance of either of these types.</div>
 </td>
 </tr>
@@ -166,7 +166,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/addressing/metadata/WSDLLocation.html#isWSDLLocationAttribute-org.apache.axiom.om.OMAttribute-">isWSDLLocationAttribute</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMAttribute.html?is-external=true" title="class or interface in org.apache.axiom.om">OMAttribute</a>&nbsp;omAttribute)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/addressing/metadata/WSDLLocation.html#isWSDLLocationAttribute-org.apache.axiom.om.OMAttribute-">isWSDLLocationAttribute</a></span>(org.apache.axiom.om.OMAttribute&nbsp;omAttribute)</code>
 <div class="block">Static method to test whether an <code>OMElement</code> is recognized
  as a ServiceName element.</div>
 </td>
@@ -180,8 +180,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/addressing/metadata/WSDLLocation.html#setTargetNamespace-java.lang.String-">setTargetNamespace</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;targetNamespace)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMAttribute.html?is-external=true" title="class or interface in org.apache.axiom.om">OMAttribute</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/addressing/metadata/WSDLLocation.html#toOM-org.apache.axiom.om.OMFactory-">toOM</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;factory)</code>
+<td class="colFirst"><code>org.apache.axiom.om.OMAttribute</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/addressing/metadata/WSDLLocation.html#toOM-org.apache.axiom.om.OMFactory-">toOM</a></span>(org.apache.axiom.om.OMFactory&nbsp;factory)</code>
 <div class="block">Convenience method to convert an object of this type to an <code>OMAttribute</code>
  
  &lt;... xmlns:wsdli="http://www.w3.org/ns/wsdl-instance" wsdli:wsdlLocation="targetNamespace wsdlURL" ...</div>
@@ -278,7 +278,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>toOM</h4>
-<pre>public&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMAttribute.html?is-external=true" title="class or interface in org.apache.axiom.om">OMAttribute</a>&nbsp;toOM(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMFactory.html?is-external=true" title="class or interface in org.apache.axiom.om">OMFactory</a>&nbsp;factory)</pre>
+<pre>public&nbsp;org.apache.axiom.om.OMAttribute&nbsp;toOM(org.apache.axiom.om.OMFactory&nbsp;factory)</pre>
 <div class="block">Convenience method to convert an object of this type to an <code>OMAttribute</code>
  <p>
  &lt;... xmlns:wsdli="http://www.w3.org/ns/wsdl-instance" wsdli:wsdlLocation="targetNamespace wsdlURL" ...&gt
@@ -297,7 +297,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>fromOM</h4>
-<pre>public&nbsp;void&nbsp;fromOM(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMAttribute.html?is-external=true" title="class or interface in org.apache.axiom.om">OMAttribute</a>&nbsp;omAttribute)
+<pre>public&nbsp;void&nbsp;fromOM(org.apache.axiom.om.OMAttribute&nbsp;omAttribute)
             throws <a href="../../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
 <div class="block">Convenience method for converting an OMAttribute to an instance of either of these types.
  <p>
@@ -320,7 +320,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>isWSDLLocationAttribute</h4>
-<pre>public static&nbsp;boolean&nbsp;isWSDLLocationAttribute(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMAttribute.html?is-external=true" title="class or interface in org.apache.axiom.om">OMAttribute</a>&nbsp;omAttribute)</pre>
+<pre>public static&nbsp;boolean&nbsp;isWSDLLocationAttribute(org.apache.axiom.om.OMAttribute&nbsp;omAttribute)</pre>
 <div class="block">Static method to test whether an <code>OMElement</code> is recognized
  as a ServiceName element. If this method returns <code>true</code> then
  <a href="../../../../../org/apache/axis2/addressing/metadata/WSDLLocation.html#fromOM-org.apache.axiom.om.OMAttribute-"><code>fromOM(OMAttribute)</code></a> is guaranteed not to throw an exception.</div>

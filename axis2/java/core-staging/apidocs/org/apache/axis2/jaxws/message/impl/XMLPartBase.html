@@ -171,18 +171,18 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPEnvelope.html?is-external=true" title="class or interface in javax.xml.soap">SOAPEnvelope</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/impl/XMLPartBase.html#Z:Z_convertOM2SE-org.apache.axiom.om.OMElement-">_convertOM2SE</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;om)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/impl/XMLPartBase.html#Z:Z_convertOM2SE-org.apache.axiom.om.OMElement-">_convertOM2SE</a></span>(org.apache.axiom.om.OMElement&nbsp;om)</code>
 <div class="block">Convert OM tree into a SOAPEnvelope</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected abstract org.apache.axis2.jaxws.message.impl.XMLSpine</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/impl/XMLPartBase.html#Z:Z_convertOM2Spine-org.apache.axiom.om.OMElement-">_convertOM2Spine</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;om)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/impl/XMLPartBase.html#Z:Z_convertOM2Spine-org.apache.axiom.om.OMElement-">_convertOM2Spine</a></span>(org.apache.axiom.om.OMElement&nbsp;om)</code>
 <div class="block">Convert OM into XMLSpine</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>protected abstract <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colFirst"><code>protected abstract org.apache.axiom.om.OMElement</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/impl/XMLPartBase.html#Z:Z_convertSE2OM-javax.xml.soap.SOAPEnvelope-">_convertSE2OM</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPEnvelope.html?is-external=true" title="class or interface in javax.xml.soap">SOAPEnvelope</a>&nbsp;se)</code>
 <div class="block">Convert SOAPEnvelope into an OM tree</div>
 </td>
@@ -194,7 +194,7 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>protected abstract <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colFirst"><code>protected abstract org.apache.axiom.om.OMElement</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/impl/XMLPartBase.html#Z:Z_convertSpine2OM-org.apache.axis2.jaxws.message.impl.XMLSpine-">_convertSpine2OM</a></span>(org.apache.axis2.jaxws.message.impl.XMLSpine&nbsp;spine)</code>
 <div class="block">Convert XMLSpine into an OM tree</div>
 </td>
@@ -210,7 +210,7 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/impl/XMLPartBase.html#Z:Z_createSpine-org.apache.axis2.jaxws.message.Protocol-javax.jws.soap.SOAPBinding.Style-int-org.apache.axiom.om.OMElement-">_createSpine</a></span>(<a href="../../../../../../org/apache/axis2/jaxws/message/Protocol.html" title="enum in org.apache.axis2.jaxws.message">Protocol</a>&nbsp;protocol,
             <a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.Style.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.Style</a>&nbsp;style,
             int&nbsp;indirection,
-            <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;payload)</code>
+            org.apache.axiom.om.OMElement&nbsp;payload)</code>
 <div class="block">Create an empty, default spine for the specificed protocol</div>
 </td>
 </tr>
@@ -230,7 +230,7 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
 </td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colFirst"><code>org.apache.axiom.om.OMElement</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/impl/XMLPartBase.html#getAsOMElement--">getAsOMElement</a></span>()</code>
 <div class="block">getAsOMElement Get the xml part as a read/write OM...note this returns an OM SOAPEnvelope for
  all protocols...even REST</div>
@@ -280,7 +280,7 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart,
                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;context,
                <a href="../../../../../../org/apache/axis2/jaxws/message/factory/BlockFactory.html" title="interface in org.apache.axis2.jaxws.message.factory">BlockFactory</a>&nbsp;blockFactory,
-               <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/RolePlayer.html?is-external=true" title="class or interface in org.apache.axiom.soap">RolePlayer</a>&nbsp;rolePlayer)</code>
+               org.apache.axiom.soap.RolePlayer&nbsp;rolePlayer)</code>
 <div class="block">getHeaderBlock 
  Get the header blocks with the specified name
  The BlockFactory and object context
@@ -469,8 +469,8 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>getAsOMElement</h4>
-<pre>public&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;getAsOMElement()
-                         throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<pre>public&nbsp;org.apache.axiom.om.OMElement&nbsp;getAsOMElement()
+                                             throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getAsOMElement--">XMLPart</a></code></span></div>
 <div class="block">getAsOMElement Get the xml part as a read/write OM...note this returns an OM SOAPEnvelope for
  all protocols...even REST</div>
@@ -899,7 +899,7 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
                                    <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;localPart,
                                    <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;context,
                                    <a href="../../../../../../org/apache/axis2/jaxws/message/factory/BlockFactory.html" title="interface in org.apache.axis2.jaxws.message.factory">BlockFactory</a>&nbsp;blockFactory,
-                                   <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/RolePlayer.html?is-external=true" title="class or interface in org.apache.axiom.soap">RolePlayer</a>&nbsp;rolePlayer)
+                                   org.apache.axiom.soap.RolePlayer&nbsp;rolePlayer)
                             throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.html#getHeaderBlocks-java.lang.String-java.lang.String-java.lang.Object-org.apache.axis2.jaxws.message.factory.BlockFactory-org.apache.axiom.soap.RolePlayer-">XMLPart</a></code></span></div>
 <div class="block">getHeaderBlock 
@@ -1139,8 +1139,8 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>_convertSE2OM</h4>
-<pre>protected abstract&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;_convertSE2OM(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPEnvelope.html?is-external=true" title="class or interface in javax.xml.soap">SOAPEnvelope</a>&nbsp;se)
-                                    throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<pre>protected abstract&nbsp;org.apache.axiom.om.OMElement&nbsp;_convertSE2OM(<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPEnvelope.html?is-external=true" title="class or interface in javax.xml.soap">SOAPEnvelope</a>&nbsp;se)
+                                                        throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
 <div class="block">Convert SOAPEnvelope into an OM tree</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -1158,8 +1158,8 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>_convertSpine2OM</h4>
-<pre>protected abstract&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;_convertSpine2OM(org.apache.axis2.jaxws.message.impl.XMLSpine&nbsp;spine)
-                                       throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<pre>protected abstract&nbsp;org.apache.axiom.om.OMElement&nbsp;_convertSpine2OM(org.apache.axis2.jaxws.message.impl.XMLSpine&nbsp;spine)
+                                                           throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
 <div class="block">Convert XMLSpine into an OM tree</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -1177,7 +1177,7 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>_convertOM2SE</h4>
-<pre>protected abstract&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPEnvelope.html?is-external=true" title="class or interface in javax.xml.soap">SOAPEnvelope</a>&nbsp;_convertOM2SE(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;om)
+<pre>protected abstract&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPEnvelope.html?is-external=true" title="class or interface in javax.xml.soap">SOAPEnvelope</a>&nbsp;_convertOM2SE(org.apache.axiom.om.OMElement&nbsp;om)
                                        throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
 <div class="block">Convert OM tree into a SOAPEnvelope</div>
 <dl>
@@ -1215,7 +1215,7 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
 <ul class="blockList">
 <li class="blockList">
 <h4>_convertOM2Spine</h4>
-<pre>protected abstract&nbsp;org.apache.axis2.jaxws.message.impl.XMLSpine&nbsp;_convertOM2Spine(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;om)
+<pre>protected abstract&nbsp;org.apache.axis2.jaxws.message.impl.XMLSpine&nbsp;_convertOM2Spine(org.apache.axiom.om.OMElement&nbsp;om)
                                                                           throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
 <div class="block">Convert OM into XMLSpine</div>
 <dl>
@@ -1255,7 +1255,7 @@ implements <a href="../../../../../../org/apache/axis2/jaxws/message/XMLPart.htm
 <pre>protected static&nbsp;org.apache.axis2.jaxws.message.impl.XMLSpine&nbsp;_createSpine(<a href="../../../../../../org/apache/axis2/jaxws/message/Protocol.html" title="enum in org.apache.axis2.jaxws.message">Protocol</a>&nbsp;protocol,
                                                                            <a href="https://docs.oracle.com/javase/7/docs/api/javax/jws/soap/SOAPBinding.Style.html?is-external=true" title="class or interface in javax.jws.soap">SOAPBinding.Style</a>&nbsp;style,
                                                                            int&nbsp;indirection,
-                                                                           <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;payload)
+                                                                           org.apache.axiom.om.OMElement&nbsp;payload)
                                                                     throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
 <div class="block">Create an empty, default spine for the specificed protocol</div>
 <dl>
