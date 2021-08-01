@@ -1,0 +1,603 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JavaServiceImplWriter (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="JavaServiceImplWriter (Apache Axis)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/JavaServiceImplWriter.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceIfaceWriter.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceWriter.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html" target="_top">Frames</a></li>
+<li><a href="JavaServiceImplWriter.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_org.apache.axis.wsdl.toJava.JavaClassWriter">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis.wsdl.toJava</div>
+<h2 title="Class JavaServiceImplWriter" class="title">Class JavaServiceImplWriter</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">org.apache.axis.wsdl.toJava.JavaWriter</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html" title="class in org.apache.axis.wsdl.toJava">org.apache.axis.wsdl.toJava.JavaClassWriter</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.wsdl.toJava.JavaServiceImplWriter</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="../../../../../org/apache/axis/wsdl/gen/Generator.html" title="interface in org.apache.axis.wsdl.gen">Generator</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public class <span class="strong">JavaServiceImplWriter</span>
+extends <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaClassWriter</a></pre>
+<div class="block">This is Wsdl2java's service implementation writer.
+ It writes the <serviceName>Locator.java file.</div>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.axis.wsdl.toJava.JavaClassWriter">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.axis.wsdl.toJava.<a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaClassWriter</a></h3>
+<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#className">className</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#namespaces">namespaces</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#packageName">packageName</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.axis.wsdl.toJava.JavaWriter">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.axis.wsdl.toJava.<a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaWriter</a></h3>
+<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#emitter">emitter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#LINE_LENGTH">LINE_LENGTH</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#type">type</a></code></li>
+</ul>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colLast" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#JavaServiceImplWriter(org.apache.axis.wsdl.toJava.Emitter,%20org.apache.axis.wsdl.symbolTable.ServiceEntry,%20org.apache.axis.wsdl.symbolTable.SymbolTable)">JavaServiceImplWriter</a></strong>(<a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</a>&nbsp;emitter,
+                     <a href="../../../../../org/apache/axis/wsdl/symbolTable/ServiceEntry.html" title="class in org.apache.axis.wsdl.symbolTable">ServiceEntry</a>&nbsp;sEntry,
+                     <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</code>
+<div class="block">Constructor.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#getExtendsText()">getExtendsText</a></strong>()</code>
+<div class="block">Returns "extends org.apache.axis.client.Service ".</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#getImplementsText()">getImplementsText</a></strong>()</code>
+<div class="block">Returns "implements <serviceInterface>".</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeAddressInfo(java.io.PrintWriter,%20java.lang.String,%20java.lang.String,%20javax.wsdl.Port)">writeAddressInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portName,
+                <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;address,
+                javax.wsdl.Port&nbsp;p)</code>
+<div class="block">Write the private address field for this port and the public getter for it.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeConstructors(java.io.PrintWriter)">writeConstructors</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)</code>
+<div class="block">write Constructors</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeFileBody(java.io.PrintWriter)">writeFileBody</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)</code>
+<div class="block">Write the body of the service file.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeGetPortClass(java.io.PrintWriter,%20java.util.Vector,%20java.util.Vector,%20java.util.Vector,%20boolean)">writeGetPortClass</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getPortIfaces,
+                 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getPortStubClasses,
+                 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getPortPortNames,
+                 boolean&nbsp;printGetPortNotice)</code>
+<div class="block">Write the getPort(Class serviceInterfaceWriter) method.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeGetPortName(java.io.PrintWriter,%20java.lang.String,%20java.lang.String)">writeGetPortName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingType,
+                <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portName)</code>
+<div class="block">Write the get<portName>() method.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeGetPortNameURL(java.io.PrintWriter,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String)">writeGetPortNameURL</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                   <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingType,
+                   <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portName,
+                   <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stubClass,
+                   <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wsddServiceName)</code>
+<div class="block">Write the get<portName>(URL) method.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeGetPortQNameClass(java.io.PrintWriter,%20java.util.Vector,%20java.util.Vector)">writeGetPortQNameClass</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                      <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getPortPortNames,
+                      <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getPortPortXmlNames)</code>
+<div class="block">Write the getPort(QName portName, Class serviceInterfaceWriter) method.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeGetPorts(java.io.PrintWriter,%20java.lang.String,%20java.util.Vector)">writeGetPorts</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+             <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespaceURI,
+             <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;portNames)</code>
+<div class="block">Write the getPorts method.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeGetServiceName(java.io.PrintWriter,%20javax.xml.namespace.QName)">writeGetServiceName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                   <a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname)</code>
+<div class="block">Write the getServiceName method.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeSetEndpointAddress(java.io.PrintWriter,%20java.util.Vector)">writeSetEndpointAddress</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;portNames)</code>
+<div class="block">Write the setEndpointAddress(String portName, String newAddress)
+ and setEndpointAddress(QName portName, String newAddress) methods.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeSetPortEndpointAddress(java.io.PrintWriter,%20java.lang.String)">writeSetPortEndpointAddress</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                           <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portName)</code>
+<div class="block">Write the set<portName>EndpointAddress(String) method.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html#writeWSDDServiceNameInfo(java.io.PrintWriter,%20java.lang.String,%20java.lang.String,%20java.lang.String)">writeWSDDServiceNameInfo</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                        <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wsddServiceName,
+                        <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portName,
+                        <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portXmlName)</code>
+<div class="block">Write the private WSDD service name field and the public accessors for it.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.axis.wsdl.toJava.JavaClassWriter">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.axis.wsdl.toJava.<a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaClassWriter</a></h3>
+<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getClassModifiers()">getClassModifiers</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getClassName()">getClassName</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getClassText()">getClassText</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getFileName()">getFileName</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getPackage()">getPackage</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#registerFile(java.lang.String)">registerFile</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#writeFileFooter(java.io.PrintWriter)">writeFileFooter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#writeFileHeader(java.io.PrintWriter)">writeFileHeader</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#writeHeaderComments(java.io.PrintWriter)">writeHeaderComments</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#writePackage(java.io.PrintWriter)">writePackage</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.axis.wsdl.toJava.JavaWriter">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.axis.wsdl.toJava.<a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaWriter</a></h3>
+<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#closePrintWriter(java.io.PrintWriter)">closePrintWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#generate()">generate</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#getJavadocDescriptionPart(java.lang.String,%20boolean)">getJavadocDescriptionPart</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#getPrintWriter(java.lang.String)">getPrintWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#isFileGenerated(java.lang.String)">isFileGenerated</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#verboseMessage(java.lang.String)">verboseMessage</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#writeComment(java.io.PrintWriter,%20org.w3c.dom.Element)">writeComment</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#writeComment(java.io.PrintWriter,%20org.w3c.dom.Element,%20boolean)">writeComment</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="JavaServiceImplWriter(org.apache.axis.wsdl.toJava.Emitter, org.apache.axis.wsdl.symbolTable.ServiceEntry, org.apache.axis.wsdl.symbolTable.SymbolTable)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>JavaServiceImplWriter</h4>
+<pre>protected&nbsp;JavaServiceImplWriter(<a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</a>&nbsp;emitter,
+                     <a href="../../../../../org/apache/axis/wsdl/symbolTable/ServiceEntry.html" title="class in org.apache.axis.wsdl.symbolTable">ServiceEntry</a>&nbsp;sEntry,
+                     <a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</pre>
+<div class="block">Constructor.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>emitter</code> - </dd><dd><code>sEntry</code> - </dd><dd><code>symbolTable</code> - </dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getExtendsText()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getExtendsText</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getExtendsText()</pre>
+<div class="block">Returns "extends org.apache.axis.client.Service ".</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getExtendsText()">getExtendsText</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaClassWriter</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getImplementsText()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getImplementsText</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getImplementsText()</pre>
+<div class="block">Returns "implements <serviceInterface>".</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getImplementsText()">getImplementsText</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaClassWriter</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="writeFileBody(java.io.PrintWriter)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeFileBody</h4>
+<pre>protected&nbsp;void&nbsp;writeFileBody(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)
+                      throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Write the body of the service file.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#writeFileBody(java.io.PrintWriter)">writeFileBody</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaWriter</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="writeConstructors(java.io.PrintWriter)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeConstructors</h4>
+<pre>protected&nbsp;void&nbsp;writeConstructors(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)</pre>
+<div class="block">write Constructors</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeAddressInfo(java.io.PrintWriter, java.lang.String, java.lang.String, javax.wsdl.Port)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeAddressInfo</h4>
+<pre>protected&nbsp;void&nbsp;writeAddressInfo(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                    <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portName,
+                    <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;address,
+                    javax.wsdl.Port&nbsp;p)</pre>
+<div class="block">Write the private address field for this port and the public getter for it.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd><dd><code>portName</code> - </dd><dd><code>address</code> - </dd><dd><code>p</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeWSDDServiceNameInfo(java.io.PrintWriter, java.lang.String, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeWSDDServiceNameInfo</h4>
+<pre>protected&nbsp;void&nbsp;writeWSDDServiceNameInfo(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wsddServiceName,
+                            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portName,
+                            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portXmlName)</pre>
+<div class="block">Write the private WSDD service name field and the public accessors for it.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd><dd><code>wsddServiceName</code> - </dd><dd><code>portName</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeGetPortName(java.io.PrintWriter, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeGetPortName</h4>
+<pre>protected&nbsp;void&nbsp;writeGetPortName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                    <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingType,
+                    <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portName)</pre>
+<div class="block">Write the get<portName>() method.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd><dd><code>bindingType</code> - </dd><dd><code>portName</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeGetPortNameURL(java.io.PrintWriter, java.lang.String, java.lang.String, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeGetPortNameURL</h4>
+<pre>protected&nbsp;void&nbsp;writeGetPortNameURL(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;bindingType,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portName,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stubClass,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wsddServiceName)</pre>
+<div class="block">Write the get<portName>(URL) method.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd><dd><code>bindingType</code> - </dd><dd><code>portName</code> - </dd><dd><code>stubClass</code> - </dd><dd><code>wsddServiceName</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeSetPortEndpointAddress(java.io.PrintWriter, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeSetPortEndpointAddress</h4>
+<pre>protected&nbsp;void&nbsp;writeSetPortEndpointAddress(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                               <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;portName)</pre>
+<div class="block">Write the set<portName>EndpointAddress(String) method.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd><dd><code>portName</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeGetPortClass(java.io.PrintWriter, java.util.Vector, java.util.Vector, java.util.Vector, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeGetPortClass</h4>
+<pre>protected&nbsp;void&nbsp;writeGetPortClass(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                     <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getPortIfaces,
+                     <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getPortStubClasses,
+                     <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getPortPortNames,
+                     boolean&nbsp;printGetPortNotice)</pre>
+<div class="block">Write the getPort(Class serviceInterfaceWriter) method.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd><dd><code>getPortIfaces</code> - </dd><dd><code>getPortStubClasses</code> - </dd><dd><code>getPortPortNames</code> - </dd><dd><code>printGetPortNotice</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeGetPortQNameClass(java.io.PrintWriter, java.util.Vector, java.util.Vector)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeGetPortQNameClass</h4>
+<pre>protected&nbsp;void&nbsp;writeGetPortQNameClass(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                          <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getPortPortNames,
+                          <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;getPortPortXmlNames)</pre>
+<div class="block">Write the getPort(QName portName, Class serviceInterfaceWriter) method.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd><dd><code>getPortPortNames</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeGetServiceName(java.io.PrintWriter, javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeGetServiceName</h4>
+<pre>protected&nbsp;void&nbsp;writeGetServiceName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                       <a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname)</pre>
+<div class="block">Write the getServiceName method.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd><dd><code>qname</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeGetPorts(java.io.PrintWriter, java.lang.String, java.util.Vector)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeGetPorts</h4>
+<pre>protected&nbsp;void&nbsp;writeGetPorts(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespaceURI,
+                 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;portNames)</pre>
+<div class="block">Write the getPorts method.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd><dd><code>portNames</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeSetEndpointAddress(java.io.PrintWriter, java.util.Vector)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>writeSetEndpointAddress</h4>
+<pre>protected&nbsp;void&nbsp;writeSetEndpointAddress(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw,
+                           <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a>&nbsp;portNames)</pre>
+<div class="block">Write the setEndpointAddress(String portName, String newAddress)
+ and setEndpointAddress(QName portName, String newAddress) methods.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd><dd><code>portNames</code> - </dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/JavaServiceImplWriter.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceIfaceWriter.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceWriter.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html" target="_top">Frames</a></li>
+<li><a href="JavaServiceImplWriter.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_org.apache.axis.wsdl.toJava.JavaClassWriter">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

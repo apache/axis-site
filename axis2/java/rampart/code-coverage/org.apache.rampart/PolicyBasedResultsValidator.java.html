@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PolicyBasedResultsValidator.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rampart</a> &gt; <span class="el_source">PolicyBasedResultsValidator.java</span></div><h1>PolicyBasedResultsValidator.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart;
+
+import org.apache.axiom.soap.SOAPEnvelope;
+import org.apache.axiom.om.xpath.AXIOMXPath;
+import org.apache.axiom.om.OMNamespace;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rampart.policy.RampartPolicyData;
+import org.apache.rampart.policy.SupportingPolicyData;
+import org.apache.rampart.util.RampartUtil;
+import org.apache.ws.secpolicy.SPConstants;
+import org.apache.ws.secpolicy.model.*;
+import org.apache.ws.security.*;
+import org.apache.ws.security.components.crypto.Crypto;
+import org.apache.ws.security.components.crypto.CryptoType;
+import org.apache.ws.security.message.token.Timestamp;
+import org.apache.ws.security.util.WSSecurityUtil;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.jaxen.XPath;
+import org.jaxen.JaxenException;
+
+import javax.xml.namespace.QName;
+import java.math.BigInteger;
+import java.security.cert.X509Certificate;
+import java.util.*;
+
+<span class="fc" id="L45">public class PolicyBasedResultsValidator implements ExtendedPolicyValidatorCallbackHandler {</span>
+    
+<span class="fc" id="L47">    private static Log log = LogFactory.getLog(PolicyBasedResultsValidator.class);</span>
+
+    public void validate(ValidatorData data, Vector results)
+    throws RampartException {
+<span class="nc" id="L51">        List&lt;WSSecurityEngineResult&gt; resultsList = new ArrayList&lt;WSSecurityEngineResult&gt;(results);</span>
+<span class="nc" id="L52">        this.validate(data, resultsList);</span>
+<span class="nc" id="L53">    }</span>
+    
+    /** 
+     * {@inheritDoc}
+     */
+    public void validate(ValidatorData data, List&lt;WSSecurityEngineResult&gt; results)
+    throws RampartException {
+        
+<span class="fc" id="L61">        RampartMessageData rmd = data.getRampartMessageData();</span>
+        
+<span class="fc" id="L63">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+        
+        //If there's Security policy present and no results 
+        //then we should throw an error
+<span class="pc bpc" id="L67" title="2 of 4 branches missed.">        if(rpd != null &amp;&amp; results == null) {</span>
+<span class="nc" id="L68">            throw new RampartException(&quot;noSecurityResults&quot;);</span>
+        }
+        
+        //Check presence of timestamp
+<span class="fc" id="L72">        WSSecurityEngineResult tsResult = null;</span>
+<span class="pc bpc" id="L73" title="1 of 4 branches missed.">        if(rpd != null &amp;&amp;  rpd.isIncludeTimestamp()) {</span>
+<span class="fc" id="L74">            tsResult = </span>
+                WSSecurityUtil.fetchActionResult(results, WSConstants.TS);
+<span class="pc bpc" id="L76" title="3 of 4 branches missed.">            if(tsResult == null &amp;&amp; !rpd.isIncludeTimestampOptional()) {</span>
+<span class="nc" id="L77">                throw new RampartException(&quot;timestampMissing&quot;);</span>
+            }
+            
+        }
+        
+        //sig/encr
+<span class="fc" id="L83">        List&lt;WSEncryptionPart&gt; encryptedParts = RampartUtil.getEncryptedParts(rmd);</span>
+<span class="pc bpc" id="L84" title="2 of 6 branches missed.">        if(rpd != null &amp;&amp; rpd.isSignatureProtection() &amp;&amp; isSignatureRequired(rmd)) {</span>
+            
+<span class="fc" id="L86">            String sigId = RampartUtil.getSigElementId(rmd);</span>
+
+<span class="fc" id="L88">            encryptedParts.add(RampartUtil.createEncryptionPart(WSConstants.SIG_LN, sigId, WSConstants.SIG_NS,</span>
+                    RampartConstants.XML_ENCRYPTION_MODIFIER_ELEMENT));
+        }
+        
+<span class="fc" id="L92">        List&lt;WSEncryptionPart&gt; signatureParts = RampartUtil.getSignedParts(rmd);</span>
+
+        //Timestamp is not included in sig parts
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">        if (rpd != null) {</span>
+<span class="pc bpc" id="L96" title="1 of 4 branches missed.">            if (tsResult != null || !rpd.isIncludeTimestampOptional()) {</span>
+<span class="fc bfc" id="L97" title="All 4 branches covered.">                if (rpd.isIncludeTimestamp()</span>
+                        &amp;&amp; !rpd.isTransportBinding()) {
+<span class="fc" id="L99">                    signatureParts.add(RampartUtil.createEncryptionPart(WSConstants.TIMESTAMP_TOKEN_LN, &quot;timestamp&quot;));</span>
+                }
+            }
+        }
+
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        if(!rmd.isInitiator()) {</span>
+                        
+            //Just an indicator for EndorsingSupportingToken signature
+<span class="fc" id="L107">            SupportingToken endSupportingToken = null;</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">            if (rpd != null) {</span>
+<span class="fc" id="L109">                endSupportingToken = rpd.getEndorsingSupportingTokens();</span>
+            }
+
+<span class="pc bpc" id="L112" title="1 of 4 branches missed.">            if(endSupportingToken !=  null &amp;&amp; !endSupportingToken.isOptional()) {</span>
+<span class="fc" id="L113">                SignedEncryptedParts endSignedParts = endSupportingToken.getSignedParts();</span>
+<span class="pc bpc" id="L114" title="8 of 10 branches missed.">                if((endSignedParts != null &amp;&amp; !endSignedParts.isOptional() &amp;&amp;</span>
+                        (endSignedParts.isBody() || 
+                                endSignedParts.getHeaders().size() &gt; 0)) ||
+                                rpd.isIncludeTimestamp()) {
+
+<span class="fc" id="L119">                    signatureParts.add(RampartUtil.createEncryptionPart(&quot;EndorsingSupportingTokens&quot;,</span>
+                            &quot;EndorsingSupportingTokens&quot;));
+                }
+            }
+            //Just an indicator for SignedEndorsingSupportingToken signature
+<span class="fc" id="L124">            SupportingToken sgndEndSupportingToken = null;</span>
+<span class="pc bpc" id="L125" title="1 of 2 branches missed.">            if (rpd != null) {</span>
+<span class="fc" id="L126">                sgndEndSupportingToken = rpd.getSignedEndorsingSupportingTokens();</span>
+            }
+<span class="pc bpc" id="L128" title="3 of 4 branches missed.">            if(sgndEndSupportingToken != null &amp;&amp; !sgndEndSupportingToken.isOptional()) {</span>
+<span class="nc" id="L129">                SignedEncryptedParts sgndEndSignedParts = sgndEndSupportingToken.getSignedParts();</span>
+<span class="nc bnc" id="L130" title="All 10 branches missed.">                if((sgndEndSignedParts != null &amp;&amp; !sgndEndSignedParts.isOptional() &amp;&amp;</span>
+                        (sgndEndSignedParts.isBody() || 
+                                sgndEndSignedParts.getHeaders().size() &gt; 0)) || 
+                                rpd.isIncludeTimestamp()) {
+
+<span class="nc" id="L135">                    signatureParts.add(RampartUtil.createEncryptionPart(&quot;SignedEndorsingSupportingTokens&quot;,</span>
+                            &quot;SignedEndorsingSupportingTokens&quot;));
+                }
+            }
+
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">            if (rpd != null) {</span>
+<span class="fc" id="L141">                List&lt;SupportingToken&gt; supportingToks = rpd.getSupportingTokensList();</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">                for (SupportingToken supportingToken : supportingToks) {</span>
+<span class="pc bpc" id="L143" title="2 of 4 branches missed.">                    if (supportingToken != null &amp;&amp; !supportingToken.isOptional()) {</span>
+<span class="fc" id="L144">                        SupportingPolicyData policyData = new SupportingPolicyData();</span>
+<span class="fc" id="L145">                        policyData.build(supportingToken);</span>
+<span class="fc" id="L146">                        encryptedParts.addAll(RampartUtil.getSupportingEncryptedParts(rmd, policyData));</span>
+<span class="fc" id="L147">                        signatureParts.addAll(RampartUtil.getSupportingSignedParts(rmd, policyData));</span>
+                    }
+<span class="fc" id="L149">                }</span>
+            }
+        }
+        
+<span class="fc" id="L153">        validateEncrSig(data,encryptedParts, signatureParts, results);</span>
+
+<span class="pc bpc" id="L155" title="1 of 4 branches missed.">        if(rpd != null &amp;&amp; !rpd.isTransportBinding()) {</span>
+<span class="fc" id="L156">            validateProtectionOrder(data, results);</span>
+        }
+
+<span class="fc" id="L159">        validateEncryptedParts(data, encryptedParts, results);</span>
+
+<span class="fc" id="L161">        validateSignedPartsHeaders(data, signatureParts, results);</span>
+        
+<span class="fc" id="L163">        validateRequiredElements(data);</span>
+
+        //Supporting tokens
+<span class="fc bfc" id="L166" title="All 2 branches covered.">        if(!rmd.isInitiator()) {</span>
+<span class="fc" id="L167">            validateSupportingTokens(data, results);</span>
+        }
+        
+        /*
+         * Now we can check the certificate used to sign the message. In the
+         * following implementation the certificate is only trusted if either it
+         * itself or the certificate of the issuer is installed in the keystore.
+         * 
+         * Note: the method verifyTrust(X509Certificate) allows custom
+         * implementations with other validation algorithms for subclasses.
+         */
+
+        // Extract the signature action result from the action vector
+<span class="fc" id="L180">        WSSecurityEngineResult actionResult = WSSecurityUtil.fetchActionResult(</span>
+                results, WSConstants.SIGN);
+
+<span class="fc bfc" id="L183" title="All 2 branches covered.">        if (actionResult != null) {</span>
+<span class="fc" id="L184">            X509Certificate returnCert = (X509Certificate) actionResult</span>
+                    .get(WSSecurityEngineResult.TAG_X509_CERTIFICATE);
+
+<span class="fc bfc" id="L187" title="All 2 branches covered.">            if (returnCert != null) {</span>
+<span class="pc bpc" id="L188" title="1 of 2 branches missed.">                if (!verifyTrust(returnCert, rmd)) {</span>
+<span class="nc" id="L189">                    throw new RampartException (&quot;trustVerificationError&quot;);</span>
+                }
+            }
+        }
+        
+        /*
+         * Perform further checks on the timestamp that was transmitted in the
+         * header. 
+         * In the following implementation the timestamp is valid if :
+         * Timestamp-&gt;Created &lt; 'now' &lt; Timestamp-&gt;Expires.
+         * (Last test handled by WSS4J also if timeStampStrict enabled)
+         *
+         * Note: the method verifyTimestamp(Timestamp) allows custom
+         * implementations with other validation algorithms for subclasses.
+         */
+
+        // Extract the timestamp action result from the action vector
+<span class="fc" id="L206">        actionResult = WSSecurityUtil.fetchActionResult(results, WSConstants.TS);</span>
+
+<span class="fc bfc" id="L208" title="All 2 branches covered.">        if (actionResult != null) {</span>
+<span class="fc" id="L209">            Timestamp timestamp = (Timestamp) actionResult</span>
+                    .get(WSSecurityEngineResult.TAG_TIMESTAMP);
+
+<span class="pc bpc" id="L212" title="1 of 2 branches missed.">            if (timestamp != null) {</span>
+<span class="pc bpc" id="L213" title="1 of 2 branches missed.">                if (!verifyTimestamp(timestamp, rmd)) {</span>
+<span class="nc" id="L214">                    throw new RampartException(&quot;cannotValidateTimestamp&quot;);</span>
+                }
+            }
+        }
+<span class="fc" id="L218">    }</span>
+    
+    /**
+     * @param encryptedParts
+     * @param signatureParts
+     */
+    protected void validateEncrSig(ValidatorData data,List&lt;WSEncryptionPart&gt; encryptedParts,
+                                   List&lt;WSEncryptionPart&gt; signatureParts, List&lt;WSSecurityEngineResult&gt; results)
+    throws RampartException {
+<span class="fc" id="L227">        List&lt;Integer&gt; actions = getSigEncrActions(results);</span>
+<span class="fc" id="L228">        boolean sig = false; </span>
+<span class="fc" id="L229">        boolean encr = false;</span>
+<span class="fc bfc" id="L230" title="All 2 branches covered.">        for (Object action : actions) {</span>
+<span class="fc" id="L231">            Integer act = (Integer) action;</span>
+<span class="fc bfc" id="L232" title="All 2 branches covered.">            if (act == WSConstants.SIGN) {</span>
+<span class="fc" id="L233">                sig = true;</span>
+<span class="pc bpc" id="L234" title="1 of 2 branches missed.">            } else if (act == WSConstants.ENCR) {</span>
+<span class="fc" id="L235">                encr = true;</span>
+            }
+<span class="fc" id="L237">        }</span>
+        
+<span class="fc" id="L239">        RampartPolicyData rpd = data.getRampartMessageData().getPolicyData();</span>
+        
+<span class="fc" id="L241">        SupportingToken sgndSupTokens = rpd.getSignedSupportingTokens();</span>
+<span class="fc" id="L242">        SupportingToken sgndEndorSupTokens = rpd.getSignedEndorsingSupportingTokens();</span>
+        
+<span class="pc bpc" id="L244" title="9 of 12 branches missed.">        if(sig &amp;&amp; signatureParts.size() == 0 </span>
+                &amp;&amp; (sgndSupTokens == null || sgndSupTokens.getTokens().size() == 0)
+                 &amp;&amp; (sgndEndorSupTokens == null || sgndEndorSupTokens.getTokens().size() == 0)) {
+            
+            //Unexpected signature
+<span class="nc" id="L249">            throw new RampartException(&quot;unexprectedSignature&quot;);</span>
+<span class="pc bpc" id="L250" title="1 of 4 branches missed.">        } else if(!sig &amp;&amp; signatureParts.size() &gt; 0) {</span>
+            
+            //required signature missing
+<span class="nc" id="L253">            throw new RampartException(&quot;signatureMissing&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L256" title="All 4 branches covered.">        if(encr &amp;&amp; encryptedParts.size() == 0) {</span>
+            
+            //Check whether its just an encrypted key
+<span class="fc" id="L259">            List&lt;WSSecurityEngineResult&gt; list = this.getResults(results, WSConstants.ENCR);</span>
+
+<span class="fc" id="L261">            boolean encrDataFound = false;</span>
+<span class="fc bfc" id="L262" title="All 2 branches covered.">            for (WSSecurityEngineResult result : list) {</span>
+<span class="fc" id="L263">                ArrayList dataRefURIs = (ArrayList) result.get(WSSecurityEngineResult.TAG_DATA_REF_URIS);</span>
+<span class="pc bpc" id="L264" title="3 of 4 branches missed.">                if (dataRefURIs != null &amp;&amp; dataRefURIs.size() != 0) {</span>
+<span class="nc" id="L265">                    encrDataFound = true;</span>
+                }
+<span class="fc" id="L267">            }</span>
+            //TODO check whether the encrptedDataFound is an UsernameToken
+<span class="pc bpc" id="L269" title="3 of 4 branches missed.">            if(encrDataFound &amp;&amp; !isUsernameTokenPresent(data)) {</span>
+                //Unexpected encryption
+<span class="nc" id="L271">                throw new RampartException(&quot;unexprectedEncryptedPart&quot;);</span>
+            }
+<span class="fc bfc" id="L273" title="All 4 branches covered.">        } else if(!encr &amp;&amp; encryptedParts.size() &gt; 0) {</span>
+            
+            //required signature missing
+<span class="fc" id="L276">            throw new RampartException(&quot;encryptionMissing&quot;);</span>
+        }
+<span class="fc" id="L278">    }</span>
+
+    /**
+     * @param data
+     * @param results
+     */
+    protected void validateSupportingTokens(ValidatorData data, List&lt;WSSecurityEngineResult&gt; results)
+    throws RampartException {
+        
+        //Check for UsernameToken
+<span class="fc" id="L288">        RampartPolicyData rpd = data.getRampartMessageData().getPolicyData();</span>
+<span class="fc" id="L289">        List&lt;SupportingToken&gt; supportingTokens = rpd.getSupportingTokensList();</span>
+<span class="fc bfc" id="L290" title="All 2 branches covered.">        for (SupportingToken suppTok : supportingTokens) {</span>
+<span class="fc" id="L291">            handleSupportingTokens(results, suppTok);</span>
+<span class="fc" id="L292">        }</span>
+<span class="fc" id="L293">        SupportingToken signedSuppToken = rpd.getSignedSupportingTokens();</span>
+<span class="fc" id="L294">        handleSupportingTokens(results, signedSuppToken);</span>
+<span class="fc" id="L295">        SupportingToken signedEndSuppToken = rpd.getSignedEndorsingSupportingTokens();</span>
+<span class="fc" id="L296">        handleSupportingTokens(results, signedEndSuppToken);</span>
+<span class="fc" id="L297">        SupportingToken endSuppToken = rpd.getEndorsingSupportingTokens();</span>
+<span class="fc" id="L298">        handleSupportingTokens(results, endSuppToken);</span>
+<span class="fc" id="L299">    }</span>
+
+    /**
+     * @param results
+     * @param suppTok
+     * @throws RampartException
+     */
+    protected void handleSupportingTokens(List&lt;WSSecurityEngineResult&gt; results, SupportingToken suppTok) throws RampartException {
+        
+<span class="fc bfc" id="L308" title="All 2 branches covered.">        if(suppTok == null) {</span>
+<span class="fc" id="L309">            return;</span>
+        }
+        
+<span class="fc" id="L312">        ArrayList tokens = suppTok.getTokens();</span>
+<span class="fc bfc" id="L313" title="All 2 branches covered.">        for (Object objectToken : tokens) {</span>
+<span class="fc" id="L314">            Token token = (Token) objectToken;</span>
+<span class="fc bfc" id="L315" title="All 2 branches covered.">            if (token instanceof UsernameToken) {</span>
+<span class="fc" id="L316">                UsernameToken ut = (UsernameToken) token;</span>
+                //Check presence of a UsernameToken
+<span class="fc" id="L318">                WSSecurityEngineResult utResult = WSSecurityUtil.fetchActionResult(results, WSConstants.UT);</span>
+                
+<span class="pc bpc" id="L320" title="3 of 4 branches missed.">                if (utResult == null &amp;&amp; !ut.isOptional()) {</span>
+<span class="nc" id="L321">                    throw new RampartException(&quot;usernameTokenMissing&quot;);</span>
+                }
+                
+<span class="fc" id="L324">                org.apache.ws.security.message.token.UsernameToken wssUt = </span>
+                		(org.apache.ws.security.message.token.UsernameToken) utResult.get(WSSecurityEngineResult.TAG_USERNAME_TOKEN);
+                
+<span class="pc bpc" id="L327" title="3 of 4 branches missed.">                if(ut.isNoPassword() &amp;&amp; wssUt.getPassword() != null) {</span>
+<span class="nc" id="L328">                	throw new RampartException(&quot;invalidUsernameTokenType&quot;);</span>
+                }
+                
+<span class="fc bfc" id="L331" title="All 4 branches covered.">            	if(ut.isHashPassword() &amp;&amp; !wssUt.isHashed()) {</span>
+<span class="fc" id="L332">                	throw new RampartException(&quot;invalidUsernameTokenType&quot;);</span>
+<span class="pc bpc" id="L333" title="2 of 6 branches missed.">                } else if (!ut.isHashPassword() &amp;&amp; (wssUt.getPassword() == null ||</span>
+                        !wssUt.getPasswordType().equals(WSConstants.PASSWORD_TEXT))) {
+<span class="nc" id="L335">                	throw new RampartException(&quot;invalidUsernameTokenType&quot;);</span>
+                }
+                
+                
+
+<span class="fc bfc" id="L340" title="All 2 branches covered.">            } else if (token instanceof IssuedToken) {</span>
+<span class="fc" id="L341">                WSSecurityEngineResult samlResult = WSSecurityUtil.fetchActionResult(results, WSConstants.ST_SIGNED);</span>
+                // Then check for unsigned saml tokens
+<span class="pc bpc" id="L343" title="1 of 2 branches missed.">                if (samlResult == null) {</span>
+<span class="nc" id="L344">                    log.debug(&quot;No signed SAMLToken found. Looking for unsigned SAMLTokens&quot;);</span>
+<span class="nc" id="L345">                    samlResult = WSSecurityUtil.fetchActionResult(results, WSConstants.ST_UNSIGNED);</span>
+                }
+<span class="pc bpc" id="L347" title="1 of 2 branches missed.">                if (samlResult == null) {</span>
+<span class="nc" id="L348">                    throw new RampartException(&quot;samlTokenMissing&quot;);</span>
+                }
+<span class="pc bpc" id="L350" title="1 of 2 branches missed.">            } else if (token instanceof X509Token) {</span>
+<span class="fc" id="L351">                X509Token x509Token = (X509Token) token;</span>
+<span class="fc" id="L352">                WSSecurityEngineResult x509Result = WSSecurityUtil.fetchActionResult(results, WSConstants.BST);</span>
+<span class="pc bpc" id="L353" title="3 of 4 branches missed.">                if (x509Result == null &amp;&amp; !x509Token.isOptional()) {</span>
+<span class="nc" id="L354">                    throw new RampartException(&quot;binaryTokenMissing&quot;);</span>
+                }
+            }
+<span class="fc" id="L357">        }</span>
+<span class="fc" id="L358">    }</span>
+    
+    
+    
+
+    /**
+     * @param data
+     * @param results
+     */
+    protected void validateProtectionOrder(ValidatorData data, List&lt;WSSecurityEngineResult&gt; results)
+    throws RampartException {
+        
+<span class="fc" id="L370">        String protectionOrder = data.getRampartMessageData().getPolicyData().getProtectionOrder();</span>
+<span class="fc" id="L371">        List&lt;Integer&gt; sigEncrActions = this.getSigEncrActions(results);</span>
+        
+<span class="fc bfc" id="L373" title="All 2 branches covered.">        if(sigEncrActions.size() &lt; 2) {</span>
+            //There are no results to COMPARE
+<span class="fc" id="L375">            return;</span>
+        }
+        
+<span class="fc" id="L378">        boolean sigNotPresent = true; </span>
+<span class="fc" id="L379">        boolean encrNotPresent = true;</span>
+
+<span class="fc bfc" id="L381" title="All 2 branches covered.">        for (Object sigEncrAction : sigEncrActions) {</span>
+<span class="fc" id="L382">            Integer act = (Integer) sigEncrAction;</span>
+<span class="fc bfc" id="L383" title="All 2 branches covered.">            if (act == WSConstants.SIGN) {</span>
+<span class="fc" id="L384">                sigNotPresent = false;</span>
+<span class="pc bpc" id="L385" title="1 of 2 branches missed.">            } else if (act == WSConstants.ENCR) {</span>
+<span class="fc" id="L386">                encrNotPresent = false;</span>
+            }
+<span class="fc" id="L388">        }</span>
+        
+        // Only one action is present, so there is no order to check
+<span class="pc bpc" id="L391" title="1 of 4 branches missed.">        if ( sigNotPresent || encrNotPresent ) {</span>
+<span class="fc" id="L392">            return;</span>
+        }
+        
+        
+<span class="fc" id="L396">        boolean done = false;</span>
+<span class="fc bfc" id="L397" title="All 2 branches covered.">        if(SPConstants.SIGN_BEFORE_ENCRYPTING.equals(protectionOrder)) {</span>
+                        
+<span class="fc" id="L399">            boolean sigFound = false;</span>
+<span class="fc" id="L400">            for (Iterator iter = sigEncrActions.iterator(); </span>
+<span class="pc bpc" id="L401" title="1 of 4 branches missed.">                iter.hasNext() || !done;) {</span>
+<span class="fc" id="L402">                Integer act = (Integer) iter.next();</span>
+<span class="pc bpc" id="L403" title="1 of 4 branches missed.">                if(act == WSConstants.ENCR &amp;&amp; ! sigFound ) {</span>
+                    // We found ENCR and SIGN has not been found - break and fail
+<span class="nc" id="L405">                    break;</span>
+                }
+<span class="fc bfc" id="L407" title="All 2 branches covered.">                if(act == WSConstants.SIGN) {</span>
+<span class="fc" id="L408">                    sigFound = true;</span>
+<span class="pc bpc" id="L409" title="1 of 2 branches missed.">                } else if(sigFound) {</span>
+                    //We have an ENCR action after sig
+<span class="fc" id="L411">                    done = true;</span>
+                }
+<span class="fc" id="L413">            }</span>
+            
+<span class="fc" id="L415">        } else {</span>
+<span class="fc" id="L416">            boolean encrFound = false;</span>
+<span class="fc bfc" id="L417" title="All 2 branches covered.">            for (Object sigEncrAction : sigEncrActions) {</span>
+<span class="fc" id="L418">                Integer act = (Integer) sigEncrAction;</span>
+<span class="pc bpc" id="L419" title="1 of 4 branches missed.">                if (act == WSConstants.SIGN &amp;&amp; !encrFound) {</span>
+                    // We found SIGN and ENCR has not been found - break and fail
+<span class="nc" id="L421">                    break;</span>
+                }
+<span class="fc bfc" id="L423" title="All 2 branches covered.">                if (act == WSConstants.ENCR) {</span>
+<span class="fc" id="L424">                    encrFound = true;</span>
+<span class="pc bpc" id="L425" title="1 of 2 branches missed.">                } else if (encrFound) {</span>
+                    //We have an ENCR action after sig
+<span class="fc" id="L427">                    done = true;</span>
+                }
+<span class="fc" id="L429">            }</span>
+        }
+        
+<span class="pc bpc" id="L432" title="1 of 2 branches missed.">        if(!done) {</span>
+<span class="nc" id="L433">            throw new RampartException(&quot;protectionOrderMismatch&quot;);</span>
+        }
+<span class="fc" id="L435">    }</span>
+
+
+    protected List&lt;Integer&gt; getSigEncrActions(List&lt;WSSecurityEngineResult&gt; results) {
+<span class="fc" id="L439">        List&lt;Integer&gt; sigEncrActions = new ArrayList&lt;Integer&gt;();</span>
+<span class="fc bfc" id="L440" title="All 2 branches covered.">        for (WSSecurityEngineResult result : results) {</span>
+<span class="fc" id="L441">            Integer action = (Integer) (result)</span>
+                    .get(WSSecurityEngineResult.TAG_ACTION);
+
+<span class="fc bfc" id="L444" title="All 4 branches covered.">            if (WSConstants.SIGN == action || WSConstants.ENCR == action) {</span>
+<span class="fc" id="L445">                sigEncrActions.add(action);</span>
+            }
+
+<span class="fc" id="L448">        }</span>
+<span class="fc" id="L449">        return sigEncrActions;</span>
+    }
+
+    protected void validateEncryptedParts(ValidatorData data,
+                                          List&lt;WSEncryptionPart&gt; encryptedParts, List&lt;WSSecurityEngineResult&gt; results)
+                                                                                throws RampartException {
+        
+<span class="fc" id="L456">        RampartMessageData rmd = data.getRampartMessageData();</span>
+        
+<span class="fc" id="L458">        ArrayList encrRefs = getEncryptedReferences(results);</span>
+        
+<span class="fc" id="L460">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+
+        // build the list of encrypted nodes based on the dataRefs xpath expressions
+<span class="fc" id="L463">        SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
+<span class="fc" id="L464">        Set namespaces = RampartUtil.findAllPrefixNamespaces(envelope,</span>
+                                                             rpd.getDeclaredNamespaces());
+
+<span class="fc" id="L467">        Map decryptedElements = new HashMap();</span>
+<span class="fc bfc" id="L468" title="All 2 branches covered.">        for (Object encrRef : encrRefs) {</span>
+<span class="fc" id="L469">            WSDataRef dataRef = (WSDataRef) encrRef;</span>
+
+<span class="pc bpc" id="L471" title="2 of 4 branches missed.">            if (dataRef == null || dataRef.getXpath() == null) {</span>
+<span class="nc" id="L472">                continue;</span>
+            }
+
+            try {
+<span class="fc" id="L476">                XPath xp = new AXIOMXPath(dataRef.getXpath());</span>
+
+<span class="fc bfc" id="L478" title="All 2 branches covered.">                for (Object namespaceObject : namespaces) {</span>
+<span class="fc" id="L479">                    OMNamespace tmpNs = (OMNamespace) namespaceObject;</span>
+<span class="fc" id="L480">                    xp.addNamespace(tmpNs.getPrefix(), tmpNs.getNamespaceURI());</span>
+<span class="fc" id="L481">                }</span>
+
+<span class="fc bfc" id="L483" title="All 2 branches covered.">                for (Object o : xp.selectNodes(envelope)) {</span>
+<span class="fc" id="L484">                    decryptedElements.put(o, dataRef.isContent());</span>
+<span class="fc" id="L485">                }</span>
+
+
+<span class="nc" id="L488">            } catch (JaxenException e) {</span>
+                // This has to be changed to propagate an instance of a RampartException up
+<span class="nc" id="L490">                throw new RampartException(&quot;An error occurred while searching for decrypted elements.&quot;, e);</span>
+<span class="fc" id="L491">            }</span>
+
+<span class="fc" id="L493">        }</span>
+
+        //Check for encrypted body
+<span class="pc bpc" id="L496" title="1 of 4 branches missed.">        if(rpd.isEncryptBody()&amp;&amp; !rpd.isEncryptBodyOptional()) {</span>
+            
+<span class="pc bpc" id="L498" title="1 of 2 branches missed.">            if( !isRefIdPresent(encrRefs, data.getBodyEncrDataId())){</span>
+<span class="nc" id="L499">                throw new RampartException(&quot;encryptedPartMissing&quot;, </span>
+                        new String[]{data.getBodyEncrDataId()});
+            }
+        }
+
+<span class="fc bfc" id="L504" title="All 2 branches covered.">        for (WSEncryptionPart encryptedPart : encryptedParts) {</span>
+
+            //This is the encrypted Body and we already checked encrypted body
+<span class="fc bfc" id="L507" title="All 2 branches covered.">            if (encryptedPart.getName().equals(WSConstants.ELEM_BODY)) {</span>
+<span class="fc" id="L508">                continue;</span>
+            }
+
+<span class="pc bpc" id="L511" title="1 of 6 branches missed.">            if ((WSConstants.SIG_LN.equals(encryptedPart.getName()) &amp;&amp;</span>
+                    WSConstants.SIG_NS.equals(encryptedPart.getNamespace()))
+                    || encryptedPart.getEncModifier().equals(WSConstants.ELEM_HEADER)) {
+<span class="pc bpc" id="L514" title="1 of 2 branches missed.">                if (!isRefIdPresent(encrRefs, new QName(encryptedPart.getNamespace(), encryptedPart.getName()))) {</span>
+<span class="nc" id="L515">                    throw new RampartException(&quot;encryptedPartMissing&quot;,</span>
+                            new String[]{encryptedPart.getNamespace() + &quot;:&quot; + encryptedPart.getName()});
+                }
+                continue;
+            }
+
+            // it is not a header or body part... verify encrypted xpath elements
+<span class="fc" id="L522">            String xpath = encryptedPart.getXpath();</span>
+<span class="fc" id="L523">            boolean found = false;</span>
+            try {
+<span class="fc" id="L525">                XPath xp = new AXIOMXPath(xpath);</span>
+
+<span class="fc bfc" id="L527" title="All 2 branches covered.">                for (Object namespaceObject : namespaces) {</span>
+<span class="fc" id="L528">                    OMNamespace tmpNs = (OMNamespace) namespaceObject;</span>
+<span class="fc" id="L529">                    xp.addNamespace(tmpNs.getPrefix(), tmpNs.getNamespaceURI());</span>
+<span class="fc" id="L530">                }</span>
+
+<span class="pc bpc" id="L532" title="1 of 2 branches missed.">                for (Object o : xp.selectNodes(envelope)) {</span>
+<span class="fc" id="L533">                    Object result = decryptedElements.get(o);</span>
+<span class="pc bpc" id="L534" title="2 of 4 branches missed.">                    if (result != null &amp;&amp;</span>
+                            (&quot;Element&quot;.equals(encryptedPart.getEncModifier())
+                                    ^ (Boolean) result)) {
+<span class="fc" id="L537">                        found = true;</span>
+<span class="fc" id="L538">                        break;</span>
+                    }
+<span class="nc" id="L540">                }</span>
+
+<span class="pc bpc" id="L542" title="1 of 2 branches missed.">                if (!found) {</span>
+<span class="nc" id="L543">                    throw new RampartException(&quot;encryptedPartMissing&quot;,</span>
+                            new String[]{xpath});
+                }
+
+
+<span class="nc" id="L548">            } catch (JaxenException e) {</span>
+                // This has to be changed to propagate an instance of a RampartException up
+<span class="nc" id="L550">                throw new RampartException(&quot;An error occurred while searching for decrypted elements.&quot;, e);</span>
+<span class="fc" id="L551">            }</span>
+
+<span class="fc" id="L553">        }</span>
+        
+<span class="fc" id="L555">    }</span>
+    
+    public void validateRequiredElements(ValidatorData data) throws RampartException {
+        
+<span class="fc" id="L559">        RampartMessageData rmd = data.getRampartMessageData();</span>
+        
+<span class="fc" id="L561">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+        
+<span class="fc" id="L563">        SOAPEnvelope envelope = rmd.getMsgContext().getEnvelope();</span>
+
+<span class="fc bfc" id="L565" title="All 2 branches covered.">        for (String expression : rpd.getRequiredElements()) {</span>
+
+<span class="fc bfc" id="L567" title="All 2 branches covered.">            if (!RampartUtil.checkRequiredElements(envelope, rpd.getDeclaredNamespaces(), expression)) {</span>
+<span class="fc" id="L568">                throw new RampartException(&quot;requiredElementsMissing&quot;, new String[]{expression});</span>
+            }
+<span class="fc" id="L570">        }</span>
+        
+<span class="fc" id="L572">    }</span>
+
+    protected void validateSignedPartsHeaders(ValidatorData data, List&lt;WSEncryptionPart&gt; signatureParts,
+                                              List&lt;WSSecurityEngineResult&gt; results)
+    throws RampartException {
+        
+<span class="fc" id="L578">        RampartMessageData rmd = data.getRampartMessageData();</span>
+        
+<span class="fc" id="L580">        Node envelope = rmd.getDocument().getFirstChild();</span>
+        
+<span class="fc" id="L582">        WSSecurityEngineResult[] actionResults = fetchActionResults(results, WSConstants.SIGN);</span>
+
+        // Find elements that are signed
+<span class="fc" id="L585">        List&lt;QName&gt; actuallySigned = new ArrayList&lt;QName&gt;();</span>
+<span class="pc bpc" id="L586" title="1 of 2 branches missed.">        if (actionResults != null) {</span>
+<span class="fc bfc" id="L587" title="All 2 branches covered.">            for (WSSecurityEngineResult actionResult : actionResults) {</span>
+
+<span class="fc" id="L589">                List wsDataRefs = (List) actionResult.get(WSSecurityEngineResult.TAG_DATA_REF_URIS);</span>
+
+                // if header was encrypted before it was signed, protected
+                // element is 'EncryptedHeader.' the actual element is
+                // first child element
+
+<span class="fc bfc" id="L595" title="All 2 branches covered.">                for (Object objectDataReference : wsDataRefs) {</span>
+<span class="fc" id="L596">                    WSDataRef wsDataRef = (WSDataRef) objectDataReference;</span>
+<span class="fc" id="L597">                    Element protectedElement = wsDataRef.getProtectedElement();</span>
+<span class="fc bfc" id="L598" title="All 2 branches covered.">                    if (protectedElement.getLocalName().equals(&quot;EncryptedHeader&quot;)) {</span>
+<span class="fc" id="L599">                        NodeList nodeList = protectedElement.getChildNodes();</span>
+<span class="pc bpc" id="L600" title="1 of 2 branches missed.">                        for (int x = 0; x &lt; nodeList.getLength(); x++) {</span>
+<span class="nc bnc" id="L601" title="All 2 branches missed.">                            if (nodeList.item(x).getNodeType() == Node.ELEMENT_NODE) {</span>
+<span class="nc" id="L602">                                String ns = (nodeList.item(x)).getNamespaceURI();</span>
+<span class="nc" id="L603">                                String ln = (nodeList.item(x)).getLocalName();</span>
+<span class="nc" id="L604">                                actuallySigned.add(new QName(ns, ln));</span>
+<span class="nc" id="L605">                                break;</span>
+                            }
+                        }
+<span class="fc" id="L608">                    } else {</span>
+<span class="fc" id="L609">                        String ns = protectedElement.getNamespaceURI();</span>
+<span class="fc" id="L610">                        String ln = protectedElement.getLocalName();</span>
+<span class="fc" id="L611">                        actuallySigned.add(new QName(ns, ln));</span>
+                    }
+<span class="fc" id="L613">                }</span>
+
+            }
+        }
+
+<span class="fc bfc" id="L618" title="All 2 branches covered.">        for (WSEncryptionPart wsep : signatureParts) {</span>
+<span class="fc bfc" id="L619" title="All 2 branches covered.">            if (wsep.getName().equals(WSConstants.ELEM_BODY)) {</span>
+
+                QName bodyQName;
+
+<span class="fc bfc" id="L623" title="All 2 branches covered.">                if (WSConstants.URI_SOAP11_ENV.equals(envelope.getNamespaceURI())) {</span>
+<span class="fc" id="L624">                    bodyQName = new SOAP11Constants().getBodyQName();</span>
+                } else {
+<span class="fc" id="L626">                    bodyQName = new SOAP12Constants().getBodyQName();</span>
+                }
+
+<span class="pc bpc" id="L629" title="3 of 4 branches missed.">                if (!actuallySigned.contains(bodyQName) &amp;&amp; !rmd.getPolicyData().isSignBodyOptional()) {</span>
+                    // soap body is not signed
+<span class="nc" id="L631">                    throw new RampartException(&quot;bodyNotSigned&quot;);</span>
+                }
+
+<span class="pc bpc" id="L634" title="1 of 4 branches missed.">            } else if (wsep.getName().equals(WSConstants.ELEM_HEADER) ||</span>
+                    wsep.getXpath() != null) {
+                // TODO earlier this was wsep.getType() == WSConstants.PART_TYPE_ELEMENT
+                // This means that encrypted element of an XPath expression type. Therefore we are checking
+                // now whether an XPath expression exists. - Verify
+
+<span class="fc" id="L640">                Element element = WSSecurityUtil.findElement(</span>
+                        envelope, wsep.getName(), wsep.getNamespace());
+
+<span class="pc bpc" id="L643" title="1 of 2 branches missed.">                if (element == null) {</span>
+                    // The signedpart header or element we are checking is not present in 
+                    // soap envelope - this is allowed
+<span class="nc" id="L646">                    continue;</span>
+                }
+
+                // header or the element present in soap envelope - verify that it is part of signature
+<span class="pc bpc" id="L650" title="1 of 2 branches missed.">                if (actuallySigned.contains(new QName(element.getNamespaceURI(), element.getLocalName()))) {</span>
+<span class="fc" id="L651">                    continue;</span>
+                }
+
+<span class="nc bnc" id="L654" title="All 2 branches missed.">                String msg = wsep.getXpath() != null ?</span>
+                        &quot;signedPartHeaderNotSigned&quot; : &quot;signedElementNotSigned&quot;;
+
+                // header or the element defined in policy is present but not signed
+<span class="nc" id="L658">                throw new RampartException(msg, new String[]{wsep.getNamespace() + &quot;:&quot; + wsep.getName()});</span>
+
+            }
+<span class="fc" id="L661">        }</span>
+<span class="fc" id="L662">    }</span>
+
+    
+    protected boolean isSignatureRequired(RampartMessageData rmd) {
+<span class="fc" id="L666">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="pc bpc" id="L667" title="6 of 16 branches missed.">        return (rpd.isSymmetricBinding() &amp;&amp; rpd.getSignatureToken() != null) ||</span>
+                (!rpd.isSymmetricBinding() &amp;&amp; !rpd.isTransportBinding() &amp;&amp; 
+                        ((rpd.getInitiatorToken() != null &amp;&amp; rmd.isInitiator())
+                                || rpd.getRecipientToken() != null &amp;&amp; !rmd.isInitiator()));
+    }
+
+
+    /*
+    * Verify whether timestamp of the message is valid.
+    * If timeStampStrict is enabled in rampartConfig; testing of timestamp has not expired
+    * ('now' is before ts-&gt;Expires) is also handled earlier by WSS4J without timeskew.
+    * TODO must write unit tests
+    */
+    protected boolean verifyTimestamp(Timestamp timestamp, RampartMessageData rmd) throws RampartException {
+
+<span class="fc" id="L682">        long maxSkew = RampartUtil.getTimestampMaxSkew(rmd);</span>
+
+        //Verify that ts-&gt;Created is before 'now'
+<span class="fc" id="L685">        Date createdTime = timestamp.getCreated();</span>
+<span class="pc bpc" id="L686" title="1 of 2 branches missed.">        if (createdTime != null) {</span>
+<span class="fc" id="L687">            long now = Calendar.getInstance().getTimeInMillis();</span>
+
+            //calculate the tolerance limit for timeskew of the 'Created' in timestamp
+<span class="pc bpc" id="L690" title="1 of 2 branches missed.">            if (maxSkew &gt; 0) {</span>
+<span class="fc" id="L691">                now += (maxSkew * 1000);</span>
+            }
+
+            // fail if ts-&gt;Created is after 'now'
+<span class="pc bpc" id="L695" title="1 of 2 branches missed.">            if (createdTime.getTime() &gt; now) {</span>
+<span class="nc" id="L696">                return false;</span>
+            }
+        }
+
+        //Verify that ts-&gt;Expires is after now.
+<span class="fc" id="L701">        Date expires = timestamp.getExpires();</span>
+
+<span class="pc bpc" id="L703" title="1 of 2 branches missed.">        if (expires != null) {</span>
+<span class="fc" id="L704">            long now = Calendar.getInstance().getTimeInMillis();</span>
+            //calculate the tolerance limit for timeskew of the 'Expires' in timestamp
+<span class="pc bpc" id="L706" title="1 of 2 branches missed.">            if (maxSkew &gt; 0) {</span>
+<span class="fc" id="L707">                now -= (maxSkew * 1000);</span>
+            }
+            //fail if ts-&gt;Expires is before 'now'
+<span class="pc bpc" id="L710" title="1 of 2 branches missed.">            if (expires.getTime() &lt; now) {</span>
+<span class="nc" id="L711">                return false;</span>
+            }
+        }
+
+<span class="fc" id="L715">        return true;</span>
+    }
+    
+    /**
+     * Evaluate whether a given certificate should be trusted.
+     * Hook to allow subclasses to implement custom validation methods however they see fit.
+     * &lt;p&gt;
+     * Policy used in this implementation:
+     * 1. Search the keystore for the transmitted certificate
+     * 2. Search the keystore for a connection to the transmitted certificate
+     * (that is, search for certificate(s) of the issuer of the transmitted certificate
+     * 3. Verify the trust path for those certificates found because the search for the issuer might be fooled by a phony DN (String!)
+     *
+     * @param cert the certificate that should be validated against the keystore
+     * @param rmd To get signature keystore information.
+     * @return true if the certificate is trusted, false if not (AxisFault is thrown for exceptions during CertPathValidation)
+     * @throws RampartException If an error occurred during validation.
+     */
+    protected boolean verifyTrust(X509Certificate cert, RampartMessageData rmd) throws RampartException {
+
+        // If no certificate was transmitted, do not trust the signature
+<span class="pc bpc" id="L736" title="1 of 2 branches missed.">        if (cert == null) {</span>
+<span class="nc" id="L737">            return false;</span>
+        }
+
+<span class="fc" id="L740">        Crypto crypto = RampartUtil.getSignatureCrypto(</span>
+                    rmd.getPolicyData().getRampartConfig(),
+                    rmd.getCustomClassLoader());
+
+
+        // TODO removing this with WSS4J 1.6 migration. We do not have a way to get alias
+        // Therefore cannot set alias to message context. What will be affected from this ?
+        // rmd.getMsgContext().setProperty(RampartMessageData.SIGNATURE_CERT_ALIAS, alias);
+
+        // TODO this validation we are doing in SignatureProcessor.handleToken (WSS4J) So why we need to do again ?
+        // investigate
+
+<span class="fc" id="L752">        return isCertificateTrusted(cert, crypto);</span>
+
+    }
+
+
+    /**
+     * TODO - This is directly copied from WSS4J (SignatureTrustValidator).
+     * We need to use to Validators instead of following code. REFACTOR later.
+     *
+     * Evaluate whether a given certificate should be trusted.
+     *
+     * Policy used in this implementation:
+     * 1. Search the keystore for the transmitted certificate
+     * 2. Search the keystore for a connection to the transmitted certificate
+     * (that is, search for certificate(s) of the issuer of the transmitted certificate
+     * 3. Verify the trust path for those certificates found because the search for the issuer
+     * might be fooled by a phony DN (String!)
+     *
+     * @param cert the certificate that should be validated against the keystore
+     * @param crypto A crypto instance to use for trust validation
+     * @return true if the certificate is trusted, false if not
+     * @throws RampartException  If an error occurred during validation.
+     */
+    protected boolean isCertificateTrusted(
+        X509Certificate cert,
+        Crypto crypto
+    ) throws RampartException {
+<span class="fc" id="L779">        String subjectString = cert.getSubjectX500Principal().getName();</span>
+<span class="fc" id="L780">        String issuerString = cert.getIssuerX500Principal().getName();</span>
+<span class="fc" id="L781">        BigInteger issuerSerial = cert.getSerialNumber();</span>
+
+<span class="pc bpc" id="L783" title="1 of 2 branches missed.">        if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L784">            log.debug(&quot;Transmitted certificate has subject &quot; + subjectString);</span>
+<span class="nc" id="L785">            log.debug(</span>
+                &quot;Transmitted certificate has issuer &quot; + issuerString + &quot; (serial &quot;
+                + issuerSerial + &quot;)&quot;
+            );
+        }
+
+        //
+        // FIRST step - Search the keystore for the transmitted certificate
+        //
+<span class="pc bpc" id="L794" title="1 of 2 branches missed.">        if (isCertificateInKeyStore(crypto, cert)) {</span>
+<span class="fc" id="L795">            return true;</span>
+        }
+
+        //
+        // SECOND step - Search for the issuer cert (chain) of the transmitted certificate in the
+        // keystore or the truststore
+        //
+<span class="nc" id="L802">        CryptoType cryptoType = new CryptoType(CryptoType.TYPE.SUBJECT_DN);</span>
+<span class="nc" id="L803">        cryptoType.setSubjectDN(issuerString);</span>
+<span class="nc" id="L804">        X509Certificate[] foundCerts = new X509Certificate[0];</span>
+        try {
+<span class="nc" id="L806">            foundCerts = crypto.getX509Certificates(cryptoType);</span>
+<span class="nc" id="L807">        } catch (WSSecurityException e) {</span>
+<span class="nc" id="L808">            throw new RampartException(&quot;noCertForSubject&quot;, e);</span>
+<span class="nc" id="L809">        }</span>
+
+        // If the certs have not been found, the issuer is not in the keystore/truststore
+        // As a direct result, do not trust the transmitted certificate
+<span class="nc bnc" id="L813" title="All 4 branches missed.">        if (foundCerts == null || foundCerts.length &lt; 1) {</span>
+<span class="nc bnc" id="L814" title="All 2 branches missed.">            if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L815">                log.debug(</span>
+                    &quot;No certs found in keystore for issuer &quot; + issuerString
+                    + &quot; of certificate for &quot; + subjectString
+                );
+            }
+<span class="nc" id="L820">            return false;</span>
+        }
+
+        //
+        // THIRD step
+        // Check the certificate trust path for the issuer cert chain
+        //
+<span class="nc bnc" id="L827" title="All 2 branches missed.">        if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L828">            log.debug(</span>
+                &quot;Preparing to validate certificate path for issuer &quot; + issuerString
+            );
+        }
+        //
+        // Form a certificate chain from the transmitted certificate
+        // and the certificate(s) of the issuer from the keystore/truststore
+        //
+<span class="nc" id="L836">        X509Certificate[] x509certs = new X509Certificate[foundCerts.length + 1];</span>
+<span class="nc" id="L837">        x509certs[0] = cert;</span>
+<span class="nc bnc" id="L838" title="All 2 branches missed.">        for (int j = 0; j &lt; foundCerts.length; j++) {</span>
+<span class="nc" id="L839">            x509certs[j + 1] = (X509Certificate)foundCerts[j];</span>
+        }
+
+        //
+        // Use the validation method from the crypto to check whether the subjects'
+        // certificate was really signed by the issuer stated in the certificate
+        //
+        // TODO we need to configure enable revocation ...
+        try {
+<span class="nc bnc" id="L848" title="All 2 branches missed.">            if (crypto.verifyTrust(x509certs, false)) {</span>
+<span class="nc bnc" id="L849" title="All 2 branches missed.">                if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L850">                    log.debug(</span>
+                        &quot;Certificate path has been verified for certificate with subject &quot;
+                         + subjectString
+                    );
+                }
+<span class="nc" id="L855">                return true;</span>
+            }
+<span class="nc" id="L857">        } catch (WSSecurityException e) {</span>
+<span class="nc" id="L858">            throw new RampartException(&quot;certPathVerificationFailed&quot;, e);</span>
+<span class="nc" id="L859">        }</span>
+
+<span class="nc bnc" id="L861" title="All 2 branches missed.">        if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L862">            log.debug(</span>
+                &quot;Certificate path could not be verified for certificate with subject &quot;
+                + subjectString
+            );
+        }
+<span class="nc" id="L867">        return false;</span>
+    }
+
+    /**
+     * Check to see if the certificate argument is in the keystore
+     * TODO Directly copied from WSS4J (SignatureTrustValidator) - Optimize later
+     * @param crypto A Crypto instance to use for trust validation
+     * @param cert The certificate to check
+     * @return true if cert is in the keystore
+     * @throws RampartException If certificates are not found for given issuer and serial number.
+     */
+    protected boolean isCertificateInKeyStore(
+        Crypto crypto,
+        X509Certificate cert
+    ) throws RampartException {
+<span class="fc" id="L882">        String issuerString = cert.getIssuerX500Principal().getName();</span>
+<span class="fc" id="L883">        BigInteger issuerSerial = cert.getSerialNumber();</span>
+
+<span class="fc" id="L885">        CryptoType cryptoType = new CryptoType(CryptoType.TYPE.ISSUER_SERIAL);</span>
+<span class="fc" id="L886">        cryptoType.setIssuerSerial(issuerString, issuerSerial);</span>
+<span class="fc" id="L887">        X509Certificate[] foundCerts = new X509Certificate[0];</span>
+        try {
+<span class="fc" id="L889">            foundCerts = crypto.getX509Certificates(cryptoType);</span>
+<span class="nc" id="L890">        } catch (WSSecurityException e) {</span>
+<span class="nc" id="L891">            throw new RampartException(&quot;noCertificatesForIssuer&quot;, new String[]{issuerString,</span>
+                    issuerSerial.toString()}, e);
+<span class="fc" id="L893">        }</span>
+
+        //
+        // If a certificate has been found, the certificates must be compared
+        // to ensure against phony DNs (compare encoded form including signature)
+        //
+<span class="pc bpc" id="L899" title="3 of 6 branches missed.">        if (foundCerts != null &amp;&amp; foundCerts[0] != null &amp;&amp; foundCerts[0].equals(cert)) {</span>
+<span class="pc bpc" id="L900" title="1 of 2 branches missed.">            if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L901">                log.debug(</span>
+                        &quot;Direct trust for certificate with &quot; + cert.getSubjectX500Principal().getName()
+                );
+            }
+<span class="fc" id="L905">            return true;</span>
+        }
+<span class="nc bnc" id="L907" title="All 2 branches missed.">        if (log.isDebugEnabled()) {</span>
+<span class="nc" id="L908">            log.debug(</span>
+                    &quot;No certificate found for subject from issuer with &quot; + issuerString
+                            + &quot; (serial &quot; + issuerSerial + &quot;)&quot;
+            );
+        }
+<span class="nc" id="L913">        return false;</span>
+    }
+
+    
+    protected ArrayList getEncryptedReferences(List&lt;WSSecurityEngineResult&gt; results) {
+        
+        //there can be multiple ref lists
+<span class="fc" id="L920">        List&lt;WSSecurityEngineResult&gt; encrResults = getResults(results, WSConstants.ENCR);</span>
+        
+<span class="fc" id="L922">        ArrayList refs = new ArrayList();</span>
+
+<span class="fc bfc" id="L924" title="All 2 branches covered.">        for (WSSecurityEngineResult engineResult : encrResults) {</span>
+<span class="fc" id="L925">            ArrayList dataRefUris = (ArrayList) engineResult</span>
+                    .get(WSSecurityEngineResult.TAG_DATA_REF_URIS);
+
+            //take only the ref list processing results
+<span class="fc bfc" id="L929" title="All 2 branches covered.">            if (dataRefUris != null) {</span>
+<span class="fc" id="L930">                for (Iterator iterator = dataRefUris.iterator(); iterator</span>
+<span class="fc bfc" id="L931" title="All 2 branches covered.">                        .hasNext(); ) {</span>
+<span class="fc" id="L932">                    WSDataRef uri = (WSDataRef) iterator.next();</span>
+<span class="fc" id="L933">                    refs.add(uri);</span>
+<span class="fc" id="L934">                }</span>
+            }
+<span class="fc" id="L936">        }</span>
+        
+<span class="fc" id="L938">        return refs;</span>
+    }
+    
+    
+    
+    protected List&lt;WSSecurityEngineResult&gt; getResults(List&lt;WSSecurityEngineResult&gt; results, int action) {
+        
+<span class="fc" id="L945">        List&lt;WSSecurityEngineResult&gt; list = new ArrayList&lt;WSSecurityEngineResult&gt;();</span>
+
+<span class="fc bfc" id="L947" title="All 2 branches covered.">        for (WSSecurityEngineResult result : results) {</span>
+            // Check the result of every action whether it matches the given
+            // action
+<span class="fc" id="L950">            Integer actInt = (Integer) result.get(WSSecurityEngineResult.TAG_ACTION);</span>
+<span class="fc bfc" id="L951" title="All 2 branches covered.">            if (actInt == action) {</span>
+<span class="fc" id="L952">                list.add(result);</span>
+            }
+<span class="fc" id="L954">        }</span>
+        
+<span class="fc" id="L956">        return list;</span>
+    }
+    
+    protected boolean isUsernameTokenPresent(ValidatorData data) {
+        
+        //TODO This can be integrated with supporting token processing
+        // which also checks whether Username Tokens present
+        
+<span class="nc" id="L964">        RampartPolicyData rpd = data.getRampartMessageData().getPolicyData();</span>
+        
+<span class="nc" id="L966">        List&lt;SupportingToken&gt; supportingToks = rpd.getSupportingTokensList();</span>
+<span class="nc bnc" id="L967" title="All 2 branches missed.">        for (SupportingToken suppTok : supportingToks) {</span>
+<span class="nc bnc" id="L968" title="All 2 branches missed.">            if (isUsernameTokenPresent(suppTok)) {</span>
+<span class="nc" id="L969">                return true;</span>
+            }
+<span class="nc" id="L971">        }</span>
+        
+<span class="nc" id="L973">        SupportingToken signedSuppToken = rpd.getSignedSupportingTokens();</span>
+<span class="nc bnc" id="L974" title="All 2 branches missed.">        if(isUsernameTokenPresent(signedSuppToken)) {</span>
+<span class="nc" id="L975">            return true;</span>
+        }
+        
+<span class="nc" id="L978">        SupportingToken signedEndSuppToken = rpd.getSignedEndorsingSupportingTokens();</span>
+<span class="nc bnc" id="L979" title="All 2 branches missed.">        if(isUsernameTokenPresent(signedEndSuppToken)) {</span>
+<span class="nc" id="L980">            return true;</span>
+        }
+        
+<span class="nc" id="L983">        SupportingToken endSuppToken = rpd.getEndorsingSupportingTokens();</span>
+<span class="nc" id="L984">        return isUsernameTokenPresent(endSuppToken);</span>
+
+
+    }
+    
+    protected boolean isUsernameTokenPresent(SupportingToken suppTok) {
+        
+<span class="nc bnc" id="L991" title="All 2 branches missed.">        if(suppTok == null) {</span>
+<span class="nc" id="L992">            return false;</span>
+        }
+        
+<span class="nc" id="L995">        ArrayList tokens = suppTok.getTokens();</span>
+<span class="nc bnc" id="L996" title="All 2 branches missed.">        for (Iterator iter = tokens.iterator(); iter.hasNext();) {</span>
+<span class="nc" id="L997">            Token token = (Token) iter.next();</span>
+<span class="nc bnc" id="L998" title="All 2 branches missed.">            if(token instanceof UsernameToken) {</span>
+<span class="nc" id="L999">                return true;</span>
+            }
+<span class="nc" id="L1001">        }</span>
+        
+<span class="nc" id="L1003">        return false;</span>
+    }
+    
+    private boolean isRefIdPresent(ArrayList refList , String id) {
+
+<span class="pc bpc" id="L1008" title="2 of 4 branches missed.">        if(id != null &amp;&amp; id.charAt(0) == '#') {</span>
+<span class="nc" id="L1009">           id = id.substring(1);</span>
+        }
+
+<span class="pc bpc" id="L1012" title="1 of 2 branches missed.">        for (Object aRefList : refList) {</span>
+<span class="fc" id="L1013">            WSDataRef dataRef = (WSDataRef) aRefList;</span>
+
+            //ArrayList can contain null elements
+<span class="pc bpc" id="L1016" title="1 of 2 branches missed.">            if (dataRef == null) {</span>
+<span class="nc" id="L1017">                continue;</span>
+            }
+            //Try to get the wsuId of the decrypted element
+<span class="fc" id="L1020">            String dataRefUri = dataRef.getWsuId();</span>
+            //If not found, try the reference Id of encrypted element ( we set the same Id when we
+            // decrypted element in WSS4J)  
+            // TODO wsu id must present. We need to find the scenario where it is not set
+            // if (dataRefUri == null) {
+            //    dataRefUri = dataRef.getProtectedElement().getAttribute(&quot;Id&quot;); // TODO check whether this is correct
+                // earlier it was dataRefUri = dataRef.getDataref();
+            //}
+<span class="pc bpc" id="L1028" title="2 of 4 branches missed.">            if (dataRefUri != null &amp;&amp; dataRefUri.equals(id)) {</span>
+<span class="fc" id="L1029">                return true;</span>
+            }
+<span class="nc" id="L1031">        }</span>
+        
+<span class="nc" id="L1033">        return false;</span>
+        
+    }
+    
+    public static WSSecurityEngineResult[] fetchActionResults(List&lt;WSSecurityEngineResult&gt; wsSecurityEngineResults, int action) {
+<span class="fc" id="L1038">        List&lt;WSSecurityEngineResult&gt; wsResult = new ArrayList&lt;WSSecurityEngineResult&gt;();</span>
+
+        // Find the part of the security result that matches the given action
+<span class="fc bfc" id="L1041" title="All 2 branches covered.">        for (WSSecurityEngineResult wsSecurityEngineResult : wsSecurityEngineResults) {</span>
+            // Check the result of every action whether it matches the given action
+<span class="fc" id="L1043">            WSSecurityEngineResult result = (WSSecurityEngineResult) wsSecurityEngineResult;</span>
+<span class="fc" id="L1044">            int resultAction = (Integer) result.get(WSSecurityEngineResult.TAG_ACTION);</span>
+<span class="fc bfc" id="L1045" title="All 2 branches covered.">            if (resultAction == action) {</span>
+<span class="fc" id="L1046">                wsResult.add(wsSecurityEngineResult);</span>
+            }
+<span class="fc" id="L1048">        }</span>
+
+<span class="fc" id="L1050">        return wsResult.toArray(new WSSecurityEngineResult[wsResult</span>
+                .size()]);
+    }
+    
+    private boolean isRefIdPresent(ArrayList refList , QName qname) {
+
+<span class="pc bpc" id="L1056" title="1 of 2 branches missed.">        for (Object aRefList : refList) {</span>
+<span class="fc" id="L1057">            WSDataRef dataRef = (WSDataRef) aRefList;</span>
+
+            //ArrayList can contain null elements
+<span class="pc bpc" id="L1060" title="1 of 2 branches missed.">            if (dataRef == null) {</span>
+<span class="nc" id="L1061">                continue;</span>
+            }
+            //QName of the decrypted element
+<span class="fc" id="L1064">            QName dataRefQName = dataRef.getName();</span>
+
+<span class="pc bpc" id="L1066" title="1 of 4 branches missed.">            if (dataRefQName != null &amp;&amp; dataRefQName.equals(qname)) {</span>
+<span class="fc" id="L1067">                return true;</span>
+            }
+
+<span class="fc" id="L1070">        }</span>
+        
+<span class="nc" id="L1072">        return false;</span>
+        
+    }
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

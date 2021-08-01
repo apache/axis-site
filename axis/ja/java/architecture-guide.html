@@ -1,0 +1,1086 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../skin/print.css" type="text/css">
+<title>WebServices - Axis</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="../images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="../images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.co.jp/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input value="ja" name="hl" type="hidden"><input value="UTF-8" name="ie" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../skin/images/spacer.gif" class="spacer"><input name="Search" value="検索" type="submit">
+<br>WS を検索
+                          
+                          
+                      </td><td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="../index.html">はじめに</a>
+</div>
+ 
+<div class="menuItem">
+<a href="../news.html">お知らせ</a>
+</div>
+
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/ja/axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">活動に参加</span>
+  
+<div class="menuItem">
+<a href="../overview.html">概要</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cvs.html">CVS リポジトリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../mail.html">メーリングリスト</a>
+</div>
+  
+<div class="menuItem">
+<a href="../ref.html">リファレンスライブラリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../bugs.html">バグ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../howtobuild.html">サイト構築方法</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="../java/index.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/install.html">インストール</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/user-guide.html">ユーザガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/developers-guide.html">開発者ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/integration-guide.html">統合ガイド</a>
+</div>
+  
+<div class="menuItem">
+<span class="menuSelected">アーキテクチャガイド</span>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reference.html">リファレンスガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reading.html">読書ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/requirements.html">要件</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="../cpp/index.html">Axis C++ 最新版</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/documentation.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/download.html">ダウンロード</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki ページ [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/who.html">メンバ紹介</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">ダウンロード</span>
+  
+<div class="menuItem">
+<a href="../releases.html">リリース</a>
+</div>
+  
+<div class="menuItem">
+<a href="../interim.html">暫定版</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">ソースコード [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">翻訳</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/jp/">日本語</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">関連プロジェクト</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">その他</span>
+  
+<div class="menuItem">
+<a href="../who.html">メンバ紹介</a>
+</div>
+  
+<div class="menuItem">
+<a href="../contact.html">連絡先</a>
+</div>
+  
+<div class="menuItem">
+<a href="../legal.html">法関連</a>
+</div>
+  
+<div class="menuItem">
+<a href="../docs.html">メモ/ドキュメント</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>WebServices - Axis</h1>
+</div>
+<div class="h3">
+  
+  
+
+
+<a name="AxisArchitectureGuide"></a>
+
+<div class="h3">
+<h3>Axis アーキテクチャガイド</h3>
+</div>
+
+
+
+<p>
+<i>バージョン 1.2</i>
+<br>
+  
+<i>フィードバック: <a href="mailto:axis-dev@ws.apache.org">axis-dev@ws.apache.org</a></i>
+</p>
+
+
+<a name="TableOfContents"></a>
+
+<div class="h4">
+<h4>目次</h4>
+</div>
+
+
+
+<ul>
+  
+<li>
+<a href="#Introduction">はじめに</a>
+</li>
+  
+<li>
+<a href="#ArchitecturalOverview">アーキテクチャ概要</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#HandlersAndTheMessagePathInAxis">Axis の Handler と Message Path</a>
+</li>
+    
+<li>
+<a href="#MessagePathOnTheServer">サーバ上の Message Path</a>
+</li>
+    
+<li>
+<a href="#MessagePathOnTheClient">クライアント上の Message Path</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#Subsystems">サブシステム</a>
+</li>
+  
+<li>
+<a href="#MessageFlowSubsystem">メッセージフローサブシステム</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#HandlersAndChains">ハンドラとチェイン</a>
+</li>
+    
+<li>
+<a href="#MessageContexts">メッセージコンテキスト</a>
+</li>
+    
+<li>
+<a href="#Engine">エンジン</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#AdministrationSubsystem">管理サブシステム</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#WSDD-BasedAdministration">WSDD に基づく管理</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#MessageModelSubsystem">メッセージモデルサブシステム</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#SOAPMessageModel">SOAP メッセージモデル</a>
+</li>
+    
+<li>
+<a href="#MessageElements">メッセージ要素</a>
+</li>
+    
+<li>
+<a href="#Deserialization">デシリアライゼーション</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#EncodingSubsystem">エンコーディングサブシステム</a>
+</li>
+  
+<li>
+<a href="#WSDLToolsSubsystem">WSDL ツールサブシステム</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#WSDL2Java">WSDL2Java</a>
+</li>
+    
+<li>
+<a href="#Java2WSDL">Java2WSDL</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#InteractionDiagrams">相互作用図</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#ClientSideProcessing">クライアント側処理</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#Pluggable-ComponentDiscovery">プラグイン可能なコンポーネントの発見</a>
+</li>
+  
+<li>
+<a href="#OpenIssues">未解決の問題</a>
+</li>
+
+</ul>
+
+
+
+
+<a name="Introduction"></a>
+
+<div class="h4">
+<h4>はじめに</h4>
+</div>
+
+
+
+<p>このガイドでは Axis のアーキテクチャの原理とデザインを扱っています。</p>
+
+
+
+
+<a name="ArchitecturalOverview"></a>
+
+<div class="h4">
+<h4>アーキテクチャ概要</h4>
+</div>
+
+
+
+<p>後ほど見ていきますが、Axis は協調動作する複数のサブシステムから構成されています。この節では Axis の中核がどのように機能しているのかについての概要を見ていきます。</p>
+
+
+<a name="HandlersAndTheMessagePathInAxis"></a>
+
+<div class="h2">
+<h2>Axis の Handler と Message Path</h2>
+</div>
+
+
+
+<p>簡単に言うと、Axis は Message を処理するだけのものです。中心部の Axis 処理ロジックが実行されると、一連の <b>Handlers</b> が順番に呼び出されます。この順番は2つの要因で決まります。デプロイ設定と、エンジンがクライアントとサーバのどちらであるか、です。それぞれの Handler 呼び出しに渡されるオブジェクトは <b>MessageContext</b> です。MessageContext は複数の重要な部分、1) "リクエスト"メッセージ、2) "レスポンス"メッセージ、3) 様々なプロパティ、を含んでいる機構です。これについて少しだけ見ていきましょう。</p>
+
+
+<p>Axis が呼び出される基本的な方法は2通りあります。</p>
+
+
+<ol>
+  
+<li>
+<b>サーバ</b>として、<b>トランスポートリスナ</b>が MessageContext を生成し、Axis 処理フレームワークを呼び出します。</li>
+  
+<li>
+<b>クライアント</b>として、(一般的には Axis のクライアントプログラミングモデルを元にした) アプリケーションコードが MessageContext を生成し、Axis 処理フレームワークを呼び出します。</li>
+
+</ol>
+
+
+<p>どちらの場合でも、Axis フレームワークの仕事は単に生成された MessageContext を、設定された Handler の集合に渡すだけです。それぞれの Handler は MessageContext に対して行うように設定された処理を行います。</p>
+
+
+
+
+<a name="MessagePathOnTheServer"></a>
+
+<div class="h2">
+<h2>サーバ上の Message Path</h2>
+</div>
+
+
+
+<p>サーバ側のメッセージパスを以下の図に示します。小さな円柱は Handler を表し、複数の円柱を含んでいる大きい円柱は <b>Chain</b> (簡単に説明すると、順序付けられた Handler の集合です) を表しています。</p>
+
+
+<p>
+<img height="282" src="images/ServerMessagePath.jpg" vspace="30" width="602"></p>
+
+
+<p>メッセージはトランスポートリスナに (あるプロトコル特有の方法で) 到着します。この場合、トランスポートリスナを HTTP サーブレットと仮定します。トランスポートリスナの仕事は、プロトコル特有のデータを <b>Message</b> オブジェクト (org.apache.axis.Message) にパッケージングし、その Message を <b>MessageContext</b> に入れることです。また、MessageContext にはトランスポートリスナによって様々な<b>プロパティ</b>が取り込まれます。この例では、プロパティ "http.SOAPAction" に SOAPAction HTTP ヘッダの値が設定されます。トランスポートリスナはさらに、MessageContext に <b>transportName</b> String を設定します。この場合、"http" を設定します。MesageContext の準備が整えば、トランスポートリスナはそれを Axis エンジンに渡します。</p>
+
+
+<p>Axis エンジンの最初の仕事は、名前でトランスポートを検索することです。トランスポートは、<b>リクエスト</b> Chain、<b>レスポンス</b> Chain、あるいは両方を含むオブジェクトです。<b>Chain</b> は順番に呼び出される一連の Handler から構成される Handler です。Chain については後ほどより詳しく見ていきます。もしトランスポートリクエスト Chain があれば、invoke() メソッドに MessageContext が渡されて呼び出されます。これによりリクエスト Chain 設定で指定された全ての Handler を呼び出すことになります。</p>
+
+
+<p>トランスポートリクエスト Handler の後、Axis エンジンは、もし設定されていればグローバルリクエスト Chain に流し、そこで指定されている全ての Handler を呼び出します。</p>
+
+
+<p>これまでの処理の中のある時点で、うまくいけばある Handler が MessageContext の <b>serviceHandler</b> フィールドを設定します (一般的にこれは、"http://localhost/axis/services/AdminService" のような URL を "AdminService" サービスにマッピングする "URLMapper" Handler によって HTTP トランスポートの中で行われます)。このフィールドは、バックエンドオブジェクトに対して RPC 呼び出しを行うなどといった、サービス特有の機能を実行するために呼び出す Handler を決めます。Axis におけるサービスは一般的には "SOAPService" クラス (org.apache.axis.handlers.soap.SOAPService) のインスタンスで、このクラスは<b>リクエスト</b>と<b>レスポンス</b> Chain を持ち (トランスポートレベルとグローバルレベルで見てきたのと似ています)、サービスの実際のバックエンドロジックを実行する責任を持つ単なる Handler である<b>プロバイダ</b>を必ず持ちます。</p>
+
+
+<p>RPC スタイルのリクエストではプロバイダは org.apache.axis.providers.java.RPCProvider クラスです。これも単にもう一つの Handler で、呼び出されると、デプロイ時に指定された "className" パラメータで決められたクラスのオブジェクトである、バックエンド Java オブジェクトを呼びます。このプロバイダは SOAP RPC 規約を利用して呼び出すメソッドを決め 、入力の XML エンコードされた引数の型が、呼び出すメソッドが要求するパラメータの型と一致するか確かめます。</p>
+
+
+
+
+<a name="MessagePathOnTheClient"></a>
+
+<div class="h2">
+<h2>クライアント上の Message Path</h2>
+</div>
+
+
+
+<p>クライアント側の Message Path はサーバ側の Message Path と似ていますが、下に示した通りスコープの順序が逆になっている点が異なります。</p>
+
+
+<p>
+<img height="281" src="images/ClientMessagePath.jpg" vspace="30" width="592"></p>
+
+
+<p>もし <b>サービス</b> Handler が存在すれば、それが最初に呼ばれます。クライアント側では、サービスがリモートノードで提供されているので "プロバイダ" はありませんが、リクエストとレスポンス Chain はある可能性があります。サービスのリクエストとレスポンス Chain は、システムの外に出て行くリクエストメッセージと、呼び出し元に戻ってくるレスポンスメッセージに対して、サービス特有の処理を行います。</p>
+
+
+<p>サービスリクエスト Chain の後、グローバルリクエスト Chain があればそれが呼ばれ、その次にトランスポートが来ます。ターゲットの SOAP サーバとのメッセージの送受信に必要なプロトコル特有の操作を実際に実行する特別な Handler である <b>Transport Sender</b> は、メッセージを送信するために呼び出されます。(もしあれば) レスポンスは MessageContext の responseMessage フィールドに設定され、そして MessageContext はレスポンス Chain の、最初はトランスポート、次にグローバル、そして最後にサービスへと伝わっていきます。</p>
+
+
+
+
+
+
+<a name="Subsystems"></a>
+
+
+<div class="h4">
+<h4>サブシステム</h4>
+</div>
+
+
+
+<p>Axis は、責任をきれいに分離し、Axis のモジュール性を高めることを目的として協調動作するいくつかのサブシステムから構成されます。適切に階層分けされたサブシステムは、システムの全てを使用しなくても (あるいはコードをハッキングしなくても) その一部だけを利用することができます。</p>
+
+
+<p>以下の図はサブシステムの階層を示しています。下の階層は上の階層から独立しています。'束になった'箱は相互に独立していることを表していますが、相互排他的、二者択一である必要はありません。例えば、HTTP、SMTP、JMS トランスポートはお互い独立していますが、一緒に利用することもできます。</p>
+
+
+<p>
+<img src="images/subsystems.jpg"></p>
+
+
+<p>実際には、Axis のソースコードは上記の図が意味しているほどの、サブシステムにきれいに分離されてはいません。いくつかのサブシステムはいくつものパッケージにまたがっていて、いくつかのパッケージは2つ以上のサブシステムを重ね合わせています。コード構造を改良するための、また、概念的な Axis サブシステムにより正確に従うようにするための提案は、機会があれば考えます。</p>
+
+
+
+
+<a name="MessageFlowSubsystem"></a>
+
+<div class="h4">
+<h4>メッセージフローサブシステム</h4>
+</div>
+
+
+
+<a name="HandlersAndChains"></a>
+
+<div class="h2">
+<h2>ハンドラとチェイン</h2>
+</div>
+
+
+
+<p>ハンドラはメッセージを処理するためにシーケンスに沿って呼ばれます。シーケンスのある時点でハンドラはリクエストを送信してレスポンスを受信する、あるいはリクエストを処理してレスポンスを生成します。そのようなハンドラはシーケンスの<i>ピボットポイント</i>として知られています。上記で述べたように、ハンドラはトランスポート特有、サービス特有、グローバルのいずれかです。これらの異なる3種類のそれぞれのハンドラは組み合わさってチェインとなります。ですからシーケンス全体は3つのチェイン、トランスポート、グローバル、サービスから構成されます。以下の図にハンドラの2つのシーケンスを示します。左側はクライアント側のシーケンス、右側はサーバ側のシーケンスです。</p>
+
+
+<p>
+<img height="240" src="images/pivots.jpg" width="403"></p>
+
+
+<p>Webサービスはそれぞれのリクエストメッセージに対してレスポンスメッセージを送る必要はありませんが、多くのWebサービスは送っています。しかしながらメッセージパスにおいては、レスポンスメッセージがたとえなくてもレスポンスハンドラは役に立ちます。例えばタイマーを停止したり、リソースの後片付けをしたりする等の場合です。</p>
+
+
+<p>チェインは複合ハンドラです。つまりチェインは、以下の UML 図で示されているように、Handler インターフェースを実装するのと同様に Handler の集合を集約します。</p>
+
+
+<p>
+<img src="images/chainclasses.jpg"></p>
+
+
+<p>チェインには Chain of Responsibility デザインパターンとの類似点が、リクエストが処理されるまでハンドラのシーケンスをリクエストが流れていくという点で、あります。Axis チェインは連続するハンドラに渡って段階的にリクエストを処理しますが、Axis チェインには Chain of Responsibility と同じ利点、新しい機能を追加できるという柔軟性と容易さ、があります。</p>
+
+
+<p>話をメッセージ処理に戻します。メッセージは、適切なチェインに渡すことによって処理されます。ハンドラのシーケンスを通して、メッセージと、関連する環境を渡すためにメッセージコンテキストが利用されます。ハンドラが1つずつチェインに追加されることによって、オフラインで Axis チェインが構築されるというのがモデルです。次に Axis チェインはオンラインになり、メッセージコンテキストがチェインに流れ始めます。単一のチェインに、同時に複数のメッセージコンテキストが流れることもあります。チェインがひとたびオンラインになればハンドラは決して追加されません。ハンドラを追加したり削除したりする必要があるときは、チェインを'クローン化'し、そのクローンに修正を行ってオンラインにし、古いチェインをそれがもはや利用されなくなったときに撤退させます。古いチェインを利用していたメッセージコンテキストは、終わるまでその古いチェインを使い続けます。これは、チェインがメッセージコンテキストを処理している間はハンドラの追加や削除に対応する必要がないことを意味します。これは大事な簡略化です。</p>
+
+
+<p>デプロイレジストリにはハンドラとチェインのファクトリがあります。ハンドラとチェインは 'per-access (アクセス毎)'、'per-request(リクエスト毎)'、'singleton(シングルトン)' スコープを持つように定義できます。しかし現在のところレジストリはこれらを、要求があるとシングルトンでないスコープのオブジェクトを構築することと、一度シングルトンスコープのオブジェクトを構築し、連続する生成要求に利用するために保持すること、によってでしか区別しません。</p>
+
+
+<div class="h5">
+<h5>対象チェイン</h5>
+</div>
+
+
+
+<p>
+<b>Targeted Chain (対象チェイン)</b>は、リクエストハンドラ、ピボットハンドラ、レスポンスハンドラのいずれか、あるいは全てを持つ特殊なチェインです。以下のクラス図は Targeted Chain がどのように Chain と関係しているのかを示しています。Targeted Chain は、Handler の集約である Chain インターフェースの拡張に基づく、Handler の集約であることに注意してください。</p>
+
+
+<p>
+<img src="images/targetedchainclasses.jpg"></p>
+
+
+<p>サービスは対象チェインの特別な種類で、そのピボットハンドラは"プロバイダ"として知られています。</p>
+
+
+
+
+<div class="h5">
+<h5>フォルト処理</h5>
+</div>
+
+
+
+<p>フォルトが発生した時に何が起こるか考えてみましょう。フォルトが引き起こされたハンドラより前のハンドラの onFault (以前は 'undo' という間違った名前でした) が逆順に呼ばれます。この逆スキャンのスコープは興味深いです。なぜなら現在のメッセージコンテキストで前に呼ばれたハンドラが全て呼ばれるからです。</p>
+
+
+<p>
+<i>"FaultableHandlers" と "WSDD Fault Flows" の適応方法を説明する必要があります。</i>
+</p>
+
+
+
+
+
+
+<a name="MessageContexts"></a>
+
+<div class="h2">
+<h2>メッセージコンテキスト</h2>
+</div>
+
+
+
+<p>現在の MessageContext の構造が下に示されています。それぞれのメッセージコンテキストはリクエスト Message と/あるいは レスポンス Message と関連しています。それぞれの Message は SOAPPart と Attachments オブジェクトを持ち、その両方は Part インターフェースを実装しています。</p>
+
+
+<p>
+<img src="images/messagecontext.jpg"></p>
+
+
+<p>メッセージコンテキストの型は Axis アーキテクチャとの関係において、注意深く考える必要があります。メッセージコンテキストは Handler インターフェース上に現れるので、SOAP に縛られていたり、偏っていたりしてはいけません。現在の実装は、setServiceHandler メソッドが指定した Handler を SOAPService にナローするという点で、わずかに SOAP に偏っています。</p>
+
+
+
+
+<a name="Engine"></a>
+
+<div class="h2">
+<h2>エンジン</h2>
+</div>
+
+
+
+<p>Axis には2つの具象サブクラスを持つ AxisEngine 抽象クラスがあります。具象サブクラスのうち、AxisClient はクライアント側のハンドラチェインを駆動し、AxisServer はサーバ側のハンドラチェインを駆動します。これらのクラスの関係は極めて単純です。</p>
+
+
+<p>
+<img src="images/engineclasses.jpg"></p>
+
+
+<div class="h5">
+<h5>エンジン設定</h5>
+</div>
+
+
+
+<p>EngineConfiguration インターフェースはエンジンインスタンスの Handler ファクトリとグローバルオプションを設定するための手段です。EngineConfiguration の具象実装のインスタンスは、それが作成された時にエンジンに渡されなければなりません。また、EngineConfiguration の内容が修正されたらエンジンに伝える必要があります。エンジンは EngineConfiguration への参照を保持し、Handler ファクトリとグローバルオプションを取得するのにそれを利用します。</p>
+
+
+<p>EngineConfiguration インターフェースはメッセージフローサブシステムに属します。これは、メッセージフローサブシステムが管理サブシステムに依存していないことを意味しています。</p>
+
+
+
+
+
+
+
+
+<a name="AdministrationSubsystem"></a>
+
+<div class="h4">
+<h4>管理サブシステム</h4>
+</div>
+
+
+
+<p>管理サブシステムは Axis エンジンの設定方法を提供します。エンジンが必要とする設定情報は、チェイン や SOAPService のような実行時人工物のファクトリの集合と、エンジンのためのグローバル設定オプションの集合です。</p>
+
+
+<p>メッセージフローサブシステムの EngineConfiguration インターフェースは、管理サブシステムによって実装されています。FileProvider により、WSDDDeployment クラスによって解釈されるデプロイメントディスクリプタを含むファイルを用いて、エンジンを静的に設定することができます。一方 SimpleProvider はエンジンを動的に設定することができます。</p>
+
+
+<p>
+<img src="images/engineconfig.jpg"></p>
+
+
+<a name="WSDD-BasedAdministration"></a>
+
+<div class="h2">
+<h2>WSDD に基づく管理</h2>
+</div>
+
+
+
+<p>WSDD はデプロイメントディスクリプタ用の XML 文法で、Axis エンジンを静的に設定するために利用されます。各ハンドラの設定には、Handler のファクトリの具象クラス名、ハンドラのオプションの集合、Handler のインスタンスの共有スコープを決めるライフサイクルスコープ値、が必要です。</p>
+
+
+<p>WSDD 文法の構造は、実行時人工物のファクトリのクラス階層に酷似しています。以下の図は、ファクトリが生成する実行時人工物のクラスと型を示しています (点線の矢印は "インスタンス化" を意味しています)。</p>
+
+
+<p>
+<img src="images/wsddclasses.jpg"></p>
+
+
+
+
+
+
+<a name="MessageModelSubsystem"></a>
+
+<div class="h4">
+<h4>メッセージモデルサブシステム</h4>
+</div>
+
+
+
+<a name="SOAPMessageModel"></a>
+
+<div class="h2">
+<h2>SOAP メッセージモデル</h2>
+</div>
+
+
+
+<p>SOAP メッセージの XML 文法は極めて単純です。SOAP メッセージは以下のものを含む <i>エンベロープ</i> から構成されます。</p>
+
+
+<ul>
+  
+<li>0個以上の<i>ヘッダエントリ</i>を含む省略可能な<i>ヘッダ (header)</i> (<i>ヘッダ (headers)</i> と、曖昧に言うこともあります)。</li>
+  
+<li>0個以上の<i>ボディエントリ</i>を含む<i>ボディ</i>。</li>
+  
+<li>さらに0個以上の非標準の要素。</li>
+
+</ul>
+
+
+<p>SOAP で定義されている唯一のボディエントリは、エラーを報告する <i>SOAP フォルト</i>です。</p>
+
+
+<p>SOAP メッセージのいくつかの XML 要素は、URI とローカル名を用いてそれぞれの名前空間を定義し、また、SOAP で定義されている標準的なものを用いてエンコーディングスタイルを定義します。</p>
+
+
+<p>ヘッダエントリは以下の省略可能な SOAP 属性を用いてタグ付けすることができます。</p>
+
+
+<ul>
+  
+<li>
+<i>actor</i> : URI によりヘッダエントリの受信対象者を指定します。</li>
+  
+<li>
+<i>mustUnderstand</i> : ヘッダエントリの受信対象者が、そのヘッダエントリを処理するかどうかを指定します。</li>
+
+</ul>
+
+
+<p>以上より、SOAP メッセージモデルは次のようになります。</p>
+
+
+<p>
+<img src="images/soapmessagemodel.jpg"></p>
+
+
+
+
+<a name="MessageElements"></a>
+
+<div class="h2">
+<h2>メッセージ要素</h2>
+</div>
+
+
+
+<p>SOAP メッセージを表すクラスは、名前空間とエンコーディングを管理する MessageElement クラスに基づくクラス階層を形成します。SOAPHeaderElement クラスは actor 属性と mustUnderstand 属性の面倒を見ます。</p>
+
+
+<p>
+<img src="images/messagemodelclasses.jpg"></p>
+
+
+<p>デシリアライゼーションの際、上記のクラスのインスタンスから構成される、下に示されている親子関係を持ったパースツリーが構築されます。</p>
+
+
+<p>
+<img src="images/messagetree.jpg"></p>
+
+
+
+
+<a name="Deserialization"></a>
+
+<div class="h2">
+<h2>デシリアライゼーション</h2>
+</div>
+
+
+
+<p>XML パース、つまりデシリアライゼーションの責任が主にあるクラスは DeserializationContext (以下 'DC')です。DC はパースツリーの構築を管理します。また、SAX ハンドラのスタック、デシリアライズ中の MessageElement への参照、名前空間マッピングのスタック、ID から要素へのマッピング、デシリアライゼーション用の型マッピングの集合(<a href="#EncodingSubsystem">エンコーディングサブシステム</a>をご覧下さい)、SAX イベントレコーダを保持します。</p>
+
+
+<p>読み取った要素や、特定のデシリアライザを持たない要素は記録されます。言い換えると、SAX イベントは、後ほど SAX ContentHandler に'再生' されるキューに設置されます。</p>
+
+
+<p>パース、あるいはユーザによる手動の構築を通して SOAPEnvelope が構築されると、SerializationContext を利用して出力できます (<a href="#EncodingSubsystem">エンコーディングサブシステム</a>もご覧下さい)。全ての MessageElements は、その内容を書き出す output() メソッドを持っています。</p>
+
+
+<p>SAX ハンドラは以下のクラス階層を形成し、</p>
+
+
+<p>
+<img src="images/SAXHandlerClasses.jpg"></p>
+
+
+<p>以下の図に示すようにスタックします。</p>
+
+
+<p>
+<img src="images/SAXhandlers.jpg"></p>
+
+
+<p>初期時には、SOAP エンベロープのパースがまだ始まっていないことを示す EnvelopeHandler のインスタンスが SAX ハンドラスタックにあります。EnvelopeHandler は、SOAP エンベロープのパースの責任を負う SAX ハンドラである EnvelopeBuilder への参照を持って構築されます。</p>
+
+
+<p>パースの際、DC は SAX パーサからイベントを受け取り、ハンドラスタックの一番上にある SAX ハンドラと、SAX イベントレコーダの片方、あるいは両方に通知します。</p>
+
+
+<p>要素の開始時に、DC はハンドラスタックの一番上にある SAX ハンドラの onStartChild を呼びます。このメソッドはその要素の子供をパースするのに利用する SAX ハンドラを返し、DC はそれを SAX ハンドラスタックにプッシュして startElement を呼びます。とりわけ startElement は、一般的に、適切なクラスの新しい MessageElement を作成し、DC の pushNewElement を呼びます。この後の操作でパースツリーの親子関係を作成します。</p>
+
+
+<p>要素の終わりに来たら、DC はハンドラスタックから SAX ハンドラをポップし、その endElement を呼びます。次に、ハンドラスタックの一番上にある SAX ハンドラの onEndChild を呼びます。最後に、現在デシリアライズされている MessageElement を、その親に設定します。</p>
+
+
+<p>SOAP で定義されていない要素は、SOAPHandler を利用して SAX イベントハンドラとして扱われ、また、MessageElement を利用してパースツリー中のノードとして扱われます。</p>
+
+
+
+
+
+
+<a name="EncodingSubsystem"></a>
+
+<div class="h4">
+<h4>エンコーディングサブシステム</h4>
+</div>
+
+
+
+<p>エンコーディングはボトムアップで見ていくと最も理解しやすいでしょう。基本的な必要条件は、プログラミング言語のデータ型の値と、それらの XML 表現との間の変換を行うことです。Axis ではこれは、Java オブジェクトとプリミティブを XML にエンコード(あるいは'シリアライズ')することと、XML を Java オブジェクトとプリミティブにデコード(あるいは'デシリアライズ')することを意味します。これらのステップを実装する基本的なクラスは<i>シリアライザ</i>と<i>デシリアライザ</i>です。</p>
+
+
+<p>
+<img src="images/serclasses.jpg"></p>
+
+
+<p>シリアライザやデシリアライザの中には、DOM や SAX のような特定の XML 処理機構をサポートするように書かれているものもあります。ですからパラメータとして指定された XML 処理機構のためのシリアライザとデシリアライザを構築するために、<i>シリアライザファクトリ</i>と<i>デシリアライザファクトリ</i>が導入されました。</p>
+
+
+<p>
+<img src="images/serfactoryclasses.jpg"></p>
+
+
+<p>上記のクラス図から明らかなように、エンコードとデコードが必要な Java 型と XML データ型の各組は、特定のシリアライザとデシリアライザを必要とします (実際には、各 XML 処理機構に対してそれぞれ1つ)。ですから、QName で識別された Java 型と XML データ型の組から、シリアライザファクトリとデシリアライザファクトリへのマッピングを維持する必要があります。このようなマッピングは<i>型マッピング</i>と呼ばれています。下に型マッピングクラス階層を示します。デフォルトの型マッピングが、様々なシリアライザファクトリとデシリアライザファクトリをどのようにインスタンス化するかについて注意してください。</p>
+
+
+<p>
+<img src="images/typemappingclasses.jpg"></p>
+
+
+<p>明確にしていないことが一つあります。あるメッセージに対してどの型マッピングを利用するのかを、どのように判断するのでしょうか。これはメッセージ中で指定されたエンコーディングによって決められます。<i>型マッピングレジストリ</i>はエンコーディング名 (URI) から型マッピングへのマッピングを保持しています。XML データ型の QName はエンコーディングによって定義されていることに注意してください。</p>
+
+
+<p>
+<img src="images/typemappingclasses.jpg"></p>
+
+
+<p>ですから要約すると、Java オブジェクトかプリミティブデータ型を XML データ型にエンコードする、あるいは後者を前者にデコードするには以下のことを知っている必要があります。</p>
+
+
+<ul>
+  
+<li>扱っている Java 型</li>
+  
+<li>エンコード後の XML データ型の QName</li>
+  
+<li>利用している XML 処理機構</li>
+  
+<li>エンコーディング名</li>
+
+</ul>
+
+
+
+
+<a name="WSDLToolsSubsystem"></a>
+
+<div class="h4">
+<h4>WSDL ツールサブシステム</h4>
+</div>
+
+
+
+<p>WSDL ツールサブシステムには WSDL2Java と Java2WSDL があります。Axis ランタイムはこれらのツールに依存していません。これらのツールは単にユーザの手助けをするためだけにあります。</p>
+
+
+<a name="WSDL2Java"></a>
+
+<div class="h2">
+<h2>WSDL2Java</h2>
+</div>
+
+
+
+<p>このツールは WSDL で書かれたWebサービスの記述を引数に取り、Webサービスにアクセスする際に利用する Java 加工品を生成します。</p>
+
+
+<p>このツール内には3つの階層があります。</p>
+
+
+<ul>
+  
+<li>フレームワーク: SymbolTable、Emitter、WriterFactory</li>
+  
+<li>フレームワークの WSDL2Java プラグイン: WSDL2Java (メイン)、JavaWriterFactory、WSDL に関係する全ての Writer (JavaPortTypeWriter、JavaBindingWriter 等)</li>
+  
+<li>それぞれファイルに対して1つ生成される、実際の WSDL2Java 生成器: JavaInterfaceWriter、JavaStubWriter 等</li>
+
+</ul>
+
+
+
+
+<a name="Java2WSDL"></a>
+
+<div class="h2">
+<h2>Java2WSDL</h2>
+</div>
+
+
+
+<p>未定</p>
+
+
+
+
+
+
+<a name="InteractionDiagrams"></a>
+
+<div class="h4">
+<h4>相互作用図</h4>
+</div>
+
+
+
+<a name="ClientSideProcessing"></a>
+
+<div class="h2">
+<h2>クライアント側処理</h2>
+</div>
+
+
+
+<p>クライアント側の Axis 処理は AxisClient エンジンを呼ぶ前に、下の図のような、関連する Service、MessageContext、リクエスト Message を持った Call オブジェクトを構築します。</p>
+
+
+<p>
+<img height="120" src="images/clientobjects.jpg" width="349"></p>
+
+
+<p>Service インスタンスとそれに関連する AxisClient インスタンスは Call オブジェクトの前に作成されます。次に Service.createCall <i>ファクトリメソッド</i> を呼ぶことによって Call オブジェクトが作成されます。Call インスタンスに既に適切な Transport インスタンスが関連していなければ、Call.setOperation で Transport インスタンスを生成します。次に Call.invoke は MessageContext と関連するリクエスト Message を生成し、AxisClient.invoke を呼び、得られた MessageContext を処理します。このシーケンスにおける重要なメソッド呼び出しは、以下の相互作用図で示されています。</p>
+
+
+<p>
+<img height="503" src="images/clientinteraction.jpg" width="731"></p>
+
+
+
+
+
+
+<a name="Pluggable-ComponentDiscovery"></a>
+
+<div class="h4">
+<h4>プラグイン可能なコンポーネントの発見</h4>
+</div>
+
+
+
+<p>ほとんどのプラグイン可能なコンポーネントのインフラ (jaxp/xerces、common-logging 等) は発見機能を提供していますが、これらは時間と共に進化するという状況が予測できます。例えば、最先端の技術が作り直されたり標準として採用されたりすると、発見機能も変更されるでしょう。</p>
+
+
+<p>従って、コンポーネント発見は Axis 内の制御の<b>1</b>箇所、一般的には AXIS 特有のファクトリメソッド、に委ねておく必要があります。これらのファクトリメソッドは、利用できるようになった時に、現在の標準に従うべきです。技術が発展し、また/あるいは標準化されるに従って、ファイ句取りメソッドは適切な発見機能と共に最新版にしておく必要があります。</p>
+
+
+
+
+<a name="OpenIssues"></a>
+
+<div class="h4">
+<h4>未解決の問題</h4>
+</div>
+
+
+
+<ol>
+  
+<li>いくつかのサブシステム間では責任漏れがあるので、Axis サブシステム間の関係をドキュメント化し、いくらかきれいにしなければなりません。例えば、基本的な MessageContext 型と、関連するクラスが SOAP と HTTP に偏っています。</li>
+  
+<li>"エンコーディング"サブシステムにはどんなクラスが含まれていますか? エンコーディングサブシステムとメッセージモデルサブシステムは、"メッセージフロー"に依存しているほかのサブシステムから独立していますか?</li>
+  
+<li>(前の問題と関連しているかもしれません) SOAP 特有の機能と HTTP 特有の機能を考慮に入れ、Axis サブシステム間で上記の図のクラスをどのように分配すればいいでしょうか?</li>
+  
+<li>Axis エンジンは現在、ハンドラの3つの層、トランスポート、グローバル、サービスを持っています。しかしアーキテクチャ上これはやや異様です。Webサービスのどの "法" が、必ず<i>3</i>層でなくてはならないと決めているのでしょうか? リクエスト、ピボット、レスポンス Handler のより原始的な概念を持った Targeted Chains を利用したほうがより自然かもしれません。その場合 Axis エンジンを Targeted Chain として実装します。そのピボット Handler はそれ自身、グローバルリクエスト Handler とグローバルレスポンス Handler と サービスピボット Handler (これ自身、今説明しているような Targeted Chain です) を持つ Targeted Chain です。このような Axis エンジンアーキテクチャは下の図で示されています。
+    <p>
+<img height="312" src="images/stcengine.jpg" width="667"></p>
+  
+</li>
+  
+<li>WSDDService.faultFlows は空の Vector で初期化されていて、フォルトフローを追加する方法がありません。これは死んでいるコードでしょうか? それとも何か他のものが足りないのでしょうか?</li>
+  
+<li>ピボット Handler の後にフォルトが起こった際、逆スキャンは、ピボット Handler よりも前に呼び出された Handler に通知するべきでしょうか? 現在の実装ではそのような Handler に通知しています。しかしこれは、下流システムで発生し、ピボット Handler によってメッセージコンテキストに蓄えられたフォルトの処理と一貫性がありません。これらのフォルトは全てのレスポンス Handler に渡されますが、ローカルエンジンでは onFault は呼び出されません。
+    <p>ここで何が起こっているのか考える必要があります。もし Handler のシーケンスを採用し、シーケンスに区分境界を導入したら、メッセージコンテキストに対するその影響という観点から、シーケンスのセマンティックスにどのような影響があるでしょうか? 以下の図はクライアント側の Handler シーケンスがサーバ側の Handler シーケンスを呼び出しているところを示しています。この結合されたシーケンスのセマンティックスが、トランスポートに関連する Handler を省略することによって形成されるシーケンスとどのように比較されるか考慮する必要があります。</p>
+    
+<p>
+<img height="413" src="images/pivots2.jpg" width="658"></p>
+  
+</li>
+
+</ol>
+
+
+
+
+
+  
+
+<div id="pdf" align="right">
+<a href="architecture-guide.pdf"><img alt="PDF" src="../skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

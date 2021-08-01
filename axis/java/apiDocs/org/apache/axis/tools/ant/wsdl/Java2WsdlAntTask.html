@@ -1,0 +1,931 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Java2WsdlAntTask (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Java2WsdlAntTask (Apache Axis)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Java2WsdlAntTask.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../../org/apache/axis/tools/ant/wsdl/ComplexType.html" title="class in org.apache.axis.tools.ant.wsdl"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Mapper.html" title="interface in org.apache.axis.tools.ant.wsdl"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../../index.html?org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html" target="_top">Frames</a></li>
+<li><a href="Java2WsdlAntTask.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_org.apache.tools.ant.Task">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis.tools.ant.wsdl</div>
+<h2 title="Class Java2WsdlAntTask" class="title">Class Java2WsdlAntTask</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.tools.ant.ProjectComponent</li>
+<li>
+<ul class="inheritance">
+<li>org.apache.tools.ant.Task</li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.tools.ant.wsdl.Java2WsdlAntTask</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public class <span class="strong">Java2WsdlAntTask</span>
+extends org.apache.tools.ant.Task</pre>
+<div class="block">Generates a WSDL description from a Java class.</div>
+<dl><dt><span class="strong">Author:</span></dt>
+  <dd>Rich Scheuerle (scheu@us.ibm.com), Steve Loughran</dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.tools.ant.Task">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.tools.ant.Task</h3>
+<code>description, target, taskName, taskType, wrapper</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.tools.ant.ProjectComponent">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.tools.ant.ProjectComponent</h3>
+<code>project</code></li>
+</ul>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#Java2WsdlAntTask()">Java2WsdlAntTask</a></strong>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#addComplexType(org.apache.axis.tools.ant.wsdl.ComplexType)">addComplexType</a></strong>(<a href="../../../../../../org/apache/axis/tools/ant/wsdl/ComplexType.html" title="class in org.apache.axis.tools.ant.wsdl">ComplexType</a>&nbsp;ct)</code>
+<div class="block">Nested element for Complex Types.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#addMapping(org.apache.axis.tools.ant.wsdl.NamespaceMapping)">addMapping</a></strong>(<a href="../../../../../../org/apache/axis/tools/ant/wsdl/NamespaceMapping.html" title="class in org.apache.axis.tools.ant.wsdl">NamespaceMapping</a>&nbsp;mapping)</code>
+<div class="block">add a mapping of namespaces to packages</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#addMappingSet(org.apache.axis.tools.ant.wsdl.MappingSet)">addMappingSet</a></strong>(<a href="../../../../../../org/apache/axis/tools/ant/wsdl/MappingSet.html" title="class in org.apache.axis.tools.ant.wsdl">MappingSet</a>&nbsp;mappingset)</code>
+<div class="block">add a mapping of namespaces to packages</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#addSysproperty(org.apache.tools.ant.types.Environment.Variable)">addSysproperty</a></strong>(org.apache.tools.ant.types.Environment.Variable&nbsp;sysp)</code>
+<div class="block">Adds a system property that tests can access.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>org.apache.tools.ant.types.Path</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#createClasspath()">createClasspath</a></strong>()</code>
+<div class="block">Set the optional classpath</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#execute()">execute</a></strong>()</code>
+<div class="block">execute the task</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#generateServerSide(org.apache.axis.wsdl.fromJava.Emitter,%20java.lang.String)">generateServerSide</a></strong>(<a href="../../../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</a>&nbsp;j2w,
+                  <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wsdlFileName)</code>
+<div class="block">Generate the server side artifacts from the generated WSDL</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setBindingName(java.lang.String)">setBindingName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</code>
+<div class="block">The name to use use for the binding element.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setClassName(java.lang.String)">setClassName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</code>
+<div class="block">the class name to import, eg. org.example.Foo.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setClasspath(org.apache.tools.ant.types.Path)">setClasspath</a></strong>(org.apache.tools.ant.types.Path&nbsp;classpath)</code>
+<div class="block">Set the optional classpath</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setClasspathRef(org.apache.tools.ant.types.Reference)">setClasspathRef</a></strong>(org.apache.tools.ant.types.Reference&nbsp;r)</code>
+<div class="block">Set the reference to an optional classpath</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setDeploy(boolean)">setDeploy</a></strong>(boolean&nbsp;deploy)</code>
+<div class="block">Sets the deploy flag</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setExclude(java.lang.String)">setExclude</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;exclude)</code>
+<div class="block">Comma separated list of methods to exclude from the wsdl file.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setExtraClasses(java.lang.String)">setExtraClasses</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extraClasses)</code>
+<div class="block">A comma separated list of classes to add to the classpath.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setImplClass(java.lang.String)">setImplClass</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</code>
+<div class="block">Sometimes extra information is available in the implementation class
+ file.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setImportSchema(java.io.File)">setImportSchema</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;parameter)</code>
+<div class="block">Option attribute that indicates the name of an XML Schema file that
+ should be physically imported into the generated WSDL.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setInput(java.io.File)">setInput</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;parameter)</code>
+<div class="block">Optional attribute that indicates the name of the input wsdl file.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setLocation(java.lang.String)">setLocation</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</code>
+<div class="block">The url of the location of the service.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setLocationImport(java.lang.String)">setLocationImport</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</code>
+<div class="block">the location of the interface WSDL when generating an implementation WSDL
+ Required when <tt>outputImpl</tt> is set</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setMethods(java.lang.String)">setMethods</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methods)</code>
+<div class="block">If this option is specified, only the indicated methods in your
+ interface class will be exported into the WSDL file.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setNamespace(java.lang.String)">setNamespace</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</code>
+<div class="block">the target namespace.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setNamespaceImpl(java.lang.String)">setNamespaceImpl</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</code>
+<div class="block">Namespace of the implementation WSDL.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setOutput(java.io.File)">setOutput</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;parameter)</code>
+<div class="block">The name of the output WSDL file.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setOutputImpl(java.io.File)">setOutputImpl</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;parameter)</code>
+<div class="block">Use this option to indicate the name of the output implementation WSDL
+ file.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setPortTypeName(java.lang.String)">setPortTypeName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</code>
+<div class="block">Indicates the name to use use for the portType element.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setServiceElementName(java.lang.String)">setServiceElementName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceElementName)</code>
+<div class="block">the name of the service element.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setServicePortName(java.lang.String)">setServicePortName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</code>
+<div class="block">service port name (obtained from location if not specified)</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setSoapAction(java.lang.String)">setSoapAction</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapAction)</code>
+<div class="block">The setter for the "soapAction" attribute</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setStopClasses(java.lang.String)">setStopClasses</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stopClasses)</code>
+<div class="block">Comma separated list of classes which stop the Java2WSDL
+ inheritance search.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setStyle(java.lang.String)">setStyle</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;style)</code>
+<div class="block">The style of the WSDL document: RPC, DOCUMENT or WRAPPED.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setTypeMappingVersion(org.apache.axis.tools.ant.wsdl.TypeMappingVersionEnum)">setTypeMappingVersion</a></strong>(<a href="../../../../../../org/apache/axis/tools/ant/wsdl/TypeMappingVersionEnum.html" title="class in org.apache.axis.tools.ant.wsdl">TypeMappingVersionEnum</a>&nbsp;parameter)</code>
+<div class="block">the default type mapping registry to use.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setUse(java.lang.String)">setUse</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;use)</code>
+<div class="block">Set the use option</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#setUseInheritedMethods(boolean)">setUseInheritedMethods</a></strong>(boolean&nbsp;parameter)</code>
+<div class="block">should inherited methods be exported too?</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#traceParams(int)">traceParams</a></strong>(int&nbsp;logLevel)</code>
+<div class="block">trace out parameters</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html#validate()">validate</a></strong>()</code>
+<div class="block">validation code</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.tools.ant.Task">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.tools.ant.Task</h3>
+<code>getDescription, getLocation, getOwningTarget, getRuntimeConfigurableWrapper, getTaskName, handleErrorOutput, handleOutput, init, isInvalid, log, log, maybeConfigure, perform, setDescription, setLocation, setOwningTarget, setRuntimeConfigurableWrapper, setTaskName</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.tools.ant.ProjectComponent">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.tools.ant.ProjectComponent</h3>
+<code>getProject, setProject</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="Java2WsdlAntTask()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Java2WsdlAntTask</h4>
+<pre>public&nbsp;Java2WsdlAntTask()</pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="traceParams(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>traceParams</h4>
+<pre>public&nbsp;void&nbsp;traceParams(int&nbsp;logLevel)</pre>
+<div class="block">trace out parameters</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>logLevel</code> - to log at</dd><dt><span class="strong">See Also:</span></dt><dd><code>Project.log(java.lang.String)</code></dd></dl>
+</li>
+</ul>
+<a name="validate()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>validate</h4>
+<pre>protected&nbsp;void&nbsp;validate()
+                 throws org.apache.tools.ant.BuildException</pre>
+<div class="block">validation code</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code>org.apache.tools.ant.BuildException</code> - if validation failed</dd></dl>
+</li>
+</ul>
+<a name="execute()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>execute</h4>
+<pre>public&nbsp;void&nbsp;execute()
+             throws org.apache.tools.ant.BuildException</pre>
+<div class="block">execute the task</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code>execute</code>&nbsp;in class&nbsp;<code>org.apache.tools.ant.Task</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>org.apache.tools.ant.BuildException</code></dd></dl>
+</li>
+</ul>
+<a name="setOutput(java.io.File)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOutput</h4>
+<pre>public&nbsp;void&nbsp;setOutput(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;parameter)</pre>
+<div class="block">The name of the output WSDL file.
+ If not specified, a suitable default WSDL file is written into
+ the current directory.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - </dd></dl>
+</li>
+</ul>
+<a name="setImportSchema(java.io.File)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setImportSchema</h4>
+<pre>public&nbsp;void&nbsp;setImportSchema(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;parameter)
+                     throws org.apache.tools.ant.BuildException</pre>
+<div class="block">Option attribute that indicates the name of an XML Schema file that
+ should be physically imported into the generated WSDL.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>org.apache.tools.ant.BuildException</code></dd></dl>
+</li>
+</ul>
+<a name="setInput(java.io.File)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setInput</h4>
+<pre>public&nbsp;void&nbsp;setInput(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;parameter)</pre>
+<div class="block">Optional attribute that indicates the name of the input wsdl file.
+ The output wsdl file will contain everything from the input wsdl
+ file plus the new constructs. If a new construct is already present
+ in the input wsdl file, it is not added. This option is useful for
+ constructing a wsdl file with multiple ports, bindings, or portTypes.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - filename</dd></dl>
+</li>
+</ul>
+<a name="setOutputImpl(java.io.File)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOutputImpl</h4>
+<pre>public&nbsp;void&nbsp;setOutputImpl(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;parameter)</pre>
+<div class="block">Use this option to indicate the name of the output implementation WSDL
+ file.  If specified, Java2WSDL will produce separate interface and implementation
+ WSDL files.  If not, a single WSDL file is generated</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - </dd></dl>
+</li>
+</ul>
+<a name="setLocation(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLocation</h4>
+<pre>public&nbsp;void&nbsp;setLocation(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</pre>
+<div class="block">The url of the location of the service. The name after the last slash or
+ backslash is the name of the service port (unless overridden by the -s
+ option). The service port address location attribute is assigned the
+ specified value.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - a URL</dd></dl>
+</li>
+</ul>
+<a name="setLocationImport(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLocationImport</h4>
+<pre>public&nbsp;void&nbsp;setLocationImport(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</pre>
+<div class="block">the location of the interface WSDL when generating an implementation WSDL
+ Required when <tt>outputImpl</tt> is set</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - URL?</dd></dl>
+</li>
+</ul>
+<a name="setClassName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setClassName</h4>
+<pre>public&nbsp;void&nbsp;setClassName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</pre>
+<div class="block">the class name to import, eg. org.example.Foo. Required.
+ The class must be on the classpath.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - fully qualified class name</dd></dl>
+</li>
+</ul>
+<a name="setImplClass(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setImplClass</h4>
+<pre>public&nbsp;void&nbsp;setImplClass(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</pre>
+<div class="block">Sometimes extra information is available in the implementation class
+ file. Use this option to specify the implementation class.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - </dd></dl>
+</li>
+</ul>
+<a name="setServicePortName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setServicePortName</h4>
+<pre>public&nbsp;void&nbsp;setServicePortName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</pre>
+<div class="block">service port name (obtained from location if not specified)</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - portname</dd></dl>
+</li>
+</ul>
+<a name="setPortTypeName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPortTypeName</h4>
+<pre>public&nbsp;void&nbsp;setPortTypeName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</pre>
+<div class="block">Indicates the name to use use for the portType element.
+ If not specified, the class-of-portType name is used.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - </dd></dl>
+</li>
+</ul>
+<a name="setBindingName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBindingName</h4>
+<pre>public&nbsp;void&nbsp;setBindingName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</pre>
+<div class="block">The name to use use for the binding element.
+ If not specified, the value of the
+ <tt>servicePortName</tt> + "SoapBinding" is used.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - </dd></dl>
+</li>
+</ul>
+<a name="setNamespace(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNamespace</h4>
+<pre>public&nbsp;void&nbsp;setNamespace(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</pre>
+<div class="block">the target namespace. Required.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - </dd></dl>
+</li>
+</ul>
+<a name="setNamespaceImpl(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNamespaceImpl</h4>
+<pre>public&nbsp;void&nbsp;setNamespaceImpl(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;parameter)</pre>
+<div class="block">Namespace of the implementation WSDL.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - </dd></dl>
+</li>
+</ul>
+<a name="setUseInheritedMethods(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUseInheritedMethods</h4>
+<pre>public&nbsp;void&nbsp;setUseInheritedMethods(boolean&nbsp;parameter)</pre>
+<div class="block">should inherited methods be exported too? Default=false</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - </dd></dl>
+</li>
+</ul>
+<a name="setExclude(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setExclude</h4>
+<pre>public&nbsp;void&nbsp;setExclude(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;exclude)</pre>
+<div class="block">Comma separated list of methods to exclude from the wsdl file.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>exclude</code> - </dd></dl>
+</li>
+</ul>
+<a name="setStopClasses(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setStopClasses</h4>
+<pre>public&nbsp;void&nbsp;setStopClasses(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stopClasses)</pre>
+<div class="block">Comma separated list of classes which stop the Java2WSDL
+ inheritance search.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>stopClasses</code> - </dd></dl>
+</li>
+</ul>
+<a name="setStyle(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setStyle</h4>
+<pre>public&nbsp;void&nbsp;setStyle(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;style)</pre>
+<div class="block">The style of the WSDL document: RPC, DOCUMENT or WRAPPED.
+ If RPC, a rpc/encoded wsdl is generated. If DOCUMENT, a
+ document/literal wsdl is generated. If WRAPPED, a
+ document/literal wsdl is generated using the wrapped approach.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>style</code> - </dd></dl>
+</li>
+</ul>
+<a name="addMapping(org.apache.axis.tools.ant.wsdl.NamespaceMapping)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addMapping</h4>
+<pre>public&nbsp;void&nbsp;addMapping(<a href="../../../../../../org/apache/axis/tools/ant/wsdl/NamespaceMapping.html" title="class in org.apache.axis.tools.ant.wsdl">NamespaceMapping</a>&nbsp;mapping)</pre>
+<div class="block">add a mapping of namespaces to packages</div>
+</li>
+</ul>
+<a name="addMappingSet(org.apache.axis.tools.ant.wsdl.MappingSet)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addMappingSet</h4>
+<pre>public&nbsp;void&nbsp;addMappingSet(<a href="../../../../../../org/apache/axis/tools/ant/wsdl/MappingSet.html" title="class in org.apache.axis.tools.ant.wsdl">MappingSet</a>&nbsp;mappingset)</pre>
+<div class="block">add a mapping of namespaces to packages</div>
+</li>
+</ul>
+<a name="setTypeMappingVersion(org.apache.axis.tools.ant.wsdl.TypeMappingVersionEnum)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTypeMappingVersion</h4>
+<pre>public&nbsp;void&nbsp;setTypeMappingVersion(<a href="../../../../../../org/apache/axis/tools/ant/wsdl/TypeMappingVersionEnum.html" title="class in org.apache.axis.tools.ant.wsdl">TypeMappingVersionEnum</a>&nbsp;parameter)</pre>
+<div class="block">the default type mapping registry to use. Either 1.1 or 1.2.
+ Default is 1.1</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>parameter</code> - new version</dd></dl>
+</li>
+</ul>
+<a name="setMethods(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMethods</h4>
+<pre>public&nbsp;void&nbsp;setMethods(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methods)</pre>
+<div class="block">If this option is specified, only the indicated methods in your
+ interface class will be exported into the WSDL file.  The methods list
+ must be comma separated.  If not specified, all methods declared in
+ the interface class will be exported into the WSDL file</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>methods</code> - list of methods</dd></dl>
+</li>
+</ul>
+<a name="setUse(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUse</h4>
+<pre>public&nbsp;void&nbsp;setUse(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;use)</pre>
+<div class="block">Set the use option</div>
+</li>
+</ul>
+<a name="setServiceElementName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setServiceElementName</h4>
+<pre>public&nbsp;void&nbsp;setServiceElementName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;serviceElementName)</pre>
+<div class="block">the name of the service element.
+ If not specified, the service element is the <tt>portTypeName</tt>Service.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceElementName</code> - </dd></dl>
+</li>
+</ul>
+<a name="setExtraClasses(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setExtraClasses</h4>
+<pre>public&nbsp;void&nbsp;setExtraClasses(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extraClasses)</pre>
+<div class="block">A comma separated list of classes to add to the classpath.</div>
+</li>
+</ul>
+<a name="setSoapAction(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSoapAction</h4>
+<pre>public&nbsp;void&nbsp;setSoapAction(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapAction)</pre>
+<div class="block">The setter for the "soapAction" attribute</div>
+</li>
+</ul>
+<a name="addComplexType(org.apache.axis.tools.ant.wsdl.ComplexType)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addComplexType</h4>
+<pre>public&nbsp;void&nbsp;addComplexType(<a href="../../../../../../org/apache/axis/tools/ant/wsdl/ComplexType.html" title="class in org.apache.axis.tools.ant.wsdl">ComplexType</a>&nbsp;ct)</pre>
+<div class="block">Nested element for Complex Types. 
+ Each Complex Type uses the following fields:</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>ct</code> - </dd></dl>
+</li>
+</ul>
+<a name="setClasspath(org.apache.tools.ant.types.Path)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setClasspath</h4>
+<pre>public&nbsp;void&nbsp;setClasspath(org.apache.tools.ant.types.Path&nbsp;classpath)</pre>
+<div class="block">Set the optional classpath</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>classpath</code> - the classpath to use when loading class</dd></dl>
+</li>
+</ul>
+<a name="createClasspath()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createClasspath</h4>
+<pre>public&nbsp;org.apache.tools.ant.types.Path&nbsp;createClasspath()</pre>
+<div class="block">Set the optional classpath</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>a path instance to be configured by the Ant core.</dd></dl>
+</li>
+</ul>
+<a name="setClasspathRef(org.apache.tools.ant.types.Reference)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setClasspathRef</h4>
+<pre>public&nbsp;void&nbsp;setClasspathRef(org.apache.tools.ant.types.Reference&nbsp;r)</pre>
+<div class="block">Set the reference to an optional classpath</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>r</code> - the id of the Ant path instance to act as the classpath</dd></dl>
+</li>
+</ul>
+<a name="addSysproperty(org.apache.tools.ant.types.Environment.Variable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addSysproperty</h4>
+<pre>public&nbsp;void&nbsp;addSysproperty(org.apache.tools.ant.types.Environment.Variable&nbsp;sysp)</pre>
+<div class="block">Adds a system property that tests can access.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>sysp</code> - environment variable to add</dd></dl>
+</li>
+</ul>
+<a name="setDeploy(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDeploy</h4>
+<pre>public&nbsp;void&nbsp;setDeploy(boolean&nbsp;deploy)</pre>
+<div class="block">Sets the deploy flag</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>deploy</code> - true if deploy mode</dd></dl>
+</li>
+</ul>
+<a name="generateServerSide(org.apache.axis.wsdl.fromJava.Emitter, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>generateServerSide</h4>
+<pre>protected&nbsp;void&nbsp;generateServerSide(<a href="../../../../../../org/apache/axis/wsdl/fromJava/Emitter.html" title="class in org.apache.axis.wsdl.fromJava">Emitter</a>&nbsp;j2w,
+                      <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wsdlFileName)
+                           throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<div class="block">Generate the server side artifacts from the generated WSDL</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>j2w</code> - the Java2WSDL emitter</dd><dd><code>wsdlFileName</code> - the generated WSDL file</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Java2WsdlAntTask.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../../org/apache/axis/tools/ant/wsdl/ComplexType.html" title="class in org.apache.axis.tools.ant.wsdl"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../../org/apache/axis/tools/ant/wsdl/Mapper.html" title="interface in org.apache.axis.tools.ant.wsdl"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../../index.html?org/apache/axis/tools/ant/wsdl/Java2WsdlAntTask.html" target="_top">Frames</a></li>
+<li><a href="Java2WsdlAntTask.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_org.apache.tools.ant.Task">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

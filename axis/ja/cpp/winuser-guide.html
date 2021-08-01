@@ -1,0 +1,595 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../skin/print.css" type="text/css">
+<title>Axis C++ Windows User Guide</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="../images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="../images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.co.jp/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input value="ja" name="hl" type="hidden"><input value="UTF-8" name="ie" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../skin/images/spacer.gif" class="spacer"><input name="Search" value="検索" type="submit">
+<br>WS を検索
+                          
+                          
+                      </td><td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="../index.html">はじめに</a>
+</div>
+ 
+<div class="menuItem">
+<a href="../news.html">お知らせ</a>
+</div>
+
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/ja/axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">活動に参加</span>
+  
+<div class="menuItem">
+<a href="../overview.html">概要</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cvs.html">CVS リポジトリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../mail.html">メーリングリスト</a>
+</div>
+  
+<div class="menuItem">
+<a href="../ref.html">リファレンスライブラリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../bugs.html">バグ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../howtobuild.html">サイト構築方法</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="../java/index.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/install.html">インストール</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/user-guide.html">ユーザガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/developers-guide.html">開発者ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/integration-guide.html">統合ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/architecture-guide.html">アーキテクチャガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reference.html">リファレンスガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reading.html">読書ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/requirements.html">要件</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="../cpp/index.html">Axis C++ 最新版</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/documentation.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/download.html">ダウンロード</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki ページ [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/who.html">メンバ紹介</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">ダウンロード</span>
+  
+<div class="menuItem">
+<a href="../releases.html">リリース</a>
+</div>
+  
+<div class="menuItem">
+<a href="../interim.html">暫定版</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">ソースコード [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">翻訳</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/jp/">日本語</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">関連プロジェクト</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">その他</span>
+  
+<div class="menuItem">
+<a href="../who.html">メンバ紹介</a>
+</div>
+  
+<div class="menuItem">
+<a href="../contact.html">連絡先</a>
+</div>
+  
+<div class="menuItem">
+<a href="../legal.html">法関連</a>
+</div>
+  
+<div class="menuItem">
+<a href="../docs.html">メモ/ドキュメント</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Axis C++ Windows User Guide</h1>
+</div>
+<div class="h3">
+<div class="h3">
+<h3>Axis C++ Windows User Guide</h3>
+</div>
+<div class="h4">
+<h4>Creating And Deploying your own Web Service</h4>
+</div>
+<p>
+<a href="#create">Creating the web service</a>
+<br>
+<a href="#wsdl2ws">How to use the WSDL2WS tool on the command line</a>
+<br> 
+<a href="#deploy">Deploying your web service</a>
+<br>
+<a href="#deploy">Deploying your web service using AdminClient Tool</a>
+<br>
+<a href="#client">Coding the client</a>
+<br>
+<a href="#sample">Running your sample</a>
+<br> 
+<a href="#transport">Axis Transport and Parser Library</a>
+<br> 
+<a href="#handlers">Handlers</a>
+<br> 
+<a href="#ssl">SSL Client</a>
+<br> 
+<a href="#session">Session Headers</a>
+<br> 
+<a href="#IPV6">IPV6</a>
+<br>
+<br>
+<br> 
+<strong>Before you follow this guide, please make sure that you have followed the</strong> <a href="wininstall-guide.html"><strong>Windows Installation guide</strong></a>
+</p>
+<p>
+<strong>Note:</strong>The Expat XML Parser module is not currently maintained and also contains some bugs. So it is removed from the 1.4 release. Please ignore any references to the Expat parser in the documentation. The documentation will be updated regarding this later.</p>
+<p>
+<strong>Definitions:</strong>
+<br>Axis_Extract -&gt; The folder to which the Axis c++ binary distribution is extracted<br>[Axis_Folder] -&gt; The deploy folder of the binary distribution which is copied to the apache installation</p>
+<p>
+<a name="create"></a>
+</p>
+<div class="h4">
+<h4>Creating the web service</h4>
+</div>
+<br>
+<p>Currently axis supports two methods to create and deploy a Web Service.<br>Method 1) A top down approach where you start with a WSDL.<br>Method 2) A bottom up approach where you start with a pre-written web service.<br>
+<br>Here we discuss the first approach since the tool to support Method 2 (i.e wcg.exe) is in a primitive and frozen state.<br>Here the document is written with the idea that the user uses Visual C++ (VC). But the user could use this guide with a different IDE of his choice.<br>
+<br>
+<strong>Method 1</strong>
+<br>
+<br>This method assumes that the user has written the wsdl of the service which he needs to deploy. In this method user will start with this wsdl and the tool will generate the web service skeleton and other required files.<br>
+<br>1) There is a folder called "simple" inside the samples/server folder in your axiscpp binary distribution. Inside this you can find the relevant wsdl for the calculator sample. Get the wsdl (eg:<a href="../sample/server/simple/Calculator.wsdl">Calculator.wsdl</a>)<br>
+<br>2) Run the WSDL2WS tool (refer the section below 'to use the WSDL2WS tool on the command line') and generate the server side skeletons and wrappers. These files will be in two new folders which are generated from the tool called 'ServerOut' and 'ClientOut'.<br>
+<br>3) Create a VC workspace.<br>
+<br>4) Create a 'Win32 Static Library' project in this workspace.<br>
+<br>5) From the generated 'ServerOut'folder, add the following files to this project.<br> Calculator.cpp Calculator.h<br>
+<br>6) Set the include path to the include directory of the binary distribution (These include files are in Axis_Extract/include/).<br>
+<br>7) Fill the empty methods of the generated skeletons.<br>
+<br>8) Generate the lib (eg: MyCalculator.lib)<br>
+<br>9) Now create a 'Win32 Dynamic-Link Library' project.<br>
+<br>10) From the generated 'ServerOut'folder,add the following files to this project.<br> CalculatorService.cpp, CalculatorWrapper.cpp and CalculatorWrapper.h<br>
+<br>11) Set the include path to the include directory of the binary distribution.<br>
+<br>12) Add the above created lib (Calculator.lib) as the input library of this project.<br>
+<br>13) Build and create the DLL. (Calculator.dll)</p>
+<p>
+<a name="wsdl2ws"></a>
+</p>
+<div class="h4">
+<h4>How to use the WSDL2WS tool on the command line</h4>
+</div>
+<br>
+<p>To use WSDL2Ws java tool on the command line you require jdk1.4 or above.<br>
+<br>To use WSDL2Ws java tool you have to set the CLASSPATH Environment Variable to point to the following latest jar files.<br>
+<br> 
+<strong>Note:</strong> The latest jar files are in <a href="http://apache.towardex.com/ws/axis/1_2beta/">http://apache.towardex.com/ws/axis/1_2beta/</a>
+<br>
+<br>
+<br>axis.jar<br>commons-discovery.jar<br>commons-logging.jar<br>jaxrpc.jar<br>saaj.jar<br>wsdl4j.jar<br>xml-apis.jar<br>
+<br>The CLASSPATH Environment Variable should have the absolute paths of the jars (including the jar file name) given as a semicolon separated list.<br>
+<br>
+<br>Open a command window. Change directory to Axis_Extract\lib\axis. Create a folder of your choice and we will call this folder as [Wsdl2ws_Folder].<br>
+<br>Now copy the wsdl file (eg.Calculator.wsdl) which you use, to the folder [Wsdl2ws_Folder].<br>Copy the file wsdl2ws.jar from Axis_Extract\lib\axis to [Wsdl2ws_Folder]<br>Then change the directory to [Wsdl2ws_Folder] and run the following command to generate the server side skeletons and wrappers.<br>
+<br>java -classpath .\wsdl2ws.jar;.;%CLASSPATH% org.apache.axis.wsdl.wsdl2ws.WSDL2Ws Calculator.wsdl -o./ServerOut -lc++ -sserver<br>
+<br>If the file generation is successful the tool will display the files that it has generated. The skeletons and wrappers will be generated in [Wsdl2ws_Folder]\ServerOut.<br>
+<br>Run the following command to generate the client stubs.<br>
+<br>java -classpath .\wsdl2ws.jar;.;%CLASSPATH% org.apache.axis.wsdl.wsdl2ws.WSDL2Ws Calculator.wsdl -o./ClientOut -lc++ -sclient<br>
+<br>The generated client stubs will be in [Wsdl2ws_Folder]\ClientOut<br>
+<br>
+<strong>Note:</strong>More details on WSDL2Ws Tool can be found by clicking on the following link <a href="arch/WSDL2Ws.html">WSDL2Ws Tool</a>
+</p>
+<p>
+<a name="deploy"></a>
+</p>
+<div class="h4">
+<h4>Deploying your web service</h4>
+</div>
+<br>
+<p>Axis cpp user can use the AdminClient tool to deploy a service or can manually deploy. The first section shows you how to deploy your Web Service manually, without using the AdminClient tool.<br>
+<br>Lets say that the apache installation folder is [Apache_Folder].<br>(The default installation is apache 1.3.X and the path is "C:\Program Files\Apache Group\Apache" and the path for apache 2.X is "C:\Program Files\Apache Group\Apache2")<br>
+<br>1) Copy the above Calculator.dll to the folder [Apache_Folder]/Axis/webservices.<br>2) Add the following to the server.wsdd at the service level. Please make sure you add these lines at the correct place, i.e at service level. ([Apache_Folder]/Axis/conf/server.wsdd)<br>
+<br>&lt;service name="Calculator" provider="CPP:RPC" description="Calculator Web Service"&gt;<br>&lt;parameter name="className" value="[Apache_Folder]\Axis\webservices\Calculator.dll"/&gt;<br>&lt;parameter name="allowedMethods" value="add subtract "/&gt;<br>&lt;/service&gt;<br>
+<br>Now you have deployed your web service</p>
+<p>
+<a name="admin"></a>
+</p>
+<div class="h4">
+<h4>Deploying your web service Using AdminClient Tool</h4>
+</div>
+<p>The wsdl2ws Tool generates the deploy.wsdd and the undeploy.wsdd files which are needed for the AdminClient. Once we have these files, we have to deploy the web service (in this case the calculator service) with the AdminClient. We do this with the AdminClient.exe which comes with axiscpp binary distribution. A typical invocation of the AdminClient looks like this.</p>
+<p>
+<strong>AdminClient &lt;server&gt; &lt;Port&gt; &lt;wsddfile&gt;</strong>
+</p>
+<p>
+<strong>AdminClient localhost 80 deploy.wsdd</strong>
+</p>
+<p>where local host would be the server where the Axis cpp server is hosted and 80 would be the port at which it runs.</p>
+<p>
+<a name="client"></a>
+</p>
+<div class="h4">
+<h4>Coding the client</h4>
+</div>
+<br>
+<p>With the WSDL2WS tool you have almost developed your client. What you have to do next is write a file which has a main method and create an object of the stub and invoke your methods on that.<br>
+<br>1) Create a vc workspace.<br>2) Create a 'Win32 Console Application'.<br>3) Add files to this project from the above generated 'ClientOut' folder.<br>4) Set the include path to the include directory of the binary distribution.<br>5) Add the following libs to the library modules path of this project.<br>
+<br>Axis_Extract/lib/axis/<br>Axisclient.lib<br>
+<br>6) Create a file with a main method which looks similar to the following and add this file to this project.<br>
+</p>
+<pre>#include "Calculator.h"
+int main()
+{
+        Calculator c;
+        int result = c.add(40, 20);
+        printf("result = %d", result);
+        return 0;
+}</pre>
+<p>7) Now build and create the Client.exe</p>
+<p>
+<a name="sample"></a>
+</p>
+<div class="h4">
+<h4>Running your sample</h4>
+</div>
+<p>1) Restart Apache.<br>2) Run the Calculator.exe</p>
+<p>
+<a name="caluculatorsample"></a>
+</p>
+<br>
+<p>SUCCESS ! If you get the result, you are done.</p>
+<p>
+<a name="transport"></a>
+</p>
+<div class="h4">
+<h4>Transport Library and Parser Library</h4>
+</div>
+<p>
+<strong>Note:</strong>The Expat XML Parser module is not currently maintained and also contains some bugs. For more information refer the Note at the top of the page.</p>
+<p>AxisTransport.dll (Which can be found at Axis_Extract/bin) should be placed in the path, and should be specified as the value to the key "Transport_http" in axiscpp.conf [Axis_Folder]/axiscpp.conf Or in the same place as the client.exe.</p>
+<p>Rename either AxisXMLParser_Expat.dll or AxisXMLParser_Xerces.dll to AxisXMLParser.dll (depending on the parser you use), and give the path of the AxisXMLParser.dll as the value of the key XMLParser in axiscpp.conf Or in the same place as the client.exe.<br>If you want to use Expat parser then libexpat.dll should be given in the path.<br>If you want to use the Xerces parser then xerces-c_2_2_0.dll should be given in the path.<br>
+</p>
+<p>
+<strong>Axiscpp.conf file contains the following paths</strong>
+<br>
+<br>LogPath:XXXX<br>WSDDFilePath:YYYY<br>Transport_http:ZZZZ (Not necessary)<br>XMLParser:WWWW<br>
+<br>XXXX is the path to a file named AxisLog (The log file)and YYYY is the path to the server.wsdd file.<br>
+<br>i.e.<br>LogPath:[Apache_Folder]\Axis\logs\AxisLog.log<br>WSDDFilePath:[Apache_Folder]\Axis\conf\server.wsdd<br>Transport_http:[Apache_Folder]\Axis\libs\AxisTransport_D.dll<br>XMLParser:[Apache_Folder]\Axis\libs\AxisXMLParser_D.dll<br>
+</p>
+<p>
+<a name="handlers"></a>
+</p>
+<div class="h4">
+<h4>Handlers</h4>
+</div>
+<p>Handlers are pluggable components in Axis C++. We have included a set of sample handlers for your reference. You could write your own handlers by following the instructions given for the sample Handlers.</p>
+<p>
+<strong>Note: If you are using Client side Handlers you need to enter the following entry to the [Axis_Folder]/axiscpp.conf configuration file.</strong>
+</p>
+<p>ClientWSDDFilePath:Axis\conf\client.wsdd</p>
+<p>After entering this entry to your [Axis_Folder]/axiscpp.conf configuration file will look like:</p>
+<p>LogPath:Axis\logs\AxisLog.txt<br>WSDDFilePath:Axis\conf\server.wsdd<br>ClientWSDDFilePath:Axis\conf\client.wsdd</p>
+<strong>Testing the sample Handlers</strong>
+<p>We have included the following sample Handlers for your reference.</p>
+<p>1) echoStringHeaderHandler (A server side handler sample) This sample handler will simply echo (i.e send back) the string which you send in the SOAP request.<br>2)testHandler (A client side handler sample)</p>
+<p>This sample handler will simply add a SOAP Header to the generated SOAP request.</p>
+<p>Please note that these are very primitive sample handlers and are presented here to give you an idea about writing your own Handlers.</p>
+<p>
+<strong>echoStringHeaderHandler</strong>
+</p>
+<p>
+<strong>Building the Sample Handlers in VC</strong>
+</p>
+<br>
+<strong>Building echoStringHeaderHandler (A server side handler sample)</strong>
+<br>
+<p>The VC dsw file (ServerHandlers.dsw) is available at Axis_Extract/vc/samples/server/ ServerHandlers.dsw. Open this file and build the project echoStringHeaderHandler. Once the build is successful you will find the DLL (echoStringHeaderHandler.dll) at Axis_Extract/bin. If you see this DLL at the above location you are done with the first step.</p>
+<p>
+<strong>Configuring the Handler</strong>
+</p>
+<p>Now edit the [Axis_Folder]/conf/server.wsdd to include the handler for a particular service.</p>
+<p>&lt;service name="Calculator" provider="CPP:RPC" description="Simple Calculator Axis C++ Service "&gt;<br>&lt;requestFlow name="CalculatorHandlers"&gt;<br> &lt;handler name="ESHHandler" type="Axis_Extract/bin/echoStringHeaderHandler.dll"&gt;<br>&lt;/handler&gt;<br> &lt;/requestFlow&gt;<br> &lt;responseFlow name="CalculatorHandlers"&gt;<br> &lt;handler name="ESHHandler" type="Axis_Extract/bin/echoStringHeaderHandler.dll"&gt;<br> &lt;/handler&gt;<br> &lt;/responseFlow&gt;<br> &lt;parameter name="allowedMethods" value="add sub mul div "/&gt;<br>&lt;parameter name="className" value="Axis\webservices\Calculator.dll" /&gt;<br>&lt;/service&gt;</p>
+<p>
+<strong>Note: Make sure you specify the correct path of the handler dll in the server.wsdd file.</strong>
+</p>
+<p>Now you are almost done to run your server side handler.<br>Restart the Apache server.</p>
+<br>
+<br>
+<strong>Running the Handler</strong>
+<p>Since this Handler is configured to the Calculator web service in the above step, this Handler will be executed when a client send a SOAP request to the Calculator web service.</p>
+<p>
+<strong>testHandler</strong>
+</p>
+<p>
+<strong>Building the Sample Handlers in VC</strong>
+</p>
+<p>Building testHandler (A client side handler sample)</p>
+<p>The VC dsw file (ServerHandlers.dsw) is available at Axis_Extract/vc/samples/client/ClientHandlers.dsw. Open this file and build the project TestHandler. Once the build is successful you will find the DLL (testHandler.dll) at at Axis_Extract/bin. If you see this DLL at the above location you are done with the first step.</p>
+<p>
+<strong>Configuring the Handler</strong>
+</p>
+<p>Now edit the [Axis_Folder]/conf/client.wsdd to include the handler for a particular service.</p>
+<p>&lt;service name="Calculator" provider="CPP:DOCUMENT" description="Calculator web service"&gt;<br>&lt;requestFlow name="CalculatorHandlers"&gt;<br> &lt;handler name="TestHandler" type="Axis_Extract/bin/testHandler.dll"&gt;<br>&lt;/handler&gt;<br> &lt;/requestFlow&gt;<br>&lt;/service&gt;</p>
+<p>
+<strong>Note: Make sure you specify the correct path of the handler dll in the client.wsdd file.</strong>
+</p>
+<p>Now you are almost done to run your client side handler.</p>
+<p>
+<strong>Note: If you are using Client side Handlers you need to enter the ClientWSDDFilePath entry in the [Axis_Folder]/axiscpp.conf configuration file. (See above)</strong>
+</p>
+<p>
+<strong>Running the Handler</strong>
+</p>
+<p>Since this Handler is configured to the Calculator web service in the above step, this Handler will be executed when you run the calculator web service client. (It is at Axis_Extract/bin/Calculator.exe)</p>
+<p>Handler Notes:</p>
+<p>1) You can see the Handler behavior through the TCP Monitor. (TCP Monitor is a Axis Java tool)<br>2) To get an idea of Handlers look at the Handler sample source files.<br>a. echoStringHeaderHandler (Axis_Extract/samples/server/echoStringHeaderHandler)<br>b. testHandler (Axis_Extract/samples/client/testHandler)</p>
+<p>
+<a name="ssl"></a>
+</p>
+<div class="h4">
+<h4>SSL Client</h4>
+</div>
+<p>This section describes how to use an Axis C++ SSL secure client to access web services hosted on a secure web service.<br>
+<br>The SSL implementation for the client in Axis C++ uses the openssl opensource library.<br>
+<br>To aid to compile the secure channel dll<br>
+<br>1. Install the openssl 0.9.7e binary distribution.<br>2. Copy the include files from the openssl installation to c\include\openssl in your distribution<br>3. Copy libs found in \lib\VC of the openssl installation to c\lib\openssl<br>
+<br> Now use the vc project in c\vc\transport\Axis2\Axis2SSLChannel to compile the Secure channel dll.<br>
+<br> Paste this dll where the Axis C++ client can load it (i.e %PATH%) OR specify the path to it in the axiscpp.conf under the key "Channel_ssl" (e.g Channel_ssl:c:\Axis2SSLChannel.dll)<br>
+<br> Now when you run any client using a url of the form https://...... the client will use SSL to connect to the relevant secure service specified by the url. The client request must be directed at a "secure webserver" which has the relevant web service hosted.</p>
+<br>
+<br>
+<p>
+<a name="session"></a>
+</p>
+<div class="h4">
+<h4>Session Headers</h4>
+</div>
+<p>The following text explains how to deploy and run the SOAP Header based sample client with Axis Java web service<br>
+<br>
+<strong>Deploying the Web Service</strong>
+<br>
+<br>
+</p>
+<p>c\samples\server\session\headers folder contains the sources (inside the counters folder, which is the package of these classes) needed to build the Axis java service needed to run the soap header based session client (These server side skeletons were generated from the Counter.wsdl)<br>
+<br> Compile these java source files and deploy them in Axis java (visit http://ws.apache.org/axis/java/index.html on how to achieve this)<br>
+<br> Put the following element in the  section in the server-config.wsdd to enable SOAP header based session handling for Axis Java<br>
+<br>
+<strong>&lt;handler name="session" type="java:org.apache.axis.handlers.SimpleSessionHandler"/&gt;</strong>
+<br>
+<br> The following should be put in the server-config.wsdd of Axis java for this service to behave as having session scope<br>
+<br> &lt;service name="CounterService" provider="java:RPC"&gt;<br>&lt;parameter name="scope" value="session"/&gt;<br>&lt;requestFlow&gt;<br>&lt;handler type="session"/&gt;<br> &lt;/requestFlow&gt;<br>&lt;responseFlow&gt;<br>&lt;handler type="session"/&gt;<br> &lt;/responseFlow&gt;<br> &lt;parameter name="allowedMethods" value="*"/&gt;<br> &lt;parameter name="className" value="counters.CounterSoapBindingImpl"/&gt;<br> &lt;namespace&gt;http://xml.apache.org/axis/wsdd/&lt;/namespace&gt;<br>&lt;/service&gt;<br>
+<br>
+</p>
+<p>Since Axis c++ doesn't support multiref yet, Axis java multiref should be disabled by putting the element<br>
+<br>&lt;parameter name="sendMultiRefs" value="false"/&gt;<br> under &lt;globalConfiguration&gt;<br>
+<br> Start Axis java (visit http://ws.apache.org/axis/java/index.html on how to achieve this)<br>
+<br> Generating the client stubs and building the client and running the client.<br>
+<br>
+</p>
+<p>Use the vc workspace \c\vc\samples\client\session\Headers\Headers.dsw to compile the client side handler for this sample<br>
+<br> Run the command java org.apache.axis.wsdl.wsdl2ws.WSDL2Ws ../Counter.wsdl -o./gen_src -lc++ -sclient from within c\samples\client\session\headers\sessionclient to generate the client stubs<br>
+<br> Compile the client application using the vc workspace at<br>\c\vc\samples\client\session\Headers\Headers.dsw<br>
+<br> Host the service in Axis java (Check c/samples/server/session/headers/readme.txt on how to do this).<br>
+<br> Configure the client to use the provided client.wsdd from axiscpp.conf (make appropriate changes if necessary in the client.wsdd to the absolute path of the handler )<br>
+<br> Run the tcpMonitor and configure it to check the conversation between the client and server<br>
+<br> Run the client in the following fashion<br>
+<br>sessionClient count 1 http://localhost:8080/axis/services/CounterService<br>
+<br> Inspect the SOAP messages in tcpMonitor to see the values returned by the server incremented by 1 each time (as done throught the client). Counting starts at the value 97, which is set at the server side web service.<br>
+</p>
+<br>
+<p>
+<a name="IPV6"></a>
+</p>
+<div class="h4">
+<h4>IPV6</h4>
+</div>
+<p>The source is in src/transport/axis2/ipv6/</p>
+<br>
+<p>We need the 2 additional headers that comes with the IPv6Kit.<br>
+<br>Can be downloaded from <a href="http://msdn.microsoft.com/downloads/sdks/platform/tpipv6.asp">http://msdn.microsoft.com/downloads/sdks/platform/tpipv6.asp</a>
+<br>
+<br>Extract the package and copy the tpipv6.h and wspiapi.h headers in inc folder to $AXISCPP_HOME/include.<br>
+<br> That would compile the axis2ipv6 VC++ project.</p>
+<div id="pdf" align="right">
+<a href="winuser-guide.pdf"><img alt="PDF" src="../skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

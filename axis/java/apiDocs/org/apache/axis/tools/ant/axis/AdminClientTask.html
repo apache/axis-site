@@ -1,0 +1,762 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AdminClientTask (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="AdminClientTask (Apache Axis)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/AdminClientTask.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>Prev Class</li>
+<li><a href="../../../../../../org/apache/axis/tools/ant/axis/RunAxisFunctionalTestsTask.html" title="class in org.apache.axis.tools.ant.axis"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../../index.html?org/apache/axis/tools/ant/axis/AdminClientTask.html" target="_top">Frames</a></li>
+<li><a href="AdminClientTask.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_org.apache.tools.ant.taskdefs.MatchingTask">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis.tools.ant.axis</div>
+<h2 title="Class AdminClientTask" class="title">Class AdminClientTask</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.tools.ant.ProjectComponent</li>
+<li>
+<ul class="inheritance">
+<li>org.apache.tools.ant.Task</li>
+<li>
+<ul class="inheritance">
+<li>org.apache.tools.ant.taskdefs.MatchingTask</li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.tools.ant.axis.AdminClientTask</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd>org.apache.tools.ant.types.selectors.SelectorContainer</dd>
+</dl>
+<hr>
+<br>
+<pre>public class <span class="strong">AdminClientTask</span>
+extends org.apache.tools.ant.taskdefs.MatchingTask</pre>
+<div class="block">Task to administer a local or remote Axis server. Remember, for remote admin,
+ the server has to be accept remote management calls.</div>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.tools.ant.taskdefs.MatchingTask">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.tools.ant.taskdefs.MatchingTask</h3>
+<code>fileset, useDefaultExcludes</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.tools.ant.Task">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.tools.ant.Task</h3>
+<code>description, location, target, taskName, taskType, wrapper</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.tools.ant.ProjectComponent">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.tools.ant.ProjectComponent</h3>
+<code>project</code></li>
+</ul>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#AdminClientTask()">AdminClientTask</a></strong>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#addArg(java.lang.String)">addArg</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;argument)</code>
+<div class="block">add one arg</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#addArg(java.lang.String,%20boolean)">addArg</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;argument,
+      boolean&nbsp;test)</code>
+<div class="block">add one arg</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#addArgs(java.lang.String,%20java.lang.String)">addArgs</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;argument,
+       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;param)</code>
+<div class="block">add an arg pair</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#addArgs(java.lang.String,%20java.lang.String,%20boolean)">addArgs</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;argument,
+       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;param,
+       boolean&nbsp;test)</code>
+<div class="block">add an arg pair if the test is true</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>org.apache.tools.ant.types.Path</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#createClasspath()">createClasspath</a></strong>()</code>
+<div class="block">Set the optional classpath</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#execute()">execute</a></strong>()</code>
+<div class="block">Processes a set of administration commands.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setClasspath(org.apache.tools.ant.types.Path)">setClasspath</a></strong>(org.apache.tools.ant.types.Path&nbsp;classpath)</code>
+<div class="block">Set the optional classpath</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setClasspathRef(org.apache.tools.ant.types.Reference)">setClasspathRef</a></strong>(org.apache.tools.ant.types.Reference&nbsp;r)</code>
+<div class="block">Set the reference to an optional classpath</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setDebug(boolean)">setDebug</a></strong>(boolean&nbsp;debug)</code>
+<div class="block">set a debug flag</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setFailOnError(boolean)">setFailOnError</a></strong>(boolean&nbsp;fail)</code>
+<div class="block">Whether or not the build should halt if this task fails.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setFileProtocol(java.lang.String)">setFileProtocol</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fileProtocol)</code>
+<div class="block">specifies that a simple file protocol be used</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setFork(boolean)">setFork</a></strong>(boolean&nbsp;f)</code>
+<div class="block">If true, forks the ant invocation.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setHostname(java.lang.String)">setHostname</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;hostname)</code>
+<div class="block">name the host to admin</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setNewPassword(java.lang.String)">setNewPassword</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;newPassword)</code>
+<div class="block">set a new password; only valid if action=passwd</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setPassword(java.lang.String)">setPassword</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>
+<div class="block">the admin password</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setPort(int)">setPort</a></strong>(int&nbsp;port)</code>
+<div class="block">the port to connect to</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setServletPath(java.lang.String)">setServletPath</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;servletPath)</code>
+<div class="block">the path to the AxisAdmin servlet</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setSrcdir(java.io.File)">setSrcdir</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;srcDir)</code>
+<div class="block">Set the source dir to find the source text files.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setTransportChain(java.lang.String)">setTransportChain</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;transportChain)</code>
+<div class="block">set the transport chain to use</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setUrl(java.lang.String)">setUrl</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url)</code>
+<div class="block">full url to the admin endpoint</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setUsername(java.lang.String)">setUsername</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>
+<div class="block">username to log in as</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#setXmlFile(java.io.File)">setXmlFile</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;xmlFile)</code>
+<div class="block">the name of the XML file containing deployment information</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#traceParams(int)">traceParams</a></strong>(int&nbsp;logLevel)</code>
+<div class="block">trace out parameters</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../../org/apache/axis/tools/ant/axis/AdminClientTask.html#validate()">validate</a></strong>()</code>
+<div class="block">validation code</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.tools.ant.taskdefs.MatchingTask">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.tools.ant.taskdefs.MatchingTask</h3>
+<code>addAnd, addContains, addCustom, addDate, addDepend, addDepth, addFilename, addMajority, addNone, addNot, addOr, addPresent, addSelector, addSize, appendSelector, createExclude, createExcludesFile, createInclude, createIncludesFile, createPatternSet, getDirectoryScanner, getSelectors, hasSelectors, selectorCount, selectorElements, setCaseSensitive, setDefaultexcludes, setExcludes, setExcludesfile, setFollowSymlinks, setIncludes, setIncludesfile, setProject, XsetIgnore, XsetItems</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.tools.ant.Task">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.tools.ant.Task</h3>
+<code>getDescription, getLocation, getOwningTarget, getRuntimeConfigurableWrapper, getTaskName, handleErrorOutput, handleOutput, init, isInvalid, log, log, maybeConfigure, perform, setDescription, setLocation, setOwningTarget, setRuntimeConfigurableWrapper, setTaskName</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.tools.ant.ProjectComponent">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.tools.ant.ProjectComponent</h3>
+<code>getProject</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="AdminClientTask()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>AdminClientTask</h4>
+<pre>public&nbsp;AdminClientTask()</pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="setDebug(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDebug</h4>
+<pre>public&nbsp;void&nbsp;setDebug(boolean&nbsp;debug)</pre>
+<div class="block">set a debug flag</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>debug</code> - </dd></dl>
+</li>
+</ul>
+<a name="setNewPassword(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNewPassword</h4>
+<pre>public&nbsp;void&nbsp;setNewPassword(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;newPassword)</pre>
+<div class="block">set a new password; only valid if action=passwd</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>newPassword</code> - </dd></dl>
+</li>
+</ul>
+<a name="setUrl(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUrl</h4>
+<pre>public&nbsp;void&nbsp;setUrl(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url)</pre>
+<div class="block">full url to the admin endpoint</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>url</code> - </dd></dl>
+</li>
+</ul>
+<a name="setFileProtocol(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFileProtocol</h4>
+<pre>public&nbsp;void&nbsp;setFileProtocol(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fileProtocol)</pre>
+<div class="block">specifies that a simple file protocol be used</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>fileProtocol</code> - </dd></dl>
+</li>
+</ul>
+<a name="setHostname(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setHostname</h4>
+<pre>public&nbsp;void&nbsp;setHostname(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;hostname)</pre>
+<div class="block">name the host to admin</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>hostname</code> - </dd></dl>
+</li>
+</ul>
+<a name="setPassword(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPassword</h4>
+<pre>public&nbsp;void&nbsp;setPassword(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</pre>
+<div class="block">the admin password</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>password</code> - </dd></dl>
+</li>
+</ul>
+<a name="setPort(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPort</h4>
+<pre>public&nbsp;void&nbsp;setPort(int&nbsp;port)</pre>
+<div class="block">the port to connect to</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>port</code> - </dd></dl>
+</li>
+</ul>
+<a name="setServletPath(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setServletPath</h4>
+<pre>public&nbsp;void&nbsp;setServletPath(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;servletPath)</pre>
+<div class="block">the path to the AxisAdmin servlet</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>servletPath</code> - </dd></dl>
+</li>
+</ul>
+<a name="setSrcdir(java.io.File)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSrcdir</h4>
+<pre>public&nbsp;void&nbsp;setSrcdir(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;srcDir)</pre>
+<div class="block">Set the source dir to find the source text files.</div>
+</li>
+</ul>
+<a name="setXmlFile(java.io.File)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setXmlFile</h4>
+<pre>public&nbsp;void&nbsp;setXmlFile(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;xmlFile)</pre>
+<div class="block">the name of the XML file containing deployment information</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>xmlFile</code> - </dd></dl>
+</li>
+</ul>
+<a name="setTransportChain(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTransportChain</h4>
+<pre>public&nbsp;void&nbsp;setTransportChain(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;transportChain)</pre>
+<div class="block">set the transport chain to use</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>transportChain</code> - </dd></dl>
+</li>
+</ul>
+<a name="setUsername(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUsername</h4>
+<pre>public&nbsp;void&nbsp;setUsername(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</pre>
+<div class="block">username to log in as</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - </dd></dl>
+</li>
+</ul>
+<a name="setFailOnError(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFailOnError</h4>
+<pre>public&nbsp;void&nbsp;setFailOnError(boolean&nbsp;fail)</pre>
+<div class="block">Whether or not the build should halt if this task fails.
+ Defaults to <code>true</code>.</div>
+</li>
+</ul>
+<a name="setFork(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFork</h4>
+<pre>public&nbsp;void&nbsp;setFork(boolean&nbsp;f)</pre>
+<div class="block">If true, forks the ant invocation.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>f</code> - "true|false|on|off|yes|no"</dd></dl>
+</li>
+</ul>
+<a name="validate()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>validate</h4>
+<pre>protected&nbsp;void&nbsp;validate()
+                 throws org.apache.tools.ant.BuildException</pre>
+<div class="block">validation code</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code>org.apache.tools.ant.BuildException</code> - if validation failed</dd></dl>
+</li>
+</ul>
+<a name="traceParams(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>traceParams</h4>
+<pre>public&nbsp;void&nbsp;traceParams(int&nbsp;logLevel)</pre>
+<div class="block">trace out parameters</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>logLevel</code> - to log at</dd><dt><span class="strong">See Also:</span></dt><dd><code>Project.log(java.lang.String)</code></dd></dl>
+</li>
+</ul>
+<a name="execute()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>execute</h4>
+<pre>public&nbsp;void&nbsp;execute()
+             throws org.apache.tools.ant.BuildException</pre>
+<div class="block"><p>Processes a set of administration commands.</p>
+ <p>The following commands are available:</p>
+ <ul>
+ <li><code>-l<i>url</i></code> sets the AxisServlet URL</li>
+ <li><code>-h<i>hostName</i></code> sets the AxisServlet host</li>
+ <li><code>-p<i>portNumber</i></code> sets the AxisServlet port</li>
+ <li><code>-s<i>servletPath</i></code> sets the path to the
+ AxisServlet</li>
+ <li><code>-f<i>fileName</i></code> specifies that a simple file
+ protocol should be used</li>
+ <li><code>-u<i>username</i></code> sets the username</li>
+ <li><code>-w<i>password</i></code> sets the password</li>
+ <li><code>-d</code> sets the debug flag (for instance, -ddd would
+ set it to 3)</li>
+ <li><code>-t<i>name</i></code> sets the transport chain touse</li>
+ <li><code>list</code> will list the currently deployed services</li>
+ <li><code>quit</code> will quit (???)</li>
+ <li><code>passwd <i>value</i></code> changes the admin password</li>
+ <li><code><i>xmlConfigFile</i></code> deploys or undeploys
+ Axis components and web services</li>
+ </ul>
+ <p>If <code>-l</code> or <code>-h -p -s</code> are not set, the
+ AdminClient will invoke
+ <code>http://localhost:8080/axis/servlet/AxisServlet</code>.</p>
+ <p/>
+ outputs XML result or null in case of failure. In the case of multiple
+ commands, the XML results will be concatenated, separated by \n</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code>execute</code>&nbsp;in class&nbsp;<code>org.apache.tools.ant.Task</code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>org.apache.tools.ant.BuildException</code> - something went wrong</dd></dl>
+</li>
+</ul>
+<a name="addArg(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addArg</h4>
+<pre>protected&nbsp;void&nbsp;addArg(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;argument)</pre>
+<div class="block">add one arg</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>argument</code> - </dd></dl>
+</li>
+</ul>
+<a name="addArg(java.lang.String, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addArg</h4>
+<pre>protected&nbsp;void&nbsp;addArg(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;argument,
+          boolean&nbsp;test)</pre>
+<div class="block">add one arg</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>argument</code> - </dd></dl>
+</li>
+</ul>
+<a name="addArgs(java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addArgs</h4>
+<pre>protected&nbsp;void&nbsp;addArgs(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;argument,
+           <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;param)</pre>
+<div class="block">add an arg pair</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>argument</code> - </dd><dd><code>param</code> - </dd></dl>
+</li>
+</ul>
+<a name="addArgs(java.lang.String, java.lang.String, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addArgs</h4>
+<pre>protected&nbsp;void&nbsp;addArgs(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;argument,
+           <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;param,
+           boolean&nbsp;test)</pre>
+<div class="block">add an arg pair if the test is true</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>argument</code> - first arg</dd><dd><code>param</code> - param to accompany</dd><dd><code>test</code> - test to trigger argument add</dd></dl>
+</li>
+</ul>
+<a name="setClasspath(org.apache.tools.ant.types.Path)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setClasspath</h4>
+<pre>public&nbsp;void&nbsp;setClasspath(org.apache.tools.ant.types.Path&nbsp;classpath)</pre>
+<div class="block">Set the optional classpath</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>classpath</code> - the classpath to use when loading class</dd></dl>
+</li>
+</ul>
+<a name="createClasspath()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createClasspath</h4>
+<pre>public&nbsp;org.apache.tools.ant.types.Path&nbsp;createClasspath()</pre>
+<div class="block">Set the optional classpath</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>a path instance to be configured by the Ant core.</dd></dl>
+</li>
+</ul>
+<a name="setClasspathRef(org.apache.tools.ant.types.Reference)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setClasspathRef</h4>
+<pre>public&nbsp;void&nbsp;setClasspathRef(org.apache.tools.ant.types.Reference&nbsp;r)</pre>
+<div class="block">Set the reference to an optional classpath</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>r</code> - the id of the Ant path instance to act as the classpath</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/AdminClientTask.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>Prev Class</li>
+<li><a href="../../../../../../org/apache/axis/tools/ant/axis/RunAxisFunctionalTestsTask.html" title="class in org.apache.axis.tools.ant.axis"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../../index.html?org/apache/axis/tools/ant/axis/AdminClientTask.html" target="_top">Frames</a></li>
+<li><a href="AdminClientTask.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#fields_inherited_from_class_org.apache.tools.ant.taskdefs.MatchingTask">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

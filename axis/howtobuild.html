@@ -1,0 +1,540 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>How To Build Axis Project's Website</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="0" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="images/project-logo.png"></a>
+</div>
+</td><td nowrap="1" width="100%" align="left">
+<div class="projectTitleImg">
+<br>
+<a href=""><img border="0" class="logoImage" alt="Web Services - Axis" src="images/wsaxis.png"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="images/axis3.jpg"></a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td width="100%">&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">Web Services</a> | <a href="http://ws.apache.org/axis/">Axis</a></td><td nowrap="1" align="right">
+<form method="get" action="http://www.google.com/search" target="_blank">Search <input type="hidden" name="sitesearch" value="ws.apache.org"><input type="text" id="query" name="q" size="10"><img class="spacer" src="skin/images/spacer.gif" alt="" width="5" height="1"><input type="submit" value="Go" name="Search">
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="index.html">Introduction</a>
+</div>
+ 
+<div class="menuItem">
+<a href="news.html">News</a>
+</div>
+
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/Axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Get Involved</span>
+  
+<div class="menuItem">
+<a href="overview.html">Overview</a>
+</div>
+  
+<div class="menuItem">
+<a href="cvs.html">SVN Repository</a>
+</div>
+  
+<div class="menuItem">
+<a href="mail.html">Mailing Lists</a>
+</div>
+  
+<div class="menuItem">
+<a href="ref.html">Reference Library</a>
+</div>
+  
+<div class="menuItem">
+<a href="bugs.html">Bugs</a>
+</div>
+  
+<div class="menuItem">
+<span class="menuSelected">HowToBuildSite</span>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>  
+  
+<div class="menuItem">
+<a href="java/index.html">Documentation</a>
+</div>
+  
+  
+<div class="menuItem">
+<a href="java/releases.html">Releases</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/install.html">Installation</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/user-guide.html">User's Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/developers-guide.html">Developer's Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/integration-guide.html">Integration Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/architecture-guide.html">Architecture Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/reference.html">Reference Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/reading.html">Reading Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/requirements.html">Requirements</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis C++</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/cpp/index.html">Home</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/cpp/documentation.html">Documentation</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/cpp/download.html">Download</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki Pages</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/cpp/who.html">Who we are</a>
+</div>
+ 
+</div>
+
+<div class="menu">
+<span class="menuLabel">Downloads</span>
+  
+<div class="menuItem">
+<a href="interim.html">Interim Drops</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://svn.apache.org/viewcvs.cgi/webservices/axis/trunk/">Source Code</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Translation</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/ja/index.html">Japanese</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Related Projects</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/juddi/">jUDDI</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wsdl4j.sourceforge.net">WSDL4J</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Misc</span>
+  
+<div class="menuItem">
+<a href="who.html">Who we are</a>
+</div>
+  
+<div class="menuItem">
+<a href="contact.html">Contact</a>
+</div>
+  
+<div class="menuItem">
+<a href="legal.html">Legal</a>
+</div>
+  
+<div class="menuItem">
+<a href="docs.html">Notes/Docs</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div class="h3">
+  
+  
+
+
+<a name="InstallingForrest"></a>
+
+<div class="h3">
+<h3>Installing Forrest</h3>
+</div>
+
+
+
+<p>The Axis website build system requires two components to perform a build.<br>
+
+<a href="http://ant.apache.org/">Ant</a> and <a href="http://forrest.apache.org/">Forrest</a>.</p>
+
+
+<p>Specifically the build has been tested to work with Ant version 1.6.1 and Forrest 0.5.1. To install these products download the distributions and follow the instructions in their documentation.  Make sure you don't forget to set the environment variables FORREST_HOME and ANT_HOME. The ANT_HOME/bin directory should be in the path.</p>
+
+
+
+
+<a name="CheckingOutWs-axisAndWs-siteModule"></a>
+
+<div class="h3">
+<h3>Checking out ws-axis and ws-site module</h3>
+</div>
+
+
+
+<p>Check out <b>'http://svn.apache.org/repos/asf/webservices/axis/trunk/site/src/java'</b> and <b>'http://svn.apache.org/repos/asf/webservices/axis/site'</b> module via your favorite SVN tools.<br>
+Please follow the guideline written <a href="cvs.html">here</a>.</p>
+
+
+
+
+<a name="RunningTheBuild"></a>
+
+<div class="h3">
+<h3>Running the Build</h3>
+</div>
+
+
+
+<p>Here's a list of targets for the ant task. But, what you need to do is just "ant".</p>
+
+
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+  
+<tr class="b">
+    
+<th colspan="1" rowspan="1">Target</th>
+    <th colspan="1" rowspan="1">Description</th>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">clean</td>
+    <td colspan="1" rowspan="1">Erase all build work products (ie, everything in the build directory</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">run-forrest</td>
+    <td colspan="1" rowspan="1">Run Forrest with Jetty server to review the target</td>
+  
+</tr>
+  
+<tr class="a">
+      
+<td colspan="1" rowspan="1">run-browser</td>
+      <td colspan="1" rowspan="1">Invoke a web browser (ie, Internet Explorer)</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">backcopy</td>
+    <td colspan="1" rowspan="1">Reflect the updates on the build directory to the master source on 'ws-axis/site/src'</td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">forrest</td>
+    <td colspan="1" rowspan="1">Create the updated static contents</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">replace</td>
+    <td colspan="1" rowspan="1">Copy the contents to ws-site/targets/axis directory</td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">build-site (default)</td>
+    <td colspan="1" rowspan="1">Do clean up and all tasks to the build site</td>
+  
+</tr>
+
+</table>
+
+
+
+
+<a name="ForCommittersHighlyRecommended"></a>
+
+<div class="h3">
+<h3>For Committers (Highly recommended)</h3>
+</div>
+
+
+
+<p>The procedure to make changes to http://ws.apache.org/axis/ is:</p>
+
+
+<ul>
+  
+<li>*cd* into the local <b>'ws-axis/site'</b> CVS dir</li>
+  
+<li>execute <b>"ant"</b>
+</li>
+  
+<li>make changes to  <b>'build/webapp/content/xdocs'</b>
+</li>
+  
+<li>
+<b>reload and review the contents</b> with the autostarted browser</li>
+  
+<li>
+<b>close the browser and the forrest window</b> when you are ready to finish editing the site</li>
+  
+<li>cvs commit (ie, <b>'ws-axis/site/src'</b> and <b>'ws-site/target/axis'</b>)</li>
+
+</ul>
+
+
+
+
+<a name="ManualUpdateIfYouWantToRealizeTheValueOfAntTasksAbove"></a>
+
+<div class="h3">
+<h3>Manual update (If you want to realize the value of ant tasks above ...)</h3>
+</div>
+
+
+
+<p>If you just want to update the site step-by-step, the followings are the instructions.</p>
+
+
+<ol>
+  
+<li>Installing Forrest<br>
+    [Note] At this time, the version 0.5.1 of Forrest is tested version.</li>
+
+  
+<li>Checking out 'ws-axis/site' module<br>
+    [ex]<br>
+    'ws-axis/site/src/documentation/content/xdocs/java/user-guide.ihtml'</li>
+
+  
+<li>Make changes to the target</li>
+
+  
+<li>Confirming the change with "forrest run"
+    <ol>
+      
+<li>cd into the local "ws-axis/site" CVS dir</li>
+      
+<li>execute "forrest run"</li>
+      
+<li>have an access to http://localhost:8888/ to see the site</li>
+    
+</ol>
+  
+</li>
+
+  
+<li>Generating a static content with "forrest"
+    <ol>
+      
+<li>execute "forrest" in the "ws-axis/site" dir</li>
+      
+<li>check the generated contents in "ws-axis/site/build/site/"</li>
+    
+</ol>
+  
+</li>
+
+  
+<li>Make commitments
+    <ol>
+      
+<li>commit the original source (xml/ihtml/gif/jpg) to "ws-axis"</li>
+      
+<li>copy the generated contents into "ws-site/targets/axis"</li>
+      
+<li>commit the generated contents to "ws-site"</li>
+    
+</ol>
+  
+</li>
+
+  
+<li>(Optional) If you are in a hurry to reflect the change to the site, cd to /www/ws.apache.org, and execute "cvs update -P" on minotaur.
+    <p>[Note] *** VERY IMPORTANT ***<br>
+      YOU HAVE TO CHECK YOUR UMASK IS "002" BEFORE DOING THE COMMAND, OR THE SITE WILL BECOME A NON-UPDATABLE SITE FROM THEN ON.<br>
+      The site will be updated automatically twice a day 12 midnight and 12 noon PST by a cron job of dims.</p>
+  
+</li>
+
+
+</ol>
+
+
+
+
+<a name="FAQ"></a>
+
+<div class="h3">
+<h3>F.A.Q.</h3>
+</div>
+
+
+
+<p>
+<i>Q1.</i>
+<br>
+  I encountered
+  <pre class="code">The &lt;xmlcatalog&gt; data type doesn't support the nested "catalogpath" element.</pre>
+  error, during the build.</p>
+
+
+<p>
+<i>A1.</i>
+<br>
+  Please make sure that your Ant version is later than 1.6 alpha. You can check the Ant version, by running "ant -version".</p>
+
+
+<p>
+<i>Q2.</i>
+<br>
+  I see an error like this regarding mirrors.pdf<br>
+  
+<pre class="code">[java] X [0]  mirrors.pdf BROKEN ....</pre>
+</p>
+
+
+<p>
+<i>A2.</i>
+<br>
+  This is a known issue, but does not affect the site itself.</p>
+
+
+<p>
+<b>( more to be come )</b>
+</p>
+
+
+
+  
+
+<div id="authors" align="right">by&nbsp;Toshiyuki Kimura</div>
+<div id="pdf" align="right">
+<a href="howtobuild.pdf"><img alt="PDF" src="skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

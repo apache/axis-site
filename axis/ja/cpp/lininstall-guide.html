@@ -1,0 +1,510 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../skin/print.css" type="text/css">
+<title>Axis C++ Linux Installation Guide</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="../images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="../images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.co.jp/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input value="ja" name="hl" type="hidden"><input value="UTF-8" name="ie" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../skin/images/spacer.gif" class="spacer"><input name="Search" value="検索" type="submit">
+<br>WS を検索
+                          
+                          
+                      </td><td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="../index.html">はじめに</a>
+</div>
+ 
+<div class="menuItem">
+<a href="../news.html">お知らせ</a>
+</div>
+
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/ja/axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">活動に参加</span>
+  
+<div class="menuItem">
+<a href="../overview.html">概要</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cvs.html">CVS リポジトリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../mail.html">メーリングリスト</a>
+</div>
+  
+<div class="menuItem">
+<a href="../ref.html">リファレンスライブラリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../bugs.html">バグ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../howtobuild.html">サイト構築方法</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="../java/index.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/install.html">インストール</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/user-guide.html">ユーザガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/developers-guide.html">開発者ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/integration-guide.html">統合ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/architecture-guide.html">アーキテクチャガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reference.html">リファレンスガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reading.html">読書ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/requirements.html">要件</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="../cpp/index.html">Axis C++ 最新版</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/documentation.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/download.html">ダウンロード</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki ページ [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/who.html">メンバ紹介</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">ダウンロード</span>
+  
+<div class="menuItem">
+<a href="../releases.html">リリース</a>
+</div>
+  
+<div class="menuItem">
+<a href="../interim.html">暫定版</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">ソースコード [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">翻訳</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/jp/">日本語</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">関連プロジェクト</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">その他</span>
+  
+<div class="menuItem">
+<a href="../who.html">メンバ紹介</a>
+</div>
+  
+<div class="menuItem">
+<a href="../contact.html">連絡先</a>
+</div>
+  
+<div class="menuItem">
+<a href="../legal.html">法関連</a>
+</div>
+  
+<div class="menuItem">
+<a href="../docs.html">メモ/ドキュメント</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Axis C++ Linux Installation Guide</h1>
+</div>
+<div class="h3">
+<div class="h3">
+<h3>Axis C++ Linux Installation Guide</h3>
+</div>
+<p>
+<strong>Contents</strong>
+</p>
+<ul>
+<li>
+<a href="#Introducti">Introduction</a>
+</li>
+<li>
+<a href="#What">What You Need</a>
+</li>
+<li>
+<a href="#Install">Installing Axis C++</a>
+</li>
+<li style="list-style: none">
+<br>
+</li>
+</ul>
+<p>
+<strong>Note:</strong>The Expat XML Parser module is not currently maintained and also contains some bugs. So it is removed from the 1.4 release. Please ignore any references to the Expat parser in the documentation. The documentation will be updated regarding this later.</p>
+<p>
+<a name="Introduction"></a>
+</p>
+<div class="h3">
+<h3>Introduction</h3>
+</div>
+<p>This guide will help you to start with Axis C++. This guide will explain the minimum steps needed to build and run Axis C++, and warn you about the common pitfalls.</p>
+<p>
+<a name="What"></a>
+</p>
+<div class="h3">
+<h3>What You Need</h3>
+</div>
+<p>You need a few helper libraries for parsing XML, WSDL processing and introspection. You need to have the following in order to run Axis C++ engine.</p>
+<p>&nbsp; &nbsp; &nbsp; <a href="http://httpd.apache.org/download.cgi">Apache web server</a> (2.0.x or 1.3.x)&nbsp; - You need to have Apache built with module so support, hence you need to have the source of Apache web server.<br>
+<br> Axis C++ uses Apache web server to host services.<br>
+</p>
+<br>
+<p>&nbsp; &nbsp; &nbsp; <a href="http://sourceforge.net/projects/expat/">Expat (1.95.7)</a> (<strong>Note:</strong>The Expat XML Parser module is not currently maintained and also contains some bugs. For more information refer the contents section.)<br>
+<br> and/or<br>
+<br>
+<a href="http://archive.apache.org/dist/xml/xerces-c/Xerces-C_2_2_0/">Xerces C++ (2.2.0)</a> XML parser(s)<br>
+<br> Axis C++ needs an XML parser to parse SOAP messages and WSDD files. It has a parser abstraction layer that helps users to select/switch between parsers. However only one parser library could be used at a time. Currently Xerces parser is supported by Axis C++.<br>
+</p>
+<br>
+<p>
+<a name="Install"></a>
+</p>
+<div class="h3">
+<h3>Installing Axis C++</h3>
+</div>
+<div class="h4">
+<h4>1. Install Apache Web Server</h4>
+</div>
+<p>In case you have already installed Apache , make sure that 'so modules' are enabled.<br> This is because Axis C++ server engine is implemented as a 'so module'. (For Apache 1.3.x use --enable-module=so; for Apache 2.0.x use --enable-so when configuring. See Apache web server documentation for more details)</p>
+<div class="h4">
+<h4>2. Install Expat (1.95.7) and/or Xerces C++ (2.2.0)</h4>
+</div>
+<p>
+<strong>Note:</strong>The Expat XML Parser module is not currently maintained and also contains some bugs. For more information refer the contents section.</p>
+<p>Select an XML parser depending on your parser preferences. See the respective parser's documentation for installation instructions.</p>
+<br>
+<div class="h4">
+<h4>3. Download Axis C++</h4>
+</div>
+<p>
+<a href="http://ws.apache.org/axis/cpp/download.html">Download Axis C++</a> source or binary distribution and extract the package.</p>
+<div class="h4">
+<h4>4. Define the Environment Variables.</h4>
+</div>
+<p>
+<strong>AXISCPP_HOME="Path to Axis C++ source or binary extracted folder"</strong>
+<br> e.g. <strong>AXISCPP_HOME="/my/home/axiscpp"</strong>
+<br>
+<br> 
+<strong>AXISCPP_DEPLOY="Path to the folder where you want to install Axis C++"</strong>
+<br> e.g. <em>AXISCPP_DEPLOY="/usr/local/axiscpp_deploy"</em>
+<br> 
+<strong>LD_LIBRARY_PATH="&lt;path to parser library you use&gt;/lib:$AXISCPP_DEPLOY/lib:$LD_LIBRARY_PATH"</strong>
+<br> 
+<strong>export AXISCPP_HOME AXISCPP_DEPLOY LD_LIBRARY_PATH</strong>
+</p>
+<div class="h4">
+<h4>5. Build Axis C++</h4>
+</div>
+<p>
+<strong>Note:</strong> The following steps are for Axis C++ source downloads.<br>
+<br>
+<strong>cd $AXISCPP_HOME</strong>
+<br>
+<br> 
+<strong>./configure --prefix=$AXISCPP_DEPLOY --with-apache2=/path/to/Apache2 \&nbsp;&nbsp;&nbsp;&nbsp;--with-xercesc=/path/to/xerces-c</strong>
+<br> 
+<strong>make</strong>
+<br> 
+<strong>make install</strong>
+<br>
+<br> The above set of instructions assume you have Apache 2.0.x web server and Xerces C++ parser.<br>For more information on build options run <strong><em>./configure --help</em></strong>.<br>
+<br>The libs created in build process are placed in $AXISCPP_DEPLOY/lib. (Provided that you used $AXISCPP_DEPLOY as --prefix option for configuring). Note that you need permission to install to the specified directory given in prefix option.<br> &nbsp;<br>
+</p>
+<p>
+<strong>Note:</strong> The following steps are common to both source and binary downloads.<br>
+<br> You need global access rights to the Axis C++ deploy folder to make sure that Axis C++ works properly.<br>
+<br> 
+<em>chmod -R 777 $AXISCPP_DEPLOY</em>
+</p>
+<div class="h4">
+<h4>6. Configure Apache Module</h4>
+</div>
+<p>
+<strong>Note:</strong> to execute the following steps, you may need to have <strong>super user rights</strong> on your machine.<br>
+<br> Now you need to edit <strong>httpd.conf</strong> file in &lt;path to Apache web server installation&gt;/conf and add the following lines at the bottom of that file (assuming you are using Apache 2.0.x):<br>
+<br> 
+<strong>LoadModule axis_module modules/libaxiscpp_mod2.so</strong>
+<br> 
+<strong>&lt;Location /axis&gt;</strong>
+<br>
+<strong>SetHandler axis</strong>
+<br>
+<strong>&lt;/Location&gt;</strong>
+<br>
+<br>For Apache1.3.x LoadModule line should read as:<br> 
+<strong>LoadModule axis_module libexec/libaxiscpp_mod.so</strong>
+</p>
+<div class="h4">
+<h4>7. Configure Server Deployment Descriptor File</h4>
+</div>
+<p>Now you need the server deployment descriptor (server.wsdd) to deploy server samples you built.<br> There is a sample deployment descriptor called server.wsdd_linux in $AXISCPP_DEPLOY/etc to help to deploy samples.<br> Edit this file to match your system settings (because the server.wsdd_linux file assumes that you have installed the binaries in /usr/local/axiscpp_deploy, you may need to change the folder names) and copy it to server.wsdd.<br>server.wsdd file is an XML file, and the contents are self descriptive.</p>
+<div class="h4">
+<h4>8. Set Engine Wide Settings in Configuration File</h4>
+</div>
+<p>Axis C++ uses a configuration file to let the user specify preferences such as log file locations, transport and parser libs to be used and location of deployment descriptor files.<br> A sample configuration file named axiscpp.conf_linux is installed in $AXISCPP_DEPLOY/etc folder. Edit this file to match your systems settings (because the axiscpp.conf_linux file assumes that you have installed the binaries in /usr/local/axiscpp_deploy, you may need to change the folder names) and copy it to axiscpp.conf<br>
+<br> Configuration file has the following <strong>Syntax:</strong>
+</p>
+<br>
+<p>The comment character is '#'<br>WSDDFilePath - Path to the server wsdd file<br>ClientWSDDFilePath - Path to the client wsdd<br>LogPath - Path to the Axis C++ server log<br> ClientLogPath - Path to the Axis C++ client log<br>Transport_http - HTTP transport library<br>XMLParser - XML parser library</p>
+<br>
+<p>A sample <strong>axiscpp.conf</strong> file:</p>
+<pre>LogPath:/usr/local/axiscpp_deploy/log/AxisLog
+WSDDFilePath:/usr/local/axiscpp_deploy/etc/server.wsdd
+ClientLogPath:/usr/local/axiscpp_deploy/log/AxisClientLog
+XMLParser:/usr/local/axiscpp_deploy/lib/libaxis_xercesc.so
+Transport_http:/usr/local/axiscpp_deploy/lib/libaxis2_transport.so
+</pre>
+<div class="h4">
+<h4>9. Deploying with Apache Web Server</h4>
+</div>
+<p>Now we need to copy Apache module (libaxiscpp_mod2.so for Apache 2.0.x and libaxiscpp_mod.so for Apache 1.3.x) to the correct places and start Apache web server. The steps to follow are:</p>
+<ol>
+<li>Copy libaxiscpp_mod2.so to /&lt;your Apache 2.0.x home&gt;/modules (or copy libaxiscpp_mod.so to /&lt;your Apache 1.3.x home&gt;/libexec)</li>
+<li>Start Apache /&lt;path to Apache installation&gt;/bin/apachectl start</li>
+</ol>
+<p>To do the same you can you can use scripts in $AXISCPP_DEPLOY/bin.</p>
+<strong>cd $AXISCPP_DEPLOY/bin</strong>
+<br>
+<p>To deploy with Apache 2.0.x</p>
+<strong>sh deploy_apache2.sh</strong>
+<br>
+<p>To deploy with Apache 1.3.x</p>
+<strong>sh deploy_apache.sh</strong>
+<br>
+<p>
+<strong>Note:</strong> please rename libaxis_xercesc.so (the default parser library) to libaxis_xmlparser.so.<br>
+<br> if you need to use a different parser or want to switch parsers time to time, you need to edit the script and comment out the line:<br>
+<br>
+</p>
+<p>
+<strong>Note:</strong>The Expat XML Parser module is not currently maintained and also contains some bugs. For more information refer the contents section.</p>
+<strong>cp -f ${AXISCPP_DEPLOY}/lib/libaxis_xercesc.so ${AXISCPP_DEPLOY}/lib/libaxis_xmlparser.so</strong>
+<br>
+<br>
+<div class="h4">
+<h4>10. See Axis C++ in action</h4>
+</div>
+<p>Now the installation is complete. You can verify that the server side is working by accessing the URL <a href="http://localhost/axis">http://localhost/axis</a> using your web browser. You should get the Axis C++ welcome page and this page will show you a list of deployed services as specified by the $AXISCPP_DEPLOY/conf/server.wsdd file.</p>
+<br>
+<p>Now you can run a client sample and see if it works.</p>
+<strong>cd $AXISCPP_DEPLOY/bin</strong>
+<br>
+<strong>./base</strong>
+<p>To help you run several samples at once there is a script named <strong>run_interoptests.sh</strong> in $AXISCPP_DEPLOY/bin folder. You can try running that as well.</p>
+<div class="h4">
+<h4>11. Simple axis server installation</h4>
+</div>
+<p>1. Build the source distribution as mentioned above.</p>
+<p>2. Make sure that you have set the <strong>AXISCPP_DEPLOY</strong> environment variable to point to your deployment folder as mentioned above</p>
+<p>3.Copy <strong>$AXISCPP_DEPLOY/etc/axiscpp.conf_linux</strong> to <strong>$AXISCPP_DEPLOY/etc/axiscpp.conf</strong>
+</p>
+<p>and make sure that the contents of that file match your system settings</p>
+<p>4. Run simple axis server in <strong>$AXISCPP_DEPLOY/bin</strong>
+<br>Synopsis: simple_axis_server server-port Where server-port is the port on which you would like the server to listen for client requests.</p>
+<p>For Example</p>
+<p>
+<strong>cd $AXISCPP_DEPLOY/bin</strong>
+</p>
+<p>
+<strong>./simple_axis_server 9090</strong>
+</p>
+<p>5. Run clients in <strong>$AXISCPP_DEPLOY/bin</strong>
+</p>
+<p>On a different shell:</p>
+<p>
+<strong>cd $AXISCPP_DEPLOY/bin</strong>
+</p>
+<p>
+<strong>./base http://localhost:9090/axis/base</strong>
+</p>
+<p>Similarly you could run the other samples.</p>
+<p>Similarly you could run the other samples.</p>
+<div>
+<a name="pdf"></a><a href="lininstall-guide.pdf"><img alt="PDF" src="../skin/images/pdfdoc.gif"><br> PDF</a> 
+<br>
+<br> 
+</div>
+<div id="pdf" align="right">
+<a href="lininstall-guide.pdf"><img alt="PDF" src="../skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

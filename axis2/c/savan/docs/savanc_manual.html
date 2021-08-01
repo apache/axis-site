@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>Apache Savan/C - The WS-Eventing Module for Apache Axis2/C</title><style type="text/css" media="all">
+          @import url("../style/maven-base.css");
+          
+			    @import url("../style/maven-classic.css");</style><link rel="stylesheet" href="../style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta></head><body class="composite"><div style="background: red"><h1>2014/09/20 - Apache Axis Savan/C has been retired. </h1><h2>For more information, please explore the <a href="http://attic.apache.org/">Attic</a>. </h2></div><div id="banner"><a href="http://www.apache.org/" id="organizationLogo"><img alt="Apache Software Foundation" src="http://www.apache.org/images/asf-logo.gif"></img></a><a href="http://ws.apache.org/savan/c" id="projectLogo"><img alt="Apache Savan/C" src="http://ws.apache.org/savan/c/images/savanc_logo.jpg"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">
+                	Last published: 28 May 2007
+                        </div><div class="xright"></div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuApache_Savan_C"><h5>Apache Savan/C</h5><ul><li class="none"><a href="../index.html">Apache Savan/C Home</a></li><li class="expanded"><a href="../download.cgi">Download Savan/C</a><ul><li class="none"><a href="../download.cgi">Releases</a></li></ul></li><li class="expanded"><a href="../docs/index.html">Documentation</a><ul><li class="none"><a href="../docs/installationguide.html">Installation Guide</a></li><li class="none"><a href="../docs/savanc_manual.html">Savan/C manual</a></li></ul></li><li class="expanded"><a href="../lists_issues.html">Get Involved</a><ul><li class="none"><a href="../lists_issues.html">Mailing Lists &amp; Issue Tracking</a></li><li class="none"><a href="../svn.html">Checkout Source Code</a></li></ul></li><li class="expanded"><a href="../coding_conventions.html">Developer Guidelines</a><ul><li class="none"><a href="../coding_conventions.html">Coding Convention</a></li><li class="none"><a href="../versioning.html">Versionning</a></li></ul></li><li class="expanded"><a href="../team-list.html">Project Information</a><ul><li class="none"><a href="../team-list.html">Project Team</a></li><li class="none"><a href="http://svn.apache.org/repos/asf/webservices/sandesha/trunk/c" class="externalLink" title="External Link">Source Code</a></li></ul></li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="../images/logos/maven-button-1.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="Apache_Savan_C_Manual"></a><h2>Apache Savan/C Manual</h2><p>This document guide you through the architecture of Savan/C</p>
+
+<p>Please send your feedback to the developer mailing list: <a
+href="mailto:axis-c-dev@ws.apache.org">axis-c-dev@ws.apache.org</a>
+(Subscription details are available on the <a
+href="http://ws.apache.org/sandesha/savan/c">Savan site</a>.) Please remember
+to prefix the subject with [Savan/C].</p>
+
+<h2>Contents</h2>
+<ul>
+  <li><a href="#what_is_eventing">What is web services eventing.</a> 
+  </li>
+  <li><a href="#components">Savan/C components<br></a> 
+	<ul>
+		<li><a href="#subs_mgr">Subscription Manager</a></li>
+		<li><a href="#publisher">Publisher</a></li>
+		<li><a href="#filters">Filters</a></li>
+	</ul>
+  </li>
+  <li><a href="#understanding_internal">Understanding the internal dependancies<br></a>
+  </li>
+</ul>
+<a id="what_is_eventing"></a>
+    <h2>
+      What is eventing
+      <br />
+    </h2>
+<p>For a long time web services lacked a standerd for event notification. On 20 January 2004, Akamai, The Globus Alliance, Hewlett-Packard, IBM, Sonic Software and TIBCO Software proposed two new Web services specifications. The first, WS-Notification, seeks to provide a standards-based means of publish-and-subscribe message delivery. On 7 January 2004, BEA Systems, Microsoft and TIBCO also published a specification for a Web services                     publish-and-subscribe standard, known as WS-Eventing.</p>
+<p>Web Services Eventing is about using the Web services framework for implementing a Subscriber-Publisher model. A client will send a request message for a subscription to an Event Publishing Service (EPS), with information as to who it is and from where it can receive notifications from the server . The Publishing Service publishes its data, as and when available, to all client endpoints given by respective subscribers when making subscription requests. These endpoints can be an application running on the same machine as the client application (subscriber) or, it can be an application running on a different machine.</p>
+<p>Savan/C is an implementation of the WS-Eventing specification. It started developement at the beginning of 2007 by some developers at WSO2 Inc. From the beginning the code was donated to Apache foundation. The company was in the process of implementating a complete web services stack for C which will be then used in C++ and most of the scripting languages like PHP, Pearl and Ruby.</p>
+<p>By now the complete C stack called Axis2/C is very matured and C++, PHP stacks based on it also has gained wide popularity. Savan/C team first released it's 0.90 version in 05 November 2007. Since then lot of improvements were done to the code base leading to it's first major release on May 2009. </p>
+
+<a id="components"></a>
+    <h2>
+      Savan/C components
+      <br />
+    </h2>
+<p>Savan/C code is designed with scalability and performance in mind. As an eventing implementation the main components should invariably be the subscription manager and publisher. Then we need filter implementations. Since these threee components are the most important components for the Savan/C user special care has been taken in designing these components. These three components are written as pluggable components. User has the options of using the implementations provided by the Savan/C for these components or write his own component implementing the corresponding API. The API's are savan_subs_mgr.h, savan_publisher.h and savan_filter_mod.h respectively. I'll explain these three components separately in following sections.</p>
+<p>Apart from these three important components there is a client component which implement the client API whic is used by Savan/C subscribers to subscribe, renew, query status of the subscription and unsubscribe.</p>
+<p>Rest of the components are just implementation specific and bear no interest for the Savan/C user. They are core component which is the main Savan/C module for Axis2/C, util component which provide common utility functions and msgreceivers which is Savan/C specific message receiver for Axis2/C and subscribers which is the internal representation of a subscriber.</p>
+
+<a id="subs_mgr"></a>
+<h3>Subscription Manager</h3>
+<p>xxx</p>
+
+<a id="publisher"></a>
+<h3>Publisher</h3>
+<p>xxx</p>
+
+<a id="filters"></a>
+<h3>Filters</h3>
+<p>xxx</p>
+
+<a id="understanding_internal"></a>
+<h2>Understanding the internal dependancies</h2>
+<p>It is useful to understand the dependancies between the Savan/C components.</p>
+<p>libmod_savan.so depends on</p>
+<ul>
+   <li>handlers</li>
+   <li>util</li>
+   <li>savan_storage</li>
+</ul>
+
+<p>libsavan_msgreceivers.so depends on</p>
+<ul>
+   <li>publisher</li>
+   <li>storage</li>
+   <li>util</li>
+</ul>
+
+<p>libsavan_util.so depends on</p>
+<ul>
+   <li>subscribers</li>
+</ul>
+
+<p>libsavan_client.so depends on</p>
+<ul>
+   <li>util</li>
+   <li>storage</li>
+   <li>filter</li>
+</ul>
+
+<p>registry storage depends on</p>
+<ul>
+   <li>common_storage</li>
+   <li>registry_client</li>
+</ul>
+
+<p>sqlite storage depends on</p>
+<ul>
+   <li>common_storage</li>
+   <li>sqlite</li>
+</ul>
+
+<p>esb publisher depends on</p>
+<ul>
+   <li>util</li>
+   <li>common_publisher</li>
+</ul>
+<p>default publisher depends on</p>
+<ul>
+   <li>util</li>
+   <li>filter</li>
+   <li>common_publisher</li>
+</ul>
+<p>xpath filter depends on</p>
+<ul>
+ <li>common_filter</li>
+ <li>libxml2</li>
+</ul>
+
+<h3>Notes</h3>
+<ol>
+  <li>Note1</li>
+  <li>Note2</li>
+</ol>
+</div></div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2005-2007, Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

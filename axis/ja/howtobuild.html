@@ -1,0 +1,554 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>WebServices - Axis</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.co.jp/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input value="ja" name="hl" type="hidden"><input value="UTF-8" name="ie" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="skin/images/spacer.gif" class="spacer"><input name="Search" value="検索" type="submit">
+<br>WS を検索
+                          
+                          
+                      </td><td><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="index.html">はじめに</a>
+</div>
+ 
+<div class="menuItem">
+<a href="news.html">お知らせ</a>
+</div>
+
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/ja/axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">活動に参加</span>
+  
+<div class="menuItem">
+<a href="overview.html">概要</a>
+</div>
+  
+<div class="menuItem">
+<a href="cvs.html">CVS リポジトリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="mail.html">メーリングリスト</a>
+</div>
+  
+<div class="menuItem">
+<a href="ref.html">リファレンスライブラリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="bugs.html">バグ</a>
+</div>
+  
+<div class="menuItem">
+<span class="menuSelected">サイト構築方法</span>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="java/index.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/install.html">インストール</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/user-guide.html">ユーザガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/developers-guide.html">開発者ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/integration-guide.html">統合ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/architecture-guide.html">アーキテクチャガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/reference.html">リファレンスガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/reading.html">読書ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="java/requirements.html">要件</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="cpp/index.html">Axis C++ 最新版</a>
+</div>
+  
+<div class="menuItem">
+<a href="cpp/documentation.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="cpp/download.html">ダウンロード</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki ページ [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="cpp/who.html">メンバ紹介</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">ダウンロード</span>
+  
+<div class="menuItem">
+<a href="releases.html">リリース</a>
+</div>
+  
+<div class="menuItem">
+<a href="interim.html">暫定版</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">ソースコード [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">翻訳</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/jp/">日本語</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">関連プロジェクト</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">その他</span>
+  
+<div class="menuItem">
+<a href="who.html">メンバ紹介</a>
+</div>
+  
+<div class="menuItem">
+<a href="contact.html">連絡先</a>
+</div>
+  
+<div class="menuItem">
+<a href="legal.html">法関連</a>
+</div>
+  
+<div class="menuItem">
+<a href="docs.html">メモ/ドキュメント</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>WebServices - Axis</h1>
+</div>
+<div class="h3">
+  
+  
+
+
+
+<a name="InstallingForrest"></a>
+
+<div class="h3">
+<h3>Forrest のインストール</h3>
+</div>
+
+
+
+<p>WebサービスプロジェクトのWebサイトでは、<a href="http://ant.apache.org/">Ant</a> と <a href="http://forrest.apache.org/">Forrest</a> をサイト構築に利用します。</p>
+
+
+<p>テスト済みの環境は、<a href="http://ant.apache.org/">Ant 1.6.1</a> と <a href="http://forrest.apache.org/">Forrest 0.5.1</a> です。これらのインストールは、ダウンロードしたコンポーネントの手順書に従って実施して下さい。インストール後に｢FORREST_HOME｣と「ANT_HOME」の環境変数を忘れずに設定して下さい。更に、「ANT_HOME/bin」をパスに追加する必要があります。</p>
+
+
+
+
+<a name="CheckingOutWs-axisAndWs-siteModule"></a>
+
+<div class="h3">
+<h3>ws-site と ws-site モジュールのチェックアウト</h3>
+</div>
+
+
+
+<p>お好みの CVS ツールを利用して<b>「ws-axis」</b>と<b>「ws-site」</b>モジュールをチェックアウトして下さい。<br>その際、<a href="cvs.html">ここ</a>にあるガイドラインに従って実施して下さい。</p>
+
+
+
+
+<a name="RunningTheBuild"></a>
+
+<div class="h3">
+<h3>ビルド実行</h3>
+</div>
+
+
+
+<p>ビルドのターゲット種別は、下記の通りです。</p>
+
+
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+  
+<tr class="b">
+    
+<th colspan="1" rowspan="1">ターゲット</th>
+    <th colspan="1" rowspan="1">詳細</th>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">clean</td>
+    <td colspan="1" rowspan="1">全ての中間生成物の削除 (つまり、build フォルダ配下が削除される)</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">run-forrest</td>
+    <td colspan="1" rowspan="1">Forrest を Jetty server と共に起動する</td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">run-browser</td>
+    <td colspan="1" rowspan="1">ブラウザ起動 (つまり、IE の起動)</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">backcopy</td>
+    <td colspan="1" rowspan="1">ビルドフォルダでの修正を'ws-axis/site/src'のマスタに反映させる</td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">forrest</td>
+    <td colspan="1" rowspan="1">修正済み静的コンテンツを作成する</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">replace</td>
+    <td colspan="1" rowspan="1">上記静的コンテンツを"ws-site/targets/axis"フォルダにコピーする</td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">build-site (default)</td>
+    <td colspan="1" rowspan="1">ターゲット「clean」とサイトビルド実施</td>
+  
+</tr>
+
+</table>
+
+
+
+
+<a name="ForCommittersHighlyRecommended"></a>
+
+<div class="h3">
+<h3>コミッタ向け説明事項 (推奨)</h3>
+</div>
+
+
+
+<p>Axisプロジェクトのサイト(http://ws.apache.org/axis/)の変更方法。</p>
+
+
+<ul>
+  
+<li>ローカルの"ws-site" CVS フォルダに移動(cd)する</li>
+  
+<li>"ant"を実行する</li>
+  
+<li>"build/webapp/content/xdocs"配下のソースに修正を行う</li>
+  
+<li>自動起動したブラウザでコンテンツを確認する</li>
+  
+<li>編集完了時に「Forrest のウインドウ」と「ブラウザ」を終了する</li>
+  
+<li>コミットを行う(つまり、 <b>'ws-axis/site/src'</b> と<b>'ws-site/target/axis'</b>をチェックイン)</li>
+
+</ul>
+
+
+
+
+<a name="ManualUpdateIfYouWantToRealizeTheValueOfAntTasksAbove"></a>
+
+<div class="h3">
+<h3>手動更新 (上記 ant タスクの有効性を知りたいなら...)</h3>
+</div>
+
+
+
+<p>もし、サイトの更新を逐次手動で行いたいのであれば、次の手順で実施して
+下さい。</p>
+
+
+<ol>
+
+  
+<li>Forrest のインストール<br>
+    [注意] 現時点では、バージョン 0.5.1 のみがテスト済みです。</li>
+
+  
+<li>「ws-axis/site」モジュールのチェックアウト<br>
+    [例]<br>
+    'ws-axis/site/src/documentation/content/xdocs/java/user-guide.ihtml'</li>
+
+  
+<li>ターゲットの編集</li>
+
+  
+<li>「forrest run」実行による変更内容の確認
+    <ol>
+      
+<li>ローカルの"ws-site/site" CVS フォルダに移動(cd)する</li>
+      
+<li>"forrest run"を実行する</li>
+      
+<li>ブラウザで http://localhost:8888/ にアクセスして内容を確認する</li>
+    
+</ol>
+  
+</li>
+
+  
+<li>「forrest」実行による静的コンテンツの生成
+    <ol>
+      
+<li>"ws-axis/site"フォルダで"forrest"を実行する</li>
+      
+<li>"ws-axis/site/build/site/"上の生成コンテンツをチェックする</li>
+    
+</ol>
+  
+</li>
+
+  
+<li>コミット実行
+    <ol>
+      
+<li>オリジナルソース(xml/ihtml/gif/jpg)を"ws-axis"へコミットする</li>
+      
+<li>生成した静的コンテンツを"ws-site/targets/axis"へコピーする</li>
+      
+<li>静的コンテンツを"ws-site"へコミットする</li>
+    
+</ol>
+  
+</li>
+
+  
+<li>(任意) サイトへの反映を急ぐ場合は、Minotaur サーバにいて /www/ws.apache.org へ移動し、"cvs update -P"を実行して下さい。
+    <p>[注意] *** 非常に重要 ***<br>
+      上記コマンドの実行前に必ず、自分のユーザマスクに"002"がセットされていることを確認して下さい。さもないと、当該サイトは、それ以降更新することが出来なくなってしまいます。<br>
+      このサイトは、dims 氏の cron ジョブによって日に２回（太平洋標準時の午前１２時および午後１２時）、自動更新が行われます。</p>
+  
+</li>
+
+
+</ol>
+
+
+
+
+<a name="FAQ"></a>
+
+<div class="h3">
+<h3>F.A.Q. (良くある質問)</h3>
+</div>
+
+
+
+<p>
+<i>Q1.</i>
+<br>
+  サイト構築中、『The &lt;xmlcatalog&gt; data type doesn't support the nested "catalogpath" element.』といったエラーに遭遇しました。 </p>
+
+
+<p>
+<i>A1.</i>
+<br>
+  Antのバージョンが 1.6 alpha 以降であることを確認して下さい。バージョンは、"ant -version" によって表示されます。</p>
+
+
+<p>
+<i>Q2.</i>
+<br>
+  下記のようなエラーが表示されてしまいました。<br>[java] X [0] mirrors.pdf BROKEN ....</p>
+
+
+<p>
+<i>A2.</i>
+<br>
+  これは既知の問題ですが、このサイト自身には影響がありません。</p>
+
+
+<p>
+<b>(今後も追加)</b>
+</p>
+
+
+
+
+  
+
+<div id="authors" align="right">by&nbsp;Toshiyuki Kimura</div>
+<div id="pdf" align="right">
+<a href="howtobuild.pdf"><img alt="PDF" src="skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
