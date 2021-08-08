@@ -377,7 +377,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/Messag
  <p>
  The way MTOM messages are handled fundamentally differs between Axiom and SAAJ.
  While Axiom replaces xop:Include elements by <a href="https://docs.oracle.com/javase/7/docs/api/javax/activation/DataHandler.html?is-external=true" title="class or interface in javax.activation"><code>DataHandler</code></a> backed
- <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMText.html?is-external=true" title="class or interface in org.apache.axiom.om"><code>OMText</code></a> nodes, there is no such requirement in SAAJ. The only
+ <code>OMText</code> nodes, there is no such requirement in SAAJ. The only
  requirement there is that <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/SOAPMessage.html?is-external=true#getAttachment-javax.xml.soap.SOAPElement-" title="class or interface in javax.xml.soap"><code>SOAPMessage.getAttachment(javax.xml.soap.SOAPElement)</code></a>
  returns the relevant <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/soap/AttachmentPart.html?is-external=true" title="class or interface in javax.xml.soap"><code>AttachmentPart</code></a> when applied to an
  xop:Include element.

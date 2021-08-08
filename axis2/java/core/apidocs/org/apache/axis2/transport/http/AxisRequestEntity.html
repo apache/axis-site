@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -76,13 +76,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -107,13 +107,9 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
-<dl>
-<dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../../org/apache/axis2/transport/http/impl/httpclient3/AxisRequestEntityImpl.html" title="class in org.apache.axis2.transport.http.impl.httpclient3">AxisRequestEntityImpl</a>, <a href="../../../../../org/apache/axis2/transport/http/impl/httpclient4/AxisRequestEntityImpl.html" title="class in org.apache.axis2.transport.http.impl.httpclient4">AxisRequestEntityImpl</a></dd>
-</dl>
 <hr>
 <br>
-<pre>public abstract class <span class="typeNameLabel">AxisRequestEntity</span>
+<pre>public final class <span class="typeNameLabel">AxisRequestEntity</span>
 extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block">This Request Entity is used by the HTTPCommonsTransportSender. This wraps the
  Axis2 message formatter object.</div>
@@ -123,31 +119,6 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/transport/http/AxisRequestEntity.html#AxisRequestEntity-org.apache.axis2.transport.MessageFormatter-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.lang.String-boolean-boolean-">AxisRequestEntity</a></span>(<a href="../../../../../org/apache/axis2/transport/MessageFormatter.html" title="interface in org.apache.axis2.transport">MessageFormatter</a>&nbsp;messageFormatter,
-                 <a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
-                 <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
-                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapAction,
-                 boolean&nbsp;chunked,
-                 boolean&nbsp;isAllowedRetry)</code>
-<div class="block">Method calls to this request entity are delegated to the following Axis2
- message formatter object.</div>
-</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -166,25 +137,17 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/transport/http/AxisRequestEntity.html#getContentTypeAsString--">getContentTypeAsString</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/transport/http/AxisRequestEntity.html#getContentType--">getContentType</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/transport/http/AxisRequestEntity.html#getRequestEntityContent--">getRequestEntityContent</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/transport/http/AxisRequestEntity.html#isChunked--">isChunked</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/transport/http/AxisRequestEntity.html#isRepeatable--">isRepeatable</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/transport/http/AxisRequestEntity.html#setChunked-boolean-">setChunked</a></span>(boolean&nbsp;chunked)</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/transport/http/AxisRequestEntity.html#writeRequest-java.io.OutputStream-">writeRequest</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;outStream)</code>&nbsp;</td>
 </tr>
@@ -204,34 +167,6 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="AxisRequestEntity-org.apache.axis2.transport.MessageFormatter-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.lang.String-boolean-boolean-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>AxisRequestEntity</h4>
-<pre>public&nbsp;AxisRequestEntity(<a href="../../../../../org/apache/axis2/transport/MessageFormatter.html" title="interface in org.apache.axis2.transport">MessageFormatter</a>&nbsp;messageFormatter,
-                         <a href="../../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
-                         <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
-                         <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapAction,
-                         boolean&nbsp;chunked,
-                         boolean&nbsp;isAllowedRetry)</pre>
-<div class="block">Method calls to this request entity are delegated to the following Axis2
- message formatter object.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>messageFormatter</code> - </dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -270,45 +205,22 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <pre>public&nbsp;long&nbsp;getContentLength()</pre>
 </li>
 </ul>
-<a name="getContentTypeAsString--">
+<a name="getContentType--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getContentTypeAsString</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getContentTypeAsString()</pre>
+<h4>getContentType</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getContentType()</pre>
 </li>
 </ul>
 <a name="isChunked--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>isChunked</h4>
 <pre>public&nbsp;boolean&nbsp;isChunked()</pre>
-</li>
-</ul>
-<a name="setChunked-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setChunked</h4>
-<pre>public&nbsp;void&nbsp;setChunked(boolean&nbsp;chunked)</pre>
-</li>
-</ul>
-<a name="getRequestEntityContent--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getRequestEntityContent</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;getRequestEntityContent()
-                                    throws <a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
-</dl>
 </li>
 </ul>
 </li>
@@ -366,13 +278,13 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>

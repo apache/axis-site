@@ -75,7 +75,7 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.classes.inherited.from.class.org.apache.tools.ant.taskdefs.Jar">Nested</a>&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.org.apache.tools.ant.taskdefs.Jar">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.org.apache.tools.ant.taskdefs.Zip">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
@@ -157,14 +157,14 @@ extends org.apache.tools.ant.taskdefs.Jar</pre>
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from class&nbsp;org.apache.tools.ant.taskdefs.Jar</h3>
-<code>org.apache.tools.ant.taskdefs.Jar.FilesetManifestConfig</code></li>
+<code>org.apache.tools.ant.taskdefs.Jar.FilesetManifestConfig, org.apache.tools.ant.taskdefs.Jar.StrictMode</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="nested.classes.inherited.from.class.org.apache.tools.ant.taskdefs.Zip">
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from class&nbsp;org.apache.tools.ant.taskdefs.Zip</h3>
-<code>org.apache.tools.ant.taskdefs.Zip.ArchiveState, org.apache.tools.ant.taskdefs.Zip.Duplicate, org.apache.tools.ant.taskdefs.Zip.WhenEmpty</code></li>
+<code>org.apache.tools.ant.taskdefs.Zip.ArchiveState, org.apache.tools.ant.taskdefs.Zip.Duplicate, org.apache.tools.ant.taskdefs.Zip.UnicodeExtraField, org.apache.tools.ant.taskdefs.Zip.WhenEmpty, org.apache.tools.ant.taskdefs.Zip.Zip64ModeAttribute</code></li>
 </ul>
 </li>
 </ul>
@@ -175,18 +175,11 @@ extends org.apache.tools.ant.taskdefs.Jar</pre>
 </a>
 <h3>Field Summary</h3>
 <ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.org.apache.tools.ant.taskdefs.Jar">
-<!--   -->
-</a>
-<h3>Fields inherited from class&nbsp;org.apache.tools.ant.taskdefs.Jar</h3>
-<code>emptyBehavior</code></li>
-</ul>
-<ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.org.apache.tools.ant.taskdefs.Zip">
 <!--   -->
 </a>
 <h3>Fields inherited from class&nbsp;org.apache.tools.ant.taskdefs.Zip</h3>
-<code>addedDirs, archiveType, doubleFilePass, duplicate, entries, skipWriting, zipFile</code></li>
+<code>addedDirs, archiveType, doubleFilePass, duplicate, emptyBehavior, entries, skipWriting, zipFile</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.org.apache.tools.ant.taskdefs.MatchingTask">
@@ -252,14 +245,14 @@ extends org.apache.tools.ant.taskdefs.Jar</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.tools.ant.taskdefs.Jar</h3>
-<code>addConfiguredIndexJars, addConfiguredManifest, addConfiguredService, addMetainf, cleanUp, createEmptyZip, finalizeZipOutputStream, findJarName, getResourcesToAdd, grabFilesAndDirs, initZipOutputStream, reset, setFilesetmanifest, setIndex, setJarfile, setManifest, setManifestEncoding, setWhenempty, setWhenmanifestonly, writeIndexLikeList, zipFile</code></li>
+<code>addConfiguredIndexJars, addConfiguredIndexJarsMapper, addConfiguredManifest, addConfiguredService, addMetainf, cleanUp, createEmptyZip, finalizeZipOutputStream, findJarName, getIndexJarsMapper, getResourcesToAdd, grabFilesAndDirs, initZipOutputStream, reset, setFilesetmanifest, setFlattenAttributes, setIndex, setIndexMetaInf, setJarfile, setManifest, setManifestEncoding, setMergeClassPathAttributes, setStrict, setWhenempty, setWhenmanifestonly, writeIndexLikeList, zipFile</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.tools.ant.taskdefs.Zip">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.apache.tools.ant.taskdefs.Zip</h3>
-<code>add, addFileset, addParentDirs, addResources, addResources, addZipfileset, addZipGroupFileset, execute, executeMain, getComment, getDestFile, getEncoding, getLevel, getNonFileSetResourcesToAdd, getResourcesToAdd, grabNonFileSetResources, grabResources, isAddingNewFiles, isCompress, isEmpty, isInUpdateMode, selectFileResources, setBasedir, setComment, setCompress, setDestFile, setDuplicate, setEncoding, setFile, setFilesonly, setKeepCompression, setLevel, setRoundUp, setUpdate, setZipfile, zipDir, zipDir, zipFile</code></li>
+<code>add, addFileset, addParentDirs, addResources, addResources, addZipfileset, addZipGroupFileset, execute, executeMain, getComment, getCreateUnicodeExtraFields, getCurrentExtraFields, getDestFile, getEncoding, getFallBackToUTF8, getLevel, getModificationtime, getNonFileSetResourcesToAdd, getPreserve0Permissions, getResourcesToAdd, getUseLanguageEnodingFlag, getZip64Mode, grabNonFileSetResources, grabResources, hasUpdatedFile, isAddingNewFiles, isCompress, isEmpty, isFirstPass, isInUpdateMode, logWhenWriting, selectDirectoryResources, selectFileResources, selectResources, setBasedir, setComment, setCompress, setCreateUnicodeExtraFields, setCurrentExtraFields, setDestFile, setDuplicate, setEncoding, setFallBackToUTF8, setFile, setFilesonly, setKeepCompression, setLevel, setModificationtime, setPreserve0Permissions, setRoundUp, setUpdate, setUseLanguageEncodingFlag, setZip64Mode, setZipfile, zipDir, zipDir, zipDir, zipFile, zipFile</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.tools.ant.taskdefs.MatchingTask">
@@ -392,7 +385,7 @@ extends org.apache.tools.ant.taskdefs.Jar</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.classes.inherited.from.class.org.apache.tools.ant.taskdefs.Jar">Nested</a>&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.org.apache.tools.ant.taskdefs.Jar">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.org.apache.tools.ant.taskdefs.Zip">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>

@@ -93,7 +93,7 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">org.apache.axis2.jaxws.message</div>
-<h2 title="Interface Block" class="title">Interface Block</h2>
+<h2 title="Interface Block" class="title">Interface Block&lt;T,C&gt;</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -101,7 +101,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSource</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></dd>
+<dd>org.apache.axiom.om.OMDataSource, org.apache.axiom.om.OMDataSourceExt</dd>
 </dl>
 <dl>
 <dt>All Known Subinterfaces:</dt>
@@ -113,8 +113,8 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public interface <span class="typeNameLabel">Block</span>
-extends <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></pre>
+<pre>public interface <span class="typeNameLabel">Block&lt;T,C&gt;</span>
+extends org.apache.axiom.om.OMDataSourceExt</pre>
 <div class="block">Block A Block represents an xml element and associated sub-tree. The name of the element must be
  defined by a root element in a schema. All prefixes within the subtree must correspond to
  namespace declarations defined within the tree. Many specifications refer to this as a "embedded
@@ -134,21 +134,6 @@ extends <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSo
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.org.apache.axiom.om.OMDataSourceExt">
-<!--   -->
-</a>
-<h3>Fields inherited from interface&nbsp;org.apache.axiom.om.<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></h3>
-<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#LOSSY_PREFIX" title="class or interface in org.apache.axiom.om">LOSSY_PREFIX</a></code></li>
-</ul>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -180,7 +165,7 @@ extends <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSo
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
+<td class="colFirst"><code>org.apache.axiom.om.OMElement</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/axis2/jaxws/message/Block.html#getOMElement--">getOMElement</a></span>()</code>
 <div class="block">Get the OMElement represented by this Block.</div>
 </td>
@@ -243,15 +228,15 @@ extends <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSo
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.axiom.om.OMDataSourceExt">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;org.apache.axiom.om.<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSourceExt</a></h3>
-<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#close--" title="class or interface in org.apache.axiom.om">close</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#copy--" title="class or interface in org.apache.axiom.om">copy</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#getObject--" title="class or interface in org.apache.axiom.om">getObject</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#getProperty-java.lang.String-" title="class or interface in org.apache.axiom.om">getProperty</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#getXMLBytes-java.lang.String-" title="class or interface in org.apache.axiom.om">getXMLBytes</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#getXMLInputStream-java.lang.String-" title="class or interface in org.apache.axiom.om">getXMLInputStream</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#hasProperty-java.lang.String-" title="class or interface in org.apache.axiom.om">hasProperty</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#isDestructiveRead--" title="class or interface in org.apache.axiom.om">isDestructiveRead</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#isDestructiveWrite--" title="class or interface in org.apache.axiom.om">isDestructiveWrite</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSourceExt.html?is-external=true#setProperty-java.lang.String-java.lang.Object-" title="class or interface in org.apache.axiom.om">setProperty</a></code></li>
+<h3>Methods inherited from interface&nbsp;org.apache.axiom.om.OMDataSourceExt</h3>
+<code>close, copy, getObject, getProperty, getXMLBytes, getXMLInputStream, hasProperty, isDestructiveRead, isDestructiveWrite, setProperty</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.axiom.om.OMDataSource">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;org.apache.axiom.om.<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true" title="class or interface in org.apache.axiom.om">OMDataSource</a></h3>
-<code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true#getReader--" title="class or interface in org.apache.axiom.om">getReader</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true#serialize-java.io.OutputStream-org.apache.axiom.om.OMOutputFormat-" title="class or interface in org.apache.axiom.om">serialize</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true#serialize-java.io.Writer-org.apache.axiom.om.OMOutputFormat-" title="class or interface in org.apache.axiom.om">serialize</a>, <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSource.html?is-external=true#serialize-javax.xml.stream.XMLStreamWriter-" title="class or interface in org.apache.axiom.om">serialize</a></code></li>
+<h3>Methods inherited from interface&nbsp;org.apache.axiom.om.OMDataSource</h3>
+<code>getReader, serialize, serialize, serialize</code></li>
 </ul>
 </li>
 </ul>
@@ -329,9 +314,9 @@ extends <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMDataSo
 <ul class="blockList">
 <li class="blockList">
 <h4>getOMElement</h4>
-<pre><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;getOMElement()
-                throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
-                       <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
+<pre>org.apache.axiom.om.OMElement&nbsp;getOMElement()
+                                    throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
+                                           <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/ws/WebServiceException.html?is-external=true" title="class or interface in javax.xml.ws">WebServiceException</a></pre>
 <div class="block">Get the OMElement represented by this Block. This call always consumes the block because you are
  taking control of the underlying OM</div>
 <dl>

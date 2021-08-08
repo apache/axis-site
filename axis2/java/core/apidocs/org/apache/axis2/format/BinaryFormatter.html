@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -154,43 +154,38 @@ implements <a href="../../../../org/apache/axis2/format/MessageFormatterEx.html"
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/format/BinaryFormatter.html#formatSOAPAction-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.lang.String-">formatSOAPAction</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-                <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
+                org.apache.axiom.om.OMOutputFormat&nbsp;format,
                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapAction)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/format/BinaryFormatter.html#getBytes-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-">getBytes</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-        <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/format/BinaryFormatter.html#getContentType-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.lang.String-">getContentType</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-              <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
+              org.apache.axiom.om.OMOutputFormat&nbsp;format,
               <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapAction)</code>
 <div class="block">Different message formats can set their own content types
  Eg: JSONFormatter can set the content type as application/json</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation">DataSource</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/format/BinaryFormatter.html#getDataSource-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.lang.String-">getDataSource</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-             <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
+             org.apache.axiom.om.OMOutputFormat&nbsp;format,
              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapAction)</code>
 <div class="block">Get the formatted message as a <a href="https://docs.oracle.com/javase/7/docs/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation"><code>DataSource</code></a> object.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/format/BinaryFormatter.html#getTargetAddress-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.net.URL-">getTargetAddress</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-                <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
+                org.apache.axiom.om.OMOutputFormat&nbsp;format,
                 <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;targetURL)</code>
 <div class="block">Some message formats may want to alter the target url.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/format/BinaryFormatter.html#writeTo-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.io.OutputStream-boolean-">writeTo</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-       <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
+       org.apache.axiom.om.OMOutputFormat&nbsp;format,
        <a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;outputStream,
        boolean&nbsp;preserve)</code>
 <div class="block">To support deffered writing transports as in http chunking..</div>
@@ -235,26 +230,6 @@ implements <a href="../../../../org/apache/axis2/format/MessageFormatterEx.html"
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getBytes-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getBytes</h4>
-<pre>public&nbsp;byte[]&nbsp;getBytes(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-                       <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format)
-                throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/transport/MessageFormatter.html#getBytes-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-">getBytes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/apache/axis2/transport/MessageFormatter.html" title="interface in org.apache.axis2.transport">MessageFormatter</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a byte array of the message formatted according to the given
-         message format.</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd>
-</dl>
-</li>
-</ul>
 <a name="writeTo-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.io.OutputStream-boolean-">
 <!--   -->
 </a>
@@ -262,7 +237,7 @@ implements <a href="../../../../org/apache/axis2/format/MessageFormatterEx.html"
 <li class="blockList">
 <h4>writeTo</h4>
 <pre>public&nbsp;void&nbsp;writeTo(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-                    <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
+                    org.apache.axiom.om.OMOutputFormat&nbsp;format,
                     <a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;outputStream,
                     boolean&nbsp;preserve)
              throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
@@ -289,7 +264,7 @@ implements <a href="../../../../org/apache/axis2/format/MessageFormatterEx.html"
 <li class="blockList">
 <h4>getContentType</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getContentType(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-                             <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
+                             org.apache.axiom.om.OMOutputFormat&nbsp;format,
                              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapAction)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/axis2/transport/MessageFormatter.html#getContentType-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.lang.String-">MessageFormatter</a></code></span></div>
 <div class="block">Different message formats can set their own content types
@@ -307,7 +282,7 @@ implements <a href="../../../../org/apache/axis2/format/MessageFormatterEx.html"
 <li class="blockList">
 <h4>getTargetAddress</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;getTargetAddress(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-                            <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
+                            org.apache.axiom.om.OMOutputFormat&nbsp;format,
                             <a href="https://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;targetURL)
                      throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/axis2/transport/MessageFormatter.html#getTargetAddress-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.net.URL-">MessageFormatter</a></code></span></div>
@@ -329,7 +304,7 @@ implements <a href="../../../../org/apache/axis2/format/MessageFormatterEx.html"
 <li class="blockList">
 <h4>formatSOAPAction</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;formatSOAPAction(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-                               <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
+                               org.apache.axiom.om.OMOutputFormat&nbsp;format,
                                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapAction)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -346,7 +321,7 @@ implements <a href="../../../../org/apache/axis2/format/MessageFormatterEx.html"
 <li class="blockList">
 <h4>getDataSource</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/javax/activation/DataSource.html?is-external=true" title="class or interface in javax.activation">DataSource</a>&nbsp;getDataSource(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-                                <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMOutputFormat.html?is-external=true" title="class or interface in org.apache.axiom.om">OMOutputFormat</a>&nbsp;format,
+                                org.apache.axiom.om.OMOutputFormat&nbsp;format,
                                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapAction)
                          throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/apache/axis2/format/MessageFormatterEx.html#getDataSource-org.apache.axis2.context.MessageContext-org.apache.axiom.om.OMOutputFormat-java.lang.String-">MessageFormatterEx</a></code></span></div>

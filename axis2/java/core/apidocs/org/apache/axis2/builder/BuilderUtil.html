@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":41,"i8":41,"i9":41,"i10":9,"i11":9,"i12":41,"i13":9,"i14":9,"i15":41,"i16":41,"i17":41,"i18":41,"i19":41,"i20":9,"i21":9,"i22":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":41,"i7":41,"i8":9,"i9":9,"i10":41,"i11":41,"i12":9,"i13":9,"i14":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -168,13 +168,13 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a></code></td>
+<td class="colFirst"><code>static org.apache.axiom.soap.SOAPEnvelope</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#buildsoapMessage-org.apache.axis2.context.MessageContext-org.apache.axis2.util.MultipleEntryHashMap-org.apache.axiom.soap.SOAPFactory-">buildsoapMessage</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
                 <a href="../../../../org/apache/axis2/util/MultipleEntryHashMap.html" title="class in org.apache.axis2.util">MultipleEntryHashMap</a>&nbsp;requestParameterMap,
-                <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFactory.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFactory</a>&nbsp;soapFactory)</code>&nbsp;</td>
+                org.apache.axiom.soap.SOAPFactory&nbsp;soapFactory)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/attachments/Attachments.html?is-external=true" title="class or interface in org.apache.axiom.attachments">Attachments</a></code></td>
+<td class="colFirst"><code>static org.apache.axiom.attachments.Attachments</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createAttachments-org.apache.axis2.context.MessageContext-java.io.InputStream-java.lang.String-boolean-java.lang.String-java.lang.String-int-">createAttachments</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
                  <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
                  <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentTypeString,
@@ -184,13 +184,13 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
                  int&nbsp;contentLength)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>protected static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/attachments/Attachments.html?is-external=true" title="class or interface in org.apache.axiom.attachments">Attachments</a></code></td>
+<td class="colFirst"><code>static org.apache.axiom.attachments.Attachments</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createAttachmentsMap-org.apache.axis2.context.MessageContext-java.io.InputStream-java.lang.String-">createAttachmentsMap</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
                     <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
                     <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentTypeString)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMXMLParserWrapper.html?is-external=true" title="class or interface in org.apache.axiom.om">OMXMLParserWrapper</a></code></td>
+<td class="colFirst"><code>static org.apache.axiom.om.OMXMLParserWrapper</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createPOXBuilder-java.io.InputStream-java.lang.String-">createPOXBuilder</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
                 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encoding)</code>
 <div class="block">Create a builder suitable for an XML message.</div>
@@ -198,66 +198,27 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createSOAPMessageWithoutSchema-org.apache.axiom.soap.SOAPFactory-org.apache.axiom.om.OMElement-org.apache.axis2.util.MultipleEntryHashMap-">createSOAPMessageWithoutSchema</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFactory.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFactory</a>&nbsp;soapFactory,
-                              <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;bodyFirstChild,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createSOAPMessageWithoutSchema-org.apache.axiom.soap.SOAPFactory-org.apache.axiom.om.OMElement-org.apache.axis2.util.MultipleEntryHashMap-">createSOAPMessageWithoutSchema</a></span>(org.apache.axiom.soap.SOAPFactory&nbsp;soapFactory,
+                              org.apache.axiom.om.OMElement&nbsp;bodyFirstChild,
                               <a href="../../../../org/apache/axis2/util/MultipleEntryHashMap.html" title="class in org.apache.axis2.util">MultipleEntryHashMap</a>&nbsp;requestParameterMap)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPModelBuilder.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPModelBuilder</a></code></td>
+<td class="colFirst"><code>static org.apache.axiom.soap.SOAPModelBuilder</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createSOAPModelBuilder-java.io.InputStream-java.lang.String-">createSOAPModelBuilder</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
                       <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encoding)</code>
 <div class="block">Create a SOAP model builder.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getAttachmentsBuilder-org.apache.axis2.context.MessageContext-java.io.InputStream-java.lang.String-boolean-">getAttachmentsBuilder</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
-                     <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
-                     <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentTypeString,
-                     boolean&nbsp;isSOAP)</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getBuilder-java.io.InputStream-">getBuilder</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">Please use <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMXMLBuilderFactory.html?is-external=true#createOMBuilder-java.io.InputStream-" title="class or interface in org.apache.axiom.om"><code>OMXMLBuilderFactory.createOMBuilder(InputStream)</code></a> instead.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getBuilder-java.io.InputStream-java.lang.String-">getBuilder</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
-          <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charSetEnc)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">Please use <a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createSOAPModelBuilder-java.io.InputStream-java.lang.String-"><code>createSOAPModelBuilder(InputStream, String)</code></a> to enable usage
-             of non standard Axiom implementations.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getBuilder-java.io.Reader-">getBuilder</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/Reader.html?is-external=true" title="class or interface in java.io">Reader</a>&nbsp;in)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">If some one really need this method, please shout.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getBuilder-org.apache.axiom.soap.SOAPFactory-java.io.InputStream-java.lang.String-">getBuilder</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFactory.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFactory</a>&nbsp;soapFactory,
-          <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
-          <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charSetEnc)</code>&nbsp;</td>
-</tr>
-<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../org/apache/axis2/builder/Builder.html" title="interface in org.apache.axis2.builder">Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getBuilderFromSelector-java.lang.String-org.apache.axis2.context.MessageContext-">getBuilderFromSelector</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
                       <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>
-<div class="block">Initial work for a builder selector which selects the builder for a given message format
- based on the the content type of the recieved message. content-type to builder mapping can be
- specified through the Axis2.xml.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Use <a href="../../../../org/apache/axis2/util/MessageProcessorSelector.html#getMessageBuilder-java.lang.String-org.apache.axis2.context.MessageContext-"><code>MessageProcessorSelector.getMessageBuilder(String, MessageContext)</code></a>.</span></div>
+</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getCharSetEncoding-java.io.PushbackInputStream-java.lang.String-">getCharSetEncoding</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/PushbackInputStream.html?is-external=true" title="class or interface in java.io">PushbackInputStream</a>&nbsp;is2,
                   <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;defaultEncoding)</code>
@@ -270,7 +231,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getCharSetEncoding-java.lang.String-">getCharSetEncoding</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</code>
 <div class="block">Extracts and returns the character set encoding from the Content-type header
@@ -278,21 +239,11 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
  Example: "Content-Type: text/xml; charset=utf-8" would return "utf-8"</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getEnvelopeNamespace-java.lang.String-">getEnvelopeNamespace</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getPOXBuilder-java.io.InputStream-java.lang.String-">getPOXBuilder</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
-             <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charSetEnc)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">Please use <a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createPOXBuilder-java.io.InputStream-java.lang.String-"><code>createPOXBuilder(InputStream, String)</code></a> to enable usage of non
-             standard Axiom implementations.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i16" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/io/PushbackInputStream.html?is-external=true" title="class or interface in java.io">PushbackInputStream</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getPushbackInputStream-java.io.InputStream-">getPushbackInputStream</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;is)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
@@ -301,7 +252,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/7/docs/api/java/io/Reader.html?is-external=true" title="class or interface in java.io">Reader</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getReader-java.io.InputStream-java.lang.String-">getReader</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;is,
          <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charSetEncoding)</code>
@@ -312,39 +263,20 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getSOAPBuilder-java.io.InputStream-">getSOAPBuilder</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">Please use <a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createSOAPModelBuilder-java.io.InputStream-java.lang.String-"><code>createSOAPModelBuilder(InputStream, String)</code></a> to enable usage
-             of non standard Axiom implementations.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i19" class="rowColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#getSOAPBuilder-java.io.InputStream-java.lang.String-">getSOAPBuilder</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
-              <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charSetEnc)</code>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
-<div class="block"><span class="deprecationComment">Please use <a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createSOAPModelBuilder-java.io.InputStream-java.lang.String-"><code>createSOAPModelBuilder(InputStream, String)</code></a> to enable usage
-             of non standard Axiom implementations.</span></div>
-</div>
-</td>
-</tr>
-<tr id="i20" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#isAttachmentsCacheEnabled-org.apache.axis2.context.MessageContext-">isAttachmentsCacheEnabled</a></span>(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)</code>&nbsp;</td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#validateCharSetEncoding-java.lang.String-java.lang.String-java.lang.String-">validateCharSetEncoding</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charsetEncodingFromTransport,
                        <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charsetEncodingFromXML,
                        <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapNamespaceURI)</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/axis2/builder/BuilderUtil.html#validateSOAPVersion-java.lang.String-org.apache.axiom.soap.SOAPEnvelope-">validateSOAPVersion</a></span>(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapNamespaceURIFromTransport,
-                   <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a>&nbsp;envelope)</code>&nbsp;</td>
+                   org.apache.axiom.soap.SOAPEnvelope&nbsp;envelope)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -413,10 +345,10 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>buildsoapMessage</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a>&nbsp;buildsoapMessage(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
-                                            <a href="../../../../org/apache/axis2/util/MultipleEntryHashMap.html" title="class in org.apache.axis2.util">MultipleEntryHashMap</a>&nbsp;requestParameterMap,
-                                            <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFactory.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFactory</a>&nbsp;soapFactory)
-                                     throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
+<pre>public static&nbsp;org.apache.axiom.soap.SOAPEnvelope&nbsp;buildsoapMessage(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;messageContext,
+                                                                  <a href="../../../../org/apache/axis2/util/MultipleEntryHashMap.html" title="class in org.apache.axis2.util">MultipleEntryHashMap</a>&nbsp;requestParameterMap,
+                                                                  org.apache.axiom.soap.SOAPFactory&nbsp;soapFactory)
+                                                           throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd>
@@ -429,26 +361,9 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>createSOAPMessageWithoutSchema</h4>
-<pre>public static&nbsp;void&nbsp;createSOAPMessageWithoutSchema(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFactory.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFactory</a>&nbsp;soapFactory,
-                                                  <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;bodyFirstChild,
+<pre>public static&nbsp;void&nbsp;createSOAPMessageWithoutSchema(org.apache.axiom.soap.SOAPFactory&nbsp;soapFactory,
+                                                  org.apache.axiom.om.OMElement&nbsp;bodyFirstChild,
                                                   <a href="../../../../org/apache/axis2/util/MultipleEntryHashMap.html" title="class in org.apache.axis2.util">MultipleEntryHashMap</a>&nbsp;requestParameterMap)</pre>
-</li>
-</ul>
-<a name="getPOXBuilder-java.io.InputStream-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getPOXBuilder</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a>&nbsp;getPOXBuilder(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
-                                        <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charSetEnc)
-                                 throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Please use <a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createPOXBuilder-java.io.InputStream-java.lang.String-"><code>createPOXBuilder(InputStream, String)</code></a> to enable usage of non
-             standard Axiom implementations.</span></div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
-</dl>
 </li>
 </ul>
 <a name="createPOXBuilder-java.io.InputStream-java.lang.String-">
@@ -457,10 +372,10 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>createPOXBuilder</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMXMLParserWrapper.html?is-external=true" title="class or interface in org.apache.axiom.om">OMXMLParserWrapper</a>&nbsp;createPOXBuilder(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
-                                                  <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encoding)</pre>
+<pre>public static&nbsp;org.apache.axiom.om.OMXMLParserWrapper&nbsp;createPOXBuilder(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
+                                                                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encoding)</pre>
 <div class="block">Create a builder suitable for an XML message. This method uses
- <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/util/StAXParserConfiguration.html?is-external=true#SOAP" title="class or interface in org.apache.axiom.om.util"><code>StAXParserConfiguration.SOAP</code></a> to disallow document type declarations (that potentially
+ <code>StAXParserConfiguration.SOAP</code> to disallow document type declarations (that potentially
  reference external entities).</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -548,36 +463,15 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </dl>
 </li>
 </ul>
-<a name="getAttachmentsBuilder-org.apache.axis2.context.MessageContext-java.io.InputStream-java.lang.String-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAttachmentsBuilder</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a>&nbsp;getAttachmentsBuilder(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
-                                                <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
-                                                <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentTypeString,
-                                                boolean&nbsp;isSOAP)
-                                         throws <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMException.html?is-external=true" title="class or interface in org.apache.axiom.om">OMException</a>,
-                                                <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a>,
-                                                <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/FactoryConfigurationError.html?is-external=true" title="class or interface in javax.xml.parsers">FactoryConfigurationError</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMException.html?is-external=true" title="class or interface in org.apache.axiom.om">OMException</a></code></dd>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/parsers/FactoryConfigurationError.html?is-external=true" title="class or interface in javax.xml.parsers">FactoryConfigurationError</a></code></dd>
-</dl>
-</li>
-</ul>
 <a name="createAttachmentsMap-org.apache.axis2.context.MessageContext-java.io.InputStream-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>createAttachmentsMap</h4>
-<pre>protected static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/attachments/Attachments.html?is-external=true" title="class or interface in org.apache.axiom.attachments">Attachments</a>&nbsp;createAttachmentsMap(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
-                                                  <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
-                                                  <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentTypeString)</pre>
+<pre>public static&nbsp;org.apache.axiom.attachments.Attachments&nbsp;createAttachmentsMap(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+                                                                            <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
+                                                                            <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentTypeString)</pre>
 </li>
 </ul>
 <a name="isAttachmentsCacheEnabled-org.apache.axis2.context.MessageContext-">
@@ -595,48 +489,13 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>createAttachments</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/attachments/Attachments.html?is-external=true" title="class or interface in org.apache.axiom.attachments">Attachments</a>&nbsp;createAttachments(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
-                                            <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
-                                            <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentTypeString,
-                                            boolean&nbsp;fileCacheForAttachments,
-                                            <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;attachmentRepoDir,
-                                            <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;attachmentSizeThreshold,
-                                            int&nbsp;contentLength)</pre>
-</li>
-</ul>
-<a name="getBuilder-java.io.Reader-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getBuilder</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a>&nbsp;getBuilder(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/Reader.html?is-external=true" title="class or interface in java.io">Reader</a>&nbsp;in)
-                              throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">If some one really need this method, please shout.</span></div>
-<div class="block">Utility method to get a StAXBuilder</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>in</code> - an InputStream</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a StAXSOAPModelBuilder for the given InputStream</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getBuilder-java.io.InputStream-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getBuilder</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a>&nbsp;getBuilder(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream)
-                              throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Please use <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMXMLBuilderFactory.html?is-external=true#createOMBuilder-java.io.InputStream-" title="class or interface in org.apache.axiom.om"><code>OMXMLBuilderFactory.createOMBuilder(InputStream)</code></a> instead.</span></div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
-</dl>
+<pre>public static&nbsp;org.apache.axiom.attachments.Attachments&nbsp;createAttachments(<a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext,
+                                                                         <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
+                                                                         <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentTypeString,
+                                                                         boolean&nbsp;fileCacheForAttachments,
+                                                                         <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;attachmentRepoDir,
+                                                                         <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;attachmentSizeThreshold,
+                                                                         int&nbsp;contentLength)</pre>
 </li>
 </ul>
 <a name="createSOAPModelBuilder-java.io.InputStream-java.lang.String-">
@@ -645,10 +504,10 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>createSOAPModelBuilder</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPModelBuilder.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPModelBuilder</a>&nbsp;createSOAPModelBuilder(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
-                                                      <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encoding)</pre>
+<pre>public static&nbsp;org.apache.axiom.soap.SOAPModelBuilder&nbsp;createSOAPModelBuilder(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
+                                                                            <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;encoding)</pre>
 <div class="block">Create a SOAP model builder. This method delegates to
- <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMXMLBuilderFactory.html?is-external=true#createSOAPModelBuilder-java.io.InputStream-java.lang.String-" title="class or interface in org.apache.axiom.om"><code>OMXMLBuilderFactory.createSOAPModelBuilder(InputStream, String)</code></a> but generates
+ <code>OMXMLBuilderFactory.createSOAPModelBuilder(InputStream, String)</code> but generates
  additional logging if an error occurs.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -657,72 +516,6 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
             determine the charset encoding</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the builder</dd>
-</dl>
-</li>
-</ul>
-<a name="getBuilder-java.io.InputStream-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getBuilder</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a>&nbsp;getBuilder(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
-                                     <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charSetEnc)
-                              throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Please use <a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createSOAPModelBuilder-java.io.InputStream-java.lang.String-"><code>createSOAPModelBuilder(InputStream, String)</code></a> to enable usage
-             of non standard Axiom implementations.</span></div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getSOAPBuilder-java.io.InputStream-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSOAPBuilder</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a>&nbsp;getSOAPBuilder(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream)
-                                  throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Please use <a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createSOAPModelBuilder-java.io.InputStream-java.lang.String-"><code>createSOAPModelBuilder(InputStream, String)</code></a> to enable usage
-             of non standard Axiom implementations.</span></div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getSOAPBuilder-java.io.InputStream-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSOAPBuilder</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a>&nbsp;getSOAPBuilder(<a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;inStream,
-                                         <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charSetEnc)
-                                  throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></pre>
-<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Please use <a href="../../../../org/apache/axis2/builder/BuilderUtil.html#createSOAPModelBuilder-java.io.InputStream-java.lang.String-"><code>createSOAPModelBuilder(InputStream, String)</code></a> to enable usage
-             of non standard Axiom implementations.</span></div>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getBuilder-org.apache.axiom.soap.SOAPFactory-java.io.InputStream-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getBuilder</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/impl/builder/StAXBuilder.html?is-external=true" title="class or interface in org.apache.axiom.om.impl.builder">StAXBuilder</a>&nbsp;getBuilder(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPFactory.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPFactory</a>&nbsp;soapFactory,
-                                     <a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in,
-                                     <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;charSetEnc)
-                              throws <a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="https://docs.oracle.com/javase/7/docs/api/javax/xml/stream/XMLStreamException.html?is-external=true" title="class or interface in javax.xml.stream">XMLStreamException</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -735,15 +528,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <pre>public static&nbsp;<a href="../../../../org/apache/axis2/builder/Builder.html" title="interface in org.apache.axis2.builder">Builder</a>&nbsp;getBuilderFromSelector(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
                                              <a href="../../../../org/apache/axis2/context/MessageContext.html" title="class in org.apache.axis2.context">MessageContext</a>&nbsp;msgContext)
                                       throws <a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></pre>
-<div class="block">Initial work for a builder selector which selects the builder for a given message format
- based on the the content type of the recieved message. content-type to builder mapping can be
- specified through the Axis2.xml.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Use <a href="../../../../org/apache/axis2/util/MessageProcessorSelector.html#getMessageBuilder-java.lang.String-org.apache.axis2.context.MessageContext-"><code>MessageProcessorSelector.getMessageBuilder(String, MessageContext)</code></a>.</span></div>
 <dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>type</code> - content-type</dd>
-<dd><code>msgContext</code> - the active MessageContext</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the builder registered against the given content-type</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../org/apache/axis2/AxisFault.html" title="class in org.apache.axis2">AxisFault</a></code></dd>
 </dl>
@@ -756,7 +542,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>validateSOAPVersion</h4>
 <pre>public static&nbsp;void&nbsp;validateSOAPVersion(<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;soapNamespaceURIFromTransport,
-                                       <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/soap/SOAPEnvelope.html?is-external=true" title="class or interface in org.apache.axiom.soap">SOAPEnvelope</a>&nbsp;envelope)</pre>
+                                       org.apache.axiom.soap.SOAPEnvelope&nbsp;envelope)</pre>
 </li>
 </ul>
 <a name="validateCharSetEncoding-java.lang.String-java.lang.String-java.lang.String-">

@@ -149,21 +149,21 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/attachments/AttachmentUtils.html#findCachedAttachment-org.apache.axiom.attachments.Attachments-">findCachedAttachment</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/attachments/Attachments.html?is-external=true" title="class or interface in org.apache.axiom.attachments">Attachments</a>&nbsp;attachments)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/attachments/AttachmentUtils.html#findCachedAttachment-org.apache.axiom.attachments.Attachments-">findCachedAttachment</a></span>(org.apache.axiom.attachments.Attachments&nbsp;attachments)</code>
 <div class="block">Process attachment's dataHandlers for CachedFileDataSource.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMText.html?is-external=true" title="class or interface in org.apache.axiom.om">OMText</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/attachments/AttachmentUtils.html#makeBinaryOMNode-org.apache.axiom.om.OMElement-javax.activation.DataHandler-">makeBinaryOMNode</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;xop,
+<td class="colFirst"><code>static org.apache.axiom.om.OMText</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/attachments/AttachmentUtils.html#makeBinaryOMNode-org.apache.axiom.om.OMElement-javax.activation.DataHandler-">makeBinaryOMNode</a></span>(org.apache.axiom.om.OMElement&nbsp;xop,
                 <a href="https://docs.oracle.com/javase/7/docs/api/javax/activation/DataHandler.html?is-external=true" title="class or interface in javax.activation">DataHandler</a>&nbsp;dh)</code>
 <div class="block">Given an <xop:include> element, create an OMText element
  with the appropriate attachment data.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>static <a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/attachments/AttachmentUtils.html#makeXopElement-org.apache.axiom.om.OMText-">makeXopElement</a></span>(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMText.html?is-external=true" title="class or interface in org.apache.axiom.om">OMText</a>&nbsp;data)</code>
+<td class="colFirst"><code>static org.apache.axiom.om.OMElement</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/jaxws/message/attachments/AttachmentUtils.html#makeXopElement-org.apache.axiom.om.OMText-">makeXopElement</a></span>(org.apache.axiom.om.OMText&nbsp;data)</code>
 <div class="block">Given an OMText node, create it's corresponding <xop:include>
  element.</div>
 </td>
@@ -213,8 +213,8 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>makeBinaryOMNode</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMText.html?is-external=true" title="class or interface in org.apache.axiom.om">OMText</a>&nbsp;makeBinaryOMNode(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;xop,
-                                      <a href="https://docs.oracle.com/javase/7/docs/api/javax/activation/DataHandler.html?is-external=true" title="class or interface in javax.activation">DataHandler</a>&nbsp;dh)</pre>
+<pre>public static&nbsp;org.apache.axiom.om.OMText&nbsp;makeBinaryOMNode(org.apache.axiom.om.OMElement&nbsp;xop,
+                                                          <a href="https://docs.oracle.com/javase/7/docs/api/javax/activation/DataHandler.html?is-external=true" title="class or interface in javax.activation">DataHandler</a>&nbsp;dh)</pre>
 <div class="block">Given an <pre><xop:include></pre> element, create an OMText element
  with the appropriate attachment data.</div>
 <dl>
@@ -231,7 +231,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockList">
 <li class="blockList">
 <h4>makeXopElement</h4>
-<pre>public static&nbsp;<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMElement.html?is-external=true" title="class or interface in org.apache.axiom.om">OMElement</a>&nbsp;makeXopElement(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/om/OMText.html?is-external=true" title="class or interface in org.apache.axiom.om">OMText</a>&nbsp;data)</pre>
+<pre>public static&nbsp;org.apache.axiom.om.OMElement&nbsp;makeXopElement(org.apache.axiom.om.OMText&nbsp;data)</pre>
 <div class="block">Given an OMText node, create it's corresponding <pre><xop:include></pre>
  element.</div>
 </li>
@@ -242,7 +242,7 @@ extends <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>findCachedAttachment</h4>
-<pre>public static&nbsp;void&nbsp;findCachedAttachment(<a href="http://ws.apache.org/axiom/apidocs/org/apache/axiom/attachments/Attachments.html?is-external=true" title="class or interface in org.apache.axiom.attachments">Attachments</a>&nbsp;attachments)</pre>
+<pre>public static&nbsp;void&nbsp;findCachedAttachment(org.apache.axiom.attachments.Attachments&nbsp;attachments)</pre>
 <div class="block">Process attachment's dataHandlers for CachedFileDataSource.
  If exist, execute file.deleteOnExit() request on the cached
  attachment file referenced by each CachedFileDataSource.

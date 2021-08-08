@@ -154,9 +154,9 @@ implements <a href="../../../../../../org/apache/axis2/transport/testkit/client/
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>javax.mail.internet.ContentType</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html#getContentType-org.apache.axis2.transport.testkit.client.ClientOptions-javax.mail.internet.ContentType-">getContentType</a></span>(<a href="../../../../../../org/apache/axis2/transport/testkit/client/ClientOptions.html" title="class in org.apache.axis2.transport.testkit.client">ClientOptions</a>&nbsp;options,
-              javax.mail.internet.ContentType&nbsp;contentType)</code>&nbsp;</td>
+<td class="colFirst"><code>org.apache.axiom.mime.ContentType</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html#getContentType-org.apache.axis2.transport.testkit.client.ClientOptions-org.apache.axiom.mime.ContentType-">getContentType</a></span>(<a href="../../../../../../org/apache/axis2/transport/testkit/client/ClientOptions.html" title="class in org.apache.axis2.transport.testkit.client">ClientOptions</a>&nbsp;options,
+              org.apache.axiom.mime.ContentType&nbsp;contentType)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClient.html" title="interface in org.apache.axis2.transport.testkit.client">RequestResponseTestClient</a>&lt;<a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html" title="type parameter in RequestResponseTestClientAdapter">N</a>,<a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html" title="type parameter in RequestResponseTestClientAdapter">P</a>&gt;</code></td>
@@ -164,8 +164,8 @@ implements <a href="../../../../../../org/apache/axis2/transport/testkit/client/
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/axis2/transport/testkit/message/IncomingMessage.html" title="class in org.apache.axis2.transport.testkit.message">IncomingMessage</a>&lt;<a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html" title="type parameter in RequestResponseTestClientAdapter">O</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html#sendMessage-org.apache.axis2.transport.testkit.client.ClientOptions-javax.mail.internet.ContentType-M-">sendMessage</a></span>(<a href="../../../../../../org/apache/axis2/transport/testkit/client/ClientOptions.html" title="class in org.apache.axis2.transport.testkit.client">ClientOptions</a>&nbsp;options,
-           javax.mail.internet.ContentType&nbsp;contentType,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html#sendMessage-org.apache.axis2.transport.testkit.client.ClientOptions-org.apache.axiom.mime.ContentType-M-">sendMessage</a></span>(<a href="../../../../../../org/apache/axis2/transport/testkit/client/ClientOptions.html" title="class in org.apache.axis2.transport.testkit.client">ClientOptions</a>&nbsp;options,
+           org.apache.axiom.mime.ContentType&nbsp;contentType,
            <a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html" title="type parameter in RequestResponseTestClientAdapter">M</a>&nbsp;message)</code>&nbsp;</td>
 </tr>
 </table>
@@ -222,38 +222,38 @@ implements <a href="../../../../../../org/apache/axis2/transport/testkit/client/
 </dl>
 </li>
 </ul>
-<a name="getContentType-org.apache.axis2.transport.testkit.client.ClientOptions-javax.mail.internet.ContentType-">
+<a name="getContentType-org.apache.axis2.transport.testkit.client.ClientOptions-org.apache.axiom.mime.ContentType-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getContentType</h4>
-<pre>public&nbsp;javax.mail.internet.ContentType&nbsp;getContentType(<a href="../../../../../../org/apache/axis2/transport/testkit/client/ClientOptions.html" title="class in org.apache.axis2.transport.testkit.client">ClientOptions</a>&nbsp;options,
-                                                      javax.mail.internet.ContentType&nbsp;contentType)
-                                               throws <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<pre>public&nbsp;org.apache.axiom.mime.ContentType&nbsp;getContentType(<a href="../../../../../../org/apache/axis2/transport/testkit/client/ClientOptions.html" title="class in org.apache.axis2.transport.testkit.client">ClientOptions</a>&nbsp;options,
+                                                        org.apache.axiom.mime.ContentType&nbsp;contentType)
+                                                 throws <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../org/apache/axis2/transport/testkit/client/TestClient.html#getContentType-org.apache.axis2.transport.testkit.client.ClientOptions-javax.mail.internet.ContentType-">getContentType</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/axis2/transport/testkit/client/TestClient.html" title="interface in org.apache.axis2.transport.testkit.client">TestClient</a></code></dd>
+<dd><code><a href="../../../../../../org/apache/axis2/transport/testkit/client/TestClient.html#getContentType-org.apache.axis2.transport.testkit.client.ClientOptions-org.apache.axiom.mime.ContentType-">getContentType</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/axis2/transport/testkit/client/TestClient.html" title="interface in org.apache.axis2.transport.testkit.client">TestClient</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="sendMessage-org.apache.axis2.transport.testkit.client.ClientOptions-javax.mail.internet.ContentType-java.lang.Object-">
+<a name="sendMessage-org.apache.axis2.transport.testkit.client.ClientOptions-org.apache.axiom.mime.ContentType-java.lang.Object-">
 <!--   -->
-</a><a name="sendMessage-org.apache.axis2.transport.testkit.client.ClientOptions-javax.mail.internet.ContentType-M-">
+</a><a name="sendMessage-org.apache.axis2.transport.testkit.client.ClientOptions-org.apache.axiom.mime.ContentType-M-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>sendMessage</h4>
 <pre>public&nbsp;<a href="../../../../../../org/apache/axis2/transport/testkit/message/IncomingMessage.html" title="class in org.apache.axis2.transport.testkit.message">IncomingMessage</a>&lt;<a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html" title="type parameter in RequestResponseTestClientAdapter">O</a>&gt;&nbsp;sendMessage(<a href="../../../../../../org/apache/axis2/transport/testkit/client/ClientOptions.html" title="class in org.apache.axis2.transport.testkit.client">ClientOptions</a>&nbsp;options,
-                                      javax.mail.internet.ContentType&nbsp;contentType,
+                                      org.apache.axiom.mime.ContentType&nbsp;contentType,
                                       <a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html" title="type parameter in RequestResponseTestClientAdapter">M</a>&nbsp;message)
                                throws <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClient.html#sendMessage-org.apache.axis2.transport.testkit.client.ClientOptions-javax.mail.internet.ContentType-M-">sendMessage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClient.html" title="interface in org.apache.axis2.transport.testkit.client">RequestResponseTestClient</a>&lt;<a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html" title="type parameter in RequestResponseTestClientAdapter">M</a>,<a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html" title="type parameter in RequestResponseTestClientAdapter">O</a>&gt;</code></dd>
+<dd><code><a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClient.html#sendMessage-org.apache.axis2.transport.testkit.client.ClientOptions-org.apache.axiom.mime.ContentType-M-">sendMessage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClient.html" title="interface in org.apache.axis2.transport.testkit.client">RequestResponseTestClient</a>&lt;<a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html" title="type parameter in RequestResponseTestClientAdapter">M</a>,<a href="../../../../../../org/apache/axis2/transport/testkit/client/RequestResponseTestClientAdapter.html" title="type parameter in RequestResponseTestClientAdapter">O</a>&gt;</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd>
 </dl>
