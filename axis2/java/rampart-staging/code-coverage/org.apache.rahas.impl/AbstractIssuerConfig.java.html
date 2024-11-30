@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AbstractIssuerConfig.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rahas.impl</a> &gt; <span class="el_source">AbstractIssuerConfig.java</span></div><h1>AbstractIssuerConfig.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.rahas.impl;
+
+import org.apache.axiom.om.OMElement;
+
+import javax.xml.namespace.QName;
+
+/**
+ *
+ */
+<span class="fc" id="L25">public abstract class AbstractIssuerConfig {</span>
+
+    /**
+     * The key computation policy when clien't entropy is provided
+     */
+<span class="nc" id="L30">    public static class KeyComputation {</span>
+<span class="fc" id="L31">        public static final QName KEY_COMPUTATION = new QName(&quot;keyComputation&quot;);</span>
+        public final static int KEY_COMP_USE_REQ_ENT = 1;
+        public final static int KEY_COMP_PROVIDE_ENT = 2;
+        public final static int KEY_COMP_USE_OWN_KEY = 3;
+    }
+
+<span class="fc" id="L37">    public final static QName ADD_REQUESTED_ATTACHED_REF = new QName(&quot;addRequestedAttachedRef&quot;);</span>
+<span class="fc" id="L38">    public final static QName ADD_REQUESTED_UNATTACHED_REF = new QName(&quot;addRequestedUnattachedRef&quot;);</span>
+<span class="fc" id="L39">    public static final QName PROOF_KEY_TYPE = new QName(&quot;proofKeyType&quot;);</span>
+
+    /**
+     * Element name to include the crypto properties used to load the
+     * information used securing the response
+     */
+<span class="fc" id="L45">    public final static QName CRYPTO_PROPERTIES = new QName(&quot;cryptoProperties&quot;);</span>
+<span class="fc" id="L46">    public static final QName CRYPTO = new QName(&quot;crypto&quot;);</span>
+<span class="fc" id="L47">    public static final QName PROVIDER = new QName(&quot;provider&quot;);</span>
+<span class="fc" id="L48">    public static final QName PROPERTY = new QName(&quot;property&quot;);</span>
+
+<span class="fc" id="L50">    protected int keyComputation = KeyComputation.KEY_COMP_PROVIDE_ENT;</span>
+<span class="fc" id="L51">    protected String proofKeyType = TokenIssuerUtil.ENCRYPTED_KEY;</span>
+    protected boolean addRequestedAttachedRef;
+    protected boolean addRequestedUnattachedRef;
+<span class="fc" id="L54">    protected long ttl = 300000;</span>
+    protected String cryptoPropertiesFile;
+    protected OMElement cryptoPropertiesElement;
+    protected OMElement cryptoElement;
+<span class="fc" id="L58">    protected int keySize = 256;</span>
+    
+    public void setAddRequestedAttachedRef(boolean addRequestedAttachedRef) {
+<span class="nc" id="L61">        this.addRequestedAttachedRef = addRequestedAttachedRef;</span>
+<span class="nc" id="L62">    }</span>
+
+    public void setAddRequestedUnattachedRef(boolean addRequestedUnattachedRef) {
+<span class="nc" id="L65">        this.addRequestedUnattachedRef = addRequestedUnattachedRef;</span>
+<span class="nc" id="L66">    }</span>
+
+    public void setKeyComputation(int keyComputation) {
+<span class="nc" id="L69">        this.keyComputation = keyComputation;</span>
+<span class="nc" id="L70">    }</span>
+
+    public int getKeyComputation() {
+<span class="fc" id="L73">        return keyComputation;</span>
+    }
+
+    public void setProofKeyType(String proofKeyType) {
+<span class="nc" id="L77">        this.proofKeyType = proofKeyType;</span>
+<span class="nc" id="L78">    }</span>
+
+    public void setTtl(long ttl) {
+<span class="nc" id="L81">        this.ttl = ttl;</span>
+<span class="nc" id="L82">    }</span>
+
+    public void setKeySize(int keySize) {
+<span class="nc" id="L85">        this.keySize = keySize;</span>
+<span class="nc" id="L86">    }</span>
+
+    public int getKeySize() {
+<span class="fc" id="L89">        return keySize;</span>
+    }
+
+    public String getProofKeyType() {
+<span class="fc" id="L93">        return proofKeyType;</span>
+    }
+
+    public boolean isAddRequestedAttachedRef() {
+<span class="fc" id="L97">        return addRequestedAttachedRef;</span>
+    }
+
+    public boolean isAddRequestedUnattachedRef() {
+<span class="fc" id="L101">        return addRequestedUnattachedRef;</span>
+    }
+
+    public long getTtl() {
+<span class="fc" id="L105">        return ttl;</span>
+    }
+
+    public String getCryptoPropertiesFile() {
+<span class="nc" id="L109">        return cryptoPropertiesFile;</span>
+    }
+
+    public OMElement getCryptoPropertiesElement() {
+<span class="fc" id="L113">        return cryptoPropertiesElement;</span>
+    }
+
+    public OMElement getCryptoElement() {
+<span class="nc" id="L117">        return cryptoElement;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

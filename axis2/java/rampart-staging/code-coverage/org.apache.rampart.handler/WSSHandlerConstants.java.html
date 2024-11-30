@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>WSSHandlerConstants.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rampart.handler</a> &gt; <span class="el_source">WSSHandlerConstants.java</span></div><h1>WSSHandlerConstants.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.handler;
+
+/**
+ * Constants specific to the Axis2 security module
+ */
+public class WSSHandlerConstants {
+
+<span class="nc" id="L24">    private WSSHandlerConstants() {</span>
+<span class="nc" id="L25">    }</span>
+    
+    /**
+     * Name of the .mar file
+     */
+    public final static String SECURITY_MODULE_NAME = &quot;rampart&quot;;
+    
+   /**
+     * Inflow security parameter
+     */
+    public static final String INFLOW_SECURITY = &quot;InflowSecurity&quot;;
+    
+    public static final String INFLOW_SECURITY_SERVER = &quot;InflowSecurity-server&quot;;
+    public static final String INFLOW_SECURITY_CLIENT = &quot;InflowSecurity-client&quot;;
+    
+    /**
+     * Outflow security parameter 
+     */
+    public static final String OUTFLOW_SECURITY = &quot;OutflowSecurity&quot;;
+    
+    public static final String OUTFLOW_SECURITY_SERVER = &quot;OutflowSecurity-server&quot;;
+    public static final String OUTFLOW_SECURITY_CLIENT = &quot;OutflowSecurity-client&quot;;
+    
+    
+    /**
+     * Inflow security parameter of a client to talk to an STS 
+     * when sec conv is used
+     */
+    public final static String STS_INFLOW_SECURITY = &quot;STSInflowSecurity&quot;; 
+
+    /**
+     * Outflow security parameter of a client to talk to an STS 
+     * when sec conv is used
+     */
+    public final static String STS_OUTFLOW_SECURITY = &quot;STSOutflowSecurity&quot;; 
+
+    
+    public static final String ACTION = &quot;action&quot;;
+    
+    public static final String ACTION_ITEMS = &quot;items&quot;;
+    
+
+    /**
+     *  Repetition count
+     */
+	public static final String SENDER_REPEAT_COUNT = &quot;senderRepeatCount&quot;;
+
+	/**
+	 * The current repetition
+	 */
+	public static final String CURRENT_REPETITON = &quot;currentRepetition&quot;;
+
+	/**
+	 * This is used to indicate the XPath expression used to indicate the
+	 * Elements whose first child (must be a text node) is to be optimized  
+	 */
+	public static final String OPTIMIZE_PARTS = &quot;optimizeParts&quot;;
+	
+	public static final String PRESERVE_ORIGINAL_ENV = &quot;preserveOriginalEnvelope&quot;;
+	
+	
+	/*
+	 * These are useful in configuring using the OutflowConfiguration 
+	 * and InflowConfiguration 
+	 * The set of possible key identifiers
+	 */
+	
+	public static final String BST_DIRECT_REFERENCE = &quot;DirectReference&quot;;
+	
+	public static final String ISSUER_SERIAL = &quot;IssuerSerial&quot;;
+	
+	public static final String X509_KEY_IDENTIFIER = &quot;X509KeyIdentifier&quot;;
+	
+	public static final String SKI_KEY_IDENTIFIER = &quot;SKIKeyIdentifier&quot;;
+	
+	public static final String EMBEDDED_KEYNAME = &quot;EmbeddedKeyName&quot;;
+	
+	public static final String THUMBPRINT_IDENTIFIER = &quot;Thumbprint&quot;;
+	
+    
+    public final static String SIGN_ALL_HEADERS = &quot;signAllHeaders&quot;;
+    public final static String SIGN_BODY = &quot;signBody&quot;;
+    public final static String ENCRYPT_BODY = &quot;encryptBody&quot;;
+    
+    /**
+     * Key to be used to set a flag in msg ctx to enable/disable using doom
+     */
+    public final static String USE_DOOM = &quot;useDoom&quot;;
+    
+    
+    ///
+    /// WS-SecureConversation constants
+    ///
+    
+    
+    /**
+     * Key to hold the map of security context identifiers against the 
+     * service epr addresses (service scope) or wsa:Action values (operation 
+     * scope).
+     */
+    public final static String CONTEXT_MAP_KEY = &quot;contextMap&quot;;
+    
+    /**
+     * The &lt;code&gt;java.util.Properties&lt;/code&gt; object holding the properties 
+     * of a &lt;code&gt;org.apache.ws.security.components.crypto.Crypto&lt;/code&gt; impl.
+     * 
+     * This should ONLY be used when the CRYPTO_CLASS_KEY is specified.
+     * 
+     * @see org.apache.ws.security.components.crypto.Crypto
+     */
+    public final static String CRYPTO_PROPERTIES_KEY = &quot;cryptoPropertiesRef&quot;;
+    
+    /**
+     * The class that implements 
+     * &lt;code&gt;org.apache.ws.security.components.crypto.Crypto&lt;/code&gt;.
+     */
+    public final static String CRYPTO_CLASS_KEY = &quot;cryptoClass&quot;;
+    
+    //TODO: Get these constants from the WS-Trust impl's constants
+    public final static String RST_ACTON_SCT = &quot;http://schemas.xmlsoap.org/ws/2005/02/trust/RST/SCT&quot;;
+    public final static String RSTR_ACTON_SCT = &quot;http://schemas.xmlsoap.org/ws/2005/02/trust/RSTR/SCT&quot;;
+    public final static String RST_ACTON_SCT_STANDARD = &quot;http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/SCT&quot;;
+    public final static String RSTR_ACTON_SCT_STANDARD = &quot;http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTR/SCT&quot;;
+    public final static String RSTR_ACTON_ISSUE = &quot;http://schemas.xmlsoap.org/ws/2005/02/trust/RSTR/Issue&quot;;
+    
+    public final static String TOK_TYPE_SCT = &quot;http://schemas.xmlsoap.org/ws/2005/02/sc/sct&quot;;
+    
+    public final static String WST_NS = &quot;http://schemas.xmlsoap.org/ws/2005/02/trust&quot;;
+    public static final String REQUEST_SECURITY_TOKEN_RESPONSE_LN = &quot;RequestSecurityTokenResponse&quot;;
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

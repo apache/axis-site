@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MessageBuilder.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rampart</a> &gt; <span class="el_source">MessageBuilder.java</span></div><h1>MessageBuilder.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axis2.AxisFault;
+import org.apache.axis2.Constants;
+import org.apache.axis2.addressing.AddressingConstants;
+import org.apache.axis2.addressing.AddressingConstants.Final;
+import org.apache.axis2.addressing.AddressingConstants.Submission;
+import org.apache.axis2.context.MessageContext;
+import org.apache.axis2.context.OperationContext;
+import org.apache.axis2.util.XMLUtils;
+import org.apache.axis2.wsdl.WSDLConstants;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rahas.RahasConstants;
+import org.apache.rahas.TrustUtil;
+import org.apache.rampart.builder.AsymmetricBindingBuilder;
+import org.apache.rampart.builder.SymmetricBindingBuilder;
+import org.apache.rampart.builder.TransportBindingBuilder;
+import org.apache.rampart.policy.RampartPolicyData;
+import org.apache.rampart.policy.model.OptimizePartsConfig;
+import org.apache.rampart.util.Axis2Util;
+import org.apache.rampart.util.MessageOptimizer;
+import org.apache.rampart.util.RampartUtil;
+import org.apache.ws.secpolicy.WSSPolicyException;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.handler.WSHandlerConstants;
+import org.apache.ws.security.message.WSSecHeader;
+import org.apache.ws.security.message.token.SecurityContextToken;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import javax.xml.namespace.QName;
+
+<span class="fc" id="L52">public class MessageBuilder {</span>
+    
+<span class="fc" id="L54">    private static Log log = LogFactory.getLog(MessageBuilder.class);</span>
+
+    public void build(MessageContext msgCtx) throws WSSPolicyException,
+            RampartException, WSSecurityException, AxisFault {
+
+<span class="fc" id="L59">        Axis2Util.useDOOM(true);</span>
+        
+<span class="fc" id="L61">        RampartMessageData rmd = new RampartMessageData(msgCtx, true);</span>
+        
+        
+<span class="fc" id="L64">        RampartPolicyData rpd = rmd.getPolicyData();</span>
+<span class="pc bpc" id="L65" title="3 of 6 branches missed.">        if(rpd == null || isSecurityValidationFault(msgCtx) || </span>
+                !RampartUtil.isSecHeaderRequired(rpd, rmd.isInitiator(),false)) {
+            
+<span class="nc" id="L68">            Document doc = rmd.getDocument();</span>
+<span class="nc" id="L69">            WSSecHeader secHeader = rmd.getSecHeader();</span>
+            
+<span class="nc bnc" id="L71" title="All 4 branches missed.">            if ( secHeader != null &amp;&amp; secHeader.isEmpty(doc) ) {</span>
+<span class="nc" id="L72">                secHeader.removeSecurityHeader(doc);</span>
+            }
+            
+<span class="nc" id="L75">            return;</span>
+        }
+        
+        //Copy the RECV_RESULTS if available
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if(!rmd.isInitiator()) {</span>
+<span class="fc" id="L80">            OperationContext opCtx = msgCtx.getOperationContext();</span>
+            MessageContext inMsgCtx;
+<span class="pc bpc" id="L82" title="1 of 4 branches missed.">            if(opCtx != null &amp;&amp; </span>
+                    (inMsgCtx = opCtx.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE)) != null) {
+<span class="fc" id="L84">                msgCtx.setProperty(WSHandlerConstants.RECV_RESULTS, </span>
+                        inMsgCtx.getProperty(WSHandlerConstants.RECV_RESULTS));
+            }
+        }
+        
+        
+<span class="fc" id="L90">        String isCancelreq = (String)msgCtx.getProperty(RampartMessageData.CANCEL_REQUEST);</span>
+<span class="fc bfc" id="L91" title="All 4 branches covered.">        if(isCancelreq != null &amp;&amp; Constants.VALUE_TRUE.equals(isCancelreq)) {</span>
+            try {
+                
+<span class="fc" id="L94">                String cancelAction = TrustUtil.getWSTNamespace(rmd.getWstVersion()) + RahasConstants.RST_ACTION_CANCEL_SCT;</span>
+                //Set action
+<span class="fc" id="L96">                msgCtx.getOptions().setAction(cancelAction);</span>
+                
+                //Change the wsa:Action header
+<span class="fc" id="L99">                String wsaNs = Final.WSA_NAMESPACE;</span>
+<span class="fc" id="L100">                Object addressingVersionFromCurrentMsgCtxt = msgCtx.getProperty(AddressingConstants.WS_ADDRESSING_VERSION);</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">                if (Submission.WSA_NAMESPACE.equals(addressingVersionFromCurrentMsgCtxt)) {</span>
+<span class="nc" id="L102">                    wsaNs = Submission.WSA_NAMESPACE;</span>
+                }
+<span class="fc" id="L104">                OMElement header = msgCtx.getEnvelope().getHeader();</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">                if(header != null) {</span>
+<span class="fc" id="L106">                    OMElement actionElem = header.getFirstChildWithName(new QName(wsaNs, AddressingConstants.WSA_ACTION));</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">                    if(actionElem != null) {</span>
+<span class="fc" id="L108">                        actionElem.setText(cancelAction);</span>
+                    }
+                }
+                
+                //set payload to a cancel request
+<span class="fc" id="L113">                String ctxIdKey = RampartUtil.getContextIdentifierKey(msgCtx);</span>
+<span class="fc" id="L114">                String tokenId = (String)RampartUtil.getContextMap(msgCtx).get(ctxIdKey);</span>
+                
+<span class="pc bpc" id="L116" title="2 of 4 branches missed.">                if(tokenId != null &amp;&amp; RampartUtil.isTokenValid(rmd, tokenId)) {</span>
+<span class="fc" id="L117">                    OMElement bodyElem = msgCtx.getEnvelope().getBody();</span>
+<span class="fc" id="L118">                    OMElement child = bodyElem.getFirstElement();</span>
+<span class="fc" id="L119">                    SecurityContextToken sct = new SecurityContextToken(</span>
+                            (Element) rmd.getTokenStorage().getToken(tokenId)
+                                    .getToken());
+<span class="fc" id="L122">                    OMElement newChild = TrustUtil.createCancelRequest(sct</span>
+                            .getIdentifier(), rmd.getWstVersion());
+<span class="fc" id="L124">                    Element newDomChild = XMLUtils.toDOM(newChild);</span>
+<span class="fc" id="L125">                    Node importedNode = rmd.getDocument().importNode((Element) newDomChild, true);</span>
+<span class="fc" id="L126">                    ((Element) bodyElem).replaceChild(importedNode, (Element) child);</span>
+<span class="fc" id="L127">                } else {</span>
+<span class="nc" id="L128">                    throw new RampartException(&quot;tokenToBeCancelledInvalid&quot;);</span>
+                }
+                
+<span class="nc" id="L131">            } catch (Exception e) {</span>
+<span class="nc" id="L132">                e.printStackTrace();</span>
+<span class="nc" id="L133">                throw new RampartException(&quot;errorInTokenCancellation&quot;);</span>
+<span class="fc" id="L134">            }</span>
+        }
+        
+<span class="fc bfc" id="L137" title="All 2 branches covered.">       if(rpd.isTransportBinding()) {</span>
+<span class="fc" id="L138">           log.debug(&quot;Building transport binding&quot;);</span>
+<span class="fc" id="L139">           TransportBindingBuilder building = new TransportBindingBuilder();</span>
+<span class="fc" id="L140">           building.build(rmd);</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">        } else if(rpd.isSymmetricBinding()) {</span>
+<span class="fc" id="L142">           log.debug(&quot;Building SymmetricBinding&quot;);</span>
+<span class="fc" id="L143">           SymmetricBindingBuilder builder = new SymmetricBindingBuilder();</span>
+<span class="fc" id="L144">           builder.build(rmd);</span>
+<span class="fc" id="L145">        } else {</span>
+<span class="fc" id="L146">            AsymmetricBindingBuilder builder = new AsymmetricBindingBuilder();</span>
+<span class="fc" id="L147">            builder.build(rmd);</span>
+        }
+       
+       //TODO remove following check, we don't need this check here as we do a check to see whether 
+       // security header required 
+       
+<span class="fc" id="L153">       Document doc = rmd.getDocument();</span>
+<span class="fc" id="L154">       WSSecHeader secHeader = rmd.getSecHeader();</span>
+       
+<span class="pc bpc" id="L156" title="2 of 4 branches missed.">       if ( secHeader != null &amp;&amp; secHeader.isEmpty(doc) ) {</span>
+<span class="nc" id="L157">           secHeader.removeSecurityHeader(doc);</span>
+       }
+        
+       /*
+        * Checking whether MTOMSerializable is there. If so set optimizeElement.
+        * */
+<span class="pc bpc" id="L163" title="1 of 2 branches missed.">        if(rpd.isMTOMSerialize()){</span>
+<span class="nc" id="L164">        	msgCtx.setProperty(Constants.Configuration.ENABLE_MTOM, Constants.VALUE_TRUE);</span>
+<span class="nc" id="L165">        	OptimizePartsConfig config= rpd.getOptimizePartsConfig();</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">        	if(config != null){</span>
+<span class="nc" id="L167">        		MessageOptimizer.optimize(msgCtx.getEnvelope(), config.getExpressions(), config.getNamespaces());</span>
+        	}
+        }
+        
+<span class="fc" id="L171">    }</span>
+    
+    private boolean isSecurityValidationFault(MessageContext msgCtx) throws AxisFault {
+        
+<span class="fc" id="L175">        OperationContext opCtx = msgCtx.getOperationContext();</span>
+        MessageContext inMsgCtx;
+<span class="pc bpc" id="L177" title="1 of 4 branches missed.">        if(opCtx != null &amp;&amp; </span>
+                (inMsgCtx = opCtx.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE)) != null) {
+<span class="fc" id="L179">                 Boolean secErrorFlag = (Boolean) inMsgCtx.getProperty(RampartConstants.SEC_FAULT);</span>
+                 
+<span class="pc bpc" id="L181" title="3 of 4 branches missed.">                 if (secErrorFlag != null &amp;&amp; secErrorFlag.equals(Boolean.TRUE)) {</span>
+<span class="nc" id="L182">                     return true;</span>
+                 }
+        }
+        
+<span class="fc" id="L186">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
