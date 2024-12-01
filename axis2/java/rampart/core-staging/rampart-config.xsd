@@ -6,47 +6,68 @@
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="user" type="xs:string"/>
-				<xs:element name="userCertAlias" type="xs:string" minOccurs="0"/>
-				<xs:element name="encryptionUser" type="xs:string" minOccurs="0"/>
-				<xs:element name="passwordCallbackClass" type="xs:string" minOccurs="0"/>
-				<xs:element name="policyValidatorCbClass" type="xs:string" minOccurs="0"/>
-				<xs:element name="rampartConfigCallbackClass" type="xs:string" minOccurs="0"/>				
-				<xs:element name="signatureCrypto" type="ramp:crypto" minOccurs="0"/>
-				<xs:element name="encryptionCypto" type="ramp:crypto" minOccurs="0"/>
-				<xs:element name="decryptionCrypto" type="ramp:crypto" minOccurs="0"/>				
-				<xs:element name="timestampPrecisionInMilliseconds" type="xs:boolean" minOccurs="0"/>
-				<xs:element name="timestampTTL" type="xs:integer" minOccurs="0"/>
-				<xs:element name="timestampMaxSkew" type="xs:integer"  minOccurs="0"/>
-				<xs:element name="tokenStoreClass" type="xs:string" minOccurs="0"/>
-				<xs:element name="optimizeParts" type="xs:string" minOccurs="0"/>				
-				<xs:element name="sslConfig" type="ramp:ssl" minOccurs="0"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="user" type="xs:string"/>
+					<xs:element name="userCertAlias" type="xs:string" minOccurs="0"/>
+					<xs:element name="actor" type="xs:string" minOccurs="0"/>
+					<xs:element name="mustUnderstand" type="xs:integer" minOccurs="0"/>
+					<xs:element name="encryptionUser" type="xs:string" minOccurs="0"/>
+					<xs:element name="stsAlias" type="xs:string" minOccurs="0"/>
+					<xs:element name="passwordCallbackClass" type="xs:string" minOccurs="0"/>
+					<xs:element name="policyValidatorCbClass" type="xs:string" minOccurs="0"/>
+					<xs:element name="rampartConfigCallbackClass" type="xs:string" minOccurs="0"/>
+					<xs:element name="sslConfig" type="ramp:ssl" minOccurs="0"/>
+					<xs:element name="kerberosConfig" type="ramp:ssl" minOccurs="0"/>
+					<xs:element name="signatureCrypto" type="ramp:crypto" minOccurs="0"/>
+					<xs:element name="encryptionCrypto" type="ramp:crypto" minOccurs="0"/>
+					<xs:element name="decryptionCrypto" type="ramp:crypto" minOccurs="0"/>
+					<xs:element name="stsCrypto" type="ramp:crypto" minOccurs="0"/>
+					<xs:element name="timestampPrecisionInMilliseconds" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="timestampTTL" type="xs:integer" minOccurs="0"/>
+					<xs:element name="timestampMaxSkew" type="xs:integer" minOccurs="0"/>
+					<xs:element name="nonceLifeTime" type="xs:integer" minOccurs="0"/>
+					<xs:element name="tokenStoreClass" type="xs:string" minOccurs="0"/>
+					<xs:element name="optimizeParts" type="xs:string" minOccurs="0"/>
+					<xs:element name="timestampStrict" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="optimizeMessageProcessingForTransportBinding" type="xs:boolean" minOccurs="0"/>
+				</xs:choice>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:complexType name="crypto">
-	   <xs:sequence maxOccurs="1">
-	       <xs:element name="crypto">
-	           <xs:complexType>
-                   <xs:sequence maxOccurs="unbounded">
-                        <xs:element name="property">
-	                        <xs:complexType>
-		                        <xs:simpleContent>
-			                        <xs:extension base="xs:string">
-			                          <xs:attribute name="name" type="xs:string" use="required"/>
-			                        </xs:extension>
-		                        </xs:simpleContent>
-	                        </xs:complexType>
-                        </xs:element>
-                   </xs:sequence>
-                   <xs:attribute name="provider" type="xs:string" use="required"/>
-                </xs:complexType>
-	       </xs:element>
-	   </xs:sequence>
+		<xs:sequence maxOccurs="1">
+			<xs:element name="crypto">
+				<xs:complexType>
+					<xs:sequence maxOccurs="unbounded">
+						<xs:element name="property">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="name" type="xs:string" use="required"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="provider" type="xs:string" use="required"/>
+					<xs:attribute name="cryptoKey" type="xs:string" use="optional"/>
+					<xs:attribute name="cacheRefreshInterval" type="xs:integer" use="optional"/>
+					<xs:attribute name="enableCryptoCaching" type="xs:boolean" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ssl">
 		<xs:sequence maxOccurs="unbounded">
-			<xs:element name="property" type="xs:string"/>
+			<xs:element name="property">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="name" type="xs:string" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
