@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ServiceNonceCache.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rampart</a> &gt; <span class="el_source">ServiceNonceCache.java</span></div><h1>ServiceNonceCache.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.rampart;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * This class holds nonce information per service.
+ */
+<span class="fc" id="L25">public class ServiceNonceCache {</span>
+
+<span class="fc" id="L27">    private Map&lt;String, UniqueMessageAttributeCache&gt; mapServiceNonceCache = Collections.synchronizedMap(new HashMap&lt;String, UniqueMessageAttributeCache&gt;());</span>
+
+    /**
+     * This method will add a nonce value for a given service.
+     * @param service The service url.
+     * @param userName Given user name.
+     * @param nonceValue Passed nonce value.
+     * @param nonceLifeTime Maximum life span of a nonce value.
+     */
+    public void addNonceForService(String service, String userName, String nonceValue, int nonceLifeTime) {
+
+        UniqueMessageAttributeCache nonceCache;
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        if (this.mapServiceNonceCache.containsKey(service)) {</span>
+<span class="nc" id="L40">            nonceCache = this.mapServiceNonceCache.get(service);</span>
+        } else {
+<span class="fc" id="L42">            nonceCache = new NonceCache(nonceLifeTime);</span>
+<span class="fc" id="L43">            this.mapServiceNonceCache.put(service, nonceCache);</span>
+        }
+                
+<span class="fc" id="L46">        nonceCache.addToCache(nonceValue, userName);</span>
+<span class="fc" id="L47">    }</span>
+
+    /**
+     * This method will check whether the nonce value is repeating for the given service.
+     * @param service The service url.
+     * @param userName User name.
+     * @param nonceValue Nonce value.
+     * @return true if nonce value is repeating else false.
+     */
+    public boolean isNonceRepeatingForService(String service, String userName, String nonceValue){
+
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (this.mapServiceNonceCache.containsKey(service)) {</span>
+
+<span class="nc" id="L60">            UniqueMessageAttributeCache nonceCache = this.mapServiceNonceCache.get(service);</span>
+<span class="nc" id="L61">            return nonceCache.valueExistsInCache(nonceValue, userName);           </span>
+
+        }
+
+<span class="fc" id="L65">        return false;</span>
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RampartReceiver.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rampart.handler</a> &gt; <span class="el_source">RampartReceiver.java</span></div><h1>RampartReceiver.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rampart.handler;
+
+import org.apache.axiom.om.OMException;
+import org.apache.axiom.soap.SOAP11Constants;
+import org.apache.axiom.soap.SOAP12Constants;
+import org.apache.axiom.soap.SOAPHeader;
+import org.apache.axiom.soap.SOAPHeaderBlock;
+import org.apache.axis2.AxisFault;
+import org.apache.axis2.context.MessageContext;
+import org.apache.axis2.description.HandlerDescription;
+import org.apache.axis2.description.Parameter;
+import org.apache.axis2.engine.Handler;
+import org.apache.axis2.namespace.Constants;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.rampart.RampartConstants;
+import org.apache.rampart.RampartEngine;
+import org.apache.rampart.RampartException;
+import org.apache.ws.secpolicy.WSSPolicyException;
+import org.apache.ws.security.WSConstants;
+import org.apache.ws.security.WSSecurityEngineResult;
+import org.apache.ws.security.WSSecurityException;
+import org.apache.ws.security.handler.WSHandlerConstants;
+import org.apache.ws.security.handler.WSHandlerResult;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.xml.namespace.QName;
+
+/**
+ * Rampart inflow handler.
+ * This processes the incoming message and validates it against the effective 
+ * policy.
+ */
+public class RampartReceiver implements Handler {
+	
+<span class="fc" id="L55">    private static Log mlog = LogFactory.getLog(RampartConstants.MESSAGE_LOG);</span>
+	
+<span class="fc" id="L57">    private static HandlerDescription EMPTY_HANDLER_METADATA =</span>
+        new HandlerDescription(&quot;default Handler&quot;);
+
+    private HandlerDescription handlerDesc;
+    
+<span class="fc" id="L62">    public RampartReceiver() {</span>
+<span class="fc" id="L63">        this.handlerDesc = EMPTY_HANDLER_METADATA;</span>
+<span class="fc" id="L64">    }</span>
+    
+    public void cleanup() {        
+<span class="nc" id="L67">    }</span>
+
+    public void init(HandlerDescription handlerdesc) {
+<span class="fc" id="L70">        this.handlerDesc = handlerdesc;</span>
+<span class="fc" id="L71">    }</span>
+
+    public void flowComplete(MessageContext msgContext)
+    {
+    	
+<span class="fc" id="L76">    }</span>
+
+    public InvocationResponse invoke(MessageContext msgContext) throws AxisFault {
+        
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        if (!msgContext.isEngaged(WSSHandlerConstants.SECURITY_MODULE_NAME)) {</span>
+<span class="fc" id="L81">          return InvocationResponse.CONTINUE;        </span>
+        }
+        
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if(mlog.isDebugEnabled()){</span>
+<span class="nc" id="L85">        	mlog.debug(&quot;*********************** RampartReceiver received \n&quot;</span>
+                    + msgContext.getEnvelope());
+        }
+        
+<span class="fc" id="L89">        RampartEngine engine = new RampartEngine();</span>
+<span class="fc" id="L90">        List&lt;WSSecurityEngineResult&gt; wsResult = null;</span>
+        try {
+<span class="fc" id="L92">            wsResult = engine.process(msgContext);</span>
+            
+<span class="nc" id="L94">        } catch (WSSecurityException e) {</span>
+<span class="nc" id="L95">            setFaultCodeAndThrowAxisFault(msgContext, e);</span>
+<span class="nc" id="L96">        } catch (WSSPolicyException e) {</span>
+<span class="nc" id="L97">            setFaultCodeAndThrowAxisFault(msgContext, e);</span>
+<span class="fc" id="L98">        } catch (RampartException e) {</span>
+<span class="nc" id="L99">            setFaultCodeAndThrowAxisFault(msgContext, e);</span>
+<span class="pc" id="L100">        } </span>
+        
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        if(wsResult == null) {</span>
+<span class="fc" id="L103">          return InvocationResponse.CONTINUE;        </span>
+        }
+        
+<span class="fc" id="L106">        List&lt;WSHandlerResult&gt; results = null;</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">        if ((results = (List&lt;WSHandlerResult&gt;) msgContext</span>
+                .getProperty(WSHandlerConstants.RECV_RESULTS)) == null) {
+<span class="fc" id="L109">            results = new ArrayList&lt;WSHandlerResult&gt;();</span>
+<span class="fc" id="L110">            msgContext.setProperty(WSHandlerConstants.RECV_RESULTS, results);</span>
+        }
+<span class="fc" id="L112">        WSHandlerResult rResult = new WSHandlerResult(&quot;&quot;, wsResult);</span>
+<span class="fc" id="L113">        results.add(0, rResult);</span>
+        
+<span class="fc" id="L115">        SOAPHeader header = null;</span>
+        try {
+<span class="fc" id="L117">            header = msgContext.getEnvelope().getHeader();</span>
+<span class="nc" id="L118">        } catch (OMException ex) {</span>
+<span class="nc" id="L119">            throw new AxisFault(</span>
+                    &quot;RampartReceiver: cannot get SOAP header after security processing&quot;,
+                    ex);
+<span class="fc" id="L122">        }</span>
+
+<span class="fc" id="L124">        Iterator headers = header.getChildElements();</span>
+
+<span class="fc" id="L126">        SOAPHeaderBlock headerBlock = null;</span>
+
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">        while (headers.hasNext()) { // Find the wsse header</span>
+<span class="fc" id="L129">            SOAPHeaderBlock hb = (SOAPHeaderBlock) headers.next();</span>
+<span class="pc bpc" id="L130" title="2 of 4 branches missed.">            if (hb.getLocalName().equals(WSConstants.WSSE_LN)</span>
+                    &amp;&amp; hb.getNamespace().getNamespaceURI().equals(WSConstants.WSSE_NS)) {
+<span class="fc" id="L132">                headerBlock = hb;</span>
+<span class="fc" id="L133">                break;</span>
+            }
+<span class="nc" id="L135">        }</span>
+
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">        if(headerBlock != null) {</span>
+<span class="fc" id="L138">            headerBlock.setProcessed();</span>
+        }
+        
+<span class="fc" id="L141">        return InvocationResponse.CONTINUE;        </span>
+
+    }
+
+    
+    public HandlerDescription getHandlerDesc() {
+<span class="fc" id="L147">        return this.handlerDesc;</span>
+    }
+
+    public String getName() {
+<span class="nc" id="L151">        return &quot;Apache Rampart inflow handler&quot;;</span>
+    }
+
+    public Parameter getParameter(String name) {
+<span class="nc" id="L155">        return this.handlerDesc.getParameter(name);</span>
+    }
+    
+    private void setFaultCodeAndThrowAxisFault(MessageContext msgContext, Exception e) throws AxisFault {
+        
+<span class="fc" id="L160">        msgContext.setProperty(RampartConstants.SEC_FAULT, Boolean.TRUE);    </span>
+<span class="fc" id="L161">        String soapVersionURI =  msgContext.getEnvelope().getNamespace().getNamespaceURI();</span>
+<span class="fc" id="L162">        QName faultCode = null;</span>
+        /*
+         * Get the faultCode from the thrown WSSecurity exception, if there is one
+         */
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">        if (e instanceof WSSecurityException)</span>
+        {        	
+<span class="nc" id="L168">        	faultCode = ((WSSecurityException)e).getFaultCode(); </span>
+        }
+        /*
+         * Otherwise default to InvalidSecurity
+         */
+<span class="pc bpc" id="L173" title="1 of 2 branches missed.">        if (faultCode == null)</span>
+        {
+<span class="fc" id="L175">        	faultCode = new QName(WSConstants.INVALID_SECURITY.getNamespaceURI(),WSConstants.INVALID_SECURITY.getLocalPart(),&quot;wsse&quot;);</span>
+        }
+        
+<span class="pc bpc" id="L178" title="1 of 2 branches missed.">        if (soapVersionURI.equals(SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI) ) {</span>
+            
+<span class="fc" id="L180">            throw new AxisFault(faultCode,e.getMessage(),e);</span>
+                            
+<span class="nc bnc" id="L182" title="All 2 branches missed.">        } else if (soapVersionURI.equals(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI)) {</span>
+            
+<span class="nc" id="L184">            List subfaultCodes = new ArrayList();</span>
+<span class="nc" id="L185">            subfaultCodes.add(faultCode);</span>
+<span class="nc" id="L186">            throw new AxisFault(Constants.FAULT_SOAP12_SENDER,subfaultCodes,e.getMessage(),e);</span>
+        
+        }        
+        
+<span class="nc" id="L190">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
