@@ -1,0 +1,396 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../../skin/print.css" type="text/css">
+<title>Axis C++ Memory Management Guide</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="../../images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="../../images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.com/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../../skin/images/spacer.gif" class="spacer"><input name="Search" value="GO" type="submit">
+<br>
+                          Search WS</td><td><img height="1" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../../index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/index.html">Introduction</a>
+</div>
+ 
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/news.html">News</a>
+</div>
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/Axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Get Involved</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/overview.html">Overview</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/cvs.html">CVS Repository</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/mail.html">Mailing Lists</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/ref.html">Reference Library</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/bugs.html">Bugs</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/howtobuild.html">HowToBuildSite</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/index.html">Documentation</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/install.html">Installation</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/user-guide.html">User's Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/developers-guide.html">Developer's Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/integration-guide.html">Integration Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/architecture-guide.html">Architecture Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/reference.html">Reference Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/reading.html">Reading Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/requirements.html">Requirements</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="../../cpp/index.html">Home</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../cpp/documentation.html">Documentation</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../cpp/download.html">Download</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki Pages</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../cpp/who.html">Who we are</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">Downloads</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/releases.html">Releases</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/interim.html">Interim Drops</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">Source Code</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Translation</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/ja/index.html">Japanese</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Related Projects</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Misc</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/who.html">Who We Are</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/contact.html">Contact</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/legal.html">Legal</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/docs.html">Notes/Docs</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Axis C++ Memory Management Guide</h1>
+</div>
+<div class="h3">
+<div class="h3">
+<h3>Axis C++ Memory Management Guide</h3>
+</div>
+<p>
+<em>1.0 Version</em>
+</p>
+<p>
+<em>Feedback: axis-c-dev@ws.apache.org</em>
+</p>
+<div class="h4">
+<h4>Introduction</h4>
+</div>
+<p>Memory management is very important and if not handled correctly, will quickly consume resources and slow down your application.&nbsp; The basic rules are;-</p>
+<p>For client applications,</p>
+<ul>
+<li>Any memory object that is created by the client to pass to a web service must be deleted by the client.</li>
+<li>Any memory object that is passed back from the web service must be deleted by the client.</li>
+</ul>
+<p>For server applications,</p>
+<ul>
+<li>Any memory object that is passed to the service from the engine must be deleted by the service.</li>
+<li>Any memory object that is created by the service and handed back to the engine will be deleted by the engine (or generated wrappers).</li>
+</ul>
+<p>Within the client or service applications, all memory object <u>must</u> be created using 'new' and deleted using 'delete' (The C style memory functions 'malloc' and 'free', or any of their variants must not be used).</p>
+<div class="h4">
+<h4>new/delete Semantics</h4>
+</div>
+<p>If you are using the wrappers produced by WSDL2Ws then a lot of the memory management is handled for you within the generated code.&nbsp; You still have to follow the rules for client or service, but there may be some additional steps that you will have to follow.</p>
+<div class="h2">
+<h2>Input Parameters</h2>
+</div>
+<p>The following examples rely on the application is using the stubs generated by the WSDL2Ws tool.&nbsp; If the user needs to use the Axis API directly, it is assumed that they know what methods to call and how these methods have been bundled by the generated code.</p>
+<div class="h5">
+<h5>Simple Types</h5>
+</div>
+<p>If the object is not nillable, then use the basic type.&nbsp; For example, if the web service requires an <span class="codefrag">xsd__byte</span> value, then the client/service code would be as follows;-</p>
+<pre class="code">webService-&gt;asNonNillableElement( (xsd__byte) 127)</pre>
+<p>If the object is nillable, then use a pointer to the basic type.&nbsp; For example, if the web service requires a pointer to a <span class="codefrag">xsd__byte</span> value, then the client/service code would be as follows;-</p>
+<pre>xsd__byte * pNillableInput = new xsd__byte();<br>*(pNillableInput) = (xsd__byte) 123;<br>
+<br>webService-&gt;asNillableElement( pNillableInput);<br>
+<br>delete pNillableInput;</pre>
+<p>Notice that once the client/service code no longer requires the pNillableObject object, it is deleted (and must be deleted by the client/service code).</p>
+<div class="h5">
+<h5>Arrays and Complex Types</h5>
+</div>
+<p>Arrays and Complex Types are treated as nillable, even if they are not.&nbsp; For example, if the web service requires an array of&nbsp; <span class="codefrag">xsd__byte</span> values, then the client/service code would be as follows;-</p>
+<pre>// Need an xsd__byte array of 2 elements,<br>// each element is assigned the value 123.<br>int arraySize = 2;<br>xsd__byte ** array = new xsd__byte*[arraySize];<br>for ( int inputIndex = 0 ; inputIndex &lt; arraySize ; inputIndex++ )<br>array[inputIndex] = new xsd__byte( 123);<br>
+<br>// Now copy this array into the xsd__byte_Array<br>// that will be used to pass to the web service.<br>xsd__byte_Array arrayInput;<br>arrayInput.set( array, arraySize);<br>
+<br>// Call the web service.<br>webService-&gt;asArray( &amp;arrayInput);<br>
+<br>// Clear up input array<br>for ( int deleteIndex = 0 ; deleteIndex &lt; arraySize ; deleteIndex++ )<br>{<br>    delete<br>    array[deleteIndex];<br>}<br>delete [] array;</pre>
+<p>Which is exactly the same code as would be used if the array was not nillable.</p>
+<div class="h2">
+<h2>Output Parameters</h2>
+</div>
+<p>The following examples rely on the application is using the stubs generated by the WSDL2Ws tool.&nbsp; If the user needs to use the Axis API directly, it is assumed that they know what methods to call and how these methods have been bundled by the generated code.</p>
+<div class="h5">
+<h5>Simple Types</h5>
+</div>
+<p>If the returned object is not nillable, then use the basic type.&nbsp; For example, if the web service returns a <span class="codefrag">xsd__byte</span> value, then the client/service code would be as follows;-</p>
+<pre class="code">xsd__byte result = webService-&gt;asNonNillableElement( (xsd__byte) 127);</pre>
+<p>If the object is nillable, then use a pointer to the basic type.&nbsp; For example, if the web service returns a pointer to a <span class="codefrag">xsd__byte</span> value, then the client/service code would be as follows;-</p>
+<pre>xsd__byte * pNillableOutput = webService-&gt;asNonNillableElement( (xsd__byte) 127);<br>delete pNillableOutput;</pre>
+<p>Notice that once the client/service code no longer requires the <span class="codefrag">pNillableOutput</span> object, it is deleted (and must be deleted by the client/service code).</p>
+<div class="h5">
+<h5>Arrays and Complex Types</h5>
+</div>
+<p>Arrays and Complex Types are treated as nillable, even if they are not.&nbsp; For example, if the web service returns an array of&nbsp; <span class="codefrag">xsd__byte</span> values, then the client/service code would be as follows;-</p>
+<pre>// Call the web service.<br>xsd__byte_Array * arrayOutput = webService-&gt;getArray();<br>
+<br>// Retrieve the information within the array.<br>int byteArraySize = 0;<br>const xsd__byte ** byteArray = arrayOutput-&gt;get( byteArraySize);<br>
+<br>// Clear up output array
+delete arrayOutput;</pre>
+<p>Which is exactly the same code as would be used if the array was not nillable.&nbsp; Notice that only the <span class="codefrag">arrayOutput</span> object (that is returned by the web service) needs to be deleted.&nbsp; The <span class="codefrag">byteArray</span> object is a pointer to the contents of the <span class="codefrag">arrayOutput</span> object so <u>must</u> not be deleted.</p>
+<div class="h4">
+<h4>Dealing with SOAP Headers</h4>
+</div>
+<div class="h2">
+<h2>From Stubs</h2>
+</div>
+<p>IHeaderBlock is a virtual class that defines the interface to deal with SOAP headers. To create an IHeaderBlock in the client application, use the API provided with Stub classes, i.e. ;-</p>
+<pre>IHeaderBlock * Stub::createSOAPHeaderBlock( AxisChar * pachLocalName, AxisChar * pachUri);</pre>
+<p>The Stub class methods that handle header blocks keeps a list of all the created header blocks.&nbsp; When the destructor is called, it will clean up memory by deleting the header blocks that were created using the cerateSOAPHeaderBlock method.</p>
+<p>
+<strong>Note 1</strong>: The client/service application must use the appropriate Stub method to delete a header block, i.e. ;-</p>
+<pre>void deleteCurrentSOAPHeaderBlock();</pre>
+<p>
+<strong>Note 2</strong>: The IHeaderBlock destructor will take care of the header block member variables (for example, BasicNodes may have children and attributes.&nbsp; These will be deleted when the parent is deleted.).<br>
+</p>
+<div class="h2">
+<h2>From Handlers</h2>
+</div>
+<p>If header blocks are created within a 'Handler' then it is the responsibility of the 'Handler' writer to delete them. The deletion would occur in the 'clean-up' code either in the fini() method or in the destructor of the Handler, depending on the following rules;-</p>
+<ul>
+<li>If it is a Session Handler which needs to maintain its state, then the cleanup has to be done in the destructor.</li>
+<li>If it is a request type handler the clean up can be done in the fini() method of the Handler.</li>
+</ul>
+<p>If a target handler access a header block created by the de-serializer then it is the responsibility of the Handler to delete it.</p>
+<div class="h4">
+<h4>Windows Issues</h4>
+</div>
+<p>For Windows platforms, everything must built with the compiler flag '/MD' regardless whether it is a DLL or an EXE.&nbsp; There are still problems however when passing objects over process boundaries.&nbsp; If an object is created in one process (say the Axis engine DLL) and then passed to another (say the client application) then when the client tries to delete that object, it cannot find it on its own process heap and throws an exception.&nbsp; This is because the client process does not own the memory object.&nbsp; To overcome this problem, on the process boundary, the original object is cloned (the clone uses the client heap) and then the original object is freed from the engine heap.&nbsp; Here is an example taken from the wrapper code created by WSDL2Ws from the Arrays unit test (Arrays.cpp);-</p>
+<pre>xsd__int_Array * Arrays::simpleArray( xsd__int_Array* Value0)<br>{<br>   xsd__int_Array * RetArray = new xsd__int_Array();<br>   :<br>   :<br>   if ( AXIS_SUCCESS == m_pCall-&gt;invoke())<br>   {<br>      if ( AXIS_SUCCESS == m_pCall-&gt;checkMessage( "simpleArrayResponse", "http://org.apache.axis/Arrays/"))<br>      {<br>         Axis_Array * RetAxisArray = m_pCall-&gt;getBasicArray( XSD_INT, "simpleType", 0);<br>         RetArray-&gt;clone( *RetAxisArray);<br>         Axis::AxisDelete( (void*) RetAxisArray, XSD_ARRAY);<br>      
+}<br>   }<br>   m_pCall-&gt;unInitialize();
+<br>   return
+RetArray;<br>}</pre>
+<p>The two lines of interest are the cloning of the memory object (RetAxisArray exists within the engine heap) into the RetArray memory object (that exists within the client heap) and then the deletion of the RetAxisArray by calling the AxisDelete method (which exists within the engine process and hence will be able to delete the object from that heap).</p>
+<div id="pdf" align="right">
+<a href="mem-management.pdf"><img alt="PDF" src="../../skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

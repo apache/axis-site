@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>Apache Rampart/C - Manual</title><style type="text/css" media="all">
+          @import url("../style/maven-base.css");
+          
+			    @import url("../style/maven-classic.css");</style><link rel="stylesheet" href="../style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta></head><body class="composite"><div id="banner"><a href="http://www.apache.org/" id="organizationLogo"><img alt="Apache Software Foundation" src="http://www.apache.org/images/asf-logo.gif"></img></a><a href="http://ws.apache.org/rampart/c" id="projectLogo"><img alt="Apache Rampart/C" src="http://ws.apache.org/rampart/c/images/rampartc_logo.jpg"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">
+                	Last published: 13 May 2009
+                  | Doc for 1.3.0</div><div class="xright"></div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuApache_Rampart_C"><h5>Apache Rampart/C</h5><ul><li class="none"><a href="../index.html">Apache Rampart/C Home</a></li><li class="expanded"><a href="../download.cgi">Download Rampart/C</a><ul><li class="none"><a href="../download.cgi">Releases</a></li></ul></li><li class="expanded"><a href="../docs/index.html">Documentation</a><ul><li class="none"><a href="../docs/installationguide.html">Installation Guide</a></li><li class="none"><a href="../docs/rampartc_manual.html">Rampart/C manual</a></li><li class="none"><a href="../docs/configurations.html">Configurations guide</a></li></ul></li><li class="expanded"><a href="../lists_issues.html">Get Involved</a><ul><li class="none"><a href="../lists_issues.html">Mailing Lists &amp; Issue Tracking</a></li><li class="none"><a href="../svn.html">Checkout Source Code</a></li></ul></li><li class="expanded"><a href="../coding_conventions.html">Developer Guidelines</a><ul><li class="none"><a href="../coding_conventions.html">Coding Convention</a></li><li class="none"><a href="../versioning.html">Versionning</a></li></ul></li><li class="expanded"><a href="../team-list.html">Project Information</a><ul><li class="none"><a href="../team-list.html">Project Team</a></li><li class="none"><a href="http://svn.apache.org/viewcvs.cgi/webservices/rampart/trunk/c/" class="externalLink" title="External Link">Source Code</a></li></ul></li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="../images/logos/maven-button-1.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="Preamble"></a><h2>Preamble</h2><p style="margin-bottom: 0in">This document is intended to be a reference
+manual for <a href="http://ws.apache.org/rampart/c" class="externalLink" title="External Link">Apache Rampart/C</a>.</p><p>For further details on Axis2/C please refer the <a href="http://ws.apache.org/axis2/c/docs/axis2c_manual.html" class="externalLink" title="External Link">Apache Axis2/C manual</a></p></div><div class="section"><a name="Simplified_Architecture"></a><h2>Simplified Architecture</h2><p>In a very simple view, Rampart/C consists of a core module and packages
+related to WS-Security and WS-Security Policy. For XML-Encryption and
+Signature Rampart/C uses OMXMLSecurity. Both Rampart/C and OMXMLSecurity uses <a href="http://ws.apache.org/axis2/c/docs/om_tutorial.html" class="externalLink" title="External Link">Apache AXIOM</a> and
+Axis2-Util libraries. OpenSSL is used as the crypto library in
+OMXMLSecurity.</p><img src="files/rampart_simple_archi.png" alt=""></img></div><div class="section"><a name="Interface_with_Axis2_C"></a><h2>Interface with Axis2/C</h2><p>The interface between Rampart/C and Apache Axis2/C engine is the Rampart
+module called mod_rampart. The module has two handlers, one for the inflow
+and another for the outflow of the Axis2/C engine. Rampart/C directs messages
+to it's other components for further security related processing using these
+handlers. </p><p>Handlers are a way of extending capabilities of the core engine. Once the
+Axis2/C engine calls the invoke() method of the handler, the module can do
+the necessary processing over the SOAP message. Rampart/C use this mechanism
+to build/process security related SOAP headers.</p></div><div class="section"><a name="Inside_Rampart_C"></a><h2>Inside Rampart/C</h2><p>
+Following is a detailed architecture diagram of Rampart/C
+</p><p><img src="files/rampart_archi.png" alt=""></img></p><div class="subsection"><a name="Rampart_Engine"></a><h3>Rampart Engine</h3><p>Rampart engine is the heart of Rampart/C. It sets security policies that
+defines the behavior of Rampart/C message processing. These policies are
+usually read from a selected policy.xml file depending on the message flow,
+which contains a set of policy assertions.</p></div><div class="subsection"><a name="Processors_and_Builders"></a><h3>Processors and Builders</h3><p>Rampart/C processes incoming SOAP message using it's processors. There are
+two processors in Rampart/C.</p><ol>
+  <li><strong>Security Header Processor</strong> : Processes security header
+    of the incoming message and make decisions upon security claims and the
+    security policies.</li>
+  <li><strong>Token Processor</strong> : Processes token claims such as
+    binary security token.</li>
+</ol><p>
+Similar to processes, Rampart/C uses two builders that builds outgoing
+messages.
+<ol>
+	<li><strong>Security Header Builder</strong> : Builds Security headers of an outgoing
+    message depending on security policies.</li>
+	<li><strong>Token Builder</strong> : Builds token claims such as binary security token.</li>
+</ol>
+These builders and processes assemble other components such as encryption,
+signature, UsernameToken together. Decisions are taken in these processes
+would result in further processing of the message or throwing of a  SOAP
+fault.
+
+</p></div><div class="subsection"><a name="Policy"></a><h3>Policy</h3><p>The policy module of Rampart/C acts as the configuration module in
+Rampart/C. The policy module has a set of models that represents assertions.
+Also there are set of builders that builds these models. <br></br>
+</p><p>Rampart/C is configured using policy assertions defined in WS-Security
+Policy specification (1.1 or 1.2). These policies are defined in policy.xml files.
+The client side policies are defined in a seperate policy.xml file located in the client's repository.
+The service's policies are defined in the services.xml file.
+
+</p></div><div class="subsection"><a name="Rampart_utilities"></a><h3>Rampart utilities</h3><p>Rampart utilities groups different entities that cater for different
+purposes.  Following is a brief description of major components inside
+utilities</p><ul>
+  <li><strong>Rampart context:</strong> Keeps configurations for Rampart/C.
+    This includes certificates, keys, passwords, policies etc.</li>
+  <li><strong>UsernameToken: </strong>Provides functionalities to
+    build/process a UsernameToken.</li>
+  <li><strong>TimestampToken: </strong>Provides functionalities to
+    build/process  a TimestampToken.</li>
+  <li><strong>Authentication provider: </strong>The interface for
+    authentication modules that can be plugged into Rampart/C. This allows
+    users to define their own rules for processing user name / passwords.</li>
+  <li><strong>Credentials provider: </strong>An interface for a credentials
+    module to be plugged in. Users can provide custom user name/password
+    pairs to build user name tokens.</li>
+  <li><strong>Password callbacks: </strong>An interface for users to provide
+    password for a given user name.</li>
+</ul></div></div><div class="section"><a name="OMXMLSecurity"></a><h2>OMXMLSecurity</h2><p>For XML cryptographic purposes Rampart/C uses OMXMLSecurity, which is a
+library written on top of Apache AXIOM. If a particular SOAP message needs to
+be encrypted or signed, Rampart/C get the work done through the
+OMXMLSecurity. Following are the functionalities of OMXMLSecurity.</p><ol>
+  <li><strong>XML-Encryption / Decryption:</strong> This includes symmetric
+    and asymmetric encryptions. Usually data is encrypted using a symmetric
+    key (or a session key) which is again encrypted using an asymmetric
+    algorithm using a public key.</li>
+  <li><strong>XML-Signature  / Verification:</strong> Allows one or more part
+    of an XML document to be signed using a private key. Also allows these
+    signed parts to be verified.</li>
+  <li><strong>Key management:</strong> To load X509 certificates, Private
+    keys etc, the Key management interface provide a series of functions.
+    Keys might be stored in PEM files, PKCS12 key stores or can be in string
+    buffers.</li>
+  <li><strong>Canonicalization:</strong> Provide Canonicalization (C14N)
+    transform support.</li>
+  <li><strong>Creating/Processing tokens:</strong> There are number of XML
+    elements that are introduced by security specifications. The token base
+    in OMXMLSecurity provides functionalities to create/process such
+  elements.</li>
+</ol><p>Following diagram shows the architecture of OMXMLSecurity</p><img src="files/oxs_archi.png" alt=""></img><p style="margin-bottom: 0in">Please send your feedback to the Apache Axis2/C
+developer mailing list (<a href="mailto:rampart-c-dev@ws.apache.org">rampart-c-dev@ws.apache.org</a>). Subscription
+details are available on the <a href="http://ws.apache.org/rampart/c/lists_issues.html" class="externalLink" title="External Link">Rampart site</a>.</p></div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2005-2009, Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

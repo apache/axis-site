@@ -1,0 +1,423 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../skin/print.css" type="text/css">
+<title>The Axis C++ Trace Guide</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="../images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="../images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.com/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../skin/images/spacer.gif" class="spacer"><input name="Search" value="GO" type="submit">
+<br>
+                          Search WS</td><td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/index.html">Introduction</a>
+</div>
+ 
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/news.html">News</a>
+</div>
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/Axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Get Involved</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/overview.html">Overview</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/cvs.html">CVS Repository</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/mail.html">Mailing Lists</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/ref.html">Reference Library</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/bugs.html">Bugs</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/howtobuild.html">HowToBuildSite</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/index.html">Documentation</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/install.html">Installation</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/user-guide.html">User's Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/developers-guide.html">Developer's Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/integration-guide.html">Integration Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/architecture-guide.html">Architecture Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/reference.html">Reference Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/reading.html">Reading Guide</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/java/requirements.html">Requirements</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="../cpp/index.html">Home</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/documentation.html">Documentation</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/download.html">Download</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki Pages</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/who.html">Who we are</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">Downloads</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/releases.html">Releases</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/interim.html">Interim Drops</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">Source Code</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Translation</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/ja/index.html">Japanese</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Related Projects</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">Misc</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/who.html">Who We Are</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/contact.html">Contact</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/legal.html">Legal</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/docs.html">Notes/Docs</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>The Axis C++ Trace Guide</h1>
+</div>
+<div class="h3">
+<div class="h3">
+<h3>Introducion</h3>
+</div>
+<p>This documents describes the trace facilities within Axis C++, how to enable them and how to make use of the produced trace.</p>
+<div class="h3">
+<h3>Contents</h3>
+</div>
+<ul>
+<li>
+<a href="#RuntimeTrace">Runtime Trace</a> 
+<ul>
+<li>
+<a href="#enablingRuntimeTrace">Enabling runtime trace</a>
+</li>
+<li>
+<a href="#readingRuntimeTrace">Reading runtime trace</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#StartupTrace">Startup Trace</a> 
+<ul>
+<li>
+<a href="#enablingStartupTrace">Enabling startup trace</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#InterestingTraceEntries">Interesting Trace Entries</a>
+</li>
+</ul>
+<p>
+<a name="RuntimeTrace"></a>
+</p>
+<div class="h3">
+<h3>Runtime Trace</h3>
+</div>
+<p>To aid the development team in understanding the problems of users, the Axis C++ engine has been instrumented with trace.</p>
+<p>
+<a name="enablingRuntimeTrace"></a>
+</p>
+<div class="h4">
+<h4>Enabling runtime trace</h4>
+</div>
+<p>Trace is enabled at runtime by adding the following to <span class="codefrag">axiscpp.conf</span>:</p>
+<p>
+<span class="codefrag">ClientLogPath:&lt;path to log file&gt;</span>
+</p>
+<p>
+<a name="readingRuntimeTrace"></a>
+</p>
+<div class="h4">
+<h4>Reading runtime trace</h4>
+</div>
+<p>The Axis C++ runtime trace is produced in a format compatible with the Trace Analyzer for WebSphere Application Server, which is available from here:</p>
+<p>
+<a href="http://www.alphaworks.ibm.com/tech/ta4was">Trace Analyzer for WebSphere Application Server</a>
+</p>
+<p>However, it is also possible to use any text editor. Each line is made up of the following columns:</p>
+<ul>
+<li>date/time</li>
+<li>thread ID</li>
+<li>Class name, a - indicates a c-style gloval function</li>
+<li>Trace type: <ul>
+<li>&gt; (entry)</li>
+<li>&lt; (exit)</li>
+<li>X (exception)</li>
+<li>I (information)</li>
+</ul>
+</li>
+<li>Method name</li>
+<li>
+<span class="codefrag">this</span> pointer for instance methods</li>
+<li>comma seperated list of parameters <ul>
+<li>[nnnnnnnn] Data in hex</li>
+<li>&lt;...&gt; Data in ascii</li>
+<li>For pointers address is given before data</li>
+<li>For void*, only 1st byte of data is given, as there is no way of knowing size of data.</li>
+</ul>
+</li>
+</ul>
+<p>So, a typical entry would be:</p>
+<p>
+<span class="codefrag">[27/03/2006 16:21:48:945 Time] 4220 AxisConfig &gt; getAxisConfProperty @00376358,[00000000] &lt;....&gt;</span>
+</p>
+<p>Some other things to watch for are:</p>
+<ul>
+<li>An entry containing: <span class="codefrag">------------&gt;</span> indicates that it is a multiline entry</li>
+<li>
+<span class="codefrag">&lt;BADPOINTER&gt;</span> means the trace attempted to dereference a pointer causing a SIGSEGV which the trace has caught.</li>
+<li>
+<span class="codefrag">&lt;UNKNOWNTYPE&gt;</span> means the trace tool and runtime have got out of step. You have found a bug!</li>
+<li>
+<span class="codefrag">&lt;ANONYMOUS&gt;</span> means that it is unnamed in the method signature.</li>
+</ul>
+<p>
+<a name="StartUpTrace"></a>
+</p>
+<div class="h3">
+<h3>Startup Trace</h3>
+</div>
+<p>One shortcoming of the runtime trace is that it only begins tracing after the configuration file has been loaded and the <span class="codefrag">ClientLogPath</span> entry read. This means any problems that occur before this, for example while reading the configuration file, are missed. To overcome this the Axis C++ engine has also been instrumented with startup trace, this starts tracing at the first call into the Axis engine and everything up to the point at which runtime trace starts.</p>
+<p>Startup trace uses the same formatting as the runtime trace.</p>
+<p>
+<a name="enablingStartupTrace"></a>
+</p>
+<div class="h4">
+<h4>Enabling startup trace</h4>
+</div>
+<p>Startup trace is enabled by setting the following environment variable:</p>
+<p>
+<span class="codefrag">AXISCPP_STARTUP_TRACE=&lt;path to startup log file&gt;</span>
+</p>
+<p>
+<a name="InterestingTraceEntries"></a>
+</p>
+<div class="h3">
+<h3>Interesting Trace Entries</h3>
+</div>
+<p>Here are a few entries well worth looking for when you first receive a trace file.</p>
+<div class="h4">
+<h4>Stub Destructor</h4>
+</div>
+<p>Check lines in the trace file immediately preceding the entry for ~Stub, as this is typically the first method run following a <span class="codefrag">SIGSEGV</span>.</p>
+<div class="h4">
+<h4>Exception Entries</h4>
+</div>
+<p>Check any exception entries, which is indicated by an X in the 3rd column. These actually indicate that an exception has been caught. If you see <span class="codefrag">@&lt;number&gt;</span> this indicates which catch block, if more than one present in the current method. You can use this, along with the trace lines immediately preceding, to determine fairly closely exactly where the trace was thrown. You will also see trace entries for the exception constructor if it is an Axis C++ exception.</p>
+<div class="h4">
+<h4>HTTPChannel::operator&lt;&lt;</h4>
+</div>
+<p>The entry trace for <span class="codefrag">operator&lt;&lt;</span> on <span class="codefrag">HTTPChannel</span>shows the message that will sent on the wire. Although the HTTP Header and SOAP message tend to be in seperate calls to this method. This allows for diagnosis of some problems with the message, without requiring the use of a tcp/ip monitoring tool.</p>
+<div id="pdf" align="right">
+<a href="TraceGuide.pdf"><img alt="PDF" src="../skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

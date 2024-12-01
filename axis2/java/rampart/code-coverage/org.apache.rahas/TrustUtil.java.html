@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TrustUtil.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Coverage Report</a> &gt; <a href="index.source.html" class="el_package">org.apache.rahas</a> &gt; <span class="el_source">TrustUtil.java</span></div><h1>TrustUtil.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2004,2005 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.rahas;
+
+import java.security.SecureRandom;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Properties;
+
+import javax.xml.namespace.QName;
+
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.om.OMMetaFactory;
+import org.apache.axiom.om.OMNamespace;
+import org.apache.axiom.soap.SOAP11Constants;
+import org.apache.axiom.soap.SOAPEnvelope;
+import org.apache.axis2.addressing.AddressingConstants;
+import org.apache.axis2.context.ConfigurationContext;
+import org.apache.axis2.context.MessageContext;
+import org.apache.rahas.impl.AbstractIssuerConfig;
+import org.apache.ws.security.WSConstants;
+import org.apache.ws.security.message.token.Reference;
+import org.apache.ws.security.message.token.SecurityTokenReference;
+import org.apache.ws.security.util.XmlSchemaDateFormat;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+<span class="nc" id="L45">public class TrustUtil {</span>
+
+<span class="fc" id="L47">    private static final QName NAME = new QName(&quot;name&quot;);</span>
+
+    /**
+     * Create a wsse:Reference element with the given URI and the value type
+     *
+     * @param doc
+     * @param refUri
+     * @param refValueType
+     * @return Element
+     */
+    public static Element createSecurityTokenReference(Document doc,
+                                                       String refUri, String refValueType) {
+
+<span class="fc" id="L60">        Reference ref = new Reference(doc);</span>
+<span class="fc" id="L61">        ref.setURI(refUri);</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">        if (refValueType != null) {</span>
+<span class="fc" id="L63">            ref.setValueType(refValueType);</span>
+        }
+<span class="fc" id="L65">        SecurityTokenReference str = new SecurityTokenReference(doc);</span>
+<span class="fc" id="L66">        str.setReference(ref);</span>
+
+<span class="fc" id="L68">        return str.getElement();</span>
+    }
+
+    public static OMElement
+            createRequestSecurityTokenResponseElement(int version,
+                                                      OMElement parent) throws TrustException {
+<span class="fc" id="L74">        return createOMElement(parent,</span>
+                               getWSTNamespace(version),
+                               RahasConstants.LocalNames.REQUEST_SECURITY_TOKEN_RESPONSE,
+                               RahasConstants.WST_PREFIX);
+    }
+
+    public static OMElement
+            createRequestSecurityTokenResponseCollectionElement(int version,
+                                                                OMElement parent) throws TrustException {
+<span class="fc" id="L83">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L84">        return createOMElement(parent, ns,</span>
+                               RahasConstants.LocalNames.
+                                       REQUEST_SECURITY_TOKEN_RESPONSE_COLLECTION,
+                               RahasConstants.WST_PREFIX);
+    }
+
+    public static OMElement createRequestedSecurityTokenElement(
+            int version, OMElement parent) throws TrustException {
+<span class="fc" id="L92">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L93">        return createOMElement(parent, ns,</span>
+                               RahasConstants.IssuanceBindingLocalNames.REQUESTED_SECURITY_TOKEN,
+                               RahasConstants.WST_PREFIX);
+    }
+
+    public static OMElement createRequestSecurityTokenElement(int version) throws TrustException {
+<span class="fc" id="L99">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L100">        OMFactory fac = OMAbstractFactory.getOMFactory();</span>
+<span class="fc" id="L101">        return fac.</span>
+                createOMElement(RahasConstants.LocalNames.REQUEST_SECURITY_TOKEN,
+                                ns,
+                                RahasConstants.WST_PREFIX);
+    }
+
+    public static OMElement createRequestedProofTokenElement(
+            int version, OMElement parent) throws TrustException {
+<span class="fc" id="L109">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L110">        return createOMElement(parent, ns,</span>
+                               RahasConstants.LocalNames.REQUESTED_PROOF_TOKEN,
+                               RahasConstants.WST_PREFIX);
+    }
+
+    public static OMElement createEntropyElement(
+            int version, OMElement parent) throws TrustException {
+<span class="fc" id="L117">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L118">        return createOMElement(parent, ns,</span>
+                               RahasConstants.IssuanceBindingLocalNames.ENTROPY,
+                               RahasConstants.WST_PREFIX);
+    }
+
+    public static OMElement createComputedKeyElement(int version,
+                                                     OMElement parent) throws TrustException {
+<span class="fc" id="L125">        return createOMElement(parent,</span>
+                               getWSTNamespace(version),
+                               RahasConstants.IssuanceBindingLocalNames.COMPUTED_KEY,
+                               RahasConstants.WST_PREFIX);
+    }
+
+    public static OMElement createRequestTypeElement(int version,
+                                                     OMElement parent,
+                                                     String value) throws TrustException {
+<span class="fc" id="L134">        String ns = getWSTNamespace(version);</span>
+
+<span class="fc" id="L136">        OMElement elem = createOMElement(parent,</span>
+                                         ns,
+                                         RahasConstants.LocalNames.REQUEST_TYPE,
+                                         RahasConstants.WST_PREFIX);
+
+<span class="pc bpc" id="L141" title="2 of 8 branches missed.">        if (RahasConstants.REQ_TYPE_ISSUE.equals(value)</span>
+            || RahasConstants.REQ_TYPE_CANCEL.equals(value)
+            || RahasConstants.REQ_TYPE_RENEW.equals(value)
+            || RahasConstants.REQ_TYPE_VALIDATE.equals(value)) {
+<span class="fc" id="L145">            elem.setText(ns + value);</span>
+        } else {
+<span class="fc" id="L147">            elem.setText(value);</span>
+        }
+
+<span class="fc" id="L150">        return elem;</span>
+    }
+
+    public static OMElement createTokenTypeElement(int version,
+                                                   OMElement parent) throws TrustException {
+<span class="fc" id="L155">        return createOMElement(parent,</span>
+                               getWSTNamespace(version),
+                               RahasConstants.LocalNames.TOKEN_TYPE,
+                               RahasConstants.WST_PREFIX);
+    }
+    
+    public static OMElement createValidateTargetElement(int version, OMElement parent, 
+                                                    OMElement str) throws TrustException {
+<span class="nc" id="L163">        OMElement validateTarget = createOMElement(parent,</span>
+                getWSTNamespace(version),
+                RahasConstants.LocalNames.VALIDATE_TARGET,
+                RahasConstants.WST_PREFIX);
+<span class="nc" id="L167">        validateTarget.addChild(str);</span>
+        
+<span class="nc" id="L169">        return validateTarget;</span>
+        
+    }
+    
+    public static OMElement createRenewTargetElement(int version, OMElement parent, 
+            OMElement str) throws TrustException {
+<span class="nc" id="L175">        OMElement renewTarget = createOMElement(parent,</span>
+        getWSTNamespace(version),
+        RahasConstants.LocalNames.RENEW_TARGET,
+        RahasConstants.WST_PREFIX);
+<span class="nc" id="L179">        renewTarget.addChild(str);</span>
+
+<span class="nc" id="L181">     return renewTarget;</span>
+
+}
+    
+    
+
+    public static OMElement createBinarySecretElement(
+            int version,
+            OMElement parent,
+            String type) throws TrustException {
+<span class="fc" id="L191">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L192">        OMElement elem = createOMElement(parent, ns,</span>
+                                         RahasConstants.LocalNames.BINARY_SECRET,
+                                         RahasConstants.WST_PREFIX);
+<span class="fc bfc" id="L195" title="All 2 branches covered.">        if (type != null) {</span>
+<span class="fc" id="L196">            elem.addAttribute(elem.getOMFactory().createOMAttribute(</span>
+                    RahasConstants.ATTR_TYPE, null, ns + type));
+        }
+<span class="fc" id="L199">        return elem;</span>
+    }
+
+    public static OMElement createComputedKeyAlgorithm(int version,
+                                                       OMElement parent,
+                                                       String algoId) throws TrustException {
+<span class="fc" id="L205">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L206">        OMElement elem = createOMElement(parent,</span>
+                                         ns,
+                                         RahasConstants.IssuanceBindingLocalNames.COMPUTED_KEY_ALGO,
+                                         RahasConstants.WST_PREFIX);
+<span class="fc" id="L210">        elem.setText(ns + algoId);</span>
+<span class="fc" id="L211">        return elem;</span>
+    }
+
+    public static OMElement
+            createRequestedUnattachedRef(int version,
+                                         OMElement parent,
+                                         String refUri,
+                                         String refValueType) throws TrustException {
+<span class="fc" id="L219">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L220">        OMElement elem = createOMElement(parent, ns,</span>
+                                         RahasConstants.IssuanceBindingLocalNames.
+                                                 REQUESTED_UNATTACHED_REFERENCE,
+                                         RahasConstants.WST_PREFIX);
+<span class="fc" id="L224">        elem.addChild((OMElement) createSecurityTokenReference(</span>
+                ((Element) parent).getOwnerDocument(), refUri, refValueType));
+<span class="fc" id="L226">        return elem;</span>
+    }
+
+    public static OMElement createRequestedAttachedRef(int version,
+                                                       OMElement parent,
+                                                       String refUri,
+                                                       String refValueType) throws TrustException {
+<span class="fc" id="L233">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L234">        OMElement elem = createOMElement(parent, ns,</span>
+                                         RahasConstants.IssuanceBindingLocalNames.
+                                                 REQUESTED_ATTACHED_REFERENCE,
+                                         RahasConstants.WST_PREFIX);
+<span class="fc" id="L238">        elem.addChild((OMElement) createSecurityTokenReference(</span>
+                ((Element) parent).getOwnerDocument(), refUri, refValueType));
+<span class="fc" id="L240">        return elem;</span>
+    }
+    
+    /**
+     * Create and add wst:AttachedReference element
+     * 
+     * @param rstrElem
+     *            wst:RequestSecurityToken element
+     * @param id
+     *            Token identifier
+     * @throws TrustException
+     */
+    public static void createRequestedAttachedRef(OMElement rstrElem, String id, int version)
+            throws TrustException {
+<span class="fc" id="L254">        OMFactory fac = null;</span>
+<span class="fc" id="L255">        OMElement rar = null;</span>
+<span class="fc" id="L256">        OMElement str = null;</span>
+<span class="fc" id="L257">        OMElement ki = null;</span>
+
+<span class="fc" id="L259">        String ns = TrustUtil.getWSTNamespace(version);</span>
+<span class="fc" id="L260">        fac = rstrElem.getOMFactory();</span>
+<span class="fc" id="L261">        rar = fac.createOMElement(new QName(ns,</span>
+                RahasConstants.IssuanceBindingLocalNames.REQUESTED_ATTACHED_REFERENCE,
+                RahasConstants.WST_PREFIX), rstrElem);
+<span class="fc" id="L264">        str = fac.createOMElement(new QName(WSConstants.WSSE_NS,</span>
+                SecurityTokenReference.SECURITY_TOKEN_REFERENCE, WSConstants.WSSE_PREFIX), rar);
+<span class="fc" id="L266">        ki = fac.createOMElement(new QName(WSConstants.WSSE_NS, &quot;KeyIdentifier&quot;,</span>
+                WSConstants.WSSE_PREFIX), str);
+<span class="fc" id="L268">        ki.addAttribute(&quot;ValueType&quot;, WSConstants.WSS_SAML_KI_VALUE_TYPE, null);</span>
+<span class="fc" id="L269">        ki.setText(id);</span>
+<span class="fc" id="L270">    }</span>
+
+    /**
+     * Create and add wst:UnattachedReference element
+     * 
+     * @param rstrElem
+     *            wst:RequestSecurityToken element
+     * @param id
+     *            Token identifier
+     * @throws TrustException
+     */
+    public static void createRequestedUnattachedRef(OMElement rstrElem, String id, int version)
+            throws TrustException {
+<span class="fc" id="L283">        OMFactory fac = null;</span>
+<span class="fc" id="L284">        OMElement rar = null;</span>
+<span class="fc" id="L285">        OMElement str = null;</span>
+<span class="fc" id="L286">        OMElement ki = null;</span>
+
+<span class="fc" id="L288">        String ns = TrustUtil.getWSTNamespace(version);</span>
+<span class="fc" id="L289">        fac = rstrElem.getOMFactory();</span>
+<span class="fc" id="L290">        rar = fac.createOMElement(new QName(ns,</span>
+                RahasConstants.IssuanceBindingLocalNames.REQUESTED_UNATTACHED_REFERENCE,
+                RahasConstants.WST_PREFIX), rstrElem);
+<span class="fc" id="L293">        str = fac.createOMElement(new QName(WSConstants.WSSE_NS,</span>
+                SecurityTokenReference.SECURITY_TOKEN_REFERENCE, WSConstants.WSSE_PREFIX), rar);
+<span class="fc" id="L295">        ki = fac.createOMElement(new QName(WSConstants.WSSE_NS, &quot;KeyIdentifier&quot;,</span>
+                WSConstants.WSSE_PREFIX), str);
+
+<span class="fc" id="L298">        ki.addAttribute(&quot;ValueType&quot;, WSConstants.WSS_SAML_KI_VALUE_TYPE, null);</span>
+<span class="fc" id="L299">        ki.setText(id);</span>
+<span class="fc" id="L300">    }</span>
+
+    public static OMElement createKeySizeElement(int version,
+                                                 OMElement parent,
+                                                 int size) throws TrustException {
+<span class="fc" id="L305">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L306">        OMElement ksElem = createOMElement(parent, ns,</span>
+                                           RahasConstants.IssuanceBindingLocalNames.KEY_SIZE,
+                                           RahasConstants.WST_PREFIX);
+<span class="fc" id="L309">        ksElem.setText(Integer.toString(size));</span>
+<span class="fc" id="L310">        return ksElem;</span>
+    }
+
+    public static OMElement createKeyTypeElement(int version,
+                                                 OMElement parent,
+                                                 String type) throws TrustException {
+<span class="fc" id="L316">        String ns = getWSTNamespace(version);</span>
+<span class="fc" id="L317">        OMElement ktElem = createOMElement(parent, ns,</span>
+                                           RahasConstants.IssuanceBindingLocalNames.KEY_TYPE,
+                                           RahasConstants.WST_PREFIX);
+<span class="pc bpc" id="L320" title="1 of 6 branches missed.">        if (RahasConstants.KEY_TYPE_BEARER.equals(type) ||</span>
+            RahasConstants.KEY_TYPE_PUBLIC_KEY.equals(type) ||
+            RahasConstants.KEY_TYPE_SYMM_KEY.equals(type)) {
+<span class="fc" id="L323">            ktElem.setText(ns + type);</span>
+        } else {
+<span class="nc" id="L325">            ktElem.setText(type);</span>
+        }
+<span class="fc" id="L327">        return ktElem;</span>
+    }
+
+    public static OMElement
+            createRequestedTokenCanceledElement(int version,
+                                                OMElement parent) throws TrustException {
+<span class="fc" id="L333">        return createOMElement(parent,</span>
+                               getWSTNamespace(version),
+                               RahasConstants.CancelBindingLocalNames.REQUESTED_TOKEN_CANCELED,
+                               RahasConstants.WST_PREFIX);
+    }
+
+    public static OMElement createLifetimeElement(int version,
+                                                  OMElement parent,
+                                                  String created,
+                                                  String expires) throws TrustException {
+
+<span class="fc" id="L344">        String ns = getWSTNamespace(version);</span>
+
+<span class="fc" id="L346">        OMElement ltElem = createOMElement(parent, ns,</span>
+                                           RahasConstants.IssuanceBindingLocalNames.LIFETIME,
+                                           RahasConstants.WST_PREFIX);
+
+<span class="fc" id="L350">        OMElement createdElem = createOMElement(ltElem, WSConstants.WSU_NS,</span>
+                                                WSConstants.CREATED_LN,
+                                                WSConstants.WSU_PREFIX);
+<span class="fc" id="L353">        createdElem.setText(created);</span>
+
+<span class="fc" id="L355">        OMElement expiresElem = createOMElement(ltElem, WSConstants.WSU_NS,</span>
+                                                WSConstants.EXPIRES_LN,
+                                                WSConstants.WSU_PREFIX);
+<span class="fc" id="L358">        expiresElem.setText(expires);</span>
+
+<span class="fc" id="L360">        return ltElem;</span>
+    }
+
+    public static OMElement createLifetimeElement(int version,
+                                                  OMElement parent,
+                                                  long ttl) throws TrustException {
+
+<span class="fc" id="L367">        Date creationTime = new Date();</span>
+<span class="fc" id="L368">        Date expirationTime = new Date();</span>
+<span class="fc" id="L369">        expirationTime.setTime(creationTime.getTime() + ttl);</span>
+
+<span class="fc" id="L371">        DateFormat zulu = new XmlSchemaDateFormat();</span>
+
+<span class="fc" id="L373">        return createLifetimeElement(version,</span>
+                                     parent,
+                                     zulu.format(creationTime),
+                                     zulu.format(expirationTime));
+    }
+
+    public static OMElement createAppliesToElement(OMElement parent,
+                                                   String address, String addressingNs) {
+<span class="fc" id="L381">        OMElement appliesToElem = createOMElement(parent,</span>
+                                                  RahasConstants.WSP_NS,
+                                                  RahasConstants.IssuanceBindingLocalNames.
+                                                          APPLIES_TO,
+                                                  RahasConstants.WSP_PREFIX);
+
+<span class="fc" id="L387">        OMElement eprElem = createOMElement(appliesToElem,</span>
+                                            addressingNs,
+                                            &quot;EndpointReference&quot;,
+                                            AddressingConstants.WSA_DEFAULT_PREFIX);
+<span class="fc" id="L391">        OMElement addressElem = createOMElement(eprElem, addressingNs,</span>
+                                                AddressingConstants.EPR_ADDRESS,
+                                                AddressingConstants.WSA_DEFAULT_PREFIX);
+<span class="fc" id="L394">        addressElem.setText(address);</span>
+
+<span class="fc" id="L396">        return appliesToElem;</span>
+    }
+
+    public static String getActionValue(int version, String action) throws TrustException {
+<span class="pc bpc" id="L400" title="6 of 20 branches missed.">        if (RahasConstants.RST_ACTION_ISSUE.equals(action) ||</span>
+            RahasConstants.RST_ACTION_CANCEL.equals(action) ||
+            RahasConstants.RST_ACTION_RENEW.equals(action) ||
+            RahasConstants.RST_ACTION_VALIDATE.equals(action) ||
+            RahasConstants.RST_ACTION_SCT.equals(action) ||
+            RahasConstants.RSTR_ACTION_ISSUE.equals(action) ||
+            RahasConstants.RSTR_ACTION_CANCEL.equals(action) ||
+            RahasConstants.RSTR_ACTION_RENEW.equals(action) ||
+            RahasConstants.RSTR_ACTION_VALIDATE.equals(action) ||
+            RahasConstants.RSTR_ACTION_SCT.equals(action)) {
+
+<span class="fc" id="L411">            return getWSTNamespace(version) + action;</span>
+        }
+<span class="nc" id="L413">        return action;</span>
+    }
+
+    /**
+     * Create a new &lt;code&gt;SOAPEnvelope&lt;/code&gt; of the same version as the
+     * SOAPEnvelope in the given &lt;code&gt;MessageContext&lt;/code&gt;
+     *
+     * @param nsUri
+     * @return SOAPEnvelope
+     */
+    public static SOAPEnvelope createSOAPEnvelope(String nsUri) {
+<span class="fc" id="L424">    	OMMetaFactory domFac = OMAbstractFactory.getMetaFactory(OMAbstractFactory.FEATURE_DOM);</span>
+<span class="pc bpc" id="L425" title="1 of 4 branches missed.">        if (nsUri != null</span>
+            &amp;&amp; SOAP11Constants.SOAP_ENVELOPE_NAMESPACE_URI.equals(nsUri)) {
+<span class="fc" id="L427">			return domFac.getSOAP11Factory().getDefaultEnvelope();</span>
+        } else {
+<span class="fc" id="L429">            return domFac.getSOAP12Factory().getDefaultEnvelope();</span>
+        }
+    }
+
+
+    private static OMElement createOMElement(OMElement parent,
+                                             String ns,
+                                             String ln,
+                                             String prefix) {
+<span class="fc" id="L438">        return parent.getOMFactory().createOMElement(new QName(ns, ln, prefix),</span>
+                                                     parent);
+    }
+
+    public static String getWSTNamespace(int version) throws TrustException {
+<span class="pc bpc" id="L443" title="1 of 3 branches missed.">        switch (version) {</span>
+            case RahasConstants.VERSION_05_02:
+<span class="fc" id="L445">                return RahasConstants.WST_NS_05_02;</span>
+            case RahasConstants.VERSION_05_12:
+<span class="fc" id="L447">                return RahasConstants.WST_NS_05_12;</span>
+            default:
+<span class="nc" id="L449">                throw new TrustException(&quot;unsupportedWSTVersion&quot;);</span>
+        }
+    }
+
+    public static int getWSTVersion(String ns) throws TrustException {
+<span class="fc bfc" id="L454" title="All 2 branches covered.">        if (RahasConstants.WST_NS_05_02.equals(ns)) {</span>
+<span class="fc" id="L455">            return RahasConstants.VERSION_05_02;</span>
+<span class="pc bpc" id="L456" title="1 of 2 branches missed.">        } else if (RahasConstants.WST_NS_05_12.equals(ns)) {</span>
+<span class="fc" id="L457">            return RahasConstants.VERSION_05_12;</span>
+        } else {
+<span class="nc" id="L459">            throw new TrustException(&quot;unsupportedWSTVersion&quot;);</span>
+        }
+    }
+
+    /**
+     * Returns the token store.
+     * If the token store is already available in the configuration context then
+     * fetch it and return it. If not create a new one, hook it up in the
+     * configuration context and return it
+     *
+     * @param msgCtx
+     * @return the token store
+     */
+    public static TokenStorage getTokenStore(MessageContext msgCtx) {
+<span class="fc" id="L473">        ConfigurationContext configCtx = msgCtx.getConfigurationContext();</span>
+<span class="fc" id="L474">        return getTokenStore(configCtx);</span>
+    }
+    
+    /**
+     * Fetches the token storage from the configuration context.
+     * If the token store is already available in the configuration context then
+     * fetch it and return it. If not create a new one, hook it up in the
+     * configuration context and return it
+     * @param ctx
+     * @return
+     */
+    public static TokenStorage getTokenStore(ConfigurationContext ctx) {
+<span class="fc" id="L486">        TokenStorage storage = (TokenStorage) ctx</span>
+                .getProperty(TokenStorage.TOKEN_STORAGE_KEY);
+<span class="fc bfc" id="L488" title="All 2 branches covered.">        if (storage == null) {</span>
+<span class="fc" id="L489">            storage = new SimpleTokenStore();</span>
+<span class="fc" id="L490">            ctx.setProperty(TokenStorage.TOKEN_STORAGE_KEY, storage);</span>
+        }
+<span class="fc" id="L492">        return storage;</span>
+    }
+
+
+    /**
+     * Create an ephemeral key
+     *
+     * @return The generated ephemeral key
+     * @throws TrustException
+     */
+    protected byte[] generateEphemeralKey(int keySize) throws TrustException {
+        try {
+<span class="nc" id="L504">            SecureRandom random = SecureRandom.getInstance(&quot;SHA1PRNG&quot;);</span>
+<span class="nc" id="L505">            byte[] temp = new byte[keySize / 8];</span>
+<span class="nc" id="L506">            random.nextBytes(temp);</span>
+<span class="nc" id="L507">            return temp;</span>
+<span class="nc" id="L508">        } catch (Exception e) {</span>
+<span class="nc" id="L509">            throw new TrustException(&quot;Error in creating the ephemeral key&quot;, e);</span>
+        }
+    }
+
+    /**
+     * Create an ephemeral key
+     *
+     * @return The generated ephemeral key
+     * @throws TrustException
+     */
+    protected byte[] generateEphemeralKey(byte[] reqEnt,
+                                          byte[] respEnt,
+                                          String algo,
+                                          int keySize) throws TrustException {
+        try {
+<span class="nc" id="L524">            SecureRandom random = SecureRandom.getInstance(&quot;SHA1PRNG&quot;);</span>
+<span class="nc" id="L525">            byte[] temp = new byte[keySize / 8];</span>
+<span class="nc" id="L526">            random.nextBytes(temp);</span>
+<span class="nc" id="L527">            return temp;</span>
+<span class="nc" id="L528">        } catch (Exception e) {</span>
+<span class="nc" id="L529">            throw new TrustException(&quot;Error in creating the ephemeral key&quot;, e);</span>
+        }
+    }
+
+    public static OMElement createCancelTargetElement(int version,
+                                                      OMElement parent) throws TrustException {
+<span class="fc" id="L535">        return createOMElement(parent,</span>
+                               getWSTNamespace(version),
+                               RahasConstants.CancelBindingLocalNames.CANCEL_TARGET,
+                               RahasConstants.WST_PREFIX);
+
+    }
+    
+    public static OMElement createClaims(int version, 
+                OMElement parent, String dialect) throws TrustException{
+<span class="fc" id="L544">        OMElement omElem = createOMElement(parent,</span>
+                getWSTNamespace(version),
+                RahasConstants.IssuanceBindingLocalNames.CLAIMS,
+                RahasConstants.WST_PREFIX);
+        
+<span class="fc" id="L549">        OMNamespace ns = omElem.getOMFactory().createOMNamespace(getWSTNamespace(version), </span>
+                RahasConstants.WSP_PREFIX);
+<span class="fc" id="L551">        omElem.addAttribute(RahasConstants.ATTR_CLAIMS_DIALECT , dialect, ns);</span>
+       
+        
+<span class="fc" id="L554">        return omElem;</span>
+    }
+    
+
+
+    public static OMElement createCancelRequest(String tokenId,
+                                                int version) throws TrustException {
+        /*
+       &lt;wst:RequestSecurityToken&gt;
+            &lt;wst:RequestType&gt;
+            http://schemas.xmlsoap.org/ws/2005/02/trust/Cancel
+            &lt;/wst:RequestType&gt;
+            &lt;wst:CancelTarget&gt;
+                    &lt;o:SecurityTokenReference
+                         xmlns:o=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd&quot;&gt;
+                      &lt;o:Reference URI=&quot;urn:uuid:8e6a3a95-fd1b-4c24-96d4-28e875025ff7&quot;
+                                   ValueType=&quot;http://schemas.xmlsoap.org/ws/2005/02/sc/sct&quot; /&gt;
+                    &lt;/o:SecurityTokenReference&gt;
+            &lt;/wst:CancelTarget&gt;
+        &lt;/wst:RequestSecurityToken&gt;
+        */
+<span class="fc" id="L575">        OMElement rst = TrustUtil.createRequestSecurityTokenElement(version);</span>
+<span class="fc" id="L576">        TrustUtil.createRequestTypeElement(version, rst, RahasConstants.REQ_TYPE_CANCEL);</span>
+<span class="fc" id="L577">        OMElement cancelTargetEle = TrustUtil.createCancelTargetElement(version, rst);</span>
+<span class="fc" id="L578">        OMFactory factory = rst.getOMFactory();</span>
+<span class="fc" id="L579">        OMElement secTokenRefEle =</span>
+                factory.createOMElement(SecurityTokenReference.SECURITY_TOKEN_REFERENCE,
+                                        WSConstants.WSSE_NS,
+                                        WSConstants.WSSE_PREFIX);
+<span class="fc" id="L583">        OMElement refEle =</span>
+                factory.createOMElement(Reference.TOKEN);
+<span class="fc" id="L585">        refEle.addAttribute(factory.createOMAttribute(RahasConstants.CancelBindingLocalNames.URI,</span>
+                                                      null, tokenId));
+<span class="fc" id="L587">        secTokenRefEle.addChild(refEle);</span>
+<span class="fc" id="L588">        cancelTargetEle.addChild(secTokenRefEle);</span>
+
+<span class="fc" id="L590">        return rst;</span>
+    }
+
+    public static Properties toProperties(OMElement cryptoElem) {
+<span class="fc" id="L594">        Properties properties = new Properties();</span>
+
+        /*
+           Process an element similar to this;
+
+                &lt;crypto provider=&quot;org.apache.ws.security.components.crypto.Merlin&quot;&gt;
+                    &lt;property name=&quot;org.apache.ws.security.crypto.merlin.keystore.type&quot;&gt;jks&lt;/property&gt;
+                    &lt;property name=&quot;org.apache.ws.security.crypto.merlin.file&quot;&gt;sts.jks&lt;/property&gt;
+                    &lt;property name=&quot;org.apache.ws.security.crypto.merlin.keystore.password&quot;&gt;password&lt;/property&gt;
+                &lt;/crypto&gt;
+        */
+<span class="fc bfc" id="L605" title="All 2 branches covered.">        for (Iterator propIter = cryptoElem.getChildElements(); propIter.hasNext();) {</span>
+<span class="fc" id="L606">            OMElement propElem = (OMElement) propIter.next();</span>
+<span class="fc" id="L607">            String name = propElem.getAttribute(NAME).getAttributeValue().trim();</span>
+<span class="fc" id="L608">            String value = propElem.getText().trim();</span>
+<span class="fc" id="L609">            properties.setProperty(name, value);</span>
+<span class="fc" id="L610">        }</span>
+<span class="fc" id="L611">        properties.setProperty(&quot;org.apache.ws.security.crypto.provider&quot;,</span>
+                cryptoElem.getAttribute(AbstractIssuerConfig.PROVIDER)
+                        .getAttributeValue().trim());
+<span class="fc" id="L614">        return properties;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

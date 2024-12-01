@@ -1,0 +1,2725 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Call (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Call (Apache Axis)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Call.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/apache/axis/client/AxisClientProxy.html" title="class in org.apache.axis.client"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis/client/HappyClient.html" title="class in org.apache.axis.client"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/apache/axis/client/Call.html" target="_top">Frames</a></li>
+<li><a href="Call.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis.client</div>
+<h2 title="Class Call" class="title">Class Call</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.client.Call</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public class <span class="strong">Call</span>
+extends <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
+implements <a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></pre>
+<div class="block">Axis' JAXRPC Dynamic Invocation Interface implementation of the Call
+ interface.  This class should be used to actually invoke the Web Service.
+ It can be prefilled by a WSDL document (on the constructor to the Service
+ object) or you can fill in the data yourself.
+ <pre>
+ Standard properties defined by in JAX-RPC's javax..xml.rpc.Call interface:
+     USERNAME_PROPERTY        - User name for authentication
+     PASSWORD_PROPERTY        - Password for authentication
+     SESSION_PROPERTY         - Participate in a session with the endpoint?
+     OPERATION_STYLE_PROPERTY - "rpc" or "document"
+     SOAPACTION_USE_PROPERTY  - Should SOAPAction be used?
+     SOAPACTION_URI_PROPERTY  - If SOAPAction is used, this is that action
+     ENCODING_STYLE_PROPERTY  - Default is SOAP 1.1:  "http://schemas.xmlsoap.org/soap/encoding/"
+
+ AXIS properties:
+     SEND_TYPE_ATTR - Should we send the XSI type attributes (true/false)
+     TIMEOUT        - Timeout used by transport sender in milliseconds
+     TRANSPORT_NAME - Name of transport handler to use
+     ATTACHMENT_ENCAPSULATION_FORMAT- Send attachments as MIME the default, or DIME.
+     CHARACTER_SET_ENCODING - Character set encoding to use for request
+ </pre></div>
+<dl><dt><span class="strong">Author:</span></dt>
+  <dd>Doug Davis (dug@us.ibm.com), Steve Loughran</dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#ATTACHMENT_ENCAPSULATION_FORMAT">ATTACHMENT_ENCAPSULATION_FORMAT</a></strong></code>
+<div class="block">Property for setting attachment format.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#ATTACHMENT_ENCAPSULATION_FORMAT_DIME">ATTACHMENT_ENCAPSULATION_FORMAT_DIME</a></strong></code>
+<div class="block">Property value for setting attachment format as DIME.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#ATTACHMENT_ENCAPSULATION_FORMAT_MIME">ATTACHMENT_ENCAPSULATION_FORMAT_MIME</a></strong></code>
+<div class="block">Property value for setting attachment format as MIME.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#ATTACHMENT_ENCAPSULATION_FORMAT_MTOM">ATTACHMENT_ENCAPSULATION_FORMAT_MTOM</a></strong></code>
+<div class="block">Property value for setting attachment format as DIME.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#attachmentParts">attachmentParts</a></strong></code>
+<div class="block">these are our attachments</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#CHARACTER_SET_ENCODING">CHARACTER_SET_ENCODING</a></strong></code>
+<div class="block">This is the character set encoding to use for the message</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#CHECK_MUST_UNDERSTAND">CHECK_MUST_UNDERSTAND</a></strong></code>
+<div class="block">If this property is true, code will enforce must understand check on both
+ the request and the response paths.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#CONNECTION_TIMEOUT_PROPERTY">CONNECTION_TIMEOUT_PROPERTY</a></strong></code>
+<div class="block">Timeout property: should be accompanies by an integer</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static org.apache.commons.logging.Log</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#entLog">entLog</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#FAULT_ON_NO_RESPONSE">FAULT_ON_NO_RESPONSE</a></strong></code>
+<div class="block">If this property is true, the code will throw a fault if there is no
+ response message from the server.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#JAXRPC_PORTTYPE_NAME">JAXRPC_PORTTYPE_NAME</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>use WSDL_PORT_NAME instead.</i></div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#JAXRPC_SERVICE">JAXRPC_SERVICE</a></strong></code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>use WSDL_SERVICE instead.</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected static org.apache.commons.logging.Log</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#log">log</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#ONE_WAY">ONE_WAY</a></strong></code>
+<div class="block">Internal property to indicate a one way call.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#SEND_TYPE_ATTR">SEND_TYPE_ATTR</a></strong></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#STREAMING_PROPERTY">STREAMING_PROPERTY</a></strong></code>
+<div class="block">Streaming property: should be accompanied by an boolean
+ (i.e.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#TRANSPORT_NAME">TRANSPORT_NAME</a></strong></code>
+<div class="block">This is the name of a property to set the transport of the message</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#TRANSPORT_PROPERTY">TRANSPORT_PROPERTY</a></strong></code>
+<div class="block">This is not the name of a property that can be set with
+ setProperty, despite its name.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#WSDL_PORT_NAME">WSDL_PORT_NAME</a></strong></code>
+<div class="block">this is a property set in the message context when the invocation
+ process begins, for the benefit of handlers</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#WSDL_SERVICE">WSDL_SERVICE</a></strong></code>
+<div class="block">this is a property set in the message context when the invocation
+ process begins, for the benefit of handlers</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_javax.xml.rpc.Call">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;javax.xml.rpc.<a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></h3>
+<code><a href="../../../../javax/xml/rpc/Call.html#ENCODINGSTYLE_URI_PROPERTY">ENCODINGSTYLE_URI_PROPERTY</a>, <a href="../../../../javax/xml/rpc/Call.html#OPERATION_STYLE_PROPERTY">OPERATION_STYLE_PROPERTY</a>, <a href="../../../../javax/xml/rpc/Call.html#PASSWORD_PROPERTY">PASSWORD_PROPERTY</a>, <a href="../../../../javax/xml/rpc/Call.html#SESSION_MAINTAIN_PROPERTY">SESSION_MAINTAIN_PROPERTY</a>, <a href="../../../../javax/xml/rpc/Call.html#SOAPACTION_URI_PROPERTY">SOAPACTION_URI_PROPERTY</a>, <a href="../../../../javax/xml/rpc/Call.html#SOAPACTION_USE_PROPERTY">SOAPACTION_USE_PROPERTY</a>, <a href="../../../../javax/xml/rpc/Call.html#USERNAME_PROPERTY">USERNAME_PROPERTY</a></code></li>
+</ul>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../org/apache/axis/client/Call.html#Call(org.apache.axis.client.Service)">Call</a></strong>(<a href="../../../../org/apache/axis/client/Service.html" title="class in org.apache.axis.client">Service</a>&nbsp;service)</code>
+<div class="block">Default constructor - not much else to say.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><strong><a href="../../../../org/apache/axis/client/Call.html#Call(java.lang.String)">Call</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url)</code>
+<div class="block">Build a call from a URL string.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../org/apache/axis/client/Call.html#Call(java.net.URL)">Call</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url)</code>
+<div class="block">Build a call from a URL.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#addAttachmentPart(java.lang.Object)">addAttachmentPart</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;attachment)</code>
+<div class="block">This method adds an attachment.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#addFault(javax.xml.namespace.QName,%20java.lang.Class,%20javax.xml.namespace.QName,%20boolean)">addFault</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname,
+        <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;cls,
+        <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+        boolean&nbsp;isComplex)</code>
+<div class="block">Add a fault for this operation.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#addHeader(org.apache.axis.message.SOAPHeaderElement)">addHeader</a></strong>(<a href="../../../../org/apache/axis/message/SOAPHeaderElement.html" title="class in org.apache.axis.message">SOAPHeaderElement</a>&nbsp;header)</code>
+<div class="block">Add a header which should be inserted into each outgoing message
+ we generate.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#addParameter(javax.xml.namespace.QName,%20javax.xml.namespace.QName,%20java.lang.Class,%20javax.xml.rpc.ParameterMode)">addParameter</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;paramName,
+            <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+            <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode)</code>
+<div class="block">Adds the specified parameter to the list of parameters for the
+ operation associated with this Call object.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#addParameter(javax.xml.namespace.QName,%20javax.xml.namespace.QName,%20javax.xml.rpc.ParameterMode)">addParameter</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;paramName,
+            <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+            <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode)</code>
+<div class="block">Adds the specified parameter to the list of parameters for the
+ operation associated with this Call object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#addParameter(java.lang.String,%20javax.xml.namespace.QName,%20java.lang.Class,%20javax.xml.rpc.ParameterMode)">addParameter</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;paramName,
+            <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+            <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode)</code>
+<div class="block">Adds a parameter type and mode for a specific operation.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#addParameter(java.lang.String,%20javax.xml.namespace.QName,%20javax.xml.rpc.ParameterMode)">addParameter</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;paramName,
+            <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+            <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode)</code>
+<div class="block">Adds the specified parameter to the list of parameters for the
+ operation associated with this Call object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#addParameterAsHeader(javax.xml.namespace.QName,%20javax.xml.namespace.QName,%20java.lang.Class,%20javax.xml.rpc.ParameterMode,%20javax.xml.rpc.ParameterMode)">addParameterAsHeader</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;paramName,
+                    <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                    <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                    <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode,
+                    <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;headerMode)</code>
+<div class="block">Adds a parameter type as a soap:header.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#addParameterAsHeader(javax.xml.namespace.QName,%20javax.xml.namespace.QName,%20javax.xml.rpc.ParameterMode,%20javax.xml.rpc.ParameterMode)">addParameterAsHeader</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;paramName,
+                    <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                    <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode,
+                    <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;headerMode)</code>
+<div class="block">Adds a parameter type as a soap:header.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#addTransportPackage(java.lang.String)">addTransportPackage</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;packageName)</code>
+<div class="block">Add a package to the system protocol handler search path.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#clearHeaders()">clearHeaders</a></strong>()</code>
+<div class="block">Clear the list of headers which we insert into each message
+
+ Note: Not part of JAX-RPC specification.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#clearOperation()">clearOperation</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getEncodingStyle()">getEncodingStyle</a></strong>()</code>
+<div class="block">Returns the encoding style as a URI that should be used for the SOAP
+ message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getMaintainSession()">getMaintainSession</a></strong>()</code>
+<div class="block">Get the value of maintainSession flag.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getMessageContext()">getMessageContext</a></strong>()</code>
+<div class="block">Obtain a reference to our MessageContext.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis/description/OperationDesc.html" title="class in org.apache.axis.description">OperationDesc</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getOperation()">getOperation</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getOperationName()">getOperationName</a></strong>()</code>
+<div class="block">Returns the operation name associated with this Call object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis/constants/Style.html" title="class in org.apache.axis.constants">Style</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getOperationStyle()">getOperationStyle</a></strong>()</code>
+<div class="block">Get the operation style.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis/constants/Use.html" title="class in org.apache.axis.constants">Use</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getOperationUse()">getOperationUse</a></strong>()</code>
+<div class="block">Get the operation use.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getOutputParams()">getOutputParams</a></strong>()</code>
+<div class="block">Get the output parameters (if any) from the last invocation.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getOutputValues()">getOutputValues</a></strong>()</code>
+<div class="block">Returns a List values for the output parameters of the last
+ invoked operation.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getParameterTypeByName(java.lang.String)">getParameterTypeByName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;paramName)</code>
+<div class="block">Return the QName of the type of the parameters with the given name.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getParameterTypeByQName(javax.xml.namespace.QName)">getParameterTypeByQName</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;paramQName)</code>
+<div class="block">Return the QName of the type of the parameters with the given name.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getPassword()">getPassword</a></strong>()</code>
+<div class="block">Get the password.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getPortName()">getPortName</a></strong>()</code>
+<div class="block">Returns the fully qualified name of the port for this Call object
+ (if there is one).</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getPortTypeName()">getPortTypeName</a></strong>()</code>
+<div class="block">Returns the fully qualified name of the port type for this Call object
+ (if there is one).</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getProperty(java.lang.String)">getProperty</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">Returns the value associated with the named property.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getPropertyNames()">getPropertyNames</a></strong>()</code>
+<div class="block">Gets the names of configurable properties supported by
+ this <code>Call</code> object.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis/Message.html" title="class in org.apache.axis">Message</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getResponseMessage()">getResponseMessage</a></strong>()</code>
+<div class="block">Directly get the response message in our MessageContext.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getReturnType()">getReturnType</a></strong>()</code>
+<div class="block">Returns the QName of the type of the return value of this Call - or null
+ if not set.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis/client/Service.html" title="class in org.apache.axis.client">Service</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getService()">getService</a></strong>()</code>
+<div class="block">Get the Service object associated with this Call object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getSOAPActionURI()">getSOAPActionURI</a></strong>()</code>
+<div class="block">Get the soapAction URI.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getStreaming()">getStreaming</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getTargetEndpointAddress()">getTargetEndpointAddress</a></strong>()</code>
+<div class="block">Returns the URL of the target Web Service.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getTimeout()">getTimeout</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis/client/Transport.html" title="class in org.apache.axis.client">Transport</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getTransportForProtocol(java.lang.String)">getTransportForProtocol</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;protocol)</code>
+<div class="block">Get the Transport registered for the given protocol.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis/encoding/TypeMapping.html" title="interface in org.apache.axis.encoding">TypeMapping</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getTypeMapping()">getTypeMapping</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#getUsername()">getUsername</a></strong>()</code>
+<div class="block">Get the user name.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#initialize()">initialize</a></strong>()</code>
+<div class="block">Set up the default transport URL mappings.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#invoke()">invoke</a></strong>()</code>
+<div class="block">Invoke this Call with its established MessageContext
+ (perhaps because you called this.setRequestMessage())
+
+ Note: Not part of JAX-RPC specification.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#invoke(org.apache.axis.Message)">invoke</a></strong>(<a href="../../../../org/apache/axis/Message.html" title="class in org.apache.axis">Message</a>&nbsp;msg)</code>
+<div class="block">Invoke the service with a custom Message.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#invoke(java.lang.Object[])">invoke</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)</code>
+<div class="block">Invokes the operation associated with this Call object using the
+ passed in parameters as the arguments to the method.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#invoke(javax.xml.namespace.QName,%20java.lang.Object[])">invoke</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;operationName,
+      <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)</code>
+<div class="block">Invokes a specific operation using a synchronous request-response interaction mode.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#invoke(org.apache.axis.message.RPCElement)">invoke</a></strong>(<a href="../../../../org/apache/axis/message/RPCElement.html" title="class in org.apache.axis.message">RPCElement</a>&nbsp;body)</code>
+<div class="block">Invoke an RPC service with a pre-constructed RPCElement.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#invoke(org.apache.axis.message.SOAPEnvelope)">invoke</a></strong>(<a href="../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</a>&nbsp;env)</code>
+<div class="block">Invoke the service with a custom SOAPEnvelope.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#invoke(java.lang.String,%20java.lang.Object[])">invoke</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;method,
+      <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;args)</code>
+<div class="block">Convenience method to invoke a method with a default (empty)
+ namespace.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#invoke(java.lang.String,%20java.lang.String,%20java.lang.Object[])">invoke</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+      <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;method,
+      <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;args)</code>
+<div class="block">Invoke an RPC service with a method name and arguments.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#invokeOneWay(java.lang.Object[])">invokeOneWay</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)</code>
+<div class="block">Invokes the operation associated with this Call object using the passed
+ in parameters as the arguments to the method.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#isParameterAndReturnSpecRequired(javax.xml.namespace.QName)">isParameterAndReturnSpecRequired</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;operationName)</code>
+<div class="block">Is the caller required to provide the parameter and return type
+ specification?</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#isPropertySupported(java.lang.String)">isPropertySupported</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#registerTypeMapping(java.lang.Class,%20javax.xml.namespace.QName,%20java.lang.Class,%20java.lang.Class)">registerTypeMapping</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                   <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                   <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sfClass,
+                   <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;dfClass)</code>
+<div class="block">register this type matting</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#registerTypeMapping(java.lang.Class,%20javax.xml.namespace.QName,%20java.lang.Class,%20java.lang.Class,%20boolean)">registerTypeMapping</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                   <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                   <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sfClass,
+                   <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;dfClass,
+                   boolean&nbsp;force)</code>
+<div class="block">register a type.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#registerTypeMapping(java.lang.Class,%20javax.xml.namespace.QName,%20org.apache.axis.encoding.SerializerFactory,%20org.apache.axis.encoding.DeserializerFactory)">registerTypeMapping</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                   <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                   <a href="../../../../org/apache/axis/encoding/SerializerFactory.html" title="interface in org.apache.axis.encoding">SerializerFactory</a>&nbsp;sf,
+                   <a href="../../../../org/apache/axis/encoding/DeserializerFactory.html" title="interface in org.apache.axis.encoding">DeserializerFactory</a>&nbsp;df)</code>
+<div class="block">Register type mapping information for serialization/deserialization
+
+ Note: Not part of JAX-RPC specification.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#registerTypeMapping(java.lang.Class,%20javax.xml.namespace.QName,%20org.apache.axis.encoding.SerializerFactory,%20org.apache.axis.encoding.DeserializerFactory,%20boolean)">registerTypeMapping</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                   <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                   <a href="../../../../org/apache/axis/encoding/SerializerFactory.html" title="interface in org.apache.axis.encoding">SerializerFactory</a>&nbsp;sf,
+                   <a href="../../../../org/apache/axis/encoding/DeserializerFactory.html" title="interface in org.apache.axis.encoding">DeserializerFactory</a>&nbsp;df,
+                   boolean&nbsp;force)</code>
+<div class="block">Register type mapping information for serialization/deserialization
+
+ Note: Not part of JAX-RPC specification.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#removeAllParameters()">removeAllParameters</a></strong>()</code>
+<div class="block">Clears the list of parameters.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#removeProperty(java.lang.String)">removeProperty</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">Removes (if set) the named property.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setClientHandlers(org.apache.axis.Handler,%20org.apache.axis.Handler)">setClientHandlers</a></strong>(<a href="../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</a>&nbsp;reqHandler,
+                 <a href="../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</a>&nbsp;respHandler)</code>
+<div class="block">Sets the client-side request and response Handlers.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setEncodingStyle(java.lang.String)">setEncodingStyle</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespaceURI)</code>
+<div class="block">Sets the encoding style to the URL passed in.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setMaintainSession(boolean)">setMaintainSession</a></strong>(boolean&nbsp;yesno)</code>
+<div class="block">Determine whether we'd like to track sessions or not.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOperation(org.apache.axis.description.OperationDesc)">setOperation</a></strong>(<a href="../../../../org/apache/axis/description/OperationDesc.html" title="class in org.apache.axis.description">OperationDesc</a>&nbsp;operation)</code>
+<div class="block">Hand a complete OperationDesc to the Call, and note that this was
+ done so that others don't try to mess with it by calling addParameter,
+ setReturnType, etc.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOperation(javax.xml.namespace.QName,%20javax.xml.namespace.QName)">setOperation</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;portName,
+            <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;opName)</code>
+<div class="block">prefill as much info from the WSDL as it can.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOperation(javax.xml.namespace.QName,%20java.lang.String)">setOperation</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;portName,
+            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;opName)</code>
+<div class="block">prefill as much info from the WSDL as it can.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOperation(java.lang.String)">setOperation</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;opName)</code>
+<div class="block">Prefill as much info from the WSDL as it can.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOperationName(javax.xml.namespace.QName)">setOperationName</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;opName)</code>
+<div class="block">Sets the operation name associated with this Call object.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOperationName(java.lang.String)">setOperationName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;opName)</code>
+<div class="block">This is a convenience method.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOperationStyle(java.lang.String)">setOperationStyle</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;operationStyle)</code>
+<div class="block">Set the operation style: "document", "rpc"</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOperationStyle(org.apache.axis.constants.Style)">setOperationStyle</a></strong>(<a href="../../../../org/apache/axis/constants/Style.html" title="class in org.apache.axis.constants">Style</a>&nbsp;operationStyle)</code>
+<div class="block">Set the operation style</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOperationUse(java.lang.String)">setOperationUse</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;operationUse)</code>
+<div class="block">Set the operation use: "literal", "encoded"</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOperationUse(org.apache.axis.constants.Use)">setOperationUse</a></strong>(<a href="../../../../org/apache/axis/constants/Use.html" title="class in org.apache.axis.constants">Use</a>&nbsp;operationUse)</code>
+<div class="block">Set the operation use</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setOption(java.lang.String,%20java.lang.Object)">setOption</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+         <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
+<div class="block">Set engine option.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setPassword(java.lang.String)">setPassword</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>
+<div class="block">Set the password.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setPortName(javax.xml.namespace.QName)">setPortName</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;portName)</code>
+<div class="block">Sets the port name of this Call object.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setPortTypeName(javax.xml.namespace.QName)">setPortTypeName</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;portType)</code>
+<div class="block">Sets the port type name of this Call object.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setProperty(java.lang.String,%20java.lang.Object)">setProperty</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+           <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
+<div class="block">Allows you to set a named property to the passed in value.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setRequestMessage(org.apache.axis.Message)">setRequestMessage</a></strong>(<a href="../../../../org/apache/axis/Message.html" title="class in org.apache.axis">Message</a>&nbsp;msg)</code>
+<div class="block">Directly set the request message in our MessageContext.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setReturnClass(java.lang.Class)">setReturnClass</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;cls)</code>
+<div class="block">Sets the desired return Java Class.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setReturnQName(javax.xml.namespace.QName)">setReturnQName</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname)</code>
+<div class="block">Set the QName of the return element
+
+ NOT part of JAX-RPC</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setReturnType(javax.xml.namespace.QName)">setReturnType</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;type)</code>
+<div class="block">Sets the return type of the operation associated with this Call object.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setReturnType(javax.xml.namespace.QName,%20java.lang.Class)">setReturnType</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+             <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType)</code>
+<div class="block">Sets the return type for a specific operation.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setReturnTypeAsHeader(javax.xml.namespace.QName)">setReturnTypeAsHeader</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType)</code>
+<div class="block">Set the return type as a header</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setReturnTypeAsHeader(javax.xml.namespace.QName,%20java.lang.Class)">setReturnTypeAsHeader</a></strong>(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                     <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType)</code>
+<div class="block">Set the return type as a header</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setSOAPActionURI(java.lang.String)">setSOAPActionURI</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;SOAPActionURI)</code>
+<div class="block">Set the soapAction URI.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setSOAPService(org.apache.axis.handlers.soap.SOAPService)">setSOAPService</a></strong>(<a href="../../../../org/apache/axis/handlers/soap/SOAPService.html" title="class in org.apache.axis.handlers.soap">SOAPService</a>&nbsp;service)</code>
+<div class="block">Set the service so that it defers missing property gets to the
+ Call.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setSOAPVersion(org.apache.axis.soap.SOAPConstants)">setSOAPVersion</a></strong>(<a href="../../../../org/apache/axis/soap/SOAPConstants.html" title="interface in org.apache.axis.soap">SOAPConstants</a>&nbsp;soapConstants)</code>
+<div class="block">Allow the user to set the default SOAP version.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setStreaming(boolean)">setStreaming</a></strong>(boolean&nbsp;useStreaming)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setTargetEndpointAddress(java.lang.String)">setTargetEndpointAddress</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;address)</code>
+<div class="block">Sets the endpoint address of the target service port.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setTargetEndpointAddress(java.net.URL)">setTargetEndpointAddress</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;address)</code>
+<div class="block">Sets the URL of the target Web Service.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setTimeout(java.lang.Integer)">setTimeout</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;timeout)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setTransport(org.apache.axis.client.Transport)">setTransport</a></strong>(<a href="../../../../org/apache/axis/client/Transport.html" title="class in org.apache.axis.client">Transport</a>&nbsp;trans)</code>
+<div class="block">Set the Transport
+
+ Note: Not part of JAX-RPC specification.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setTransportForProtocol(java.lang.String,%20java.lang.Class)">setTransportForProtocol</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;protocol,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;transportClass)</code>
+<div class="block">Register a Transport that should be used for URLs of the specified
+ protocol.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setUsername(java.lang.String)">setUsername</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>
+<div class="block">Set the username.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#setUseSOAPAction(boolean)">setUseSOAPAction</a></strong>(boolean&nbsp;useSOAPAction)</code>
+<div class="block">Flag to indicate if soapAction should be used.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/apache/axis/client/Call.html#useSOAPAction()">useSOAPAction</a></strong>()</code>
+<div class="block">Discover if soapAction is being used.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="log">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>log</h4>
+<pre>protected static&nbsp;org.apache.commons.logging.Log log</pre>
+</li>
+</ul>
+<a name="entLog">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>entLog</h4>
+<pre>protected static&nbsp;org.apache.commons.logging.Log entLog</pre>
+</li>
+</ul>
+<a name="SEND_TYPE_ATTR">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>SEND_TYPE_ATTR</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> SEND_TYPE_ATTR</pre>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.SEND_TYPE_ATTR">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="TRANSPORT_NAME">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>TRANSPORT_NAME</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> TRANSPORT_NAME</pre>
+<div class="block">This is the name of a property to set the transport of the message</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis/client/Call.html#setProperty(java.lang.String,%20java.lang.Object)"><code>setProperty(java.lang.String, java.lang.Object)</code></a>, 
+<a href="../../../../constant-values.html#org.apache.axis.client.Call.TRANSPORT_NAME">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="CHARACTER_SET_ENCODING">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CHARACTER_SET_ENCODING</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> CHARACTER_SET_ENCODING</pre>
+<div class="block">This is the character set encoding to use for the message</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis/client/Call.html#setProperty(java.lang.String,%20java.lang.Object)"><code>setProperty(java.lang.String, java.lang.Object)</code></a>, 
+<a href="../../../../constant-values.html#org.apache.axis.client.Call.CHARACTER_SET_ENCODING">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="TRANSPORT_PROPERTY">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>TRANSPORT_PROPERTY</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> TRANSPORT_PROPERTY</pre>
+<div class="block">This is not the name of a property that can be set with
+ setProperty, despite its name.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.TRANSPORT_PROPERTY">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="WSDL_SERVICE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>WSDL_SERVICE</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> WSDL_SERVICE</pre>
+<div class="block">this is a property set in the message context when the invocation
+ process begins, for the benefit of handlers</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.WSDL_SERVICE">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="WSDL_PORT_NAME">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>WSDL_PORT_NAME</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> WSDL_PORT_NAME</pre>
+<div class="block">this is a property set in the message context when the invocation
+ process begins, for the benefit of handlers</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.WSDL_PORT_NAME">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="JAXRPC_SERVICE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>JAXRPC_SERVICE</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> JAXRPC_SERVICE</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use WSDL_SERVICE instead.</i></div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.JAXRPC_SERVICE">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="JAXRPC_PORTTYPE_NAME">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>JAXRPC_PORTTYPE_NAME</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> JAXRPC_PORTTYPE_NAME</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>use WSDL_PORT_NAME instead.</i></div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.JAXRPC_PORTTYPE_NAME">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="FAULT_ON_NO_RESPONSE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>FAULT_ON_NO_RESPONSE</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> FAULT_ON_NO_RESPONSE</pre>
+<div class="block">If this property is true, the code will throw a fault if there is no
+ response message from the server.  Otherwise, the
+ invoke method will return a null.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.FAULT_ON_NO_RESPONSE">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="CHECK_MUST_UNDERSTAND">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CHECK_MUST_UNDERSTAND</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> CHECK_MUST_UNDERSTAND</pre>
+<div class="block">If this property is true, code will enforce must understand check on both
+ the request and the response paths.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.CHECK_MUST_UNDERSTAND">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="ATTACHMENT_ENCAPSULATION_FORMAT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ATTACHMENT_ENCAPSULATION_FORMAT</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ATTACHMENT_ENCAPSULATION_FORMAT</pre>
+<div class="block">Property for setting attachment format.
+ Can be set to either DIME or MIME (default)</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis/client/Call.html#setProperty(java.lang.String,%20java.lang.Object)"><code>setProperty(java.lang.String, java.lang.Object)</code></a>, 
+<a href="../../../../org/apache/axis/client/Call.html#ATTACHMENT_ENCAPSULATION_FORMAT_DIME"><code>ATTACHMENT_ENCAPSULATION_FORMAT_DIME</code></a>, 
+<a href="../../../../org/apache/axis/client/Call.html#ATTACHMENT_ENCAPSULATION_FORMAT_MIME"><code>ATTACHMENT_ENCAPSULATION_FORMAT_MIME</code></a>, 
+<a href="../../../../org/apache/axis/client/Call.html#ATTACHMENT_ENCAPSULATION_FORMAT_MTOM"><code>ATTACHMENT_ENCAPSULATION_FORMAT_MTOM</code></a>, 
+<a href="../../../../constant-values.html#org.apache.axis.client.Call.ATTACHMENT_ENCAPSULATION_FORMAT">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="ATTACHMENT_ENCAPSULATION_FORMAT_MIME">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ATTACHMENT_ENCAPSULATION_FORMAT_MIME</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ATTACHMENT_ENCAPSULATION_FORMAT_MIME</pre>
+<div class="block">Property value for setting attachment format as MIME.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.ATTACHMENT_ENCAPSULATION_FORMAT_MIME">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="ATTACHMENT_ENCAPSULATION_FORMAT_DIME">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ATTACHMENT_ENCAPSULATION_FORMAT_DIME</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ATTACHMENT_ENCAPSULATION_FORMAT_DIME</pre>
+<div class="block">Property value for setting attachment format as DIME.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.ATTACHMENT_ENCAPSULATION_FORMAT_DIME">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="ATTACHMENT_ENCAPSULATION_FORMAT_MTOM">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ATTACHMENT_ENCAPSULATION_FORMAT_MTOM</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ATTACHMENT_ENCAPSULATION_FORMAT_MTOM</pre>
+<div class="block">Property value for setting attachment format as DIME.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.ATTACHMENT_ENCAPSULATION_FORMAT_MTOM">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="CONNECTION_TIMEOUT_PROPERTY">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CONNECTION_TIMEOUT_PROPERTY</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> CONNECTION_TIMEOUT_PROPERTY</pre>
+<div class="block">Timeout property: should be accompanies by an integer</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis/client/Call.html#setProperty(java.lang.String,%20java.lang.Object)"><code>setProperty(java.lang.String, java.lang.Object)</code></a>, 
+<a href="../../../../constant-values.html#org.apache.axis.client.Call.CONNECTION_TIMEOUT_PROPERTY">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="STREAMING_PROPERTY">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>STREAMING_PROPERTY</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> STREAMING_PROPERTY</pre>
+<div class="block">Streaming property: should be accompanied by an boolean
+ (i.e. NO high-fidelity recording, deserialize on the fly)</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/apache/axis/client/Call.html#setProperty(java.lang.String,%20java.lang.Object)"><code>setProperty(java.lang.String, java.lang.Object)</code></a>, 
+<a href="../../../../constant-values.html#org.apache.axis.client.Call.STREAMING_PROPERTY">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="ONE_WAY">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ONE_WAY</h4>
+<pre>protected static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> ONE_WAY</pre>
+<div class="block">Internal property to indicate a one way call.
+ That will disable processing of response handlers.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#org.apache.axis.client.Call.ONE_WAY">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="attachmentParts">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>attachmentParts</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Vector.html?is-external=true" title="class or interface in java.util">Vector</a> attachmentParts</pre>
+<div class="block">these are our attachments</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="Call(org.apache.axis.client.Service)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>Call</h4>
+<pre>public&nbsp;Call(<a href="../../../../org/apache/axis/client/Service.html" title="class in org.apache.axis.client">Service</a>&nbsp;service)</pre>
+<div class="block">Default constructor - not much else to say.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>service</code> - the <code>Service</code> this <code>Call</code> will
+              work with</dd></dl>
+</li>
+</ul>
+<a name="Call(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>Call</h4>
+<pre>public&nbsp;Call(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url)
+     throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/MalformedURLException.html?is-external=true" title="class or interface in java.net">MalformedURLException</a></pre>
+<div class="block">Build a call from a URL string.
+
+ This is handy so that you don't have to manually call Call.initialize()
+ in order to register custom transports.  In other words, whereas doing
+ a new URL("local:...") would fail, new Call("local:...") works because
+ we do the initialization of our own and any configured custom protocols.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>url</code> - the target endpoint URL</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/MalformedURLException.html?is-external=true" title="class or interface in java.net">MalformedURLException</a></code></dd></dl>
+</li>
+</ul>
+<a name="Call(java.net.URL)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Call</h4>
+<pre>public&nbsp;Call(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;url)</pre>
+<div class="block">Build a call from a URL.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>url</code> - the target endpoint URL</dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="setProperty(java.lang.String, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setProperty</h4>
+<pre>public&nbsp;void&nbsp;setProperty(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+               <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
+<div class="block">Allows you to set a named property to the passed in value.
+ There are a few known properties (like username, password, etc)
+ that are variables in Call.  The rest of the properties are
+ stored in a Hashtable.  These common properties should be
+ accessed via the accessors for speed/type safety, but they may
+ still be obtained via this method.  It's up to one of the
+ Handlers (or the Axis engine itself) to go looking for
+ one of them.
+
+ There are various well defined properties defined in the
+ JAX-RPC specification and declared in the Call and Stub classes.
+ It is not possible to set any other properties beginning in java. or
+ javax. that are not in the specification.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#setProperty(java.lang.String,%20java.lang.Object)">setProperty</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - Name of the property</dd><dd><code>value</code> - Value of the property</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../javax/xml/rpc/Stub.html" title="interface in javax.xml.rpc"><code>Stub</code></a>, 
+<a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc"><code>There are other properties implemented in this class above and
+ beyond those of the JAX-RPC spec
+ Specifically, ATTACHMENT_ENCAPSULATION_FORMAT, CONNECTION_TIMEOUT_PROPERTY,
+ and TRANSPORT_NAME.
+
+ It is intended that all future Axis-specific properties will begin
+ with axis. or apache. To ensure integration with future versions Axis,
+ use different prefixes for your own properties.
+
+ Axis developers: keep this in sync with propertyNames below</code></a>, 
+<a href="../../../../org/apache/axis/client/Call.html#ATTACHMENT_ENCAPSULATION_FORMAT"><code>ATTACHMENT_ENCAPSULATION_FORMAT</code></a>, 
+<a href="../../../../org/apache/axis/client/Call.html#TRANSPORT_NAME"><code>TRANSPORT_NAME</code></a>, 
+<a href="../../../../org/apache/axis/client/Call.html#CONNECTION_TIMEOUT_PROPERTY"><code>CONNECTION_TIMEOUT_PROPERTY</code></a></dd></dl>
+</li>
+</ul>
+<a name="getProperty(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProperty</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getProperty(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">Returns the value associated with the named property.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#getProperty(java.lang.String)">getProperty</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the name of the property</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Object value of the property or null if the property is not set</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../javax/xml/rpc/JAXRPCException.html" title="class in javax.xml.rpc">JAXRPCException</a></code> - if the requested property is not a supported property</dd></dl>
+</li>
+</ul>
+<a name="removeProperty(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeProperty</h4>
+<pre>public&nbsp;void&nbsp;removeProperty(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">Removes (if set) the named property.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#removeProperty(java.lang.String)">removeProperty</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - name of the property to remove</dd></dl>
+</li>
+</ul>
+<a name="getPropertyNames()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPropertyNames</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Iterator.html?is-external=true" title="class or interface in java.util">Iterator</a>&nbsp;getPropertyNames()</pre>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html#getPropertyNames()">Call</a></code></strong></div>
+<div class="block">Gets the names of configurable properties supported by
+ this <code>Call</code> object.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#getPropertyNames()">getPropertyNames</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>Iterator for the property names</dd></dl>
+</li>
+</ul>
+<a name="isPropertySupported(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isPropertySupported</h4>
+<pre>public&nbsp;boolean&nbsp;isPropertySupported(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+</li>
+</ul>
+<a name="setUsername(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUsername</h4>
+<pre>public&nbsp;void&nbsp;setUsername(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</pre>
+<div class="block">Set the username.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - the new user name</dd></dl>
+</li>
+</ul>
+<a name="getUsername()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUsername</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getUsername()</pre>
+<div class="block">Get the user name.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the user name</dd></dl>
+</li>
+</ul>
+<a name="setPassword(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPassword</h4>
+<pre>public&nbsp;void&nbsp;setPassword(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</pre>
+<div class="block">Set the password.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>password</code> - plain-text copy of the password</dd></dl>
+</li>
+</ul>
+<a name="getPassword()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPassword</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getPassword()</pre>
+<div class="block">Get the password.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>a plain-text copy of the password</dd></dl>
+</li>
+</ul>
+<a name="setMaintainSession(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMaintainSession</h4>
+<pre>public&nbsp;void&nbsp;setMaintainSession(boolean&nbsp;yesno)</pre>
+<div class="block">Determine whether we'd like to track sessions or not.  This
+ overrides the default setting from the service.
+ This just passes through the value into the MessageContext.
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>yesno</code> - true if session state is desired, false if not.</dd></dl>
+</li>
+</ul>
+<a name="getMaintainSession()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMaintainSession</h4>
+<pre>public&nbsp;boolean&nbsp;getMaintainSession()</pre>
+<div class="block">Get the value of maintainSession flag.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>true if session is maintained, false otherwise</dd></dl>
+</li>
+</ul>
+<a name="setOperationStyle(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperationStyle</h4>
+<pre>public&nbsp;void&nbsp;setOperationStyle(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;operationStyle)</pre>
+<div class="block">Set the operation style: "document", "rpc"</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>operationStyle</code> - string designating style</dd></dl>
+</li>
+</ul>
+<a name="setOperationStyle(org.apache.axis.constants.Style)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperationStyle</h4>
+<pre>public&nbsp;void&nbsp;setOperationStyle(<a href="../../../../org/apache/axis/constants/Style.html" title="class in org.apache.axis.constants">Style</a>&nbsp;operationStyle)</pre>
+<div class="block">Set the operation style</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>operationStyle</code> - </dd></dl>
+</li>
+</ul>
+<a name="getOperationStyle()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOperationStyle</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis/constants/Style.html" title="class in org.apache.axis.constants">Style</a>&nbsp;getOperationStyle()</pre>
+<div class="block">Get the operation style.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the <code>Style</code> of the operation</dd></dl>
+</li>
+</ul>
+<a name="setOperationUse(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperationUse</h4>
+<pre>public&nbsp;void&nbsp;setOperationUse(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;operationUse)</pre>
+<div class="block">Set the operation use: "literal", "encoded"</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>operationUse</code> - string designating use</dd></dl>
+</li>
+</ul>
+<a name="setOperationUse(org.apache.axis.constants.Use)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperationUse</h4>
+<pre>public&nbsp;void&nbsp;setOperationUse(<a href="../../../../org/apache/axis/constants/Use.html" title="class in org.apache.axis.constants">Use</a>&nbsp;operationUse)</pre>
+<div class="block">Set the operation use</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>operationUse</code> - </dd></dl>
+</li>
+</ul>
+<a name="getOperationUse()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOperationUse</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis/constants/Use.html" title="class in org.apache.axis.constants">Use</a>&nbsp;getOperationUse()</pre>
+<div class="block">Get the operation use.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the <code>Use</code> of the operation</dd></dl>
+</li>
+</ul>
+<a name="setUseSOAPAction(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUseSOAPAction</h4>
+<pre>public&nbsp;void&nbsp;setUseSOAPAction(boolean&nbsp;useSOAPAction)</pre>
+<div class="block">Flag to indicate if soapAction should be used.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>useSOAPAction</code> - true if the soapAction header is to be used to
+              help find the method to invoke, false otherwise</dd></dl>
+</li>
+</ul>
+<a name="useSOAPAction()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>useSOAPAction</h4>
+<pre>public&nbsp;boolean&nbsp;useSOAPAction()</pre>
+<div class="block">Discover if soapAction is being used.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>true if it is, false otherwise</dd></dl>
+</li>
+</ul>
+<a name="setSOAPActionURI(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSOAPActionURI</h4>
+<pre>public&nbsp;void&nbsp;setSOAPActionURI(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;SOAPActionURI)</pre>
+<div class="block">Set the soapAction URI.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>SOAPActionURI</code> - the new SOAP action URI</dd></dl>
+</li>
+</ul>
+<a name="getSOAPActionURI()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSOAPActionURI</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSOAPActionURI()</pre>
+<div class="block">Get the soapAction URI.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the curretn SOAP action URI</dd></dl>
+</li>
+</ul>
+<a name="setEncodingStyle(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setEncodingStyle</h4>
+<pre>public&nbsp;void&nbsp;setEncodingStyle(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespaceURI)</pre>
+<div class="block">Sets the encoding style to the URL passed in.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>namespaceURI</code> - URI of the encoding to use.</dd></dl>
+</li>
+</ul>
+<a name="getEncodingStyle()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEncodingStyle</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getEncodingStyle()</pre>
+<div class="block">Returns the encoding style as a URI that should be used for the SOAP
+ message.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>String URI of the encoding style to use</dd></dl>
+</li>
+</ul>
+<a name="setTargetEndpointAddress(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTargetEndpointAddress</h4>
+<pre>public&nbsp;void&nbsp;setTargetEndpointAddress(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;address)</pre>
+<div class="block">Sets the endpoint address of the target service port. This address must
+ correspond to the transport specified in the binding for this Call
+ instance.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#setTargetEndpointAddress(java.lang.String)">setTargetEndpointAddress</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>address</code> - - Endpoint address of the target service port; specified
+                  as URI</dd></dl>
+</li>
+</ul>
+<a name="setTargetEndpointAddress(java.net.URL)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTargetEndpointAddress</h4>
+<pre>public&nbsp;void&nbsp;setTargetEndpointAddress(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a>&nbsp;address)</pre>
+<div class="block">Sets the URL of the target Web Service.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>address</code> - URL of the target Web Service</dd></dl>
+</li>
+</ul>
+<a name="getTargetEndpointAddress()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTargetEndpointAddress</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getTargetEndpointAddress()</pre>
+<div class="block">Returns the URL of the target Web Service.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#getTargetEndpointAddress()">getTargetEndpointAddress</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>URL URL of the target Web Service</dd></dl>
+</li>
+</ul>
+<a name="getTimeout()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTimeout</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;getTimeout()</pre>
+</li>
+</ul>
+<a name="setTimeout(java.lang.Integer)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTimeout</h4>
+<pre>public&nbsp;void&nbsp;setTimeout(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;timeout)</pre>
+</li>
+</ul>
+<a name="getStreaming()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getStreaming</h4>
+<pre>public&nbsp;boolean&nbsp;getStreaming()</pre>
+</li>
+</ul>
+<a name="setStreaming(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setStreaming</h4>
+<pre>public&nbsp;void&nbsp;setStreaming(boolean&nbsp;useStreaming)</pre>
+</li>
+</ul>
+<a name="isParameterAndReturnSpecRequired(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isParameterAndReturnSpecRequired</h4>
+<pre>public&nbsp;boolean&nbsp;isParameterAndReturnSpecRequired(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;operationName)</pre>
+<div class="block">Is the caller required to provide the parameter and return type
+ specification?
+ If true, then
+  addParameter and setReturnType MUST be called to provide the meta data.
+ If false, then
+  addParameter and setReturnType SHOULD NOT be called because the
+  Call object already has the meta data describing the
+  parameters and return type. If addParameter is called, the specified
+  parameter is added to the end of the list of parameters.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#isParameterAndReturnSpecRequired(javax.xml.namespace.QName)">isParameterAndReturnSpecRequired</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>operationName</code> - Qualified name of the operation</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Returns true if the Call implementation class
+      requires addParameter and setReturnType to be
+      invoked in the client code for the specified
+      operation. This method returns false otherwise.</dd></dl>
+</li>
+</ul>
+<a name="addParameter(javax.xml.namespace.QName, javax.xml.namespace.QName, javax.xml.rpc.ParameterMode)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addParameter</h4>
+<pre>public&nbsp;void&nbsp;addParameter(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;paramName,
+                <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode)</pre>
+<div class="block">Adds the specified parameter to the list of parameters for the
+ operation associated with this Call object.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>paramName</code> - Name that will be used for the parameter in the XML</dd><dd><code>xmlType</code> - XMLType of the parameter</dd><dd><code>parameterMode</code> - one of IN, OUT or INOUT</dd></dl>
+</li>
+</ul>
+<a name="addParameter(javax.xml.namespace.QName, javax.xml.namespace.QName, java.lang.Class, javax.xml.rpc.ParameterMode)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addParameter</h4>
+<pre>public&nbsp;void&nbsp;addParameter(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;paramName,
+                <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode)</pre>
+<div class="block">Adds the specified parameter to the list of parameters for the
+ operation associated with this Call object.
+
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>paramName</code> - Name that will be used for the parameter in the XML</dd><dd><code>xmlType</code> - XMLType of the parameter</dd><dd><code>javaType</code> - The Java class of the parameter</dd><dd><code>parameterMode</code> - one of IN, OUT or INOUT</dd></dl>
+</li>
+</ul>
+<a name="addParameter(java.lang.String, javax.xml.namespace.QName, javax.xml.rpc.ParameterMode)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addParameter</h4>
+<pre>public&nbsp;void&nbsp;addParameter(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;paramName,
+                <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode)</pre>
+<div class="block">Adds the specified parameter to the list of parameters for the
+ operation associated with this Call object.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#addParameter(java.lang.String,%20javax.xml.namespace.QName,%20javax.xml.rpc.ParameterMode)">addParameter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>paramName</code> - Name that will be used for the parameter in the XML</dd><dd><code>xmlType</code> - XMLType of the parameter</dd><dd><code>parameterMode</code> - one of IN, OUT or INOUT</dd></dl>
+</li>
+</ul>
+<a name="addParameter(java.lang.String, javax.xml.namespace.QName, java.lang.Class, javax.xml.rpc.ParameterMode)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addParameter</h4>
+<pre>public&nbsp;void&nbsp;addParameter(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;paramName,
+                <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode)</pre>
+<div class="block">Adds a parameter type and mode for a specific operation. Note that the
+ client code is not required to call any addParameter and setReturnType
+ methods before calling the invoke method. A Call implementation class
+ can determine the parameter types by using the Java reflection and
+ configured type mapping registry.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#addParameter(java.lang.String,%20javax.xml.namespace.QName,%20java.lang.Class,%20javax.xml.rpc.ParameterMode)">addParameter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>paramName</code> - - Name of the parameter</dd><dd><code>xmlType</code> - - XML datatype of the parameter</dd><dd><code>javaType</code> - - The Java class of the parameter</dd><dd><code>parameterMode</code> - - Mode of the parameter-whether IN, OUT or INOUT</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../javax/xml/rpc/JAXRPCException.html" title="class in javax.xml.rpc">JAXRPCException</a></code> - - if isParameterAndReturnSpecRequired returns
+                              false, then addParameter MAY throw
+                              JAXRPCException....actually Axis allows
+                              modification in such cases</dd></dl>
+</li>
+</ul>
+<a name="addParameterAsHeader(javax.xml.namespace.QName, javax.xml.namespace.QName, javax.xml.rpc.ParameterMode, javax.xml.rpc.ParameterMode)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addParameterAsHeader</h4>
+<pre>public&nbsp;void&nbsp;addParameterAsHeader(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;paramName,
+                        <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                        <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode,
+                        <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;headerMode)</pre>
+<div class="block">Adds a parameter type as a soap:header.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>paramName</code> - - Name of the parameter</dd><dd><code>xmlType</code> - - XML datatype of the parameter</dd><dd><code>parameterMode</code> - - Mode of the parameter-whether IN, OUT or INOUT</dd><dd><code>headerMode</code> - - Mode of the header. Even if this is an INOUT
+                      parameter, it need not be in the header in both
+                      directions.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../javax/xml/rpc/JAXRPCException.html" title="class in javax.xml.rpc">JAXRPCException</a></code> - - if isParameterAndReturnSpecRequired returns
+                         false, then addParameter MAY throw
+                         JAXRPCException....actually Axis allows
+                         modification in such cases</dd></dl>
+</li>
+</ul>
+<a name="addParameterAsHeader(javax.xml.namespace.QName, javax.xml.namespace.QName, java.lang.Class, javax.xml.rpc.ParameterMode, javax.xml.rpc.ParameterMode)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addParameterAsHeader</h4>
+<pre>public&nbsp;void&nbsp;addParameterAsHeader(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;paramName,
+                        <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                        <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                        <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;parameterMode,
+                        <a href="../../../../javax/xml/rpc/ParameterMode.html" title="class in javax.xml.rpc">ParameterMode</a>&nbsp;headerMode)</pre>
+<div class="block">Adds a parameter type as a soap:header.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>paramName</code> - - Name of the parameter</dd><dd><code>xmlType</code> - - XML datatype of the parameter</dd><dd><code>javaType</code> - - The Java class of the parameter</dd><dd><code>parameterMode</code> - - Mode of the parameter-whether IN, OUT or INOUT</dd><dd><code>headerMode</code> - - Mode of the header.  Even if this is an INOUT
+                     parameter, it need not be in the header in both
+                     directions.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../javax/xml/rpc/JAXRPCException.html" title="class in javax.xml.rpc">JAXRPCException</a></code> - - if isParameterAndReturnSpecRequired returns
+                              false, then addParameter MAY throw
+                              JAXRPCException....actually Axis allows
+                              modification in such cases</dd></dl>
+</li>
+</ul>
+<a name="getParameterTypeByName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParameterTypeByName</h4>
+<pre>public&nbsp;<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;getParameterTypeByName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;paramName)</pre>
+<div class="block">Return the QName of the type of the parameters with the given name.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#getParameterTypeByName(java.lang.String)">getParameterTypeByName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>paramName</code> - name of the parameter to return</dd>
+<dt><span class="strong">Returns:</span></dt><dd>XMLType    XMLType of paramName, or null if not found.</dd></dl>
+</li>
+</ul>
+<a name="getParameterTypeByQName(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParameterTypeByQName</h4>
+<pre>public&nbsp;<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;getParameterTypeByQName(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;paramQName)</pre>
+<div class="block">Return the QName of the type of the parameters with the given name.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>paramQName</code> - QName of the parameter to return</dd>
+<dt><span class="strong">Returns:</span></dt><dd>XMLType    XMLType of paramQName, or null if not found.</dd></dl>
+</li>
+</ul>
+<a name="setReturnType(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setReturnType</h4>
+<pre>public&nbsp;void&nbsp;setReturnType(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;type)</pre>
+<div class="block">Sets the return type of the operation associated with this Call object.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#setReturnType(javax.xml.namespace.QName)">setReturnType</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>type</code> - QName of the return value type.</dd></dl>
+</li>
+</ul>
+<a name="setReturnType(javax.xml.namespace.QName, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setReturnType</h4>
+<pre>public&nbsp;void&nbsp;setReturnType(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType)</pre>
+<div class="block">Sets the return type for a specific operation.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#setReturnType(javax.xml.namespace.QName,%20java.lang.Class)">setReturnType</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>xmlType</code> - - QName of the data type of the return value</dd><dd><code>javaType</code> - - Java class of the return value</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../javax/xml/rpc/JAXRPCException.html" title="class in javax.xml.rpc">JAXRPCException</a></code> - - if isParameterAndReturnSpecRequired returns
+ false, then setReturnType MAY throw JAXRPCException...Axis allows
+ modification without throwing the exception.</dd></dl>
+</li>
+</ul>
+<a name="setReturnTypeAsHeader(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setReturnTypeAsHeader</h4>
+<pre>public&nbsp;void&nbsp;setReturnTypeAsHeader(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType)</pre>
+<div class="block">Set the return type as a header</div>
+</li>
+</ul>
+<a name="setReturnTypeAsHeader(javax.xml.namespace.QName, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setReturnTypeAsHeader</h4>
+<pre>public&nbsp;void&nbsp;setReturnTypeAsHeader(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                         <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType)</pre>
+<div class="block">Set the return type as a header</div>
+</li>
+</ul>
+<a name="getReturnType()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReturnType</h4>
+<pre>public&nbsp;<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;getReturnType()</pre>
+<div class="block">Returns the QName of the type of the return value of this Call - or null
+ if not set.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#getReturnType()">getReturnType</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>the XMLType specified for this Call (or null).</dd></dl>
+</li>
+</ul>
+<a name="setReturnQName(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setReturnQName</h4>
+<pre>public&nbsp;void&nbsp;setReturnQName(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname)</pre>
+<div class="block">Set the QName of the return element
+
+ NOT part of JAX-RPC</div>
+</li>
+</ul>
+<a name="setReturnClass(java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setReturnClass</h4>
+<pre>public&nbsp;void&nbsp;setReturnClass(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;cls)</pre>
+<div class="block">Sets the desired return Java Class.  This is a convenience method
+ which will cause the Call to automatically convert return values
+ into a desired class if possible.  For instance, we return object
+ arrays by default now for SOAP arrays - you could specify:
+
+ setReturnClass(Vector.class)
+
+ and you'd get a Vector back from invoke() instead of having to do
+ the conversion yourself.
+
+ Note: Not part of JAX-RPC specification.  To be JAX-RPC compliant,
+       use setReturnType(QName, Class).</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>cls</code> - the desired return class.</dd></dl>
+</li>
+</ul>
+<a name="removeAllParameters()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeAllParameters</h4>
+<pre>public&nbsp;void&nbsp;removeAllParameters()</pre>
+<div class="block">Clears the list of parameters.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#removeAllParameters()">removeAllParameters</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../javax/xml/rpc/JAXRPCException.html" title="class in javax.xml.rpc">JAXRPCException</a></code> - - if isParameterAndReturnSpecRequired returns
+  false, then removeAllParameters MAY throw JAXRPCException...Axis allows
+  modification to the Call object without throwing an exception.</dd></dl>
+</li>
+</ul>
+<a name="getOperationName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOperationName</h4>
+<pre>public&nbsp;<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;getOperationName()</pre>
+<div class="block">Returns the operation name associated with this Call object.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#getOperationName()">getOperationName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>String Name of the operation or null if not set.</dd></dl>
+</li>
+</ul>
+<a name="setOperationName(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperationName</h4>
+<pre>public&nbsp;void&nbsp;setOperationName(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;opName)</pre>
+<div class="block">Sets the operation name associated with this Call object.  This will
+ not check the WSDL (if there is WSDL) to make sure that it's a valid
+ operation name.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#setOperationName(javax.xml.namespace.QName)">setOperationName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>opName</code> - Name of the operation.</dd></dl>
+</li>
+</ul>
+<a name="setOperationName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperationName</h4>
+<pre>public&nbsp;void&nbsp;setOperationName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;opName)</pre>
+<div class="block">This is a convenience method.  If the user doesn't care about the QName
+ of the operation, the user can call this method, which converts a String
+ operation name to a QName.</div>
+</li>
+</ul>
+<a name="setOperation(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperation</h4>
+<pre>public&nbsp;void&nbsp;setOperation(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;opName)</pre>
+<div class="block">Prefill as much info from the WSDL as it can.
+ Right now it's SOAPAction, operation qname, parameter types
+ and return type of the Web Service.
+
+ This methods considers that port name and target endpoint address have
+ already been set. This is useful when you want to use the same Call
+ instance for several calls on the same Port
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>opName</code> - Operation(method) that's going to be invoked</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../javax/xml/rpc/JAXRPCException.html" title="class in javax.xml.rpc">JAXRPCException</a></code></dd></dl>
+</li>
+</ul>
+<a name="setOperation(javax.xml.namespace.QName, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperation</h4>
+<pre>public&nbsp;void&nbsp;setOperation(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;portName,
+                <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;opName)</pre>
+<div class="block">prefill as much info from the WSDL as it can.
+ Right now it's target URL, SOAPAction, Parameter types,
+ and return type of the Web Service.
+
+ If wsdl is not present, this function set port name and operation name
+ and does not modify target endpoint address.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>portName</code> - PortName in the WSDL doc to search for</dd><dd><code>opName</code> - Operation(method) that's going to be invoked</dd></dl>
+</li>
+</ul>
+<a name="setOperation(javax.xml.namespace.QName, javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperation</h4>
+<pre>public&nbsp;void&nbsp;setOperation(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;portName,
+                <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;opName)</pre>
+<div class="block">prefill as much info from the WSDL as it can.
+ Right now it's target URL, SOAPAction, Parameter types,
+ and return type of the Web Service.
+
+ If wsdl is not present, this function set port name and operation name
+ and does not modify target endpoint address.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>portName</code> - PortName in the WSDL doc to search for</dd><dd><code>opName</code> - Operation(method) that's going to be invoked</dd></dl>
+</li>
+</ul>
+<a name="getPortName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPortName</h4>
+<pre>public&nbsp;<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;getPortName()</pre>
+<div class="block">Returns the fully qualified name of the port for this Call object
+ (if there is one).</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>QName Fully qualified name of the port (or null if not set)</dd></dl>
+</li>
+</ul>
+<a name="setPortName(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPortName</h4>
+<pre>public&nbsp;void&nbsp;setPortName(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;portName)</pre>
+<div class="block">Sets the port name of this Call object.  This call will not set
+ any additional fields, nor will it do any checking to verify that
+ this port name is actually defined in the WSDL - for now anyway.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>portName</code> - Fully qualified name of the port</dd></dl>
+</li>
+</ul>
+<a name="getPortTypeName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPortTypeName</h4>
+<pre>public&nbsp;<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;getPortTypeName()</pre>
+<div class="block">Returns the fully qualified name of the port type for this Call object
+ (if there is one).</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#getPortTypeName()">getPortTypeName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>QName Fully qualified name of the port type</dd></dl>
+</li>
+</ul>
+<a name="setPortTypeName(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPortTypeName</h4>
+<pre>public&nbsp;void&nbsp;setPortTypeName(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;portType)</pre>
+<div class="block">Sets the port type name of this Call object.  This call will not set
+ any additional fields, nor will it do any checking to verify that
+ this port type is actually defined in the WSDL - for now anyway.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#setPortTypeName(javax.xml.namespace.QName)">setPortTypeName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>portType</code> - Fully qualified name of the portType</dd></dl>
+</li>
+</ul>
+<a name="setSOAPVersion(org.apache.axis.soap.SOAPConstants)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSOAPVersion</h4>
+<pre>public&nbsp;void&nbsp;setSOAPVersion(<a href="../../../../org/apache/axis/soap/SOAPConstants.html" title="interface in org.apache.axis.soap">SOAPConstants</a>&nbsp;soapConstants)</pre>
+<div class="block">Allow the user to set the default SOAP version.  For SOAP 1.2, pass
+ SOAPConstants.SOAP12_CONSTANTS.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>soapConstants</code> - the SOAPConstants object representing the correct
+                      version</dd></dl>
+</li>
+</ul>
+<a name="invoke(javax.xml.namespace.QName, java.lang.Object[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;invoke(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;operationName,
+            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)
+              throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></pre>
+<div class="block">Invokes a specific operation using a synchronous request-response interaction mode. The invoke method takes
+ as parameters the object values corresponding to these defined parameter types. Implementation of the invoke
+ method must check whether the passed parameter values correspond to the number, order and types of parameters
+ specified in the corresponding operation specification.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#invoke(javax.xml.namespace.QName,%20java.lang.Object[])">invoke</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>operationName</code> - - Name of the operation to invoke</dd><dd><code>params</code> - - Parameters for this invocation</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the value returned from the other end.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></code> - - if there is any error in the remote method invocation or if the Call
+ object is not configured properly.</dd></dl>
+</li>
+</ul>
+<a name="invoke(java.lang.Object[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;invoke(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)
+              throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></pre>
+<div class="block">Invokes the operation associated with this Call object using the
+ passed in parameters as the arguments to the method.
+
+ For Messaging (ie. non-RPC) the params argument should be an array
+ of SOAPBodyElements.  <b>All</b> of them need to be SOAPBodyElements,
+ if any of them are not this method will default back to RPC.  In the
+ Messaging case the return value will be a vector of SOAPBodyElements.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#invoke(java.lang.Object[])">invoke</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>params</code> - Array of parameters to invoke the Web Service with</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Object Return value of the operation/method - or null</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/rmi/RemoteException.html?is-external=true" title="class or interface in java.rmi">RemoteException</a></code> - if there's an error</dd></dl>
+</li>
+</ul>
+<a name="invokeOneWay(java.lang.Object[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invokeOneWay</h4>
+<pre>public&nbsp;void&nbsp;invokeOneWay(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)</pre>
+<div class="block">Invokes the operation associated with this Call object using the passed
+ in parameters as the arguments to the method.  This will return
+ immediately rather than waiting for the server to complete its
+ processing.
+
+ NOTE: the return immediately part isn't implemented yet</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#invokeOneWay(java.lang.Object[])">invokeOneWay</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>params</code> - Array of parameters to invoke the Web Service with</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../javax/xml/rpc/JAXRPCException.html" title="class in javax.xml.rpc">JAXRPCException</a></code> - is there's an error</dd></dl>
+</li>
+</ul>
+<a name="invoke(org.apache.axis.Message)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</a>&nbsp;invoke(<a href="../../../../org/apache/axis/Message.html" title="class in org.apache.axis">Message</a>&nbsp;msg)
+                    throws <a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></pre>
+<div class="block">Invoke the service with a custom Message.
+ This method simplifies invoke(SOAPEnvelope).
+ <p>
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msg</code> - a Message to send</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></code> - if there is any failure</dd></dl>
+</li>
+</ul>
+<a name="invoke(org.apache.axis.message.SOAPEnvelope)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</a>&nbsp;invoke(<a href="../../../../org/apache/axis/message/SOAPEnvelope.html" title="class in org.apache.axis.message">SOAPEnvelope</a>&nbsp;env)
+                    throws <a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></pre>
+<div class="block">Invoke the service with a custom SOAPEnvelope.
+ <p>
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>env</code> - a SOAPEnvelope to send</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></code> - if there is any failure</dd></dl>
+</li>
+</ul>
+<a name="setTransportForProtocol(java.lang.String, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTransportForProtocol</h4>
+<pre>public static&nbsp;void&nbsp;setTransportForProtocol(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;protocol,
+                           <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;transportClass)</pre>
+<div class="block">Register a Transport that should be used for URLs of the specified
+ protocol.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>protocol</code> - the URL protocol (i.e. "tcp" for "tcp://" urls)</dd><dd><code>transportClass</code> - the class of a Transport type which will be used
+                       for matching URLs.</dd></dl>
+</li>
+</ul>
+<a name="initialize()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>initialize</h4>
+<pre>public static&nbsp;void&nbsp;initialize()</pre>
+<div class="block">Set up the default transport URL mappings.
+
+ This must be called BEFORE doing non-standard URL parsing (i.e. if you
+ want the system to accept a "local:" URL).  This is why the Options class
+ calls it before parsing the command-line URL argument.
+
+ Note: Not part of JAX-RPC specification.</div>
+</li>
+</ul>
+<a name="addTransportPackage(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addTransportPackage</h4>
+<pre>public static&nbsp;void&nbsp;addTransportPackage(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;packageName)</pre>
+<div class="block">Add a package to the system protocol handler search path.  This
+ enables users to create their own URLStreamHandler classes, and thus
+ allow custom protocols to be used in Axis (typically on the client
+ command line).
+
+ For instance, if you add "samples.transport" to the packages property,
+ and have a class samples.transport.tcp.Handler, the system will be able
+ to parse URLs of the form "tcp://host:port..."
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>packageName</code> - the package in which to search for protocol names.</dd></dl>
+</li>
+</ul>
+<a name="setTransport(org.apache.axis.client.Transport)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTransport</h4>
+<pre>public&nbsp;void&nbsp;setTransport(<a href="../../../../org/apache/axis/client/Transport.html" title="class in org.apache.axis.client">Transport</a>&nbsp;trans)</pre>
+<div class="block">Set the Transport
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>trans</code> - the Transport object we'll use to set up
+                  MessageContext properties.</dd></dl>
+</li>
+</ul>
+<a name="getTransportForProtocol(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTransportForProtocol</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis/client/Transport.html" title="class in org.apache.axis.client">Transport</a>&nbsp;getTransportForProtocol(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;protocol)</pre>
+<div class="block">Get the Transport registered for the given protocol.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>protocol</code> - a protocol such as "http" or "local" which may
+                 have a Transport object associated with it.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the Transport registered for this protocol, or null if none.</dd></dl>
+</li>
+</ul>
+<a name="setRequestMessage(org.apache.axis.Message)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setRequestMessage</h4>
+<pre>public&nbsp;void&nbsp;setRequestMessage(<a href="../../../../org/apache/axis/Message.html" title="class in org.apache.axis">Message</a>&nbsp;msg)</pre>
+<div class="block">Directly set the request message in our MessageContext.
+
+ This allows custom message creation.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>msg</code> - the new request message.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/RuntimeException.html?is-external=true" title="class or interface in java.lang">RuntimeException</a></code> - containing the text of an AxisFault, if any
+ AxisFault was thrown</dd></dl>
+</li>
+</ul>
+<a name="getResponseMessage()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResponseMessage</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis/Message.html" title="class in org.apache.axis">Message</a>&nbsp;getResponseMessage()</pre>
+<div class="block">Directly get the response message in our MessageContext.
+
+ Shortcut for having to go thru the msgContext
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the response Message object in the msgContext</dd></dl>
+</li>
+</ul>
+<a name="getMessageContext()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMessageContext</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis/MessageContext.html" title="class in org.apache.axis">MessageContext</a>&nbsp;getMessageContext()</pre>
+<div class="block">Obtain a reference to our MessageContext.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the MessageContext.</dd></dl>
+</li>
+</ul>
+<a name="addHeader(org.apache.axis.message.SOAPHeaderElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addHeader</h4>
+<pre>public&nbsp;void&nbsp;addHeader(<a href="../../../../org/apache/axis/message/SOAPHeaderElement.html" title="class in org.apache.axis.message">SOAPHeaderElement</a>&nbsp;header)</pre>
+<div class="block">Add a header which should be inserted into each outgoing message
+ we generate.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>header</code> - a SOAPHeaderElement to be inserted into messages</dd></dl>
+</li>
+</ul>
+<a name="clearHeaders()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clearHeaders</h4>
+<pre>public&nbsp;void&nbsp;clearHeaders()</pre>
+<div class="block">Clear the list of headers which we insert into each message
+
+ Note: Not part of JAX-RPC specification.</div>
+</li>
+</ul>
+<a name="getTypeMapping()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTypeMapping</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis/encoding/TypeMapping.html" title="interface in org.apache.axis.encoding">TypeMapping</a>&nbsp;getTypeMapping()</pre>
+</li>
+</ul>
+<a name="registerTypeMapping(java.lang.Class, javax.xml.namespace.QName, org.apache.axis.encoding.SerializerFactory, org.apache.axis.encoding.DeserializerFactory)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>registerTypeMapping</h4>
+<pre>public&nbsp;void&nbsp;registerTypeMapping(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                       <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                       <a href="../../../../org/apache/axis/encoding/SerializerFactory.html" title="interface in org.apache.axis.encoding">SerializerFactory</a>&nbsp;sf,
+                       <a href="../../../../org/apache/axis/encoding/DeserializerFactory.html" title="interface in org.apache.axis.encoding">DeserializerFactory</a>&nbsp;df)</pre>
+<div class="block">Register type mapping information for serialization/deserialization
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>javaType</code> - is  the Java class of the data type.</dd><dd><code>xmlType</code> - the xsi:type QName of the associated XML type.</dd><dd><code>sf/df</code> - are the factories (or the Class objects of the factory).</dd></dl>
+</li>
+</ul>
+<a name="registerTypeMapping(java.lang.Class, javax.xml.namespace.QName, org.apache.axis.encoding.SerializerFactory, org.apache.axis.encoding.DeserializerFactory, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>registerTypeMapping</h4>
+<pre>public&nbsp;void&nbsp;registerTypeMapping(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                       <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                       <a href="../../../../org/apache/axis/encoding/SerializerFactory.html" title="interface in org.apache.axis.encoding">SerializerFactory</a>&nbsp;sf,
+                       <a href="../../../../org/apache/axis/encoding/DeserializerFactory.html" title="interface in org.apache.axis.encoding">DeserializerFactory</a>&nbsp;df,
+                       boolean&nbsp;force)</pre>
+<div class="block">Register type mapping information for serialization/deserialization
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>javaType</code> - is  the Java class of the data type.</dd><dd><code>xmlType</code> - the xsi:type QName of the associated XML type.</dd><dd><code>sf/df</code> - are the factories (or the Class objects of the factory).</dd><dd><code>force</code> - Indicates whether to add the information if already registered.</dd></dl>
+</li>
+</ul>
+<a name="registerTypeMapping(java.lang.Class, javax.xml.namespace.QName, java.lang.Class, java.lang.Class)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>registerTypeMapping</h4>
+<pre>public&nbsp;void&nbsp;registerTypeMapping(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                       <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sfClass,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;dfClass)</pre>
+<div class="block">register this type matting</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>javaType</code> - </dd><dd><code>xmlType</code> - </dd><dd><code>sfClass</code> - </dd><dd><code>dfClass</code> - </dd></dl>
+</li>
+</ul>
+<a name="registerTypeMapping(java.lang.Class, javax.xml.namespace.QName, java.lang.Class, java.lang.Class, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>registerTypeMapping</h4>
+<pre>public&nbsp;void&nbsp;registerTypeMapping(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;javaType,
+                       <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;sfClass,
+                       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;dfClass,
+                       boolean&nbsp;force)</pre>
+<div class="block">register a type. This only takes place if either the serializer or
+ deserializer factory could be created.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>javaType</code> - java type to handle</dd><dd><code>xmlType</code> - XML mapping</dd><dd><code>sfClass</code> - class of serializer factory</dd><dd><code>dfClass</code> - class of deserializer factory</dd><dd><code>force</code> - </dd></dl>
+</li>
+</ul>
+<a name="invoke(java.lang.String, java.lang.String, java.lang.Object[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;invoke(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace,
+            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;method,
+            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;args)
+              throws <a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></pre>
+<div class="block">Invoke an RPC service with a method name and arguments.
+
+ This will call the service, serializing all the arguments, and
+ then deserialize the return value.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - the desired namespace URI of the method element</dd><dd><code>method</code> - the method name</dd><dd><code>args</code> - an array of Objects representing the arguments to the
+             invoked method.  If any of these objects are RPCParams,
+             Axis will use the embedded name of the RPCParam as the
+             name of the parameter.  Otherwise, we will serialize
+             each argument as an XML element called "arg<n>".</dd>
+<dt><span class="strong">Returns:</span></dt><dd>a deserialized Java Object containing the return value</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="invoke(java.lang.String, java.lang.Object[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;invoke(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;method,
+            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;args)
+              throws <a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></pre>
+<div class="block">Convenience method to invoke a method with a default (empty)
+ namespace.  Calls invoke() above.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>method</code> - the method name</dd><dd><code>args</code> - an array of Objects representing the arguments to the
+             invoked method.  If any of these objects are RPCParams,
+             Axis will use the embedded name of the RPCParam as the
+             name of the parameter.  Otherwise, we will serialize
+             each argument as an XML element called "arg<n>".</dd>
+<dt><span class="strong">Returns:</span></dt><dd>a deserialized Java Object containing the return value</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="invoke(org.apache.axis.message.RPCElement)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;invoke(<a href="../../../../org/apache/axis/message/RPCElement.html" title="class in org.apache.axis.message">RPCElement</a>&nbsp;body)
+              throws <a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></pre>
+<div class="block">Invoke an RPC service with a pre-constructed RPCElement.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>body</code> - an RPCElement containing all the information about
+             this call.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>a deserialized Java Object containing the return value</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="setOption(java.lang.String, java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOption</h4>
+<pre>public&nbsp;void&nbsp;setOption(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+             <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
+<div class="block">Set engine option.
+
+ Note: Not part of JAX-RPC specification.</div>
+</li>
+</ul>
+<a name="invoke()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>invoke</h4>
+<pre>public&nbsp;void&nbsp;invoke()
+            throws <a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></pre>
+<div class="block">Invoke this Call with its established MessageContext
+ (perhaps because you called this.setRequestMessage())
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../org/apache/axis/AxisFault.html" title="class in org.apache.axis">AxisFault</a></code></dd></dl>
+</li>
+</ul>
+<a name="getOutputParams()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOutputParams</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&nbsp;getOutputParams()</pre>
+<div class="block">Get the output parameters (if any) from the last invocation.
+ 
+ This allows named access - if you need sequential access, use
+ getOutputValues().</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#getOutputParams()">getOutputParams</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>a Map containing the output parameter values, indexed by QName</dd></dl>
+</li>
+</ul>
+<a name="getOutputValues()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOutputValues</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;getOutputValues()</pre>
+<div class="block">Returns a List values for the output parameters of the last
+ invoked operation.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../javax/xml/rpc/Call.html#getOutputValues()">getOutputValues</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../javax/xml/rpc/Call.html" title="interface in javax.xml.rpc">Call</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd>Values for the output parameters. An empty List is
+         returned if there are no output values.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../../javax/xml/rpc/JAXRPCException.html" title="class in javax.xml.rpc">JAXRPCException</a></code> - - If this method is invoked for a
+                           one-way operation or is invoked
+                           before any invoke method has been called.</dd></dl>
+</li>
+</ul>
+<a name="getService()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getService</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis/client/Service.html" title="class in org.apache.axis.client">Service</a>&nbsp;getService()</pre>
+<div class="block">Get the Service object associated with this Call object.
+
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Service the Service object this Call object is associated with</dd></dl>
+</li>
+</ul>
+<a name="setSOAPService(org.apache.axis.handlers.soap.SOAPService)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSOAPService</h4>
+<pre>public&nbsp;void&nbsp;setSOAPService(<a href="../../../../org/apache/axis/handlers/soap/SOAPService.html" title="class in org.apache.axis.handlers.soap">SOAPService</a>&nbsp;service)</pre>
+<div class="block">Set the service so that it defers missing property gets to the
+ Call.  So when client-side Handlers get at the MessageContext,
+ the property scoping will be MC -> SOAPService -> Call</div>
+</li>
+</ul>
+<a name="setClientHandlers(org.apache.axis.Handler, org.apache.axis.Handler)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setClientHandlers</h4>
+<pre>public&nbsp;void&nbsp;setClientHandlers(<a href="../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</a>&nbsp;reqHandler,
+                     <a href="../../../../org/apache/axis/Handler.html" title="interface in org.apache.axis">Handler</a>&nbsp;respHandler)</pre>
+<div class="block">Sets the client-side request and response Handlers.  This is handy
+ for programatically setting up client-side work without deploying
+ via WSDD or the EngineConfiguration mechanism.</div>
+</li>
+</ul>
+<a name="addAttachmentPart(java.lang.Object)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addAttachmentPart</h4>
+<pre>public&nbsp;void&nbsp;addAttachmentPart(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;attachment)</pre>
+<div class="block">This method adds an attachment.
+ <p>
+ Note: Not part of JAX-RPC specification.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>attachment</code> - the <code>Object</code> to attach</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/RuntimeException.html?is-external=true" title="class or interface in java.lang">RuntimeException</a></code> - if there is no support for attachments</dd></dl>
+</li>
+</ul>
+<a name="addFault(javax.xml.namespace.QName, java.lang.Class, javax.xml.namespace.QName, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addFault</h4>
+<pre>public&nbsp;void&nbsp;addFault(<a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname,
+            <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;cls,
+            <a href="../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlType,
+            boolean&nbsp;isComplex)</pre>
+<div class="block">Add a fault for this operation.
+ <p>
+ Note: Not part of JAX-RPC specificaion.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>qname</code> - qname of the fault</dd><dd><code>cls</code> - class of the fault</dd><dd><code>xmlType</code> - XML type of the fault</dd><dd><code>isComplex</code> - true if xmlType is a complex type, false otherwise</dd></dl>
+</li>
+</ul>
+<a name="setOperation(org.apache.axis.description.OperationDesc)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOperation</h4>
+<pre>public&nbsp;void&nbsp;setOperation(<a href="../../../../org/apache/axis/description/OperationDesc.html" title="class in org.apache.axis.description">OperationDesc</a>&nbsp;operation)</pre>
+<div class="block">Hand a complete OperationDesc to the Call, and note that this was
+ done so that others don't try to mess with it by calling addParameter,
+ setReturnType, etc.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>operation</code> - the OperationDesc to associate with this call.</dd></dl>
+</li>
+</ul>
+<a name="getOperation()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOperation</h4>
+<pre>public&nbsp;<a href="../../../../org/apache/axis/description/OperationDesc.html" title="class in org.apache.axis.description">OperationDesc</a>&nbsp;getOperation()</pre>
+</li>
+</ul>
+<a name="clearOperation()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>clearOperation</h4>
+<pre>public&nbsp;void&nbsp;clearOperation()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Call.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-all.html">Index</a></li>
+<li><a href="../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../org/apache/axis/client/AxisClientProxy.html" title="class in org.apache.axis.client"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/apache/axis/client/HappyClient.html" title="class in org.apache.axis.client"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../index.html?org/apache/axis/client/Call.html" target="_top">Frames</a></li>
+<li><a href="Call.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

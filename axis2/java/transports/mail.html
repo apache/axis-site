@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Axis2 Transports - Mail transport</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../transports" id="bannerLeft">
+    
+            
+    
+            </a>
+                        <a href="http://www.apache.org" id="bannerRight">
+    
+                                            <img src="images/asfLogo.jpg" alt="" />
+    
+            </a>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 07 Dec 2009
+                      </div>
+            <div class="xright">            <a href="http://www.apache.org/" class="externalLink">Apache</a>
+            |
+                <a href="../../">WebServices</a>
+            |
+                <a href="../">Commons</a>
+            |
+                <a href="../../axis2/">Axis2</a>
+            |
+                <a href="http://synapse.apache.org/" class="externalLink">Synapse</a>
+            
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Axis2 Transports</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="index.html">About</a>
+          </li>
+              
+          
+              
+      
+            
+      
+              
+        <li class="expanded">
+                    <a href="download_index.html">Downloads</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="download.cgi">Releases</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="source-repository.html">Source Code</a>
+          </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+            
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="docs_index.html">Documentation</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="jms.html">JMS Transport</a>
+          </li>
+                  
+    <li class="none">
+              <strong>Mail Transport</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="tcp-transport.html">TCP Transport</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="sms.html">SMS Transport</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="apidocs/index.html">Java Doc</a>
+          </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="expanded">
+                    <a href="project-info.html">Project Information</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="mail-lists.html">Mailing Lists</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="building.html">Building</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="issue-tracking.html">Issue Tracking</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="dependencies.html">Dependencies</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="dependency-convergence.html">Dependency Convergence</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="dependency-management.html">Dependency Management</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="plugins.html">Plugins</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="plugin-management.html">Plugin Management</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="team-list.html">Project Team</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="project-summary.html">Project Summary</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2><a name="Introduction"></a>Introduction</h2>
+<p>The mail transport allows to send and receive messages using MIME compliant mail messages. The transport sender
+            transmits outgoing messages using SMTP, while the transport listener connects to one or more mail accounts
+            and periodically polls these accounts for new incoming messages. The implementation is based on
+            <a href="http://java.sun.com/products/javamail/" class="externalLink">JavaMail</a> and therefore supports any mail store protocol
+            for which a JavaMail provider is available.</p>
+</div>
+<div class="section"><h2><a name="Transport_listener"></a>Transport listener</h2>
+<div class="section"><h3><a name="Configuration"></a>Configuration</h3>
+<pre>    &lt;transportReceiver name=&quot;mailto&quot; class=&quot;org.apache.axis2.transport.mail.MailTransportListener&quot;/&gt;</pre></div>
+<div class="section"><h3><a name="Endpoint_configuration"></a>Endpoint configuration</h3>
+<p>Endpoints can be configured both at the transport level and at the service level. In order to receive messages using
+            the mail transport, the listener or the service must be configured with a set of parameters
+            to access the corresponding mailbox account. If messages from the mail account should be
+            directly dispatched to a given service, than the parameters must be specified on that service.
+            If on the other hand messages from that account can't be pre-dispatched to a specific service
+            (e.g. because the account is used to receive responses to outgoing messages), then the parameters
+            must be added to the <tt>transportReceiver</tt> element in <tt>axis2.xml</tt>.</p>
+<p>All parameters starting with <tt>mail.</tt> are
+            interpreted as JavaMail environment properties. The most relevant are <tt>mail.<em>&lt;protocol&gt;</em>.host</tt>
+            and <tt>mail.<em>&lt;protocol&gt;</em>.user</tt>, where <tt><em>&lt;protocol&gt;</em></tt> is typically <tt>pop3</tt>
+            or <tt>imap</tt>. Assuming that Sun's JavaMail implementation is used, the complete list of supported properties for these
+            two protocols can be found <a href="http://java.sun.com/products/javamail/javadocs/com/sun/mail/pop3/package-summary.html" class="externalLink">here</a>
+            and <a href="http://java.sun.com/products/javamail/javadocs/com/sun/mail/imap/package-summary.html" class="externalLink">here</a>.</p>
+<p>In additional to the JavaMail environment properties, the following transport specific service parameters are
+            used:</p>
+<table class="bodyTable"><tr class="a"><th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+<tr class="b"><td>transport.PollInterval</td>
+<td>No</td>
+<td>The poll interval in seconds.</td>
+</tr>
+<tr class="a"><td>transport.mail.Address</td>
+<td>Yes</td>
+<td>The address used to calculate the endpoint reference for the service. It is assumed that mails
+                    sent to this address will be delivered to the mailbox account configured for the service.
+                    Note that the transport has no means to validate this value and an incorrect address will not
+                    be detected.</td>
+</tr>
+<tr class="b"><td>mail.<em>&lt;protocol&gt;</em>.password</td>
+<td>Yes</td>
+<td>The password for the mailbox account.</td>
+</tr>
+<tr class="a"><td>transport.mail.Protocol</td>
+<td>Yes</td>
+<td>The mail store protocol to be used. The value must be protocol identifier recognized by JavaMail.
+                    Usual values are <tt>pop3</tt> and <tt>imap</tt>. Note that the SSL variants of these two protocols
+                    are not considered as distinct protocols. Rather, SSL is configured using the appropriate JavaMail
+                    environment properties.</td>
+</tr>
+<tr class="b"><td>transport.mail.ContentType</td>
+<td>No</td>
+<td>This parameter allows to override the content type of incoming messages. This parameter
+                    is useful if the service can only receive messages of a single content type and the client
+                    is known to send incorrect content type information. If this parameter is set, the
+                    <tt>Content-Type</tt> MIME header in incoming messages is ignored.</td>
+</tr>
+<tr class="a"><td>transport.mail.ReplyAddress</td>
+<td>No</td>
+<td>The reply-to address to be used when no From or Reply-To header is present in the
+                    request message.</td>
+</tr>
+<tr class="b"><td>transport.mail.Folder</td>
+<td>No</td>
+<td>The folder to read messages from. Defaults to <tt>INBOX</tt>.</td>
+</tr>
+<tr class="a"><td>transport.mail.PreserveHeaders, transport.mail.RemoveHeaders</td>
+<td>No</td>
+<td>These two properties control which MIME headers of the received message will be stored
+                    in the <tt>TRANSPORT_HEADERS</tt> property of the message context. Both parameters expect a
+                    comma separated list of header names as value. <tt>transport.mail.PreserveHeaders</tt> specifies
+                    a whitelist of headers to retain, while <tt>transport.mail.RemoveHeaders</tt> specifies a
+                    blacklist of headers to remove. Note that the two parameters should not be used simultaneously.</td>
+</tr>
+<tr class="b"><td>transport.mail.ActionAfterProcess</td>
+<td>No</td>
+<td>Determines what the transport should do with the message after successful processing.
+                    Possible values are <tt>MOVE</tt> and <tt>DELETE</tt>. The default value is <tt>DELETE</tt>.</td>
+</tr>
+<tr class="a"><td>transport.mail.ActionAfterFailure</td>
+<td>No</td>
+<td>Determines what the transport should do with the message if processing fails.
+                    Possible values are <tt>MOVE</tt> and <tt>DELETE</tt>. The default value is <tt>DELETE</tt>.
+                    [FIXME: we should reconsider this; it is dangerous!]</td>
+</tr>
+<tr class="b"><td>transport.mail.MoveAfterProcess</td>
+<td>Conditional</td>
+<td>Specifies the destination folder if <tt>transport.mail.ActionAfterProcess</tt>
+                    is <tt>MOVE</tt>.</td>
+</tr>
+<tr class="a"><td>transport.mail.MoveAfterFailure</td>
+<td>Conditional</td>
+<td>Specifies the destination folder if <tt>transport.mail.ActionAfterFailure</tt>
+                    is <tt>MOVE</tt>.</td>
+</tr>
+<tr class="b"><td>transport.mail.MaxRetryCount</td>
+<td>No</td>
+<td>The number of connection attempts. When the maximum number of retries is
+                    exceeded, a new poll is scheduled after the normal poll interval.
+                    The default value is 0, i.e. connection failures are simply ignored.</td>
+</tr>
+<tr class="a"><td>transport.mail.ReconnectTimeout</td>
+<td>No</td>
+<td>The interval between two connection attempts if the first failed.
+                    The default value is 0, i.e. a new connection is attempted immediately.
+                    [FIXME: either it is not implemented as intended or the name of the property is misleading; it is not a timeout, but an interval]</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3><a name="Content_extraction"></a>Content extraction</h3>
+<p>Content is extracted from incoming mails using the following rules:</p>
+<ol type="1"><li>If the content type of the message is not <tt>multipart/mixed</tt>, the message is extracted
+                    from the body of the message.</li>
+<li>If the content type of the message is <tt>multipart/mixed</tt>, the listener will attempt to
+                    find a MIME part with a content type different from <tt>text/plain</tt> and for which a
+                    message builder is registered. If a matching part is found, the message will be extracted
+                    from that part. Otherwise, the listener will extract the message from
+                    the last <tt>text/plain</tt> part if a message builder is registered for that content type.
+                    Finally, if no message builder is registered for any of the content types appearing in the multipart
+                    message, an error is triggered.</li>
+</ol>
+<p>Note that these rules only apply if the content type has not been overridden using the
+            <tt>transport.mail.ContentType</tt> property. If this property is set, the message will always be
+            extracted from the body of the message and support for <tt>multipart/mixed</tt> is disabled.</p>
+<p>In all cases the transport listener will use the corresponding message builder registered in the
+            Axis configuration to build the SOAP infoset from the message.</p>
+<p>The special rules for <tt>multipart/mixed</tt> are designed to enable the following use cases:</p>
+<ul><li>Allow humans to send messages to a Web service using a standard mail client. The user
+                    can do so by adding the message as attachment to the mail. Note that this only works
+                    if the mail client correctly sets the <tt>Content-Type</tt> header on the attachment.
+                    This works best for SOAP 1.1 messages: when attaching a file with suffix <tt>.xml</tt>,
+                    most mail clients will set the content type to <tt>text/xml</tt>, exactly as required
+                    for SOAP 1.1.</li>
+<li>Allow clients to send a human readable message together with the actual message.
+                    This is useful if the message may be read by a human before being processed.</li>
+</ul>
+<p>Note that these rules don't interfere with the support for SOAP with Attachments, because
+            SwA uses <tt>multipart/related</tt>.</p>
+</div>
+</div>
+<div class="section"><h2><a name="Transport_sender"></a>Transport sender</h2>
+<div class="section"><h3><a name="Configuration"></a>Configuration</h3>
+<pre xml:space="preserve">    &lt;transportSender name=&quot;mailto&quot; class=&quot;org.apache.synapse.transport.mail.MailTransportSender&quot;&gt;
+        &lt;parameter name=&quot;mail.smtp.host&quot;&gt;smtp.gmail.com&lt;/parameter&gt;
+        &lt;parameter name=&quot;mail.smtp.port&quot;&gt;587&lt;/parameter&gt;
+        &lt;parameter name=&quot;mail.smtp.starttls.enable&quot;&gt;true&lt;/parameter&gt;
+        &lt;parameter name=&quot;mail.smtp.auth&quot;&gt;true&lt;/parameter&gt;
+        &lt;parameter name=&quot;mail.smtp.user&quot;&gt;synapse.demo.0&lt;/parameter&gt;
+        &lt;parameter name=&quot;mail.smtp.password&quot;&gt;mailpassword&lt;/parameter&gt;
+        &lt;parameter name=&quot;mail.smtp.from&quot;&gt;synapse.demo.0@gmail.com&lt;/parameter&gt;
+    &lt;/transportSender&gt;</pre></div>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2004-2009
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

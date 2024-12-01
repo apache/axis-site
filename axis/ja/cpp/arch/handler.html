@@ -1,0 +1,584 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../../skin/print.css" type="text/css">
+<title>Handler Tutorial</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="../../images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="../../images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.co.jp/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input value="ja" name="hl" type="hidden"><input value="UTF-8" name="ie" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../../skin/images/spacer.gif" class="spacer"><input name="Search" value="検索" type="submit">
+<br>WS を検索
+                          
+                          
+                      </td><td><img height="1" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../../index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="../../index.html">はじめに</a>
+</div>
+ 
+<div class="menuItem">
+<a href="../../news.html">お知らせ</a>
+</div>
+
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/ja/axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">活動に参加</span>
+  
+<div class="menuItem">
+<a href="../../overview.html">概要</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../cvs.html">CVS リポジトリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../mail.html">メーリングリスト</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../ref.html">リファレンスライブラリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../bugs.html">バグ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../howtobuild.html">サイト構築方法</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="../../java/index.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../java/install.html">インストール</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../java/user-guide.html">ユーザガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../java/developers-guide.html">開発者ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../java/integration-guide.html">統合ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../java/architecture-guide.html">アーキテクチャガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../java/reference.html">リファレンスガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../java/reading.html">読書ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../java/requirements.html">要件</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="../../cpp/index.html">Axis C++ 最新版</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../cpp/documentation.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../cpp/download.html">ダウンロード</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki ページ [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../cpp/who.html">メンバ紹介</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">ダウンロード</span>
+  
+<div class="menuItem">
+<a href="../../releases.html">リリース</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../interim.html">暫定版</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">ソースコード [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">翻訳</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/jp/">日本語</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">関連プロジェクト</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">その他</span>
+  
+<div class="menuItem">
+<a href="../../who.html">メンバ紹介</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../contact.html">連絡先</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../legal.html">法関連</a>
+</div>
+  
+<div class="menuItem">
+<a href="../../docs.html">メモ/ドキュメント</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Handler Tutorial</h1>
+</div>
+<div class="h3">
+<div class="h3">
+<h3>Handler Tutorial</h3>
+</div>
+<p>
+<a href="#linux">For Linux</a>
+<br>
+<br> 
+<a href="#windows">For Windows</a>
+<br>
+<br>
+</p>
+<br>
+<p>
+<a name="#linux"></a>
+</p>
+<div class="h3">
+<h3>Linux</h3>
+</div>
+<p>
+<a href="#introduction">Introduction to Handlers</a>
+<br>
+<br>
+<a href="#sample">Sample Handlers (building, running)</a>
+<br>
+<br>
+<a href="#creating">Creating your own Handlers</a>
+<br>
+<br>
+<a href="#API">API Notes for Handler writers</a>
+<br>
+<br>
+</p>
+<p></p>
+<p>Handlers are pluggable components in Axis C++. We have included a set of sample handlers for your reference. You could write your own handlers by following the instructions given for the sample Handlers.<br>
+<br> 
+<strong>Note: If you are using Client side Handlers you need to enter the following entry to the [Axis_Folder]/axiscpp.conf configuration file.</strong>
+<br>
+<br>ClientWSDDFilePath:xxx<br>
+<br>Here xxx should be the path to the &ldquo;client.wsdd&rdquo; file.<br>
+</p>
+<p>
+<a name="#sample"></a>
+</p>
+<p>
+<strong>Testing the sample Handlers</strong>
+</p>
+<br>
+<p>We have included the following sample Handlers for your reference.<br>
+<br> 1) echoStringHeaderHandler (A server side handler sample)<br> This sample handler will simply echo (i.e send back) the string which you send in the SOAP Header in the SOAP request.<br>
+<br>2)testHandler (A client side handler sample)<br>
+<br> This sample handler will simply add a SOAP Header to the generated SOAP request.<br>
+<br> Please note that these are very primitive sample handlers and are presented here to give you an idea about writing your own Handlers.<br>
+</p>
+<p>
+<strong>echoStringHeaderHandler</strong>
+<br>
+<br>
+<strong>Building the Sample Handlers in RedHat linux</strong>
+<br>
+<br> 
+<strong>Building echoStringHeaderHandler</strong> (A server side handler sample)<br>
+<br>The build files are available at<br>
+<br>AXISCPP_HOME/samples/server/echoStringHeaderHandler.<br>Change your current directory to this directory and then you could execute the following.<br>
+<br> make<br>
+<br> make install<br>
+<br>The handler so file will be created at $AXISCPP_DEPLOY/lib directory<br>
+<br> 
+<strong>Configuring the Handler</strong>
+<br>
+<br>Now edit the AXISCPP_DEPLOY/etc/server.wsdd to include the handler for a particular service.<br>
+<br>
+</p>
+<p>&lt;service name="Calculator" provider="CPP:RPC" description="Simple Calculator Axis C++ Service "&gt;<br>&lt;requestFlow name="CalculatorHandlers"&gt;<br>&lt;handler name="ESHHandler" type="AXIS_HOME/handlers/custom/echoStringHeaderHandler/libeshhandler.so"&gt;<br>&lt;/handler&gt;<br>&lt;/requestFlow&gt;<br>&lt;responseFlow name="CalculatorHandlers"&gt;<br>&lt;handler name="ESHHandler" type="AXISCPP_DEPLOY/lib/libeshhandler.so"&gt;<br>&lt;/handler&gt;<br>&lt;/responseFlow&gt;<br>&lt;parameter name="allowedMethods" value="add sub mul div "/&gt;<br>&lt;parameter name="className" value="Axis\webservices\Calculator.dll" /&gt;<br>&lt;/service&gt;<br>
+</p>
+<p>
+<strong>Note:</strong> Make sure you specify the correct path of the handler so in the server.wsdd file. Replace the AXISCPP_DEPLOY with the exact relative path which AXISCPP_DEPLOY points to. (eg: type="/usr/local/axiscpp_deploy/etc/libeshhandler.so )<br>
+<br>Now you are almost done to run your server side handler.<br>Restart the Apache server and that's it.<br>
+<br>
+<strong>Running the Handler</strong>
+<br>
+<br>Since this Handler is configured to the Calculator web service in the above step, this Handler will be executed when a client send a SOAP request to the Calculator web service.<br>
+<br> 
+<strong>testHandler</strong>
+<br>
+<br>
+<strong>Building the Sample Handlers in RedHat linux</strong>
+<br>
+<br> 
+<strong>Building testHandler</strong> (A client side handler sample)<br>
+<br>The build files are available at AXISCPP_HOME/samples/client/testHandler. Change your current directory to this direcotory and then you could execute the following.<br>
+<br> make<br>
+<br> make install<br>
+<br>The handler so file will be created at $AXISCPP_DEPLOY/lib/.<br>
+<br> 
+<strong>Configuring the Handler</strong>
+<br>
+<br> Now edit the AXISCPP_DEPLOY/etc/client.wsdd to include the handler for a particular service.</p>
+<p>&lt;service name="Calculator" provider="CPP:RPC" description="Calculator web service"&gt;<br>&lt;requestFlow name="CalculatorHandlers"&gt;<br>&lt;handler name="TestHandler" type="AXISCPP_DEPLOY/lib/libtest_client_handler.so"&gt;<br>&lt;/handler&gt;<br>&lt;/requestFlow&gt;<br>&lt;/service&gt;</p>
+<p>
+<strong>Note:</strong> Make sure you specify the correct path of the handler so in the client.wsdd file. Replace the AXISCPP_DEPLOY with the exact relative path which AXISCPP_DEPLOY points to. (eg: type="/usr/local/axiscpp_deploy/lib/libtest_client_handler.so)<br>
+<br> Now you are almost done to run your client side handler.<br>
+<br>
+<strong>Note:</strong> If you are using Client side Handlers you need to enter the  entry in the AXISCPP_DEPLOY/etc/axiscpp.conf configuration file. (See above)<br>
+<br>
+<strong>Running the Handler</strong>
+<br>
+<br>Since this Handler is configured to the Calculator web service in the above step, this Handler will be executed when you run the calculator web service client. (It is at AXISCPP_DEPLOY/bin/calculator )</p>
+<p>
+<a name="#creating"></a>
+</p>
+<p>
+<strong>Handler Notes:</strong>
+<br>1) You can see the Handler behavior through the TCP Monitor. (TCP Monitor is a Axis Java tool)<br>2) To get an idea of Handlers look at the Handler sample source files.<br> a. echoStringHeaderHandler (AXISCPP_HOME/samples/server/echoStringHeaderHandler)<br> b. testHandler (AXISCPP_HOME/samples/client/testHandler)</p>
+<p>
+<a name="#API"></a>
+</p>
+<br>
+<p>
+<strong>The Handler API and details for Handler writers</strong>
+<br>
+<br> Now you have seen some sample Handlers so that you can explore more on Handlers. The following sections helps you for the same.<br>
+<br> In order to get access to the DeSerializer the handler writer can use the following code block.<br>
+<br>
+</p>
+<p>// -----<br>.....<br>IHandlerSoapDeSerializer* pIHandlerSoapDeSerializer;<br>pIMsg-&gt;getSoapDeSerializer(&amp;pIHandlerSoapDeSerializer);<br>.....<br>-------//<br>
+<br>
+</p>
+<p>In order to get access to a incoming HeaderBlock the handler writer can use the following code block.<br>
+<br> // -----<br>.....<br>IHeaderBlock* pIHeaderBlock= pIHandlerSoapDeSerializer-&gt;getHeaderBlock("echoMeString", "http://soapinterop.org/echoheader/");<br>.....<br>-------//</p>
+<p>In order to manipulate the above accessed HeaderBlock the handler writer can use the following code block.<br>
+<br> // -----<br>.....<br>if (pIHeaderBlock != NULL) {<br>
+<br> &nbsp;&nbsp;&nbsp;const BasicNode* pBasicNode= pIHeaderBlock-&gt;getFirstChild();<br>
+<br> &nbsp;&nbsp;&nbsp;const AxisChar* pachHeaderValue;<br>
+<br> &nbsp;&nbsp;&nbsp;if (pBasicNode != NULL)<br>&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if((pBasicNode-&gt;getNodeType()) == CHARACTER_NODE) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pachHeaderValue= pBasicNode-&gt;getValue();<br>&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pachHeaderValue = "This was not the expected value Ros";<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;} else<br>&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pachHeaderValue = "pBascNode is NULL";<br>&nbsp;&nbsp;&nbsp; }<br>
+<br> &nbsp;&nbsp;&nbsp;AxisChar* pachTmpValue = (AxisChar*) malloc(strlen(pachHeaderValue) + 4);<br>&nbsp;&nbsp;&nbsp;strcpy(pachTmpValue, pachHeaderValue);<br>
+<br> &nbsp;&nbsp;&nbsp;pachTemp = "EchoStringHeaderHandlerPr1.id";<br>&nbsp;&nbsp;&nbsp;pIMsg-&gt;setProperty(pachTemp, pachTmpValue);<br>
+<br> &nbsp;&nbsp;&nbsp;free(pachTmpValue);<br>
+<br> &nbsp;&nbsp;&nbsp;} else {<br>
+<br>&nbsp;&nbsp;&nbsp;//do some thing<br>&nbsp;&nbsp;&nbsp;//AxisChar* pachTmpValue = "Default values since no reqeust SOAP header";<br>&nbsp;&nbsp;&nbsp;//pachTemp = "EchoStringHeaderHandlerPr1.id";<br>&nbsp;&nbsp;&nbsp; //pIMsg-&gt;setProperty(pachTemp, pachTmpValue);<br>
+<br> &nbsp;&nbsp;&nbsp;//free(pachTmpValue);<br>&nbsp;&nbsp;&nbsp;}<br>
+</p>
+<p>.....<br>-------//<br>
+<br> In order to get access to the incoming SOAP Body the handler writer can use the following code block.<br>
+<br> To get the body as a AxisChar*<br>
+<br> // -----<br>
+<br>.....<br>IHandlerSoapDeSerializer* pIHandlerSoapDeSerializer;<br>pIMsg-&gt;getSoapDeSerializer(&amp;pIHandlerSoapDeSerializer);<br>AxisChar* pSoapBody = pIHandlerSoapDeSerializer-&gt;getBodyAsChar();<br>.....<br>-------//<br>
+<br> To get the body as a decoded base64 stream.<br>// -----<br>.....<br>IHandlerSoapDeSerializer* pIHandlerSoapDeSerializer;<br>pIMsg-&gt;getSoapDeSerializer(&amp;pIHandlerSoapDeSerializer);<br>xsd__base64Binary bb = pIHandlerSoapDeSerializer-&amp;gtgetBodyAsBase64Binary();<br>.....<br>-------//</p>
+<p>
+<strong>Notes:</strong>
+<br>Have a look at the following classes at the API docs to see all the available functions and their respective descriptions. (You can even look at the relevent .h/.hpp header files for the API comments)<br>IhandlerSoapDeSerializer<br>IHeaderBlock<br>BasicNode<br>
+</p>
+<p>The BasicNode API is similar (not exactly the same, but ..) to the DOM and is written as a tree traversing API.<br>
+<br> With the sample code samples provided above and with the API notes a developer will easily be able to write and play around his/her own Handlers.<br>
+<br> This tutorial will be updated frequently with the new additions and specially with your suggestions.<br>
+<br>
+</p>
+<p>
+<a name="#windows"></a>
+</p>
+<div class="h3">
+<h3>Windows</h3>
+</div>
+<br>
+<br>
+<p>
+<a href="#introd">Introduction to Handlers</a>
+<br>
+<br>
+<a href="#sam">Sample Handlers (building, running)</a>
+<br>
+<br>
+<a href="#create">Creating your own Handlers</a>
+<br>
+<br>
+<a href="#APP">API Notes for Handler writers</a>
+<br>
+<br>
+</p>
+<p></p>
+<p>Handlers are pluggable components in Axis C++. We have included a set of sample handlers for your reference.<br>
+<br>You could write your own handlers by following the instructions given for the sample Handlers.<br>
+<br>
+<strong>Note: If you are using Client side Handlers you need to enter the following entry to the [Axis_Folder]/axiscpp.conf configuration file.</strong>
+<br>
+<br>ClientWSDDFilePath:Axis\conf\client.wsdd<br>
+<br>After entering this entry to your [Axis_Folder]/axiscpp.conf configuration file will look like:<br>
+<br>LogPath:Axis\logs\AxisLog.txt<br>WSDDFilePath:Axis\conf\server.wsdd<br>ClientWSDDFilePath:Axis\conf\client.wsdd<br>
+<br>
+</p>
+<p>
+<a name="#sam"></a>
+</p>
+<p>
+<strong>Testing the sample Handlers</strong>
+<br>
+<br>We have included the following sample Handlers for your reference.<br>
+<br>1) <strong>echoStringHeaderHandler</strong> (A server side handler sample)<br>
+<br>This sample handler will simply echo (i.e send back) the string which you send in the SOAP Header in the SOAP request.<br>
+<br>2)<strong>testHandler</strong> (A client side handler sample)<br>
+<br>This sample handler will simply add a SOAP Header to the generated SOAP request.<br>Please note that these are very primitive sample handlers and are presented here to give you an idea about writing your own Handlers.<br>
+<br>
+<strong>echoStringHeaderHandler</strong>
+<br>
+<br>
+<strong>Building the Sample Handlers in VC</strong>
+<br>
+</p>
+<p>
+<strong>Building echoStringHeaderHandler</strong> (A server side handler sample)<br>
+<br>The VC dsw file (ServerHandlers.dsw) is available at Axis_Extract/vc/samples/server/ ServerHandlers.dsw.<br>Open this file and build the project echoStringHeaderHandler. Once the build is successful you will find the DLL (echoStringHeaderHandler.dll) at Axis_Extract/bin.<br> If you see this DLL at the above location you are done with the first step.<br>
+<br>
+<strong>Configuring the Handler</strong>
+<br>
+<br>Now edit the [Axis_Folder]/conf/server.wsdd to include the handler for a particular service.<br>
+</p>
+<p>&lt;service name="Calculator" provider="CPP:RPC" description="Simple Calculator Axis C++ Service "&gt;<br>&lt;requestFlow name="CalculatorHandlers"&gt;<br>&lt;handler name="ESHHandler" type="[Axis_Extract]/bin/echoStringHeaderHandler.dll"&gt;<br>&lt;/handler&gt;<br>&lt;/requestFlow&gt;<br>&lt;responseFlow name="CalculatorHandlers"&gt;<br>&lt;handler name="ESHHandler" type="[Axis_Extract]/bin/echoStringHeaderHandler.dll"&gt;<br>&lt;/handler&gt;<br>&lt;/responseFlow&gt;<br>&lt;parameter name="allowedMethods" value="add sub mul div "/&gt;<br>&lt;parameter name="className" value="Axis\webservices\Calculator.dll" /&gt;<br>&lt;/service&gt;<br>
+<br>
+<strong>Note:</strong> Make sure you specify the correct path of the handler dll in the server.wsdd file.<br>Now you are almost done to run your server side handler.<br>Restart the Apache server.<br>
+<br>
+</p>
+<p>
+<strong>Running the Handler</strong>
+<br>
+<br>Since this Handler is configured to the Calculator web service in the above step, this Handler will be executed when a client send a SOAP request to the Calculator web service.<br>
+<br>
+<strong>testHandler</strong>
+<br>
+<br>
+<strong>Building the Sample Handlers in VC</strong>
+<br>
+<br>
+<strong>Building testHandler</strong> (A client side handler sample)<br>
+<br>The VC dsw file <strong>(ClientHandlers.dsw)</strong> is available at Axis_Extract/vc/samples/client/ClientHandlers.dsw.Open this file and build the project TestHandler.<br>Once the build is successful you will find the DLL testHandler.dll) at Axis_Extract/bin. If you see this DLL at the above location you are done with the first step.<br>
+<br>
+<strong>Configuring the Handler</strong>
+<br>
+<br>Now edit the [Axis_Folder]/conf/client.wsdd to include the handler for a particular service.<br>
+</p>
+<p>&lt;service name="Calculator" provider="CPP:DOCUMENT" description="Calculator web service"&gt;<br>&lt;requestFlow name="CalculatorHandlers"&gt;<br>&lt;handler name="TestHandler" type="[Axis_Extract]/bin/testHandler.dll"&gt;<br>&lt;/handler&gt;<br>&lt;/requestFlow&gt;<br>&lt;/service&gt;</p>
+<p>
+<strong>Note:</strong> Make sure you specify the correct path of the handler dll in the client.wsdd file.<br>Now you are almost done to run your client side handler.<br>
+<br>
+<strong>Note: If you are using Client side Handlers you need to enter the ClientWSDDFilePath entry in the [Axis_Folder]/axiscpp.conf configuration file. (See above)</strong> Running the Handler<br>
+<br>Since this Handler is configured to the Calculator web service in the above step, this Handler will be executed when you run the calculator web service client. (It is at [Axis_Extract]/bin/Calculator.exe)<br>
+<br>
+</p>
+<p>
+<a name="#create"></a>
+</p>
+<p>Handler Notes:<br>
+<br>1) You can see the Handler behavior through the TCP Monitor. (TCP Monitor is a Axis Java tool)<br>
+<br>2) To get an idea of Handlers look at the Handler sample source files.<br>
+<br>a. echoStringHeaderHandler ([Axis_Extract]/samples/server/echoStringHeaderHandler)<br>
+<br>b. testHandler ([Axis_Extract]/samples/client/testHandler)<br>
+<br>
+</p>
+<p></p>
+<p>
+<strong>The Handler API and details for Handler writers</strong>
+<br>
+<br> Now you have seen some sample Handlers so that you can explore more on Handlers. The following sections helps you for the same.<br>
+<br> In order to get access to the DeSerializer the handler writer can use the following code block.<br>
+<br>
+</p>
+<p>// -----<br>.....<br>IHandlerSoapDeSerializer* pIHandlerSoapDeSerializer;<br>
+<br>pIMsg-&gt;getSoapDeSerializer(&amp;pIHandlerSoapDeSerializer);<br>
+<br>.....<br>-------//<br>
+<br> In order to get access to a incoming HeaderBlock the handler writer can use the following code block.<br>
+<br> // -----<br>.....<br>IHeaderBlock* pIHeaderBlock= pIHandlerSoapDeSerializer-&gt;getHeaderBlock("echoMeString", "http://soapinterop.org/echoheader/");<br>.....<br>-------//<br>
+</p>
+<p>In order to manipulate the above accessed HeaderBlock the handler writer can use the following code block.<br>
+<br> // -----<br>.....<br>if (pIHeaderBlock != NULL) {<br>
+<br> &nbsp;&nbsp;&nbsp;&nbsp;const BasicNode* pBasicNode= pIHeaderBlock-&gt;getFirstChild();<br> &nbsp;&nbsp;&nbsp;&nbsp;const AxisChar* pachHeaderValue;<br>
+<br> &nbsp;&nbsp;&nbsp;&nbsp;if (pBasicNode != NULL)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;if((pBasicNode-&gt;getNodeType()) == CHARACTER_NODE) {<br>&nbsp;&nbsp;&nbsp;&nbsp;pachHeaderValue= pBasicNode-&gt;getValue();<br>&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;pachHeaderValue = "This was not the expected value Ros";<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;} else<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;pachHeaderValue = "pBascNode is NULL";<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br> &nbsp;&nbsp;&nbsp;&nbsp;AxisChar* pachTmpValue = (AxisChar*) malloc(strlen(pachHeaderValue) + 4);<br>&nbsp;&nbsp;&nbsp;&nbsp;strcpy(pachTmpValue, pachHeaderValue);<br>
+<br> &nbsp;&nbsp;&nbsp;&nbsp;pachTemp = "EchoStringHeaderHandlerPr1.id";<br>&nbsp;&nbsp;&nbsp;&nbsp;pIMsg-&gt;setProperty(pachTemp, pachTmpValue);<br>
+<br> &nbsp;&nbsp;&nbsp;&nbsp;free(pachTmpValue);<br>
+<br> &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;//do some thing<br>&nbsp;&nbsp;&nbsp;&nbsp; //AxisChar* pachTmpValue = "Default values since no reqeust SOAP header";<br>&nbsp;&nbsp;&nbsp;&nbsp;//pachTemp = "EchoStringHeaderHandlerPr1.id";<br>&nbsp;&nbsp;&nbsp;&nbsp;//pIMsg-&gt;setProperty(pachTemp, pachTmpValue);<br> &nbsp;&nbsp;&nbsp;&nbsp; //free(pachTmpValue);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br> &nbsp;&nbsp;&nbsp;&nbsp;....<br>&nbsp;&nbsp;&nbsp;&nbsp;-------//<br>
+</p>
+<p>In order to get access to the incoming SOAP Body the handler writer can use the following code block.<br>
+<br> To get the body as a AxisChar*<br> // -----<br>.....<br>IHandlerSoapDeSerializer* pIHandlerSoapDeSerializer;<br>pIMsg-&gt;getSoapDeSerializer(&amp;pIHandlerSoapDeSerializer);<br>AxisChar* pSoapBody = pIHandlerSoapDeSerializer-&gt;getBodyAsChar();<br>.....<br>-------//<br>
+<br> To get the body as a decoded base64 stream.<br>// -----<br>.....<br>IHandlerSoapDeSerializer* pIHandlerSoapDeSerializer;<br>pIMsg-&gt;getSoapDeSerializer(&amp;pIHandlerSoapDeSerializer);<br>xsd__base64Binary bb = pIHandlerSoapDeSerializer-&gt;getBodyAsBase64Binary();<br>.....<br>-------//</p>
+<p>
+<strong>Note:</strong>
+<br>
+<br> Have a look at the following classes at the API docs to see all the available functions and their respective descriptions. (You can even look at the relavent .h/.hpp header files for the API comments)<br>1.IhandlerSoapDeSerializer<br>2.IHeaderBlock<br>3.BasicNode<br>
+<br> The BasicNode API is similar (not exactly the same, but ..) to the DOM and is written as a tree traversing API.<br>
+<br> With the sample code samples provided above and with the API notes a developer will easily be able to write and play around his/her own Handlers.<br>
+<br> This tutorial will be updated frequently with the new additions and specially with your suggestions.</p>
+<div id="pdf" align="right">
+<a href="handler.pdf"><img alt="PDF" src="../../skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
