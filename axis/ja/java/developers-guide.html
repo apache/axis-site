@@ -1,0 +1,1866 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../skin/print.css" type="text/css">
+<title>WebServices - Axis</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="../images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="../images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.co.jp/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input value="ja" name="hl" type="hidden"><input value="UTF-8" name="ie" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../skin/images/spacer.gif" class="spacer"><input name="Search" value="検索" type="submit">
+<br>WS を検索
+                          
+                          
+                      </td><td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="../index.html">はじめに</a>
+</div>
+ 
+<div class="menuItem">
+<a href="../news.html">お知らせ</a>
+</div>
+
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/ja/axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">活動に参加</span>
+  
+<div class="menuItem">
+<a href="../overview.html">概要</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cvs.html">CVS リポジトリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../mail.html">メーリングリスト</a>
+</div>
+  
+<div class="menuItem">
+<a href="../ref.html">リファレンスライブラリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../bugs.html">バグ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../howtobuild.html">サイト構築方法</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="../java/index.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/install.html">インストール</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/user-guide.html">ユーザガイド</a>
+</div>
+  
+<div class="menuItem">
+<span class="menuSelected">開発者ガイド</span>
+</div>
+  
+<div class="menuItem">
+<a href="../java/integration-guide.html">統合ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/architecture-guide.html">アーキテクチャガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reference.html">リファレンスガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reading.html">読書ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/requirements.html">要件</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="../cpp/index.html">Axis C++ 最新版</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/documentation.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/download.html">ダウンロード</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki ページ [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/who.html">メンバ紹介</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">ダウンロード</span>
+  
+<div class="menuItem">
+<a href="../releases.html">リリース</a>
+</div>
+  
+<div class="menuItem">
+<a href="../interim.html">暫定版</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">ソースコード [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">翻訳</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/jp/">日本語</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">関連プロジェクト</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">その他</span>
+  
+<div class="menuItem">
+<a href="../who.html">メンバ紹介</a>
+</div>
+  
+<div class="menuItem">
+<a href="../contact.html">連絡先</a>
+</div>
+  
+<div class="menuItem">
+<a href="../legal.html">法関連</a>
+</div>
+  
+<div class="menuItem">
+<a href="../docs.html">メモ/ドキュメント</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>WebServices - Axis</h1>
+</div>
+<div class="h3">
+  
+  
+
+
+<a name="AxisDevelopersGuide"></a>
+
+<div class="h3">
+<h3>Axis 開発者ガイド</h3>
+</div>
+
+
+
+<p>
+<i>バージョン 1.2</i>
+<br>
+  
+<i>フィードバック: <a href="mailto:axis-dev@ws.apache.org">axis-dev@ws.apache.org</a></i>
+</p>
+
+
+<a name="TableOfContents"></a>
+
+<div class="h4">
+<h4>目次</h4>
+</div>
+
+
+
+<ul>
+  
+<li>
+<a href="#Introduction">はじめに</a>
+</li>
+  
+<li>
+<a href="#GeneralGuidelines">一般的なガイドライン</a>
+</li>
+  
+<li>
+<a href="#DevelopmentEnvironment">開発環境</a>
+</li>
+  
+<li>
+<a href="#Pluggable-Components">プラグイン可能なコンポーネント</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#Discovery">発見</a>
+</li>
+    
+<li>
+<a href="#Logging/Tracing">ロギング/トレーシング</a>
+</li>
+    
+<li>
+<a href="#AxisServletQueryStringPlug-ins">Axis サーブレットクエリー文字列プラグイン</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#ConfigurationProperties">設定プロパティ</a>
+</li>
+  
+<li>
+<a href="#ExceptionHandling">例外処理</a>
+</li>
+  
+<li>
+<a href="#CompileAndRun">コンパイルと実行</a>
+</li>
+  
+<li>
+<a href="#Internationalization">国際化</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#DeveloperGuidelines">開発者ガイドライン</a>
+</li>
+    
+<li>
+<a href="#Interface">インターフェース</a>
+</li>
+    
+<li>
+<a href="#ExtendingMessageFiles">メッセージファイルの拡張</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#AddingTestcases">テストケースの追加</a>
+</li>
+  
+<li>
+<a href="#CreatingAWSDLTest">WSDL テストの作成</a>
+</li>
+  
+<li>
+<a href="#TestStructure">テスト構造</a>
+</li>
+  
+<li>
+<a href="#AddingSourceCodeChecks">ソースコードチェックを追加する</a>
+</li>
+  
+<li>
+<a href="#JUnitAndAxis">JUnit と Axis</a>
+</li>
+  
+<li>
+<a href="#UsingTcpmonToMonitorFunctionalTests">ファンクションテストを監視するために tcpmon を利用する</a>
+</li>
+  
+<li>
+<a href="#UsingSOAPMonitorToMonitorFunctionalTests">ファンクションテストを監視するために SOAP Monitor を利用する</a>
+</li>
+  
+<li>
+<a href="#RunningASingleFunctionalTest">単一のファンクションテストを実行する</a>
+</li>
+  
+<li>
+<a href="#Debugging">デバッギング</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#TurningOnDebugOutput">デバッグ出力を行う</a>
+</li>
+    
+<li>
+<a href="#WritingTemporaryOutput">一時出力の出力</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#RunningTheJAX-RPCCompatibilityTests">JAX-RPC 互換性テストの実行</a>
+</li>
+
+</ul>
+
+
+
+
+<a name="Introduction"></a>
+
+<div class="h4">
+<h4>はじめに</h4>
+</div>
+
+
+
+<p>このガイドは Axis のコード開発に関連するトピックのコレクションです。</p>
+
+
+
+
+<a name="GeneralGuidelines"></a>
+
+<div class="h4">
+<h4>一般的なガイドライン</h4>
+</div>
+
+
+
+<ul>
+  
+<li>Axis 特有の情報 (CVS リポジトリアクセス、メーリングリスト情報、等) は <a href="../index.html">Axis ホームページ</a> にあります。</li>
+  
+<li>Axis は <a href="http://jakarta.apache.org/site/guidelines.html">Jakarta プロジェクトガイドライン</a> [英語] を利用しています。</li>
+  
+<li>コード変更は <a href="http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html">"Code Conventions for the Java Programming Language (Java プログラミング言語のためのコード規約)"</a> [英語] に従う必要があります。</li>
+  
+<li>バグを修正する場合、cvs コミットメッセージ内にバグの href を入れてください。</li>
+  
+<li>
+<a href="user-guide.html#PublishedAxisInterfaces">公開 Axis インターフェース</a>に対する互換性のない変更は可能であれば避けるべきです。変更が必要な場合、例えば Axis の全体的なモジュール性を維持する、あるいは改良する場合、ユーザへの影響を考慮に入れ、できればドキュメント化する必要があります。</li>
+  
+<li>もし相互運用性に影響を与えるような大きな変更を加える場合、<a href="http://xml.apache.org/~rubys/echotest.pl">echotest2 round 2 interop test</a> [英語:リンク切れ] を実行して、変更が新たな相互運用性の不具合を導かないか確かめてください。<a href="http://xml.apache.org/~rubys/client_deploy.wsdd">client_deploy.wsdd</a> [英語:リンク切れ] も必要になるでしょう。ここに<a href="http://xml.apache.org/~rubys/ApacheClientInterop.html">ナイトリー相互運用性テスト結果</a> [英語:リンク切れ] があります。</li>
+
+</ul>
+
+
+
+
+<a name="DevelopmentEnvironment"></a>
+
+<div class="h4">
+<h4>開発環境</h4>
+</div>
+
+
+
+<p>Axis の開発には以下のパッケージが必要です。</p>
+
+
+<ul>
+  
+<li>
+<a href="http://jakarta.apache.org/ant/index.html">ant</a> [英語] - Java に基づくビルドツール。<b>注意: バージョン 1.5 以上が必要です。</b>
+</li>
+  
+<li>
+<a href="http://www.junit.org">junit</a> [英語] - テストパッケージ</li>
+  
+<li>
+<a href="http://xml.apache.org/dist/xerces-j">xerces</a> [英語] - XML プロセッサ</li>
+  
+<li>Java 1.3.1 JDK (あるいはそれ以降) をインストールしてください。</li>
+
+</ul>
+
+
+<p>Axis jar ファイルは <span class="codefrag">xml-axis/java/build/lib</span> にビルドされています。以下に私がコードを開発する時に使用している CLASSPATH の例を示します。</p>
+
+
+<pre class="code">G:\xerces\xerces-1_4_2\xerces.jar
+G:\junit3.7\junit.jar
+G:\xml-axis\java\build\lib\commons-discovery.jar
+G:\xml-axis\java\build\lib\commons-logging.jar
+G:\xml-axis\java\build\lib\wsdl4j.jar
+G:\xml-axis\java\build\lib\axis.jar
+G:\xml-axis\java\build\lib\log4j-1.2.8.jar
+G:\xml-axis\java\build\classes
+</pre>
+
+
+<p>もし proxy サーバ経由でインターネットにアクセスしているのであれば、Axis テストが同じ動作を行うために環境変数を設定する必要があります。例えば ANT_OPTS を以下のように設定します。</p>
+
+
+<pre class="code">-Dhttp.proxyHost=proxy.somewhere.com
+-Dhttp.proxyPort=80
+-Dhttp.nonProxyHosts="localhost"</pre>
+
+
+
+
+<a name="Pluggable-Components"></a>
+
+<div class="h4">
+<h4>プラグイン可能なコンポーネント</h4>
+</div>
+
+
+
+<p>
+<a href="architecture-guide.html">Axis アーキテクチャガイド</a>はプラグイン可能なコンポーネントの要件について説明しています。</p>
+
+
+<a name="Discovery"></a>
+
+<div class="h2">
+<h2>発見</h2>
+</div>
+
+
+
+<p>Axis 特有のコンポーネントは以下の形式で作成する必要があります。</p>
+
+
+<p>
+<span class="codefrag">org.apache.axis.components.&lt;コンポーネント型&gt;.&lt;ファクトリクラス名&gt;</span>
+</p>
+
+
+<p>例えば、<span class="codefrag">org.apache.axis.components.logger.LogFactory</span> はロガーコンポーネント/サービスのためのファクトリ、あるいは発見機構です。</p>
+
+
+<p>The <span class="codefrag">org.apache.axis.components.image</span> パッケージは、ファクトリと、Axis によって利用される様々な画像ツールの補助クラス、の両方の実例を示しています。これは、外部ツールを利用したプラグイン可能なコンポーネントの見本で、Axis の最小限の要件を満たすために、Axis を包んでいる、制限されたインターフェースのみを提供する '薄い' ラッパの背後に隔離されています。これにより今後の設計者や実装者は、これらのツールに対する Axis 特有の要件の明確な理解を得ることができます。</p>
+  
+
+
+
+<a name="Logging/Tracing"></a>
+
+<div class="h2">
+<h2>ロギング/トレーシング</h2>
+</div>
+
+
+
+<p>Axis のロギングとトレーシングは <a href="http://jakarta.apache.org/commons/index.html">Jakarta Commons</a> [英語] プロジェクトの Logging コンポーネント、つまり Jakarta Commons Logging (JCL) SPI に基づいています。JCL は、<a href="http://jakarta.apache.org/log4j/docs/index.html">Log4J</a> [英語]、<a href="http://jakarta.apache.org/avalon/logkit/index.html">Avalon LogKit</a> [英語]、JDK 1.4 を含むその他のロギングツール用に、薄いラッパと共に Log インターフェースを提供しています。このインターフェースは Log4J と LogKit に密接にマッピングします。</p>
+
+
+<div class="h5">
+<h5>ロガー SPI の利用</h5>
+</div>
+
+
+
+<p>Java クラスから JCL SPI を利用するには、以下の重要な文を入れてください。</p>
+
+
+<pre class="code">import org.apache.commons.logging.Log;
+import org.apache.axis.components.logger.LogFactory;</pre>
+
+
+<p>それぞれのクラス定義で、以下のように <span class="codefrag">log</span> 属性を宣言し、初期化してください。</p>
+
+
+<pre class="code">public class CLASS {
+  private static Log log =
+    LogFactory.getLog(CLASS.class);
+    ...</pre>
+
+
+<p>
+<i>優先順位</i>に対応するメソッドを呼ぶことにより、メッセージは <span class="codefrag">log</span> のような <i>ロガー</i>にログ出力されます。<span class="codefrag">Log</span> インターフェースは、ログ/トレースメッセージをログに書き込むのに利用する以下のメソッドを定義しています。</p>
+
+
+<pre class="code">log.fatal(Object message);
+log.fatal(Object message, Throwable t);
+log.error(Object message);
+log.error(Object message, Throwable t);
+log.warn(Object message);
+log.warn(Object message, Throwable t);
+log.info(Object message);
+log.info(Object message, Throwable t);
+log.debug(Object message);
+log.debug(Object message, Throwable t);
+log.trace(Object message);
+log.trace(Object message, Throwable t);</pre>
+
+
+<p>これらのメソッドのセマンティックスは最終的には Log インターフェースの実装によって定義されていますが、メッセージの重要度は上記リストに示されたような順序にすることが求められています。</p>
+
+
+<p>ロギングメソッドに加え、以下のメソッドも提供されています。</p>
+
+
+<pre class="code">log.isFatalEnabled();
+log.isErrorEnabled();
+log.isWarnEnabled();
+log.isInfoEnabled();
+log.isDebugEnabled();
+log.isTraceEnabled();</pre>
+
+
+<p>これらは一般的に、ロギングのサポートがある時のみ実行する必要のあるコードと、一般的な場合 (ロギングが無効時) に望ましくない実行時オーバヘッドを導入するコードとを守るために利用されます。</p>
+
+
+
+
+<div class="h5">
+<h5>ガイドライン</h5>
+</div>
+
+
+
+
+
+<div class="h5">
+<h5>メッセージプロパティ</h5>
+</div>
+
+
+
+<p>ログメッセージが内容と重要度の点で適切であるか確かめることは重要です。以下のガイドラインが提案されています。</p>
+
+
+<ul>
+  
+<li>fatal - Axis サーバをすぐに停止させてしまう原因となる深刻なエラー。これらはすぐにコンソールに表示され、また国際化されるべきです。</li>
+  
+<li>error - その他の実行時エラーと予期せぬ状態です。これらはすぐにコンソールに表示され、また国際化されるべきです。</li>
+  
+<li>warn - 推奨されない API の利用、API の下手な利用、ほとんどエラー、必ずしも "間違い" ではないけれど望ましくない、あるいは予期しないその他の実行時状況です。これらはすぐにコンソールに表示され、また国際化されるべきです。</li>
+  
+<li>info - 興味深い実行時イベント (起動/停止) です。これらはすぐにコンソールに表示されるべきなので、控えめで最小限にするべきです。これらは国際化されるべきです。</li>
+  
+<li>debug - システムを通した流れの詳細情報です。これらはログのみに書かれるべきです。これらは国際化される必要はありませんが、されても特に問題はありません。</li>
+  
+<li>trace - より詳細な情報です。これらはログのみに書かれるべきです。これらは国際化される必要はありませんが、されても特に問題はありません。</li>
+
+</ul>
+
+
+
+
+<div class="h5">
+<h5>ロガーの設定</h5>
+</div>
+
+
+
+<p>Jakarta Commons Logging (JCL) SPI は設定により異なるロギングツールキットを利用することができます。JCL が利用するロガーを設定する方法は <a href="integration-guide.html">Axis システム統合ガイド</a>をご覧下さい。</p>
+
+
+<p>JCL の動作設定は、最終的には利用しているロギングツールキットに依存します。JCL SPI (と、それ故に Axis) は (CLASSPATH の中で) 利用可能であれば、デフォルトで <a href="http://jakarta.apache.org/log4j/docs/index.html">Log4J</a> [英語] を利用します。</p>
+
+
+
+
+<div class="h5">
+<h5>Log4J</h5>
+</div>
+
+
+
+<p>
+<a href="http://jakarta.apache.org/log4j/docs/index.html">Log4J</a> [英語] は Axis の推奨する/デフォルトのロガーなので、開発者の開発のためにここで<i>いくつか</i>の詳細を紹介します。</p>
+
+
+<p>システムプロパティとプロパティファイルの両方、あるいは片方を利用して Log4J を設定します。</p>
+
+
+<ul>
+  
+<li>
+<b>log4j.configuration=<i>log4j.properties</i></b>
+    
+<p>このシステムプロパティを利用して Log4J 設定ファイルの名前を指定します。指定しない場合、デフォルトの設定ファイルは <i>log4j.properties</i> になります。<i>log4j.properties</i> ファイルは <span class="codefrag">axis.jar</span> で提供されています。</p>
+    
+<p>このプロパティファイルは、同じ名前のファイルを CLASSPATH 中の <span class="codefrag">axis.jar</span> よりも前に置くことで上書きすることができるかもしれません。しかし正確な動作は実行時に利用されるクラスローダに依存するので、このテクニックはお勧めしません。</p>
+    
+<p>プロパティファイルを上書きする安全な方法は、axis.jar の中にあるプロパティファイルを置き換えることです。しかしこれは、特にデバッグ時に設定を調整して不必要なログエントリーをフィルタリングしたい時に、それほど使い勝手は良くありません。より使い勝手のいい別の方法として、プロパティファイルを指定するのに絶対ファイルパスを利用する方法があります。これはWebアプリケーションのプロパティファイルとそれらのクラスローダさえも無視します。Linux での例を挙げると、システムプロパティを以下のように指定することができます。</p>
+    
+<p>
+<span class="codefrag">log4j.configuration=file:/home/fred/log4j.props</span>
+</p>
+  
+</li>
+
+  
+<li>
+<b>log4j.debug</b>
+    
+<p>log4j がどこから設定を取ってくるのかを指定する良い方法は、このシステムプロパティを設定し、標準出力のメッセージを見ることです。</p>
+  
+</li>
+
+  
+<li>
+<b>log4j.rootCategory=<i>priority</i> [, <i>appender</i>]*</b>
+    
+<p>デフォルト (ルート) の ロガー優先度を設定します。</p>
+  
+</li>
+
+  
+<li>
+<b>log4j.logger.<i>logger.name</i>=<i>priority</i></b>
+    
+<p>
+<b>log4j.logger.<i>logger.name</i>=<i>priority</i></b> ここで指定したロガーと、階層的にそのロガーより下位の全てのロガーの優先度を設定します。<i>logger.name</i> は、ロガーインスタンスを作成するのに利用される <span class="codefrag">LogFactory.getLog(logger.name)</span> のパラメータに対応します。優先度は以下の通りです。<span class="codefrag">DEBUG</span>、<span class="codefrag">INFO</span>、<span class="codefrag">WARN</span>、<span class="codefrag">ERROR</span>、<span class="codefrag">FATAL</span>。</p>
+
+    
+<p>Log4J は階層的な名前を理解し、パッケージや高レベル修飾子によって制御することができます。<span class="codefrag">log4j.logger.org.apache.axis.encoding=DEBUG</span> は <span class="codefrag">org.apache.axis.encoding</span> と <span class="codefrag">org.apache.axis.encoding.ser</span> の両方の中にある全てのクラスのデバッグメッセージを有効にします。同様に、<span class="codefrag">log4j.logger.org.apache.axis=DEBUG</span> を設定することによりその他の Jakarta プロジェクト以外の全ての Axis クラスのデバッグメッセージを有効にします。</p>
+
+    
+<p>設定を組み合わせることで、興味のあるログイベントを取り出し、それ以外を省略することができます。例えば、以下の組み合わせは、</p>
+    
+<pre class="code">log4j.logger.org.apache.axis=DEBUG 
+log4j.logger.org.apache.axis.encoding=INFO
+log4j.logger.org.apache.axis.utils=INFO
+log4j.logger.org.apache.axis.message=INFO</pre>
+    
+<p>1回のリクエストで生成されるログエントリの数を管理可能な数に減らします。</p>
+  
+</li>
+
+  
+<li>
+<b>log4j.appender.<i>appender</i>.Threshold=<i>priority</i></b>
+    
+<p>Log4J <i>appender</i> はコンソール、ファイル、ソケットなどの異なる出力デバイスに対応します。もしアペンダの <i>threshold</i> がメッセージ優先度以下であれば、メッセージはそのアペンダによって出力されます。これにより異なるレベルの詳細を、異なるログ出力先に出力することができます。</p>
+    
+<p>例えば、DEBUG (とそれ以上の) レベルの情報をログファイルで捕獲し、その一方でコンソール出力を INFO (とそれ以上) に制限する、といったことができます。</p>
+  
+</li>
+
+</ul>
+
+
+
+
+
+
+<a name="AxisServletQueryStringPlug-ins"></a>
+
+<div class="h2">
+<h2>Axis サーブレットクエリー文字列プラグイン</h2>
+</div>
+
+
+
+<p>
+<span class="codefrag">org.apache.axis.transport.http.AxisServlet</span> クラスから派生する全てのサーブレットは、多数の標準クエリー文字列 (<i>?list</i>、<i>?method</i>、<i>?wsdl</i>) をサポートします。これらの標準クエリー文字列はWebサービスから情報を提供したり、Webサービスの操作を実行したりします (例えば、<i>?method</i> はWebサービス上のメソッドを呼び出すのに利用され、<i>?wsdl</i> はWebサービスの WSDL ドキュメントを取得するのに利用されます)。Axis サーブレットはこれら3つのクエリー文字列だけに制限しているわけではなく、開発者は <span class="codefrag">org.apache.axis.transport.http.QSHandler</span> インターフェースを実装することで自分用の "プラグイン" を生成することができます。このインターフェースには実装しなければならない1つのメソッドがあり、このメソッドは以下のシグネチャを持ちます。</p>
+
+
+<p>
+<span class="codefrag">public void invoke (MessageContext msgContext) throws AxisFault;</span>
+</p>
+
+
+<p>
+<span class="codefrag">org.apache.axis.MessageContext</span> インスタンスは、その <span class="codefrag">getProperty</span> メソッドでアクセス可能な多数の有用なオブジェクト (Axis エンジンインスタンスや HTTP サーブレットオブジェクト等) を開発者に提供しています。以下の定数は、Axis サーブレットがクエリー文字列プラグインを呼び出すことによって提供される様々なオブジェクトを取得するのに利用することができます。</p>
+
+
+<ul>
+  
+<li>
+<b>org.apache.axis.transport.http.HTTPConstants.PLUGIN_NAME</b>
+    
+<p>クエリー文字列プラグインの名前を持っている <span class="codefrag">String</span> です。例えば、もしクエリー文字列 <i>?wsdl</i> が与えられると、そのプラグインの名前は <i>wsdl</i> になります。</p>
+  
+</li>
+
+  
+<li>
+<b>org.apache.axis.transport.http.HTTPConstants.PLUGIN_SERVICE_NAME</b>
+    
+<p>クエリー文字列プラグインを呼び出した Axis サーブレットの名前を持っている <span class="codefrag">String</span> です。</p>
+  
+</li>
+
+  
+<li>
+<b>org.apache.axis.transport.http.HTTPConstants.PLUGIN_IS_DEVELOPMENT</b>
+    
+<p>もしこの Axis のバージョンが開発モードであるならば <span class="codefrag">true</span>、そうでなければ <span class="codefrag">false</span> を持つ <span class="codefrag">Boolean</span> です。</p>
+  
+</li>
+
+  
+<li>
+<b>org.apache.axis.transport.http.HTTPConstants.PLUGIN_ENABLE_LIST</b>
+    
+<p>もし Axis サーバ設定のリストアップが許されていたら <span class="codefrag">true</span>、そうでなければ <span class="codefrag">false</span> を持つ <span class="codefrag">Boolean</span> です。</p>
+  
+</li>
+
+  
+<li>
+<b>org.apache.axis.transport.http.HTTPConstants.PLUGIN_ENGINE</b>
+    
+<p>Axis サーバのエンジンを持っている <span class="codefrag">org.apache.axis.server.AxisServer</span> オブジェクトです。</p>
+  
+</li>
+
+  
+<li>
+<b>org.apache.axis.transport.http.HTTPConstants.MC_HTTP_SERVLETREQUEST</b>
+    
+<p>クエリー文字列プラグインを呼び出した Axis サーブレットからの <span class="codefrag">javax.servlet.http.HttpServletRequest</span> オブジェクトです。</p>
+  
+</li>
+
+  
+<li>
+<b>org.apache.axis.transport.http.HTTPConstants.MC_HTTP_SERVLETRESPONSE</b>
+    
+<p>クエリー文字列プラグインを呼び出した Axis サーブレットからの <span class="codefrag">javax.servlet.http.HttpServletResponse</span> オブジェクトです。</p>
+  
+</li>
+
+  
+<li>
+<b>org.apache.axis.transport.http.HTTPConstants.PLUGIN_WRITER</b>
+    
+<p>クエリー文字列プラグインを呼び出した Axis サーブレットからの <span class="codefrag">java.io.PrintWriter</span> オブジェクトです。</p>
+  
+</li>
+
+  
+<li>
+<b>org.apache.axis.transport.http.HTTPConstants.PLUGIN_LOG</b>
+    
+<p>クエリー文字列プラグインを呼び出した Axis サーブレットからの <span class="codefrag">org.apache.commons.logging.Log</span> オブジェクトで、ログメッセージに利用されます。</p>
+  
+</li>
+
+  
+<li>
+<b>org.apache.axis.transport.http.HTTPConstants.PLUGIN_EXCEPTION_LOG</b>
+    
+<p>クエリー文字列プラグインを呼び出した Axis サーブレットからの <span class="codefrag">org.apache.commons.logging.Log</span> オブジェクトで、ログ例外に利用されます</p>
+  
+</li>
+
+</ul>
+
+
+<p>出力の同じ基本情報とメソッドを開発者が利用できるという点において、クエリー文字列プラグイン開発は普通のサーブレット開発に大変似ています。以下は、システム時計の値を単に表示するクエリー文字列プラグインの例です (簡潔にするために、<span class="codefrag">import</span> 文は省略しています)。</p>
+
+
+<pre class="code">public class QSClockHandler implements QSHandler {
+  public void invoke (MessageContext msgContext) throws AxisFault {
+    PrintWriter out = (PrintWriter) msgContext.getProperty (HTTPConstants.PLUGIN_WRITER);
+    HttpServletResponse response = (HttpServletResponse)
+        msgContext.getProperty (HTTPConstants.MC_HTTP_SERVLETRESPONSE);
+
+    response.setContentType ("text/html");
+
+    out.println ("&lt;HTML&gt;&lt;BODY&gt;&lt;H1&gt;" + System.currentTimeMillis()
+        + "&lt;/H1&gt;&lt;/BODY&gt;&lt;/HTML&gt;");
+  }
+}</pre>
+
+
+<p>クエリー文字列プラグインクラスを作成したら、Axis サーバを、それを呼び出すクエリー文字列を認識するように設定する必要があります。Axis サーバ設定ファイルの HTTP トランスポート節の設定方法に関する情報は <a href="reference.html">Axis リファレンスガイド</a>内の<a href="reference.html#DeploymentWSDDReference">デプロイ (WSDD) リファレンス</a>節をご覧下さい。</p>
+
+
+
+
+
+
+<a name="ConfigurationProperties"></a>
+
+<div class="h4">
+<h4>設定プロパティ</h4>
+</div>
+
+
+
+<p>Axis は内部設定の主要ポイントとしてシステムプロパティを利用することをやめる過程にいます。<span class="codefrag">System.getProperty()</span> を呼ぶことを避け、替わりに <span class="codefrag">AxisProperties.getProperty</span> を呼んでください。<span class="codefrag">AxisProperties.getProperty</span> は <span class="codefrag">System.getProperty</span> を呼び、(最終的には) その他の設定情報源に問い合わせを行います。</p>
+
+
+<p>このアクセスの中央ポイントを利用することにより、グローバル設定システムを、単一の JVM 上で複数の Axis エンジンをよりサポートするように再設計することができます。</p>
+
+
+
+
+<a name="ExceptionHandling"></a>
+
+<div class="h4">
+<h4>例外処理</h4>
+</div>
+
+
+
+<p>Axis 例外処理に関するガイドラインは例外処理のベストプラクティスに基づいています。これらのガイドラインには Axis 特有の詳細がありますが、基本的には全てのプロジェクトに適用できます。これらのガイドラインは2つの理由でここに含まれました。1つめは、Apache/Jakarta ガイドラインのどこにも書かれていなかった (あるいは見つからなかった) からです。2つめは、これらのガイドに順守することはエンタープライズ用のミドルウェアにとって重大であると考えられるからです。</p>
+
+
+<p>これらのガイドラインは基本的にプログラミング言語から独立しています。これらは経験に基づいていますが、何年も前に無邪気 (?) な人を開眼させたという適切な功績は Scott Meyers による <i>More Effective C++</i> に与えられるべきです。</p>
+
+
+<p>最後に、これらはガイドラインです。これらのガイドラインには必ず例外があります。その場合、その例外が "コードの中にコメントがある" という形式でログが取られている状態で (これらのガイドラインごとに) 質問してください。</p>
+
+
+<ul>
+  
+<li>
+<b>主要規則: どのように扱うか知っている例外のみキャッチする</b>
+    
+<p>コードが例外をキャッチする場合、プログラムのその時点でそれをどのように扱うかコードが知っている必要があります。この規則の例外は、納得させる理由と共にドキュメント化されていなければなりません。コードレビューアは、彼らのハゲワシのくちばしをのせ、突き続けるでしょう...</p>
+    
+<p>この規則にはいくつかの必然的な結果があります。</p>
+    
+<ul>
+      
+<li>
+<b>内部コード内特有の例外の扱い</b>
+        
+<p>内部コードとはプログラム内の<i>深い</i>コードです。そのようなコードは、例外が解決でき、通常フローがコードに回復できる<u>時かつその時に限り</u>、特定の例外や、例外の部類 (例外階層内の親) をキャッチするべきです。この種の動作は非対話型コードと対話型ツール間で極めて異なることに注意してください。</p>
+      
+</li>
+      
+<li>
+<b>一番外側の制御フロー内の全ての例外をキャッチする</b>
+        
+<p>最終的には、全ての例外は1つのレベルかもう1つのレベルで扱われなければなりません。コマンドラインツールでは、これは <span class="codefrag">main</span> メソッドかプログラムを意味します。ミドルウェアコンポーネントでは、コンポーネントのエントリーポイントを意味します。Axis では、<span class="codefrag">AxisServlet</span> か、それと同等のものを意味します。</p>
+        
+<p>内部的に解決できる特定の例外をキャッチした後、一番外側のコードは内部的に生成された例外が全てキャッチされ、処理されたことを確かめなければなりません。一般的にはそこまでできないので、最低限コードが<u>例外のログを取る</u>ようにするべきです。ロギングに加え、Axis サーバはそのような例外全てを AxisFault に包み込み、それをクライアントコードに返します。</p>
+        
+<p>これは主要規則と正反対のように思えますが、事実私達は、Axis はこの種の例外についてどうすればいいか知っている、ということを主張しています。つまり潔く終了することです。</p>
+      
+</li>
+    
+</ul>
+  
+</li>
+
+  
+<li>
+<b>例外のキャッチとロギング</b>
+    
+<p>例外がコンポーネント境界 (クライアント/サーバ、あるいはシステム/ビジネスロジック) をまたがる際、例外は、スローするコンポーネントによってキャッチされてログ出力されなければなりません。それが終われば下記のように再スローする、あるいはラップすることができます。</p>
+    
+<p>疑わしい時は例外のログを取る</p>
+    
+<ul>
+      
+<li>
+<b>キャッチとスロー</b>
+        
+<p>例外がキャッチされ再スローされる (未解決) 場合の例外のロギングは、コードを書く人とレビューアの判断次第です。コメントのログを取るのであれば、例外のログも取るべきです。</p>
+        
+<p>疑わしい時は、例外と、その例外の完全なコンテキストを識別するのに役立つ関連するローカル情報のログを取りましょう。</p>
+        
+<p>例外が未解決エラー、あるいは解決不可能なエラーであることがわかっているのであれば、その例外を <i>error</i> (<span class="codefrag">log.error()</span>) としてログを取り、そうでなければ <i>情報</i> レベル (<span class="codefrag">log.info()</span>) としてログを取ります。</p>
+      
+</li>
+
+      
+<li>
+<b>キャッチとラップ</b>
+        
+<p>もし例外 <span class="codefrag">e</span> がキャッチされ、新しい例外 <span class="codefrag">w</span> によってラップされたら、<span class="codefrag">w</span> をスローする前に例外 <span class="codefrag">e</span> のログを取りましょう。</p>
+        
+<p>例外が未解決エラー、あるいは解決不可能なエラーであることがわかっているのであれば、その例外を <i>error</i> (<span class="codefrag">log.error()</span>) としてログを取り、そうでなければ <i>情報</i> レベル (<span class="codefrag">log.info()</span>) としてログを取ります。</p>
+      
+</li>
+
+      
+<li>
+<b>キャッチと解決</b>
+        
+<p>例外 <span class="codefrag">e</span> がキャッチされ解決される場合の例外のロギングは、コードを書く人とレビューアの判断次第です。もし何かしらのコメントのログを取るのであれば、その例外のログも取る (<span class="codefrag">log.info()</span>) べきです。バランスを取る必要がある課題は、パフォーマンスと問題解決可能性です。</p>
+        
+<p>多くの場合、例外を無視するのが適切であるかもしれない、ということに注意してください。</p>
+      
+</li>
+    
+</ul>
+  
+</li>
+
+  
+<li>
+<b>コンポーネント境界の留意</b>
+    
+<p>このガイドラインには複数の側面があります。一方では、ビジネスロジックはシステムロジックから分離していなければならないことを意味しています。他方では、特にサーバが外部団体に公開されている時に、クライアントへのサーバの実装の詳細の公開/可視性を制限すべきであることを意味しています。これは良くデザインされたサーバインターフェースを暗に意味しています。</p>
+    
+<ul>
+      
+<li>
+<b>システムロジックをビジネスロジックから分離</b>
+        
+<p>Axis ランタイムによって生成された例外は可能であれば Axis ランタイム内で処理すべきです。最悪の場合、Axis ランタイムが例外の詳細なログを取り、一般的にはビジネスロジックに説明的な例外を投げます。</p>
+        
+<p>ビジネスロジック (これはサーバと Axis ハンドラを含みます) に投げられた例外はクライアントコードに届けられなければなりません。</p>
+      
+</li>
+
+      
+<li>
+<b>システムコードをユーザコードから保護する</b>
+        
+<p>Axis ランタイムを制御されていないユーザビジネスロジックから保護します。Axis においてこれは、動的に設定可能な <span class="codefrag">ハンドラ</span>、<span class="codefrag">プロバイダ</span>、その他のユーザが制御可能なフックポイントは <span class="codefrag">catch(Exception ...)</span> によって保護されなければならないことを意味しています。ユーザコードによって生成された例外と、システムコードによってキャッチされた例外は</p>
+        
+<ul>
+          
+<li>そのログを取り、</li>
+          
+<li>クライアントプログラムに届けなければなりません。</li>
+        
+</ul>
+      
+</li>
+
+      
+<li>
+<b>サーバの視認性をクライアントから分離</b>
+        
+<p>特定の例外はサーバ側でログを取るべきで、より一般的な例外はクライアントにスローするべきです。これによりサーバの性質 (例えばハンドラ、プロバイダ等) の手掛かりを、クライアントコードにさらけ出すことを防ぎます。留意すべき Axis コンポーネント境界は以下の通りです。</p>
+        
+<ul>
+          
+<li>クライアントコード &lt;--&gt; AxisClient</li>
+          
+<li>AxisClient &lt;--&gt; AxisServlet (AxisServer/AxisEngine)</li>
+          
+<li>AxisServer/AxisEngine &lt;--&gt; Webサービス </li>
+        
+</ul>
+      
+</li>
+    
+</ul>
+  
+</li>
+
+  
+<li>
+<b>コンストラクタ内での例外のスロー</b>
+    
+<p>コンストラクタに例外をスローする前に、そのオブジェクトが所有するリソースが全て後片付けされたか確かめてください。これは、リソースを保持しているオブジェクトに対して、コンストラクタ内で呼ばれたメソッドによってスローされた例外<u>全て</u>をキャッチし、後片付けし、例外を再スローすることを要求します。</p>
+  
+</li>
+
+</ul>
+
+
+
+
+<a name="CompileAndRun"></a>
+
+<div class="h4">
+<h4>コンパイルと実行</h4>
+</div>
+
+
+
+<p>
+<span class="codefrag">xml-axis/java/build.xml</span> ファイルは、アプリケーションをビルドしてテストを実行するために ant が利用する主要な 'make' ファイルです。<span class="codefrag">build.xml</span> は ant のビルドの <i>target</i>を定義しています。より詳細な情報については build.xml ファイルをお読みください。ここにいくつかの有用な target を挙げます。</p>
+
+
+<ul>
+  
+<li>compile -&gt; ソースをコンパイルして xml-axis/java/build/lib/axis.jar を生成します。</li>
+  
+<li>javadocs -&gt; xml-axis/java/build/javadocs に javadoc を生成します。</li>
+  
+<li>functional-tests -&gt; コンパイルして関数テストを実行します。</li>
+  
+<li>all-tests -&gt; コンパイルして全てのテストを実行します。</li>
+
+</ul>
+
+
+<p>ソースコードをコンパイルするには次のように実行します。</p>
+
+
+<pre class="code">cd xml-axis/java
+ant compile</pre>
+
+
+<p>Tテストを実行するには次のように実行します。</p>
+
+
+<pre class="code">cd xml-axis/java
+ant functional-tests</pre>
+
+
+<p>
+<b>注意:</b> これらのテストはポート8080でサーバを起動します。もしこのポートが、あなたの (Tomcatのような) Webアプリケーションサーバが利用するポートと衝突する場合、どちらかのポートを変えるか、テストを実行するときにあたなのWebアプリケーションサーバを停止する必要があります。</p>
+
+
+<p>
+<b>新しいコードをチェックする前に、ant functional-tests と ant all-tests を実行してください。</b>
+</p>
+
+
+
+
+<a name="Internationalization"></a>
+
+<div class="h4">
+<h4>国際化</h4>
+</div>
+
+
+
+<p>ソースコードに変更を加えて、テキスト (エラーメッセージやデバッグ情報) を生成するようにした場合、そのテキストが確実に正しく変換されるために以下のガイドラインに従う必要があります。</p>
+
+
+<a name="DeveloperGuidelines"></a>
+
+<div class="h2">
+<h2>開発者ガイドライン</h2>
+</div>
+
+
+
+<ol>
+  
+<li>あなたのテキスト文字列は resource.properties ファイル (xml-axis/java/src/org/apache/axis/i18n/resource.properties) にプロパティとして追加されるべきです。いくつかのユーティリティアプリケーション (例: tcpmon) は独自のリソースプロパティファイル (tcpmon.properties) を持っています。</li>
+  
+<li>resource.properties ファイルには変換と利用に関する説明が含まれています。メッセージリソースファイルのエントリーは &lt;key&gt;=&lt;message&gt; という形式です。ここにメッセージの例を示します。
+    <p>sample00=My name is {0}, and my title is {1}.</p>
+    
+<ol>
+      
+<li>sample00 は、コードがこのメッセージにアクセスするために利用するキーです。</li>
+      
+<li>= の後のテキストはメッセージテキストです。</li>
+      
+<li>{<i>数</i>} 文法は挿入場所を定義しています。</li>
+    
+</ol>
+  
+</li>
+
+  
+<li>コードは static メソッド org.apache.axis.i18n.Messages.getMessage を利用してテキストを取得し、挿入を加える必要があります。ここに利用例を示します。
+    <p>Messages.getMessage("sample00", "Rich Scheuerle", "Software Developer");</p>
+  
+</li>
+
+  
+<li>プロパティファイル内の全てのキーは &lt;文字列&gt;&lt;2桁の接尾辞&gt; という文法を利用する必要があります。
+    <ol>
+      
+<li>
+<b>プロパティファイル内のメッセージテキストは決して変更しないで下さい。</b>そのメッセージはコード内の複数の場所で利用されているかもしれません。追加の変換は新しいキーにのみ行います。</li>
+      
+<li>コードの変更が、メッセージの変更を必要とする場合、インクリメントされた2桁接尾辞の新しいエントリーを作成します。</li>
+      
+<li>変換を簡単にするため、新しいエントリーは全てファイルの一番下に置くべきです。</li>
+      
+<li>ときどき古いデータのプロパティファイルを削除したくなりますが、これはメジャーリリースの時のみ行われるべきです。</li>
+    
+</ol>
+  
+</li>
+
+</ol>
+
+
+<div class="h5">
+<h5>例</h5>
+</div>
+
+
+
+<p>以下の文について考えてください。</p>
+
+
+<pre class="code">if (operationName == null)
+  throw new AxisFault( "No operation name specified" );</pre>
+
+
+<p>org/apache/axis/i18n/resource.properties にエントリーを追加します。</p>
+
+
+<p>
+<span class="codefrag">noOperation=No operation name specified.</span>
+</p>
+
+
+<p>そしてそれを読み込むようにコードを変更します。</p>
+
+
+<pre class="code">if (operationName == null)
+  throw new AxisFault(Messages.getMessage("noOperation"));</pre>
+
+
+
+
+
+
+<a name="Interface"></a>
+
+<div class="h2">
+<h2>インターフェース</h2>
+</div>
+
+
+
+<p>Axis はプロパティファイルとメッセージ文字列にアクセスするために標準 Java 国際化クラス <span class="codefrag">java.util.ResourceBundle</span> を利用し、変数を利用して文字列の書式を整えるために <span class="codefrag">java.text.MessageFormat</span> を利用します。Axis は ResourceBundle クラスと MessageFormat クラスの両方を管理する単一のクラス <span class="codefrag">org.apache.axis.i18n.Messages</span> を提供しています。Messages のメソッドは以下の通りです。</p>
+
+
+<p>
+<span class="codefrag">public static java.util.ResourceBundle getResourceBundle();</span>
+</p>
+
+<p>
+<span class="codefrag">public static String getMessage(String key) throws java.util.MissingResourceException;</span>
+</p>
+
+<p>
+<span class="codefrag">public static String getMessage(String key, String var) throws java.util.MissingResourceException;</span>
+</p>
+
+<p>
+<span class="codefrag">public static String getMessage(String key, String var1, String var2) throws java.util.MissingResourceException;</span>
+</p>
+
+<p>
+<span class="codefrag">public static String getMessage(String key, String[] vars) throws java.util.MissingResourceException;</span>
+</p>
+
+
+<p>Axis プログラマは <span class="codefrag">Messages.getResourceBundle()</span> 呼び出し経由で直接リソースバンドルを扱うことができますが、2つの理由から、代わりに <span class="codefrag">getMessage()</span> メソッドを利用すべきです。</p>
+
+
+<ol>
+  
+<li>これはショートカットです。<br>
+    
+<span class="codefrag">Messages.getMessage("myMsg00");</span>
+<br>
+    を呼ぶよりも<br>
+    
+<span class="codefrag">Messages.getResourceBundle().getString("myMsg00");</span>
+    を呼ぶ方がきれいです。
+  </li>
+  
+<li>
+<span class="codefrag">getMessage</span> メソッドにより変数付きのメッセージが有効になります。</li>
+
+</ol>
+
+
+<div class="h5">
+<h5>getMessage メソッド</h5>
+</div>
+
+
+
+<p>変数のないメッセージであれば</p>
+
+
+<p>
+<span class="codefrag">myMsg00=This is a string.</span>
+</p>
+
+
+<p>単に次のように呼びます。</p>
+
+
+<p>
+<span class="codefrag">Messages.getMessage("myMsg00");</span>
+</p>
+
+
+<p>変数付きのメッセージであれば、<span class="codefrag">X</span> が0から始まる変数の名前を表す、文法 "{X}" を利用します。例えば、</p>
+
+
+<p>
+<span class="codefrag">myMsg00=My {0} is {1}.</span>
+</p>
+
+
+<p>であれば、次のように呼び、</p>
+
+
+<p>
+<span class="codefrag">Messages.getMessage("myMsg00","name", "Russell");</span>
+</p>
+
+
+<p>その結果の文字列は "My name is Russell." になります。</p>
+
+
+<p>getMessage の String 配列バージョンも呼ぶことができます。</p>
+
+
+<p>
+<span class="codefrag">Messages.getMessage("myMsg00", new String[] {"name", "Russell"});</span>
+</p>
+
+
+<p>本当に必要なのは getMessage の String 配列バージョンだけですが、大部分のメッセージは0個か1個か2個の変数を持つので、String 配列バージョンの複雑さを避けるための利便性として、そのほかの getMessage メソッドが提供されています。</p>
+
+
+<p>もしリソースが見つからなければ getMessage メソッドは MissingResourceException をスローすることに注意してください。また、引数より多くの {X} エントリーがあれば ParseException をスローします。これらの例外は RuntimeException の例外なので、呼び出し側は明示的にそれらをキャッチする必要はありません。</p>
+
+
+<p>リソースバンドルプロパティファイルは org/apache/axis/i18n/resource.properties です。</p>
+
+
+
+
+
+
+<a name="ExtendingMessageFiles"></a>
+
+<div class="h2">
+<h2>メッセージファイルの拡張</h2>
+</div>
+
+
+
+<p>一般的に、Axis 内では全てのメッセージは org.apache.axis.i18n.resource.properties にあります。Axis への統合や、Axis のサードパーティ拡張のために、このファイルを修正することなくメッセージを拡張する機構があります。詳細については<a href="integration-guide.html#Internationalization">統合ガイド</a>をご覧下さい。</p>
+
+
+
+
+
+
+<a name="AddingTestcases"></a>
+
+<div class="h4">
+<h4>テストケースの追加</h4>
+</div>
+
+
+
+<p>
+<a href="#TestStructure">テスト構造とサンプル構造</a>もご覧下さい。</p>
+
+
+<p>
+<b>編集者注釈:</b> テストの追加の合理化と簡素化のさらなる努力が必要です。また、テストが増えるに従って、テストの分類を考慮に入れる必要もあります。</p>
+
+
+<p>Axis に変更を加えたのであれば、その変更を利用するテストを追加してください。理由は以下の通りです。</p>
+
+
+<ul>
+  
+<li>そのテストはあなたの新しいコードが動作することを検証します。</li>
+  
+<li>そのテストはあなたの変更を、将来のコード変更からもたらされるバグから守ります。</li>
+  
+<li>そのテストは Axis のその機能のユーザへの例になります。</li>
+  
+<li>そのテストは新しい開発の出発点として利用することができます。</li>
+
+</ul>
+
+
+<p>いくつかの一般的な原則を挙げます。</p>
+
+
+<ul>
+  
+<li>テストは自己説明的であるべきです。</li>
+  
+<li>テストは大量の出力を生成するべきではありません。</li>
+  
+<li>テストは既存の junit フレームワーク内にフックするべきです。</li>
+  
+<li>各テストや関連するテストの各グループは <span class="codefrag">xml-axis/java/test</span> ディレクトリ内に自分のディレクトリを持つべきです。</li>
+
+</ul>
+
+
+<p>テストをビルドする1つの方法は、既存のテストを "カットアンドペースト" し、あなたのニーズを満たすようにテストを修正することです。このアプローチは異なる種類のテストが増えるにつれてより複雑になってきます。</p>
+
+
+<p>参考になる "wsdl のない" 良いテストは test/saaj です。</p>
+
+
+<a name="CreatingAWSDLTest"></a>
+
+<div class="h2">
+<h2>WSDL テストの作成</h2>
+</div>
+
+
+
+<p>私が <span class="codefrag">sequence</span> テストを作成するために利用したステップを紹介します。このテストは wsdl ファイルからコードを生成し、シーケンスの検証テストを実行します。</p>
+
+
+<ol>
+  
+<li>
+<span class="codefrag">xml-axis/java/test/wsdl/sequence</span> ディレクトリを作成します。</li>
+  
+<li>Webサービスを定義する <span class="codefrag">SequenceTest.wsdl</span> ファイルを作成します。</li>
+  
+<li>Java ファイルを作成するために Wsdl2java 出力器を実行します。
+    <p>
+<span class="codefrag">java org.apache.axis.wsdl.Wsdl2java -t -s SequenceTest.wsdl</span>
+</p>
+    
+<ol>
+      
+<li>-t オプションにより出力器はテストハーネスにフックする *TestCase.java ファイルを生成します。このファイルは変更を一切加えることなく利用できます。*TestCase.java ファイルをあなたの wsdl ファイルと同じディレクトリにコピーしてください。(理想的には、変更された Java ファイルのみがあなたのディレクトリにある必要があります。ですからこのファイルは必要ありませんが、テストケースを出力するために &lt;wsdl2java ...&gt; 節を修正する (下で説明しています) ことを確認してください。)</li>
+      
+<li>-s オプションにより出力器は *SOAPBindingImpl.java を生成します。この Java ファイルにはサービスの空のメソッドが含まれています。それらに自分のロジックを埋め込んでください。*SOAPBindingImpl.java ファイルをあなたの wsdl ファイルと同じディレクトリにコピーしてください。(この Java ファイル内で変更がまったく必要なければ、保存する必要はありません。しかし &lt;wsdl2java ...&gt; 節がスケルトンを生成するか確かめる必要があります)。</li>
+      
+<li>修正を必要としない全ての Java ファイルを削除します。ですからあなたのディレクトリには3つのファイル (wsdl ファイル、*TestCase.java、*SOAPBindingImpl.java) があるはずです。私のシーケンステストには、私が必要としたいくつかの追加的なロジックのため、そのほかのファイルもあります。</li>
+    
+</ol>
+  
+</li>
+  
+<li>
+<span class="codefrag">test/wsdl/sequence/build.xml</span> ファイルはこのテストのビルドを制御します。"compile" ターゲットを探してください。Wsdl2java コードを実行する節を追加します。test/wsdl/roundtrip/build.xml ファイル (これは多くの wsdl2java 呼び出しと java2wsdl 呼び出しを行っています) から流用することをお勧めします。ここにシーケンステストの1つを示します。
+    <pre class="code">&lt;!-- Sequence Test --&gt;
+&lt;wsdl2java url="${axis.home}/test/wsdl/sequence/SequenceTest.wsdl"
+    output="${axis.home}/build/work"
+    deployscope="session"
+    skeleton="yes"
+    messagecontext="no"
+    noimports="no"
+    verbose="no"
+    testcase="no"&gt;
+&lt;mapping namespace="urn:SequenceTest2" package="test.wsdl.sequence"/&gt;
+&lt;/wsdl2java&gt;</pre>
+  
+</li>
+  
+<li>新しい build.xml ファイル内の run ターゲットを有効にします。execute-Component ターゲットと (もうすぐ紹介する) execute-Simple-Test ターゲットから選ぶ必要があります。これらは単一のコンポーネントとして実行したときに、どのようにしてテストが呼び出されるかを制御します。execute-Component はテストを実行する前に tcp-server と http-server をセットアップし、同様に、必要になるかもしれないデプロイとサービスを処理します。execute-Simple-test は単に生のテストクラスファイルを呼び出します。</li>
+  
+<li>これで終わりです。<span class="codefrag">ant functional-tests</span> を実行して検証してください。あなたのテストをチェックインしてください。</li>
+
+</ol>
+
+
+
+
+
+
+<a name="TestStructure"></a>
+
+<div class="h4">
+<h4>テスト構造</h4>
+</div>
+
+
+
+<p>
+<a href="AxisTestRedesign.html">テストとサンプルの再設計ドキュメントはここにあります。</a> [英語]</p>
+
+
+<p>Axis 1.0, RC1 以降、"コンポーネント化された" テスト構造に移行しました。1つの高レベルの大きな再帰関数を持つ代わりに、test/** ツリーと samples/** ツリーの葉レベルに小さくて単純な "コンポーネント" である build.xml ファイルがあります。</p>
+
+
+<p>これらの "コンポーネント" ファイルは共通のレイアウトを持っています。それらの主要な target は以下の通りです。</p>
+
+
+<ul>
+  
+<li>clean - ビルド先をリセットします。</li>
+  
+<li>compile - javac、wsdl2java、java2wsdl 指示です。</li>
+  
+<li>run - テストを "実行" します</li>
+
+</ul>
+
+
+<p>"サンプル" であるテスト xml ファイルは test/templateTest にあります。</p>
+
+
+
+
+<a name="AddingSourceCodeChecks"></a>
+
+<div class="h4">
+<h4>ソースコードチェックを追加する</h4>
+</div>
+
+
+
+<p>Axis ビルドは、メッセージを発行する際に国際化された文字列を利用しているかといった、特定の規約に従っているか確かめるために、ソースディレクトリ (java/src) 内のファイルに対して一定の自動化されたチェックを実行します。</p>
+
+
+<p>規約を正規表現マッチに変形できるのであれば、java/test/utils/TestSrcContent.java を更新することでビルド時にそれを強制することができます。</p>
+
+
+<p>必要なことは、static な FileNameContentPattern 配列にパターンを追加するだけです。各パターンは3つのパラメータを持っています。</p>
+
+
+<ol>
+  
+<li>チェックされるファイル名にマッチするパラメータ。</li>
+  
+<li>選択したファイル内で検索されるパラメータ。</li>
+  
+<li>そのパターンが許されているかどうかを示す boolean (一般的には false は許されていないことを示しています)。</li>
+
+</ol>
+
+
+<p>正規表現表記の適度な要約は <a href="http://jakarta.apache.org/oro/api/org/apache/oro/text/regex/package-summary.html">Jakarta ORO javadocs</a> [英語] で提供されています。</p>
+
+
+
+
+<a name="JUnitAndAxis"></a>
+
+<div class="h4">
+<h4>JUnit と Axis</h4>
+</div>
+
+
+
+<p>Webサービスを呼び出す Axis クライアントの JUnit テストを実行しようとすると、必ず以下の例外を得ることになるでしょう。</p>
+
+
+<pre class="code">java.lang.ExceptionInInitializerError 
+at org.apache.axis.client.Service.&lt;init&gt;(Service.java:108) 
+... 
+
+Caused by: org.apache.commons.logging.LogConfigurationException: ... 
+org.apache.commons.logging.impl.Jdk14Logger does not implement Log 
+at org.apache.commons.logging.impl.LogFactoryImpl.newInstance
+(LogFactoryImpl.java:555) 
+...</pre>
+
+
+<p>実際には、Jdk14Logger は Log を実装しています。これは JUnit のクラスローディングの問題です。JUnit のグラフィカルな TestRunner には、ユーザが "Run" ボタンを押すたびに修正されたクラスを動的にリロードする機能があります。これによりユーザは修正のたびに TestRunner を再起動する必要がなくなります。このために JUnit は自身のクラスローダ junit.runner.TestCaseClassLoader を利用します。JUnit 3.8.1 現在、TestCaseClassLoader とシステムクラスローダ間で、どのクラスに対してどちらのローダが実行されたか、あるいはどちらのローダでロードすべきかという混乱が生じます。</p>
+
+
+<p>この問題を回避するのに2つの方法があります。</p>
+
+
+<ul>
+  
+<li>確実で簡単な調整です。junit.swingui.TestRunner を -noloading 引数付きで実行することにより、動的クラス再ロードの機能をオフにします。</li>
+  
+<li>細かくて手の込んだ調整です。動的クラス再ロードを行いたい場合にのみ必要になります。特定のパッケージとそのサブパッケージを無視し、それらをシステムクラスローダに先延ばしすることを TestCaseClassLoader に対して指示します。これは junit.jar 内にある junit/runner/excluded.properties ファイルを利用することで行えます。このファイルの内容は以下の通りです。
+    <pre class="code">#
+# The list of excluded package paths for the TestCaseClassLoader
+#
+excluded.0=sun.*
+excluded.1=com.sun.*
+excluded.2=org.omg.*
+excluded.3=javax.*
+excluded.4=sunw.*
+excluded.5=java.*
+excluded.6=org.w3c.dom.*
+excluded.7=org.xml.sax.*
+excluded.8=net.jini.*</pre>
+  
+</li>
+
+</ul>
+
+
+<p>ディレクトリパスを保持しながらこのファイルを他の場所、例えば deployDir にコピーします。ですからコピーされたプロパティファイルのパスは deployDir/junit/runner/excluded.properties になります。このファイルの最後に余分なエントリを追加します。</p>
+
+
+<pre class="code">excluded.9=org.apache.*</pre>
+
+
+<p>あなたのクラスパスを修正して、deployDir が junit.jar の前に来るようにします。これによりデフォルトではなく修正した excluded.properties が利用されます。(クラスパスに excluded.properties 自身へのパスを追加しないで下さい。)</p>
+
+
+<p>この修正により commons-logging 例外を防ぐことができます。しかし、他のクラスローディング問題が出てくるかもしれません。例えば以下のようなものです。</p>
+
+
+<pre class="code">Dec 10, 2002 7:16:16 PM org.apache.axis.encoding.ser.BeanPropertyTarget set 
+SEVERE: Could not convert [Lfoo.bar.Child; to bean field 'childrenAsArray', 
+type [Lfoo.bar.Child; 
+Dec 10, 2002 7:16:16 PM org.apache.axis.client.Call invoke 
+SEVERE: Exception: 
+java.lang.IllegalArgumentException: argument type mismatch 
+at org.apache.axis.encoding.ser.BeanPropertyTarget.set
+(BeanPropertyTarget.java:182) 
+at org.apache.axis.encoding.DeserializerImpl.valueComplete
+(DeserializerImpl.java:284) 
+...</pre>
+
+
+<p>この場合、あなたには選択肢はなく、動的クラス再ロードをあきらめて -noloading 引数を利用します。</p>
+
+
+<p>Axis Webサービスの JUnit テストに関してもう1つ注意があります。Webサービスとして公開するコンポーネントをローカルで JUnit テストを実行したとします。一連のテストを初期化するために "Run" ボタンを押します。各テスト間で、全てのデータ構造は再初期化されます。あなたのテストは長い緑色のバーを生成します。これはいいでしょう。</p>
+
+
+<p>次に、Axis Webアプリケーションと共にあなたのWebサービスが実行されているアプリケーションサーバに接続する Axis クライアントに対して JUnit テストを実行するとします。各テスト間で、JUnit はあなたのクライアントを自動的に再初期化します。</p>
+
+
+<p>サーバ側のデータ構造が問題となります。各テストの終わりでサーバのデータをチェックしていて (するべきです)、一度に2つ以上のテストを実行すると、2つめ以降のテストが失敗します。なぜなら、現在のテストのみに基づいた新鮮なデータではなく、以前のテストに基づいた累積したデータを Axis サーバ上で生成しているからです。</p>
+
+
+<p>これは、各テストにおいてあなたのWebサービスを手動で最初期化しなくてはいけないことを意味しています。これを達成する1つの方法は、あなたのWebサービスインターフェースに最初期化操作を加えることです。そして各テストの最初で、クライアントがその操作を呼ぶようにします。</p>
+
+
+
+
+<a name="UsingTcpmonToMonitorFunctionalTests"></a>
+
+<div class="h4">
+<h4>ファンクションテストを監視するために tcpmon を利用する</h4>
+</div>
+
+
+
+<p>
+<span class="codefrag">functional-tests</span> (あるいは <span class="codefrag">all-tests</span>) の実行時にメッセージを監視する簡単な方法を紹介します。</p>
+
+
+<p>8080ポートをリッスンし、異なるポートにフォワードする tcpmon を起動します。</p>
+
+
+<p>
+<span class="codefrag">java org.apache.axis.utils.tcpmon 8080 localhost 8011</span>
+</p>
+
+
+<p>SimpleAxisServer にポートをフォワードし、失敗が発生しても functional-tests を続けるように指示してテストを実行します。</p>
+
+
+<p>
+<span class="codefrag">ant functional-tests -Dtest.functional.SimpleAxisPort=8011 -Dtest.functional.fail=no</span>
+</p>
+
+
+<p>すべてのテストの SOAP メッセージは tcpmon ウィンドウに現れるはずです。</p>
+
+
+<p>
+<span class="codefrag">tcpmon</span> は <a href="user-guide.html#AppendixUsingTheAxisTCPMonitorTcpmon">Axis ユーザガイド</a>で詳細に説明されています。</p>
+
+
+
+
+<a name="UsingSOAPMonitorToMonitorFunctionalTests"></a>
+
+<div class="h4">
+<h4>ファンクションテストを監視するために SOAP Monitor を利用する</h4>
+</div>
+
+
+
+<p>(Tomcat のような) Webアプリケーションサーバを利用してWebアプリケーションとして実行しているコードをデバッグする際に、SOAP リクエストメッセージと SOAP レスポンスメッセージを見るために SOAP Monitor ユーティリティを利用することもできます。</p>
+
+
+<p>ウェブブラウザウィンドウ内で SOAP Monitor アプレットをロードして SOAP Monitor ユーティリティを立ち上げてください。</p>
+
+
+<p>
+<span class="codefrag">http://localhost:&lt;port&gt;/axis/SOAPMonitor</span>
+</p>
+
+
+<p>テストを実行するに従って、SOAP メッセージが SOAP Monitor ウィンドウに現れます。</p>
+
+
+<p>
+<span class="codefrag">SOAP Monitor</span> は <a href="user-guide.html#AppendixUsingTheSOAPMonitor">Axis ユーザガイド</a>で詳細に説明されています。</p>
+
+
+
+
+<a name="RunningASingleFunctionalTest"></a>
+
+<div class="h4">
+<h4>単一のファンクションテストを実行する</h4>
+</div>
+
+
+
+<p>あるウィンドウでサーバを起動します。</p>
+
+
+<p>
+<span class="codefrag">java org.apache.axis.transport.http.SimpleAxisServer -p 8080</span>
+</p>
+
+
+<p>別のウィンドウでまずテストを行うサービスをデプロイします。</p>
+
+
+<p>
+<span class="codefrag">java org.apache.axis.client.AdminClient deploy.wsdd</span>
+</p>
+
+
+<p>次にテストを指定して JUnit ユーザインターフェースを立ち上げます。例えば、マルチスレッドのテストケースを実行するには以下のようにします。</p>
+
+
+<p>
+<span class="codefrag">java junit.swingui.TestRunner -noloading test.wsdl.multithread.MultithreadTestCase</span>
+</p>
+
+
+
+
+<a name="Debugging"></a>
+
+<div class="h4">
+<h4>デバッギング</h4>
+</div>
+
+
+
+<a name="TurningOnDebugOutput"></a>
+
+<div class="h2">
+<h2>デバッグ出力を行う</h2>
+</div>
+
+
+
+<p>この節では Axis のデフォルトのロガーである Log4J の説明をします。Log4J の追加的な情報は<a href="#Logging/Tracing">ロギング/トレーシング</a>節をご覧下さい。</p>
+
+
+<ul>
+  
+<li>
+<b>Log4J プロパティの上書き</b>
+    
+<p>
+<span class="codefrag">log4j.properties</span> ファイルは妥当なデフォルトの設定で <span class="codefrag">axis.jar</span> にパッケージ化されています。これ以降の項目では設定を変更していきます。多くのオプションが開発者に公開されていて、そのほとんどは <span class="codefrag">axis.jar</span> から <span class="codefrag">log4j.properties</span> を取り出して適切に修正しなくてはいけません。</p>
+    
+<ul>
+      
+<li>コマンドラインやスクリプトファイルから <span class="codefrag">Java</span> プログラムをビルドし、実行しているのであれば、JVM オプション <span class="codefrag">-Dlog4j.configuration=yourConfigFile</span> を含めます。</li>
+      
+<li>
+<span class="codefrag">CLASSPATH</span>中であなたの <span class="codefrag">log4j.properties</span> が <span class="codefrag">axis.jar</span> よりも前に来るように <span class="codefrag">CLASSPATH</span> を設定します。</li>
+      
+<li>
+<span class="codefrag">ant</span> を利用してプログラムをビルドし、実行している (これは Axis のビルドとそのテストの実行を含んでいます) のであれば、環境変数 <span class="codefrag">ANT_OPTS</span> を <span class="codefrag">-Dlog4j.configuration=yourConfigFile</span> に設定します。</li>
+      
+<li>Axis をビルドしているのであれば、<span class="codefrag">src/log4j.properties</span> を直接変更することができます。その変更をコミットしないように注意してください。</li>
+    
+</ul>
+  
+</li>
+
+  
+<li>
+<b>全てのデバッグ出力を行う</b>
+    
+<ul>
+      
+<li>
+<span class="codefrag">log4j.rootCategory</span> <i>優先度</i>を <span class="codefrag">DEBUG</span> に設定します。</li>
+      
+<li>アペンダの<i>優先度</i>閾値を <span class="codefrag">DEBUG</span> に設定します (Axis 内の <span class="codefrag">log4j.properties</span> ファイルは2つのアペンダを定義しています。<span class="codefrag">CONSOLE</span> と <span class="codefrag">LOGFILE</span> です)。</li>
+    
+</ul>
+  
+</li>
+
+  
+<li>
+<b>選択可能な DEBUG 出力</b>
+    
+<ul>
+      
+<li>
+<span class="codefrag">log4j.rootCategory</span> <i>優先度</i>を <span class="codefrag">INFO</span> 以上に設定します。</li>
+      
+<li>対象とするロガーの <span class="codefrag">log4j.logger.logger.name</span> <i>優先度</i>を <span class="codefrag">DEBUG</span> に設定する。</li>
+      
+<li>アペンダの<i>優先度</i>閾値を <span class="codefrag">DEBUG</span> に設定します (Axis 内の <span class="codefrag">log4j.properties</span> ファイルは2つのアペンダを定義しています。<span class="codefrag">CONSOLE</span> と <span class="codefrag">LOGFILE</span> です)。</li>
+      
+<li>これでもまだ必要以上の情報が出力されているのであれば、ログ出力から必要な情報を取り出すためにその他のツールを利用する必要があります。ログメッセージから、適切なキーワードを用いて <span class="codefrag">grep</span> などのツールを利用して検索します。</li>
+    
+</ul>
+  
+</li>
+
+</ul>
+
+
+
+
+<a name="WritingTemporaryOutput"></a>
+
+<div class="h2">
+<h2>一時出力の出力</h2>
+</div>
+
+
+
+<p>Axis は多くのオープンソースのWebアプリケーションやその他のWebアプリケーションでの利用を目標としているので、善良な市民である必要があります。<span class="codefrag">System.out.println</span> や <span class="codefrag">System.err.println</span> を利用して出力を書き出すことは避けるべきです。</p>
+
+
+<p>開発者はシステムをデバッグしたり分析したりする際に <span class="codefrag">System.out.println</span> を利用する傾向があります。もしこれを行うのであれば、<span class="codefrag">System.out.println</span> と <span class="codefrag">System.err.println</span> の回避を強制する <span class="codefrag">util/TestSrcContent</span> テストを無効にする必要があります。また、そのコードをチェックインして戻す前にあなたの文を削除する必要が出てきます。</p>
+
+
+<p>別の方法として、デバッグ文 <span class="codefrag">log.debug("適度に簡潔で意味のあるメッセージ")</span> を導入することを強くお勧めします。デバッグメッセージが問題の理解に今役立つのであれば、将来あなたと仲間にとってもまた役立つかもしれません。</p>
+
+
+
+
+
+
+<a name="RunningTheJAX-RPCCompatibilityTests"></a>
+
+<div class="h4">
+<h4>JAX-RPC 互換性テストの実行</h4>
+</div>
+
+
+
+<p>仕様と同様に、JAX-RPC には JAX-RPC エキスパートグループのメンバ (とその他の人達?) が手に入れることのできる Technology Compatibility Kit (TCK) があります。</p>
+
+
+<p>このキットは zip ファイルで提供されているので、自分の好きなディレクトリに unzip する必要があります。インストールの説明は docs ディレクトリ内にある JAX-RPC リリースノートドキュメントにあります。ウェブブラウザを利用して doc ディレクトリ内の index.html ファイルを開くと、キットで提供されている全てのドキュメントのリストを見ることができます。</p>
+
+
+<p>このキットには、互換性テストを実行するのに利用される JavaTest テストハーネスが含まれていることに注意してください。</p>
+
+
+<p>これらのテストの実行に関する情報がさらに必要であれば、ここに追加してください。</p>
+
+
+
+
+
+  
+
+<div id="pdf" align="right">
+<a href="developers-guide.pdf"><img alt="PDF" src="../skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

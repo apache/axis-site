@@ -1,0 +1,675 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JavaClassWriter (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="JavaClassWriter (Apache Axis)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/JavaClassWriter.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaBuildFileWriter.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaDefinitionWriter.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/wsdl/toJava/JavaClassWriter.html" target="_top">Frames</a></li>
+<li><a href="JavaClassWriter.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis.wsdl.toJava</div>
+<h2 title="Class JavaClassWriter" class="title">Class JavaClassWriter</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">org.apache.axis.wsdl.toJava.JavaWriter</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.wsdl.toJava.JavaClassWriter</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><a href="../../../../../org/apache/axis/wsdl/gen/Generator.html" title="interface in org.apache.axis.wsdl.gen">Generator</a></dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../../../org/apache/axis/wsdl/toJava/JavaBeanHelperWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaBeanHelperWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaBeanWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaBeanWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaEnumTypeWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaEnumTypeWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaFaultWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaFaultWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaHolderWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaHolderWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaImplWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaImplWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaInterfaceWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaInterfaceWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceIfaceWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaServiceIfaceWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaServiceImplWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaServiceImplWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaSkelWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaSkelWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaStubWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaStubWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaTestCaseWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaTestCaseWriter</a></dd>
+</dl>
+<hr>
+<br>
+<pre>public abstract class <span class="strong">JavaClassWriter</span>
+extends <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaWriter</a></pre>
+<div class="block">Emitter knows about WSDL writers, one each for PortType, Binding, Service,
+ Definition, Type.  But for some of these WSDL types, Wsdl2java generates
+ multiple files.  Each of these files has a corresponding writer that extends
+ JavaWriter.  So the Java WSDL writers (JavaPortTypeWriter, JavaBindingWriter,
+ etc.) each calls a file writer (JavaStubWriter, JavaSkelWriter, etc.) for
+ each file that that WSDL generates.
+ <p/>
+ <p>For example, when Emitter calls JavaWriterFactory for a Binding Writer, it
+ returns a JavaBindingWriter.  JavaBindingWriter, in turn, contains a
+ JavaStubWriter, JavaSkelWriter, and JavaImplWriter since a Binding may cause
+ a stub, skeleton, and impl template to be generated.
+ <p/>
+ <p>Note that the writers that are given to Emitter by JavaWriterFactory DO NOT
+ extend JavaWriter.  They simply implement Writer and delegate the actual
+ task of writing to extensions of JavaWriter.
+ <p/>
+ <p>All of Wsdl2java's Writer implementations follow a common behaviour.
+ JavaWriter is the abstract base class that dictates this common behaviour.
+ Many of the files generated are .java files, so this abstract class -
+ JavaClassWriter - exists.  It extends JavaWriter and adds a bit of Java-
+ relative behaviour.  This behaviour is primarily placed within the generate
+ method.  The generate method calls, in succession (note:  the starred methods
+ are the ones you are probably most interested in):
+ <dl>
+ <dt> getFileName
+ <dd> This method is abstract in JavaWriter, but JavaClassWriter implements
+ this method.  Subclasses should have no need to override it.  It
+ returns the fully-qualified file name based on the fully-qualified
+ classname + ".java".
+ <dt> isFileGenerated(file)
+ <dd> You should not need to override this method.  It checks to see whether
+ this file is in the List returned by emitter.getGeneratedFileNames.
+ <dt> registerFile(file)
+ <dd> You should not need to override this method.  It registers this file by
+ calling emitter.getGeneratedFileInfo().add(...).
+ <dt> * verboseMessage(file)
+ <dd> You may override this method if you want to provide more information.
+ The generate method only calls verboseMessage if verbose is turned on.
+ <dt> getPrintWriter(file)
+ <dd> You should not need to override this method.  Given the file name, it
+ creates a PrintWriter for it.
+ <dt> writeFileHeader(pw)
+ <dd> JavaClassWriter implements this method, so you should not need to
+ override it.  This method generates a javadoc giving the filename and
+ a comment stating that this file is generated by WSDL2Java, and it
+ generates the class definition including the opening curly brace..
+ <dt> * writeFileBody(pw)
+ <dd> This is an abstract method that must be implemented by the subclass.
+ This is where the body of a file is generated.
+ <dt> * writeFileFooter(pw)
+ <dd> JavaClassWriter implements this method, so you should not need to
+ override it.  It generates the closing curly brace for the class.
+ <dt> closePrintWriter(pw)
+ <dd> You should not need to override this method.  It simply closes the
+ PrintWriter.
+ </dl>
+ <p/>
+ Additional behaviour that JavaClassWriter introduces beyond JavaWriter is
+ related to the class header and definition:
+ <dl>
+ <dt> writeHeaderComments
+ <dd> Write the header comments, such as the file name and that the file was
+ generated by WSDL2Java.  You need not override this method unless you
+ want a tailored comment.
+ <dt> writePackage
+ <dd> Write the package statement, if necessary.  You should not need to
+ override this method.
+ <dt> getClassModifiers
+ <dd> Modifiers, such as "public", "final", "abstract" would be returned by
+ this method.  The default implementation only generates "public ", so
+ any subclass that needs more must override this method.
+ <dt> getClassText
+ <dd> This simply returns "class ".  If anything else is desired, for
+ instance, JavaInterfaceWriter prefers "interface ", then this method
+ must be overridden.
+ <dt> getExtendsText
+ <dd> The default implementation returns "".  If a subclass desires to list
+ a set of classes this one extends, then this method must be overridden.
+ <dt> getImplementsText
+ <dd> Same as getExtendsText except for the implements clause.
+ </dl></div>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#className">className</a></strong></code>
+<div class="block">Field className</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/axis/wsdl/toJava/Namespaces.html" title="class in org.apache.axis.wsdl.toJava">Namespaces</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#namespaces">namespaces</a></strong></code>
+<div class="block">Field namespaces</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#packageName">packageName</a></strong></code>
+<div class="block">Field packageName</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.axis.wsdl.toJava.JavaWriter">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.axis.wsdl.toJava.<a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaWriter</a></h3>
+<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#emitter">emitter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#LINE_LENGTH">LINE_LENGTH</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#type">type</a></code></li>
+</ul>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colLast" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#JavaClassWriter(org.apache.axis.wsdl.toJava.Emitter,%20java.lang.String,%20java.lang.String)">JavaClassWriter</a></strong>(<a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</a>&nbsp;emitter,
+               <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fullClassName,
+               <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type)</code>
+<div class="block">Constructor.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getClassModifiers()">getClassModifiers</a></strong>()</code>
+<div class="block">Return "public ".</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getClassName()">getClassName</a></strong>()</code>
+<div class="block">Returns the class name.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getClassText()">getClassText</a></strong>()</code>
+<div class="block">Return "class ".</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getExtendsText()">getExtendsText</a></strong>()</code>
+<div class="block">Returns the appropriate extends clause.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getFileName()">getFileName</a></strong>()</code>
+<div class="block">Return the file name as a string of the form:
+ "<directory-ized fully-qualified classname>.java"</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getImplementsText()">getImplementsText</a></strong>()</code>
+<div class="block">Returns the appropriate implements clause.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#getPackage()">getPackage</a></strong>()</code>
+<div class="block">Returns the package name.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#registerFile(java.lang.String)">registerFile</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;file)</code>
+<div class="block">You should not need to override this method.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#writeFileFooter(java.io.PrintWriter)">writeFileFooter</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)</code>
+<div class="block">Generate the closing curly brace.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#writeFileHeader(java.io.PrintWriter)">writeFileHeader</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)</code>
+<div class="block">Write a common header, including the package name, the class
+ declaration, and the opening curly brace.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#writeHeaderComments(java.io.PrintWriter)">writeHeaderComments</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)</code>
+<div class="block">Write the header comments.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/JavaClassWriter.html#writePackage(java.io.PrintWriter)">writePackage</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)</code>
+<div class="block">Write the package declaration statement.</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.axis.wsdl.toJava.JavaWriter">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.axis.wsdl.toJava.<a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaWriter</a></h3>
+<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#closePrintWriter(java.io.PrintWriter)">closePrintWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#generate()">generate</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#getJavadocDescriptionPart(java.lang.String,%20boolean)">getJavadocDescriptionPart</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#getPrintWriter(java.lang.String)">getPrintWriter</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#isFileGenerated(java.lang.String)">isFileGenerated</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#verboseMessage(java.lang.String)">verboseMessage</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#writeComment(java.io.PrintWriter,%20org.w3c.dom.Element)">writeComment</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#writeComment(java.io.PrintWriter,%20org.w3c.dom.Element,%20boolean)">writeComment</a>, <a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#writeFileBody(java.io.PrintWriter)">writeFileBody</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="namespaces">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>namespaces</h4>
+<pre>protected&nbsp;<a href="../../../../../org/apache/axis/wsdl/toJava/Namespaces.html" title="class in org.apache.axis.wsdl.toJava">Namespaces</a> namespaces</pre>
+<div class="block">Field namespaces</div>
+</li>
+</ul>
+<a name="className">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>className</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> className</pre>
+<div class="block">Field className</div>
+</li>
+</ul>
+<a name="packageName">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>packageName</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> packageName</pre>
+<div class="block">Field packageName</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="JavaClassWriter(org.apache.axis.wsdl.toJava.Emitter, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>JavaClassWriter</h4>
+<pre>protected&nbsp;JavaClassWriter(<a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html" title="class in org.apache.axis.wsdl.toJava">Emitter</a>&nbsp;emitter,
+               <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;fullClassName,
+               <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type)</pre>
+<div class="block">Constructor.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>emitter</code> - The emitter instance</dd><dd><code>fullClassName</code> - The fully qualified class name of the class
+                      to be generated.</dd><dd><code>type</code> - </dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getFileName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFileName</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getFileName()</pre>
+<div class="block">Return the file name as a string of the form:
+ "<directory-ized fully-qualified classname>.java"</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#getFileName()">getFileName</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaWriter</a></code></dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="registerFile(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>registerFile</h4>
+<pre>protected&nbsp;void&nbsp;registerFile(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;file)</pre>
+<div class="block">You should not need to override this method.
+ It registers the given file by calling
+ emitter.getGeneratedFileInfo().add(...).
+ JavaClassWriter overrides this method from JavaWriter because
+ it add class name to the registration information.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#registerFile(java.lang.String)">registerFile</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaWriter</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>file</code> - </dd></dl>
+</li>
+</ul>
+<a name="writeFileHeader(java.io.PrintWriter)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeFileHeader</h4>
+<pre>protected&nbsp;void&nbsp;writeFileHeader(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)
+                        throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Write a common header, including the package name, the class
+ declaration, and the opening curly brace.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#writeFileHeader(java.io.PrintWriter)">writeFileHeader</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaWriter</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="writeHeaderComments(java.io.PrintWriter)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writeHeaderComments</h4>
+<pre>protected&nbsp;void&nbsp;writeHeaderComments(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)
+                            throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Write the header comments.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="writePackage(java.io.PrintWriter)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writePackage</h4>
+<pre>protected&nbsp;void&nbsp;writePackage(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)
+                     throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Write the package declaration statement.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="getClassModifiers()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getClassModifiers</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getClassModifiers()</pre>
+<div class="block">Return "public ".  If more modifiers are needed, this method must be
+ overridden.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getClassText()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getClassText</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getClassText()</pre>
+<div class="block">Return "class ".  If "interface " is needed instead, this method must be
+ overridden.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getExtendsText()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getExtendsText</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getExtendsText()</pre>
+<div class="block">Returns the appropriate extends clause.  This default implementation
+ simply returns "", but if you want "extends <class/interface list> "
+ then you must override this method.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>""</dd></dl>
+</li>
+</ul>
+<a name="getImplementsText()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getImplementsText</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getImplementsText()</pre>
+<div class="block">Returns the appropriate implements clause.  This default implementation
+ simply returns "", but if you want "implements <interface list> " then
+ you must override this method.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>""</dd></dl>
+</li>
+</ul>
+<a name="getPackage()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPackage</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getPackage()</pre>
+<div class="block">Returns the package name.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getClassName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getClassName</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getClassName()</pre>
+<div class="block">Returns the class name.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="writeFileFooter(java.io.PrintWriter)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>writeFileFooter</h4>
+<pre>protected&nbsp;void&nbsp;writeFileFooter(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/PrintWriter.html?is-external=true" title="class or interface in java.io">PrintWriter</a>&nbsp;pw)
+                        throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Generate the closing curly brace.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html#writeFileFooter(java.io.PrintWriter)">writeFileFooter</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/wsdl/toJava/JavaWriter.html" title="class in org.apache.axis.wsdl.toJava">JavaWriter</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>pw</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/JavaClassWriter.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaBuildFileWriter.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/JavaDefinitionWriter.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/wsdl/toJava/JavaClassWriter.html" target="_top">Frames</a></li>
+<li><a href="JavaClassWriter.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

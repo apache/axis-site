@@ -1,0 +1,2753 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../skin/print.css" type="text/css">
+<title>WebServices - Axis</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="../images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="../images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.co.jp/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input value="ja" name="hl" type="hidden"><input value="UTF-8" name="ie" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../skin/images/spacer.gif" class="spacer"><input name="Search" value="検索" type="submit">
+<br>WS を検索
+                          
+                          
+                      </td><td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="../index.html">はじめに</a>
+</div>
+ 
+<div class="menuItem">
+<a href="../news.html">お知らせ</a>
+</div>
+
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/ja/axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">活動に参加</span>
+  
+<div class="menuItem">
+<a href="../overview.html">概要</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cvs.html">CVS リポジトリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../mail.html">メーリングリスト</a>
+</div>
+  
+<div class="menuItem">
+<a href="../ref.html">リファレンスライブラリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../bugs.html">バグ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../howtobuild.html">サイト構築方法</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="../java/index.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/install.html">インストール</a>
+</div>
+  
+<div class="menuItem">
+<span class="menuSelected">ユーザガイド</span>
+</div>
+  
+<div class="menuItem">
+<a href="../java/developers-guide.html">開発者ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/integration-guide.html">統合ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/architecture-guide.html">アーキテクチャガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reference.html">リファレンスガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reading.html">読書ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/requirements.html">要件</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="../cpp/index.html">Axis C++ 最新版</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/documentation.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/download.html">ダウンロード</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki ページ [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/who.html">メンバ紹介</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">ダウンロード</span>
+  
+<div class="menuItem">
+<a href="../releases.html">リリース</a>
+</div>
+  
+<div class="menuItem">
+<a href="../interim.html">暫定版</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">ソースコード [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">翻訳</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/jp/">日本語</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">関連プロジェクト</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">その他</span>
+  
+<div class="menuItem">
+<a href="../who.html">メンバ紹介</a>
+</div>
+  
+<div class="menuItem">
+<a href="../contact.html">連絡先</a>
+</div>
+  
+<div class="menuItem">
+<a href="../legal.html">法関連</a>
+</div>
+  
+<div class="menuItem">
+<a href="../docs.html">メモ/ドキュメント</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>WebServices - Axis</h1>
+</div>
+<div class="h3">
+  
+  
+
+
+<div class="h3">
+<h3>Axis ユーザガイド</h3>
+</div>
+
+
+
+<p>
+<i>バージョン 1.2</i>
+<br>
+  
+<i>フィードバック: <a href="mailto:axis-dev@ws.apache.org">axis-dev@ws.apache.org</a></i>
+</p>
+
+
+<a name="TableOfContents"></a>
+
+<div class="h4">
+<h4>目次</h4>
+</div>
+
+
+
+<ul>
+  
+<li>
+<a href="#Introduction">はじめに</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#WhatIsSOAP">SOAP とは何ですか?</a>
+</li>
+    
+<li>
+<a href="#WhatIsAxis">Axis とは何ですか?</a>
+</li>
+    
+<li>
+<a href="#WhatsInThisRelease">このリリースに含まれているもの</a>
+</li>
+    
+<li>
+<a href="#WhatsStillToDo">やり残していること</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#InstallingAxisAndUsingThisGuide">Axis のインストールとこのガイドの利用方法</a>
+</li>
+  
+<li>
+<a href="#ConsumingWebServicesWithAxis">Axis でWebサービスを楽しむ</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#BasicsGettingStarted">基本 - はじめ</a>
+</li>
+    
+<li>
+<a href="#NamingParameters">パラメータ命名規則</a>
+</li>
+    
+<li>
+<a href="#InteroperatingWithUntypedServers">"型なし" サーバとの相互運用</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#PublishingWebServicesWithAxis">Axis を用いてWebサービスを公開する</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#JWSJavaWebServiceFilesInstantDeployment">JWS (Java Web Service) ファイル - 瞬間デプロイ</a>
+</li>
+    
+<li>
+<a href="#CustomDeploymentIntroducingWSDD">カスタムデプロイ - WSDD の導入</a>
+</li>
+    
+<li>
+<a href="#ServiceStylesRPCDocumentWrappedAndMessage">サービススタイル - RPC、Document、Wrapped、Message</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#XMLJavaDataMappingInAxis">XML &lt;-&gt; Axis における Java データマッピング</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#HowYourJavaTypesMapToSOAPXMLTypes">Java 型を SOAP/XML 型にマッピングする方法</a>
+</li>
+    
+<li>
+<a href="#Exceptions">例外</a>
+</li>
+    
+<li>
+<a href="#WhatAxisCanSendViaSOAPWithRestrictedInteroperability">制限された相互運用性において、Axis が SOAP 経由で送信できるもの</a>
+</li>
+    
+<li>
+<a href="#WhatAxisCanNotSendViaSOAP">Axis が SOAP 経由で送信できないもの</a>
+</li>
+    
+<li>
+<a href="#EncodingYourBeansTheBeanSerializer">Bean のエンコード - BeanSerializer</a>
+</li>
+    
+<li>
+<a href="#WhenBeansAreNotEnoughCustomSerialization">Bean が十分ではない場合 - カスタムシリアライゼーション</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#UsingWSDLWithAxis">Axis で WSDL を利用する</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#WSDLObtainingWSDLForDeployedServices">?WSDL: デプロイされたサービスから WSDL を取得する</a>
+</li>
+    
+<li>
+<a href="#WSDL2JavaBuildingStubsSkeletonsAndDataTypesFromWSDL">WSDL2Java: WSDL から スタブ、スケルトン、データ型を構築</a>
+</li>
+    
+<li>
+<a href="#Java2WSDLBuildingWSDLFromJava">Java2WSDL: Java から WSDL を構築</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#PublishedAxisInterfaces">Axis 公開インターフェース</a>
+</li>
+  
+<li>
+<a href="#NewbieTipsFindingYourWayAround">初心者ヒント: 道しるべ</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#PlacesToLookForClues">手がかりを探す場所</a>
+</li>
+    
+<li>
+<a href="#ClassesToKnow">知っておくべきクラス</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#AppendixUsingTheAxisTCPMonitorTcpmon">付録 : Axis TCP モニタ (tcpmon) を利用する</a>
+</li>
+  
+<li>
+<a href="#AppendixUsingTheSOAPMonitor">付録: SOAP Monitor を利用する</a>
+</li>
+  
+<li>
+<a href="#Glossary">用語集</a>
+</li>
+
+</ul>
+
+
+
+
+<a name="Introduction"></a>
+
+<div class="h4">
+<h4>はじめに</h4>
+</div>
+
+
+
+<p>Axis、Apache SOAP の第三世代へようこそ!</p>
+
+
+<a name="WhatIsSOAP"></a>
+
+<div class="h2">
+<h2>SOAP とは何ですか?</h2>
+</div>
+
+
+
+<p>SOAP はアプリケーション間通信のための XML に基づく通信プロトコルであり、またエンコーディングフォーマットでもあります。もともとは Microsoft と Userland software によって考え出されましたが、いくつもの世代を経て進化し、現在の仕様である <a href="http://www.w3.org/TR/soap/">SOAP 1.1</a> [英語] は人気と共に利用数もすごい勢いで上昇しています。W3C の <a href="http://www.w3.org/2000/xp/group/">XML Protocol working group</a> [英語] は SOAP を本当にオープンな標準に変える過程にいて、現時点では、1.1 の仕様のいくつかのあいまいな部分をなくした SOAP 1.2 の working draft をリリースしました。</p>
+
+
+<p>SOAP はプラットフォームと言語をまたがる分散計算アプリケーション、いわゆるWebサービスの基幹であると広く見られています。</p>
+
+
+
+
+<a name="WhatIsAxis"></a>
+
+<div class="h2">
+<h2>Axis とは何ですか?</h2>
+</div>
+
+
+
+<p>Axis は本質的には <i>SOAP エンジン</i> -- クライアント、サーバ、ゲートウェイなどの SOAP 処理装置を構築するためのフレームワークです。Axis の現在のバージョンは Java で書かれていますが、Axis のクライアント側の C++ 実装が現在開発されています。</p>
+
+
+<p>ただ、Axis は単なる SOAP エンジンではありません -- 以下のものも含んでいます。</p>
+
+
+<ul>
+  
+<li>単純なスタンドアローンサーバ</li>
+  
+<li>Tomcat のようなサーブレットエンジンにプラグするサーバ</li>
+  
+<li>
+<i>Web Service Description Language (WSDL)</i> の広範囲に及ぶサポート</li>
+  
+<li>WSDL から Java クラスを生成する生成ツール</li>
+  
+<li>いくつかのサンプルプログラム</li>
+  
+<li>TCP/IP パケットをモニタリングするツール</li>
+
+</ul>
+
+
+<p>Axis は (IBM にて "SOAP4J" として始まった) Apache SOAP の第三世代です。2000年後半に Apache SOAP v2 のコミッタ達は、エンジンをより柔軟に、設定可能に、SOAP と W3C が次に出す XML プロトコル仕様の両方を扱えるようにする方法について議論し始めました。</p>
+
+
+<p>しばらくして、ゼロからの再アーキテクチャ化が必要であることが明確になりました。バージョン2のコミッタの数人はとてもよく似たデザインを提案しました。そのデザインは、全てがとても柔軟で組み合わせ可能な方法でちょっとした機能を実装できるメッセージ "ハンドラ" の、設定可能な "チェイン" に基づいています。</p>
+
+
+<p>何ヶ月か続いた議論と、この方向性でのコーディングの結果、Axis は以下の主要な特徴を持つようになりました。</p>
+
+
+<ul>
+  
+<li>
+<b>スピード</b> Axis は SAX (イベントベース) パーサを利用することで、Apache SOAP の以前のバージョンよりも極めて速いスピードを達成しました。</li>
+  
+<li>
+<b>柔軟性</b> Axis のアーキテクチャにより、開発者はカスタムヘッダ処理、システム管理、あるいは開発者が想像する全てのことを、エンジンに拡張機能として完全に自由に挿入することができます。</li>
+  
+<li>
+<b>安定性</b> Axis は<a href="#PublishedAxisInterfaces">公開されたインターフェース</a>の集合を定義しています。これらのインターフェースの変更は Axis の他の部分と比べて比較的頻度は少ないです。</li>
+  
+<li>
+<b>コンポーネント指向デプロイ</b> アプリケーションの処理の共通パターンを実装したり、相手に配布したりするための、ハンドラの再利用可能なネットワークを簡単に定義することができます。</li>
+  
+<li>
+<b>トランスポートフレームワーク</b> Axis のトランスポート (すなわち、SMTP、FTP、メッセージ指向ミドルウェアなどのような様々なプロトコル上の SOAP のためのセンダやリスナ) の設計は明確で単純な抽象化を行い、エンジンのコアは完全にトランスポート非依存にしました。</li>
+  
+<li>
+<b>WSDL サポート</b> Axis は <a href="http://www.w3.org/tr/wsdl">Web Service Description Language</a> [英語] バージョン1.1をサポートしています。これにより、リモートサービスにアクセスするためのスタブを簡単に作成でき、また、デプロイされたサービスの、マシンが解読可能な記述を自動的に出力することもできます。</li>
+
+</ul>
+
+
+<p>Axis を利用して楽しんでください。Axis はオープンソースの成果であることに留意してください。つまり、もし Axis のコードに新しい機能やバグの修正が必要だと感じたら、ぜひ参加して手を貸してください。Axis 開発者コミュニティはあなたの参加を歓迎します。また、<i>Axis</i> が何を意味しているか気にしているかもしれないので述べておきます。Axis は <b>A</b>pache E<b>X</b>tensible <b>I</b>nteraction <b>S</b>ystem (Apache の拡張性のある相互作用システム) を表していて、その設定可能な SOAP エンジンをしゃれた方法で暗示しています。</p>
+
+
+<p>
+<b>あなたの意見を聞かせてください</b>
+</p>
+
+
+<p>Axis パッケージについてのフィードバックを "<a href="mailto:axis-user@ws.apache.org">axis-user@ws.apache.org</a>" へお送りください。また、Axis は Apache のバグ追跡と機能リクエストのデータベースである <a href="http://issues.apache.org/jira">jira</a> [英語] に登録されています。</p>
+
+
+
+
+<a name="WhatsInThisRelease"></a>
+
+<div class="h2">
+<h2>このリリースに含まれているもの</h2>
+</div>
+
+
+
+<p>このリリースは以下の機能を含んでいます。</p>
+
+
+<ul>
+  
+<li>SOAP 1.1/1.2 準拠のエンジン</li>
+  
+<li>柔軟な設定 / デプロイシステム</li>
+  
+<li>SOAP サービスの "drop-in" デプロイメントのサポート (JWS) </li>
+  
+<li>全ての基本型と、新しいシリアライザ/デシリアライザを定義するための型マッピングシステムをサポートしています</li>
+  
+<li>フィールドから XML 要素/属性への、カスタマイズ可能なマッピングを含む、Java Beans の自動シリアライズ/デシリアライズ</li>
+  
+<li>Java Collection と SOAP 配列間の自動的な双方向変換</li>
+  
+<li>RPC とメッセージに基づいた SOAP サービスのプロバイダ</li>
+  
+<li>デプロイされたサービスからの WSDL 自動生成</li>
+  
+<li>WSDL ドキュメントから Java プロキシとスケルトンを生成する WSDL2Java ツール</li>
+  
+<li>Java クラスから WSDL を生成する Java2WSDL ツール</li>
+  
+<li>Servlet 2.2 セキュリティ/ロールと統合可能な、予備的なセキュリティ拡張</li>
+  
+<li>HTTP クッキー、あるいはトランスポート非依存な SOAP ヘッダ経由のセッション指向サービスのサポート</li>
+  
+<li>
+<b>SOAP with Attachments</b> 仕様の予備的なサポート</li>
+  
+<li>Webサービスとして EJB にアクセスする EJB プロバイダ</li>
+  
+<li>HTTP サーブレットに基づいたトランスポート</li>
+  
+<li>JMS に基づいたトランスポート</li>
+  
+<li>サーバのスタンドアローンバージョン (HTTP サポート付き)</li>
+  
+<li>SoapBuilders コミュニティ相互運用性テストと、実験的な TCP、JMS、ファイルベースのトランスポートのためのクライアントとサーバを含む例</li>
+
+</ul>
+
+
+
+
+<a name="WhatsStillToDo"></a>
+
+<div class="h2">
+<h2>やり残していること</h2>
+</div>
+
+
+
+<p>
+<a href="to-do.html">まだ行う必要があると私達が考えているもののリスト</a> [英語] をクリックしてください。もしあなたが興味があり手伝うことができるのならば、手伝うことも考慮に入れてください。</p>
+
+
+
+
+
+
+<a name="InstallingAxisAndUsingThisGuide"></a>
+
+<div class="h4">
+<h4>Axis のインストールとこのガイドの利用方法</h4>
+</div>
+
+
+
+<p>Axis を J2EE サーバ上でWebアプリケーションとしてインストールする方法の説明については <a href="install.html">Axis インストールガイド</a>をご覧下さい。</p>
+
+
+<p>このガイドにある例を実行する前に、CLASSPATH が以下のパスを含んでいることを確認する必要があります (もし CVS チェックアウトから Axis を構築したのであれば、axis-1_1/lib ではなく xml-axis/java/build/lib になります)。</p>
+
+
+<ul>
+  
+<li>axis-1_2/lib/axis.jar</li>
+  
+<li>axis-1_2/lib/jaxrpc.jar</li>
+  
+<li>axis-1_2/lib/saaj.jar</li>
+  
+<li>axis-1_2/lib/commons-logging.jar</li>
+  
+<li>axis-1_2/lib/commons-discovery.jar</li>
+  
+<li>axis-1_2/lib/wsdl4j.jar</li>
+  
+<li>axis-1_2/ <i>(サンプルコードのため)</i>
+</li>
+  
+<li>JAXP-1.1 準拠の XML パーサ。例えば Xerces や Crimson 等。<a href="http://xml.apache.org/xerces2-j/">Xerces</a> を推奨します。というのも、それを対象として製品がテストされているからです。</li>
+
+</ul>
+
+
+
+
+<a name="ConsumingWebServicesWithAxis"></a>
+
+<div class="h4">
+<h4>Axis でWebサービスを楽しむ</h4>
+</div>
+
+
+
+<a name="BasicsGettingStarted"></a>
+
+<div class="h2">
+<h2>基本 - はじめ</h2>
+</div>
+
+
+
+<p>まずはじめに、Apache にある公開 Axis サーバの <b>echoString</b> メソッドを呼ぶWebサービスクライアントの例を見てみましょう。</p>
+
+<pre class="code">1   import org.apache.axis.client.Call;
+2   import org.apache.axis.client.Service;
+3   import javax.xml.namespace.QName;
+4   
+5   public class TestClient {
+6     public static void main(String [] args) {
+7       try {
+8         String endpoint =
+9             "http://ws.apache.org:5049/axis/services/echo";
+10  
+11        Service  service = new Service();
+12        Call     call    = (Call) service.createCall();
+13  
+14        call.setTargetEndpointAddress( new java.net.URL(endpoint) );
+15        call.setOperationName(new QName("http://soapinterop.org/", echoString"));
+16  
+17        String ret = (String) call.invoke( new Object[] { "Hello!" } );
+18  
+19        System.out.println("Sent 'Hello!', got '" + ret + "'");
+20      } catch (Exception e) {
+21        System.err.println(e.toString());
+22      }
+23    }
+24  }</pre>
+
+
+<p>(このファイルは <a href="http://cvs.apache.org/viewcvs.cgi/ws-axis/java/samples/userguide/example1/TestClient.java?rev=1.14&view=log">samples/userguide/example1/TestClient.java</a> [英語] にあります)</p>
+
+
+<p>ネットワークが接続されていると仮定すると、このプログラムは以下のようにして実行することができます。</p>
+
+
+<pre class="code">% java samples.userguide.example1.TestClient
+Sent 'Hello!', got 'Hello!'
+%</pre>
+
+
+<p>一体何が起こったのでしょうか。11、12行目で新しいServiceオブジェクトとCallオブジェクトを生成しました。これらは JAX-RPC 標準のオブジェクトで、呼び出すサービスに関するメタデータを格納するために利用されます。14行目でエンドポイントの URL (SOAP メッセージの宛先)を設定しました。15行目でWebサービスの操作 (メソッド) 名を定義しました。そして17行目でパラメータの配列 (この場合は単なる1つの文字列) を渡して目的のサービスを実際に呼び出しています。</p>
+
+
+<p>インターネット上に流れる SOAP リクエストを見ることによって、この引数に何が起こっているのかを確認することができます (色をつけた部分を見てください。この部分が上の呼び出しにおける値と一致していることがわかります)</p>
+
+
+<pre class="code">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;SOAP-ENV:Body&gt;
+    &lt;ns1:<b>echoString</b> xmlns:ns1="<b>http://soapinterop.org/</b>"&gt;
+      &lt;arg0 xsi:type="xsd:string"&gt;<b>Hello!</b>&lt;/arg0&gt;
+    &lt;/ns1:echoString&gt;
+  &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</pre>
+
+
+<p>この文字列引数は自動的に XML にシリアライズされ、サーバは同一の文字列を返し、クライアントはデシリアライズして表示しています。</p>
+
+
+<p>
+<i>注意: クライアントとサーバ間でやりとりされている XML を実際に見るには、含まれる tcpmon ツール、または SOAP モニタツールを使用します。概要については付録をご覧下さい。</i>
+</p>
+
+
+
+
+<a name="NamingParameters"></a>
+
+<div class="h2">
+<h2>パラメータ命名規則</h2>
+</div>
+
+
+
+<p>上の例において、Axis が SOAP メッセージ内の XML にエンコードされた引数に対して、自動的に "arg0"、"arg1" などと命名していることがわかります (この場合は "arg0" のみです)。これを変更するのは簡単です。<span class="codefrag">invoke()</span> を呼び出す前に、各パラメータに対して <span class="codefrag">addParameter</span> を、戻り値に対して <span class="codefrag">setReturnType</span> を呼び出す必要があります。これは次のようになります。</p>
+
+
+<pre class="code">call.addParameter("testParam", 
+  org.apache.axis.Constants.XSD_STRING,
+  javax.xml.rpc.ParameterMode.IN);
+call.setReturnType(org.apache.axis.Constants.XSD_STRING);</pre>
+
+
+<p>これにより、呼び出しにおける第1 (そしてたった一つの) パラメータに <b>testParam</b> という名前が割り当てられます。また、ここではパラメータの型 (<span class="codefrag">org.apache.axis.Constants.XSD_STRING</span>) と、このパラメータが入力パラメータ、出力パラメータ、あるいは入出力パラメータかを定義しています。この場合は入力パラメータです。これでプログラムを実行すると、以下のようなメッセージを受け取ります。</p>
+
+
+<pre class="code">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;SOAP-ENV:Body&gt;
+    &lt;ns1:echoString xmlns:ns1="http://soapinterop.org/"&gt;
+      &lt;testParam xsi:type="xsd:string"&gt;Hello!&lt;/testParam&gt;
+    &lt;/ns1:echoString&gt;
+  &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</pre>
+
+
+<p>パラメータが期待した通り "testParam" と命名されていることに注意してください。</p>
+
+
+
+
+<a name="InteroperatingWithUntypedServers"></a>
+
+<div class="h2">
+<h2>"型なし" サーバとの相互運用</h2>
+</div>
+
+
+
+<p>上の例では、invoke() の戻り値の型、つまり Object を適切な "本当の" 型にキャストしました。例えば echoString メソッドが String を返すことがわかっていたので、client.invoke() からは String が返されることを当てにしていました。少し立ち止まって、これがどのようにして起こったのかを調べ、潜在的な問題に光をあててみましょう (もちろん解決策があるので心配することはありません)。</p>
+
+
+<p>echoString メソッドの典型的なレスポンスは以下のようになります。</p>
+
+
+<pre class="code">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt; 
+  &lt;SOAP-ENV:Body&gt;
+    &lt;ns1:echoStringResponse xmlns:ns1="http://soapinterop.org/"&gt; 
+      &lt;result xsi:type="xsd:string"&gt;Hello!&lt;/result&gt;
+    &lt;/ns1:echoStringResponse&gt; 
+  &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</pre>
+
+
+<p>赤色でハイライトした部分を見てください。この属性は、スキーマ<b>型宣言</b>で、Axis はこれを利用してその要素の内容が何であるかを解明します。この場合は、Java の String オブジェクトにデシリアライズ可能であるとわかります。多くのツールキットはこの種の明示的な型情報を XML 内に埋め込み、"自己記述"されたメッセージにします。一方、いくつかのツールキットは以下のようなレスポンスを返します</p>
+
+
+<pre class="code">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;SOAP-ENV:Body&gt;
+    &lt;ns1:echoStringResponse xmlns:ns1="http://soapinterop.org/"&gt;
+      &lt;result&gt;Hello, I'm a string!&lt;/result&gt;
+    &lt;/ns1:echoStringResponse&gt;
+  &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</pre>
+
+
+<p>メッセージに型がありません。では &lt;result&gt; 要素をどの Java オブジェクトにデシリアライズするか、どのようにして判断するのでしょうか。その答えはメタデータ、つまりデータに関するデータです。この場合、戻り値として何を求めるのかを伝える、サービスの<b>記述</b>が必要です。これを Axis のクライアント側で行う方法を以下に示します。</p>
+
+
+<p>
+<span class="codefrag">call.setReturnType( org.apache.axis.Constants.XSD_STRING );</span>
+</p>
+
+
+<p>このメソッドは、もし返された要素に型がなければ、戻り値の xsi:type 属性が定義済みの SOAP String 型に設定されているかのように扱うべきであることを、Axis クライアントに伝えます。(この例が動作するのを相互運用エコーテストクライアント、samples/echo/TestClient.java で見ることができます。)</p>
+
+
+<p>期待する戻り値の Java クラスを指定することができる似たようなメソッドもあります。</p>
+
+
+<p>
+<span class="codefrag">call.setReturnClass(String.class);</span>
+</p>
+
+
+<p>これで、クライアントとして SOAP サービスにアクセスするための基礎を理解しました。ではどのようにして自分のサービスを公開するのでしょうか?</p>
+
+
+
+
+
+
+<a name="PublishingWebServicesWithAxis"></a>
+
+<div class="h4">
+<h4>Axis を用いてWebサービスを公開する</h4>
+</div>
+
+
+
+<p>以下のような単純なクラスがあるとします。</p>
+
+
+<pre class="code">public class Calculator {
+  public int add(int i1, int i2) {
+    return i1 + i2; 
+  }
+
+  public int subtract(int i1, int i2) {
+    return i1 - i2;
+  }
+}</pre>
+
+
+<p>(このファイルは <a href="http://cvs.apache.org/viewcvs.cgi/ws-axis/java/samples/userguide/example2/Calculator.java?amp;rev=1.11&view=log">samples/userguide/example2/Calculator.java</a> [英語] にあります。)</p>
+
+
+<p>このクラスを SOAP 経由で利用可能にするにはどうすればいいでしょうか? この質問にはいくつかの解答がありますが、Axis が提供する最も簡単な方法から始めます。この方法はほとんど何の努力も必要としません。</p>
+
+
+<a name="JWSJavaWebServiceFilesInstantDeployment"></a>
+
+<div class="h2">
+<h2>JWS (Java Web Service) ファイル - 瞬間デプロイ</h2>
+</div>
+
+
+
+<p>まずはステップ1です。上記の .java ファイルを webapp ディレクトリにコピーし、ファイル名を "Calculator.jws" に変更します。つまり以下のようなことをします。</p>
+
+
+<pre class="code">% copy Calculator.java <i>&lt;your-webapp-root&gt;</i>/axis/Calculator.jws</pre>
+
+
+<p>次にステップ2ですが、、、あれ、少し待ってください。もう終わっています。以下の URL でサービスにアクセスできるはずです (Axis ウェブアプリケーションがポート8080にあることを想定しています)。</p>
+
+
+<p>
+<a href="http://localhost:8080/axis/Calculator.jws">http://localhost:8080/axis/Calculator.jws</a>
+</p>
+
+
+<p>Axis は自動的にファイルを配置し、クラスをコンパイルし、SOAP 呼び出しをサービスのクラスの Java 呼び出しに正確に変換します。samples/userguide/example2/CalcClient.java に計算機クライアントがあるので試してみてください。これは次のようにして利用します。</p>
+
+
+<pre class="code">% java samples.userguide.example2.CalcClient -p8080 add 2 5
+Got result : 7
+% java samples.userguide.example2.CalcClient -p8080 subtract 10 9
+Got result : 1
+%</pre>
+
+
+<p>("-p8080" をあなたの J2EE サーバが起動しているポートに置き換える必要があるかもしれないことに注意してください</p>
+
+
+<p>
+<i>重要:</i> JWS Webサービスは単純なWebサービスを対象としています。ページの中でパッケージは使えず、また、コードは実行時にコンパイルされるのでデプロイした後ではないとエラーを見つけることはできません。製品レベルの品質のWebサービスはカスタムデプロイの Java クラスを利用すべきです。</p>
+
+
+
+
+<a name="CustomDeploymentIntroducingWSDD"></a>
+
+<div class="h2">
+<h2>カスタムデプロイ - WSDD の導入</h2>
+</div>
+
+
+
+<p>JWS ファイルはクラスをWebサービスにする迅速な方法ですが、それが必ずしも最良の選択とは限りません。まず一つに、ソースコードが必要なことです。ソースがなく、すでに存在しているクラスをあなたのシステム上で公開したい場合があるかもしれません。また、サービスのアクセスのさせ方の設定の項目数がとても制限されています。カスタム型マッピングを指定することも、サービスが実行される際にどのハンドラが呼び出されるかを制御することもできません。<i>(今後のための注意: Axis チームと Java SOAP コミュニティ全体は、必要に応じてこの種のメタデータをソースファイルに埋め込むことができる方法を検討しています。引き続き注目していてください!)</i>
+</p>
+
+
+<div class="h5">
+<h5>ディスクリプタ経由のデプロイ</h5>
+</div>
+
+
+
+<p>Axis で利用可能な柔軟性を十分に利用するには、Axis <b>Web Service Deployment Descriptor (WSDD)</b> フォーマットに精通する必要があります。デプロイメントディスクリプタには、Axis にデプロイさせたい、すなわち Axis エンジンから利用できるようにさせたいもの全てが含まれています。デプロイする最も一般的なものはWebサービスなので、基本的なサービスのためのデプロイメントディスクリプタを見ていきましょう (このファイルは <a href="http://cvs.apache.org/viewcvs.cgi/ws-axis/java/samples/userguide/example3/deploy.wsdd?rev=1.2&view=log">samples/userguide/example3/deploy.wsdd</a> [英語] です)。</p>
+
+
+<pre class="code">&lt;deployment xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java"&gt;
+  &lt;service name="MyService" provider="java:RPC"&gt;
+    &lt;parameter name="className" value="samples.userguide.example3.MyService"/&gt;
+    &lt;parameter name="allowedMethods" value="*"/&gt;
+  &lt;/service&gt;
+&lt;/deployment&gt;</pre>
+
+
+<p>実際のところとても単純です。最も外側の要素は、これが WSDD デプロイであることをエンジンに伝え、また、"java" 名前空間を定義しています。そして、service 要素はサービスを実際に定義しています。サービスとは<b>対象とされたチェイン</b>です (<a href="architecture-guide.html">アーキテクチャガイドをご覧下さい</a>)。これはサービスが、リクエストフロー、ピボットハンドラ (サービス側から見ると "プロバイダ"と呼ばれています)、レスポンスフローの一部、あるいは全てを含んでいることを意味しています。上記の場合、プロバイダは "java:RPC" です。これは Axis に組み込まれていて、Java RPC サービスを表しています。実際にこれを扱うクラスは <b>org.apache.axis.providers.java.RPCProvider</b> です。この後で、異なるスタイルのサービスやそれらのプロバイダについて詳しく見ていきます。</p>
+
+
+<p>RPCProvider に対して、正しいクラス (例えば、samples.userguide.example3.MyService) のインスタンス化と呼び出しを行うように伝えなければなりません。これは &lt;parameter&gt; タグを含めることで行います。service に、クラス名を設定するパラメータと、そのクラスのどの public メソッドも SOAP 経由で呼ぶことができる (これが "*" の意味するところです。利用可能なメソッド名のリストをスペースかコンマで区切ったリストを使用することで SOAP がアクセス可能なメソッドを制限することもできます) ことをエンジンに伝えるもう一つのパラメータを与えます。</p>
+
+
+
+
+<div class="h5">
+<h5>高度な WSDD - より多くのオプションを指定する</h5>
+</div>
+
+
+
+<p>WSDD ディスクリプタにはサービスに関するその他の情報も含めることができますし、"ハンドラ" と呼ばれる Axis のその他の部品も含めることができます。ハンドラについては後ほどの節で扱います。</p>
+
+
+
+
+<div class="h5">
+<h5>スコープのあるサービス</h5>
+</div>
+
+
+
+<p>Axis はサービスオブジェクト (メソッドを実装する実際の Java オブジェクト) を3通りの方法でスコープする方法を提供します。デフォルトの "request" スコープは、サービスに対して SOAP リクエストが来るたびに新しいオブジェクトを生成します。"application" スコープは、<b>全ての</b>リクエストに対してサービスする単一の共有オブジェクトを生成します。"session" スコープは、サービスにアクセスするセッションが有効な各クライアントに対して新しいオブジェクトを生成します。スコープオプションを指定するには、以下のようにサービスに &lt;parameter&gt; を追加します ("<i>値</i>" は request、session、applicationのいずれかです)。</p>
+
+
+<pre class="code">&lt;service name="MyService"...&gt;
+  &lt;parameter name="scope" value="<i>value</i>"/&gt;
+  ...
+&lt;/service&gt;</pre>
+
+
+
+
+<div class="h5">
+<h5>AdminClient の利用</h5>
+</div>
+
+
+
+<p>WSDD ファイルができたら、記述したサービスを実際にデプロイするために Axis にこの WSDD ファイルを送る必要があります。これを AdminClient、つまり "org.apache.axis.client.AdminClient" クラスを使用して行います。もし Tomcat 以外のサーバに Axis を配備した場合は -p <i>&lt;port&gt;</i> 引数を使用する必要があります。デフォルトのポートは8080です。典型的な AdminClient の呼び出しは次のようになります。</p>
+
+
+<pre class="code">% java org.apache.axis.client.AdminClient deploy.wsdd
+&lt;Admin&gt;Done processing&lt;/Admin&gt;</pre>
+
+
+<p>このコマンドで、サービスが SOAP 経由でアクセス可能になりました。Client クラスを実行して確認しましょう。次のようになるはずです。</p>
+
+
+<pre class="code">% java samples.userguide.example3.Client
+  -lhttp://localhost:8080/axis/services/MyService "test me!"
+You typed : test me!
+%</pre>
+
+
+<p>デプロイが本当に行われたのか自分で確認したいのであれば、そのサービスをアンデプロイし、もう一度そのサービスを呼び出してみてください。example3/ ディレクトリに "undeploy.wsdd" ファイルがあります。上記で deploy.wsdd ファイルで行ったのと同じやり方で使用することができます。undeploy.wsdd ファイルに対して AdminClient を実行し、もう一度 Client サービスを試してみて何が起こるか見てみましょう。</p>
+
+
+<p>AdminClient を使用して、サーバにデプロイされている全てのコンポーネントのリストを取得することもできます。</p>
+
+
+<pre class="code">% java org.apache.axis.client.AdminClient list
+&lt;big XML document returned here&gt;
+</pre>
+
+
+<p>そこにはサービス、ハンドラ、トランスポートなどが現れるはずです。このリストは、サーバにある "server-config.wsdd" ファイルの完全なコピーであることに留意してください。これについては後ほど詳細を見ていきます。</p>
+
+
+
+
+<div class="h5">
+<h5>その他のデプロイ - ハンドラとチェイン</h5>
+</div>
+
+
+
+<p>Axis エンジンのさらに強力な機能のいくつかを見ていきましょう。サービスが何回呼ばれたかを追跡する場合を想定します。まさにこれを行うサンプルハンドラが samples/log ディレクトリにあります。このようなハンドラクラスを利用するには、まずハンドラ自体をデプロイし、サービスのデプロイ時にそのハンドラに与えた名前を利用します。ここにサンプルの deploy.wsdd ファイル (これは samples/userguide にある example4 です) を示します。</p>
+
+
+<pre class="code">&lt;deployment xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java"&gt;
+  &lt;!-- define the logging handler configuration --&gt;
+  &lt;handler name="track" type="java:samples.userguide.example4.LogHandler"&gt;
+    &lt;parameter name="filename" value="MyService.log"/&gt;
+   &lt;/handler&gt;
+
+  &lt;!-- define the service, using the log handler we just defined --&gt;
+  &lt;service name="LogTestService" provider="java:RPC"&gt;
+    &lt;requestFlow&gt;
+      &lt;handler type="track"/&gt;
+    &lt;/requestFlow&gt;
+
+    &lt;parameter name="className" value="samples.userguide.example4.Service"/&gt;
+    &lt;parameter name="allowedMethods" value="*"/&gt;
+  &lt;/service&gt;
+&lt;/deployment&gt;</pre>
+
+
+<p>最初の節は samples.userguide.example4.LogHandler クラスによって実装されている "track" と呼ばれるハンドラを定義しています。このハンドラにオプションを渡して、どのファイルにメッセージを書き込むかを指定しています。</p>
+
+
+<p>次の節で、LogTestService というサービスを定義しています。これは上記の最初の例で見たのと同じ RPC サービスです。違いは &lt;service&gt; の中の &lt;requestFlow&gt; 要素です。これはサービスが呼び出されたとき、プロバイダの前に呼び出されるべきハンドラの集合を指し示します。"track" への参照を挿入することで、このサービスが呼び出されるたびにメッセージのログが取られることになります。</p>
+
+
+
+
+<div class="h5">
+<h5>リモート管理</h5>
+</div>
+
+
+
+<p>Axis サーバはデフォルトでは、管理リクエストをそのマシンからのみ受け付けるように設定されていることに注意してください。リモート管理を有効にするには、AdminService の "enableRemoteAdmin" プロパティを <b>true</b> に設定する必要があります。これを行うには、webapp の WEB-INF ディレクトリから "server-config.wsdd" ファイルを探し、以下のようにオプションを追加します。</p>
+
+
+<pre class="code">&lt;service name="AdminService" provider="java:MSG"&gt;
+  &lt;parameter name="className" value="org.apache.axis.util.Admin"/&gt;
+  &lt;parameter name="allowedMethods" value="*"/&gt;
+  <b>&lt;parameter name="enableRemoteAdmin" value="true"/&gt;</b>
+&lt;/service&gt;</pre>
+
+
+<p>
+<b>警告: リモート管理を有効にすると、認証されていない相手にあなたのマシンへのアクセス権を与えることになります。もしリモート管理を有効にするならば、必ず設定にセキュリティを追加してください。</b> 
+</p>
+
+
+
+
+
+
+<a name="ServiceStylesRPCDocumentWrappedAndMessage"></a>
+
+<div class="h2">
+<h2>サービススタイル - RPC、Document、Wrapped、Message</h2>
+</div>
+
+
+
+<p>Axis のサービスには4種類の "スタイル" があります。<b>RPC</b> サービスは、SOAP RPC 規約、および SOAP "5章" エンコーディングを使用します。<b>Document</b> サービスはいかなるエンコーディングも使用しません (ですから具体的に言うと、インターネット上で multiref オブジェクトのシリアライゼーションや SOAP スタイルの配列を見ることはありません) が、依然として XML&lt;-&gt;Java データバインディングを行います。<b>Wrapped</b> サービスは document サービスとほとんど同じで、SOAP ボディ全体を一つの大きな構造にバインディングするというよりかは、個別のパラメータに "unwrap" する、という点で異なります。<b>Message</b> サービスは、いかなる型マッピングやデータバインディングなしに、SOAP エンベロープの中で任意の XML を受け取り、また返します。もし行き交う SOAP エンベロープにおいて生の XML を使用したいのであれば、message サービスを書きましょう。</p>
+
+
+<div class="h5">
+<h5>RPC サービス</h5>
+</div>
+
+
+
+<p>Axis では RPC サービスがデフォルトです。&lt;service ... provider="java:RPC"&gt; あるいは &lt;service ... style="RPC"&gt; でサービスをデプロイすると RPC サービスになります。RPC サービスは SOAP RPC とエンコーディング規則に従います。つまり、RPC サービスの XML は上記の例の "echoString" のようになります。それぞれの RPC 呼び出しが、その操作名と一致する外側の要素としてモデル化され、その子要素として、それぞれがその操作のパラメータにマッピングされる要素を持ちます。Axis はサービスに与えられた XML を Java オブジェクトにデシリアライズし、サービスから返される Java オブジェクトを XML にシリアライズします。RPC サービスはデフォルトでは SOAP 5章のエンコーディング規則に従うので、オブジェクトは "multi-ref" シリアライゼーションでエンコードされます。これによりオブジェクトグラフがエンコード可能になります。(multi-ref シリアライゼーションの詳細については SOAP 仕様をご覧下さい。)</p>
+
+
+
+
+<div class="h5">
+<h5>Document / Wrapped サービス</h5>
+</div>
+
+
+
+<p>document サービスと wrapped サービスは、どちらもデータに対して SOAP エンコーディングを使用せずに、単に普通の XML スキーマを使用するという点で似ています。しかしながら両方のサービスとも、Axis は Java 表現を XML に "バインド" するので (詳細は <a href="#XMLJavaDataMappingInAxis">データバインディング</a> 節をご覧下さい)、直接 XML 構造を扱うのではなく、Java オブジェクトを扱うことになります。</p>
+
+
+<p>document サービスと wrapped サービスの違いを説明するには、注文書を含む SOAP メッセージのサンプルで行うのがいいでしょう。</p>
+
+
+<pre class="code">&lt;soap:Envelope xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java"&gt;
+  &lt;soap:Body&gt;
+    &lt;myNS:PurchaseOrder xmlns:myNS="http://commerce.com/PO"&gt;
+      &lt;item&gt;SK001&lt;/item&gt;
+      &lt;quantity&gt;1&lt;/quantity&gt;
+      &lt;description&gt;Sushi Knife&lt;/description&gt;
+    &lt;/myNS:PurchaseOrder&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</pre>
+
+
+<p>PurchaseOrder に関連するスキーマは以下のようになります。</p>
+
+
+<pre class="code">&lt;schema targetNamespace="http://commerce.com/PO"&gt;
+  &lt;complexType name="POType"&gt;
+    &lt;sequence&gt;
+      &lt;element name="item" type="xsd:string"/&gt;
+      &lt;element name="quantity" type="xsd:int"/&gt;
+      &lt;element name="description" type="xsd:string"/&gt;
+    &lt;/sequence&gt;
+  &lt;/complexType&gt;
+  &lt;element name="PurchaseOrder" type="POType"/&gt;
+&lt;/schema&gt;</pre>
+
+
+<p>
+<b>document</b> スタイルのサービスでは以下のようなメソッドにマッピングされます。</p>
+
+
+<p>
+<span class="codefrag">public void method(PurchaseOrder po)</span>
+</p>
+
+
+<p>つまり、&lt;PurchaseOrder&gt; 要素全体が、3つのフィールドを持つ単一の bean としてメソッドに渡されます。一方、<b>wrapped</b> スタイルのサービスでは、以下のようなメソッドにマッピングされます。</p>
+
+
+<p>
+<span class="codefrag">public void purchaseOrder(String item, int quantity, String description)</span>
+</p>
+
+
+<p>"wrapped" サービスの場合、&lt;PurchaseOrder&gt; 要素は正しい操作を指し示すだけの "wrapper (ラッパ)" です (これが名前の由来です)。外側の要素を "unwrap (ラッパを解く)" し、内部の要素をそれぞれパラメータとして取り出すことにより、メソッドの引数を得ることができます。</p>
+
+
+<p>document スタイル、あるいは wrapped スタイルは以下のように WSDD に指し示されています。</p>
+
+
+<p>
+<span class="codefrag">&lt;service ... style="document"&gt;</span> for document style<br>
+  
+<span class="codefrag">&lt;service ... style="wrapped"&gt;</span> for wrapped style</p>
+
+
+<p>WSDL ドキュメントから始めるのであれば、ほとんどの場合 document サービスか wrapped サービスかで悩む必要はありません(<a href="#UsingWSDLWithAxis">下をご覧下さい</a>)。</p>
+
+
+
+
+<div class="h5">
+<h5>message サービス</h5>
+</div>
+
+
+
+<p>最後に "message" スタイルサービスにたどり着きました。Axis に身を引いてもらって、XML を Java オブジェクトに変換する代わりに自分で実際の XML のコーディングを行う際に message スタイルサービスを利用します。message スタイルサービスのメソッドには4つの有効なシグネチャがあります。</p>
+
+
+<p>
+<span class="codefrag">public Element [] method(Element [] bodies);</span>
+<br>
+  
+<span class="codefrag">public SOAPBodyElement [] method (SOAPBodyElement [] bodies);</span>
+<br>
+  
+<span class="codefrag">public Document method(Document body);</span>
+<br>
+  
+<span class="codefrag">public void method(SOAPEnvelope req, SOAPEnvelope resp);</span>
+</p>
+
+
+<p>最初の2つは引数として DOM Element あるいは SOAPBodyElement の配列をメソッドに渡します。それらの配列はエンベロープ内の &lt;soap:body&gt; の内側のそれぞれの XML 要素に対して1つの要素を含んでいます。</p>
+
+
+<p>3つめのシグネチャは引数として &lt;soap:body&gt; を表している DOM Document を渡し、同じく DOM Document を返します。</p>
+
+
+<p>4つめのシグネチャは引数として、リクエストメッセージとレスポンスメッセージを表している2つの SOAPEnvelope オブジェクトを渡します。このシグネチャは、サービスメソッドの中でヘッダを参照したり修正したりする際に利用します。レスポンスエンベロープに入れたものは全て、戻る際に呼び出し元に自動的に返されます。レスポンスエンベロープにはすでに他のハンドラによって挿入されたヘッダが含まれているかもしれないことに注意してください。</p>
+
+
+<p>
+<b>message の例</b>
+</p>
+
+
+<p>message サービスのサンプルは <a href="http://cvs.apache.org/viewcvs.cgi/ws-axis/java/samples/message/MessageService.java?rev=1.7&view=log">samples/message/MessageService.java</a> [英語] にあります。サービスのクラスである <span class="codefrag">MessageService</span> は一つの public メソッド <span class="codefrag">echoElements</span> を持ちます。このメソッドは、上記4つのメソッドシグネチャの内の最初のメソッドシグネチャに一致します。</p>
+
+
+<p>
+<span class="codefrag">public Element[] echoElements(Element [] elems)</span>
+</p>
+
+
+<p>
+<span class="codefrag">MsgProvider</span> ハンドラは、入力メッセージの SOAP ボディ直下の子に対応する <span class="codefrag">org.w3c.dom.Element</span> オブジェクトの配列を引数として、メソッドを呼びます。この配列はたいてい単一の Element (おそらく何かしらの取り決められたスキーマに従った XML ドキュメントのルート要素) を要素として持ちますが、SOAP ボディは任意の数の子を扱うことができます。このメソッドは、レスポンスメッセージの SOAP ボディの中で返されるべき <span class="codefrag">Element[]</span> 配列を返します。</p>
+
+
+<p>message サービスは WSDD ファイルを用いてデプロイする必要があります。以下に <span class="codefrag">MessageService</span> クラス用の完全な WSDD を示します。</p>
+
+
+<pre class="code">&lt;deployment name="test" xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java"
+    xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"&gt;
+  &lt;service name="MessageService" style="message"&gt;
+    &lt;parameter name="className" value="samples.message.MessageService"/&gt;
+    &lt;parameter name="allowedMethods" value="echoElements"/&gt;
+  &lt;/service&gt;
+&lt;/deployment&gt;</pre>
+
+
+<p>"style" 属性が RPC デプロイの例と異なっていることに注意してください。"message" スタイルは、このサービスが <span class="codefrag">org.apache.axis.providers.java.RPCProvider</span> ではなく <span class="codefrag">org.apache.axis.providers.java.MsgProvider</span> によって扱われるべきであることを Axis に伝えます。</p>
+
+
+<p>このサービスをテストするには、デプロイし、samples.message.TestMsg を実行します (テストドライバが何をするかはソースをご覧下さい)。</p>
+
+
+
+
+
+
+
+
+<a name="XMLJavaDataMappingInAxis"></a>
+
+<div class="h4">
+<h4>XML &lt;-&gt; Axis における Java データマッピング</h4>
+</div>
+
+
+
+<a name="HowYourJavaTypesMapToSOAPXMLTypes"></a>
+
+<div class="h2">
+<h2>Java 型を SOAP/XML 型にマッピングする方法</h2>
+</div>
+
+
+
+<p>相互運用性 (interoperability、略して <i>interop</i>) は SOAP 実装間で進行中の課題です。サービスを他のプラットフォームや実装と連携させるには、この問題を理解する必要があります。この問題に関するいくつかの<a href="reading.html#Interoperability">外部サイトの記事</a>があり、これらは初めて理解するのに最適な場所です。Axis における Java 型と WSDL/XSD/SOAP 間の基本的なマッピングは JAX-RPC 仕様で決められています。<a href="http://java.sun.com/xml/jaxrpc/">仕様</a> [英語] の4章と5章を読み、どのように変換されるかを完全に理解してください。以下に主要なポイントを示します。</p>
+
+
+<div class="h5">
+<h5>WSDL から Java への標準的なマッピング</h5>
+</div>
+
+
+
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">xsd:base64Binary</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">byte[]</span></td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">xsd:boolean</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">boolean</span></td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">xsd:byte</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">byte</span></td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">xsd:dateTime</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">java.util.Calendar</span></td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">xsd:decimal</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">java.math.BigDecimal</span></td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">xsd:double</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">double</span></td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">xsd:float</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">float</span></td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">xsd:hexBinary</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">byte[]</span></td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">xsd:int</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">int</span></td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">xsd:integer</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">java.math.BigInteger</span></td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">xsd:long</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">long</span></td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">xsd:QName</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">javax.xml.namespace.QName</span></td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">xsd:short</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">short</span></td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">xsd:string</td>
+    <td colspan="1" rowspan="1"><span class="codefrag">java.lang.String</span></td>
+  
+</tr>
+
+</table>
+
+
+<p>オブジェクトが <span class="codefrag">nillable</span> でもよいと WSDL が宣言している、つまり呼び出し元が <span class="codefrag">nil</span> の値を返すことを選択できるのであれば、プリミティブ型はそのラッパクラス (Byte、Double、Boolean など) に置き換えられます。</p>
+
+
+
+
+<div class="h5">
+<h5>SOAP エンコーディングのデータ型</h5>
+</div>
+
+
+
+<p>XSD データ型は、全て nillable である SOAP 5章のデータ型に基づいているので、ラッパクラスにのみマッピングされます。これらの型があるのは、これらが全て "ID" と "HREF" 属性をサポートしているからです。ですからこれらは RPC エンコードされたコンテキストで multi-ref シリアライゼーションをサポートする際に利用されます。</p>
+
+
+
+
+
+
+<a name="Exceptions"></a>
+
+<div class="h2">
+<h2>例外</h2>
+</div>
+
+
+
+<p>例外は多くの混乱を招く分野で、実際この節の著者も、全てがどのようにして機能しているのか、特に相互運用性の観点からは完全に理解していません。つまりこの節は不完全で、もしかすると不確かであると受け止めてください。JAX-RPC 仕様の5.5.5節と14章もご覧下さい。</p>
+
+
+<div class="h5">
+<h5>RemoteExceptions から SOAP Faults へのマッピング</h5>
+</div>
+
+
+
+<p>もしサーバのメソッドが <span class="codefrag">java.rmi.RemoteException</span> を投げたら、これは SOAP Fault にマッピングされます。この <span class="codefrag">faultcode</span> はそのフォルトのクラス名を含みます。受信者は、そのクラス名に対してフォルトのボディをデシリアライズすることを期待されます。</p>
+
+
+<p>明らかに、もし受信者が受け取ったフォルトのインスタンスの作成方法を知らなかったらこの仕組みは成り立ちません。サービスの WSDL ディスクリプションに例外クラスの情報を含める、あるいは送信者と受信者が実装を共有しない限り、信頼できる方法として、サブクラスではなく <span class="codefrag">java.rmi.RemoteException</span> インスタンスを投げるしかありません。</p>
+
+
+<p>そのような例外を他の言語による実装が受け取ったら、クラスの名前を faultCode として理解しますが、例外のボディをパースすることはできません。そこで何が起こるかを知るには、試してみる必要があります。</p>
+
+
+
+
+<div class="h5">
+<h5>例外は wsdl:fault 要素として表される</h5>
+</div>
+
+
+
+<p>もしメソッドが、インスタンスではない、あるいは <span class="codefrag">java.rmi.RemoteException</span> のサブクラスではない <span class="codefrag">Exception</span> を投げると印されていたら、事情は微妙に変わってきます。この例外はもはや SOAP Fault ではなく、メソッドの WSDL で <span class="codefrag">wsdl:fault</span> として記述されます。JAX-RPC 仕様によると、Exception のサブクラスは、マーシャルされるオブジェクト内の全てのフィールドにアクセスできるアクセサメソッド<i>と</i>同フィールド (つまり、同じ名前と同じ型の引数) 全てをパラメータとして引数に取るコンストラクタを持つ必要があります。これは標準的な <a href="http://java.sun.com/products/javabeans">JavaBean</a> [英語] の一種の不変変形です。オブジェクト内のフィールドは、WSDL に確実にマッピングできるデータ型である必要があります。</p>
+
+
+<p>もし例外がこの仕様を満たせば、メソッドを記述している WSDL は例外も記述していることになり、それにより呼び出し側はプラットフォームに関係なくその例外のスタブ実装を生成することができます。</p>
+
+
+<p>繰り返しになりますが、相互運用性を確かなものにするには多少試みが必要です。呼び出し側の言語には例外の概念がないかもしれない、あるいは例外がどのように扱われるべきかという規則が少なくとも Java ほど厳密ではないかもしれないということを覚えておいてください。</p>
+
+
+
+
+
+
+<a name="WhatAxisCanSendViaSOAPWithRestrictedInteroperability"></a>
+
+<div class="h2">
+<h2>制限された相互運用性において、Axis が SOAP 経由で送信できるもの</h2>
+</div>
+
+
+
+<div class="h5">
+<h5>Java の Collection</h5>
+</div>
+
+
+
+<p>
+<span class="codefrag">Hashtable</span> のように、Collection クラスのいくつかはシリアライザを持っていますが、他の SOAP 実装との正式な相互運用性はなく、また SOAP 仕様では複雑なオブジェクトについて扱っていません。オブジェクトの集合を送信する最も確実な方法は、配列を利用することです。Java による SOAP 実装の多くは、ハッシュテーブルのマーシャルとアンマーシャルを行えますが、とりわけ .NET ではハッシュテーブルを扱うことができません。</p>
+
+
+
+
+
+
+<a name="WhatAxisCanNotSendViaSOAP"></a>
+
+<div class="h2">
+<h2>Axis が SOAP 経由で送信できないもの</h2>
+</div>
+
+
+
+<div class="h5">
+<h5>事前登録していない任意のオブジェクト</h5>
+</div>
+
+
+
+<p>通信路上に任意の Java オブジェクトを送信することはできませんし、相手側でそれが理解されることも期待してはいけません。RMI を用いれば <span class="codefrag">Serializable</span> な Java オブジェクトを送受信することはできますが、これは両側で Java を実行しているから可能なのです。<b>Axis は登録された Axis シリアライザがあるオブジェクトしか送信しません。</b>このドキュメントの後の方で、BeanSerializer を利用して、アクセッサとミューテータの JavaBean パターンに従う任意のクラスをシリアライズする方法を示しています。オブジェクトを扱うには、この BeanSerializer を利用してクラスを登録する必要がある、あるいは Axis にシリアライゼーションのサポートが組み込まれている必要がある、のいずれかです。</p>
+
+
+
+
+<div class="h5">
+<h5>リモート参照</h5>
+</div>
+
+
+
+<p>リモート参照は SOAP 仕様や JAX-RPC 仕様の一部ではありません。オブジェクト参照を返し、呼び出し側がそれを SOAP 呼び出しのエンドポイントとして、あるいは他の呼び出しのパラメータとして利用するようにすることはできません。その代わりに他の参照機構を用いる必要があります。例えば通信路を介して渡せる、<span class="codefrag">HashMap</span> 内に、数字あるいは文字をキーとしてデータを保持する、といった方法です。</p>
+
+
+
+
+
+
+<a name="EncodingYourBeansTheBeanSerializer"></a>
+
+<div class="h2">
+<h2>Bean のエンコード - BeanSerializer</h2>
+</div>
+
+
+
+<p>Axis には、get/set アクセッサの標準的な <a href="http://java.sun.com/products/javabeans">JavaBean</a> [英語] パターンに従う任意の Java クラスを、コードを一切書かずにシリアライズ/デシリアライズする能力があります。これを行うのに必要なことは、どの Java クラスがどの XML Schema 型にマッピングされるかを Axis に指定するだけです。bean マッピングの設定は以下のようになります。</p>
+
+
+<pre class="code">&lt;beanMapping qname="ns:local" xmlns:ns="someNamespace"
+    languageSpecificType="java:my.java.thingy"/&gt;</pre>
+
+
+<p>&lt;beanMapping&gt; タグは Java クラス (おそらく bean) を XML QName にマッピングします。このタグには2つの重要な属性、<b>qname</b> と <b>languageSpecificType</b> があることに注意してください。この場合、"my.java.thingy" クラスを XML QName [someNamespace]:[local] にマッピングしています。</p>
+
+
+<p>実際これがどのように機能するか見てみましょう。<a href="http://cvs.apache.org/viewcvs.cgi/ws-axis/java/samples/userguide/example5/BeanService.java?rev=1.7&view=log">samples/userguide/example5/BeanService.java</a> [英語] をご覧下さい。サービスメソッドの引数が Order オブジェクトであることに注目してください。Order は Axis がデフォルトで理解できる基本型ではないので、型マッピングなしにこのサービスを実行しようとすると失敗に終わります。(もしこれを自分で試してみたいのなら、example5 ディレクトリにある bad-deploy.wsdd ファイルを利用できます。) しかし、もしデプロイに beanMapping を追加すれば、全てうまくいきます。以下にこの例を実行させる方法 (example5 ディレクトリから) を示します。</p>
+
+
+<pre class="code">% java org.apache.axis.client.AdminClient -llocal:///AdminService deploy.wsdd
+&lt;Admin&gt;Done processing&lt;/Admin&gt;
+
+% java samples.userguide.example5.Client -llocal://
+Hi, Glen Daniels!
+
+You seem to have ordered the following:
+
+1 of item : mp3jukebox
+4 of item : 1600mahBattery
+
+If this had been a real order processing system, we'd probably have charged
+you about now.
+%</pre>
+
+
+
+
+<a name="WhenBeansAreNotEnoughCustomSerialization"></a>
+
+<div class="h2">
+<h2>Bean が十分ではない場合 - カスタムシリアライゼーション</h2>
+</div>
+
+
+
+<p>JWS デプロイが、たまに全ての要求を満たすには柔軟性が足りないように、デフォルトの bean シリアライゼーションモデルも同じく全ての事例を扱うほどの健全性はありません。ときどき、XML に、あるいは XML からマッピングする必要のある、bean でない Java クラス (特に既存の資産) が存在する場合もあり、また特別な方法で Java にマッピングしたいカスタム XML スキーマ型が存在する場合もあるかもしれません。Axis によりカスタムのシリアライザ/デシリアライザを書くことができます。また Axis には書く際に手助けをしてくれるいくつかのツールがあります。</p>
+
+
+<p>
+<i>未定 - この節は将来のバージョンで拡張されます。当分は (samples/encoding の中の) DataSer/DataDeser クラスをご覧下さい。また、BeanSerializer、BeanDeserializer、ArraySerializer、ArrayDeserializer、org.apache.axis.encoding.ser パッケージの中のその他のクラスもご覧下さい。</i>
+</p>
+
+
+<div class="h5">
+<h5>カスタムマッピングのデプロイ - &lt;typeMapping&gt; タグ</h5>
+</div>
+
+
+
+<p>ここまででシリアライザとデシリアライザを構築したので、それらがどの型に利用されるかを Axis に伝える必要があります。これは WSDD の中の typeMapping タグで行います。次のようになるでしょう。</p>
+
+
+<pre class="code">&lt;typeMapping qname="ns:local" xmlns:ns="someNamespace"
+    languageSpecificType="java:my.java.thingy"
+    serializer="my.java.Serializer"
+    deserializer="my.java.DeserializerFactory"
+    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/&gt;</pre>
+
+
+<p>これは以前見てきた &lt;beanMapping&gt; タグとよく似ていますが、さらに3つの余分な属性があります。1つめの <b>serializer</b> は、指定した Java クラス (つまり my.java.thingy) のオブジェクトを XML にマーシャルするのに利用するシリアライザを生成する Serializer <i>factory</i> の Java クラス名です。2つめの <b>deserializer</b> は、XML を正しい Java クラスにアンマーシャルするのに利用されるデシリアライザを生成する Deserializer <i>factory</i> のクラス名です。3つめの属性 <b>encodingStyle</b> は SOAP エンコーディングです。</p>
+
+
+<p>(&lt;beanMapping&gt; タグは実は <span class="codefrag">serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"</span>、<span class="codefrag">deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"</span>、<span class="codefrag">encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"</span> である &lt;typeMapping&gt; の単なる省略表現ですが、これによりタイピングが大幅に減るのは明らかです。)</p>
+
+
+
+
+
+
+
+
+
+<a name="UsingWSDLWithAxis"></a>
+
+<div class="h4">
+<h4>Axis で WSDL を利用する</h4>
+</div>
+
+
+
+<p>
+<a href="http://www.w3.org/tr/wsdl">Web Service Description Language</a> [英語] は IBM と Microsoft によって起案され、その他多くの組織によってサポートされた仕様です。WSDL によりWebサービスを構造化された方法で記述することができます。サービスの WSDL ディスクリプションはマシンが理解できる方法で、サービスのインターフェース、利用するデータ型、サービスの位置を通知します。WSDL のフォーマットとオプションについての詳細は、仕様 (1文目のリンクをたどってください) をご覧下さい。</p>
+
+
+<p>Axis は WSDL を3通りの方法でサポートしています。</p>
+
+
+<ol>
+  
+<li>Axis にサービスをデプロイした際に、標準的なウェブブラウザを用い、サービスの URL の最後に "?WSDL" を付け加えた URL にアクセスすると、サービスを記述している、自動的に生成された WSDL ドキュメントを手に入れることができます。</li>
+  
+<li>WSDL ディスクリプションと共にサービスの Java プロキシとスケルトンを生成する "WSDL2Java" ツールを提供しています。</li>
+  
+<li>Java クラスから WSDL を構築する "Java2WSDL" ツールを提供しています。</li>
+
+</ol>
+
+
+<a name="WSDLObtainingWSDLForDeployedServices"></a>
+
+<div class="h2">
+<h2>?WSDL: デプロイされたサービスから WSDL を取得する</h2>
+</div>
+
+
+
+<p>Axis を利用してサービスを利用可能にした際、そのサービスに結び付いた一意の URL が一般的にはあります。JWS ファイルの場合、URL は単に JWS ファイル自身へのパスとなります。JWS 以外のサービスの場合、一般的に URL は "http://&lt;ホスト&gt;/axis/services/&lt;サービス名&gt;" になります。</p>
+
+
+<p>ブラウザでサービス URL にアクセスすると、そのエンドポイントは Axis サービスであり、通常は SOAP を利用してアクセスする必要がある、ということが指し示されたメッセージが表示されます。しかしながら、もしその URL の最後に "?wsdl" を付け加えると、Axis はデプロイされたサービスのサービスディスクリプションを自動的に生成し、XML としてブラウザに返します (試してみてください)。生成されたディスクリプションは保存したり、次に説明するプロキシ生成への入力として利用したりします。オンラインの相手に WSDL 生成 URL を教えれば、相手はそれを利用し、 .NET、SOAP::Lite のようなツールキット、あるいは WSDL の利用をサポートするその他のソフトを用いてサービスにアクセスすることができます。</p>
+
+
+<p>既存の Java クラスから WSDL ファイルを生成することもできます (<a href="#Java2WSDLBuildingWSDLFromJava">Java2WSDL: Java から WSDL を構築</a>をご覧下さい)。</p>
+
+
+
+
+<a name="WSDL2JavaBuildingStubsSkeletonsAndDataTypesFromWSDL"></a>
+
+<div class="h2">
+<h2>WSDL2Java: WSDL から スタブ、スケルトン、データ型を構築</h2>
+</div>
+
+
+
+<div class="h5">
+<h5>クライアント側のバインディング</h5>
+</div>
+
+
+
+<p>"org.apache.axis.wsdl.WSDL2Java" に Axis の WSDL-to-Java ツールがあります。基本的な呼び出し方は以下のようになります。</p>
+
+
+<pre class="code">% java org.apache.axis.wsdl.WSDL2Java (WSDL-file-URL)</pre>
+
+
+<p>これにより、クライアントに必要なバインディングのみ生成されます。WSDL から Java クライアントバインディングを生成する際、Axis は JAX-RPC 仕様に従います。これ以降の説明では次のコマンドを実行したと仮定します。</p>
+
+
+<pre class="code">% cd samples/addr
+% java org.apache.axis.wsdl.WSDL2Java AddressBook.wsdl</pre>
+
+
+<p>生成されたファイルは "AddressFetcher2" ディレクトリに置かれます。ここに置かれるのは、AddressFetcher2 が WSDL の対象名前空間であり、Java パッケージにマッピングする名前空間であるからです。名前空間については後で詳細に見ていきます。</p>
+
+
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+  
+<tr class="b">
+    
+<th colspan="1" rowspan="1">WSDL 節</th>
+    <th colspan="1" rowspan="1">生成される Java クラス</th>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">type 節の各エントリに対して</td>
+    <td colspan="1" rowspan="1">java クラス</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1"></td>
+    <td colspan="1" rowspan="1">(この type が入出力パラメータとして利用される場合は) ホルダー</td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">各 portType に対して</td>
+    <td colspan="1" rowspan="1">java インターフェース</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">各 binding に対して</td>
+    <td colspan="1" rowspan="1">スタブクラス</td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">各 service に対して</td>
+    <td colspan="1" rowspan="1">サービスインターフェース</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1"></td>
+    <td colspan="1" rowspan="1">サービスの実装 (locator)</td>
+  
+</tr>
+
+</table>
+
+
+<p>この操作を Ant に基づくビルドプロセスに統合する <a href="ant/axis-wsdl2java.html">Ant タスク</a> [英語] があります。</p>
+
+
+
+
+<div class="h5">
+<h5>Types</h5>
+</div>
+
+
+
+<p>WSDL 型から生成される Java クラスの名前は、その WSDL 型の名前に基づきます。この Java クラスは必ずというわけではありませんが一般的には bean です。例えば以下の WSDL (WSDL2Java の説明で使用される WSDL は <a href="http://cvs.apache.org/viewcvs.cgi/ws-axis/java/samples/addr/AddressBook.wsdl?amp;rev=1.9&view=log">Address Book サンプル</a> [英語] のものです) が与えられたら、</p>
+
+
+<pre class="code">&lt;xsd:complexType name="phone"&gt;
+  &lt;xsd:all&gt;
+    &lt;xsd:element name="areaCode" type="xsd:int"/&gt;
+    &lt;xsd:element name="exchange" type="xsd:string"/&gt;
+    &lt;xsd:element name="number" type="xsd:string"/&gt;
+  &lt;/xsd:all&gt;
+&lt;/xsd:complexType&gt;</pre>
+
+
+<p>WSDL2Java は以下の Java クラスを生成します。</p>
+
+
+<pre class="code">public class Phone implements java.io.Serializable {
+  public Phone() {...}
+  public int getAreaCode() {...}
+  public void setAreaCode(int areaCode) {...}
+  public java.lang.String getExchange() {...}
+  public void setExchange(java.lang.String exchange) {...}
+  public java.lang.String getNumber() {...}
+  public void setNumber(java.lang.String number) {...}
+  public boolean equals(Object obj) {...}
+  public int hashCode() {...}
+}</pre>
+
+
+
+
+<div class="h5">
+<h5>XML から Java 型へのマッピング : メタデータ</h5>
+</div>
+
+
+
+<p>上記のマッピングからもわかるように、XML 型名は "phone" で、生成された Java クラスは "Phone" です。クラス名は大文字から始まるという Java コーディング規約に従うために、最初の文字が大文字に変化しました。こういったことはよく起こります。なぜなら XML の名前や識別子の規則は Java のそれよりもはるかに制限がないからです。例えば、もし上記の "phone" 型の子要素の内の一つの名前が "new" であれば、単に "new" という Java フィールドを生成することはできません。なぜならそれは予約語であり、結果として生成されるソースコードはコンパイルに失敗するからです。</p>
+
+
+<p>この種のマッピングをサポートし、かつ XML 属性のシリアライゼーション/デシリアライゼーションを可能にする<b>型メタデータ</b>システムがあります。このシステムにより、これらのことを制御する記述子付き Java データクラスと連携することができます。</p>
+
+
+<p>WSDL2Java ツールが上記の Phone クラスのようなデータ bean を生成する際、WSDL2Java はスキーマが、属性を含んでいるか、あるいは Java フィールド/プロパティの名前に直接マッピングしない名前を含んでいるかを知っています。もし WSDL2Java がこれらのいずれかを見つけたら、そのクラス用の<b>型記述子</b>を提供するための静的なコードの一部を生成します。型記述子は本質的には<b>フィールド記述子</b>の集合で、そのそれぞれが Java フィールド/プロパティを XML 要素あるいは属性にマッピングします。</p>
+
+
+<p>この種のメタデータの例を確かめるには、Axis ソースの中にある "test.encoding.AttributeBean" クラスを見てみるか、Java では不正な属性や名前を使用する XML から自分専用の bean を生成してみてください。</p>
+
+
+
+
+<div class="h5">
+<h5>Holders</h5>
+</div>
+
+
+
+<p>この型は入出力パラメータとして利用されます。Java には入出力パラメータの概念がありません。このふるまいを実現するために、JAX-RPC は holder クラスの利用を定めています。holder クラスはその型のインスタンスを持っている単なるクラスです。例えば Phone クラスの holder は次のようになります。</p>
+
+
+<pre class="code">
+package samples.addr.holders;
+
+public final class PhoneHolder implements javax.xml.rpc.holders.Holder {
+  public samples.addr.Phone value;
+
+  public PhoneHolder() {
+  }
+
+  public PhoneHolder(samples.addr.Phone value) {
+    this.value = value;
+  }
+}</pre>
+
+
+<p>ある型が入出力パラメータとして利用される場合<b>のみ</b>、その型のための holder クラスが生成されます。その holder クラスは、クラス名に接尾辞 "Holder" が付け加えられ、"holders" というサブパッケージに生成されることに注意してください。</p>
+
+
+<p>プリミティブ型の holder クラスは javax.xml.rpc.holders にあります。</p>
+
+
+
+
+<div class="h5">
+<h5>PortTypes</h5>
+</div>
+
+
+
+<p>サービス定義インターフェース (Service Definition Interface: SDI) は WSDL の portType から生成されたインターフェースです。このインターフェースを利用してサービスの操作にアクセスします。例えば、以下の WSDL が与えられると</p>
+
+
+<pre class="code">&lt;message name="empty"&gt;
+&lt;message name="AddEntryRequest"&gt;
+  &lt;part name="name" type="xsd:string"/&gt;
+  &lt;part name="address" type="typens:address"/&gt;
+&lt;/message&gt;
+&lt;portType name="AddressBook"&gt;
+  &lt;operation name="addEntry"&gt;
+    &lt;input message="tns:AddEntryRequest"/&gt;
+    &lt;output message="tns:empty"/&gt;
+  &lt;/operation&gt;
+&lt;/portType&gt;</pre>
+
+
+<p>WSDL2Java は以下のものを生成します。</p>
+
+
+<pre class="code">public interface AddressBook extends java.rmi.Remote {
+  public void addEntry(String name, Address address) throws
+      java.rmi.RemoteException;
+}</pre>
+
+
+<p>SDI の名前について注意があります。SDI の名前は一般的には portType の名前です。しかしながら WSDL2Java が SDI を構築する際は、portType <b>と</b> binding の両方の情報を必要とします。 (これは不幸なことで、WSDL バージョン2の議論のテーマになっています。)</p>
+
+
+<p>JAX-RPC ではこのように言っています (4.3.3節): "Java インターフェースの名前は wsdl:portType 要素の name 属性からマッピングされます。... もしサービス定義インターフェースへのマッピングに、wsdl:binding の要素を利用するのであれば、... サービス定義インターフェースの名前は wsdl:binding 要素の名前からマッピングされます。"</p>
+
+
+<p>仕様の名前について注意があります。仕様には文字列 "RPC" が含まれています。ですからこの仕様と WSDL2Java は、portType から生成されたインターフェースが RPC インターフェースであることを想定しています。もし binding からの情報が違うものを伝えてきたら (すなわち、wsdl:binding の要素を利用する)、インターフェースの名前は代わりに binding から生成されます。</p>
+
+
+<p>なぜでしょう。例えば1つの portType (pt とします) と2つの binding (bRPC と bDoc とします) を持つ場合を考えます。document/literal はインターフェースの見た目を変更するので、これらの両方の binding のための単一のインターフェースを持つことができません。ですから結局2つのインターフェース (1つは pt という名前、もう1つは bDoc) と2つのスタブ (pt を実装する bRPCStub と bDoc を実装する bDocStub) を持つことになります。</p>
+
+
+<p>汚らしいですね。しかしなぜそれが必要かは理解できるでしょう。document/literal はインターフェースの見た目を変更するので、単一の portType を参照する2つ以上の binding が必要となることがあり、そのためには2つ以上のインターフェースを作成する必要があり、各インターフェースは一意の名前を持たなくてはいけないからです。</p>
+
+
+
+
+<div class="h5">
+<h5>Bindings</h5>
+</div>
+
+
+
+<p>Stub クラスは SDI を実装します。その名前は binding 名に接尾辞 "Stub" を付けたものになります。Stub クラスにはメソッド呼び出しを、Axis の Service と Call オブジェクトを利用する SOAP 呼び出しに変換するコードが含まれています。Stub クラスはリモートサービスのための <b>proxy</b> (同じ内容を意味する違う用語) として代役を務めます。これにより、まるでリモートサービスがローカルのオブジェクトであるかのように呼び出すことができます。つまり Service オブジェクトと Call オブジェクトを介した動的呼び出しに関わる、エンドポイント URL、名前空間、パラメータ配列を扱う必要がありません。スタブがこれらの仕事を全て隠蔽してくれます。</p>
+
+
+<p>以下の WSDL の断片を与えると</p>
+
+
+<pre class="code">&lt;binding name="AddressBookSOAPBinding" type="tns:AddressBook"&gt;
+  ...
+&lt;/binding&gt;</pre>
+
+
+<p>WSDL2Java will generate:</p>
+
+
+<pre class="code">public class AddressBookSOAPBindingStub extends org.apache.axis.client.Stub
+    implements AddressBook {
+  public AddressBookSOAPBindingStub() throws org.apache.axis.AxisFault {...}
+
+  public AddressBookSOAPBindingStub(URL endpointURL,
+      javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {...}
+
+  public AddressBookSOAPBindingStub(javax.xml.rpc.Service service)
+      throws org.apache.axis.AxisFault {...}
+
+  public void addEntry(String name, Address address)
+      throws RemoteException {...}
+}</pre>
+
+
+
+
+<div class="h5">
+<h5>Services</h5>
+</div>
+
+
+
+<p>普通、クライアントプログラムは直接スタブをインスタンス化しません。代わりにサービスロケータをインスタンス化し、スタブを返す get メソッドを呼びます。このロケータは WSDL の service 節から生成されます。WSDL2Java は1つのサービス節から2つのオブジェクトを生成します。例えば WSDL に以下のものが与えられると</p>
+
+
+<pre class="code">&lt;service name="AddressBookService"&gt;
+  &lt;port name="AddressBook" binding="tns:AddressBookSOAPBinding"&gt;
+    &lt;soap:address location="http://localhost:8080/axis/services/AddressBook"/&gt;
+  &lt;/port&gt;
+&lt;/service&gt;</pre>
+
+
+<p>WSDL2Java はサービスインターフェースを生成し、</p>
+
+
+<pre class="code">public interface AddressBookService extends javax.xml.rpc.Service {
+  public String getAddressBookAddress();
+
+  public AddressBook getAddressBook() throws javax.xml.rpc.ServiceException;
+
+  public AddressBook getAddressBook(URL portAddress)
+      throws javax.xml.rpc.ServiceException;
+}</pre>
+
+
+<p>このインターフェースを実装するロケータも生成します。</p>
+
+
+<pre class="code">public class AddressBookServiceLocator extends org.apache.axis.client.Service
+    implements AddressBookService {
+  ...
+}</pre>
+
+
+<p>サービスインターフェースは WSDL の service 要素内にリストアップされた各ポートの get メソッドを定義しています。ロケータはこのサービスインターフェースの実装で、これらの get メソッドを実装しています。これはスタブインスタンスを得るためのロケータとして機能します。Service クラスは WSDL ファイルに記述されたエンドポイントの URL を指す Stub をデフォルトで生成しますが、PortType を要求する場合は異なる URL を指定することもできます。</p>
+
+
+<p>スタブクラスの典型的な使用方法は次のようになります。</p>
+
+
+<pre class="code">public class Tester {
+  public static void main(String [] args) throws Exception {
+    // Make a service
+    AddressBookService service = new AddressBookServiceLocator();
+
+    // Now use the service to get a stub which implements the SDI.
+    AddressBook port = service.getAddressBook();
+
+    // Make the actual call
+    Address address = new Address(...);
+    port.addEntry("Russell Butek", address);
+  }
+}</pre>
+
+
+
+
+<div class="h5">
+<h5>サーバ側のバインディング</h5>
+</div>
+
+
+
+<p>スタブが Java で書かれたWebサービスのクライアント側であるように、<b>スケルトン</b>はサーバ側の Java フレームワークです。スケルトンクラスを生成するには単に WSDL2Java のオプションとして "--server-side --skeletonDeploy true" を指定するだけです。例えば、上記で使用した AddressBook.wsdl を引数として与えると</p>
+
+
+<pre class="code">% java org.apache.axis.wsdl.WSDL2Java --server-side
+    --skeletonDeploy true AddressBook.wsdl</pre>
+
+
+<p>WSDL2Java はクライアント用に以前生成されたクラスを全て生成すると共に、いくつかの新しいファイルも生成します。</p>
+
+
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+  
+<tr class="b">
+    
+<th colspan="1" rowspan="1">WSDL 節</th>
+    <th colspan="1" rowspan="1">生成された Java クラス</th>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">各 binding に対して</td>
+    <td colspan="1" rowspan="1">スケルトンクラス</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1"></td>
+    <td colspan="1" rowspan="1">実装テンプレートクラス</td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">全ての service に対して</td>
+    <td colspan="1" rowspan="1">一つの deploy.wsdd ファイル</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1"></td>
+    <td colspan="1" rowspan="1">一つの undeploy.wsdd ファイル</td>
+  
+</tr>
+
+</table>
+
+
+<p>"--skeletonDeploy true" オプションを指定しなければスケルトンは生成されません。代わりに、生成された deploy.wsdd が、実装クラスは直接デプロイされたということを示します。そのような場合、deploy.wsdd には実装クラスの操作とパラメータを表す余分のメタデータが含まれます。実装に直接デプロイさせる WSDL2Java の実行方法を以下に示します。</p>
+
+
+<pre class="code">% java org.apache.axis.wsdl.WSDL2Java --server-side AddressBook.wsdl</pre>
+
+
+<p>生成されたサーバ側のファイルを以下に示します。</p>
+
+
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+  
+<tr class="b">
+    
+<th colspan="1" rowspan="1">WSDL 節</th>
+    <th colspan="1" rowspan="1">生成された Java クラス</th>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1">各 binding に対して</td>
+    <td colspan="1" rowspan="1">実装テンプレートクラス</td>
+  
+</tr>
+  
+<tr class="b">
+    
+<td colspan="1" rowspan="1">全ての service に対して</td>
+    <td colspan="1" rowspan="1">操作メタデータが含まれる1つの deploy.wsdd ファイル</td>
+  
+</tr>
+  
+<tr class="a">
+    
+<td colspan="1" rowspan="1"></td>
+    <td colspan="1" rowspan="1">1つの undeploy.wsdd ファイル</td>
+  
+</tr>
+
+</table>
+
+
+
+
+<div class="h5">
+<h5>Bindings</h5>
+</div>
+
+
+
+
+
+<div class="h5">
+<h5>(スケルトンデプロイのための) スケルトン記述</h5>
+</div>
+
+
+
+<p>スケルトンクラスは Axis エンジンと実際のサービス実装との間に置かれるクラスです。スケルトンクラスの名前はその binding 名に接尾辞 "Skelton" を付けたものになります。例えば、AddressBook バインディングでは WSDL2Java は以下のものを生成します。</p>
+
+
+<pre class="code">public class AddressBookSOAPBindingSkeleton implements AddressBook,
+    org.apache.axis.wsdl.Skeleton {
+  private AddressBook impl;
+
+  public AddressBookSOAPBindingSkeleton() {
+    this.impl = new AddressBookSOAPBindingImpl();
+  }
+
+  public AddressBookSOAPBindingSkeleton(AddressBook impl) {
+    this.impl = impl;
+  }
+
+  public void addEntry(java.lang.String name, Address address)
+      throws java.rmi.RemoteException {
+    impl.addEntry(name, address);
+  }
+}</pre>
+
+
+<p>(実際のところ、本当のスケルトンはもっとリッチです。簡潔にするために基本的なスケルトンのみ示しました)</p>
+
+
+<p>このスケルトンには AddressBook サービスの実装が含まれています。この実装は、構築時にスケルトンに渡されるか、生成された実装のインスタンスが生成されるかのいずれかです。Axis エンジンがそのスケルトンの addEntry メソッドを呼ぶと、スケルトンは単にその呼び出しを実際の実装の addEntry メソッドに委譲します。</p>
+
+
+
+
+<div class="h5">
+<h5>実装テンプレート記述</h5>
+</div>
+
+
+
+<p>WSDL2Java はバインディングから実装テンプレートも生成します。</p>
+
+
+<pre class="code">public class AddressBookSOAPBindingImpl implements AddressBook {
+  public void addEntry(String name, Address address)
+      throws java.rmi.RemoteException {
+  }
+}</pre>
+
+
+<p>このテンプレートは実際にテスト実装として利用することもできますが、見てわかるように、このテンプレートは何もしません。サービス作成者がこのテンプレートに実装を書き込むことを意図しています。</p>
+
+
+<p>(--server-side フラグを使って) WSDL2Java に実装テンプレートを生成するように指示すると、実装テンプレートがすでに存在していない時のみ実装テンプレートを生成します。もしすでに存在していれば上書きしません。</p>
+
+
+
+
+<div class="h5">
+<h5>Services</h5>
+</div>
+
+
+
+<p>このツールは AdminClient で使用される "deploy.wsdd" と "undeploy.wsdd" も生成します。Implementation クラスにメソッドを書き込み、コードをコンパイルして、Axis エンジンがそれらのクラスを利用できるようにした後、サービスをデプロイするのに "deploy.wsdd" と "undeploy.wsdd" のファイルを利用します。</p>
+
+
+
+
+
+
+<a name="Java2WSDLBuildingWSDLFromJava"></a>
+
+<div class="h2">
+<h2>Java2WSDL: Java から WSDL を構築</h2>
+</div>
+
+
+
+<p>Java2WSDL と WSDL2Java 生成器により、新しいWebサービスのデプロイが簡単になります。以降の節では Java インターフェースからWebサービスを構築するステップを説明します。</p>
+
+
+<div class="h5">
+<h5>ステップ 1: Java インターフェースや Java クラスを用意する</h5>
+</div>
+
+
+
+<p>Webサービスインターフェースを記述する Java インターフェース (あるいはクラス) を書き、コンパイルします。道具の値段を設定する、あるいは問い合わせるのに利用できるWebサービスを記述しているインターフェースの例を以下に示します (<a href="http://cvs.apache.org/viewcvs.cgi/ws-axis/java/samples/userguide/example6/WidgetPrice.java?amp;rev=1.3&view=log">samples/userguide/example6/WidgetPrice.java</a> [英語])。:</p>
+
+
+<pre class="code">package samples.userguide.example6;
+
+/**
+ * Interface describing a web service to set and get Widget prices.
+ **/
+public interface WidgetPrice {
+  public void setWidgetPrice(String widgetName, String price);
+  public String getWidgetPrice(String widgetName);
+}</pre>
+
+
+<p>
+<b>注意:</b> クラスをデバッグ情報付きでコンパイルすると、Java2WSDL はデバッグ情報を利用してメソッドパラメータ名を取得します。</p>
+
+
+
+
+<div class="h5">
+<h5>ステップ 2: Java2WSDL を利用して WSDL を生成</h5>
+</div>
+
+
+
+<p>Java2WSDL ツールを利用して、上記のインターフェースから WSDL ファイルを生成します。</p>
+
+
+<p>前節で記述したインターフェースから wsdl ファイル (<span class="codefrag">wp.wsdl</span>) を生成する呼び出し例を以下に示します。</p>
+
+
+<pre class="code">
+% java org.apache.axis.wsdl.Java2WSDL -o wp.wsdl
+    -l"http://localhost:8080/axis/services/WidgetPrice"
+    -n  "urn:Example6" -p"samples.userguide.example6" "urn:Example6"
+    samples.userguide.example6.WidgetPrice</pre>
+
+
+<p>ここで、</p>
+
+
+<ul>
+  
+<li>-o は<b>出力される WSDL</b> ファイルの名前を指定します。</li>
+  
+<li>-l は<b>サービスのロケーション</b>を指定します。</li>
+  
+<li>-n はWSDL ファイルのターゲット <b>名前空間</b> です。</li>
+  
+<li>-p は<b>パッケージから名前空間</b>へのマッピングを指定します。複数のマッピングを指定することもできます。</li>
+
+</ul>
+
+
+<p>出力された WSDL ドキュメントには、SOAP rpc エンコーディングのWebサービスをサポートする正しい WSDL の types、message、portType、binding、service 記述が含まれています。もし指定したインターフェースメソッドが他のクラスを参照する場合、Java2WSDL ツールは、クラスと全てのネストした/継承した型を表す適切な xml 型を生成します。Java2WSDL ツールは、JAX-RPC 複合型 (bean クラス)、拡張クラス、列挙クラス、配列、Holder クラスをサポートしています。</p>
+
+
+<p>Java2WSDL ツールにはそのほかにも多くのオプションがあり、その詳細は<a href="reference.html#Java2WSDLReference">リファレンスガイド</a>をご覧下さい。この動作を Ant に基づくビルドプロセスに統合する <a href="ant/axis-java2wsdl.html">Ant タスク</a> [英語] もあります。</p>
+
+
+
+
+<div class="h5">
+<h5>ステップ 3: WSDL2Java を利用してバインディングを生成</h5>
+</div>
+
+
+
+<p>生成された WSDL ファイルを利用して、Webサービスの適切なクライアント/サーババインディングを構築します。(<a href="#WSDL2JavaBuildingStubsSkeletonsAndDataTypesFromWSDL">WSDL2Java</a> をご覧下さい):</p>
+
+
+<pre class="code">% java org.apache.axis.wsdl.WSDL2Java -o . -d Session -s -S true
+    -Nurn:Example6 samples.userguide.example6 wp.wsdl</pre>
+
+
+<p>これにより以下のファイルが生成されます。</p>
+
+
+<ul>
+  
+<li>
+<b>WidgetPriceSoapBindingImpl.java</b> : WidgetPrice Webサービスのデフォルトのサーバ実装が書かれた Java ファイル<br>
+    実装を加えるには *SoapBindingImpl ファイルを修正する必要があります。(<a href="http://cvs.apache.org/viewcvs.cgi/ws-axis/java/samples/userguide/example6/WidgetPriceSoapBindingImpl.java?amp;rev=1.3&view=log">samples/userguide/example6/WidgetPriceSoapBindingImpl.java</a> [英語] をご覧下さい)。 </li>
+  
+<li>
+<b>WidgetPrice.java</b>: 適切な <b>java.rmi.Remote</b> 利用が書かれた新しいインターフェースファイルです。</li>
+  
+<li>
+<b>WidgetPriceService.java</b>: クライアント側のサービスインターフェースが書かれた Java ファイルです。</li>
+  
+<li>
+<b>WidgetPriceServiceLocator.java</b>: クライアント側のサービス実装クラスが書かれた Java ファイルです。</li>
+  
+<li>
+<b>WidgetPriceSoapBindingSkeleton.java</b>: サーバ側のスケルトンです。</li>
+  
+<li>
+<b>WidgetPriceSoapBindingStub.java</b>: クライアント側のスタブです。</li>
+  
+<li>
+<b>deploy.wsdd</b>: デプロイメントディスクリプタです。</li>
+  
+<li>
+<b>undeploy.wsdd</b>: アンデプロイメントディスクリプタです。</li>
+  
+<li>(データ型): Webサービスに必要なその他の型や holder 全てのための Java ファイルが生成されます。WidgetPrice Webサービスには追加のファイルはありません。</li>
+
+</ul>
+
+
+<p>これでクライアント/サーバ側のコードを構築し、Webサービスをデプロイするために必要なファイルが全て揃いました。</p>
+
+
+
+
+
+
+
+
+<a name="PublishedAxisInterfaces"></a>
+
+<div class="h4">
+<h4>Axis 公開インターフェース</h4>
+</div>
+
+
+
+<p>Axis にある全てのインターフェースとクラスを利用することができますが、いくつかものは他のものより安定しているということに注意してください。安定しているのは、Axis のモジュール性を維持し、改良するために Axis のリファクタリングが継続して必要なためです。</p>
+
+
+<p>従って、特定のインターフェースは <i>published (公開)</i> として指定されます。これは比較的安定していることを意味します。Axis をリファクタリングする際に、Axis 開発者は不必要に公開インターフェースを変更するのを避けようとし、変更がユーザにもたらす影響を必ず考慮に入れます。</p>
+
+
+<p>ですからもし公開インターフェースのみを利用するように我慢すれば、Axis のリリース間の移植の面倒を最小限にすることができます。一方、もし非公開インターフェースを利用することを決心したのであれば、リリース間の移植は興味深い練習になるでしょう。もしあるインターフェースを公開にしたければ、その件に関して<a href="mailto:axis-user@ws.apache.org">axis-user</a> メーリングリストで取り上げてください。</p>
+
+
+<p>現在の公開インターフェースのリストは以下の通りです。</p>
+
+
+<ul>
+  
+<li>JAX-RPC インターフェースです。これらのインターフェースは JAX-RPC 1.0 仕様からのもので、仕様の新しいバージョンがリリースされたときのみ変更されます。
+    <ul>
+      
+<li>javax.xml.messaging.Endpoint</li>
+      
+<li>javax.xml.messaging.URLEndpoint</li>
+      
+<li>javax.xml.rpc.Call</li>
+      
+<li>javax.xml.rpc.FaultException</li>
+      
+<li>javax.xml.rpc.JAXRPCException</li>
+      
+<li>javax.xml.rpc.ParameterMode</li>
+      
+<li>javax.xml.rpc.Service</li>
+      
+<li>javax.xml.rpc.ServiceException</li>
+      
+<li>javax.xml.rpc.ServiceFactory</li>
+      
+<li>javax.xml.rpc.Stub</li>
+      
+<li>javax.xml.rpc.encoding.DeserializationContext</li>
+      
+<li>javax.xml.rpc.encoding.Deserializer</li>
+      
+<li>javax.xml.rpc.encoding.DeserializerFactory</li>
+      
+<li>javax.xml.rpc.encoding.SerializationContext</li>
+      
+<li>javax.xml.rpc.encoding.Serializer</li>
+      
+<li>javax.xml.rpc.encoding.SerializerFactory</li>
+      
+<li>javax.xml.rpc.encoding.TypeMapping</li>
+      
+<li>javax.xml.rpc.encoding.TypeMappingRegistry</li>
+      
+<li>javax.xml.rpc.handler.Handler</li>
+      
+<li>javax.xml.rpc.handler.HandlerChain</li>
+      
+<li>javax.xml.rpc.handler.HandlerInfo</li>
+      
+<li>javax.xml.rpc.handler.HandlerRegistry</li>
+      
+<li>javax.xml.rpc.handler.MessageContext</li>
+      
+<li>javax.xml.rpc.handler.soap.SOAPMessageContext</li>
+      
+<li>javax.xml.rpc.holders.BigDecimalHolder</li>
+      
+<li>javax.xml.rpc.holders.BigIntegerHolder</li>
+      
+<li>javax.xml.rpc.holders.BooleanHolder</li>
+      
+<li>javax.xml.rpc.holders.BooleanWrapperHolder</li>
+      
+<li>javax.xml.rpc.holders.ByteArrayHolder</li>
+      
+<li>javax.xml.rpc.holders.ByteHolder</li>
+      
+<li>javax.xml.rpc.holders.ByteWrapperArrayHolder</li>
+      
+<li>javax.xml.rpc.holders.ByteWrapperHolder</li>
+      
+<li>javax.xml.rpc.holders.CalendarHolder</li>
+      
+<li>javax.xml.rpc.holders.DateHolder</li>
+      
+<li>javax.xml.rpc.holders.DoubleHolder</li>
+      
+<li>javax.xml.rpc.holders.DoubleWrapperHolder</li>
+      
+<li>javax.xml.rpc.holders.FloatHolder</li>
+      
+<li>javax.xml.rpc.holders.FloatWrapperHolder</li>
+      
+<li>javax.xml.rpc.holders.Holder</li>
+      
+<li>javax.xml.rpc.holders.IntHolder</li>
+      
+<li>javax.xml.rpc.holders.IntegerWrapperHolder</li>
+      
+<li>javax.xml.rpc.holders.LongHolder</li>
+      
+<li>javax.xml.rpc.holders.LongWrapperHolder</li>
+      
+<li>javax.xml.rpc.holders.ObjectHolder</li>
+      
+<li>javax.xml.rpc.holders.QNameHolder</li>
+      
+<li>javax.xml.rpc.holders.ShortHolder</li>
+      
+<li>javax.xml.rpc.holders.ShortWrapperHolder</li>
+      
+<li>javax.xml.rpc.holders.StringHolder</li>
+      
+<li>javax.xml.rpc.namespace.QName</li>
+      
+<li>javax.xml.rpc.server.ServiceLifecycle</li>
+      
+<li>javax.xml.rpc.soap.SOAPFault</li>
+      
+<li>javax.xml.rpc.soap.SOAPHeaderFault</li>
+      
+<li>javax.xml.transform.Source</li>
+    
+</ul>
+  
+</li>
+
+  
+<li>Axis インターフェースです。これらの安定性はあまり保証されていません。
+    <ul>
+      
+<li>org.apache.axis.AxisFault</li>
+      
+<li>org.apache.axis.Handler</li>
+      
+<li>org.apache.axis.DefaultEngineConfigurationFactory</li>
+      
+<li>org.apache.axis.EngineConfiguration</li>
+      
+<li>org.apache.axis.EngineConfigurationFactory</li>
+      
+<li>org.apache.axis.Message</li>
+      
+<li>org.apache.axis.MessageContext</li>
+      
+<li>org.apache.axis.SOAPPart</li>
+      
+<li>org.apache.axis.client.Call</li>
+      
+<li>org.apache.axis.client.Service</li>
+      
+<li>org.apache.axis.client.ServiceFactory</li>
+      
+<li>org.apache.axis.client.Stub</li>
+      
+<li>org.apache.axis.client.Transport</li>
+      
+<li>org.apache.axis.description.TypeDesc</li>
+      
+<li>org.apache.axis.description.AttributeDesc</li>
+      
+<li>org.apache.aixs.description.ElementDesc</li>
+      
+<li>org.apache.axis.encoding.DeserializationContext</li>
+      
+<li>org.apache.axis.encoding.Deserializer</li>
+      
+<li>org.apache.axis.encoding.DeserializerFactory</li>
+      
+<li>org.apache.axis.encoding.DeserializerTarget</li>
+      
+<li>org.apache.axis.encoding.FieldTarget</li>
+      
+<li>org.apache.axis.encoding.MethodTarget</li>
+      
+<li>org.apache.axis.encoding.SerializationContext</li>
+      
+<li>org.apache.axis.encoding.Serializer</li>
+      
+<li>org.apache.axis.encoding.SerializerFactory</li>
+      
+<li>org.apache.axis.encoding.SimpleType</li>
+      
+<li>org.apache.axis.encoding.Target</li>
+      
+<li>org.apache.axis.encoding.TypeMapping</li>
+      
+<li>org.apache.axis.encoding.TypeMappingRegistry</li>
+      
+<li>org.apache.axis.encoding.ser.BaseDeserializerFactory</li>
+      
+<li>org.apache.axis.encoding.ser.BaseSerializerFactory</li>
+      
+<li>org.apache.axis.encoding.ser.BeanPropertyTarget</li>
+      
+<li>org.apache.axis.encoding.ser.SimpleSerializer</li>
+      
+<li>org.apache.axis.encoding.ser.SimpleDeserializer</li>
+      
+<li>org.apache.axis.session.Session</li>
+      
+<li>org.apache.axis.transport.http.SimpleAxisServer</li>
+      
+<li>org.apache.axis.transport.jms.SimpleJMSListener</li>
+      
+<li>org.apache.axis.utils.BeanProperty</li>
+      
+<li>org.apache.axis.wsdl.WSDL2Java</li>
+      
+<li>org.apache.axis.wsdl.Java2WSDL</li>
+    
+</ul>
+  
+</li>
+
+</ul>
+
+
+
+
+<a name="NewbieTipsFindingYourWayAround"></a>
+
+<div class="h4">
+<h4>初心者ヒント: 道しるべ</h4>
+</div>
+
+
+
+<p>これでユーザガイドに一通り目を通し、初めての .jws サービスを書き、全てがうまくいったことでしょう。これで実際のプロジェクトに取り掛かる段階に来ました。実際に取り掛かかる際に、ユーザガイドでは扱っていないことをする必要がでてくるでしょう。簡単なことで、Axis の<i>どこかに</i>必ずあることは知っているでしょうが、それが何と呼ばれているか、あるいはそれにどのようにしてたどりつくかを知らないかもしれません。この節ではそのような検索のための出発点を紹介します。</p>
+
+
+<a name="PlacesToLookForClues"></a>
+
+<div class="h2">
+<h2>手がかりを探す場所</h2>
+</div>
+
+
+
+<p>ここに大きなカテゴリを示します。</p>
+
+
+<ul>
+  
+<li>
+<a href="http://cvs.apache.org/viewcvs.cgi/ws-axis/java/samples/"><b>サンプル</b></a> [英語]。これらの例はデプロイメントディスクリプタがある完全なもので、ほとんどはクライアントとサーバ両方のコードがあります。</li>
+  
+<li>
+<b>Javadoc</b>。バイナリディストリビューションには完全な Javadoc が含まれています。初めて見るとき Javadoc は威圧的ですが、一度その主要なユーザクラスを知ると、解決への一番の近道となるでしょう</li>
+  
+<li>
+<b>メーリングリストアーカイブ</b>。何がしたいかはわかっているけど、それが Axis で何と呼ばれているか知らない場合、これは一番最適な場所です。過去に同じことを知りたがっていた人や、Axis を十分長い間利用してきた、あるいは開発してきた人がその名前を知っているかもしれません。</li>
+  
+<li>
+<a href="../index.html">Axis ウェブサイト</a>にある、よく聞かれる質問 (FAQ) に関する更新されたドキュメントと <a href="http://wiki.apache.org/ws/ja">Axis Wiki</a>、インストールノート、相互運用性問題のリスト、その他の有用な情報を調べてください。</li>
+  
+<li>
+<b>WSDL2Java</b>。あなたが行いたいことの一部を提供している既存のWebサービスに対して WSDL2Java を実行してください。生成されたものを調べてください。これはスクラッチから実際のサービスやクライアントを書くときでさえも有用です。既存のWebサービスの、できのいい、人間が読める記述が欲しいのなら <a href="http://www.xmethods.net/">http://www.xmethods.net/</a> [英語] を試してみてください。</li>
+
+</ul>
+
+
+
+
+<a name="ClassesToKnow"></a>
+
+<div class="h2">
+<h2>知っておくべきクラス</h2>
+</div>
+
+
+
+<div class="h5">
+<h5>org.apache.axis.MessageContext</h5>
+</div>
+
+
+
+<p>Axis Webサービスに関する "どこに ... があるのでしょうか?" というたいていの質問に対する答えは "MessageContext の中です" です。本質的には、与えられたリクエスト/レスポンスについて Axis が理解していることは全て、MessageContext 経由で取得することができます。この中に Axis は以下のものを格納します。</p>
+
+
+<ul>
+  
+<li>AxisEngine への参照</li>
+  
+<li>リクエストメッセージとレスポンスメッセージ (getter メソッドと setter メソッド経由で <span class="codefrag">org.apache.axis.Message</span> オブジェクトが利用可能です) </li>
+  
+<li>ステートフルネスとサービススコープの情報 (サービスがセッション情報を維持しているかどうかなど)</li>
+  
+<li>処理の現在状況 ("pivot" を通過したかしていないかで、現在のメッセージがリクエストかレスポンスかを決めます)</li>
+  
+<li>認証情報 (サーブレットコンテナやその他の手段で提供されるユーザ名とパスワード)</li>
+  
+<li>多数のプロパティ。メッセージに関して知りたいことはほとんど全て <span class="codefrag">MessageContext.getProperty()</span> 経由で取得できます。プロパティ名だけを知っておく必要があります。これは狡猾なやり方ですが、通常、そのプロパティ名は、<span class="codefrag">org.apache.axis.transport.http.HTTPConstants</span> で定義されているプロパティ名のように、定数です。ですから例えば Axis サーブレットの ServletContext を取得するには以下のようにします。<span class="codefrag">((HttpServlet)msgC.getProperty(HTTPConstants.MC_HTTP_SERVLET)).getServletContext();</span>
+</li>
+
+</ul>
+
+
+<p>サービス内からは、static メソッド <span class="codefrag">MessageContext.getCurrentContext()</span> 経由で現在の MessageContext オブジェクトを必ず取得することができます。これによりたとえ MessageContext への明示的な参照を持たない RPC サービス内からでも、リクエストとレスポンスの必要とされるいかなるカスタマイズも行うことができます。</p>
+
+
+
+
+<div class="h5">
+<h5>org.apache.axis.Message</h5>
+</div>
+
+
+
+<p>
+<span class="codefrag">org.apache.axis.Message</span> オブジェクトは SOAP メッセージの Axis における表現です。上記で述べたように、リクエストメッセージとレスポンスメッセージは MessageContext から取得することができます。Message には以下のものがあります。</p>
+
+
+<ul>
+  
+<li>MIME ヘッダ (メッセージ自体が MIME 情報を持っている場合)</li>
+  
+<li>添付 (メッセージ自体が添付を持っている場合)</li>
+  
+<li>SOAPPart (と、SOAPPart の SOAPEnvelope を手早く取得するための便利なメソッド)。SOAPPart によりメッセージの SOAP の"中身" (&lt;soap:Envelope&gt; タグの中にある全て) にアクセスすることができます。</li>
+
+</ul>
+
+
+
+
+<div class="h5">
+<h5>org.apache.axis.SOAPEnvelope</h5>
+</div>
+
+
+
+<p>お分かりのように、MessageContext から始めれば、API を通して処理を行うことができ、単一のリクエスト/レスポンス交換について全ての情報が入手可能であることも見い出します。MessageContext には2つの Message があり、それぞれ SOAPEnvelope を含んでいる SOAPPart を持っています。SOAPEnvelope は、通信路に送信される SOAP エンベロープの完全な表現を持っています。SOAPEnvelope から、SOAP ヘッダと SOAP ボディの内容を取得したり設定したりすることができます。利用可能なプロパティの完全なリストについては Javadocs をご覧下さい。</p>
+
+
+
+
+
+
+
+
+<a name="AppendixUsingTheAxisTCPMonitorTcpmon"></a>
+
+<div class="h4">
+<h4>付録 : Axis TCP モニタ (tcpmon) を利用する</h4>
+</div>
+
+
+
+<p>同梱の "tcpmon" ユーティリティは org.apache.axis.utils パッケージにあります。コマンドラインから実行するには以下のようにします。</p>
+
+
+<pre class="code">% java org.apache.axis.utils.tcpmon [listenPort targetHost targetPort]</pre>
+
+
+<p>オプション引数を与えないと以下のような gui が表示されます。</p>
+
+
+<p>
+<img height="599" src="images/tcpmon1.jpg" width="599"></p>
+
+
+<p>このプログラムを利用するには、tcpmon が入ってくる接続に対してモニタするローカルポート、その接続を tcpmon が転送する対象ホスト、"トンネルされる"先の対象マシンのポート番号を選ぶ必要があります。次に "add" をクリックしてください。すると新しくトンネルされた接続のための新しいタブがウィンドウに表示されていることに気づくでしょう。そのパネルを見てみれば、以下のようなものが見れるでしょう。</p>
+
+
+<p>
+<img height="600" src="images/tcpmon2.jpg" width="599"></p>
+
+
+<p>ローカルポートに SOAP 接続が来るたびに、"Request" パネルにリクエストが現れ、"Response" パネルにサーバからのレスポンスが現れるのがわかるでしょう。tcpmon は全てのリクエスト/レスポンスの組のログを保持し、トップパネルで項目を選ぶことによっていかなる特定の組も見ることができます。また、選んだ項目を消したり、全ての項目を消したり、後で見るために選んでファイルに保存したりすることもできます。</p>
+
+
+<p>"resend" ボタンは今見ているリクエストを再送し、新しいレスポンスを記録します。再送する前にリクエストウィンドウで XML を編集することができるのでとても重宝します。これにより SOAP サーバに対して異なる XML の効果をテストすることができます。編集したリクエストを再送する前に、HTTP ヘッダの content-length を変更する必要があることに注意してください。</p>
+
+
+
+
+<a name="AppendixUsingTheSOAPMonitor"></a>
+
+<div class="h4">
+<h4>付録: SOAP Monitor を利用する</h4>
+</div>
+
+
+
+<p>Webサービス開発者は、Webサービスを呼び出すのに使用される SOAP メッセージとその結果を調べる必要性がしばしば出てきます。SOAP Monitor ユーティリティの目的はこれらの開発者に対して、特別な設定やサーバの再起動なしに、使用されている SOAP メッセージをモニタリングする方法を提供することです。</p>
+
+
+<p>このユーティリティでは、ハンドラが書かれ、グローバルハンドラチェインに追加されました。SOAP リクエストとレスポンスが受信されると、SOAP メッセージ情報はウェブブラウザインターフェースを利用して表示することのできる SOAP モニタサービスに転送されます。</p>
+
+
+<p>SOAP メッセージ情報はウェブブラウザで http://localhost:&lt;port&gt;/axis/SOAPMonitor (&lt;port&gt; はアプリケーションサーバが実行されているポート番号) に行くことでアクセスすることができます。</p>
+
+
+<p>SOAP メッセージ情報は SOAP モニタサービスへのソケット接続を開くアプレットを利用してウェブブラウザを通して表示されます。このアプレットは、ブラウザに Java プラグイン 1.3 以上がインストールされていることを必要としています。正しいプラグインがなければブラウザはそれをインストールするように促します。</p>
+
+
+<p>SOAP モニタサービスが、アプレットと通信するために使用するポートは設定可能です。使用されるポートを変更するには、Axis Webアプリケーションの web.xml ファイルを編集します。<b>注意: SOAP Monitor はセキュリティ的な理由からデフォルトでは無効になっています。</b>
+</p>
+
+
+<p>
+<b>注意: セキュリティ的な理由から、SOAP モニタはデフォルトで無効になっています。</b>有効にするにはインストール方法にある <a href="install.html#AppendixEnablingTheSOAPMonitor">SOAP モニタを有効にする</a>をお読みください。</p>
+
+
+
+
+<a name="Glossary"></a>
+
+<div class="h4">
+<h4>用語集</h4>
+</div>
+
+
+
+<dl>
+  
+<dt>
+<i>Handler</i>
+</dt>
+  
+<dd>ある決まった方法で MessageContext を処理する責任のある、再利用可能なクラスです。クライアントやトランスポートリスナからリクエストが来れば必ず、Axis エンジンは一連の Handler を呼び出します。</dd>
+
+  
+<dt>
+<i>SOAP</i>
+</dt>
+  
+<dd>Simple Object Access Protocol (それほど単純 (simple) には見えず、オブジェクト (object) と関係ないという事実にもかかわらず...) です。<a href="http://www.w3.org/TR/soap">http://www.w3.org/TR/soap</a> [英語] で SOAP 1.1 仕様を見ることができます。W3C は <a href="http://www.w3.org/2000/xp/group/">XML Protocol Group</a> [英語] の後援の元、現在 SOAP 1.2 の作業中です。</dd>
+
+  
+<dt>
+<i>プロバイダ</i>
+</dt>
+  
+<dd>プロバイダは、対象の SOAP 操作の"肉"を実際に実行する責任がある"バックエンド"の Handler です。一般的にこれは、あるバックエンドサービスオブジェクトのメソッドを呼ぶことを意味しています。よく利用される2つのプロバイダは RPCProvider と MsgProvider で、両方とも org.apache.axis.providers.java パッケージにあります。</dd>
+
+</dl>
+
+
+
+
+
+  
+
+<div id="pdf" align="right">
+<a href="user-guide.pdf"><img alt="PDF" src="../skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,1522 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../skin/print.css" type="text/css">
+<title>WebServices - Axis</title>
+</head>
+<body bgcolor="white" class="composite">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<td align="left">
+<div class="groupLogo">
+<a href="http://ws.apache.org/"><img border="0" class="logoImage" alt="The Apache WebServices Project" src="../images/project-logo.jpg"></a>
+</div>
+</td><td align="right">
+<div class="projectLogo">
+<a href="http://ws.apache.org/axis/"><img border="0" class="logoImage" alt="The Apache Axis Project" src="../images/axis.jpg"></a>
+</div>
+</td><td valign="top" rowspan="2" align="right" class="search">
+<form target="_blank" action="http://www.google.co.jp/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#a5b6c6" colspan="3"><img height="10" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="8" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap"><input value="ws.apache.org" name="sitesearch" type="hidden"><input value="ja" name="hl" type="hidden"><input value="UTF-8" name="ie" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../skin/images/spacer.gif" class="spacer"><input name="Search" value="検索" type="submit">
+<br>WS を検索
+                          
+                          
+                      </td><td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<tr class="status">
+<td><a href="http://www.apache.org/">Apache</a> | <a href="http://ws.apache.org/">WS</a><a href=""></a></td><td id="tabs">
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../index.html">WebServices-Axis</a></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Axis</span>
+ 
+<div class="menuItem">
+<a href="../index.html">はじめに</a>
+</div>
+ 
+<div class="menuItem">
+<a href="../news.html">お知らせ</a>
+</div>
+
+ 
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/ja/axis">FAQ/Wiki</a>
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">活動に参加</span>
+  
+<div class="menuItem">
+<a href="../overview.html">概要</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cvs.html">CVS リポジトリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../mail.html">メーリングリスト</a>
+</div>
+  
+<div class="menuItem">
+<a href="../ref.html">リファレンスライブラリ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../bugs.html">バグ</a>
+</div>
+  
+<div class="menuItem">
+<a href="../howtobuild.html">サイト構築方法</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (Java)</span>
+  
+<div class="menuItem">
+<a href="../java/index.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/install.html">インストール</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/user-guide.html">ユーザガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/developers-guide.html">開発者ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/integration-guide.html">統合ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/architecture-guide.html">アーキテクチャガイド</a>
+</div>
+  
+<div class="menuItem">
+<span class="menuSelected">リファレンスガイド</span>
+</div>
+  
+<div class="menuItem">
+<a href="../java/reading.html">読書ガイド</a>
+</div>
+  
+<div class="menuItem">
+<a href="../java/requirements.html">要件</a>
+</div>
+ 
+</div>
+ 
+<div class="menu">
+<span class="menuLabel">Axis (C++)</span>
+  
+<div class="menuItem">
+<a href="../cpp/index.html">Axis C++ 最新版</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/documentation.html">ドキュメント</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/download.html">ダウンロード</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://wiki.apache.org/ws/FrontPage/AxisCPP">Wiki ページ [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="../cpp/who.html">メンバ紹介</a>
+</div>
+  
+</div>
+
+<div class="menu">
+<span class="menuLabel">ダウンロード</span>
+  
+<div class="menuItem">
+<a href="../releases.html">リリース</a>
+</div>
+  
+<div class="menuItem">
+<a href="../interim.html">暫定版</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/ws-axis/">ソースコード [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">翻訳</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/axis/jp/">日本語</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">関連プロジェクト</span>
+  
+<div class="menuItem">
+<a href="http://ws.apache.org/wsif/">WSIF [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://cvs.apache.org/viewcvs/*checkout*/ws-wsil/java/README.htm">WSIL [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www-124.ibm.com/developerworks/projects/wsdl4j/">WSDL4J [英語]</a>
+</div>
+  
+<div class="menuItem">
+<a href="http://www.uddi4j.org/">UDDI4J [英語]</a>
+</div>
+
+</div>
+
+<div class="menu">
+<span class="menuLabel">その他</span>
+  
+<div class="menuItem">
+<a href="../who.html">メンバ紹介</a>
+</div>
+  
+<div class="menuItem">
+<a href="../contact.html">連絡先</a>
+</div>
+  
+<div class="menuItem">
+<a href="../legal.html">法関連</a>
+</div>
+  
+<div class="menuItem">
+<a href="../docs.html">メモ/ドキュメント</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</td><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>WebServices - Axis</h1>
+</div>
+<div class="h3">
+  
+  
+
+
+<a name="AxisReferenceGuide"></a>
+
+<div class="h3">
+<h3>Axis リファレンスガイド</h3>
+</div>
+
+
+
+<p>
+<i>バージョン 1.2</i>
+<br>
+
+<i>フィードバック: <a href="mailto:axis-dev@ws.apache.org">axis-dev@ws.apache.org</a></i>
+</p>
+
+
+<a name="TableOfContents"></a>
+
+<div class="h4">
+<h4>目次</h4>
+</div>
+
+
+
+<ul>
+  
+<li>
+<a href="#ToolsReference">ツールリファレンス</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#WSDL2JavaReference">WSDL2Java リファレンス</a>
+</li>
+    
+<li>
+<a href="#Java2WSDLReference">Java2WSDL リファレンス</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#DeploymentWSDDReference">デプロイ(WSDD)リファレンス</a>
+</li>
+  
+<li>
+<a href="#GlobalAxisConfiguration">グローバル Axis 設定</a>
+</li>
+  
+<li>
+<a href="#IndividualServiceConfiguration">個別のサービス設定</a>
+</li>
+  
+<li>
+<a href="#AxisLoggingConfiguration">Axis ロギング設定</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#LogCategories">ログのカテゴリ</a>
+</li>
+  
+</ul>
+  
+<li>
+<a href="#Pre-ConfiguredAxisComponentsReference">あらかじめ設定された Axis コンポーネントリファレンス</a>
+</li>
+  
+<ul>
+    
+<li>
+<a href="#OnTheServer">サーバ側</a>
+</li>
+    
+<li>
+<a href="#OnTheClient">クライアント側</a>
+</li>
+  
+</ul>
+
+</ul>
+
+
+
+
+<a name="ToolsReference"></a>
+
+<div class="h4">
+<h4>ツールリファレンス</h4>
+</div>
+
+
+
+<a name="WSDL2JavaReference"></a>
+
+<div class="h2">
+<h2>WSDL2Java リファレンス</h2>
+</div>
+
+
+
+<p>使い方: java org.apache.axis.wsdl.WSDL2Java [オプション] WSDL-URI<br>
+オプション:</p>
+
+
+<pre class="code">-h, --help
+  このメッセージを出力して終了します
+-v, --verbose
+  詳細なメッセージを出力します
+-n, --noImports
+  インポートされた WSDL ドキュメントを除いた WSDL ドキュメントを対象としたコード
+  を生成します
+-O, --timeout &lt;引数&gt;
+  タイムアウト秒を指定します (デフォルトは45、無効にするには -1 を指定します)
+-D, --Debug
+  デバッグ情報を出力します
+-W, --noWrapped
+  "wrapped" document/literal サポートを止めます
+-s, --server-side
+  Webサービスのためのサーバサイドバインディングを生成します
+-S, --skeletonDeploy &lt;引数&gt;
+  deploy.wsdd にスケルトン(true)、あるいは実装(false)を配備します
+  デフォルトは false です。--server-side を前提とします
+-N, --NStoPkg &lt;引数&gt;=&lt;値&gt;
+  名前空間をパッケージにマッピングします
+-f, --fileNStoPkg &lt;引数&gt;
+  NStoPkg マッピングのファイルを指定します (デフォルトは NStoPkg.properties)
+-p, --package &lt;引数&gt;
+  全ての名前空間をパッケージマッピングで上書きし、代わりにこのパッケージ名を使い
+  ます
+-o, --output &lt;引数&gt;
+  生成されるファイルの出力ディレクトリを指定します
+-d, --deployScope &lt;引数&gt;
+  deploy.xml にスコープを追加します : "Application", "Request", "Session"
+-t, --testCase
+  Webサービスのための junit テストケースクラスを生成します
+-a, --all
+  全ての要素(参照していない要素を含む)のコードを生成します
+-T, --typeMappingVersion
+  1.1、あるいは 1.2 を指し示します。デフォルトは 1.1 です (SOAP 1.1 JAX-RPC 準拠
+  。1.2 は SOAP 1.1 エンコードを指し示します)。
+-F, --factory &lt;引数&gt;
+  GeneratorFactory インターフェースを実装する(Java の生成関数を拡張するための)カ
+  スタムクラスの名前を指定します
+-i, --nsInclude &lt;名前空間&gt;
+  生成されたコードに明確に含める名前空間(-x オプションで明確に除外しない限り、デ
+  フォルトでは全ての名前空間になります)
+-x, --nsExclude &lt;名前空間&gt;
+  生成されたコードに明確に含めない名前空間(-i オプションで最初の名前空間を含めな
+  い限り、デフォルトでは除外されなくなります)
+-p, --property &lt;名前&gt;=&lt;値&gt;
+  カスタムの GeneratorFactory が利用するプロパティの名前と値
+-H, --helperGen
+  メタデータのための、別のヘルパークラスを生成します
+-U, --user &lt;引数&gt;
+  WSDL-URI にアクセスするためのユーザ名を指定します
+-P, --password &lt;引数&gt;
+  WSDL-URI にアクセスするためのパスワードを指定します
+-c, --implementationClassName &lt;引数&gt;
+  引数を実装クラスとして利用します。</pre>
+
+
+<dl>
+
+
+<dt>-h, --help</dt>
+
+<dd>使用例を出力して終了します</dd>
+
+
+<dt>-v, --verbose</dt>
+
+<dd>ツールが生成している際に、何を生成しているのか表示します</dd>
+
+
+<dt>-n, --noImports</dt>
+
+<dd>コマンドラインに現れる WSDL ドキュメントのコードのみ生成します。デフォルトでは、全ての WSDL ドキュメント、つまりインポートされた WSDL ドキュメントを除いた WSDL ドキュメントと、インポートした全ての WSDL ドキュメントのファイルを生成します。</dd>
+
+
+<dt>-O, --timeout</dt>
+
+<dd>タイムアウト秒を指定します。デフォルトは45です。無効にするには -1 を指定します。</dd>
+
+
+<dt>-D, --Debug</dt>
+
+<dd>デバッグ情報を出力します。デバッグ情報は現在のところ WSDL2Java のシンボルテーブルです。デバッグ情報はシンボルテーブルが完成した後、つまり WSDL が無事にパースされた後にのみ出力されることに注意してください。</dd>
+
+
+<dt>-W, --noWrapped</dt>
+
+<dd>いわゆる "wrapped" document/literal スタイルの操作の、特別な扱いを止めます。デフォルトでは WSDL2Java は以下の条件を認識します。
+  <ul>
+    
+<li>もし入力メッセージが単一部分であり、</li>
+    
+<li>その部分が一つの要素で、</li>
+    
+<li>その要素が操作と同じ名前を持ち、</li>
+    
+<li>その要素の複合型が属性を持たない。<br>
+</li>
+  
+</ul>
+もしこの条件を満たしたら、WSDL2Java はトップレベルの要素を 'unwrap' し、その要素の各コンポーネントを操作の引数として扱います。WSDL のこの型は、RPC
+スタイルの引数をこのトップレベルスキーマ要素に wrap する Microsoft .NET のWebサービスのデフォルトです。</dd>
+
+
+<dt>-s, --server-side</dt>
+
+<dd>Webサービスのためのサーバサイドバインディングを生成します。
+  <ul>
+    
+<li>&lt;バインディング名&gt;Skeleton という名前のスケルトンクラス。これは生成されるかもしれないしされないかもしれない (-S、--skeletonDeploy をご覧ください)。</li>
+    
+<li>&lt;バインディング名&gt;Impl という名前の実装テンプレートクラス。すでにこのクラスが存在していれば、これは生成されないことに注意してください。</li>
+    
+<li>deploy.wsdd</li>
+    
+<li>undeploy.wsdd</li>
+  
+</ul>
+
+</dd>
+
+
+<dt>-S, --skeletonDeploy &lt;引数&gt;</dt>
+
+<dd>deploy.wsdd にスケルトン(true)、あるいは実装(false)を配備します。つまり、"true" の場合 deploy.wsdd ファイル中の service 節は次のようになります。
+<pre class="code">&lt;service name="AddressBook" provider="java:RPC"&gt;
+ &lt;parameter name="className" value="samples.addr.AddressBookSOAPBindingSkeleton"/&gt;
+ ...
+&lt;/service&gt;</pre>
+また、"false" の場合は次のようになります。
+<pre class="code">&lt;service name="AddressBook" provider="java:RPC"&gt;
+ &lt;parameter name="className" value="samples.addr.AddressBookSOAPBindingImpl"/&gt;
+   ...
+&lt;/service&gt;</pre>
+このオプションのデフォルトは false です。このオプションを使用する際、--server-side オプションを前提とするので明示的に --server-side を指定する必要はありません。</dd>
+
+
+<dt>-N, --NStoPkg &lt;引数&gt;=&lt;値&gt;</dt>
+
+<dd>デフォルトでは、パッケージ名は WSDL ドキュメント中の名前空間文字列から巧妙なやり方 (通常、もし名前空間が "http://x.y.com" か "urn:x.y.com" であれば、対応するパッケージは "com.y.x" になります) で生成されます。あなたのやりたいことがこのやり方ではない場合、--NStoPkg 引数を使ってオリジナルのマッピングを提供することができます。この方法は必要な回数だけ繰り返すことができ、また各固有の名前空間マッピングに対して一度だけ行うことができます。例えば "urn:AddressFetcher2" を呼ぶ名前空間が WSDL ドキュメントにあったとして、この名前空間にあるオブジェクトが samples.addr パッケージに属するファイルを生成したい場合、以下のオプションを WSDL2Java に与えます。
+<pre class="code">--NStoPkg urn:AddressFetcher2=samples.addr</pre>
+(もし短いオプションタグ "-N" を使った場合、"-N" と名前空間の間にスペースを入れてはいけないことに注意してください。)</dd>
+
+
+<dt>-f, --fileNStoPkg &lt;引数&gt;</dt>
+
+<dd>もし WSDL ドキュメントの中に多くの名前空間があった場合、それらに対するマッピングを全てリストアップするのは冗長です。コマンドラインを簡潔にするために、WSDL2Java はプロパティファイルの中のマッピングも探します。デフォルトではこのプロパティファイルは "NStoPkg.properties" という名前で、デフォルトパッケージ(つまりパッケージ無し)の中になければなりません。しかし、--fileNStoPkg オプションを使ってオリジナルのファイルを明示的に与えることができます。<br>
+<br>
+このファイルの中身は --NStoPkg コマンドラインオプションの引数と同じ形式です。例えば、上記のコマンドラインオプションを与える代わりに、同じ情報を NStoPkg.properties に与えることができます。
+<pre class="code">urn\:AddressFetcher2=samples.addr</pre>
+(プロパティファイルの中のコロンはエスケープされないといけないことに注意してください)<br>
+<br>
+与えられたマッピングがコマンドラインとプロパティファイルの両方にあった場合、コマンドラインの方が優先されます。</dd>
+
+
+<dt>-p, --package &lt;引数&gt;</dt>
+
+<dd>これは WSDL ドキュメントの中の全ての名前空間を同じ Java パッケージ名にマッピングするための簡便なオプションです。これはとても便利かもしれませんが、危険です。これを実行した際の影響について把握しておく必要があります。例えば違う名前空間で同じ名前を持った複数の型があるかもしれません。同時に --NStoPkg スイッチと --package を使うとエラーとなります。</dd>
+
+
+<dt>-o, --output &lt;引数&gt;</dt>
+
+<dd>生成される全てのファイルのルートディレクトリを指定します。</dd>
+
+
+<dt>-d, --deployScope &lt;引数&gt;</dt>
+
+<dd>deploy.wsdd にスコープ "Application"、"Request"、"Session"を追加する。このオプションがなければ deploy.wsdd にはスコープタグは現れません。その場合 Axis ランタイムは "Request" をデフォルトとします。</dd>
+
+
+<dt>-t, --testCase</dt>
+
+<dd>クライアントサイドの JUnit テストケースを生成します。このテストケースは単体で動きますが、実際はデフォルト値(オブジェクトの場合は null、プリミティブ型の場合は false)を渡す以外のことは何もしません。生成された実装ファイルのように、生成されたテストケースはあなたが埋め込むためのテンプレートと考えることができます。</dd>
+
+
+<dt>-a, --all</dt>
+
+<dd>全ての要素(参照していない要素を含む)のコードを生成します。デフォルトでは WSDL2Java は WSDL ファイルの中の参照されている要素のコードしか生成しません。<br>
+<br>
+"参照されている"の意味について説明します。単純に、サービスから始めて、そのサービスから参照される全ての binding を生成し、その参照されている binding によって参照されている portType を生成し、、、と呼び出すことはできません。もし portType、message、types のみから成る WSDL ファイルからコードを生成する場合はどうなるでしょう。もし WSDL2Java が service としてアンカーを使用していて、ファイルに service がない場合、何も生成されません。ですからアンカーは WSDL ファイルの中で存在する、次に示す順序において最低の要素です。
+<ol>
+  
+<li>types</li>
+  
+<li>portTypes</li>
+  
+<li>bindings</li>
+  
+<li>services</li>
+
+</ol>
+例えば、もし WSDL ファイルに type のみが含まれる場合、その全ての type が生成されます。しかしもし WSDL ファイルに type と portType が含まれる場合、portType と、portType によって参照されている type のみが生成されます。<br>
+<br>
+アンカーは、コマンドラインに現れた WSDL ファイルの中のもの検索され、インポートされた WSDL ファイルの中のものは<b>検索されない</b>ことに注意してください。これにより、ある WSDL ファイルから他の WSDL ファイルで定義された構成をインポートする際に、インポートされた WSDL ファイルの構成が全て生成されるということに悩まされずにすみます。</dd>
+
+
+<dt>-T, --typeMappingVersion &lt;引数&gt;</dt>
+
+<dd>1.1 か 1.2 を指定します。デフォルトは 1.2 (SOAP 1.2 JAX-RPC 準拠) です。</dd>
+
+
+<dt>-F, --factory &lt;引数&gt;</dt>
+
+<dd>WSDL2Java 生成器の機能を拡張するために使われます。引数は JavaWriterFactory を拡張するクラス名です。</dd>
+
+
+<dt>-H, --helperGen</dt>
+
+<dd>メタデータのための、別のヘルパークラスを生成します。</dd>
+
+
+<dt>-U, --user &lt;引数&gt;</dt>
+
+<dd>このユーザ名は WSDL2Java の入力として与えられた WSDL-URI を解決するために使われます。もし URI がユーザ名を含んでいる場合、これはコマンドラインスイッチを上書きします。ユーザ名とパスワードが入った URL の例は次の通りです。<span class="codefrag">http://user:password@hostname:port/path/to/service?WSDL</span>
+</dd>
+
+
+<dt>-P, --password &lt;引数&gt;</dt>
+
+<dd>このパスワードは WSDL2Java の入力として与えられた WSDL-URI を解決するために使われます。もし URI がパスワードを含んでいる場合、これはコマンドラインスイッチを上書きします。</dd>
+
+
+<dt> -c, --implementationClassName &lt;引数&gt;</dt>
+
+<dd>実装クラスの名前を設定します。特に、java2wsdl に続き wsdl2java を利用して既存のクラスをWebサービスとしてエクスポートする際に便利です。もしスケルトンデプロイオプションを使っている場合、生成の後、実装クラスが wsdl2java によって生成されたポート型名インターフェースを実装しているか必ず確認してください。また、エクスポートしたメソッドが全て java.lang.RemoteException を throw するかも確認してください。</dd> 
+
+
+</dl>
+
+
+
+
+<a name="Java2WSDLReference"></a>
+
+<div class="h2">
+<h2>Java2WSDL リファレンス</h2>
+</div>
+
+
+
+<p>以下に現在のツールで生成されたヘルプメッセージを示します</p>
+
+<p>Java2WSDL 生成器<br>
+使い方: java org.apache.axis.wsdl.Java2WSDL [オプション] class-of-portType<br>
+オプション:</p>
+
+
+<pre class="code">-h, --help
+  メッセージを表示して終了します
+-I, --input &lt;引数&gt;
+  入力する WSDL ファイルのファイル名を指定します
+-o, --output &lt;引数&gt;
+  出力する WSDL ファイルのファイル名を指定します
+-l, --location &lt;引数&gt;
+  サービスロケーションの URL を指定します
+-P, --portTypeName &lt;引数&gt;
+  portType 名を指定します (もし指定されなかった場合は class-of-portType から得ま
+  す)
+-b, --bindingName &lt;引数&gt;
+  binding 名を指定します (もし指定されなかった場合は --servicePortName の値 + 
+  "SOAPBinding" となります)
+-S, --serviceElementName &lt;引数&gt;
+  service 要素名を指定します (デフォルトは --servicePortName の値 + "Service")
+-s, --servicePortName &lt;引数&gt;
+  service port 名を指定します (もし指定されなかった場合は --location から得ます)
+-n, --namespace &lt;引数&gt;
+  対象とする名前空間を指定します。
+-p, --PkgtoNS &lt;引数&gt;=&lt;値&gt;
+  パッケージ=名前空間、のような名前と値のペアを指定します。
+-m, --methods &lt;引数&gt;
+  スペースかコンマで区切られた、エクスポートするメソッドのリストを指定します。
+-a, --all
+  継承したクラスにある許可されたメソッドを探します。
+-w, --outputWsdlMode &lt;引数&gt;
+  WSDL 出力モードを指定します : All、Interface、Implementation
+-L, --locationImport &lt;引数&gt;
+  wsdl インターフェースの場所を指定します。
+-N, --namespaceImpl &lt;引数&gt;
+  wsdl 実装の対象とする名前空間を指定します。
+-O, --outputImpl &lt;引数&gt;
+  出力する実装 WSDL ファイルのファイル名を指定します。このオプションを指定すると
+  --outputWsdlMode オプションが無視されます。
+-i, --implClass &lt;引数&gt;
+  class-of-portType のメソッドの実装を含むオプションのクラスを指定します。このク
+  ラスの中のデバッグ情報は、メソッドパラメータ名を得るのに使われます。
+このメソッドパラメータ名は WSDL part 名を設定するのに使われます。
+-x, --exclude &lt;引数&gt;
+  スペースかコンマで区切られた、エクスポートしないメソッドのリストを指定します。
+-c, --stopClasses &lt;引数&gt;
+  --all スイッチが与えられると継承検索をしないクラス名の、スペースかコンマで区切
+  られたリストを指定します。
+-T, --typeMappingVersion &lt;引数&gt;
+  1.1、あるいは 1.2 を指し示します。デフォルトは 1.1 です (SOAP 1.1 JAX-RPC 準拠
+  。1.2 は SOAP 1.1 エンコードを指し示します)。
+-A, --soapAction &lt;引数&gt;
+  operation 要素の soapAction 属性の値を指定します。値は DEFAULT、OPERATION、
+  NONE のいずれかです。OPERATION は operation の名前を soapAction にします。
+  DEFAULT は operation のメタデータ(普通は "")に従って soapAction を設定します。
+  NONE は "" を soapAction にします。デフォルトは DEFAULT です。
+-y, --style &lt;引数&gt;
+  WSDL での binding の style を指定します。DOCUMENT、RPC、WRAPPED のいずれかです
+  。
+-u, --use &lt;引数&gt;
+  binding の中の item の使い方を指定します。LITERAL か ENCODED のいずれかです。
+-e, --extraClasses &lt;引数&gt;
+  types 要素に追加するクラス名の、スペースかコンマで区切られたリストを指定します
+  。
+-C, --importSchema
+  生成された WSDL に物理的にインポートされるべき XML Schema のファイルや URL
+-X, --classpath 
+  追加のクラスパス要素
+詳細:
+   portType 要素名= &lt;--portTypeName 値&gt; または &lt;class-of-portType 値&gt;
+   binding 要素名= &lt;--bindingName 値&gt; または &lt;--servicePortName 値&gt;
+Soap Binding
+   service 要素名= &lt;--serviceElementName 値&gt; または &lt;--portTypeName 値&gt;
+Service
+   port 要素名= &lt;--servicePortName 値&gt;
+   address ロケーション= &lt;--location 値&gt;
+</pre>
+
+
+<dl>
+
+
+<dt>-h , --help</dt>
+
+<dd>ヘルプメッセージを表示します。</dd>
+
+
+<dt>-I, --input &lt;WSDL ファイル&gt;</dt>
+
+<dd>入力する wsdl ファイルの名前を指定するオプションのパラメータです。出力される wsdl ファイルは、入力された wsdl ファイルからくる全てのものと、新しい構成を含んでいます。もし新しい構成がすでに入力された wsdl ファイルに現れていたらその新しい構成は追加されません。このオプションを、複数の port、binding、portTypes から成る wsdl ファイルを構築する際に便利です。</dd>
+
+
+<dt>-o, --output &lt;WSDL ファイル&gt;</dt>
+
+<dd>出力する WSDL ファイルのファイル名を指定します。もし指定しなければ、現在のディレクトリに適切なデフォルトの WSDL ファイルが出力されます。</dd>
+
+
+<dt>-l, --location &lt;ロケーション&gt;</dt>
+
+<dd>service の location の url を指定します。最後のスラッシュあるいはバックスラッシュの後の名前は、その service の名前です(-s オプションで上書きされていない限り)。service 要素の中の port 要素の中の address 要素の location 属性に指定した値が割り当てられます。</dd>
+
+
+<dt>-P, --portTypeName &lt;名前&gt;</dt>
+
+<dd>portType 要素に使う名前を指定します。指定しなければ class-of-portType の名前が使われます。</dd>
+
+
+<dt>-b, --bindingName &lt;名前&gt;</dt>
+
+<dd>binding 要素に使う名前を指定します。指定しなければ --servicePortName + "SoapBinding" の名前が使われます。</dd>
+
+
+<dt>-S, --serviceElementName &lt;名前&gt;</dt>
+
+<dd>service 要素の名前を指定します。指定しなければ &lt;portTypeName&gt;Service が service 要素になります。</dd>
+
+
+<dt>-s, --servicePortName &lt;名前&gt;</dt>
+
+<dd>service port の名前を指定します。指定しなければ service port 名は --location の値から生成されます。</dd>
+
+
+<dt>-n, --namespace &lt;対象名前空間&gt;</dt>
+
+<dd>WSDL の対象の名前空間の名前を指定します。</dd>
+
+
+<dt>-p, --PkgToNS &lt;package&gt; &lt;名前空間&gt;</dt>
+
+<dd>パッケージから名前空間へのマッピングを指定します。もし名前空間を持たないパッケージがあれば、Java2WSDL 生成器は適切な名前空間の名前を生成します。このオプションは複数回指定できます。</dd>
+
+
+<dt>-m, --methods &lt;arguments&gt;</dt>
+
+<dd>もしこのオプションを指定したら、インターフェースの指定されたメソッドのみが WSDL ファイルに出力されます。メソッドのリストはコンマで区切られていなければなりません。指定しなければ、インターフェースで宣言された全てのメソッドが WSDL ファイルにエクスポートされます。</dd>
+
+
+<dt>-a, --all</dt>
+
+<dd>もしこのオプションが指定したら、Java2WSDL パーサは継承したクラスを見にいき、WSDL ファイルにエクスポートするメソッドのリストを決めます。</dd>
+
+
+<dt>-w, --outputWSDLMode &lt;mode&gt;</dt>
+
+<dd>生成する WSDL の種類を指定します。有効な値は以下の通りです。
+<ul>
+  
+<li>All --- (デフォルト) WSDL 構成のインターフェースと実装の両方を含む wsdl を生成します。</li>
+  
+<li>Interface --- 構成のインターフェース(service 要素なし)を含む WSDL を生成します。</li>
+  
+<li>Implementation -- 実装を含む WSDL を生成します。WSDL インターフェースは -L オプションを介してインポートされます。</li>
+
+</ul>
+
+</dd>
+
+
+<dt>-L, --locationImport &lt;url&gt;</dt>
+
+<dd>実装 WSDL を生成する際に、インターフェース WSDL のロケーションを指定するのに使われます。</dd>
+
+
+<dt>-N, --namespaceImpl &lt;名前空間&gt;</dt>
+
+<dd>実装 WSDL の名前空間を指定します。</dd>
+
+
+<dt>-O, --outputImpl &lt;WSDL file&gt;</dt>
+
+<dd>出力する実装 WSDL ファイルのファイル名を指定するのにこのオプションを使います。もし指定したのなら、Java2WSDL はインターフェース WSDL ファイルと実装 WSDL ファイルを生成します。もしこのオプションを使用したら、-w オプションは無視されます。</dd>
+
+
+<dt>-i, --implClass &lt;実装クラス&gt;</dt>
+
+<dd>実装クラスファイルでは時々余分な情報が手に入ります。実装クラスを指定するのにこのオプションを使用します。</dd>
+
+
+<dt>-x, --exclude &lt;リスト&gt;</dt>
+
+<dd>wsdl ファイルから除外されたくないメソッドのリストを指定します。</dd>
+
+
+<dt>-c, --stopClasses &lt;リスト&gt;</dt>
+
+<dd>Java2WSDL の継承検索をしないクラスのリストを指定します。</dd>
+
+
+<dt>-T, --typeMappingVersion &lt;バージョン&gt;</dt>
+
+<dd>使用する型マッピングレジストリを選びます。1.1 か 1.2 です。</dd>
+
+
+<dt>-A, --soapAction &lt;引数&gt;</dt>
+
+<dd>operation 要素の soapAction 属性の値を指定します。値は DEFAULT、OPERATION、NONE のいずれかです。OPERATION は operation の名前を soapAction にします。DEFAULT は operation のメタデータ(普通は "")に従って soapAction を設定します。NONE は "" を soapAction にします。デフォルトは DEFAULT です。</dd>
+
+
+<dt>-y, --style &lt;引数&gt;</dt>
+
+<dd>WSDL ドキュメントの style を指定します。RPC、DOCUMENT、WRAPPED のいずれかです。デフォルトは RPC です。もし RPC が指定されると rpc wsdl が生成されます。もし DOCUMENT が指定されると、document wsdl が生成されます。WRAPPED が指定されると wrapped アプローチによる document/literal wsdl が生成されます。wrapped style は use 属性を literal に強制します。</dd>
+
+
+<dt>-u, --use &lt;引数&gt;</dt>
+
+<dd>WSDL ドキュメントの use を指定します。LITERAL か ENCODED のいずれかです。もし LITERAL が指定されると、XML Schema はリクエストに対する XML の表現を定義します。もし ENCODED が指定されると、生成された WSDL の中で SOAP エンコーディングが指定されます。</dd>
+
+
+<dt>-e, --extraClasses &lt;引数&gt;</dt>
+
+<dd>WSDL ドキュメントの <b>types</b> 節に含まれるべきクラス名の、スペースかコンマで区切られたリストを指定します。service インターフェースが基礎のクラスを参照していて、WSDL がこれらの他のクラスの XML Schema 型定義を含ませたいような場合、このオプションは便利です。--extraClasses オプションは複数回指定できます。それぞれの指定ごとに、リストにクラスが追加されます。</dd>
+
+
+<dt>-C, --importSchema</dt>
+
+<dd>生成された WSDL に物理的にインポートされるべき XML Schema のファイルや URL</dd>
+
+
+<dt>-X, --classpath</dt>
+
+<dd>追加のクラスパス要素</dd>
+
+
+</dl>
+
+
+
+
+
+
+<a name="DeploymentWSDDReference"></a>
+
+<div class="h4">
+<h4>デプロイ(WSDD)リファレンス</h4>
+</div>
+
+
+
+<p>注意 : この節で参照されている全ての要素は WSDD 名前空間、すなわち "http://xml.apache.org/axis/wsdd/" の中にあります。</p>
+
+
+<dl>
+
+
+<dt>&lt;deployment&gt;</dt>
+
+<dd>これが deployment であると Axis エンジンに伝える、配備ドキュメントのルート要素です。配備ドキュメントは、完全なエンジン設定、あるいは、実行中のエンジンに配備するコンポーネントの集合、を表します。</dd>
+
+
+<dt>&lt;GlobalConfiguration&gt;</dt>
+
+<dd>この要素は Axis のエンジンにまたがる設定を制御するのに利用されます。いくつかの下位要素を含んでいます。 
+  <ul>
+    
+<li>
+<b>&lt;parameter&gt;</b> : これは Axis エンジンにオプションを設定するのに利用されます。詳細については後述の <a href="#GlobalAxisConfiguration">グローバル Axis 設定</a> 節をご覧下さい。<b>&lt;parameter&gt;</b> 要素はいくつあってもかまいません。</li>
+    
+<li>
+<b>&lt;role&gt;</b> : これはエンジンが認識する SOAP アクタ/ロール URI を設定するのに利用されます。これによりそのロールに向けられた SOAP ヘッダは無事にエンジンによって処理されます。<b>&lt;role&gt;</b> 要素はいくつあってもかまいません。</li>
+    
+<li>
+<b>&lt;requestFlow&gt;</b> : これは、各リクエストの実際のサービスの前に呼ばれる、グローバルリクエストハンドラを設定するのに利用されます。<b>&lt;requestFlow&gt;</b> 内に <b>&lt;handler&gt;</b> または <b>&lt;chain&gt;</b> 要素(下記参照)はいくつあってもかまいませんが、<b>&lt;requestFlow&gt;</b> は1つだけです。</li>
+    
+<li>
+<b>&lt;responseFlow&gt;</b> : これは、各リクエストの実際のサービスの後に呼ばれる、グローバルレスポンスハンドラを設定するのに利用されます。<b>&lt;responseFlow&gt;</b> 内に <b>&lt;handler&gt;</b> または <b>&lt;chain&gt;</b> 要素(下記参照)はいくつあってもかまいませんが、<b>&lt;responseFlow&gt;</b> は1つだけです。</li>
+  
+</ul> 
+
+</dd> 
+
+
+<dt>&lt;undeployment&gt;</dt>
+
+<dd>これが undeployment であると Axis に伝える、配備ドキュメントのルート要素です。</dd>
+
+
+<dt>&lt;handler [name="<i>名前</i>"] type="<i>型</i>"/&gt;</dt>
+
+<dd>
+<b>&lt;deployment&gt;</b>、<b>&lt;undeployment&gt;</b> の中のトップレベル、あるいは<b>&lt;chain&gt;</b>、<b>&lt;requestFlow&gt;</b>、<b>&lt;responseFlow&gt;</b>の中にあります。handler を定義し、handler の型を指定します。"type" は既に定義したほかの handler の名前、あるいは "<b>java:class.name</b>" 形式の QName です。オプションの "name" 属性によって、配備の他の部分からこの handler の定義を参照することができます。任意の数の <b>&lt;parameter name="</b><i>名前</i><b>" value="</b><i>値</i><b>"&gt;</b> 要素を持つことができ、それぞれが、配備した handler にオプションを提供します。</dd>
+
+
+<dt>&lt;service name="<i>名前</i>" provider="<i>プロバイダ</i>" &gt;</dt>
+
+<dd>Axis Service を配備/アンデプロイします。これは最も複雑な WSDD タグなので、これに少し時間をかけて説明します。<br>
+<br>
+
+<b>オプション</b> は以下のように指定します。<span class="codefrag">&lt;parameter name="名前" value="値"/&gt;</span>。そして一般的なものは以下のものを含みます。
+<ul>
+  
+<li>
+<b>className</b> : バックエンドの実装クラスを指定します。</li>
+  
+<li>
+<b>allowedMethods</b> : それぞれのプロバイダはどのメソッドがWebサービスとしての公開が許されるか決めることができます。<br>
+Axis が提供するプロバイダを要約すると次のようになります。
+<p>
+<u>Java RPC Provider</u> (provider="java:RPC") デフォルトでは、className オプションの中のクラスで指定された全ての public メソッド(全ての継承したメソッドも含む)はWebサービスとして利用できます。<br>
+Java Provider に関する詳細は <b>WHERE???</b> をご覧下さい。</p>
+
+<p>
+<U>Java MsgProvder</U> (provider="java:MSG") </p>
+
+<p>上記のメソッドにさらに制限を加えるには、Webサービスとして許可するメソッドのみの名前の、スペースで区切られたリストを指定して <b>allowedMethods</b> オプションを使います。このオプションに、機能的にオプションを全く指定しないのと同じである、値 <b>"*"</b> を指定することも可能です。<b>operation</b> 要素は提供されたメソッドをさらに定義するために使えますが、どのメソッドが利用可能になるかには影響を与えない、ということを言及することにも価値があります。</p>
+
+<p>
+<i>上記は Axis が提供するプロバイダについてのことですが、それぞれの個別のプロバイダは実装依存となります。このオプションに対応しているか、どのように対応しているかについてはプロバイダのドキュメントを見直してください。</i>
+</p>
+
+<p>
+<b><u>どのようなWebサービスを公開するにしても、セキュリティとの係わり合いがあることに注意してください。</u></b>
+<br>ベストプラクティスが導くように、安全でない環境でWebサービスを提供する際は、許可するメソッドを提供されているサービスを必要とする人たちのみに制限することを<u>強く</u>お勧めします。そして利用可能となった人たちは、それらの機能と、あなたのシステム資源にどのようにアクセスし、公開するか、<b>完全に</b>理解する必要があります。</p>
+  
+</li>
+  
+<li>
+<b>allowedRoles</b> : このサービスにアクセスが許可されたロールの、コンマで区切られたリストを指定します(SOAP ロールとは対照的に、これらはセキュリティロールであることに注意してください。セキュリティロールはアクセスを制御し、SOAP ロールはどの SOAP ヘッダを処理するかを制御します。)。</li>
+  
+<li>
+<b>extraClasses</b> : WSDL ドキュメントの <b>types</b> 節に含めるべきクラス名の、スペースやコンマで区切られたリストを指定します。これは、サービスインターフェースが基底クラスを参照し、これらの他のクラスに対して XML Schema 型定義を WSDL に含ませたい場合に便利です。</li>
+
+</ul>
+サービスのプロバイダの前、あるいは後に呼び出したい handler を定義したいのであれば、下位要素である <b>&lt;requestFlow&gt;</b> と <b>&lt;responseFlow&gt;</b> を使ってできます。いずれの要素も <b>&lt;service&gt;</b> 要素の中で指定でき、またそれらのセマンティックスは、以降で説明されている <b>&lt;chain&gt;</b> 要素と同一です。つまり、それらは <b>&lt;handler&gt;</b> 要素と <b>&lt;chain&gt;</b> 要素を含むことができ、指定された順で呼び出されます。<br>
+あなたのサービスハンドラによって認識される <a href="http://www.w3.org/TR/2003/REC-soap12-part1-20030624/#soaproles">ロール</a> を制御するには、サービス宣言内で任意の数の <b>&lt;role&gt;</b> 要素を指定します。<br>
+例。<br>
+
+<pre class="code">&lt;service name="test"&gt;
+  &lt;parameter name="className" value="test.Implementation"/&gt;
+  &lt;parameter name="allowedMethods" value="*"/&gt;
+  &lt;namespace&gt;http://testservice/&lt;/namespace&gt;
+  &lt;role&gt;http://testservice/MyRole&lt;/role&gt;
+  &lt;requestFlow&gt; &lt;!-- リクエストを処理する前にこれらを起動する --&gt;
+    &lt;handler type="java:MyHandlerClass"/&gt;
+    &lt;handler type="somethingIDefinedPreviously"/&gt;
+  &lt;/requestFlow&gt;
+&lt;/service&gt;
+</pre>
+
+<b>メタデータ</b>は、service の中で &lt;operation&gt; タグを使って、service の特定の operation について指定することができます。これにより、あるメソッドの java のパラメータ名を特定の XML 名にマッピングできたり、パラメータに対してパラメータモードを指定することができます。<br>
+<br>
+
+<pre class="code">&lt;operation name="メソッド"&gt;
+&lt;/operation&gt;</pre>
+
+</dd>
+
+
+<dt>&lt;chain name="<i>名前</i>"&gt; &lt;<i>下位要素</i>/&gt;... &lt;/chain&gt;</dt>
+
+<dd>chain を定義します。chain が呼び出されるとリスト中のそれぞれの <i>handler</i> (すなわち配備された handler 名) が順番に呼び出されます。これにより、共通的に利用される機能である "モジュール" を作り上げることができます。chain の中にある下位要素は &lt;<b>handler</b>&gt; か &lt;<b>chain</b>&gt; です。&lt;chain&gt; の中にある &lt;handler&gt; は次のように、その Java クラスによって定義されるか、
+<pre class="code">&lt;chain name="myChain"&gt;
+  &lt;handler type="java:org.apache.axis.handlers.LogHandler"/&gt;
+&lt;/chain&gt;
+</pre>
+あるいは次にように、以前に定義された &lt;handlers&gt; を参照することによって定義されます。この場合、handler の "type" は他の handler 定義の名前を参照します。
+<pre class="code">&lt;handler name="logger" type="java:org.apache.axis.handlers.LogHandler"/&gt;
+&lt;chain name="myChain"/&gt;
+   &lt;handler type="logger"/&gt;
+&lt;/chain&gt;</pre>
+
+</dd>
+
+
+<dt>&lt;transport name="<i>名前</i>"&gt;</dt>
+
+<dd>サーバサイドの transport を定義します。サーバの transport は、入ってくるリクエストが到着すると呼び出されます。サーバの transport は <b>&lt;requestFlow&gt;</b> 要素 と/あるいは <b>&lt;responseFlow&gt;</b> 要素 で定義され、これらの要素は、処理のリクエスト (すなわち入ってくるメッセージ) 部分、あるいは処理のレスポンス (すなわち出ていくメッセージ) 部分で呼び出す handler や chain を指定します (この機能は上記の <b>&lt;service&gt;</b> 要素とまったく同じように働きます)。通常、transport のリクエスト/レスポンスフローの中の handler は、プロトコルヘッダーをパースする等といった transport 特有の機能を実装します。<br>
+<br>
+どのような種類の transport (といっても普通は HTTP transport に関連しますが)に対しても、Axis サーブレットに特定のクエリー文字列が渡されたときに、Axis サーブレットに任意のアクション ("プラグイン" を用いる) を実行させることができます (この意味とプラグインの使い方の詳細については<a href="developers-guide.html">Axis 開発者ガイド</a>の中にある<a href="developers-guide.html#AxisServletQueryStringPlug-ins">Axis サーブレットクエリー文字列プラグイン</a>をご覧下さい)。クエリー文字列 handler クラスの名前を知っていれば、Axis サーバ設定の <b>&lt;transport&gt;</b> 要素の中に、適切な <b>&lt;parameter&gt;</b> 要素を加えることによって可能です。設定例は以下のとおりです。
+<pre class="code">&lt;transport name="http"&gt;
+  &lt;parameter name="useDefaultQueryStrings" value="false" /&gt;
+  &lt;parameter name="qs.name" value="class.name" /&gt;
+&lt;/transport&gt;</pre>
+この例では、Axis サーブレットが応答しなくてはいけないクエリー文字列は <i>?name</i> で、このクエリー文字列に出会ったら呼び出さなくてはいけないクラスの名前は <span class="codefrag">class.name</span> です。<b>&lt;parameter&gt;</b> 要素の <span class="codefrag">name</span> 属性は、この <b>&lt;parameter&gt;</b> 要素がクエリー文字列 handler を定義していることを指し示すために、"qs." という文字列から始めなければなりません。<span class="codefrag">value</span> 属性は <span class="codefrag">org.apache.axis.transport.http.QSHandler</span> インターフェースを実装しているクラスの名前を指し示さなくてはいけません。Axis はデフォルトで3つの Axis サーブレットクエリー文字列 handler (<i>?list</i>, <i>?method</i>, and <i>?wsdl</i>) を提供しています。これらの定義については Axis サーバ設定ファイルをご覧下さい。もし (上記の例のように) これらのデフォルトのクエリー文字列 handler を使用したくないのであれば、<b>&lt;parameter&gt;</b> 要素の <span class="codefrag">name</span> 属性を "useDefaultQueryStrings"、<span class="codefrag">value</span> 属性を <span class="codefrag">false</span> にします。デフォルトでは <span class="codefrag">true</span> に設定されていて、もしデフォルトの動きをさせたいのであればこの要素は必要ありません。</dd>
+
+
+<dt>&lt;transport name="<i>名前</i>" pivot="<i>ハンドラ型</i>"&gt;</dt>
+
+
+<dd>SOAP メッセージを送信する際に呼び出される、クライアントサイドの transport を定義します。"pivot" 属性は、この transport の実際の送信者となる handler を指定します(例えば HTTPSender)。サーバサイドの transport と同様に、リクエスト (すなわち出ていくメッセージ) 時、あるいはレスポンス (すなわち入ってくるメッセージ) 時に処理をするリクエストフロー、あるいはレスポンスフローも指定できます。</dd>
+
+
+<dt>&lt;typeMapping qname="<i>ns:ローカル名</i>" classname="<i>クラス名</i>" serializer="<i>クラス名</i>" deserializer="<i>クラス名</i>"/&gt;</dt>
+
+
+<dd>それぞれの typeMapping は、指定された Serializer と Deserializer を使って、 XML の修飾名を Java クラスに、あるいは Java クラスから XML の修飾名にマッピングします。</dd>
+
+
+<dt>&lt;beanMapping qname="<i>ns:ローカル名</i>" classname="<i>クラス名</i>"&gt;</dt>
+
+<dd>JavaBeans をエンコード/デコードするのにあらかじめ定義された serializer/deserializer を使用する、簡略化した型マッピングを指定します。"クラス名" で指定されたクラスは get/set アクセサといった JavaBean 標準パターンに従う必要があります。</dd>
+
+
+<dt>&lt;documentation&gt;</dt>
+
+<dd>
+<b>&lt;service&gt;</b>、<b>&lt;operation&gt;</b>、あるいは操作 <b>&lt;parameter&gt;</b> 内で利用することができます。要素の内容は任意のテキストで、生成された wsdl の wsdl:document 要素内に入れられます。<br>
+<br>
+例:
+<pre class="code">&lt;operation name="echoString" &gt;
+  &lt;documentation&gt;この操作は文字列をエコーします&lt;/documentation&gt;
+  &lt;parameter name="param"&gt;
+    &lt;documentation&gt;文字列&lt;/documentation&gt;
+  &lt;/parameter&gt;
+&lt;/operation&gt; </pre>
+
+</dd> 
+
+
+</dl>
+
+
+
+
+<a name="GlobalAxisConfiguration"></a>
+
+<div class="h4">
+<h4>グローバル Axis 設定</h4>
+</div>
+
+
+
+<p>サーバは (デフォルトでは) server-config.wsdd ファイルの中の値によって設定されますが、熱心な Axis ユーザは自分専用の設定 handler を書き、LDAP サーバ、データベース、リモートのWebサービスなどに設定データを保存することができます。これを行う方法についてはソースをご覧下さい。web.xml ファイルにオプションを追加して、自動的にそれらを取り出すこともできます。設定事項を一箇所に集めておくことはお勧めしません。</p>
+
+
+<p>server-config ファイルにはグローバル設定部があり、入れ子の要素として名前/値ペアのパラメータを持つことができます。ここに下で説明しているオプションの例を挙げますが、オプションはもっとあります (いつものようにソースをご覧下さい)。</p>
+
+
+<pre class="code">&lt;globalConfiguration&gt;
+  &lt;parameter name="adminPassword" value="admin"/&gt;
+  &lt;parameter name="attachments.Directory" value="c:\temp\attachments"/&gt;
+  &lt;parameter name="sendMultiRefs" value="true"/&gt;
+  &lt;parameter name="sendXsiTypes" value="true"/&gt;
+  &lt;parameter name="attachments.implementation"
+             value="org.apache.axis.attachments.AttachmentsImpl"/&gt;
+  &lt;parameter name="sendXMLDeclaration" value="true"/&gt;
+  &lt;parameter name="enable2DArrayEncoding" value="true"/&gt;
+&lt;/globalConfiguration&gt;
+</pre>
+
+
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+
+<tbody>
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1"><b>adminPassword</b></td>
+  <td colspan="1" rowspan="1">AdminService で使われる管理者のパスワードを指定します。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1"><b>attachments.Directory</b></td>
+  <td colspan="1" rowspan="1">添付が行き着くディレクトリを指定します。対象のプラットフォームに適した文法を用いる必要があります。</td>
+
+</tr>
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1"><b>attachments.implementation</b></td>
+  <td colspan="1" rowspan="1">添付サポートを実装するクラスの名前を指定します。デフォルトは<span class="codefrag">org.apache.axis.attachments.AttachmentsImpl</span>です。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1"><b>axis.enableListQuery</b></td>
+  <td colspan="1" rowspan="1">"list the WSDD" 機能を有効にするフラグです。現在のシステム設定をリストアップすることで、広く入手可能にさせたくない情報 (adminservice のパスワード等) を公開することになるので、デフォルトでは false に設定されています。</td>
+
+</tr>
+
+
+<tr class="b"> 
+  
+<td colspan="1" rowspan="1"><b>axis.disableServiceList</b></td>
+  <td colspan="1" rowspan="1">サービス一覧機能を無効にする際にフラグを立てます。デフォルトでは false に設定されています。これにより、サーブレットルートに対して GET リクエストが実行されたときに、AxisServlet がサービスを一覧にすることができます。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1"><b>axis.servicesPath</b></td>
+  <td colspan="1" rowspan="1">Axis サーブレットへのパスです。これは web.xml で定義されているサービスのサーブレットマッピングと同じである必要があります。サービスの一覧表示の際に利用されます。デフォルトは "/services/" です。</td>
+
+</tr>
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1"><b>axis.Compiler</b></td>
+  <td colspan="1" rowspan="1">JWS コンパイルのためのコンパイラアダプタクラス名を指定します。デフォルトは <span class="codefrag">org.apache.axis.components.compiler.Javac</span> です。代わりに jikes を呼び出すには <span class="codefrag">org.apache.axis.components.compiler.Jikes</span> に変更してください。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1"><b>axis.development.system</b></td>
+  <td colspan="1" rowspan="1">システムを <i>production</i> (false) から <i>development</i> (true) に切り替えます。development システムは、production が提供すべきでないスタックトレースやその他の情報を出力します。</td>
+
+</tr>
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1"><b>axis.xmlEncoding</b></td>
+  <td colspan="1" rowspan="1">XML メッセージに使うエンコーディングを指定します。UTF-8 (デフォルト) か UTF-16 のいずれかです。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1"><b>axis.engineConfigClass</b></td>
+  <td colspan="1" rowspan="1">Axis 設定を提供するクラスの名前を指定します。別の設定メカニズムを使用するには <span class="codefrag">EngineConfiguration</span> を実装した新しいクラスを実装し、ここでその名前を指定します。</td>
+
+</tr>
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1"><b>axis.jws.servletClassDir</b></td>
+  <td colspan="1" rowspan="1">コンパイル済みの JWS ページが置かれるパスを指定します。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1"><b>axis.sendMinimizedElements</b></td>
+  <td colspan="1" rowspan="1">.Net1.0 が、<a href="http://issues.apache.org/jira/secure/ViewIssue.jspa?key=AXIS-667">処理すべき</a> [英語] XML を正しく処理できない場合に有効にするフラグです。デフォルトでは true になっています。もしある .NET クライアントが、他のオブジェクトに入っている空の配列を返すWebサービスの処理に失敗する場合はこのフラグを <i>false</i> に設定してください。</td>
+
+</tr>
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1"><b>enable2DArrayEncoding</b></td>
+  <td colspan="1" rowspan="1">2次元配列エンコーディングを有効にするにはこれを "true" に設定してください。このエンコーディングは .NET 1.0 と互換性がありません。デフォルトは "false" です。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1"><b>sendMultiRefs</b></td>
+  <td colspan="1" rowspan="1">multiref 要素が送られるか送られないかを制御する true か false のフラグです。</td>
+
+</tr>
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1"><b>sendXMLDeclaration</b></td>
+  <td colspan="1" rowspan="1">メッセージの中で &lt;?xml?&gt; 宣言が送られるかどうかを制御する true か false のフラグです。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1"><b>sendXsiTypes</b></td>
+  <td colspan="1" rowspan="1">インターネット上に送られる全ての値の型の送信を有効/無効にする true/false のフラグです。デフォルトは true です。</td>
+
+</tr>
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1"><b>SingleSOAPVersion</b></td>
+  <td colspan="1" rowspan="1">"1.1" か "1.2" に設定されると、Axis エンジンは指定された SOAP のバージョンのみ受け付けるように設定されます。異なるバージョンで Axis エンジンにアクセスすると失敗に終わります。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1"><b>use-servlet-security</b></td>
+  <td colspan="1" rowspan="1">サーブレットコンテナの認証を無効にするにはこのフラグを設定してください。</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+
+
+
+<a name="IndividualServiceConfiguration"></a>
+
+<div class="h4">
+<h4>個別のサービス設定</h4>
+</div>
+
+
+
+<p>
+<i>TODO</i>
+</p>
+
+
+<p>ここに利用可能な各サービス設定オプションを挙げます。これらはサービスをデプロイする wsdd ファイルに設定でき、そこから値が取得されます。</p>
+
+
+<p>ここに挙げたもの以外もあります。</p>
+
+
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1"><b>style</b></td>
+  <td colspan="1" rowspan="1">RPC:enc あるいは doc/lit エンコーディングを使用するか設定します。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1"><b>SingleSOAPVersion</b></td>
+  <td colspan="1" rowspan="1">"1.1" か "1.2" に設定されると、Axis エンジンは指定された SOAP のバージョンのみ受け付けるように設定されます。異なるバージョンで Axis エンジンにアクセスすると失敗に終わります。</td>
+
+</tr>
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1"><b>wsdlFile</b></td>
+  <td colspan="1" rowspan="1">WSDL ファイルへのパスを設定します。このパスは絶対パス、あるいは axis.jar がロードできるリソースになります。自分専用の WSDL ファイルをエクスポートする際に便利です。リソースへのパスを指定するときは、クラスパスの先頭をスラッシュで始めます (例えば "/org/someone/res/mywsdl.wsdl")。Axis はどのようにしてファイルを返すのか、あるいはリソースを返すのかを知るのでしょうか。Axis はまずファイルを探し、もしなければリソースを返します。</td>
+
+</tr>
+
+
+</table>
+
+
+
+
+<a name="AxisLoggingConfiguration"></a>
+
+<div class="h4">
+<h4>Axis ロギング設定</h4>
+</div>
+
+
+
+<p>Axis は Jakarta プロジェクトの <a href="http://jakarta.apache.org/commons/logging/">commons-logging API</a> [英語] を使用します。この API は、コードの至るところでのロギングを実装する <span class="codefrag">commons-logging.jar</span> で実装されています。普通このライブラリはロギングに対して Log4j ライブラリを使用します。この際、log4j の実装はサーバあるいはクライアントのクラスパスに設定されています。commons-logging API は Avalon、<span class="codefrag">System.out</span>、Java1.4 logger を使用することもできます。このライブラリの JavaDocs はロガーの選択方法を説明していて、システムプロパティやクラスパスにあるプロパティファイルによって選択が可能です。</p>
+
+
+<p>Log4J はクラスパスにある log4j.properties ファイルを使用して設定することができ、後のバージョンでは XML 設定もサポートしています。Axis は <span class="codefrag">axis.jar</span> の中に、あらかじめ設定された log4j.properties ファイルを含んでいます。一般ユーザはこれで十分ですが、複雑なプロジェクトでは log4j.properties ファイルを自分で設定したいでしょう。ここにそのやり方を挙げます。</p>
+
+
+<ol>
+  
+<li>zip ファイルビューアで axis.jar を開き、log4j.properties を取り除きます。</li>
+  
+<li>もしくは、自分の axis.jar をビルドする際、JAR にプロパティファイルを入れないように、Ant プロパティ <span class="codefrag">exclude.log4j.configuration</span> を設定します。</li>
+  
+<li>自分用の log4J.properties ファイルを作成し、(サーバサイドの) <span class="codefrag">WEB-INF/classes</span> の中と、クライアントサイドのメインアプリケーションの JAR ファイルに入れます。</li>
+  
+<li>この log4J プロパティファイルを自分の好きなように編集します。サーバサイドにおいて、定期的なログをしゃれた html 出力に設定すると便利ですが、バックエンドサーバをクラスタリングし始めると便利でなくなってきます。'chainsaw' のような Log4J のパワーツールがあることはここでは秘密です。</li>
+
+</ol>
+
+
+<a name="LogCategories"></a>
+
+<div class="h2">
+<h2>ログのカテゴリ</h2>
+</div>
+
+
+
+<p>ログ情報を出力する Axis のクラスは、各クラスごとに自分用のログを作成し、それぞれ違うレベルの情報を出力することが可能です。例えば、メインの入り口であるサーブレットは <span class="codefrag">org.apache.axis.transport.http.AxisServlet</span>、Axis エンジンは <span class="codefrag">org.apache.axis.AxisEngine</span> と呼ばれるログなどがあります。また、特別なカテゴリ用に特別なログもあります。</p>
+
+
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1" valign="top"><span class="codefrag">org.apache.axis.TIME</span></td>
+  <td colspan="1" rowspan="1">このログは、入ってくるメッセージを実行し、preamble に分割し、呼び出し、ポストして送る時間を記録します。これらは debug レベルでのみログが取られます。</td>
+
+</tr>
+
+
+<tr class="a">
+  
+<td colspan="1" rowspan="1" valign="top"><span class="codefrag">org.apache.axis.EXCEPTIONS</span></td>
+  <td colspan="1" rowspan="1">インターネットを介して送り返される例外です。普通は '健全な' 操作で作成される AxisFault は、debug レベルでログが取られます。その他のログは info レベルでログが取られます。というのもそれらはサーバサイドのトラブルをより示唆しているからです。</td>
+
+</tr>
+
+
+<tr class="b">
+  
+<td colspan="1" rowspan="1" valign="top"><span class="codefrag">org.apache.axis.enterprise</span></td>
+  <td colspan="1" rowspan="1">"エンタープライズ" レベルのログ、つまり一般的には、(Axis ビルドのような) 単純な環境では邪魔であるが、エンタープライズ製品であるならば追跡したいログです。</td>
+
+</tr>
+
+
+</table>
+
+
+
+
+
+
+<a name="Pre-ConfiguredAxisComponentsReference"></a>
+
+<div class="h4">
+<h4>あらかじめ設定された Axis コンポーネントリファレンス</h4>
+</div>
+
+
+
+<a name="OnTheServer"></a>
+
+<div class="h2">
+<h2>サーバ側</h2>
+</div>
+
+
+
+<dl>
+
+
+<dt>SimpleSessionHandler</dt>
+
+<dd>簡単なセッション管理を行うために SOAP ヘッダを使用します</dd>
+
+
+<dt>LogHandler</dt>
+
+<dd>LogHandler が呼び出されると、LogHandler は単にロガーにメッセージをログします。</dd>
+
+
+<dt>SoapMonitorHandler</dt>
+
+<dd>SoapMonitor ユーティリティに SOAP リクエストメッセージとレスポンスメッセージを送信するメッセージパイプラインにフックを提供します。</dd>
+
+
+<dt>DebugHandler</dt>
+
+<dd>soap ヘッダ要素の値に基づいて動的にデバッグレベルを設定するデモを行うハンドラの見本です。</dd>
+
+
+<dt>ErrorHandler</dt>
+
+<dd>リクエスト/レスポンスフロー処理を停止するために AxisFault を投げるハンドラの見本です。</dd>
+
+
+<dt>EchoHandler</dt>
+
+<dd>EchoHandler はリクエストメッセージをレスポンスメッセージにコピーします。</dd>
+
+
+<dt>HTTPAuth</dt>
+
+<dd>HTTPAuthHandler は HTTP 特有の認証情報 (現在のところ、基本認証のみ) を受け取り、ユーザ名とパスワードを一般的な MessageContext プロパティに変換します</dd>
+
+
+<dt>SimpleAuthenticationHandler</dt>
+
+<dd>SimpleAuthentication ハンドラは SecurityProvider が求めているあらゆる情報 (現在のところ、ユーザ名とパスワードのみ) を使ってユーザを認証するために、MessageContext を SecurityProvider (org.apache.axis.security をご覧下さい) に渡します。</dd>
+
+
+<dt>SimpleAuthorizationHandler</dt>
+
+<dd>たいてい SimpleAuthenticationHandler と一緒にデプロイされる (この組み合わせのために "authChecks" と呼ばれる chain があらかじめ定義されています) このハンドラは、現在認証されているユーザが対象のサービスの許可されたロールの一人かどうか確認します。アクセスが拒否されると Fault が投げられます。</dd>
+
+
+<dt>MD5AttachHandler</dt>
+
+<dd>添付情報の MD5 ハッシュを生成し、soap ボディの中に属性として値を追加する、ドキュメントがなく、不必要な、テストされていないハンドラです。</dd>
+
+
+<dt>URLMapper</dt>
+
+<dd>HTTP 特有のハンドラである URLMapper は、普通 (デフォルトでデプロイされている) HTTP トランスポート chain に基づいています。URLMapper は URL に基づくサービス処理を提供します。例えば、 http://localhost:8080/axis/services/MyService?wsdl のような URL が機能するのはこのハンドラのおかげです。</dd>
+
+
+<dt>RPCProvider</dt>
+
+<dd>RPCProvider は全ての RPC サービスの pivot ポイントです。RPCProvider は以下のオプションを受け付けます。<br>
+
+<b>className</b> = 呼び出すバックエンドオブジェクトのクラスを指定します。<br>
+
+<b>methodName</b> = スペースで区切られた、Webサービスとしてエクスポートされるメソッドのリストを指定します。特別な値 "*" はそのクラスの全ての public メソッドにマッチします。</dd>
+
+
+<dt>MsgProvider</dt>
+
+<dd>MsgProvider は全てのメッセージングサービスの pivot ポイントです。MsgProvider は以下のオプションを受け付けます。<br>
+
+<b><i>className</i></b> = 呼び出すバックエンドオブジェクトのクラスを指定します。<br>
+
+<b><i>methodName</i></b> = スペースで区切られた、Webサービスとしてエクスポートされるメソッドのリストを指定します。特別な値 "*" はそのクラスの全ての public メソッドにマッチします。</dd>
+
+
+<dt>JWSHandler</dt>
+
+<dd>ドロップインデプロイを実行します。</dd>
+
+
+<dt>JAXRPCHandler</dt>
+
+<dd>Axis エンジンに Axis ハンドラインタフェースを公開する、JAX-RPC 準拠のハンドラのラッパです。</dd>
+
+
+<dt>LocalResponder</dt>
+
+<dd>LocalResponder はローカル呼び出しから返ってきたレスポンスメッセージを String にシリアライズするハンドラです。LocalResponder はデフォルトではサーバのローカルトランスポートレスポンスチェインにあり、メッセージを String 形式にシリアライズする処理がサーバの型マッピングのコンテキストで行われることを保障します。</dd>
+
+
+</dl>
+
+
+
+
+<a name="OnTheClient"></a>
+
+<div class="h2">
+<h2>クライアント側</h2>
+</div>
+
+
+
+<dl>
+
+
+<dt>SimpleSessionHandler</dt>
+
+<dd>簡単なセッション管理を行うために SOAP ヘッダを使用します</dd>
+
+
+<dt>JAXRPCHandler</dt>
+
+<dd>Axis エンジンに Axis ハンドラインタフェースを公開する、JAX-RPC 準拠のハンドラのラッパです。</dd>
+
+
+<dt>HTTPSender</dt>
+
+<dd>HTTP を介してリクエストメッセージをリモートサーバに送り、レスポンスメッセージを受け取るハンドラです。</dd>
+
+
+<dt>LocalSender</dt>
+
+<dd>リクエストメッセージを "ローカルの" AxisServer に送るハンドラです。"ローカルの" AxisServer はそれを処理してレスポンスメッセージを返します。これはテスト時に大変便利で、デフォルトでは "local:" トランスポートにマッピングされています。ですから例えば AdminClient のテストはこのようにして行えます。
+<pre class="code">% java org.apache.axis.client.AdminClient -llocal:// list</pre>
+
+</dd>
+
+
+</dl>
+
+
+
+
+
+
+
+  
+
+<div id="pdf" align="right">
+<a href="reference.pdf"><img alt="PDF" src="../skin/images/pdfdoc.gif" class="skin"><br>
+          PDF</a>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2000-2005&nbsp;The Apache Software Foundation. All rights reserved.
+            </div>
+</div>
+</td>
+</tr>
+<tr>
+<td align="left"></td><td align="right">
+<div align="right">
+<div class="credit"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>Apache Sandesha2/C - Sandesha2/C: sandesha2_report.h File Reference</title><style type="text/css" media="all">
+          @import url("../../style/maven-base.css");
+          
+			    @import url("../../style/maven-classic.css");</style><link rel="stylesheet" href="../../style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta></head><body class="composite"><div style="background: red"><h1>2014/09/20 - Apache Axis Sandesha2/C has been retired. </h1><h2>For more information, please explore the <a href="http://attic.apache.org/">Attic</a>. </h2></div><div id="banner"><a href="http://www.apache.org/" id="organizationLogo"><img alt="Apache Software Foundation" src="http://www.apache.org/images/asf-logo.gif"></img></a><a href="http://ws.apache.org/sandesha2/c" id="projectLogo"><img alt="Apache Sandesha2/C" src="http://ws.apache.org/sandesha2/c/images/sandesha2c_logo.jpg"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">
+                	Last published: 05 October 2007
+                  | Doc for 0.91</div><div class="xright"></div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuApache_Sandesha2_C"><h5>Apache Sandesha2/C</h5><ul><li class="none"><a href="../../index.html">Apache Sandesha2/C Home</a></li><li class="expanded"><a href="../../download.cgi">Download Sandesha2/C</a><ul><li class="none"><a href="../../download.cgi">Releases</a></li></ul></li><li class="expanded"><a href="../../docs/index.html">Documentation</a><ul><li class="none"><a href="../../docs/installationguide.html">Installation Guide</a></li><li class="none"><a href="../../docs/sandesha2c_manual.html">Sandesha2/C manual</a></li></ul></li><li class="expanded"><a href="../../lists_issues.html">Get Involved</a><ul><li class="none"><a href="../../lists_issues.html">Mailing Lists &amp; Issue Tracking</a></li><li class="none"><a href="../../svn.html">Checkout Source Code</a></li></ul></li><li class="expanded"><a href="../../coding_conventions.html">Developer Guidelines</a><ul><li class="none"><a href="../../coding_conventions.html">Coding Convention</a></li><li class="none"><a href="../../versioning.html">Versionning</a></li></ul></li><li class="expanded"><a href="../../team-list.html">Project Information</a><ul><li class="none"><a href="../../team-list.html">Project Team</a></li><li class="none"><a href="http://svn.apache.org/viewvc/webservices/sandesha/trunk/c/" class="externalLink" title="External Link">Source Code</a></li></ul></li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="../../images/logos/maven-button-1.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><p>
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Main Page</span></a></li>
+    <li><a href="modules.html"><span>Modules</span></a></li>
+    <li><a href="annotated.html"><span>Classes</span></a></li>
+    <li class="current"><a href="files.html"><span>Files</span></a></li>
+    <li><a href="dirs.html"><span>Directories</span></a></li>
+  </ul>
+</div><div class="nav">
+<a class="el" href="dir_16487952adfeac4b2b9df719b49efdb6.html">include</a></div></p></div><div class="section"><a name="sandesha2_report_h_File_Reference"></a><h2>sandesha2_report.h File Reference</h2><p>Sandesha Report Interface. <a href="#_details">More...</a></p><p>
+<code>#include &lt;axutil_allocator.h&gt;</code><br></br>
+<code>#include &lt;axutil_env.h&gt;</code><br></br>
+<code>#include &lt;axutil_error.h&gt;</code><br></br>
+<code>#include &lt;axutil_string.h&gt;</code><br></br>
+<code>#include &lt;axutil_utils.h&gt;</code><br></br>
+<code>#include &lt;axutil_hash.h&gt;</code><br></br>
+<code>#include &lt;axutil_array_list.h&gt;</code><br></br>
+
+</p><p>
+<a href="sandesha2__report_8h-source.html">Go to the source code of this file.</a><table class="bodyTable"><tr class="b"><td></td></tr><tr class="a"><td colspan="2"><br></br><h2>Typedefs</h2></td></tr><tr class="b"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="c6f2ed769edf4b8c2d2a574d53188251"></a>
+typedef struct <br></br>
+sandesha2_report </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_t</b></td></tr><tr class="a"><td colspan="2"><br></br><h2>Functions</h2></td></tr><tr class="b"><td class="memItemLeft" nowrap="" align="right" valign="top">AXIS2_EXPORT <br></br>
+axis2_status_t </td><td class="memItemRight" valign="bottom"><a class="el" href="group__sandesha2__report.html#gac1ac25b6af7d8e722eb8e6ff5e07372">sandesha2_report_free</a> (void *report, const axutil_env_t *env)</td></tr><tr class="a"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="g9ac52d74c562102bb9ab3fd55c4de803"></a>
+AXIS2_EXPORT long </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_get_completed_msgs_count</b> (sandesha2_report_t *report, const axutil_env_t *env, axis2_char_t *seq_id)</td></tr><tr class="b"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="g599afa101cd8ba0eaa2cdf884dec851f"></a>
+AXIS2_EXPORT <br></br>
+axutil_array_list_t * </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_get_incoming_seq_list</b> (sandesha2_report_t *report, const axutil_env_t *env)</td></tr><tr class="a"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="g2a5a8930efb9ab24b87b68064b9a4d83"></a>
+AXIS2_EXPORT <br></br>
+axutil_array_list_t * </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_get_outgoing_seq_list</b> (sandesha2_report_t *report, const axutil_env_t *env)</td></tr><tr class="b"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="g2488153149e75de872aae05891f6dde0"></a>
+AXIS2_EXPORT axis2_char_t </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_get_seq_status_map</b> (sandesha2_report_t *report, const axutil_env_t *env, axis2_char_t *seq_id)</td></tr><tr class="a"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="gd0b7b03301ee96e55a08278541fae08e"></a>
+AXIS2_EXPORT <br></br>
+axis2_status_t </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_add_to_incoming_seq_list</b> (sandesha2_report_t *report, const axutil_env_t *env, axis2_char_t *incoming_seq_id)</td></tr><tr class="b"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="g8a49baea66e54bf8e137bbf5c4fcad9b"></a>
+AXIS2_EXPORT <br></br>
+axis2_status_t </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_add_to_outgoing_seq_list</b> (sandesha2_report_t *report, const axutil_env_t *env, axis2_char_t *out_seq_id)</td></tr><tr class="a"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="g75995261daa7df03024795954add897c"></a>
+AXIS2_EXPORT <br></br>
+axis2_status_t </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_add_to_no_of_completed_msgs_map</b> (sandesha2_report_t *report, const axutil_env_t *env, axis2_char_t *id, long no_of_msgs)</td></tr><tr class="b"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="gcfcd824d5f02f1c366099b48579297a2"></a>
+AXIS2_EXPORT <br></br>
+axis2_status_t </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_add_to_seq_status_map</b> (sandesha2_report_t *report, const axutil_env_t *env, axis2_char_t *id, axis2_char_t status)</td></tr><tr class="a"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="g3a57cf1ebe93eac1dfbed1e4eff33954"></a>
+AXIS2_EXPORT <br></br>
+axis2_char_t * </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_get_internal_seq_id_of_out_seq</b> (sandesha2_report_t *report, const axutil_env_t *env, axis2_char_t *out_seq_id)</td></tr><tr class="b"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="g66a7c864927cf466284a299d312e4ce2"></a>
+AXIS2_EXPORT <br></br>
+axis2_status_t </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_add_to_outgoing_internal_seq_map</b> (sandesha2_report_t *report, const axutil_env_t *env, axis2_char_t *out_seq_id, axis2_char_t *internal_seq_id)</td></tr><tr class="a"><td class="memItemLeft" nowrap="" align="right" valign="top"><a class="anchor" name="g823db7e3f69ecd8af401ceb16bf8ac3f"></a>
+AXIS2_EXTERN <br></br>
+sandesha2_report_t * </td><td class="memItemRight" valign="bottom"><b>sandesha2_report_create</b> (const axutil_env_t *env)</td></tr></table>
+</p></div><div class="section"><p><a name="_details"></a></p><div class="subsection"><a name="Detailed_Description"></a><h3>Detailed Description</h3><p>
+Sandesha Report Interface. 
+</p><p>
+</p></div></div><div class="section"><address style="text-align: right;"><small>Generated on Mon Oct 1 17:19:05 2007 for Sandesha2/C by 
+<a href="http://www.doxygen.org/index.html" class="externalLink" title="External Link">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></img></a> 1.5.3 </small></address></div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2005-2007, Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

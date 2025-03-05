@@ -1,0 +1,1810 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Emitter (Apache Axis)</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<script type="text/javascript"><!--
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Emitter (Apache Axis)";
+    }
+//-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar_top">
+<!--   -->
+</a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Emitter.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/DuplicateFileException.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/FactoryProperty.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/wsdl/toJava/Emitter.html" target="_top">Frames</a></li>
+<li><a href="Emitter.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.apache.axis.wsdl.toJava</div>
+<h2 title="Class Emitter" class="title">Class Emitter</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">org.apache.axis.wsdl.gen.Parser</a></li>
+<li>
+<ul class="inheritance">
+<li>org.apache.axis.wsdl.toJava.Emitter</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre>public class <span class="strong">Emitter</span>
+extends <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a></pre>
+<div class="block">This class produces java files for stubs, skeletons, and types from a
+ WSDL document.</div>
+<dl><dt><span class="strong">Author:</span></dt>
+  <dd>Russell Butek (butek@us.ibm.com), Tom Jordahl (tjordahl@macromedia.com), Rich Scheuerle (scheu@us.ibm.com), Steve Graham (sggraham@us.ibm.com)</dd></dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#DEFAULT_NSTOPKG_FILE">DEFAULT_NSTOPKG_FILE</a></strong></code>
+<div class="block">Field DEFAULT_NSTOPKG_FILE</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#namespaceMap">namespaceMap</a></strong></code>
+<div class="block">Field namespaceMap</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/axis/wsdl/toJava/Namespaces.html" title="class in org.apache.axis.wsdl.toJava">Namespaces</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#namespaces">namespaces</a></strong></code>
+<div class="block">Field namespaces</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#nsExcludes">nsExcludes</a></strong></code>
+<div class="block">Field nsIncludes - defines a list of namespaces to specifically 
+ exclude from generated source code.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#nsIncludes">nsIncludes</a></strong></code>
+<div class="block">Field nsIncludes - defines a list of namespaces to specifically
+ include in the generated source code.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#NStoPkgFilename">NStoPkgFilename</a></strong></code>
+<div class="block">Field NStoPkgFilename</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#properties">properties</a></strong></code>
+<div class="block">Field properties - defines a set of general purpose properties
+ that can be used by custom JavaGeneratorFactories.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#typeMappingVersion">typeMappingVersion</a></strong></code>
+<div class="block">Field typeMappingVersion</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_org.apache.axis.wsdl.gen.Parser">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;org.apache.axis.wsdl.gen.<a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a></h3>
+<code><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#debug">debug</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#entityResolver">entityResolver</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#imports">imports</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#nowrap">nowrap</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#password">password</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#quiet">quiet</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#username">username</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#verbose">verbose</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#wrapArrays">wrapArrays</a></code></li>
+</ul>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#Emitter()">Emitter</a></strong>()</code>
+<div class="block">Default constructor.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span>Methods</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#debug(boolean)">debug</a></strong>(boolean&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use setDebug(value)</i></div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#deploySkeleton(boolean)">deploySkeleton</a></strong>(boolean&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use setSkeletonWanted(value)</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#doesExist(java.lang.String)">doesExist</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</code>
+<div class="block">Check if the className exists.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#emit(java.lang.String)">emit</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;uri)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Call run(uri) instead.</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#emit(java.lang.String,%20org.w3c.dom.Document)">emit</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;context,
+    <a href="http://docs.oracle.com/javase/1.4.2/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Call run(context, doc) instead.</i></div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#generateAll(boolean)">generateAll</a></strong>(boolean&nbsp;all)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use setAllWanted(all)</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#generateImports(boolean)">generateImports</a></strong>(boolean&nbsp;generateImports)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use setImports(generateImports)</i></div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#generateServerSide(boolean)">generateServerSide</a></strong>(boolean&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use setServerSide(value)</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#generateTestCase(boolean)">generateTestCase</a></strong>(boolean&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use setTestCaseWanted()</i></div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getDebug()">getDebug</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use isDebug()</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis/encoding/TypeMapping.html" title="interface in org.apache.axis.encoding">TypeMapping</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getDefaultTypeMapping()">getDefaultTypeMapping</a></strong>()</code>
+<div class="block">Returns the default <code>TypeMapping</code> used by the service</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getDeploySkeleton()">getDeploySkeleton</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use isSkeletonWanted()</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getGeneratedClassNames()">getGeneratedClassNames</a></strong>()</code>
+<div class="block">This method returns a list of all generated class names.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis/wsdl/toJava/GeneratedFileInfo.html" title="class in org.apache.axis.wsdl.toJava">GeneratedFileInfo</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getGeneratedFileInfo()">getGeneratedFileInfo</a></strong>()</code>
+<div class="block">Returns an object which contains of information on all generated files
+ including the class name, filename and a type string.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getGeneratedFileNames()">getGeneratedFileNames</a></strong>()</code>
+<div class="block">This method returns a list of all generated file names.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getGenerateServerSide()">getGenerateServerSide</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use isServerSide()</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getHelperGeneration()">getHelperGeneration</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use isHelperWanted()</i></div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getImplementationClassName()">getImplementationClassName</a></strong>()</code>
+<div class="block">Get an implementation classname to use instead of the default.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getJavaName(javax.xml.namespace.QName)">getJavaName</a></strong>(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qName)</code>
+<div class="block">Convert the specified QName into a full Java Name.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getJavaNameHook(javax.xml.namespace.QName)">getJavaNameHook</a></strong>(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getJavaVariableName(javax.xml.namespace.QName,%20javax.xml.namespace.QName,%20boolean)">getJavaVariableName</a></strong>(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;typeQName,
+                   <a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlName,
+                   boolean&nbsp;isElement)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getJavaVariableNameHook(javax.xml.namespace.QName,%20javax.xml.namespace.QName,%20boolean)">getJavaVariableNameHook</a></strong>(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;typeQName,
+                       <a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlName,
+                       boolean&nbsp;isElement)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getNamespaceExcludes()">getNamespaceExcludes</a></strong>()</code>
+<div class="block">Returns the list of excludes to specifically exclude
+ from the generated source.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getNamespaceIncludes()">getNamespaceIncludes</a></strong>()</code>
+<div class="block">Returns the list of namespaces specifically excluded
+ from the generated code.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getNamespaceMap()">getNamespaceMap</a></strong>()</code>
+<div class="block">Get the map of namespace -> Java package names</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis/wsdl/toJava/Namespaces.html" title="class in org.apache.axis.wsdl.toJava">Namespaces</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getNamespaces()">getNamespaces</a></strong>()</code>
+<div class="block">Method getNamespaces</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getOutputDir()">getOutputDir</a></strong>()</code>
+<div class="block">Get the output directory to use for emitted source files</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getPackage(javax.xml.namespace.QName)">getPackage</a></strong>(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qName)</code>
+<div class="block">Get the Package name for the specified QName</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getPackage(java.lang.String)">getPackage</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace)</code>
+<div class="block">Get the Package name for the specified namespace</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getPackageName()">getPackageName</a></strong>()</code>
+<div class="block">Get global package name to use instead of mapping namespaces</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getProperties()">getProperties</a></strong>()</code>
+<div class="block">Gets the list of extension properties for custom
+ JavaGeneratorFactories.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getQName2ClassMap()">getQName2ClassMap</a></strong>()</code>
+<div class="block">Get the type qname to java class map</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis/constants/Scope.html" title="class in org.apache.axis.constants">Scope</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getScope()">getScope</a></strong>()</code>
+<div class="block">Get the scope for the deploy.xml file.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis/description/ServiceDesc.html" title="interface in org.apache.axis.description">ServiceDesc</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getServiceDesc()">getServiceDesc</a></strong>()</code>
+<div class="block">Retruns the SericeDesc object</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getTypeMappingVersion()">getTypeMappingVersion</a></strong>()</code>
+<div class="block">Get the typemapping version</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getVerbose()">getVerbose</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use isVerbose()</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../../org/apache/axis/wsdl/gen/GeneratorFactory.html" title="interface in org.apache.axis.wsdl.gen">GeneratorFactory</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#getWriterFactory()">getWriterFactory</a></strong>()</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Call getFactory instead.  This doesn't return
+             a WriterFactory, it returns a GeneratorFactory.</i></div>
+</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#isAllowInvalidURL()">isAllowInvalidURL</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#isAllWanted()">isAllWanted</a></strong>()</code>
+<div class="block">Method isAllWanted</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#isBuildFileWanted()">isBuildFileWanted</a></strong>()</code>
+<div class="block">get the build file genaeration state</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#isDeploy()">isDeploy</a></strong>()</code>
+<div class="block">Returns the deploy mode flag</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#isHelperWanted()">isHelperWanted</a></strong>()</code>
+<div class="block">Indicate if we should be generating Helper classes</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#isServerSide()">isServerSide</a></strong>()</code>
+<div class="block">Indicate if we should be emitting server side code and deploy/undeploy</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#isSkeletonWanted()">isSkeletonWanted</a></strong>()</code>
+<div class="block">Indicate if we should be deploying skeleton or implementation</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#isTestCaseWanted()">isTestCaseWanted</a></strong>()</code>
+<div class="block">Method isTestCaseWanted</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#isTypeCollisionProtection()">isTypeCollisionProtection</a></strong>()</code>
+<div class="block">Get the type collision protection setting</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#run(java.lang.String)">run</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wsdlURL)</code>
+<div class="block">Emit appropriate Java files for a WSDL at a given URL.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#run(java.lang.String,%20org.w3c.dom.Document)">run</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;context,
+   <a href="http://docs.oracle.com/javase/1.4.2/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc)</code>
+<div class="block">Call this method if your WSDL document has already been
+ parsed as an XML DOM document.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#sanityCheck(org.apache.axis.wsdl.symbolTable.SymbolTable)">sanityCheck</a></strong>(<a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</code>
+<div class="block">Method sanityCheck</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setAllowInvalidURL(boolean)">setAllowInvalidURL</a></strong>(boolean&nbsp;allowInvalidURL)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setAllWanted(boolean)">setAllWanted</a></strong>(boolean&nbsp;all)</code>
+<div class="block">By default, code is generated only for referenced elements.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setBuildFileWanted(boolean)">setBuildFileWanted</a></strong>(boolean&nbsp;value)</code>
+<div class="block">turn the build file genaration ON</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setDefaultTypeMapping(org.apache.axis.encoding.TypeMapping)">setDefaultTypeMapping</a></strong>(<a href="../../../../../org/apache/axis/encoding/TypeMapping.html" title="interface in org.apache.axis.encoding">TypeMapping</a>&nbsp;defaultTM)</code>
+<div class="block">Sets the default <code>TypeMapping</code> used by the service</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setDeploy(boolean)">setDeploy</a></strong>(boolean&nbsp;isDeploy)</code>
+<div class="block">Sets the deploy mode flag</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setFactory(java.lang.String)">setFactory</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;factory)</code>
+<div class="block">Sets the <code>WriterFactory Class</code> to use</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setHelperGeneration(boolean)">setHelperGeneration</a></strong>(boolean&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use setHelperWanted(value)</i></div>
+</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setHelperWanted(boolean)">setHelperWanted</a></strong>(boolean&nbsp;value)</code>
+<div class="block">Turn on/off Helper class generation</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setImplementationClassName(java.lang.String)">setImplementationClassName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;implementationClassName)</code>
+<div class="block">Set an implementation classname to use instead of the default.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setNamespaceExcludes(java.util.List)">setNamespaceExcludes</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;nsExcludes)</code>
+<div class="block">Sets the list of namespaces to specifically exclude
+ from the generated source.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setNamespaceIncludes(java.util.List)">setNamespaceIncludes</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;nsIncludes)</code>
+<div class="block">Sets the list of namespaces to specifically include
+ in the generated code.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setNamespaceMap(java.util.HashMap)">setNamespaceMap</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;map)</code>
+<div class="block">Set a map of namespace -> Java package names</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setNStoPkg(java.lang.String)">setNStoPkg</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;NStoPkgFilename)</code>
+<div class="block">Set the NStoPkg mappings filename.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setOutputDir(java.lang.String)">setOutputDir</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;outputDir)</code>
+<div class="block">Set the output directory to use in emitted source files</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setPackageName(java.lang.String)">setPackageName</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;packageName)</code>
+<div class="block">Set a global package name to use instead of mapping namespaces</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setProperties(java.util.List)">setProperties</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;properties)</code>
+<div class="block">Sets the list of extension properties for custom 
+ JavaGeneratorFactories.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setQName2ClassMap(java.util.HashMap)">setQName2ClassMap</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;map)</code>
+<div class="block">Set the type qname to java class map</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setScope(org.apache.axis.constants.Scope)">setScope</a></strong>(<a href="../../../../../org/apache/axis/constants/Scope.html" title="class in org.apache.axis.constants">Scope</a>&nbsp;scope)</code>
+<div class="block">Set the scope for the deploy.xml file.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setServerSide(boolean)">setServerSide</a></strong>(boolean&nbsp;value)</code>
+<div class="block">Turn on/off server skeleton creation</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setServiceDesc(org.apache.axis.description.ServiceDesc)">setServiceDesc</a></strong>(<a href="../../../../../org/apache/axis/description/ServiceDesc.html" title="interface in org.apache.axis.description">ServiceDesc</a>&nbsp;serviceDesc)</code>
+<div class="block">Sets the ServicdDesc object</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setSkeletonWanted(boolean)">setSkeletonWanted</a></strong>(boolean&nbsp;value)</code>
+<div class="block">Turn on/off server skeleton deploy</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setTestCaseWanted(boolean)">setTestCaseWanted</a></strong>(boolean&nbsp;value)</code>
+<div class="block">Turn on/off test case creation</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setTypeCollisionProtection(boolean)">setTypeCollisionProtection</a></strong>(boolean&nbsp;value)</code>
+<div class="block">Enable/disable type collision protection</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setTypeMappingVersion(java.lang.String)">setTypeMappingVersion</a></strong>(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;typeMappingVersion)</code>
+<div class="block">Method setTypeMappingVersion</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#setWrapArrays(boolean)">setWrapArrays</a></strong>(boolean&nbsp;wrapArrays)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../org/apache/axis/wsdl/toJava/Emitter.html#verbose(boolean)">verbose</a></strong>(boolean&nbsp;value)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>Use setVerbose(value)</i></div>
+</div>
+</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_org.apache.axis.wsdl.gen.Parser">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.apache.axis.wsdl.gen.<a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a></h3>
+<code><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#getCurrentDefinition()">getCurrentDefinition</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#getEntityResolver()">getEntityResolver</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#getFactory()">getFactory</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#getPassword()">getPassword</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#getSymbolTable()">getSymbolTable</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#getTimeout()">getTimeout</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#getUsername()">getUsername</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#getWSDLURI()">getWSDLURI</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#isDebug()">isDebug</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#isImports()">isImports</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#isNowrap()">isNowrap</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#isQuiet()">isQuiet</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#isVerbose()">isVerbose</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#setDebug(boolean)">setDebug</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#setEntityResolver(org.xml.sax.EntityResolver)">setEntityResolver</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#setFactory(org.apache.axis.wsdl.gen.GeneratorFactory)">setFactory</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#setImports(boolean)">setImports</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#setNowrap(boolean)">setNowrap</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#setPassword(java.lang.String)">setPassword</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#setQuiet(boolean)">setQuiet</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#setTimeout(long)">setTimeout</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#setUsername(java.lang.String)">setUsername</a>, <a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#setVerbose(boolean)">setVerbose</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field_detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="DEFAULT_NSTOPKG_FILE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DEFAULT_NSTOPKG_FILE</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> DEFAULT_NSTOPKG_FILE</pre>
+<div class="block">Field DEFAULT_NSTOPKG_FILE</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#org.apache.axis.wsdl.toJava.Emitter.DEFAULT_NSTOPKG_FILE">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="namespaceMap">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>namespaceMap</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a> namespaceMap</pre>
+<div class="block">Field namespaceMap</div>
+</li>
+</ul>
+<a name="typeMappingVersion">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>typeMappingVersion</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> typeMappingVersion</pre>
+<div class="block">Field typeMappingVersion</div>
+</li>
+</ul>
+<a name="namespaces">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>namespaces</h4>
+<pre>protected&nbsp;<a href="../../../../../org/apache/axis/wsdl/toJava/Namespaces.html" title="class in org.apache.axis.wsdl.toJava">Namespaces</a> namespaces</pre>
+<div class="block">Field namespaces</div>
+</li>
+</ul>
+<a name="NStoPkgFilename">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>NStoPkgFilename</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> NStoPkgFilename</pre>
+<div class="block">Field NStoPkgFilename</div>
+</li>
+</ul>
+<a name="nsIncludes">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>nsIncludes</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a> nsIncludes</pre>
+<div class="block">Field nsIncludes - defines a list of namespaces to specifically
+ include in the generated source code. If non-empty, anything
+ not in this list should be excluded. If empty, everything in this
+ and not specifically excluded should be generated.</div>
+</li>
+</ul>
+<a name="nsExcludes">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>nsExcludes</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a> nsExcludes</pre>
+<div class="block">Field nsIncludes - defines a list of namespaces to specifically 
+ exclude from generated source code. Any entry in this list that 
+ is in conflict with the includes list should be ignored and 
+ generated.</div>
+</li>
+</ul>
+<a name="properties">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>properties</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a> properties</pre>
+<div class="block">Field properties - defines a set of general purpose properties
+ that can be used by custom JavaGeneratorFactories.</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor_detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="Emitter()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Emitter</h4>
+<pre>public&nbsp;Emitter()</pre>
+<div class="block">Default constructor.</div>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method_detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="setServerSide(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setServerSide</h4>
+<pre>public&nbsp;void&nbsp;setServerSide(boolean&nbsp;value)</pre>
+<div class="block">Turn on/off server skeleton creation</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="isServerSide()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isServerSide</h4>
+<pre>public&nbsp;boolean&nbsp;isServerSide()</pre>
+<div class="block">Indicate if we should be emitting server side code and deploy/undeploy</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setSkeletonWanted(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSkeletonWanted</h4>
+<pre>public&nbsp;void&nbsp;setSkeletonWanted(boolean&nbsp;value)</pre>
+<div class="block">Turn on/off server skeleton deploy</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="isSkeletonWanted()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isSkeletonWanted</h4>
+<pre>public&nbsp;boolean&nbsp;isSkeletonWanted()</pre>
+<div class="block">Indicate if we should be deploying skeleton or implementation</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setHelperWanted(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setHelperWanted</h4>
+<pre>public&nbsp;void&nbsp;setHelperWanted(boolean&nbsp;value)</pre>
+<div class="block">Turn on/off Helper class generation</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="isHelperWanted()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isHelperWanted</h4>
+<pre>public&nbsp;boolean&nbsp;isHelperWanted()</pre>
+<div class="block">Indicate if we should be generating Helper classes</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setTestCaseWanted(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTestCaseWanted</h4>
+<pre>public&nbsp;void&nbsp;setTestCaseWanted(boolean&nbsp;value)</pre>
+<div class="block">Turn on/off test case creation</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="isTestCaseWanted()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isTestCaseWanted</h4>
+<pre>public&nbsp;boolean&nbsp;isTestCaseWanted()</pre>
+<div class="block">Method isTestCaseWanted</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="isBuildFileWanted()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isBuildFileWanted</h4>
+<pre>public&nbsp;boolean&nbsp;isBuildFileWanted()</pre>
+<div class="block">get the build file genaeration state</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setBuildFileWanted(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBuildFileWanted</h4>
+<pre>public&nbsp;void&nbsp;setBuildFileWanted(boolean&nbsp;value)</pre>
+<div class="block">turn the build file genaration ON</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="setAllWanted(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAllWanted</h4>
+<pre>public&nbsp;void&nbsp;setAllWanted(boolean&nbsp;all)</pre>
+<div class="block">By default, code is generated only for referenced elements.
+ Call bGenerateAll(true) and WSDL2Java will generate code for all
+ elements in the scope regardless of whether they are
+ referenced.  Scope means:  by default, all WSDL files; if
+ generateImports(false), then only the immediate WSDL file.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>all</code> - </dd></dl>
+</li>
+</ul>
+<a name="isAllWanted()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isAllWanted</h4>
+<pre>public&nbsp;boolean&nbsp;isAllWanted()</pre>
+<div class="block">Method isAllWanted</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getNamespaces()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNamespaces</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/axis/wsdl/toJava/Namespaces.html" title="class in org.apache.axis.wsdl.toJava">Namespaces</a>&nbsp;getNamespaces()</pre>
+<div class="block">Method getNamespaces</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setOutputDir(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOutputDir</h4>
+<pre>public&nbsp;void&nbsp;setOutputDir(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;outputDir)</pre>
+<div class="block">Set the output directory to use in emitted source files</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>outputDir</code> - </dd></dl>
+</li>
+</ul>
+<a name="getOutputDir()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOutputDir</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getOutputDir()</pre>
+<div class="block">Get the output directory to use for emitted source files</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getPackageName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPackageName</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getPackageName()</pre>
+<div class="block">Get global package name to use instead of mapping namespaces</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setPackageName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPackageName</h4>
+<pre>public&nbsp;void&nbsp;setPackageName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;packageName)</pre>
+<div class="block">Set a global package name to use instead of mapping namespaces</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>packageName</code> - </dd></dl>
+</li>
+</ul>
+<a name="setScope(org.apache.axis.constants.Scope)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setScope</h4>
+<pre>public&nbsp;void&nbsp;setScope(<a href="../../../../../org/apache/axis/constants/Scope.html" title="class in org.apache.axis.constants">Scope</a>&nbsp;scope)</pre>
+<div class="block">Set the scope for the deploy.xml file.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>scope</code> - One of 'null',
+              Scope.APPLICATION, Scope.REQUEST, Scope.SESSION.
+              Anything else is equivalent to 'null' null and no explicit
+              scope tag will appear in deploy.xml.</dd></dl>
+</li>
+</ul>
+<a name="getScope()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getScope</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/axis/constants/Scope.html" title="class in org.apache.axis.constants">Scope</a>&nbsp;getScope()</pre>
+<div class="block">Get the scope for the deploy.xml file.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setNStoPkg(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNStoPkg</h4>
+<pre>public&nbsp;void&nbsp;setNStoPkg(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;NStoPkgFilename)</pre>
+<div class="block">Set the NStoPkg mappings filename.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>NStoPkgFilename</code> - </dd></dl>
+</li>
+</ul>
+<a name="setNamespaceMap(java.util.HashMap)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNamespaceMap</h4>
+<pre>public&nbsp;void&nbsp;setNamespaceMap(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;map)</pre>
+<div class="block">Set a map of namespace -> Java package names</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>map</code> - </dd></dl>
+</li>
+</ul>
+<a name="getNamespaceMap()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNamespaceMap</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;getNamespaceMap()</pre>
+<div class="block">Get the map of namespace -> Java package names</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setNamespaceIncludes(java.util.List)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNamespaceIncludes</h4>
+<pre>public&nbsp;void&nbsp;setNamespaceIncludes(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;nsIncludes)</pre>
+<div class="block">Sets the list of namespaces to specifically include
+ in the generated code.</div>
+</li>
+</ul>
+<a name="getNamespaceIncludes()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNamespaceIncludes</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;getNamespaceIncludes()</pre>
+<div class="block">Returns the list of namespaces specifically excluded
+ from the generated code.</div>
+</li>
+</ul>
+<a name="setNamespaceExcludes(java.util.List)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setNamespaceExcludes</h4>
+<pre>public&nbsp;void&nbsp;setNamespaceExcludes(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;nsExcludes)</pre>
+<div class="block">Sets the list of namespaces to specifically exclude
+ from the generated source.</div>
+</li>
+</ul>
+<a name="getNamespaceExcludes()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNamespaceExcludes</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;getNamespaceExcludes()</pre>
+<div class="block">Returns the list of excludes to specifically exclude
+ from the generated source.</div>
+</li>
+</ul>
+<a name="setProperties(java.util.List)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setProperties</h4>
+<pre>public&nbsp;void&nbsp;setProperties(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;properties)</pre>
+<div class="block">Sets the list of extension properties for custom 
+ JavaGeneratorFactories.</div>
+</li>
+</ul>
+<a name="getProperties()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getProperties</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;getProperties()</pre>
+<div class="block">Gets the list of extension properties for custom
+ JavaGeneratorFactories.</div>
+</li>
+</ul>
+<a name="getDefaultTypeMapping()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDefaultTypeMapping</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/axis/encoding/TypeMapping.html" title="interface in org.apache.axis.encoding">TypeMapping</a>&nbsp;getDefaultTypeMapping()</pre>
+<div class="block">Returns the default <code>TypeMapping</code> used by the service</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the default <code>TypeMapping</code> used by the service</dd></dl>
+</li>
+</ul>
+<a name="setDefaultTypeMapping(org.apache.axis.encoding.TypeMapping)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDefaultTypeMapping</h4>
+<pre>public&nbsp;void&nbsp;setDefaultTypeMapping(<a href="../../../../../org/apache/axis/encoding/TypeMapping.html" title="interface in org.apache.axis.encoding">TypeMapping</a>&nbsp;defaultTM)</pre>
+<div class="block">Sets the default <code>TypeMapping</code> used by the service</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>defaultTM</code> - the default <code>TypeMapping</code> used by the service</dd></dl>
+</li>
+</ul>
+<a name="setFactory(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFactory</h4>
+<pre>public&nbsp;void&nbsp;setFactory(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;factory)</pre>
+<div class="block">Sets the <code>WriterFactory Class</code> to use</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>factory</code> - the name of the factory <code>Class</code></dd></dl>
+</li>
+</ul>
+<a name="getGeneratedFileInfo()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getGeneratedFileInfo</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/axis/wsdl/toJava/GeneratedFileInfo.html" title="class in org.apache.axis.wsdl.toJava">GeneratedFileInfo</a>&nbsp;getGeneratedFileInfo()</pre>
+<div class="block">Returns an object which contains of information on all generated files
+ including the class name, filename and a type string.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>An org.apache.axis.wsdl.toJava.GeneratedFileInfo object</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../org/apache/axis/wsdl/toJava/GeneratedFileInfo.html" title="class in org.apache.axis.wsdl.toJava"><code>GeneratedFileInfo</code></a></dd></dl>
+</li>
+</ul>
+<a name="getGeneratedClassNames()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getGeneratedClassNames</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;getGeneratedClassNames()</pre>
+<div class="block">This method returns a list of all generated class names.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getGeneratedFileNames()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getGeneratedFileNames</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&nbsp;getGeneratedFileNames()</pre>
+<div class="block">This method returns a list of all generated file names.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getPackage(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPackage</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getPackage(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;namespace)</pre>
+<div class="block">Get the Package name for the specified namespace</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>namespace</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getPackage(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPackage</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getPackage(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qName)</pre>
+<div class="block">Get the Package name for the specified QName</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>qName</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getJavaName(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getJavaName</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getJavaName(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qName)</pre>
+<div class="block">Convert the specified QName into a full Java Name.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>qName</code> - </dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getJavaNameHook(javax.xml.namespace.QName)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getJavaNameHook</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getJavaNameHook(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;qname)</pre>
+</li>
+</ul>
+<a name="getJavaVariableName(javax.xml.namespace.QName, javax.xml.namespace.QName, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getJavaVariableName</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getJavaVariableName(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;typeQName,
+                         <a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlName,
+                         boolean&nbsp;isElement)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>typeQName</code> - QName for containing xml type</dd><dd><code>xmlName</code> - QName for element</dd>
+<dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="getJavaVariableNameHook(javax.xml.namespace.QName, javax.xml.namespace.QName, boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getJavaVariableNameHook</h4>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getJavaVariableNameHook(<a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;typeQName,
+                             <a href="../../../../../javax/xml/namespace/QName.html" title="class in javax.xml.namespace">QName</a>&nbsp;xmlName,
+                             boolean&nbsp;isElement)</pre>
+</li>
+</ul>
+<a name="run(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>run</h4>
+<pre>public&nbsp;void&nbsp;run(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wsdlURL)
+         throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<div class="block">Emit appropriate Java files for a WSDL at a given URL.
+ <p/>
+ This method will time out after the number of milliseconds specified
+ by our timeoutms member.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#run(java.lang.String)">run</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>wsdlURL</code> - </dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
+<a name="run(java.lang.String, org.w3c.dom.Document)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>run</h4>
+<pre>public&nbsp;void&nbsp;run(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;context,
+       <a href="http://docs.oracle.com/javase/1.4.2/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc)
+         throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>,
+                <a href="http://docs.oracle.com/javase/1.4.2/docs/api/org/xml/sax/SAXException.html?is-external=true" title="class or interface in org.xml.sax">SAXException</a>,
+                javax.wsdl.WSDLException,
+                <a href="http://download.oracle.com/javaee/1.4/api/javax/xml/parsers/ParserConfigurationException.html?is-external=true" title="class or interface in javax.xml.parsers">ParserConfigurationException</a></pre>
+<div class="block">Call this method if your WSDL document has already been
+ parsed as an XML DOM document.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#run(java.lang.String,%20org.w3c.dom.Document)">run</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - context This is directory context for the Document.
+                If the Document were from file "/x/y/z.wsdl" then the context
+                could be "/x/y" (even "/x/y/z.wsdl" would work).
+                If context is null, then the context becomes the current directory.</dd><dd><code>doc</code> - doc This is the XML Document containing the WSDL.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/org/xml/sax/SAXException.html?is-external=true" title="class or interface in org.xml.sax">SAXException</a></code></dd>
+<dd><code>javax.wsdl.WSDLException</code></dd>
+<dd><code><a href="http://download.oracle.com/javaee/1.4/api/javax/xml/parsers/ParserConfigurationException.html?is-external=true" title="class or interface in javax.xml.parsers">ParserConfigurationException</a></code></dd></dl>
+</li>
+</ul>
+<a name="sanityCheck(org.apache.axis.wsdl.symbolTable.SymbolTable)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>sanityCheck</h4>
+<pre>protected&nbsp;void&nbsp;sanityCheck(<a href="../../../../../org/apache/axis/wsdl/symbolTable/SymbolTable.html" title="class in org.apache.axis.wsdl.symbolTable">SymbolTable</a>&nbsp;symbolTable)</pre>
+<div class="block">Method sanityCheck</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html#sanityCheck(org.apache.axis.wsdl.symbolTable.SymbolTable)">sanityCheck</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/axis/wsdl/gen/Parser.html" title="class in org.apache.axis.wsdl.gen">Parser</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>symbolTable</code> - </dd></dl>
+</li>
+</ul>
+<a name="getTypeMappingVersion()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTypeMappingVersion</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getTypeMappingVersion()</pre>
+<div class="block">Get the typemapping version</div>
+</li>
+</ul>
+<a name="setTypeMappingVersion(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTypeMappingVersion</h4>
+<pre>public&nbsp;void&nbsp;setTypeMappingVersion(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;typeMappingVersion)</pre>
+<div class="block">Method setTypeMappingVersion</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>typeMappingVersion</code> - </dd></dl>
+</li>
+</ul>
+<a name="getWriterFactory()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getWriterFactory</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/axis/wsdl/gen/GeneratorFactory.html" title="interface in org.apache.axis.wsdl.gen">GeneratorFactory</a>&nbsp;getWriterFactory()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Call getFactory instead.  This doesn't return
+             a WriterFactory, it returns a GeneratorFactory.</i></div>
+<div class="block">Get the GeneratorFactory.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="emit(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>emit</h4>
+<pre>public&nbsp;void&nbsp;emit(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;uri)
+          throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Call run(uri) instead.</i></div>
+<div class="block">Call this method if you have a uri for the WSDL document</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>uri</code> - wsdlURI the location of the WSDL file.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Exception.html?is-external=true" title="class or interface in java.lang">Exception</a></code></dd></dl>
+</li>
+</ul>
+<a name="emit(java.lang.String, org.w3c.dom.Document)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>emit</h4>
+<pre>public&nbsp;void&nbsp;emit(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;context,
+        <a href="http://docs.oracle.com/javase/1.4.2/docs/api/org/w3c/dom/Document.html?is-external=true" title="class or interface in org.w3c.dom">Document</a>&nbsp;doc)
+          throws <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>,
+                 <a href="http://docs.oracle.com/javase/1.4.2/docs/api/org/xml/sax/SAXException.html?is-external=true" title="class or interface in org.xml.sax">SAXException</a>,
+                 javax.wsdl.WSDLException,
+                 <a href="http://download.oracle.com/javaee/1.4/api/javax/xml/parsers/ParserConfigurationException.html?is-external=true" title="class or interface in javax.xml.parsers">ParserConfigurationException</a></pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Call run(context, doc) instead.</i></div>
+<div class="block">Call this method if your WSDL document has already been
+ parsed as an XML DOM document.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - context This is directory context for the Document.
+                If the Document were from file "/x/y/z.wsdl" then the context could be "/x/y"
+                (even "/x/y/z.wsdl" would work).  If context is null, then the context
+                becomes the current directory.</dd><dd><code>doc</code> - doc This is the XML Document containing the WSDL.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/1.4.2/docs/api/org/xml/sax/SAXException.html?is-external=true" title="class or interface in org.xml.sax">SAXException</a></code></dd>
+<dd><code>javax.wsdl.WSDLException</code></dd>
+<dd><code><a href="http://download.oracle.com/javaee/1.4/api/javax/xml/parsers/ParserConfigurationException.html?is-external=true" title="class or interface in javax.xml.parsers">ParserConfigurationException</a></code></dd></dl>
+</li>
+</ul>
+<a name="generateServerSide(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateServerSide</h4>
+<pre>public&nbsp;void&nbsp;generateServerSide(boolean&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use setServerSide(value)</i></div>
+<div class="block">Turn on/off server-side binding generation</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="getGenerateServerSide()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getGenerateServerSide</h4>
+<pre>public&nbsp;boolean&nbsp;getGenerateServerSide()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use isServerSide()</i></div>
+<div class="block">Indicate if we should be emitting server side code and deploy/undeploy</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="deploySkeleton(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>deploySkeleton</h4>
+<pre>public&nbsp;void&nbsp;deploySkeleton(boolean&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use setSkeletonWanted(value)</i></div>
+<div class="block">Turn on/off server skeleton deploy</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="getDeploySkeleton()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDeploySkeleton</h4>
+<pre>public&nbsp;boolean&nbsp;getDeploySkeleton()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use isSkeletonWanted()</i></div>
+<div class="block">Indicate if we should be deploying skeleton or implementation</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setHelperGeneration(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setHelperGeneration</h4>
+<pre>public&nbsp;void&nbsp;setHelperGeneration(boolean&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use setHelperWanted(value)</i></div>
+<div class="block">Turn on/off Helper class generation</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="getHelperGeneration()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHelperGeneration</h4>
+<pre>public&nbsp;boolean&nbsp;getHelperGeneration()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use isHelperWanted()</i></div>
+<div class="block">Indicate if we should be generating Helper classes</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="generateImports(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateImports</h4>
+<pre>public&nbsp;void&nbsp;generateImports(boolean&nbsp;generateImports)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use setImports(generateImports)</i></div>
+<div class="block">Turn on/off generation of elements from imported files.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>generateImports</code> - </dd></dl>
+</li>
+</ul>
+<a name="debug(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>debug</h4>
+<pre>public&nbsp;void&nbsp;debug(boolean&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use setDebug(value)</i></div>
+<div class="block">Turn on/off debug messages.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="getDebug()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDebug</h4>
+<pre>public&nbsp;boolean&nbsp;getDebug()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use isDebug()</i></div>
+<div class="block">Return the status of the debug switch.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="verbose(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>verbose</h4>
+<pre>public&nbsp;void&nbsp;verbose(boolean&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use setVerbose(value)</i></div>
+<div class="block">Turn on/off verbose messages</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="getVerbose()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getVerbose</h4>
+<pre>public&nbsp;boolean&nbsp;getVerbose()</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use isVerbose()</i></div>
+<div class="block">Return the status of the verbose switch</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="generateTestCase(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateTestCase</h4>
+<pre>public&nbsp;void&nbsp;generateTestCase(boolean&nbsp;value)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use setTestCaseWanted()</i></div>
+<div class="block">Turn on/off test case creation</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="generateAll(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>generateAll</h4>
+<pre>public&nbsp;void&nbsp;generateAll(boolean&nbsp;all)</pre>
+<div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use setAllWanted(all)</i></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>all</code> - </dd></dl>
+</li>
+</ul>
+<a name="isTypeCollisionProtection()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isTypeCollisionProtection</h4>
+<pre>public&nbsp;boolean&nbsp;isTypeCollisionProtection()</pre>
+<div class="block">Get the type collision protection setting</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setTypeCollisionProtection(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTypeCollisionProtection</h4>
+<pre>public&nbsp;void&nbsp;setTypeCollisionProtection(boolean&nbsp;value)</pre>
+<div class="block">Enable/disable type collision protection</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - </dd></dl>
+</li>
+</ul>
+<a name="getImplementationClassName()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getImplementationClassName</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getImplementationClassName()</pre>
+<div class="block">Get an implementation classname to use instead of the default.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setImplementationClassName(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setImplementationClassName</h4>
+<pre>public&nbsp;void&nbsp;setImplementationClassName(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;implementationClassName)</pre>
+<div class="block">Set an implementation classname to use instead of the default.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>implementationClassName</code> - </dd></dl>
+</li>
+</ul>
+<a name="isAllowInvalidURL()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isAllowInvalidURL</h4>
+<pre>public&nbsp;boolean&nbsp;isAllowInvalidURL()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Returns the allowInvalidURL.</dd></dl>
+</li>
+</ul>
+<a name="setAllowInvalidURL(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAllowInvalidURL</h4>
+<pre>public&nbsp;void&nbsp;setAllowInvalidURL(boolean&nbsp;allowInvalidURL)</pre>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>allowInvalidURL</code> - The allowInvalidURL to set.</dd></dl>
+</li>
+</ul>
+<a name="setQName2ClassMap(java.util.HashMap)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setQName2ClassMap</h4>
+<pre>public&nbsp;void&nbsp;setQName2ClassMap(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;map)</pre>
+<div class="block">Set the type qname to java class map</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>map</code> - a type qname to javaclass map (from Java2Wsdl emitter)</dd></dl>
+</li>
+</ul>
+<a name="getQName2ClassMap()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getQName2ClassMap</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/util/HashMap.html?is-external=true" title="class or interface in java.util">HashMap</a>&nbsp;getQName2ClassMap()</pre>
+<div class="block">Get the type qname to java class map</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the type qname to java class map</dd></dl>
+</li>
+</ul>
+<a name="getServiceDesc()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getServiceDesc</h4>
+<pre>public&nbsp;<a href="../../../../../org/apache/axis/description/ServiceDesc.html" title="interface in org.apache.axis.description">ServiceDesc</a>&nbsp;getServiceDesc()</pre>
+<div class="block">Retruns the SericeDesc object</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setServiceDesc(org.apache.axis.description.ServiceDesc)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setServiceDesc</h4>
+<pre>public&nbsp;void&nbsp;setServiceDesc(<a href="../../../../../org/apache/axis/description/ServiceDesc.html" title="interface in org.apache.axis.description">ServiceDesc</a>&nbsp;serviceDesc)</pre>
+<div class="block">Sets the ServicdDesc object</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>serviceDesc</code> - ServiceDesc to set</dd></dl>
+</li>
+</ul>
+<a name="isDeploy()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isDeploy</h4>
+<pre>public&nbsp;boolean&nbsp;isDeploy()</pre>
+<div class="block">Returns the deploy mode flag</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd></dd></dl>
+</li>
+</ul>
+<a name="setDeploy(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDeploy</h4>
+<pre>public&nbsp;void&nbsp;setDeploy(boolean&nbsp;isDeploy)</pre>
+<div class="block">Sets the deploy mode flag</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>isDeploy</code> - deploy mode flag</dd></dl>
+</li>
+</ul>
+<a name="doesExist(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>doesExist</h4>
+<pre>protected&nbsp;boolean&nbsp;doesExist(<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</pre>
+<div class="block">Check if the className exists.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>className</code> - className to check</dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if exists, false if not</dd></dl>
+</li>
+</ul>
+<a name="setWrapArrays(boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setWrapArrays</h4>
+<pre>public&nbsp;void&nbsp;setWrapArrays(boolean&nbsp;wrapArrays)</pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar_bottom">
+<!--   -->
+</a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="class-use/Emitter.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-all.html">Index</a></li>
+<li><a href="../../../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/DuplicateFileException.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../../org/apache/axis/wsdl/toJava/FactoryProperty.html" title="class in org.apache.axis.wsdl.toJava"><span class="strong">Next Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../../../index.html?org/apache/axis/wsdl/toJava/Emitter.html" target="_top">Frames</a></li>
+<li><a href="Emitter.html" target="_top">No Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../../../allclasses-noframe.html">All Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#field_summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li><a href="#field_detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor_detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method_detail">Method</a></li>
+</ul>
+</div>
+<a name="skip-navbar_bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+<p class="legalCopy"><small>Copyright © <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.</small></p>
+</body>
+</html>

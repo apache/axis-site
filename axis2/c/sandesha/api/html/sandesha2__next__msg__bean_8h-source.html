@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>Apache Sandesha2/C - Sandesha2/C: sandesha2_next_msg_bean.h Source File</title><style type="text/css" media="all">
+          @import url("../../style/maven-base.css");
+          
+			    @import url("../../style/maven-classic.css");</style><link rel="stylesheet" href="../../style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta></head><body class="composite"><div style="background: red"><h1>2014/09/20 - Apache Axis Sandesha2/C has been retired. </h1><h2>For more information, please explore the <a href="http://attic.apache.org/">Attic</a>. </h2></div><div id="banner"><a href="http://www.apache.org/" id="organizationLogo"><img alt="Apache Software Foundation" src="http://www.apache.org/images/asf-logo.gif"></img></a><a href="http://ws.apache.org/sandesha2/c" id="projectLogo"><img alt="Apache Sandesha2/C" src="http://ws.apache.org/sandesha2/c/images/sandesha2c_logo.jpg"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">
+                	Last published: 05 October 2007
+                  | Doc for 0.91</div><div class="xright"></div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuApache_Sandesha2_C"><h5>Apache Sandesha2/C</h5><ul><li class="none"><a href="../../index.html">Apache Sandesha2/C Home</a></li><li class="expanded"><a href="../../download.cgi">Download Sandesha2/C</a><ul><li class="none"><a href="../../download.cgi">Releases</a></li></ul></li><li class="expanded"><a href="../../docs/index.html">Documentation</a><ul><li class="none"><a href="../../docs/installationguide.html">Installation Guide</a></li><li class="none"><a href="../../docs/sandesha2c_manual.html">Sandesha2/C manual</a></li></ul></li><li class="expanded"><a href="../../lists_issues.html">Get Involved</a><ul><li class="none"><a href="../../lists_issues.html">Mailing Lists &amp; Issue Tracking</a></li><li class="none"><a href="../../svn.html">Checkout Source Code</a></li></ul></li><li class="expanded"><a href="../../coding_conventions.html">Developer Guidelines</a><ul><li class="none"><a href="../../coding_conventions.html">Coding Convention</a></li><li class="none"><a href="../../versioning.html">Versionning</a></li></ul></li><li class="expanded"><a href="../../team-list.html">Project Information</a><ul><li class="none"><a href="../../team-list.html">Project Team</a></li><li class="none"><a href="http://svn.apache.org/viewvc/webservices/sandesha/trunk/c/" class="externalLink" title="External Link">Source Code</a></li></ul></li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="../../images/logos/maven-button-1.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><p>
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Main Page</span></a></li>
+    <li><a href="modules.html"><span>Modules</span></a></li>
+    <li><a href="annotated.html"><span>Classes</span></a></li>
+    <li class="current"><a href="files.html"><span>Files</span></a></li>
+    <li><a href="dirs.html"><span>Directories</span></a></li>
+  </ul>
+</div><div class="nav">
+<a class="el" href="dir_16487952adfeac4b2b9df719b49efdb6.html">include</a></div></p></div><div class="section"><a name="sandesha2_next_msg_bean_h"></a><h2>sandesha2_next_msg_bean.h</h2><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> * copyright 1999-2004 The Apache Software Foundation.</span>
+<a name="l00003"></a>00003 <span class="comment"> *</span>
+<a name="l00004"></a>00004 <span class="comment"> * Licensed under the Apache License, Version 2.0 (the "License"); you may not</span>
+<a name="l00005"></a>00005 <span class="comment"> * use this file except in compliance with the License. You may obtain a copy of</span>
+<a name="l00006"></a>00006 <span class="comment"> * the License at</span>
+<a name="l00007"></a>00007 <span class="comment"> *</span>
+<a name="l00008"></a>00008 <span class="comment"> * http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00009"></a>00009 <span class="comment"> *</span>
+<a name="l00010"></a>00010 <span class="comment"> * Unless required by applicable law or agreed to in writing, software</span>
+<a name="l00011"></a>00011 <span class="comment"> * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT</span>
+<a name="l00012"></a>00012 <span class="comment"> * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</span>
+<a name="l00013"></a>00013 <span class="comment"> * License for the specific language governing permissions and limitations under</span>
+<a name="l00014"></a>00014 <span class="comment"> * the License.</span>
+<a name="l00015"></a>00015 <span class="comment"> */</span>
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="preprocessor">#ifndef SANDESHA2_NEXT_MSG_BEAN_H</span>
+<a name="l00018"></a>00018 <span class="preprocessor"></span><span class="preprocessor">#define SANDESHA2_NEXT_MSG_BEAN_H</span>
+<a name="l00019"></a>00019 <span class="preprocessor"></span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;axutil_utils_defines.h&gt;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;axutil_utils_defines.h&gt;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;axutil_env.h&gt;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;sandesha2_rm_bean.h&gt;</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">"C"</span>
+<a name="l00027"></a>00027 {
+<a name="l00028"></a>00028 <span class="preprocessor">#endif</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span>
+<a name="l00030"></a>00030 <span class="keyword">typedef</span> <span class="keyword">struct </span>sandesha2_next_msg_bean sandesha2_next_msg_bean_t;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">struct </span>sandesha2_transaction;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 AXIS2_DECLARE_DATA <span class="keyword">struct </span>sandesha2_next_msg_bean
+<a name="l00035"></a>00035 {
+<a name="l00036"></a>00036     sandesha2_rm_bean_t rm_bean;
+<a name="l00037"></a>00037 };
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 <span class="comment">/* constructors </span>
+<a name="l00040"></a>00040 <span class="comment"> */</span>
+<a name="l00041"></a>00041 AXIS2_EXTERN sandesha2_next_msg_bean_t* AXIS2_CALL
+<a name="l00042"></a>00042         sandesha2_next_msg_bean_create(
+<a name="l00043"></a>00043     <span class="keyword">const</span> axutil_env_t *env);
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 AXIS2_EXTERN sandesha2_next_msg_bean_t* AXIS2_CALL
+<a name="l00046"></a>00046 sandesha2_next_msg_bean_create_with_data(
+<a name="l00047"></a>00047     <span class="keyword">const</span> axutil_env_t *env, 
+<a name="l00048"></a>00048     axis2_char_t *seq_id,
+<a name="l00049"></a>00049     <span class="keywordtype">long</span> msg_no);
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 <span class="keywordtype">void</span> AXIS2_CALL
+<a name="l00052"></a>00052 sandesha2_next_msg_bean_free (
+<a name="l00053"></a>00053      sandesha2_rm_bean_t *next_msg_bean,
+<a name="l00054"></a>00054      <span class="keyword">const</span> axutil_env_t *env);
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="keyword">struct </span>sandesha2_rm_bean * AXIS2_CALL
+<a name="l00057"></a>00057 sandesha2_next_msg_bean_get_base( 
+<a name="l00058"></a>00058     sandesha2_rm_bean_t* next_msg,
+<a name="l00059"></a>00059     <span class="keyword">const</span> axutil_env_t *env);
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 <span class="keywordtype">void</span> AXIS2_CALL
+<a name="l00062"></a>00062 sandesha2_next_msg_bean_set_base (
+<a name="l00063"></a>00063     sandesha2_next_msg_bean_t *next_msg,
+<a name="l00064"></a>00064     <span class="keyword">const</span> axutil_env_t *env, 
+<a name="l00065"></a>00065     <span class="keyword">struct</span> sandesha2_rm_bean* rm_bean);
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 axis2_char_t* AXIS2_CALL
+<a name="l00068"></a>00068 sandesha2_next_msg_bean_get_seq_id(
+<a name="l00069"></a>00069     sandesha2_rm_bean_t *next_msg_bean,
+<a name="l00070"></a>00070     <span class="keyword">const</span> axutil_env_t *env);
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="keywordtype">void</span> AXIS2_CALL
+<a name="l00073"></a>00073 sandesha2_next_msg_bean_set_seq_id(
+<a name="l00074"></a>00074     sandesha2_next_msg_bean_t *next_msg_bean,
+<a name="l00075"></a>00075     <span class="keyword">const</span> axutil_env_t *env, 
+<a name="l00076"></a>00076     axis2_char_t *seq_id);
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 axis2_char_t* AXIS2_CALL
+<a name="l00079"></a>00079 sandesha2_next_msg_bean_get_internal_seq_id(
+<a name="l00080"></a>00080     sandesha2_rm_bean_t *next_msg_bean,
+<a name="l00081"></a>00081     <span class="keyword">const</span> axutil_env_t *env);
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="keywordtype">void</span> AXIS2_CALL
+<a name="l00084"></a>00084 sandesha2_next_msg_bean_set_internal_seq_id(
+<a name="l00085"></a>00085     sandesha2_next_msg_bean_t *next_msg_bean,
+<a name="l00086"></a>00086     <span class="keyword">const</span> axutil_env_t *env, 
+<a name="l00087"></a>00087     axis2_char_t *internal_seq_id);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="keywordtype">long</span> AXIS2_CALL
+<a name="l00090"></a>00090 sandesha2_next_msg_bean_get_next_msg_no_to_process(
+<a name="l00091"></a>00091     sandesha2_next_msg_bean_t *next_msg_bean,
+<a name="l00092"></a>00092     <span class="keyword">const</span> axutil_env_t *env);
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 <span class="keywordtype">void</span> AXIS2_CALL
+<a name="l00095"></a>00095 sandesha2_next_msg_bean_set_next_msg_no_to_process(
+<a name="l00096"></a>00096     sandesha2_next_msg_bean_t *next_msg_bean,
+<a name="l00097"></a>00097     <span class="keyword">const</span> axutil_env_t *env, <span class="keywordtype">long</span> next_msg_no);
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099 axis2_bool_t AXIS2_CALL
+<a name="l00100"></a>00100 sandesha2_next_msg_bean_is_polling_mode(
+<a name="l00101"></a>00101     sandesha2_next_msg_bean_t *next_msg_bean,
+<a name="l00102"></a>00102     <span class="keyword">const</span> axutil_env_t *env);
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 <span class="keywordtype">void</span> AXIS2_CALL
+<a name="l00105"></a>00105 sandesha2_next_msg_bean_set_polling_mode(
+<a name="l00106"></a>00106     sandesha2_next_msg_bean_t *next_msg_bean,
+<a name="l00107"></a>00107     <span class="keyword">const</span> axutil_env_t *env,
+<a name="l00108"></a>00108     axis2_bool_t polling_mode); 
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 axis2_char_t *AXIS2_CALL
+<a name="l00111"></a>00111 sandesha2_next_msg_bean_get_ref_msg_key(
+<a name="l00112"></a>00112     sandesha2_next_msg_bean_t *next_msg_bean,
+<a name="l00113"></a>00113     <span class="keyword">const</span> axutil_env_t *env);
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 <span class="keywordtype">void</span> AXIS2_CALL
+<a name="l00116"></a>00116 sandesha2_next_msg_bean_set_ref_msg_key(
+<a name="l00117"></a>00117     sandesha2_next_msg_bean_t *next_msg_bean,
+<a name="l00118"></a>00118     <span class="keyword">const</span> axutil_env_t *env,
+<a name="l00119"></a>00119     axis2_char_t *ref_msg_key); 
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121 <span class="keywordtype">void</span> AXIS2_CALL
+<a name="l00122"></a>00122 sandesha2_next_msg_bean_set_id(
+<a name="l00123"></a>00123     sandesha2_rm_bean_t *next_msg_bean,
+<a name="l00124"></a>00124     <span class="keyword">const</span> axutil_env_t *env,
+<a name="l00125"></a>00125     <span class="keywordtype">long</span> <span class="keywordtype">id</span>);
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127 <span class="keywordtype">long</span> AXIS2_CALL
+<a name="l00128"></a>00128 sandesha2_next_msg_bean_get_id(
+<a name="l00129"></a>00129     sandesha2_rm_bean_t *next_msg_bean,
+<a name="l00130"></a>00130     <span class="keyword">const</span> axutil_env_t *env);
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132 <span class="keywordtype">void</span> AXIS2_CALL
+<a name="l00133"></a>00133 sandesha2_next_msg_bean_set_transaction(
+<a name="l00134"></a>00134     sandesha2_rm_bean_t *next_msg_bean,
+<a name="l00135"></a>00135     <span class="keyword">const</span> axutil_env_t *env,
+<a name="l00136"></a>00136     <span class="keyword">struct</span> sandesha2_transaction *transaction);
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138 <span class="keyword">struct </span>sandesha2_transaction *AXIS2_CALL
+<a name="l00139"></a>00139 sandesha2_next_msg_bean_get_transaction(
+<a name="l00140"></a>00140     sandesha2_rm_bean_t *next_msg_bean,
+<a name="l00141"></a>00141     <span class="keyword">const</span> axutil_env_t *env);
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00144"></a>00144 <span class="preprocessor"></span>}
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146 <span class="preprocessor">#endif</span>
+<a name="l00147"></a>00147 <span class="preprocessor"></span>        
+<a name="l00148"></a>00148 <span class="preprocessor">#endif </span><span class="comment">/* End of SANDESHA2_NEXT_MSG_BEAN_H */</span>
+</pre></div></div><div class="section"><address style="text-align: right;"><small>Generated on Mon Oct 1 17:19:03 2007 for Sandesha2/C by 
+<a href="http://www.doxygen.org/index.html" class="externalLink" title="External Link">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></img></a> 1.5.3 </small></address></div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2005-2007, Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>
