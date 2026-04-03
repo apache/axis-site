@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://axis.apache.org/axis2/c/core/">
+        <link rel="canonical" href="https://axis.apache.org/axis2/c/core/guide/packaging/">
       
       
+        <link rel="prev" href="../codegen/">
       
-        <link rel="next" href="getting-started/installation/">
+      
+        <link rel="next" href="../known-limitations/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Apache Axis2/C</title>
+        <title>Linux Packaging - Apache Axis2/C</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apache-axis2c" class="md-skip">
+        <a href="#packaging-axis2c-for-linux-distributions" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Apache Axis2/C" class="md-header__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
+    <a href="../.." title="Apache Axis2/C" class="md-header__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Linux Packaging
             
           </span>
         </div>
@@ -221,11 +223,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -246,7 +246,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="getting-started/installation/" class="md-tabs__link">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
           
   
   
@@ -266,7 +266,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="guide/overview/" class="md-tabs__link">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -286,7 +286,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="HTTP2_JSON_REVOLUTION_STATE/" class="md-tabs__link">
+        <a href="../../HTTP2_JSON_REVOLUTION_STATE/" class="md-tabs__link">
           
   
   
@@ -306,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="SECURITY/" class="md-tabs__link">
+        <a href="../../SECURITY/" class="md-tabs__link">
           
   
   
@@ -322,11 +322,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="guide/architecture/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../architecture/" class="md-tabs__link">
           
   
   
@@ -346,7 +348,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/" class="md-tabs__link">
+        <a href="../../api/" class="md-tabs__link">
           
   
   
@@ -366,7 +368,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="downloads/" class="md-tabs__link">
+        <a href="../../downloads/" class="md-tabs__link">
           
   
   
@@ -386,7 +388,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="community/mailing-lists/" class="md-tabs__link">
+        <a href="../../community/mailing-lists/" class="md-tabs__link">
           
   
   
@@ -406,7 +408,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="HTTP11_SOAP_HTTP_CLIENT_C/" class="md-tabs__link">
+        <a href="../../HTTP11_SOAP_HTTP_CLIENT_C/" class="md-tabs__link">
           
   
   
@@ -440,7 +442,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Apache Axis2/C" class="md-nav__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
+    <a href="../.." title="Apache Axis2/C" class="md-nav__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -467,37 +469,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -513,131 +488,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Features
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modern-http2-json-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modern HTTP/2 + JSON Stack
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Security
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#legacy-soap-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Legacy SOAP Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Community
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -703,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -731,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/quickstart/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -759,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/building/" class="md-nav__link">
+      <a href="../../getting-started/building/" class="md-nav__link">
         
   
   
@@ -848,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -876,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/axis2-xml/" class="md-nav__link">
+      <a href="../axis2-xml/" class="md-nav__link">
         
   
   
@@ -904,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/services/" class="md-nav__link">
+      <a href="../services/" class="md-nav__link">
         
   
   
@@ -932,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/clients/" class="md-nav__link">
+      <a href="../clients/" class="md-nav__link">
         
   
   
@@ -960,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="userguide/json-httpd-h2-userguide/" class="md-nav__link">
+      <a href="../../userguide/json-httpd-h2-userguide/" class="md-nav__link">
         
   
   
@@ -1049,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_JSON_REVOLUTION_STATE/" class="md-nav__link">
+      <a href="../../HTTP2_JSON_REVOLUTION_STATE/" class="md-nav__link">
         
   
   
@@ -1077,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="JSON_HTTP11_VS_HTTP2/" class="md-nav__link">
+      <a href="../../JSON_HTTP11_VS_HTTP2/" class="md-nav__link">
         
   
   
@@ -1105,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="AXIS2C_HTTP2_MIGRATION_STATE/" class="md-nav__link">
+      <a href="../../AXIS2C_HTTP2_MIGRATION_STATE/" class="md-nav__link">
         
   
   
@@ -1133,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_JSON_REQUEST_CODE_PATH/" class="md-nav__link">
+      <a href="../../HTTP2_JSON_REQUEST_CODE_PATH/" class="md-nav__link">
         
   
   
@@ -1161,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_RESPONSE/" class="md-nav__link">
+      <a href="../../HTTP2_RESPONSE/" class="md-nav__link">
         
   
   
@@ -1189,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_SERVICES_DOT_XML/" class="md-nav__link">
+      <a href="../../HTTP2_SERVICES_DOT_XML/" class="md-nav__link">
         
   
   
@@ -1217,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_ANDROID/" class="md-nav__link">
+      <a href="../../HTTP2_ANDROID/" class="md-nav__link">
         
   
   
@@ -1245,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_APACHE2_WORKER/" class="md-nav__link">
+      <a href="../../HTTP2_APACHE2_WORKER/" class="md-nav__link">
         
   
   
@@ -1273,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_AXIS2_DOT_XML/" class="md-nav__link">
+      <a href="../../HTTP2_AXIS2_DOT_XML/" class="md-nav__link">
         
   
   
@@ -1362,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SECURITY/" class="md-nav__link">
+      <a href="../../SECURITY/" class="md-nav__link">
         
   
   
@@ -1390,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="OSS-FUZZ/" class="md-nav__link">
+      <a href="../../OSS-FUZZ/" class="md-nav__link">
         
   
   
@@ -1422,28 +1272,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1461,7 +1314,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1479,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/architecture/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -1507,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/coding-conventions/" class="md-nav__link">
+      <a href="../coding-conventions/" class="md-nav__link">
         
   
   
@@ -1535,7 +1388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/codegen/" class="md-nav__link">
+      <a href="../codegen/" class="md-nav__link">
         
   
   
@@ -1560,10 +1413,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="guide/packaging/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Packaging
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1579,6 +1459,181 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#current-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filesystem-hierarchy-standard-fhs-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filesystem Hierarchy Standard (FHS) Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Roadmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-build-system-changes-201" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Build System Changes (2.0.1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-runtime-improvements-201" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Runtime Improvements (2.0.1+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-documentation-and-migration-201" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Documentation and Migration (2.0.1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-requiring-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files Requiring Changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Files Requiring Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debian-package-structure-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debian Package Structure (Target)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1591,7 +1646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/known-limitations/" class="md-nav__link">
+      <a href="../known-limitations/" class="md-nav__link">
         
   
   
@@ -1619,7 +1674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="BUILD_SYSTEM_HTTP2_CHANGES/" class="md-nav__link">
+      <a href="../../BUILD_SYSTEM_HTTP2_CHANGES/" class="md-nav__link">
         
   
   
@@ -1647,7 +1702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_CONDITIONAL_COMPILATION/" class="md-nav__link">
+      <a href="../../HTTP2_CONDITIONAL_COMPILATION/" class="md-nav__link">
         
   
   
@@ -1675,7 +1730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_LIBRARY_LOADING/" class="md-nav__link">
+      <a href="../../HTTP2_LIBRARY_LOADING/" class="md-nav__link">
         
   
   
@@ -1703,7 +1758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_INTERFACE_PATTERN_IMPLEMENTATION/" class="md-nav__link">
+      <a href="../../HTTP2_INTERFACE_PATTERN_IMPLEMENTATION/" class="md-nav__link">
         
   
   
@@ -1731,7 +1786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_SERVICE_PROVIDER_INTERFACE_PATTERN/" class="md-nav__link">
+      <a href="../../HTTP2_SERVICE_PROVIDER_INTERFACE_PATTERN/" class="md-nav__link">
         
   
   
@@ -1759,7 +1814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_UNIT_TESTS/" class="md-nav__link">
+      <a href="../../HTTP2_UNIT_TESTS/" class="md-nav__link">
         
   
   
@@ -1787,7 +1842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_THREADING_DEBUG/" class="md-nav__link">
+      <a href="../../HTTP2_THREADING_DEBUG/" class="md-nav__link">
         
   
   
@@ -1876,7 +1931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/" class="md-nav__link">
+      <a href="../../api/" class="md-nav__link">
         
   
   
@@ -1965,7 +2020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="downloads/" class="md-nav__link">
+      <a href="../../downloads/" class="md-nav__link">
         
   
   
@@ -1993,7 +2048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-2.0.0/" class="md-nav__link">
+      <a href="../../release-notes-2.0.0/" class="md-nav__link">
         
   
   
@@ -2082,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/mailing-lists/" class="md-nav__link">
+      <a href="../../community/mailing-lists/" class="md-nav__link">
         
   
   
@@ -2110,7 +2165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/issues/" class="md-nav__link">
+      <a href="../../community/issues/" class="md-nav__link">
         
   
   
@@ -2138,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/contributing/" class="md-nav__link">
+      <a href="../../community/contributing/" class="md-nav__link">
         
   
   
@@ -2166,7 +2221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/release-process/" class="md-nav__link">
+      <a href="../../community/release-process/" class="md-nav__link">
         
   
   
@@ -2194,7 +2249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/license/" class="md-nav__link">
+      <a href="../../community/license/" class="md-nav__link">
         
   
   
@@ -2222,7 +2277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_LEGAL/" class="md-nav__link">
+      <a href="../../HTTP2_LEGAL/" class="md-nav__link">
         
   
   
@@ -2311,7 +2366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP11_SOAP_HTTP_CLIENT_C/" class="md-nav__link">
+      <a href="../../HTTP11_SOAP_HTTP_CLIENT_C/" class="md-nav__link">
         
   
   
@@ -2339,7 +2394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="legacy/rampart/" class="md-nav__link">
+      <a href="../../legacy/rampart/" class="md-nav__link">
         
   
   
@@ -2394,22 +2449,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#current-status" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Current Status
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filesystem-hierarchy-standard-fhs-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filesystem Hierarchy Standard (FHS) Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Roadmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Roadmap">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#modern-http2-json-stack" class="md-nav__link">
+  <a href="#phase-1-build-system-changes-201" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modern HTTP/2 + JSON Stack
+        Phase 1: Build System Changes (2.0.1)
       
     </span>
   </a>
@@ -2417,10 +2494,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
+  <a href="#phase-2-runtime-improvements-201" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Security
+        Phase 2: Runtime Improvements (2.0.1+)
       
     </span>
   </a>
@@ -2428,10 +2505,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#legacy-soap-support" class="md-nav__link">
+  <a href="#phase-3-documentation-and-migration-201" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Legacy SOAP Support
+        Phase 3: Documentation and Migration (2.0.1)
       
     </span>
   </a>
@@ -2444,28 +2521,40 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#files-requiring-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        Files Requiring Changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Files Requiring Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build System
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Architecture
+        Source Code
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2475,12 +2564,17 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#community" class="md-nav__link">
+  <a href="#debian-package-structure-target" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Community
+        Debian Package Structure (Target)
       
     </span>
   </a>
@@ -2488,10 +2582,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
+  <a href="#testing-checklist" class="md-nav__link">
     <span class="md-ellipsis">
       
-        License
+        Testing Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -2519,78 +2624,223 @@
   
 
 
-<h1 id="apache-axis2c">Apache Axis2/C<a class="headerlink" href="#apache-axis2c" title="Permanent link">&para;</a></h1>
-<p><strong>HTTP/2 JSON-RPC web services framework for C with legacy SOAP support</strong></p>
-<p>Apache Axis2/C is a high-performance web services framework written in C. Originally designed for SOAP web services, the modern Axis2/C focuses on <strong>HTTP/2</strong> and <strong>JSON-RPC</strong> while maintaining backward compatibility with legacy SOAP deployments.</p>
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<h3 id="modern-http2-json-stack">Modern HTTP/2 + JSON Stack<a class="headerlink" href="#modern-http2-json-stack" title="Permanent link">&para;</a></h3>
+<h1 id="packaging-axis2c-for-linux-distributions">Packaging Axis2/C for Linux Distributions<a class="headerlink" href="#packaging-axis2c-for-linux-distributions" title="Permanent link">&para;</a></h1>
+<p>This document outlines the requirements and roadmap for packaging Axis2/C
+for official inclusion in Linux distributions like Debian and Ubuntu.</p>
+<h2 id="current-status">Current Status<a class="headerlink" href="#current-status" title="Permanent link">&para;</a></h2>
+<p><strong>JIRA</strong>: <a href="https://issues.apache.org/jira/browse/AXIS2C-1340">AXIS2C-1340</a>
+<strong>Target</strong>: 2.0.1 release</p>
+<p>Axis2/C currently uses a self-contained installation layout with a custom
+prefix (<code>/usr/local/axis2c</code> by default). While this works well for standalone
+deployments, it does not comply with the Filesystem Hierarchy Standard (FHS)
+required by Debian, Ubuntu, and other Linux distributions.</p>
+<h2 id="filesystem-hierarchy-standard-fhs-requirements">Filesystem Hierarchy Standard (FHS) Requirements<a class="headerlink" href="#filesystem-hierarchy-standard-fhs-requirements" title="Permanent link">&para;</a></h2>
+<p>For official Debian/Ubuntu package inclusion, software must follow the FHS:</p>
+<table>
+<thead>
+<tr>
+<th>Content Type</th>
+<th>FHS Location</th>
+<th>Current Axis2/C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binaries</td>
+<td><code>/usr/bin</code></td>
+<td><code>${prefix}/bin</code></td>
+</tr>
+<tr>
+<td>Libraries</td>
+<td><code>/usr/lib/&lt;multiarch&gt;</code></td>
+<td><code>${prefix}/lib</code></td>
+</tr>
+<tr>
+<td>Config files</td>
+<td><code>/etc/axis2c/</code></td>
+<td><code>${prefix}/axis2.xml</code></td>
+</tr>
+<tr>
+<td>Shared data</td>
+<td><code>/usr/share/axis2c/</code></td>
+<td><code>${prefix}/</code></td>
+</tr>
+<tr>
+<td>Services</td>
+<td><code>/usr/share/axis2c/services/</code></td>
+<td><code>${prefix}/services/</code></td>
+</tr>
+<tr>
+<td>Modules</td>
+<td><code>/usr/share/axis2c/modules/</code></td>
+<td><code>${prefix}/modules/</code></td>
+</tr>
+<tr>
+<td>Log files</td>
+<td><code>/var/log/axis2c/</code></td>
+<td><code>${prefix}/logs/</code></td>
+</tr>
+<tr>
+<td>Runtime data</td>
+<td><code>/var/lib/axis2c/</code></td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p>Reference: https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html</p>
+<h2 id="implementation-roadmap">Implementation Roadmap<a class="headerlink" href="#implementation-roadmap" title="Permanent link">&para;</a></h2>
+<h3 id="phase-1-build-system-changes-201">Phase 1: Build System Changes (2.0.1)<a class="headerlink" href="#phase-1-build-system-changes-201" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Add <code>--enable-fhs</code> configure option</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./configure<span class="w"> </span>--enable-fhs<span class="w"> </span>--prefix<span class="o">=</span>/usr
+</code></pre></div></li>
+</ol>
+<p>When enabled:
+   - Config files install to <code>${sysconfdir}/axis2c/</code>
+   - Data files install to <code>${datadir}/axis2c/</code>
+   - Use standard <code>${libdir}</code> for libraries</p>
+<ol>
+<li><strong>Make default paths configurable at build time</strong></li>
+</ol>
+<p>Update <code>configure.ac</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>AC_ARG_ENABLE([fhs],
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  [AS_HELP_STRING([--enable-fhs], [Use FHS-compliant paths])],
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  [enable_fhs=$enableval],
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  [enable_fhs=no])
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>if test &quot;x$enable_fhs&quot; = &quot;xyes&quot;; then
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  AC_DEFINE([AXIS2_FHS_LAYOUT], [1], [Use FHS directory layout])
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  axis2_confdir=&#39;${sysconfdir}/axis2c&#39;
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  axis2_datadir=&#39;${datadir}/axis2c&#39;
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>else
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  axis2_confdir=&#39;${prefix}&#39;
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  axis2_datadir=&#39;${prefix}&#39;
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>fi
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>AC_SUBST([axis2_confdir])
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>AC_SUBST([axis2_datadir])
+</code></pre></div></p>
+<ol>
+<li><strong>Update platform headers</strong></li>
+</ol>
+<p>In <code>util/include/platforms/unix/axutil_unix.h</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#ifdef AXIS2_FHS_LAYOUT</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#define AXIS2_PLATFORM_LOG_PATH        &quot;/var/log/axis2c/axis2.log&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cp">#define AXIS2_CONFIGURATION_RESOURCE   &quot;/etc/axis2c/axis2.xml&quot;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="cp">#else</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="cp">#define AXIS2_PLATFORM_LOG_PATH        &quot;/usr/local/axis2/log/axutil_log&quot;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="cp">#define AXIS2_CONFIGURATION_RESOURCE   &quot;/usr/local/axis2/axis2.xml&quot;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="cp">#endif</span>
+</code></pre></div></p>
+<h3 id="phase-2-runtime-improvements-201">Phase 2: Runtime Improvements (2.0.1+)<a class="headerlink" href="#phase-2-runtime-improvements-201" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>XDG Base Directory support for user configs</strong></li>
+<li>Check <code>$XDG_CONFIG_HOME/axis2c/</code> for user-specific config</li>
+<li>
+<p>Falls back to <code>~/.config/axis2c/</code></p>
+</li>
+<li>
+<p><strong>Improved path resolution order</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1. Command-line argument (-r repo_path)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2. AXIS2C_HOME environment variable
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>3. XDG_CONFIG_HOME/axis2c/ (user config)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>4. /etc/axis2c/ (system config, FHS mode)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>5. Compiled-in default (legacy mode)
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>pkg-config support</strong></p>
+</li>
+</ol>
+<p>Create <code>axis2c.pc.in</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>prefix=@prefix@
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>exec_prefix=@exec_prefix@
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>libdir=@libdir@
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>includedir=@includedir@
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Name: Axis2/C
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Description: Apache Axis2/C Web Services Engine
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Version: @VERSION@
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Libs: -L${libdir} -laxis2_engine -laxis2_axiom -laxutil
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Cflags: -I${includedir}/axis2-@VERSION@
+</code></pre></div></p>
+<h3 id="phase-3-documentation-and-migration-201">Phase 3: Documentation and Migration (2.0.1)<a class="headerlink" href="#phase-3-documentation-and-migration-201" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Update all documentation</strong> to show both layouts</li>
+<li><strong>Create migration guide</strong> for existing deployments</li>
+<li><strong>Update sample configurations</strong> for Apache httpd</li>
+</ol>
+<h2 id="files-requiring-changes">Files Requiring Changes<a class="headerlink" href="#files-requiring-changes" title="Permanent link">&para;</a></h2>
+<h3 id="build-system">Build System<a class="headerlink" href="#build-system" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>HTTP/2 Protocol</strong> - Multiplexed connections, header compression</li>
-<li><strong>JSON-RPC</strong> - Lightweight request/response format for modern APIs</li>
-<li><strong>Native C Performance</strong> - Minimal memory footprint, no garbage collection</li>
-<li><strong>Android Support</strong> - Cross-compile for ARM64/ARMv7 mobile devices</li>
+<li><code>configure.ac</code> - Add FHS option and path variables</li>
+<li><code>Makefile.am</code> files - Use new path variables</li>
+<li>Add <code>axis2c.pc.in</code> for pkg-config</li>
 </ul>
-<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<h3 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>TLS 1.2/1.3</strong> - Modern cipher suites via OpenSSL</li>
-<li><strong>OSS-Fuzz Integration</strong> - Continuous fuzzing for vulnerability detection</li>
+<li><code>util/include/platforms/unix/axutil_unix.h</code></li>
+<li><code>util/include/platforms/windows/axutil_windows.h</code></li>
+<li><code>util/src/log.c</code> - Path resolution logic</li>
+<li><code>src/core/deployment/dep_engine.c</code> - Config file lookup</li>
+<li><code>src/core/deployment/conf_init.c</code> - Repository path logic</li>
 </ul>
-<h3 id="legacy-soap-support">Legacy SOAP Support<a class="headerlink" href="#legacy-soap-support" title="Permanent link">&para;</a></h3>
+<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="https://axis.apache.org/axis2/c/rampart/">WS-Security via Rampart/C</a> - XML Signature, Encryption, SAML</li>
-<li>WS-Addressing, WS-Policy</li>
-<li>WSDL 1.1/2.0 support with <a href="guide/codegen/">native WSDL2C code generator</a></li>
-<li>MTOM/XOP binary attachments</li>
+<li><code>docs/userguide/json-httpd-h2-userguide.md</code></li>
+<li><code>docs/HTTP2_*.md</code> files</li>
+<li>Sample Apache configurations</li>
+<li>README.md</li>
 </ul>
-<p><strong>Note:</strong> A Rampart/C 2.0.0 release is planned to accompany Axis2/C 2.0.0, but this may be the final release. The <a href="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf">WS-Security 1.0 specification</a> (OASIS 2004) is mature and considered legacy technology in 2026, with most new applications using TLS, OAuth 2.0, or JWT for security.</p>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Clone from GitHub</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/apache/axis-axis2-c-core.git
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>axis-axis2-c-core
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># See INSTALL file for build instructions</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>cat<span class="w"> </span>INSTALL
+<h2 id="debian-package-structure-target">Debian Package Structure (Target)<a class="headerlink" href="#debian-package-structure-target" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>axis2c/
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>├── DEBIAN/
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>│   ├── control
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>│   ├── conffiles        # Lists /etc/axis2c/* as config files
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>│   └── postinst         # Creates /var/log/axis2c, sets permissions
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>├── etc/
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>│   └── axis2c/
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>│       └── axis2.xml
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>├── usr/
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>│   ├── bin/
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>│   │   └── axis2_http_server
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>│   ├── include/
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>│   │   └── axis2-2.0/
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>│   ├── lib/
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>│   │   └── x86_64-linux-gnu/
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>│   │       ├── libaxis2_engine.so.2.0.0
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>│   │       ├── libaxis2_axiom.so.2.0.0
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>│   │       └── ...
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>│   └── share/
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>│       ├── axis2c/
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>│       │   ├── services/
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>│       │   └── modules/
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>│       └── doc/
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>│           └── axis2c/
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>└── var/
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>    └── log/
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>        └── axis2c/
 </code></pre></div>
-<p><strong>GitHub Repository:</strong> <a href="https://github.com/apache/axis-axis2-c-core">https://github.com/apache/axis-axis2-c-core</a></p>
-<p>For complete build instructions including HTTP/2 support, dependencies, and platform-specific options, see the <code>INSTALL</code> file in the repository root.</p>
-<p>See <a href="getting-started/installation/">Installation Guide</a> for detailed instructions.</p>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
-<p>Axis2/C uses a modular architecture:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────────────┐
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│              Client Application                 │
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  HTTP/2 Transport    │    Legacy HTTP/1.1       │
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  (nghttp2 + OpenSSL) │    (SOAP Transport)      │
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│            Axis2/C Engine Core                  │
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  ┌─────────────┐  ┌─────────────┐              │
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  │ JSON-RPC    │  │ SOAP        │              │
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  │ Module      │  │ Module      │              │
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│  └─────────────┘  └─────────────┘              │
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│              Service Handlers                   │
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>└─────────────────────────────────────────────────┘
-</code></pre></div>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<h2 id="testing-checklist">Testing Checklist<a class="headerlink" href="#testing-checklist" title="Permanent link">&para;</a></h2>
+<p>Before releasing FHS support:</p>
 <ul>
-<li><strong><a href="getting-started/installation/">Getting Started</a></strong> - Installation and quick start</li>
-<li><strong><a href="guide/overview/">User Guide</a></strong> - Configuration and usage</li>
-<li><strong><a href="HTTP2_JSON_REVOLUTION_STATE/">HTTP/2 &amp; JSON</a></strong> - Modern protocol support</li>
-<li><strong><a href="HTTP2_ANDROID/">Android Support</a></strong> - Cross-compilation and mobile deployment</li>
-<li><strong><a href="SECURITY/">Security Guide</a></strong> - TLS and security hardening</li>
-<li><strong><a href="guide/architecture/">Developer Guide</a></strong> - Architecture and internals</li>
+<li>[ ] Standalone HTTP server works with FHS paths</li>
+<li>[ ] Apache module loads correctly</li>
+<li>[ ] Client applications find config files</li>
+<li>[ ] Log files created in correct location</li>
+<li>[ ] Services can be deployed and discovered</li>
+<li>[ ] Modules can be loaded</li>
+<li>[ ] SSL/TLS certificates found correctly</li>
+<li>[ ] Backward compatibility with AXIS2C_HOME</li>
+<li>[ ] Build and install with <code>--enable-fhs --prefix=/usr</code></li>
+<li>[ ] Build and install with legacy layout (no --enable-fhs)</li>
 </ul>
-<h2 id="community">Community<a class="headerlink" href="#community" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/apache/axis-axis2-c-core">GitHub Repository</a></li>
-<li><a href="community/mailing-lists/">Mailing Lists</a></li>
-<li><a href="https://issues.apache.org/jira/projects/AXIS2C/summary">Issue Tracker</a></li>
-<li><a href="community/contributing/">Contributing Guide</a></li>
+<li><a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html">Filesystem Hierarchy Standard 3.0</a></li>
+<li><a href="https://www.debian.org/doc/debian-policy/ch-opersys.html">Debian Policy Manual - File System Structure</a></li>
+<li><a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG Base Directory Specification</a></li>
+<li><a href="https://issues.apache.org/jira/browse/AXIS2C-1340">AXIS2C-1340: FHS Compliance Issue</a></li>
 </ul>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>Apache Axis2/C is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.</p>
-<hr />
-<p><em>Copyright © 2005-2026 The Apache Software Foundation</em></p>
 
 
 
@@ -2704,10 +2954,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

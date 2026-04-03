@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://axis.apache.org/axis2/c/core/">
+        <link rel="canonical" href="https://axis.apache.org/axis2/c/core/guide/clients/">
       
       
+        <link rel="prev" href="../services/">
       
-        <link rel="next" href="getting-started/installation/">
+      
+        <link rel="next" href="../../userguide/json-httpd-h2-userguide/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Apache Axis2/C</title>
+        <title>Clients - Apache Axis2/C</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apache-axis2c" class="md-skip">
+        <a href="#clients-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Apache Axis2/C" class="md-header__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
+    <a href="../.." title="Apache Axis2/C" class="md-header__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Clients
             
           </span>
         </div>
@@ -221,11 +223,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -246,7 +246,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="getting-started/installation/" class="md-tabs__link">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
           
   
   
@@ -262,11 +262,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="guide/overview/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -286,7 +288,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="HTTP2_JSON_REVOLUTION_STATE/" class="md-tabs__link">
+        <a href="../../HTTP2_JSON_REVOLUTION_STATE/" class="md-tabs__link">
           
   
   
@@ -306,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="SECURITY/" class="md-tabs__link">
+        <a href="../../SECURITY/" class="md-tabs__link">
           
   
   
@@ -326,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="guide/architecture/" class="md-tabs__link">
+        <a href="../architecture/" class="md-tabs__link">
           
   
   
@@ -346,7 +348,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/" class="md-tabs__link">
+        <a href="../../api/" class="md-tabs__link">
           
   
   
@@ -366,7 +368,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="downloads/" class="md-tabs__link">
+        <a href="../../downloads/" class="md-tabs__link">
           
   
   
@@ -386,7 +388,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="community/mailing-lists/" class="md-tabs__link">
+        <a href="../../community/mailing-lists/" class="md-tabs__link">
           
   
   
@@ -406,7 +408,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="HTTP11_SOAP_HTTP_CLIENT_C/" class="md-tabs__link">
+        <a href="../../HTTP11_SOAP_HTTP_CLIENT_C/" class="md-tabs__link">
           
   
   
@@ -440,7 +442,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Apache Axis2/C" class="md-nav__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
+    <a href="../.." title="Apache Axis2/C" class="md-nav__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -467,37 +469,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -513,131 +488,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Features
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modern-http2-json-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modern HTTP/2 + JSON Stack
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Security
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#legacy-soap-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Legacy SOAP Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Community
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -703,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -731,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/quickstart/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -759,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/building/" class="md-nav__link">
+      <a href="../../getting-started/building/" class="md-nav__link">
         
   
   
@@ -791,28 +641,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -830,7 +683,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -848,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -876,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/axis2-xml/" class="md-nav__link">
+      <a href="../axis2-xml/" class="md-nav__link">
         
   
   
@@ -904,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/services/" class="md-nav__link">
+      <a href="../services/" class="md-nav__link">
         
   
   
@@ -929,10 +782,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="guide/clients/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clients
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -948,6 +828,120 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#http2-json-rpc-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/2 JSON-RPC Client
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP/2 JSON-RPC Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-curl-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using curl (Testing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-client-with-axis2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C Client with Axis2/C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the Client
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-camera-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Camera Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-soap-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Legacy SOAP Client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -960,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="userguide/json-httpd-h2-userguide/" class="md-nav__link">
+      <a href="../../userguide/json-httpd-h2-userguide/" class="md-nav__link">
         
   
   
@@ -1049,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_JSON_REVOLUTION_STATE/" class="md-nav__link">
+      <a href="../../HTTP2_JSON_REVOLUTION_STATE/" class="md-nav__link">
         
   
   
@@ -1077,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="JSON_HTTP11_VS_HTTP2/" class="md-nav__link">
+      <a href="../../JSON_HTTP11_VS_HTTP2/" class="md-nav__link">
         
   
   
@@ -1105,7 +1099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="AXIS2C_HTTP2_MIGRATION_STATE/" class="md-nav__link">
+      <a href="../../AXIS2C_HTTP2_MIGRATION_STATE/" class="md-nav__link">
         
   
   
@@ -1133,7 +1127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_JSON_REQUEST_CODE_PATH/" class="md-nav__link">
+      <a href="../../HTTP2_JSON_REQUEST_CODE_PATH/" class="md-nav__link">
         
   
   
@@ -1161,7 +1155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_RESPONSE/" class="md-nav__link">
+      <a href="../../HTTP2_RESPONSE/" class="md-nav__link">
         
   
   
@@ -1189,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_SERVICES_DOT_XML/" class="md-nav__link">
+      <a href="../../HTTP2_SERVICES_DOT_XML/" class="md-nav__link">
         
   
   
@@ -1217,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_ANDROID/" class="md-nav__link">
+      <a href="../../HTTP2_ANDROID/" class="md-nav__link">
         
   
   
@@ -1245,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_APACHE2_WORKER/" class="md-nav__link">
+      <a href="../../HTTP2_APACHE2_WORKER/" class="md-nav__link">
         
   
   
@@ -1273,7 +1267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_AXIS2_DOT_XML/" class="md-nav__link">
+      <a href="../../HTTP2_AXIS2_DOT_XML/" class="md-nav__link">
         
   
   
@@ -1362,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SECURITY/" class="md-nav__link">
+      <a href="../../SECURITY/" class="md-nav__link">
         
   
   
@@ -1390,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="OSS-FUZZ/" class="md-nav__link">
+      <a href="../../OSS-FUZZ/" class="md-nav__link">
         
   
   
@@ -1479,7 +1473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/architecture/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -1507,7 +1501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/coding-conventions/" class="md-nav__link">
+      <a href="../coding-conventions/" class="md-nav__link">
         
   
   
@@ -1535,7 +1529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/codegen/" class="md-nav__link">
+      <a href="../codegen/" class="md-nav__link">
         
   
   
@@ -1563,7 +1557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/packaging/" class="md-nav__link">
+      <a href="../packaging/" class="md-nav__link">
         
   
   
@@ -1591,7 +1585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/known-limitations/" class="md-nav__link">
+      <a href="../known-limitations/" class="md-nav__link">
         
   
   
@@ -1619,7 +1613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="BUILD_SYSTEM_HTTP2_CHANGES/" class="md-nav__link">
+      <a href="../../BUILD_SYSTEM_HTTP2_CHANGES/" class="md-nav__link">
         
   
   
@@ -1647,7 +1641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_CONDITIONAL_COMPILATION/" class="md-nav__link">
+      <a href="../../HTTP2_CONDITIONAL_COMPILATION/" class="md-nav__link">
         
   
   
@@ -1675,7 +1669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_LIBRARY_LOADING/" class="md-nav__link">
+      <a href="../../HTTP2_LIBRARY_LOADING/" class="md-nav__link">
         
   
   
@@ -1703,7 +1697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_INTERFACE_PATTERN_IMPLEMENTATION/" class="md-nav__link">
+      <a href="../../HTTP2_INTERFACE_PATTERN_IMPLEMENTATION/" class="md-nav__link">
         
   
   
@@ -1731,7 +1725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_SERVICE_PROVIDER_INTERFACE_PATTERN/" class="md-nav__link">
+      <a href="../../HTTP2_SERVICE_PROVIDER_INTERFACE_PATTERN/" class="md-nav__link">
         
   
   
@@ -1759,7 +1753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_UNIT_TESTS/" class="md-nav__link">
+      <a href="../../HTTP2_UNIT_TESTS/" class="md-nav__link">
         
   
   
@@ -1787,7 +1781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_THREADING_DEBUG/" class="md-nav__link">
+      <a href="../../HTTP2_THREADING_DEBUG/" class="md-nav__link">
         
   
   
@@ -1876,7 +1870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/" class="md-nav__link">
+      <a href="../../api/" class="md-nav__link">
         
   
   
@@ -1965,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="downloads/" class="md-nav__link">
+      <a href="../../downloads/" class="md-nav__link">
         
   
   
@@ -1993,7 +1987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-2.0.0/" class="md-nav__link">
+      <a href="../../release-notes-2.0.0/" class="md-nav__link">
         
   
   
@@ -2082,7 +2076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/mailing-lists/" class="md-nav__link">
+      <a href="../../community/mailing-lists/" class="md-nav__link">
         
   
   
@@ -2110,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/issues/" class="md-nav__link">
+      <a href="../../community/issues/" class="md-nav__link">
         
   
   
@@ -2138,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/contributing/" class="md-nav__link">
+      <a href="../../community/contributing/" class="md-nav__link">
         
   
   
@@ -2166,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/release-process/" class="md-nav__link">
+      <a href="../../community/release-process/" class="md-nav__link">
         
   
   
@@ -2194,7 +2188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/license/" class="md-nav__link">
+      <a href="../../community/license/" class="md-nav__link">
         
   
   
@@ -2222,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_LEGAL/" class="md-nav__link">
+      <a href="../../HTTP2_LEGAL/" class="md-nav__link">
         
   
   
@@ -2311,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP11_SOAP_HTTP_CLIENT_C/" class="md-nav__link">
+      <a href="../../HTTP11_SOAP_HTTP_CLIENT_C/" class="md-nav__link">
         
   
   
@@ -2339,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="legacy/rampart/" class="md-nav__link">
+      <a href="../../legacy/rampart/" class="md-nav__link">
         
   
   
@@ -2394,22 +2388,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#http2-json-rpc-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        HTTP/2 JSON-RPC Client
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+    <nav class="md-nav" aria-label="HTTP/2 JSON-RPC Client">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#modern-http2-json-stack" class="md-nav__link">
+  <a href="#using-curl-testing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modern HTTP/2 + JSON Stack
+        Using curl (Testing)
       
     </span>
   </a>
@@ -2417,10 +2411,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
+  <a href="#c-client-with-axis2c" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Security
+        C Client with Axis2/C
       
     </span>
   </a>
@@ -2428,10 +2422,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#legacy-soap-support" class="md-nav__link">
+  <a href="#build-the-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Legacy SOAP Support
+        Build the Client
       
     </span>
   </a>
@@ -2444,10 +2438,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#multi-camera-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        Multi-Camera Example
       
     </span>
   </a>
@@ -2455,10 +2449,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#legacy-soap-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Architecture
+        Legacy SOAP Client
       
     </span>
   </a>
@@ -2466,10 +2460,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+  <a href="#error-handling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Documentation
+        Error Handling
       
     </span>
   </a>
@@ -2477,21 +2471,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#community" class="md-nav__link">
+  <a href="#see-also" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Community
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
+        See Also
       
     </span>
   </a>
@@ -2519,78 +2502,123 @@
   
 
 
-<h1 id="apache-axis2c">Apache Axis2/C<a class="headerlink" href="#apache-axis2c" title="Permanent link">&para;</a></h1>
-<p><strong>HTTP/2 JSON-RPC web services framework for C with legacy SOAP support</strong></p>
-<p>Apache Axis2/C is a high-performance web services framework written in C. Originally designed for SOAP web services, the modern Axis2/C focuses on <strong>HTTP/2</strong> and <strong>JSON-RPC</strong> while maintaining backward compatibility with legacy SOAP deployments.</p>
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<h3 id="modern-http2-json-stack">Modern HTTP/2 + JSON Stack<a class="headerlink" href="#modern-http2-json-stack" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>HTTP/2 Protocol</strong> - Multiplexed connections, header compression</li>
-<li><strong>JSON-RPC</strong> - Lightweight request/response format for modern APIs</li>
-<li><strong>Native C Performance</strong> - Minimal memory footprint, no garbage collection</li>
-<li><strong>Android Support</strong> - Cross-compile for ARM64/ARMv7 mobile devices</li>
-</ul>
-<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>TLS 1.2/1.3</strong> - Modern cipher suites via OpenSSL</li>
-<li><strong>OSS-Fuzz Integration</strong> - Continuous fuzzing for vulnerability detection</li>
-</ul>
-<h3 id="legacy-soap-support">Legacy SOAP Support<a class="headerlink" href="#legacy-soap-support" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://axis.apache.org/axis2/c/rampart/">WS-Security via Rampart/C</a> - XML Signature, Encryption, SAML</li>
-<li>WS-Addressing, WS-Policy</li>
-<li>WSDL 1.1/2.0 support with <a href="guide/codegen/">native WSDL2C code generator</a></li>
-<li>MTOM/XOP binary attachments</li>
-</ul>
-<p><strong>Note:</strong> A Rampart/C 2.0.0 release is planned to accompany Axis2/C 2.0.0, but this may be the final release. The <a href="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf">WS-Security 1.0 specification</a> (OASIS 2004) is mature and considered legacy technology in 2026, with most new applications using TLS, OAuth 2.0, or JWT for security.</p>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Clone from GitHub</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/apache/axis-axis2-c-core.git
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>axis-axis2-c-core
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># See INSTALL file for build instructions</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>cat<span class="w"> </span>INSTALL
+<h1 id="clients-guide">Clients Guide<a class="headerlink" href="#clients-guide" title="Permanent link">&para;</a></h1>
+<p>This guide covers building Axis2/C clients for consuming HTTP/2 JSON-RPC and legacy SOAP services.</p>
+<h2 id="http2-json-rpc-client">HTTP/2 JSON-RPC Client<a class="headerlink" href="#http2-json-rpc-client" title="Permanent link">&para;</a></h2>
+<h3 id="using-curl-testing">Using curl (Testing)<a class="headerlink" href="#using-curl-testing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Simple GET request</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>--http2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>--cert<span class="w"> </span>client.crt<span class="w"> </span>--key<span class="w"> </span>client.key<span class="w"> </span>--cacert<span class="w"> </span>ca.crt<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="s2">&quot;https://server:8443/services/MyService/getStatus&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># POST with JSON body</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>curl<span class="w"> </span>-s<span class="w"> </span>--http2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span>--cert<span class="w"> </span>client.crt<span class="w"> </span>--key<span class="w"> </span>client.key<span class="w"> </span>--cacert<span class="w"> </span>ca.crt<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;action&quot;:&quot;doSomething&quot;,&quot;param&quot;:&quot;value&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="s2">&quot;https://server:8443/services/MyService/operation&quot;</span>
 </code></pre></div>
-<p><strong>GitHub Repository:</strong> <a href="https://github.com/apache/axis-axis2-c-core">https://github.com/apache/axis-axis2-c-core</a></p>
-<p>For complete build instructions including HTTP/2 support, dependencies, and platform-specific options, see the <code>INSTALL</code> file in the repository root.</p>
-<p>See <a href="getting-started/installation/">Installation Guide</a> for detailed instructions.</p>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
-<p>Axis2/C uses a modular architecture:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────────────┐
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│              Client Application                 │
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  HTTP/2 Transport    │    Legacy HTTP/1.1       │
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  (nghttp2 + OpenSSL) │    (SOAP Transport)      │
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│            Axis2/C Engine Core                  │
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  ┌─────────────┐  ┌─────────────┐              │
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  │ JSON-RPC    │  │ SOAP        │              │
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  │ Module      │  │ Module      │              │
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│  └─────────────┘  └─────────────┘              │
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│              Service Handlers                   │
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>└─────────────────────────────────────────────────┘
+<h3 id="c-client-with-axis2c">C Client with Axis2/C<a class="headerlink" href="#c-client-with-axis2c" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;axis2_stub.h&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;axis2_http2_client.h&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">axutil_env_t</span><span class="w"> </span><span class="o">*</span><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axutil_env_create_all</span><span class="p">(</span><span class="s">&quot;client.log&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">AXIS2_LOG_LEVEL_INFO</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="cm">/* Create HTTP/2 client */</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">axis2_http2_client_t</span><span class="w"> </span><span class="o">*</span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_http2_client_create</span><span class="p">(</span><span class="n">env</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="s">&quot;https://server:8443/services/MyService&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="cm">/* Configure TLS */</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="n">axis2_http2_client_set_cert</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;client.crt&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="n">axis2_http2_client_set_key</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;client.key&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="n">axis2_http2_client_set_ca</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ca.crt&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="cm">/* Create JSON request */</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="n">axiom_node_t</span><span class="w"> </span><span class="o">*</span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_json_create_object</span><span class="p">(</span><span class="n">env</span><span class="p">);</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="n">axis2_json_set_string</span><span class="p">(</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;action&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;getStatus&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="cm">/* Send request */</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="n">axiom_node_t</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_http2_client_send</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">,</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="s">&quot;getStatus&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">);</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="cm">/* Process response */</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_json_get_string</span><span class="p">(</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;status&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Status: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">);</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="cm">/* Cleanup */</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="n">axis2_http2_client_free</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">);</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="n">axutil_env_free</span><span class="p">(</span><span class="n">env</span><span class="p">);</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<h3 id="build-the-client">Build the Client<a class="headerlink" href="#build-the-client" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>gcc<span class="w"> </span>-o<span class="w"> </span>my_client<span class="w"> </span>my_client.c<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">$(</span>pkg-config<span class="w"> </span>--cflags<span class="w"> </span>--libs<span class="w"> </span>axis2c<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span>-lnghttp2<span class="w"> </span>-lssl<span class="w"> </span>-lcrypto
+</code></pre></div>
+<h2 id="multi-camera-example">Multi-Camera Example<a class="headerlink" href="#multi-camera-example" title="Permanent link">&para;</a></h2>
+<p>For IoT/camera control scenarios with multiple endpoints:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">cameras</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="s">&quot;192.168.1.100&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="s">&quot;192.168.1.101&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="s">&quot;192.168.1.102&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">};</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">url</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">url</span><span class="p">),</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="s">&quot;https://%s:8443/services/CameraControlService&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cameras</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="n">axis2_http2_client_t</span><span class="w"> </span><span class="o">*</span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_http2_client_create</span><span class="p">(</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">url</span><span class="p">);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="cm">/* ... configure and send ... */</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="legacy-soap-client">Legacy SOAP Client<a class="headerlink" href="#legacy-soap-client" title="Permanent link">&para;</a></h2>
+<p>For consuming legacy SOAP services:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;axis2_stub.h&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;axis2_client.h&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="cm">/* Create service client */</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">axis2_svc_client_t</span><span class="w"> </span><span class="o">*</span><span class="n">svc_client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_svc_client_create</span><span class="p">(</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">client_home</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="cm">/* Set endpoint */</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">axis2_options_t</span><span class="w"> </span><span class="o">*</span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_options_create</span><span class="p">(</span><span class="n">env</span><span class="p">);</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">axis2_options_set_to</span><span class="p">(</span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">,</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="n">axis2_endpoint_ref_create</span><span class="p">(</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;http://server:8080/axis2/services/LegacyService&quot;</span><span class="p">));</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">axis2_svc_client_set_options</span><span class="p">(</span><span class="n">svc_client</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">);</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="cm">/* Build SOAP request */</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">axiom_node_t</span><span class="w"> </span><span class="o">*</span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build_soap_request</span><span class="p">(</span><span class="n">env</span><span class="p">);</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="cm">/* Send and receive */</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="n">axiom_node_t</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_svc_client_send_receive</span><span class="p">(</span><span class="n">svc_client</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">axiom_node_t</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_http2_client_send</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;operation&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">);</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="cm">/* Check for error */</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">axis2_char_t</span><span class="w"> </span><span class="o">*</span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_http2_client_get_error</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Request failed: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">error</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="cm">/* Check for application-level error in JSON response */</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">error_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_json_get_string</span><span class="p">(</span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;error&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">error_field</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Service error: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">error_field</span><span class="p">);</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><a href="getting-started/installation/">Getting Started</a></strong> - Installation and quick start</li>
-<li><strong><a href="guide/overview/">User Guide</a></strong> - Configuration and usage</li>
-<li><strong><a href="HTTP2_JSON_REVOLUTION_STATE/">HTTP/2 &amp; JSON</a></strong> - Modern protocol support</li>
-<li><strong><a href="HTTP2_ANDROID/">Android Support</a></strong> - Cross-compilation and mobile deployment</li>
-<li><strong><a href="SECURITY/">Security Guide</a></strong> - TLS and security hardening</li>
-<li><strong><a href="guide/architecture/">Developer Guide</a></strong> - Architecture and internals</li>
+<li><a href="../../SECURITY/">Security Guide</a> - TLS and mTLS configuration</li>
+<li><a href="../../HTTP2_JSON_REVOLUTION_STATE/">HTTP/2 Overview</a></li>
+<li><a href="../../AXIS2C_HTTP2_MIGRATION_STATE/">Migration Guide</a></li>
 </ul>
-<h2 id="community">Community<a class="headerlink" href="#community" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/apache/axis-axis2-c-core">GitHub Repository</a></li>
-<li><a href="community/mailing-lists/">Mailing Lists</a></li>
-<li><a href="https://issues.apache.org/jira/projects/AXIS2C/summary">Issue Tracker</a></li>
-<li><a href="community/contributing/">Contributing Guide</a></li>
-</ul>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>Apache Axis2/C is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.</p>
-<hr />
-<p><em>Copyright © 2005-2026 The Apache Software Foundation</em></p>
 
 
 
@@ -2704,10 +2732,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

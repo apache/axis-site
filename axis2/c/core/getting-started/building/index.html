@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://axis.apache.org/axis2/c/core/">
+        <link rel="canonical" href="https://axis.apache.org/axis2/c/core/getting-started/building/">
       
       
+        <link rel="prev" href="../quickstart/">
       
-        <link rel="next" href="getting-started/installation/">
+      
+        <link rel="next" href="../../guide/overview/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Apache Axis2/C</title>
+        <title>Building from Source - Apache Axis2/C</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apache-axis2c" class="md-skip">
+        <a href="#building-from-source" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Apache Axis2/C" class="md-header__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
+    <a href="../.." title="Apache Axis2/C" class="md-header__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Building from Source
             
           </span>
         </div>
@@ -221,11 +223,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -242,11 +242,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="getting-started/installation/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../installation/" class="md-tabs__link">
           
   
   
@@ -266,7 +268,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="guide/overview/" class="md-tabs__link">
+        <a href="../../guide/overview/" class="md-tabs__link">
           
   
   
@@ -286,7 +288,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="HTTP2_JSON_REVOLUTION_STATE/" class="md-tabs__link">
+        <a href="../../HTTP2_JSON_REVOLUTION_STATE/" class="md-tabs__link">
           
   
   
@@ -306,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="SECURITY/" class="md-tabs__link">
+        <a href="../../SECURITY/" class="md-tabs__link">
           
   
   
@@ -326,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="guide/architecture/" class="md-tabs__link">
+        <a href="../../guide/architecture/" class="md-tabs__link">
           
   
   
@@ -346,7 +348,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/" class="md-tabs__link">
+        <a href="../../api/" class="md-tabs__link">
           
   
   
@@ -366,7 +368,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="downloads/" class="md-tabs__link">
+        <a href="../../downloads/" class="md-tabs__link">
           
   
   
@@ -386,7 +388,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="community/mailing-lists/" class="md-tabs__link">
+        <a href="../../community/mailing-lists/" class="md-tabs__link">
           
   
   
@@ -406,7 +408,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="HTTP11_SOAP_HTTP_CLIENT_C/" class="md-tabs__link">
+        <a href="../../HTTP11_SOAP_HTTP_CLIENT_C/" class="md-tabs__link">
           
   
   
@@ -440,7 +442,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Apache Axis2/C" class="md-nav__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
+    <a href="../.." title="Apache Axis2/C" class="md-nav__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -467,37 +469,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -513,131 +488,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Features
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modern-http2-json-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modern HTTP/2 + JSON Stack
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Security
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#legacy-soap-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Legacy SOAP Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Community
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -646,28 +496,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -685,7 +538,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -703,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -731,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/quickstart/" class="md-nav__link">
+      <a href="../quickstart/" class="md-nav__link">
         
   
   
@@ -756,10 +609,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="getting-started/building/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building from Source
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -775,6 +655,120 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Instructions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android-cross-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Android Cross-Compilation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-system-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build System Details
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -848,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/overview/" class="md-nav__link">
+      <a href="../../guide/overview/" class="md-nav__link">
         
   
   
@@ -876,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/axis2-xml/" class="md-nav__link">
+      <a href="../../guide/axis2-xml/" class="md-nav__link">
         
   
   
@@ -904,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/services/" class="md-nav__link">
+      <a href="../../guide/services/" class="md-nav__link">
         
   
   
@@ -932,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/clients/" class="md-nav__link">
+      <a href="../../guide/clients/" class="md-nav__link">
         
   
   
@@ -960,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="userguide/json-httpd-h2-userguide/" class="md-nav__link">
+      <a href="../../userguide/json-httpd-h2-userguide/" class="md-nav__link">
         
   
   
@@ -1049,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_JSON_REVOLUTION_STATE/" class="md-nav__link">
+      <a href="../../HTTP2_JSON_REVOLUTION_STATE/" class="md-nav__link">
         
   
   
@@ -1077,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="JSON_HTTP11_VS_HTTP2/" class="md-nav__link">
+      <a href="../../JSON_HTTP11_VS_HTTP2/" class="md-nav__link">
         
   
   
@@ -1105,7 +1099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="AXIS2C_HTTP2_MIGRATION_STATE/" class="md-nav__link">
+      <a href="../../AXIS2C_HTTP2_MIGRATION_STATE/" class="md-nav__link">
         
   
   
@@ -1133,7 +1127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_JSON_REQUEST_CODE_PATH/" class="md-nav__link">
+      <a href="../../HTTP2_JSON_REQUEST_CODE_PATH/" class="md-nav__link">
         
   
   
@@ -1161,7 +1155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_RESPONSE/" class="md-nav__link">
+      <a href="../../HTTP2_RESPONSE/" class="md-nav__link">
         
   
   
@@ -1189,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_SERVICES_DOT_XML/" class="md-nav__link">
+      <a href="../../HTTP2_SERVICES_DOT_XML/" class="md-nav__link">
         
   
   
@@ -1217,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_ANDROID/" class="md-nav__link">
+      <a href="../../HTTP2_ANDROID/" class="md-nav__link">
         
   
   
@@ -1245,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_APACHE2_WORKER/" class="md-nav__link">
+      <a href="../../HTTP2_APACHE2_WORKER/" class="md-nav__link">
         
   
   
@@ -1273,7 +1267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_AXIS2_DOT_XML/" class="md-nav__link">
+      <a href="../../HTTP2_AXIS2_DOT_XML/" class="md-nav__link">
         
   
   
@@ -1362,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SECURITY/" class="md-nav__link">
+      <a href="../../SECURITY/" class="md-nav__link">
         
   
   
@@ -1390,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="OSS-FUZZ/" class="md-nav__link">
+      <a href="../../OSS-FUZZ/" class="md-nav__link">
         
   
   
@@ -1479,7 +1473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/architecture/" class="md-nav__link">
+      <a href="../../guide/architecture/" class="md-nav__link">
         
   
   
@@ -1507,7 +1501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/coding-conventions/" class="md-nav__link">
+      <a href="../../guide/coding-conventions/" class="md-nav__link">
         
   
   
@@ -1535,7 +1529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/codegen/" class="md-nav__link">
+      <a href="../../guide/codegen/" class="md-nav__link">
         
   
   
@@ -1563,7 +1557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/packaging/" class="md-nav__link">
+      <a href="../../guide/packaging/" class="md-nav__link">
         
   
   
@@ -1591,7 +1585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/known-limitations/" class="md-nav__link">
+      <a href="../../guide/known-limitations/" class="md-nav__link">
         
   
   
@@ -1619,7 +1613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="BUILD_SYSTEM_HTTP2_CHANGES/" class="md-nav__link">
+      <a href="../../BUILD_SYSTEM_HTTP2_CHANGES/" class="md-nav__link">
         
   
   
@@ -1647,7 +1641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_CONDITIONAL_COMPILATION/" class="md-nav__link">
+      <a href="../../HTTP2_CONDITIONAL_COMPILATION/" class="md-nav__link">
         
   
   
@@ -1675,7 +1669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_LIBRARY_LOADING/" class="md-nav__link">
+      <a href="../../HTTP2_LIBRARY_LOADING/" class="md-nav__link">
         
   
   
@@ -1703,7 +1697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_INTERFACE_PATTERN_IMPLEMENTATION/" class="md-nav__link">
+      <a href="../../HTTP2_INTERFACE_PATTERN_IMPLEMENTATION/" class="md-nav__link">
         
   
   
@@ -1731,7 +1725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_SERVICE_PROVIDER_INTERFACE_PATTERN/" class="md-nav__link">
+      <a href="../../HTTP2_SERVICE_PROVIDER_INTERFACE_PATTERN/" class="md-nav__link">
         
   
   
@@ -1759,7 +1753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_UNIT_TESTS/" class="md-nav__link">
+      <a href="../../HTTP2_UNIT_TESTS/" class="md-nav__link">
         
   
   
@@ -1787,7 +1781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_THREADING_DEBUG/" class="md-nav__link">
+      <a href="../../HTTP2_THREADING_DEBUG/" class="md-nav__link">
         
   
   
@@ -1876,7 +1870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/" class="md-nav__link">
+      <a href="../../api/" class="md-nav__link">
         
   
   
@@ -1965,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="downloads/" class="md-nav__link">
+      <a href="../../downloads/" class="md-nav__link">
         
   
   
@@ -1993,7 +1987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-2.0.0/" class="md-nav__link">
+      <a href="../../release-notes-2.0.0/" class="md-nav__link">
         
   
   
@@ -2082,7 +2076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/mailing-lists/" class="md-nav__link">
+      <a href="../../community/mailing-lists/" class="md-nav__link">
         
   
   
@@ -2110,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/issues/" class="md-nav__link">
+      <a href="../../community/issues/" class="md-nav__link">
         
   
   
@@ -2138,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/contributing/" class="md-nav__link">
+      <a href="../../community/contributing/" class="md-nav__link">
         
   
   
@@ -2166,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/release-process/" class="md-nav__link">
+      <a href="../../community/release-process/" class="md-nav__link">
         
   
   
@@ -2194,7 +2188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/license/" class="md-nav__link">
+      <a href="../../community/license/" class="md-nav__link">
         
   
   
@@ -2222,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_LEGAL/" class="md-nav__link">
+      <a href="../../HTTP2_LEGAL/" class="md-nav__link">
         
   
   
@@ -2311,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP11_SOAP_HTTP_CLIENT_C/" class="md-nav__link">
+      <a href="../../HTTP11_SOAP_HTTP_CLIENT_C/" class="md-nav__link">
         
   
   
@@ -2339,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="legacy/rampart/" class="md-nav__link">
+      <a href="../../legacy/rampart/" class="md-nav__link">
         
   
   
@@ -2394,22 +2388,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#build-system" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Build System
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Instructions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#modern-http2-json-stack" class="md-nav__link">
+  <a href="#linux" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modern HTTP/2 + JSON Stack
+        Linux
       
     </span>
   </a>
@@ -2417,10 +2433,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
+  <a href="#configure-options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Security
+        Configure Options
       
     </span>
   </a>
@@ -2428,10 +2444,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#legacy-soap-support" class="md-nav__link">
+  <a href="#windows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Legacy SOAP Support
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android-cross-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Android Cross-Compilation
       
     </span>
   </a>
@@ -2444,54 +2471,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#build-system-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Community
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
+        Build System Details
       
     </span>
   </a>
@@ -2519,78 +2502,66 @@
   
 
 
-<h1 id="apache-axis2c">Apache Axis2/C<a class="headerlink" href="#apache-axis2c" title="Permanent link">&para;</a></h1>
-<p><strong>HTTP/2 JSON-RPC web services framework for C with legacy SOAP support</strong></p>
-<p>Apache Axis2/C is a high-performance web services framework written in C. Originally designed for SOAP web services, the modern Axis2/C focuses on <strong>HTTP/2</strong> and <strong>JSON-RPC</strong> while maintaining backward compatibility with legacy SOAP deployments.</p>
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<h3 id="modern-http2-json-stack">Modern HTTP/2 + JSON Stack<a class="headerlink" href="#modern-http2-json-stack" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>HTTP/2 Protocol</strong> - Multiplexed connections, header compression</li>
-<li><strong>JSON-RPC</strong> - Lightweight request/response format for modern APIs</li>
-<li><strong>Native C Performance</strong> - Minimal memory footprint, no garbage collection</li>
-<li><strong>Android Support</strong> - Cross-compile for ARM64/ARMv7 mobile devices</li>
-</ul>
-<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>TLS 1.2/1.3</strong> - Modern cipher suites via OpenSSL</li>
-<li><strong>OSS-Fuzz Integration</strong> - Continuous fuzzing for vulnerability detection</li>
-</ul>
-<h3 id="legacy-soap-support">Legacy SOAP Support<a class="headerlink" href="#legacy-soap-support" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://axis.apache.org/axis2/c/rampart/">WS-Security via Rampart/C</a> - XML Signature, Encryption, SAML</li>
-<li>WS-Addressing, WS-Policy</li>
-<li>WSDL 1.1/2.0 support with <a href="guide/codegen/">native WSDL2C code generator</a></li>
-<li>MTOM/XOP binary attachments</li>
-</ul>
-<p><strong>Note:</strong> A Rampart/C 2.0.0 release is planned to accompany Axis2/C 2.0.0, but this may be the final release. The <a href="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf">WS-Security 1.0 specification</a> (OASIS 2004) is mature and considered legacy technology in 2026, with most new applications using TLS, OAuth 2.0, or JWT for security.</p>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Clone from GitHub</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/apache/axis-axis2-c-core.git
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>axis-axis2-c-core
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># See INSTALL file for build instructions</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>cat<span class="w"> </span>INSTALL
+<h1 id="building-from-source">Building from Source<a class="headerlink" href="#building-from-source" title="Permanent link">&para;</a></h1>
+<h2 id="build-system">Build System<a class="headerlink" href="#build-system" title="Permanent link">&para;</a></h2>
+<p>Apache Axis2/C uses GNU autotools (autoconf, automake, libtool) for building.</p>
+<h2 id="build-instructions">Build Instructions<a class="headerlink" href="#build-instructions" title="Permanent link">&para;</a></h2>
+<p>Complete build instructions are in the <code>INSTALL</code> file in the repository root:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/apache/axis-axis2-c-core.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>axis-axis2-c-core
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cat<span class="w"> </span>INSTALL
 </code></pre></div>
-<p><strong>GitHub Repository:</strong> <a href="https://github.com/apache/axis-axis2-c-core">https://github.com/apache/axis-axis2-c-core</a></p>
-<p>For complete build instructions including HTTP/2 support, dependencies, and platform-specific options, see the <code>INSTALL</code> file in the repository root.</p>
-<p>See <a href="getting-started/installation/">Installation Guide</a> for detailed instructions.</p>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
-<p>Axis2/C uses a modular architecture:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────────────┐
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│              Client Application                 │
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  HTTP/2 Transport    │    Legacy HTTP/1.1       │
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  (nghttp2 + OpenSSL) │    (SOAP Transport)      │
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│            Axis2/C Engine Core                  │
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  ┌─────────────┐  ┌─────────────┐              │
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  │ JSON-RPC    │  │ SOAP        │              │
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  │ Module      │  │ Module      │              │
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│  └─────────────┘  └─────────────┘              │
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│              Service Handlers                   │
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>└─────────────────────────────────────────────────┘
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Clone from GitHub</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/apache/axis-axis2-c-core.git
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">cd</span><span class="w"> </span>axis-axis2-c-core
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Follow instructions in INSTALL file</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># Typically:</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>./configure<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>make
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
 </code></pre></div>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<h3 id="configure-options">Configure Options<a class="headerlink" href="#configure-options" title="Permanent link">&para;</a></h3>
+<p>The <code>INSTALL</code> file documents all configure options. Common options include:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--enable-guththila</code></td>
+<td>Use Guththila XML parser</td>
+</tr>
+<tr>
+<td><code>--enable-libxml2</code></td>
+<td>Use libxml2 XML parser</td>
+</tr>
+<tr>
+<td><code>--enable-openssl</code></td>
+<td>Enable SSL/TLS support</td>
+</tr>
+<tr>
+<td><code>--with-nghttp2</code></td>
+<td>Enable HTTP/2 support</td>
+</tr>
+</tbody>
+</table>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<p>See the <code>INSTALL</code> file for Windows build instructions using Visual Studio.</p>
+<h3 id="android-cross-compilation">Android Cross-Compilation<a class="headerlink" href="#android-cross-compilation" title="Permanent link">&para;</a></h3>
+<p>See <a href="../../HTTP2_ANDROID/">Android Support</a> for cross-compiling Axis2/C for Android devices.</p>
+<h2 id="build-system-details">Build System Details<a class="headerlink" href="#build-system-details" title="Permanent link">&para;</a></h2>
+<p>For detailed information about the build system internals, see:</p>
 <ul>
-<li><strong><a href="getting-started/installation/">Getting Started</a></strong> - Installation and quick start</li>
-<li><strong><a href="guide/overview/">User Guide</a></strong> - Configuration and usage</li>
-<li><strong><a href="HTTP2_JSON_REVOLUTION_STATE/">HTTP/2 &amp; JSON</a></strong> - Modern protocol support</li>
-<li><strong><a href="HTTP2_ANDROID/">Android Support</a></strong> - Cross-compilation and mobile deployment</li>
-<li><strong><a href="SECURITY/">Security Guide</a></strong> - TLS and security hardening</li>
-<li><strong><a href="guide/architecture/">Developer Guide</a></strong> - Architecture and internals</li>
+<li><a href="../../BUILD_SYSTEM_HTTP2_CHANGES/">Build System Changes</a></li>
+<li><a href="../../HTTP2_CONDITIONAL_COMPILATION/">Conditional Compilation</a></li>
+<li><a href="../../HTTP2_LIBRARY_LOADING/">Library Loading</a></li>
 </ul>
-<h2 id="community">Community<a class="headerlink" href="#community" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/apache/axis-axis2-c-core">GitHub Repository</a></li>
-<li><a href="community/mailing-lists/">Mailing Lists</a></li>
-<li><a href="https://issues.apache.org/jira/projects/AXIS2C/summary">Issue Tracker</a></li>
-<li><a href="community/contributing/">Contributing Guide</a></li>
-</ul>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>Apache Axis2/C is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.</p>
-<hr />
-<p><em>Copyright © 2005-2026 The Apache Software Foundation</em></p>
 
 
 
@@ -2704,10 +2675,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://axis.apache.org/axis2/c/core/">
+        <link rel="canonical" href="https://axis.apache.org/axis2/c/core/JSON_HTTP11_VS_HTTP2/">
       
       
+        <link rel="prev" href="../HTTP2_JSON_REVOLUTION_STATE/">
       
-        <link rel="next" href="getting-started/installation/">
+      
+        <link rel="next" href="../AXIS2C_HTTP2_MIGRATION_STATE/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Apache Axis2/C</title>
+        <title>HTTP/1.1 vs HTTP/2 JSON - Apache Axis2/C</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#apache-axis2c" class="md-skip">
+        <a href="#json-processing-http11-vs-http2-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Apache Axis2/C" class="md-header__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
+    <a href=".." title="Apache Axis2/C" class="md-header__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              HTTP/1.1 vs HTTP/2 JSON
             
           </span>
         </div>
@@ -221,11 +223,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -246,7 +246,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="getting-started/installation/" class="md-tabs__link">
+        <a href="../getting-started/installation/" class="md-tabs__link">
           
   
   
@@ -266,7 +266,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="guide/overview/" class="md-tabs__link">
+        <a href="../guide/overview/" class="md-tabs__link">
           
   
   
@@ -282,11 +282,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="HTTP2_JSON_REVOLUTION_STATE/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../HTTP2_JSON_REVOLUTION_STATE/" class="md-tabs__link">
           
   
   
@@ -306,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="SECURITY/" class="md-tabs__link">
+        <a href="../SECURITY/" class="md-tabs__link">
           
   
   
@@ -326,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="guide/architecture/" class="md-tabs__link">
+        <a href="../guide/architecture/" class="md-tabs__link">
           
   
   
@@ -346,7 +348,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/" class="md-tabs__link">
+        <a href="../api/" class="md-tabs__link">
           
   
   
@@ -366,7 +368,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="downloads/" class="md-tabs__link">
+        <a href="../downloads/" class="md-tabs__link">
           
   
   
@@ -386,7 +388,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="community/mailing-lists/" class="md-tabs__link">
+        <a href="../community/mailing-lists/" class="md-tabs__link">
           
   
   
@@ -406,7 +408,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="HTTP11_SOAP_HTTP_CLIENT_C/" class="md-tabs__link">
+        <a href="../HTTP11_SOAP_HTTP_CLIENT_C/" class="md-tabs__link">
           
   
   
@@ -440,7 +442,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Apache Axis2/C" class="md-nav__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
+    <a href=".." title="Apache Axis2/C" class="md-nav__button md-logo" aria-label="Apache Axis2/C" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -467,37 +469,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -513,131 +488,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Features
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modern-http2-json-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modern HTTP/2 + JSON Stack
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Security
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#legacy-soap-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Legacy SOAP Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Community
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -703,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/installation/" class="md-nav__link">
+      <a href="../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -731,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/quickstart/" class="md-nav__link">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -759,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/building/" class="md-nav__link">
+      <a href="../getting-started/building/" class="md-nav__link">
         
   
   
@@ -848,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/overview/" class="md-nav__link">
+      <a href="../guide/overview/" class="md-nav__link">
         
   
   
@@ -876,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/axis2-xml/" class="md-nav__link">
+      <a href="../guide/axis2-xml/" class="md-nav__link">
         
   
   
@@ -904,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/services/" class="md-nav__link">
+      <a href="../guide/services/" class="md-nav__link">
         
   
   
@@ -932,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/clients/" class="md-nav__link">
+      <a href="../guide/clients/" class="md-nav__link">
         
   
   
@@ -960,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="userguide/json-httpd-h2-userguide/" class="md-nav__link">
+      <a href="../userguide/json-httpd-h2-userguide/" class="md-nav__link">
         
   
   
@@ -992,28 +842,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1031,7 +884,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1049,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_JSON_REVOLUTION_STATE/" class="md-nav__link">
+      <a href="../HTTP2_JSON_REVOLUTION_STATE/" class="md-nav__link">
         
   
   
@@ -1074,10 +927,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="JSON_HTTP11_VS_HTTP2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP/1.1 vs HTTP/2 JSON
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1093,6 +973,226 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Diagrams
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http11-json-processing-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/1.1 JSON Processing Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http2-json-processing-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/2 JSON Processing Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Comparison
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http11-json-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/1.1 JSON Overhead
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http2-json-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/2 JSON Efficiency
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-dummy-soap-envelope-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Dummy SOAP Envelope Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-each-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Each Path
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When to Use Each Path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-http2-json-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use HTTP/2 JSON (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-http11-json-legacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use HTTP/1.1 JSON (Legacy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history-and-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        History and Rationale
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="History and Rationale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http11-json-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/1.1 JSON Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http2-json-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/2 JSON Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fuzzer-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fuzzer Coverage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1105,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="AXIS2C_HTTP2_MIGRATION_STATE/" class="md-nav__link">
+      <a href="../AXIS2C_HTTP2_MIGRATION_STATE/" class="md-nav__link">
         
   
   
@@ -1133,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_JSON_REQUEST_CODE_PATH/" class="md-nav__link">
+      <a href="../HTTP2_JSON_REQUEST_CODE_PATH/" class="md-nav__link">
         
   
   
@@ -1161,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_RESPONSE/" class="md-nav__link">
+      <a href="../HTTP2_RESPONSE/" class="md-nav__link">
         
   
   
@@ -1189,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_SERVICES_DOT_XML/" class="md-nav__link">
+      <a href="../HTTP2_SERVICES_DOT_XML/" class="md-nav__link">
         
   
   
@@ -1217,7 +1317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_ANDROID/" class="md-nav__link">
+      <a href="../HTTP2_ANDROID/" class="md-nav__link">
         
   
   
@@ -1245,7 +1345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_APACHE2_WORKER/" class="md-nav__link">
+      <a href="../HTTP2_APACHE2_WORKER/" class="md-nav__link">
         
   
   
@@ -1273,7 +1373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_AXIS2_DOT_XML/" class="md-nav__link">
+      <a href="../HTTP2_AXIS2_DOT_XML/" class="md-nav__link">
         
   
   
@@ -1362,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="SECURITY/" class="md-nav__link">
+      <a href="../SECURITY/" class="md-nav__link">
         
   
   
@@ -1390,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="OSS-FUZZ/" class="md-nav__link">
+      <a href="../OSS-FUZZ/" class="md-nav__link">
         
   
   
@@ -1479,7 +1579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/architecture/" class="md-nav__link">
+      <a href="../guide/architecture/" class="md-nav__link">
         
   
   
@@ -1507,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/coding-conventions/" class="md-nav__link">
+      <a href="../guide/coding-conventions/" class="md-nav__link">
         
   
   
@@ -1535,7 +1635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/codegen/" class="md-nav__link">
+      <a href="../guide/codegen/" class="md-nav__link">
         
   
   
@@ -1563,7 +1663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/packaging/" class="md-nav__link">
+      <a href="../guide/packaging/" class="md-nav__link">
         
   
   
@@ -1591,7 +1691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/known-limitations/" class="md-nav__link">
+      <a href="../guide/known-limitations/" class="md-nav__link">
         
   
   
@@ -1619,7 +1719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="BUILD_SYSTEM_HTTP2_CHANGES/" class="md-nav__link">
+      <a href="../BUILD_SYSTEM_HTTP2_CHANGES/" class="md-nav__link">
         
   
   
@@ -1647,7 +1747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_CONDITIONAL_COMPILATION/" class="md-nav__link">
+      <a href="../HTTP2_CONDITIONAL_COMPILATION/" class="md-nav__link">
         
   
   
@@ -1675,7 +1775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_LIBRARY_LOADING/" class="md-nav__link">
+      <a href="../HTTP2_LIBRARY_LOADING/" class="md-nav__link">
         
   
   
@@ -1703,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_INTERFACE_PATTERN_IMPLEMENTATION/" class="md-nav__link">
+      <a href="../HTTP2_INTERFACE_PATTERN_IMPLEMENTATION/" class="md-nav__link">
         
   
   
@@ -1731,7 +1831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_SERVICE_PROVIDER_INTERFACE_PATTERN/" class="md-nav__link">
+      <a href="../HTTP2_SERVICE_PROVIDER_INTERFACE_PATTERN/" class="md-nav__link">
         
   
   
@@ -1759,7 +1859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_UNIT_TESTS/" class="md-nav__link">
+      <a href="../HTTP2_UNIT_TESTS/" class="md-nav__link">
         
   
   
@@ -1787,7 +1887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_THREADING_DEBUG/" class="md-nav__link">
+      <a href="../HTTP2_THREADING_DEBUG/" class="md-nav__link">
         
   
   
@@ -1876,7 +1976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/" class="md-nav__link">
+      <a href="../api/" class="md-nav__link">
         
   
   
@@ -1965,7 +2065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="downloads/" class="md-nav__link">
+      <a href="../downloads/" class="md-nav__link">
         
   
   
@@ -1993,7 +2093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-2.0.0/" class="md-nav__link">
+      <a href="../release-notes-2.0.0/" class="md-nav__link">
         
   
   
@@ -2082,7 +2182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/mailing-lists/" class="md-nav__link">
+      <a href="../community/mailing-lists/" class="md-nav__link">
         
   
   
@@ -2110,7 +2210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/issues/" class="md-nav__link">
+      <a href="../community/issues/" class="md-nav__link">
         
   
   
@@ -2138,7 +2238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/contributing/" class="md-nav__link">
+      <a href="../community/contributing/" class="md-nav__link">
         
   
   
@@ -2166,7 +2266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/release-process/" class="md-nav__link">
+      <a href="../community/release-process/" class="md-nav__link">
         
   
   
@@ -2194,7 +2294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/license/" class="md-nav__link">
+      <a href="../community/license/" class="md-nav__link">
         
   
   
@@ -2222,7 +2322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP2_LEGAL/" class="md-nav__link">
+      <a href="../HTTP2_LEGAL/" class="md-nav__link">
         
   
   
@@ -2311,7 +2411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="HTTP11_SOAP_HTTP_CLIENT_C/" class="md-nav__link">
+      <a href="../HTTP11_SOAP_HTTP_CLIENT_C/" class="md-nav__link">
         
   
   
@@ -2339,7 +2439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="legacy/rampart/" class="md-nav__link">
+      <a href="../legacy/rampart/" class="md-nav__link">
         
   
   
@@ -2394,22 +2494,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Overview
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Diagrams
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Diagrams">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#modern-http2-json-stack" class="md-nav__link">
+  <a href="#http11-json-processing-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modern HTTP/2 + JSON Stack
+        HTTP/1.1 JSON Processing Path
       
     </span>
   </a>
@@ -2417,21 +2528,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
+  <a href="#http2-json-processing-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Security
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#legacy-soap-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Legacy SOAP Support
+        HTTP/2 JSON Processing Path
       
     </span>
   </a>
@@ -2444,10 +2544,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#performance-comparison" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        Performance Comparison
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http11-json-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/1.1 JSON Overhead
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http2-json-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/2 JSON Efficiency
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-dummy-soap-envelope-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Dummy SOAP Envelope Architecture
       
     </span>
   </a>
@@ -2455,10 +2594,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#when-to-use-each-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Architecture
+        When to Use Each Path
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When to Use Each Path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-http2-json-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use HTTP/2 JSON (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-http11-json-legacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use HTTP/1.1 JSON (Legacy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history-and-rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        History and Rationale
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="History and Rationale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http11-json-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/1.1 JSON Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http2-json-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/2 JSON Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fuzzer-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fuzzer Coverage
       
     </span>
   </a>
@@ -2466,32 +2683,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+  <a href="#related-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Community
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
+        Related Documentation
       
     </span>
   </a>
@@ -2519,78 +2714,200 @@
   
 
 
-<h1 id="apache-axis2c">Apache Axis2/C<a class="headerlink" href="#apache-axis2c" title="Permanent link">&para;</a></h1>
-<p><strong>HTTP/2 JSON-RPC web services framework for C with legacy SOAP support</strong></p>
-<p>Apache Axis2/C is a high-performance web services framework written in C. Originally designed for SOAP web services, the modern Axis2/C focuses on <strong>HTTP/2</strong> and <strong>JSON-RPC</strong> while maintaining backward compatibility with legacy SOAP deployments.</p>
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<h3 id="modern-http2-json-stack">Modern HTTP/2 + JSON Stack<a class="headerlink" href="#modern-http2-json-stack" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>HTTP/2 Protocol</strong> - Multiplexed connections, header compression</li>
-<li><strong>JSON-RPC</strong> - Lightweight request/response format for modern APIs</li>
-<li><strong>Native C Performance</strong> - Minimal memory footprint, no garbage collection</li>
-<li><strong>Android Support</strong> - Cross-compile for ARM64/ARMv7 mobile devices</li>
-</ul>
-<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>TLS 1.2/1.3</strong> - Modern cipher suites via OpenSSL</li>
-<li><strong>OSS-Fuzz Integration</strong> - Continuous fuzzing for vulnerability detection</li>
-</ul>
-<h3 id="legacy-soap-support">Legacy SOAP Support<a class="headerlink" href="#legacy-soap-support" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://axis.apache.org/axis2/c/rampart/">WS-Security via Rampart/C</a> - XML Signature, Encryption, SAML</li>
-<li>WS-Addressing, WS-Policy</li>
-<li>WSDL 1.1/2.0 support with <a href="guide/codegen/">native WSDL2C code generator</a></li>
-<li>MTOM/XOP binary attachments</li>
-</ul>
-<p><strong>Note:</strong> A Rampart/C 2.0.0 release is planned to accompany Axis2/C 2.0.0, but this may be the final release. The <a href="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf">WS-Security 1.0 specification</a> (OASIS 2004) is mature and considered legacy technology in 2026, with most new applications using TLS, OAuth 2.0, or JWT for security.</p>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Clone from GitHub</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/apache/axis-axis2-c-core.git
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>axis-axis2-c-core
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># See INSTALL file for build instructions</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>cat<span class="w"> </span>INSTALL
+<h1 id="json-processing-http11-vs-http2-architecture">JSON Processing: HTTP/1.1 vs HTTP/2 Architecture<a class="headerlink" href="#json-processing-http11-vs-http2-architecture" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Axis2/C supports JSON processing through two distinct architectures:</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>HTTP/1.1 JSON</th>
+<th>HTTP/2 JSON</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Source Files</strong></td>
+<td><code>axis2_json_reader.c</code>, <code>axis2_json_writer.c</code></td>
+<td><code>axis2_h2_transport_utils.c</code></td>
+</tr>
+<tr>
+<td><strong>JSON Library</strong></td>
+<td>json-c</td>
+<td>json-c</td>
+</tr>
+<tr>
+<td><strong>Internal Format</strong></td>
+<td>AXIOM XML tree (<code>axiom_node_t*</code>)</td>
+<td>Native JSON (<code>json_object*</code>)</td>
+</tr>
+<tr>
+<td><strong>SOAP Handling</strong></td>
+<td>Full SOAP envelope processing</td>
+<td>Minimal dummy envelope (bypassed)</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Slower (JSON↔AXIOM conversion)</td>
+<td>Faster (direct JSON processing)</td>
+</tr>
+<tr>
+<td><strong>Recommendation</strong></td>
+<td>Legacy/backward compatibility</td>
+<td><strong>Recommended for new development</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="architecture-diagrams">Architecture Diagrams<a class="headerlink" href="#architecture-diagrams" title="Permanent link">&para;</a></h2>
+<h3 id="http11-json-processing-path">HTTP/1.1 JSON Processing Path<a class="headerlink" href="#http11-json-processing-path" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────┐     ┌──────────────────────┐     ┌─────────────────┐     ┌─────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│ JSON Input  │────▶│ axis2_json_reader.c  │────▶│ axiom_node_t*   │────▶│ SOAP/Engine │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│             │     │ (json-c parsing +    │     │ (XML tree)      │     │ Processing  │
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│             │     │  AXIOM conversion)   │     │                 │     │             │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└─────────────┘     └──────────────────────┘     └─────────────────┘     └─────────────┘
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                              │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                              ▼
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                    ┌──────────────────────┐
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    │ axis2_json_read_node │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                    │ (recursive JSON→XML) │
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                    └──────────────────────┘
 </code></pre></div>
-<p><strong>GitHub Repository:</strong> <a href="https://github.com/apache/axis-axis2-c-core">https://github.com/apache/axis-axis2-c-core</a></p>
-<p>For complete build instructions including HTTP/2 support, dependencies, and platform-specific options, see the <code>INSTALL</code> file in the repository root.</p>
-<p>See <a href="getting-started/installation/">Installation Guide</a> for detailed instructions.</p>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
-<p>Axis2/C uses a modular architecture:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────────────┐
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│              Client Application                 │
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  HTTP/2 Transport    │    Legacy HTTP/1.1       │
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  (nghttp2 + OpenSSL) │    (SOAP Transport)      │
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│            Axis2/C Engine Core                  │
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  ┌─────────────┐  ┌─────────────┐              │
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  │ JSON-RPC    │  │ SOAP        │              │
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  │ Module      │  │ Module      │              │
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│  └─────────────┘  └─────────────┘              │
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>├─────────────────────────────────────────────────┤
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│              Service Handlers                   │
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>└─────────────────────────────────────────────────┘
+<p><strong>Key Functions:</strong>
+- <code>axis2_json_reader_create_for_memory()</code> - Creates reader from JSON string
+- <code>axis2_json_reader_read()</code> - Parses JSON and converts to AXIOM tree
+- <code>axis2_json_reader_get_root_node()</code> - Returns <code>axiom_node_t*</code> (NOT <code>json_object*</code>)</p>
+<h3 id="http2-json-processing-path">HTTP/2 JSON Processing Path<a class="headerlink" href="#http2-json-processing-path" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────┐     ┌──────────────────────┐     ┌─────────────────┐     ┌─────────────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│ JSON Input  │────▶│ json_tokener_parse() │────▶│ json_object*    │────▶│ Service     │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│             │     │ (direct json-c)      │     │ (native JSON)   │     │ Handler     │
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>└─────────────┘     └──────────────────────┘     └─────────────────┘     └─────────────┘
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                                                         │
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                                                         ▼
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                                               ┌─────────────────────┐
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                                               │ Minimal SOAP Envelope│
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                                               │ (framework compat,   │
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                                               │  processing bypassed)│
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                                               └─────────────────────┘
 </code></pre></div>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<p><strong>Key Functions:</strong>
+- <code>json_tokener_parse()</code> - Direct json-c parsing
+- <code>axis2_h2_transport_utils_process_http_post_request()</code> - HTTP/2 JSON handler
+- No AXIOM conversion - JSON stays as <code>json_object*</code></p>
+<h2 id="performance-comparison">Performance Comparison<a class="headerlink" href="#performance-comparison" title="Permanent link">&para;</a></h2>
+<h3 id="http11-json-overhead">HTTP/1.1 JSON Overhead<a class="headerlink" href="#http11-json-overhead" title="Permanent link">&para;</a></h3>
+<p>The HTTP/1.1 path incurs significant overhead because:</p>
+<ol>
+<li><strong>Double Parsing</strong>: JSON is parsed by json-c, then converted to AXIOM XML</li>
+<li><strong>Memory Allocation</strong>: AXIOM tree requires additional memory for XML nodes</li>
+<li><strong>Recursive Conversion</strong>: <code>axis2_json_read_node()</code> recursively builds XML tree</li>
+<li><strong>Type Mapping</strong>: JSON types must be mapped to AXIOM element types</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* HTTP/1.1: JSON → AXIOM conversion (axis2_json_reader.c) */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">axis2_status_t</span><span class="w"> </span><span class="nf">axis2_json_read_node</span><span class="p">(</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">json_object</span><span class="o">*</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w">      </span><span class="cm">/* Input: JSON object */</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">axiom_node_t</span><span class="o">**</span><span class="w"> </span><span class="n">om_node</span><span class="p">,</span><span class="w">   </span><span class="cm">/* Output: AXIOM XML node */</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">axutil_env_t</span><span class="o">*</span><span class="w"> </span><span class="n">env</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="cm">/* Recursive conversion of every JSON element to XML */</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">json_object_object_foreach</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="cm">/* Create AXIOM element for each JSON key */</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="cm">/* Recursively process nested objects/arrays */</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="http2-json-efficiency">HTTP/2 JSON Efficiency<a class="headerlink" href="#http2-json-efficiency" title="Permanent link">&para;</a></h3>
+<p>The HTTP/2 path eliminates conversion overhead:</p>
+<ol>
+<li><strong>Single Parse</strong>: JSON is parsed once by json-c</li>
+<li><strong>Native Access</strong>: Services access <code>json_object*</code> directly</li>
+<li><strong>No Conversion</strong>: No AXIOM tree creation</li>
+<li><strong>Minimal Envelope</strong>: Dummy SOAP envelope satisfies framework without processing</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* HTTP/2: Direct JSON processing (axis2_h2_transport_utils.c) */</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">axis2_status_t</span><span class="w"> </span><span class="nf">axis2_h2_transport_utils_process_http_post_request</span><span class="p">(</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">axutil_env_t</span><span class="o">*</span><span class="w"> </span><span class="n">env</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">axutil_stream_t</span><span class="o">*</span><span class="w"> </span><span class="n">in_stream</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">axis2_char_t</span><span class="o">*</span><span class="w"> </span><span class="n">content_type</span><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="cm">/* Parse JSON directly - no conversion */</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">json_obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json_tokener_parse</span><span class="p">(</span><span class="n">json_string</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="cm">/* Service receives json_object* directly */</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="cm">/* No AXIOM overhead */</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="the-dummy-soap-envelope-architecture">The Dummy SOAP Envelope Architecture<a class="headerlink" href="#the-dummy-soap-envelope-architecture" title="Permanent link">&para;</a></h2>
+<p>HTTP/2 mode uses a "dummy SOAP envelope" pattern (similar to Axis2/Java):</p>
+<ol>
+<li><strong>Framework Compatibility</strong>: Axis2/C core expects SOAP message context</li>
+<li><strong>Minimal Overhead</strong>: Empty/minimal envelope created for framework satisfaction</li>
+<li><strong>Processing Bypass</strong>: <code>IS_JSON_STREAM=true</code> flag signals JSON-only mode</li>
+<li><strong>Direct Access</strong>: JSON Message Receiver bypasses SOAP processing entirely</li>
+</ol>
+<p>This achieves framework compatibility with near-zero overhead.</p>
+<h2 id="when-to-use-each-path">When to Use Each Path<a class="headerlink" href="#when-to-use-each-path" title="Permanent link">&para;</a></h2>
+<h3 id="use-http2-json-recommended">Use HTTP/2 JSON (Recommended)<a class="headerlink" href="#use-http2-json-recommended" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong><a href="getting-started/installation/">Getting Started</a></strong> - Installation and quick start</li>
-<li><strong><a href="guide/overview/">User Guide</a></strong> - Configuration and usage</li>
-<li><strong><a href="HTTP2_JSON_REVOLUTION_STATE/">HTTP/2 &amp; JSON</a></strong> - Modern protocol support</li>
-<li><strong><a href="HTTP2_ANDROID/">Android Support</a></strong> - Cross-compilation and mobile deployment</li>
-<li><strong><a href="SECURITY/">Security Guide</a></strong> - TLS and security hardening</li>
-<li><strong><a href="guide/architecture/">Developer Guide</a></strong> - Architecture and internals</li>
+<li>New service development</li>
+<li>High-performance JSON APIs</li>
+<li>RESTful services</li>
+<li>Microservices architecture</li>
+<li>Large payload processing</li>
+<li>HTTP/2 multiplexed streams</li>
 </ul>
-<h2 id="community">Community<a class="headerlink" href="#community" title="Permanent link">&para;</a></h2>
+<h3 id="use-http11-json-legacy">Use HTTP/1.1 JSON (Legacy)<a class="headerlink" href="#use-http11-json-legacy" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="https://github.com/apache/axis-axis2-c-core">GitHub Repository</a></li>
-<li><a href="community/mailing-lists/">Mailing Lists</a></li>
-<li><a href="https://issues.apache.org/jira/projects/AXIS2C/summary">Issue Tracker</a></li>
-<li><a href="community/contributing/">Contributing Guide</a></li>
+<li>Existing services requiring backward compatibility</li>
+<li>Integration with systems that only support HTTP/1.1</li>
+<li>When AXIOM/XML interoperability is needed</li>
+<li>Legacy deployment environments</li>
 </ul>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>Apache Axis2/C is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.</p>
-<hr />
-<p><em>Copyright © 2005-2026 The Apache Software Foundation</em></p>
+<h2 id="history-and-rationale">History and Rationale<a class="headerlink" href="#history-and-rationale" title="Permanent link">&para;</a></h2>
+<h3 id="http11-json-support">HTTP/1.1 JSON Support<a class="headerlink" href="#http11-json-support" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Origin</strong>: Community contributed feature (original Axis2/C JSON support)</li>
+<li><strong>Design</strong>: Built on top of existing AXIOM infrastructure</li>
+<li><strong>Trade-off</strong>: Easier integration with existing code, but performance penalty</li>
+<li><strong>Status</strong>: Maintained for backward compatibility, not recommended for new development</li>
+</ul>
+<h3 id="http2-json-support">HTTP/2 JSON Support<a class="headerlink" href="#http2-json-support" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Origin</strong>: HTTP/2 Pure JSON Architecture redesign</li>
+<li><strong>Design</strong>: Direct json-c usage with minimal SOAP envelope</li>
+<li><strong>Trade-off</strong>: Better performance, requires HTTP/2 infrastructure</li>
+<li><strong>Status</strong>: Recommended for all new JSON service development</li>
+</ul>
+<h2 id="fuzzer-coverage">Fuzzer Coverage<a class="headerlink" href="#fuzzer-coverage" title="Permanent link">&para;</a></h2>
+<p>Both JSON paths are tested by dedicated fuzzers:</p>
+<table>
+<thead>
+<tr>
+<th>Fuzzer</th>
+<th>Tests</th>
+<th>Entry Point</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fuzz_json_reader</code></td>
+<td>HTTP/1.1 JSON→AXIOM</td>
+<td><code>axis2_json_reader_create_for_memory()</code></td>
+</tr>
+<tr>
+<td><code>fuzz_json_parser</code></td>
+<td>HTTP/2 direct json-c</td>
+<td><code>json_tokener_parse()</code></td>
+</tr>
+</tbody>
+</table>
+<p>See <code>fuzz/fuzz_json_reader.c</code> and <code>fuzz/fuzz_json_parser.c</code> for implementation details.</p>
+<h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../userguide/json-httpd-h2-userguide/">HTTP/2 JSON User Guide</a> - Deployment and testing</li>
+<li><a href="../AXIS2C_HTTP2_MIGRATION_STATE/">HTTP/2 Migration State</a> - Technical architecture details</li>
+<li><a href="../SECURITY/">Security Guide</a> - JSON security considerations</li>
+</ul>
 
 
 
@@ -2704,10 +3021,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
