@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -2352,10 +2352,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-prepare-site-staging-area" class="md-nav__link">
+  <a href="#42-build-and-commit-site-to-core-staging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2 Prepare Site Staging Area
+        4.2 Build and Commit Site to core-staging
       
     </span>
   </a>
@@ -2384,45 +2384,6 @@
     <span class="md-ellipsis">
       
         5.1 Send Vote Email
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-vote-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2 Vote Requirements
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-after-vote-passes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 6: After Vote Passes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 6: After Vote Passes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61-tag-the-release" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1 Tag the Release
       
     </span>
   </a>
@@ -2480,10 +2441,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#71-publish-site" class="md-nav__link">
+  <a href="#71-promote-core-staging-to-core" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1 Publish Site
+        7.1 Promote core-staging to core
       
     </span>
   </a>
@@ -3156,10 +3117,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-prepare-site-staging-area" class="md-nav__link">
+  <a href="#42-build-and-commit-site-to-core-staging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2 Prepare Site Staging Area
+        4.2 Build and Commit Site to core-staging
       
     </span>
   </a>
@@ -3188,45 +3149,6 @@
     <span class="md-ellipsis">
       
         5.1 Send Vote Email
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-vote-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.2 Vote Requirements
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-after-vote-passes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 6: After Vote Passes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 6: After Vote Passes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#61-tag-the-release" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1 Tag the Release
       
     </span>
   </a>
@@ -3284,10 +3206,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#71-publish-site" class="md-nav__link">
+  <a href="#71-promote-core-staging-to-core" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1 Publish Site
+        7.1 Promote core-staging to core
       
     </span>
   </a>
@@ -3684,90 +3606,98 @@
 </code></pre></div>
 <h2 id="step-4-upload-to-staging">Step 4: Upload to Staging<a class="headerlink" href="#step-4-upload-to-staging" title="Permanent link">&para;</a></h2>
 <h3 id="41-upload-to-asf-development-area">4.1 Upload to ASF Development Area<a class="headerlink" href="#41-upload-to-asf-development-area" title="Permanent link">&para;</a></h3>
-<p>Use SVN to upload to the development distribution area:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Checkout dev area</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>svn<span class="w"> </span>checkout<span class="w"> </span>https://dist.apache.org/repos/dist/dev/axis/axis2/c/core/<span class="w"> </span>axis2c-dev-dist
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">cd</span><span class="w"> </span>axis2c-dev-dist
+<p>Use SVN to upload to the development distribution area. Note the SVN dev path
+does NOT include <code>core/</code> — it is <code>dist/dev/axis/axis2/c/</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Checkout dev area (empty directory, creates it if needed)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>svn<span class="w"> </span>checkout<span class="w"> </span>https://dist.apache.org/repos/dist/dev/axis/axis2/c/<span class="w"> </span>~/repos/axis2c-dev-dist
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">cd</span><span class="w"> </span>~/repos/axis2c-dev-dist
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># Create version directory</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># Create version directory and copy artifacts</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>mkdir<span class="w"> </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># Copy source artifacts</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>cp<span class="w"> </span>/path/to/axis2c-src-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz<span class="w"> </span>.
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>cp<span class="w"> </span>/path/to/axis2c-src-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz.asc<span class="w"> </span>.
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>cp<span class="w"> </span>/path/to/axis2c-src-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz.sha512<span class="w"> </span>.
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>cp<span class="w"> </span>/path/to/KEYS<span class="w"> </span>.
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="c1"># Commit</span>
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="nb">cd</span><span class="w"> </span>..
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>svn<span class="w"> </span>add<span class="w"> </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>
-<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>svn<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Axis2/C </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2"> release candidate&quot;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>cp<span class="w"> </span>~/repos/axis-axis2-c-core/axis2c-src-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz<span class="w">     </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>/
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>cp<span class="w"> </span>~/repos/axis-axis2-c-core/axis2c-src-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz.asc<span class="w"> </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>/
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>cp<span class="w"> </span>~/repos/axis-axis2-c-core/axis2c-src-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz.sha512<span class="w"> </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>/
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1"># Commit</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>svn<span class="w"> </span>add<span class="w"> </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>svn<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Stage Apache Axis2/C </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2"> RC1 for vote&quot;</span>
 </code></pre></div>
-<h3 id="42-prepare-site-staging-area">4.2 Prepare Site Staging Area<a class="headerlink" href="#42-prepare-site-staging-area" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Clone site repository</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://gitbox.apache.org/repos/asf/axis-site.git
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">cd</span><span class="w"> </span>axis-site
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># Create staging directory</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>cp<span class="w"> </span>-r<span class="w"> </span>axis2/c/core<span class="w"> </span>axis2/c/core-staging
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># Build documentation using MkDocs</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="nb">cd</span><span class="w"> </span>/path/to/axis-axis2-c-core
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>./mkdocs-venv/bin/mkdocs<span class="w"> </span>build
+<p>Do NOT copy KEYS into the version directory — the KEYS file lives at the
+parent level (<code>dist/release/axis/axis2/c/KEYS</code>) and is already maintained.</p>
+<h3 id="42-build-and-commit-site-to-core-staging">4.2 Build and Commit Site to core-staging<a class="headerlink" href="#42-build-and-commit-site-to-core-staging" title="Permanent link">&para;</a></h3>
+<p>The site is built with MkDocs and committed to <code>axis2/c/core-staging/</code> in the
+axis-site repo. ASF GitPubSub auto-publishes this to
+<code>https://axis.apache.org/axis2/c/core-staging/</code> within minutes of the push.</p>
+<p>This is a <strong>temporary staging directory</strong> used only during the release vote —
+identical to the Axis2/Java core-staging pattern. Do NOT update <code>core/</code> yet;
+that happens post-vote (Step 7).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Install MkDocs if not already available</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>pip<span class="w"> </span>install<span class="w"> </span>mkdocs<span class="w"> </span>mkdocs-material
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Build site from axis-axis2-c-core docs/</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nb">cd</span><span class="w"> </span>~/repos/axis-axis2-c-core
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>mkdocs<span class="w"> </span>build
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Output is in site/</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1"># Sync built site into core-staging (does not touch production core/)</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>rsync<span class="w"> </span>-av<span class="w"> </span>~/repos/axis-axis2-c-core/site/<span class="w"> </span>~/repos/site/axis-site/axis2/c/core-staging/
 <a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># Copy built site to staging</span>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>cp<span class="w"> </span>-r<span class="w"> </span>site/*<span class="w"> </span>/path/to/axis-site/axis2/c/core-staging/
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c1"># Commit staging site</span>
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="nb">cd</span><span class="w"> </span>/path/to/axis-site
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>git<span class="w"> </span>add<span class="w"> </span>axis2/c/core-staging
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Axis2/C </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2"> site staging&quot;</span>
-<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>git<span class="w"> </span>push
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># Commit to axis-site master branch</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="nb">cd</span><span class="w"> </span>~/repos/site/axis-site
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>git<span class="w"> </span>add<span class="w"> </span>axis2/c/core-staging/
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;axis2/c core-staging for </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2"> release vote&quot;</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>git<span class="w"> </span>push
 </code></pre></div>
+<p>Before building, ensure <code>docs/downloads.md</code> has the correct download links
+for the new version pointing to <code>downloads.apache.org/axis/axis2/c/${VERSION}/</code>.</p>
 <h2 id="step-5-call-for-vote">Step 5: Call for Vote<a class="headerlink" href="#step-5-call-for-vote" title="Permanent link">&para;</a></h2>
 <h3 id="51-send-vote-email">5.1 Send Vote Email<a class="headerlink" href="#51-send-vote-email" title="Permanent link">&para;</a></h3>
-<p>Send a vote email to <code>c-dev@axis.apache.org</code> with the following format:</p>
+<p>Send a vote email to <code>c-dev@axis.apache.org</code>. Keep it brief — see the
+Axis2/Java vote format as a model:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Subject: [VOTE] Release Apache Axis2/C X.Y.Z
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Hi,
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>I&#39;d like to call a vote on releasing Apache Axis2/C X.Y.Z.
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>I would like to call for a vote to release Apache Axis2/C X.Y.Z.
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>Release artifacts:
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>https://dist.apache.org/repos/dist/dev/axis/axis2/c/core/X.Y.Z/
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>This is the first release of Axis2/C since 1.6.0 in 2009. Version X.Y.Z
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>includes 17 years of bug fixes (115+ Jira issues resolved), HTTP/2 support
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>with pure JSON-RPC services, and removes obsolete transports (TCP, CGI,
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>libcurl, AMQP, IIS/ISAPI).
 <a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>Source repository tag:
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>https://github.com/apache/axis-axis2-c-core/releases/tag/vX.Y.Z
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>Site preview:
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>https://axis.apache.org/axis2/c/core-staging/
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>Git tag: https://github.com/apache/axis-axis2-c-core/releases/tag/vX.Y.Z
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>Distributions: https://dist.apache.org/repos/dist/dev/axis/axis2/c/X.Y.Z/
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>Site: https://axis.apache.org/axis2/c/core-staging/
 <a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>Release notes:
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>https://github.com/apache/axis-axis2-c-core/blob/vX.Y.Z/docs/release-notes-X.Y.Z.md
-<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
-<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>The vote is open for at least 72 hours.
-<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>
-<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>[ ] +1 Release this package
-<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>[ ] +0 No opinion
-<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>[ ] -1 Do not release (provide reason)
-<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>
-<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>Voting guide:
-<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>- Download and verify signatures: gpg --verify *.asc
-<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>- Verify checksums: sha512sum -c *.sha512
-<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>- Build from source and run tests
-<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>- Review release notes and documentation
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>+1 from me
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>Your Name
 </code></pre></div>
-<h3 id="52-vote-requirements">5.2 Vote Requirements<a class="headerlink" href="#52-vote-requirements" title="Permanent link">&para;</a></h3>
-<p>Per ASF policy:
-- Voting period must be <strong>at least 72 hours</strong>
-- Requires <strong>at least 3 binding +1 votes</strong> from PMC members
-- <strong>No -1 votes</strong> from PMC members (or issues must be resolved)</p>
-<h2 id="step-6-after-vote-passes">Step 6: After Vote Passes<a class="headerlink" href="#step-6-after-vote-passes" title="Permanent link">&para;</a></h2>
-<h3 id="61-tag-the-release">6.1 Tag the Release<a class="headerlink" href="#61-tag-the-release" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-s<span class="w"> </span>vX.Y.Z<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Apache Axis2/C X.Y.Z release&quot;</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>vX.Y.Z
-</code></pre></div>
+<p>Notes:
+- The site link uses <code>core-staging/</code> — the temporary preview URL built in Step 4.2.
+  This matches the Axis2/Java release pattern.
+- After the vote passes, core-staging is promoted to core/ (Step 7) and deleted.
+- The distributions path does NOT include <code>/core/</code></p>
+<p>Voting guide:
+- Download and verify signatures: gpg --verify <em>.asc
+- Verify checksums: sha512sum -c </em>.sha512
+- Build from source and run tests
+- Review release notes and documentation
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>### 5.2 Vote Requirements
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Per ASF policy:
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>- Voting period must be **at least 72 hours**
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>- Requires **at least 3 binding +1 votes** from PMC members
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>- **No -1 votes** from PMC members (or issues must be resolved)
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>## Step 6: After Vote Passes
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>### 6.1 Tag the Release
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>```bash
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>git tag -s vX.Y.Z -m &quot;Apache Axis2/C X.Y.Z release&quot;
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>git push origin vX.Y.Z
+</code></pre></div></p>
 <h3 id="62-promote-artifacts-to-release-area">6.2 Promote Artifacts to Release Area<a class="headerlink" href="#62-promote-artifacts-to-release-area" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Move from dev to release</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>svn<span class="w"> </span>mv<span class="w"> </span>https://dist.apache.org/repos/dist/dev/axis/axis2/c/core/<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
@@ -3790,19 +3720,28 @@
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">       </span>-m<span class="w"> </span><span class="s2">&quot;Archive Axis2/C OLD_VERSION&quot;</span>
 </code></pre></div>
 <h2 id="step-7-deploy-website">Step 7: Deploy Website<a class="headerlink" href="#step-7-deploy-website" title="Permanent link">&para;</a></h2>
-<h3 id="71-publish-site">7.1 Publish Site<a class="headerlink" href="#71-publish-site" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">cd</span><span class="w"> </span>/path/to/axis-site
+<h3 id="71-promote-core-staging-to-core">7.1 Promote core-staging to core<a class="headerlink" href="#71-promote-core-staging-to-core" title="Permanent link">&para;</a></h3>
+<p>After the vote passes, replace the production site with core-staging and delete
+the staging directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">cd</span><span class="w"> </span>~/repos/site/axis-site
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># Replace production with staging</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>git<span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>axis2/c/core
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>git<span class="w"> </span>mv<span class="w"> </span>axis2/c/core-staging<span class="w"> </span>axis2/c/core
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Apache Axis2/C </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2"> site&quot;</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>git<span class="w"> </span>push
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># Replace production site with staged content</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>rsync<span class="w"> </span>-av<span class="w"> </span>--delete<span class="w"> </span>axis2/c/core-staging/<span class="w"> </span>axis2/c/core/
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="c1"># Remove the staging directory</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>git<span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>axis2/c/core-staging
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="c1"># Stage and commit</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>git<span class="w"> </span>add<span class="w"> </span>-A<span class="w"> </span>axis2/c/core/
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Apache Axis2/C </span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2"> site&quot;</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>git<span class="w"> </span>push
 </code></pre></div>
+<p>ASF GitPubSub automatically deploys the commit.</p>
 <h3 id="72-verify-site-deployment">7.2 Verify Site Deployment<a class="headerlink" href="#72-verify-site-deployment" title="Permanent link">&para;</a></h3>
-<p>The site will automatically deploy via ASF infrastructure. Verify:
-- https://axis.apache.org/axis2/c/core/</p>
-<p>This may take several hours to propagate to all mirrors.</p>
+<p>Verify:
+- https://axis.apache.org/axis2/c/core/
+- https://axis.apache.org/axis2/c/core/downloads/</p>
+<p>Deployment is typically within minutes but may take up to an hour.</p>
 <h2 id="step-8-announce-release">Step 8: Announce Release<a class="headerlink" href="#step-8-announce-release" title="Permanent link">&para;</a></h2>
 <h3 id="81-wait-for-mirror-propagation">8.1 Wait for Mirror Propagation<a class="headerlink" href="#81-wait-for-mirror-propagation" title="Permanent link">&para;</a></h3>
 <p>Wait for:

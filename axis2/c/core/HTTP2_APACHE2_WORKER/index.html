@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -4188,6 +4188,11 @@
 <li><strong>Processes Apache <code>request_rec</code></strong> → Axis2 message context</li>
 <li><strong>Handles HTTP/2 multiplexing</strong> with stream processing</li>
 <li><strong>Critical path</strong> for JSON HTTP/2 requests</li>
+<li><strong>NULL transport descriptors</strong>: In HTTP/2 mode, <code>axis2_conf_get_transport_in()</code>
+  and <code>axis2_conf_get_transport_out()</code> may return NULL when <code>transportReceiver</code>
+  and <code>transportSender</code> are commented out in <code>axis2.xml</code> (Apache httpd handles
+  transport directly). All code using <code>in_desc</code>/<code>out_desc</code> must NULL-guard.
+  See <code>docs/HTTP2_AXIS2_DOT_XML.md</code> for why these are disabled in HTTP/2 mode.</li>
 </ul>
 <h4 id="http-header-processing-lines-469-605"><strong>HTTP Header Processing (Lines 469-605)</strong><a class="headerlink" href="#http-header-processing-lines-469-605" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Three identical dangerous patterns:</span>

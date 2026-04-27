@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="https://axis.apache.org/axis2/c/core/JSON_HTTP11_VS_HTTP2/">
+        <link rel="canonical" href="https://axis.apache.org/axis2/c/core/HTTP2_JSON_DEBUG/">
       
       
-        <link rel="prev" href="../HTTP2_JSON_REVOLUTION_STATE/">
-      
-      
-        <link rel="next" href="../AXIS2C_HTTP2_MIGRATION_STATE/">
       
       
         
@@ -27,7 +23,7 @@
     
     
       
-        <title>HTTP/1.1 vs HTTP/2 JSON - Apache Axis2/C</title>
+        <title>HTTP/2 JSON Deployment Debugging Guide - Apache Axis2/C</title>
       
     
     
@@ -78,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#json-processing-http11-vs-http2-architecture" class="md-skip">
+        <a href="#http2-json-deployment-debugging-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HTTP/1.1 vs HTTP/2 JSON
+              HTTP/2 JSON Deployment Debugging Guide
             
           </span>
         </div>
@@ -282,12 +278,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../HTTP2_JSON_REVOLUTION_STATE/" class="md-tabs__link">
           
   
@@ -842,31 +836,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -884,7 +875,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -927,37 +918,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    HTTP/1.1 vs HTTP/2 JSON
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../JSON_HTTP11_VS_HTTP2/" class="md-nav__link">
         
   
   
@@ -973,226 +937,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture-diagrams" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture Diagrams
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Architecture Diagrams">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#http11-json-processing-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HTTP/1.1 JSON Processing Path
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#http2-json-processing-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HTTP/2 JSON Processing Path
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-comparison" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance Comparison
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Performance Comparison">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#http11-json-overhead" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HTTP/1.1 JSON Overhead
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#http2-json-efficiency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HTTP/2 JSON Efficiency
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-dummy-soap-envelope-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Dummy SOAP Envelope Architecture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-each-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When to Use Each Path
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="When to Use Each Path">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-http2-json-recommended" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use HTTP/2 JSON (Recommended)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-http11-json-legacy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use HTTP/1.1 JSON (Legacy)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#history-and-rationale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        History and Rationale
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="History and Rationale">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#http11-json-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HTTP/1.1 JSON Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#http2-json-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HTTP/2 JSON Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fuzzer-coverage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fuzzer Coverage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2494,10 +2238,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#quick-reference-log-locations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        Quick Reference: Log Locations
       
     </span>
   </a>
@@ -2505,22 +2249,77 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture-diagrams" class="md-nav__link">
+  <a href="#quick-reference-diagnostic-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Architecture Diagrams
+        Quick Reference: Diagnostic Commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Architecture Diagrams">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-1-apache-starts-but-nothing-listens-curl-returns-000" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 1: Apache Starts but Nothing Listens / Curl Returns 000
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-2-tls-handshake-bytes-in-port-80-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 2: TLS Handshake Bytes in Port 80 Log
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-3-ocsp-stapling-errors-with-self-signed-certificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 3: OCSP Stapling Errors with Self-Signed Certificates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-4-transport-sender-is-null-worker-creation-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 4: "Transport sender is NULL" — Worker Creation Fails
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-5-child-process-segfault-sigsegv-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 5: Child Process Segfault (SIGSEGV) Loop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem 5: Child Process Segfault (SIGSEGV) Loop">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#http11-json-processing-path" class="md-nav__link">
+  <a href="#getting-a-backtrace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HTTP/1.1 JSON Processing Path
+        Getting a Backtrace
       
     </span>
   </a>
@@ -2528,10 +2327,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#http2-json-processing-path" class="md-nav__link">
+  <a href="#common-segfault-axis2_get_instance-signature-mismatch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HTTP/2 JSON Processing Path
+        Common Segfault: axis2_get_instance Signature Mismatch
       
     </span>
   </a>
@@ -2544,49 +2343,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-comparison" class="md-nav__link">
+  <a href="#problem-6-apache-module-not-found-at-install-time" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Performance Comparison
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Performance Comparison">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#http11-json-overhead" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HTTP/1.1 JSON Overhead
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#http2-json-efficiency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HTTP/2 JSON Efficiency
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-dummy-soap-envelope-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Dummy SOAP Envelope Architecture
+        Problem 6: Apache Module Not Found at Install Time
       
     </span>
   </a>
@@ -2594,88 +2354,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-each-path" class="md-nav__link">
+  <a href="#problem-7-json-c-version-incompatibility" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When to Use Each Path
+        Problem 7: json-c Version Incompatibility
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="When to Use Each Path">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-http2-json-recommended" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use HTTP/2 JSON (Recommended)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-http11-json-legacy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use HTTP/1.1 JSON (Legacy)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#history-and-rationale" class="md-nav__link">
+  <a href="#problem-8-post-restart-health-check-passes-but-service-crashes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        History and Rationale
+        Problem 8: Post-Restart Health Check Passes but Service Crashes
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="History and Rationale">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#http11-json-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HTTP/1.1 JSON Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#http2-json-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        HTTP/2 JSON Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fuzzer-coverage" class="md-nav__link">
+  <a href="#problem-9-request-path-segfault-null-transport-descriptor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fuzzer Coverage
+        Problem 9: Request-Path Segfault — NULL Transport Descriptor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-10-operation-not-found-for-valid-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 10: "Operation Not Found" for Valid Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packaged-apache-vs-source-built-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Packaged Apache vs Source-Built Apache
       
     </span>
   </a>
@@ -2714,199 +2440,379 @@
   
 
 
-<h1 id="json-processing-http11-vs-http2-architecture">JSON Processing: HTTP/1.1 vs HTTP/2 Architecture<a class="headerlink" href="#json-processing-http11-vs-http2-architecture" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Axis2/C supports JSON processing through two distinct architectures:</p>
+<h1 id="http2-json-deployment-debugging-guide">HTTP/2 JSON Deployment Debugging Guide<a class="headerlink" href="#http2-json-deployment-debugging-guide" title="Permanent link">&para;</a></h1>
+<p>Practical debugging guide for Axis2/C HTTP/2 JSON services running under
+Apache httpd on Debian/Ubuntu systems. Based on real deployment issues
+encountered on Ubuntu 22.04 with the packaged Apache (<code>apache2</code> package).</p>
+<h2 id="quick-reference-log-locations">Quick Reference: Log Locations<a class="headerlink" href="#quick-reference-log-locations" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Aspect</th>
-<th>HTTP/1.1 JSON</th>
-<th>HTTP/2 JSON</th>
+<th>Log</th>
+<th>Path</th>
+<th>What it tells you</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Source Files</strong></td>
-<td><code>axis2_json_reader.c</code>, <code>axis2_json_writer.c</code></td>
-<td><code>axis2_h2_transport_utils.c</code></td>
+<td>Apache error log</td>
+<td><code>/var/log/apache2/error.log</code></td>
+<td>Module load failures, SSL errors, child crashes</td>
 </tr>
 <tr>
-<td><strong>JSON Library</strong></td>
-<td>json-c</td>
-<td>json-c</td>
+<td>Apache access log</td>
+<td><code>/var/log/apache2/access.log</code></td>
+<td>Request routing (empty = requests not reaching vhost)</td>
 </tr>
 <tr>
-<td><strong>Internal Format</strong></td>
-<td>AXIOM XML tree (<code>axiom_node_t*</code>)</td>
-<td>Native JSON (<code>json_object*</code>)</td>
+<td>Apache other vhosts</td>
+<td><code>/var/log/apache2/other_vhosts_access.log</code></td>
+<td>Requests hitting wrong vhost</td>
 </tr>
 <tr>
-<td><strong>SOAP Handling</strong></td>
-<td>Full SOAP envelope processing</td>
-<td>Minimal dummy envelope (bypassed)</td>
-</tr>
-<tr>
-<td><strong>Performance</strong></td>
-<td>Slower (JSON↔AXIOM conversion)</td>
-<td>Faster (direct JSON processing)</td>
-</tr>
-<tr>
-<td><strong>Recommendation</strong></td>
-<td>Legacy/backward compatibility</td>
-<td><strong>Recommended for new development</strong></td>
+<td>Axis2/C log</td>
+<td><code>/var/log/axis2c/axis2.log</code></td>
+<td>Service loading, transport init, worker creation</td>
 </tr>
 </tbody>
 </table>
-<h2 id="architecture-diagrams">Architecture Diagrams<a class="headerlink" href="#architecture-diagrams" title="Permanent link">&para;</a></h2>
-<h3 id="http11-json-processing-path">HTTP/1.1 JSON Processing Path<a class="headerlink" href="#http11-json-processing-path" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────┐     ┌──────────────────────┐     ┌─────────────────┐     ┌─────────────┐
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│ JSON Input  │────▶│ axis2_json_reader.c  │────▶│ axiom_node_t*   │────▶│ SOAP/Engine │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│             │     │ (json-c parsing +    │     │ (XML tree)      │     │ Processing  │
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│             │     │  AXIOM conversion)   │     │                 │     │             │
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└─────────────┘     └──────────────────────┘     └─────────────────┘     └─────────────┘
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                              │
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                              ▼
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                    ┌──────────────────────┐
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    │ axis2_json_read_node │
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                    │ (recursive JSON→XML) │
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                    └──────────────────────┘
+<h2 id="quick-reference-diagnostic-commands">Quick Reference: Diagnostic Commands<a class="headerlink" href="#quick-reference-diagnostic-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Is Apache running and on which ports?</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>systemctl<span class="w"> </span>status<span class="w"> </span>apache2
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ss<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>apache2
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Which vhosts are active?</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>apache2ctl<span class="w"> </span>-S
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Which modules are loaded?</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>apache2ctl<span class="w"> </span>-M<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;ssl|http2|axis2&#39;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Test config syntax</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>apache2ctl<span class="w"> </span>configtest
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># Recent core dumps from Apache</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>coredumpctl<span class="w"> </span>list<span class="w"> </span>apache2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-5
 </code></pre></div>
-<p><strong>Key Functions:</strong>
-- <code>axis2_json_reader_create_for_memory()</code> - Creates reader from JSON string
-- <code>axis2_json_reader_read()</code> - Parses JSON and converts to AXIOM tree
-- <code>axis2_json_reader_get_root_node()</code> - Returns <code>axiom_node_t*</code> (NOT <code>json_object*</code>)</p>
-<h3 id="http2-json-processing-path">HTTP/2 JSON Processing Path<a class="headerlink" href="#http2-json-processing-path" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────┐     ┌──────────────────────┐     ┌─────────────────┐     ┌─────────────┐
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│ JSON Input  │────▶│ json_tokener_parse() │────▶│ json_object*    │────▶│ Service     │
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│             │     │ (direct json-c)      │     │ (native JSON)   │     │ Handler     │
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>└─────────────┘     └──────────────────────┘     └─────────────────┘     └─────────────┘
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                                                         │
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                                                         ▼
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                                               ┌─────────────────────┐
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                                               │ Minimal SOAP Envelope│
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                                               │ (framework compat,   │
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                                               │  processing bypassed)│
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                                               └─────────────────────┘
+<hr />
+<h2 id="problem-1-apache-starts-but-nothing-listens-curl-returns-000">Problem 1: Apache Starts but Nothing Listens / Curl Returns 000<a class="headerlink" href="#problem-1-apache-starts-but-nothing-listens-curl-returns-000" title="Permanent link">&para;</a></h2>
+<p><strong>Symptoms:</strong>
+- <code>systemctl status apache2</code> shows active
+- <code>curl -k https://localhost/</code> returns empty or 000
+- <code>access.log</code> is empty</p>
+<p><strong>Diagnosis:</strong> Check if the SSL vhost is actually loaded.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>apache2ctl<span class="w"> </span>-S
 </code></pre></div>
-<p><strong>Key Functions:</strong>
-- <code>json_tokener_parse()</code> - Direct json-c parsing
-- <code>axis2_h2_transport_utils_process_http_post_request()</code> - HTTP/2 JSON handler
-- No AXIOM conversion - JSON stays as <code>json_object*</code></p>
-<h2 id="performance-comparison">Performance Comparison<a class="headerlink" href="#performance-comparison" title="Permanent link">&para;</a></h2>
-<h3 id="http11-json-overhead">HTTP/1.1 JSON Overhead<a class="headerlink" href="#http11-json-overhead" title="Permanent link">&para;</a></h3>
-<p>The HTTP/1.1 path incurs significant overhead because:</p>
-<ol>
-<li><strong>Double Parsing</strong>: JSON is parsed by json-c, then converted to AXIOM XML</li>
-<li><strong>Memory Allocation</strong>: AXIOM tree requires additional memory for XML nodes</li>
-<li><strong>Recursive Conversion</strong>: <code>axis2_json_read_node()</code> recursively builds XML tree</li>
-<li><strong>Type Mapping</strong>: JSON types must be mapped to AXIOM element types</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* HTTP/1.1: JSON → AXIOM conversion (axis2_json_reader.c) */</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">axis2_status_t</span><span class="w"> </span><span class="nf">axis2_json_read_node</span><span class="p">(</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">json_object</span><span class="o">*</span><span class="w"> </span><span class="n">parent</span><span class="p">,</span><span class="w">      </span><span class="cm">/* Input: JSON object */</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">axiom_node_t</span><span class="o">**</span><span class="w"> </span><span class="n">om_node</span><span class="p">,</span><span class="w">   </span><span class="cm">/* Output: AXIOM XML node */</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">axutil_env_t</span><span class="o">*</span><span class="w"> </span><span class="n">env</span><span class="p">)</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="cm">/* Recursive conversion of every JSON element to XML */</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">json_object_object_foreach</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="cm">/* Create AXIOM element for each JSON key */</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="cm">/* Recursively process nested objects/arrays */</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+<p>If only the port 80 vhost appears and the port 443 vhost is missing:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Is the site config file present?</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ls<span class="w"> </span>/etc/apache2/sites-available/axis2-services.conf
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Is it enabled (symlinked)?</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>ls<span class="w"> </span>/etc/apache2/sites-enabled/<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>axis2
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Enable it</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>a2ensite<span class="w"> </span>axis2-services
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>apache2ctl<span class="w"> </span>configtest<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
 </code></pre></div>
-<h3 id="http2-json-efficiency">HTTP/2 JSON Efficiency<a class="headerlink" href="#http2-json-efficiency" title="Permanent link">&para;</a></h3>
-<p>The HTTP/2 path eliminates conversion overhead:</p>
-<ol>
-<li><strong>Single Parse</strong>: JSON is parsed once by json-c</li>
-<li><strong>Native Access</strong>: Services access <code>json_object*</code> directly</li>
-<li><strong>No Conversion</strong>: No AXIOM tree creation</li>
-<li><strong>Minimal Envelope</strong>: Dummy SOAP envelope satisfies framework without processing</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* HTTP/2: Direct JSON processing (axis2_h2_transport_utils.c) */</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">axis2_status_t</span><span class="w"> </span><span class="nf">axis2_h2_transport_utils_process_http_post_request</span><span class="p">(</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">axutil_env_t</span><span class="o">*</span><span class="w"> </span><span class="n">env</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">axutil_stream_t</span><span class="o">*</span><span class="w"> </span><span class="n">in_stream</span><span class="p">,</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">axis2_char_t</span><span class="o">*</span><span class="w"> </span><span class="n">content_type</span><span class="p">)</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">{</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="cm">/* Parse JSON directly - no conversion */</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">json_obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json_tokener_parse</span><span class="p">(</span><span class="n">json_string</span><span class="p">);</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="cm">/* Service receives json_object* directly */</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="cm">/* No AXIOM overhead */</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+<p><strong>Root cause:</strong> The site config was never copied to <code>sites-available/</code> or
+<code>a2ensite</code> was never run. The deploy script copies from the source tree —
+if the file isn't committed to git, it won't exist on the target machine.</p>
+<hr />
+<h2 id="problem-2-tls-handshake-bytes-in-port-80-log">Problem 2: TLS Handshake Bytes in Port 80 Log<a class="headerlink" href="#problem-2-tls-handshake-bytes-in-port-80-log" title="Permanent link">&para;</a></h2>
+<p><strong>Symptom:</strong> <code>other_vhosts_access.log</code> shows:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>axis2c.example.com:80 127.0.0.1 - - [...] &quot;\x16\x03\x01\x02&quot; 400 499
+</code></pre></div></p>
+<p><strong>What it means:</strong> <code>\x16\x03\x01</code> is a TLS ClientHello hitting the plain
+HTTP port 80 vhost. The client is sending HTTPS but there is no port 443
+listener, so the connection fails and may fall through to port 80.</p>
+<p><strong>Fix:</strong> Ensure <code>mod_ssl</code> is loaded and the 443 vhost is active:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>a2enmod<span class="w"> </span>ssl
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>apache2ctl<span class="w"> </span>-S<span class="w">   </span><span class="c1"># should show *:443 vhost</span>
+</code></pre></div></p>
+<hr />
+<h2 id="problem-3-ocsp-stapling-errors-with-self-signed-certificates">Problem 3: OCSP Stapling Errors with Self-Signed Certificates<a class="headerlink" href="#problem-3-ocsp-stapling-errors-with-self-signed-certificates" title="Permanent link">&para;</a></h2>
+<p><strong>Symptom in error.log:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>AH02217: ssl_stapling_init_cert: can&#39;t retrieve issuer certificate!
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>AH02604: Unable to configure certificate for stapling
+</code></pre></div></p>
+<p><strong>What it means:</strong> <code>SSLUseStapling on</code> requires a CA-signed certificate
+with an OCSP responder URL. Self-signed certificates have no issuer to
+query for stapling.</p>
+<p><strong>Fix:</strong> Disable OCSP stapling in the vhost config:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c"># SSLUseStapling on</span>
+</code></pre></div></p>
+<p>Re-enable when switching to a CA-signed certificate (e.g., Let's Encrypt).</p>
+<hr />
+<h2 id="problem-4-transport-sender-is-null-worker-creation-fails">Problem 4: "Transport sender is NULL" — Worker Creation Fails<a class="headerlink" href="#problem-4-transport-sender-is-null-worker-creation-fails" title="Permanent link">&para;</a></h2>
+<p><strong>Symptom in axis2.log:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Loading shared library libaxis2_http_sender.so Failed. No such file or directory
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Transport sender is NULL for transport http, unable to continue
+</code></pre></div></p>
+<p><strong>Symptom in error.log:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[Axis2] Error creating mod_axis2 apache2 worker
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Child returned a Fatal error... Apache is exiting!
+</code></pre></div></p>
+<p><strong>What it means:</strong> <code>axis2.xml</code> references <code>axis2_http_sender</code> and
+<code>axis2_http_receiver</code>, which map to shared libraries. In HTTP/2 mode these
+libraries are intentionally <strong>not built</strong> — Apache httpd handles all
+transport via <code>mod_axis2</code> (see <code>docs/HTTP2_CONDITIONAL_COMPILATION.md</code>).</p>
+<p><strong>Fix:</strong> Comment out the <code>&lt;transportSender&gt;</code> and <code>&lt;transportReceiver&gt;</code>
+blocks in <code>axis2.xml</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">&lt;!--transportSender name=&quot;http&quot; class=&quot;axis2_http_sender&quot;&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="cm">    ...</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="cm">&lt;/transportSender--&gt;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="cm">&lt;!--transportReceiver name=&quot;http&quot; class=&quot;axis2_http_receiver&quot;&gt;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="cm">    ...</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="cm">&lt;/transportReceiver--&gt;</span>
+</code></pre></div></p>
+<p>The source-controlled copy is <code>samples/server/axis2.xml</code>. After editing,
+run <code>make install</code> to propagate to <code>$(prefix)/share/axis2c/axis2.xml</code>.</p>
+<p>See also: <code>docs/HTTP2_AXIS2_DOT_XML.md</code></p>
+<hr />
+<h2 id="problem-5-child-process-segfault-sigsegv-loop">Problem 5: Child Process Segfault (SIGSEGV) Loop<a class="headerlink" href="#problem-5-child-process-segfault-sigsegv-loop" title="Permanent link">&para;</a></h2>
+<p><strong>Symptom in error.log:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>child pid NNNNN exit signal Segmentation fault (11), possible coredump in /etc/apache2
+</code></pre></div></p>
+<p>The parent process stays alive, keeps spawning children that immediately
+crash — Apache appears "running" but serves no requests.</p>
+<h3 id="getting-a-backtrace">Getting a Backtrace<a class="headerlink" href="#getting-a-backtrace" title="Permanent link">&para;</a></h3>
+<p>On systemd systems, core dumps are captured by <code>systemd-coredump</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># List recent Apache crashes</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>coredumpctl<span class="w"> </span>list<span class="w"> </span>apache2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-10
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Show crash info including stack trace</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>coredumpctl<span class="w"> </span>info<span class="w"> </span>apache2<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-80
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Full GDB backtrace (if debug symbols available)</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>coredumpctl<span class="w"> </span>debug<span class="w"> </span>apache2<span class="w"> </span>--debugger<span class="o">=</span>gdb<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span>--debugger-arguments<span class="o">=</span><span class="s2">&quot;-batch -ex &#39;bt full&#39; -ex &#39;quit&#39;&quot;</span>
 </code></pre></div>
-<h2 id="the-dummy-soap-envelope-architecture">The Dummy SOAP Envelope Architecture<a class="headerlink" href="#the-dummy-soap-envelope-architecture" title="Permanent link">&para;</a></h2>
-<p>HTTP/2 mode uses a "dummy SOAP envelope" pattern (similar to Axis2/Java):</p>
-<ol>
-<li><strong>Framework Compatibility</strong>: Axis2/C core expects SOAP message context</li>
-<li><strong>Minimal Overhead</strong>: Empty/minimal envelope created for framework satisfaction</li>
-<li><strong>Processing Bypass</strong>: <code>IS_JSON_STREAM=true</code> flag signals JSON-only mode</li>
-<li><strong>Direct Access</strong>: JSON Message Receiver bypasses SOAP processing entirely</li>
-</ol>
-<p>This achieves framework compatibility with near-zero overhead.</p>
-<h2 id="when-to-use-each-path">When to Use Each Path<a class="headerlink" href="#when-to-use-each-path" title="Permanent link">&para;</a></h2>
-<h3 id="use-http2-json-recommended">Use HTTP/2 JSON (Recommended)<a class="headerlink" href="#use-http2-json-recommended" title="Permanent link">&para;</a></h3>
-<ul>
-<li>New service development</li>
-<li>High-performance JSON APIs</li>
-<li>RESTful services</li>
-<li>Microservices architecture</li>
-<li>Large payload processing</li>
-<li>HTTP/2 multiplexed streams</li>
-</ul>
-<h3 id="use-http11-json-legacy">Use HTTP/1.1 JSON (Legacy)<a class="headerlink" href="#use-http11-json-legacy" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Existing services requiring backward compatibility</li>
-<li>Integration with systems that only support HTTP/1.1</li>
-<li>When AXIOM/XML interoperability is needed</li>
-<li>Legacy deployment environments</li>
-</ul>
-<h2 id="history-and-rationale">History and Rationale<a class="headerlink" href="#history-and-rationale" title="Permanent link">&para;</a></h2>
-<h3 id="http11-json-support">HTTP/1.1 JSON Support<a class="headerlink" href="#http11-json-support" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Origin</strong>: Community contributed feature (original Axis2/C JSON support)</li>
-<li><strong>Design</strong>: Built on top of existing AXIOM infrastructure</li>
-<li><strong>Trade-off</strong>: Easier integration with existing code, but performance penalty</li>
-<li><strong>Status</strong>: Maintained for backward compatibility, not recommended for new development</li>
-</ul>
-<h3 id="http2-json-support">HTTP/2 JSON Support<a class="headerlink" href="#http2-json-support" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Origin</strong>: HTTP/2 Pure JSON Architecture redesign</li>
-<li><strong>Design</strong>: Direct json-c usage with minimal SOAP envelope</li>
-<li><strong>Trade-off</strong>: Better performance, requires HTTP/2 infrastructure</li>
-<li><strong>Status</strong>: Recommended for all new JSON service development</li>
-</ul>
-<h2 id="fuzzer-coverage">Fuzzer Coverage<a class="headerlink" href="#fuzzer-coverage" title="Permanent link">&para;</a></h2>
-<p>Both JSON paths are tested by dedicated fuzzers:</p>
+<p>If <code>coredumpctl</code> is not available, enable manual core dumps:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Set core dump pattern and size limit</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;/tmp/core.%e.%p&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/proc/sys/kernel/core_pattern
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">ulimit</span><span class="w"> </span>-c<span class="w"> </span>unlimited
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># Note: systemctl-started processes inherit systemd&#39;s limits, not the shell&#39;s.</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># For systemd services, edit the unit override:</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>systemctl<span class="w"> </span>edit<span class="w"> </span>apache2
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># Add:</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1">#   [Service]</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1">#   LimitCORE=infinity</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>sleep<span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>ls<span class="w"> </span>/tmp/core.apache2.*
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="c1"># Analyze with GDB</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>gdb<span class="w"> </span>/usr/sbin/apache2<span class="w"> </span>/tmp/core.apache2.*<span class="w"> </span>-batch<span class="w"> </span>-ex<span class="w"> </span><span class="s1">&#39;bt full&#39;</span><span class="w"> </span>-ex<span class="w"> </span><span class="s1">&#39;quit&#39;</span>
+</code></pre></div></p>
+<h3 id="common-segfault-axis2_get_instance-signature-mismatch">Common Segfault: axis2_get_instance Signature Mismatch<a class="headerlink" href="#common-segfault-axis2_get_instance-signature-mismatch" title="Permanent link">&para;</a></h3>
+<p><strong>Stack trace pattern:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>#0  axis2_svc_create (libaxis2_engine.so)
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>#1  axis2_&lt;servicename&gt;_create (lib&lt;servicename&gt;.so)
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>#2  axutil_class_loader_create_dll (libaxutil.so)
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>#3  axis2_msg_recv_load_and_init_svc_impl (libaxis2_engine.so)
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>#4  axis2_apache2_worker_create (libmod_axis2.so)
+</code></pre></div></p>
+<p><strong>Root cause:</strong> The service's <code>axis2_get_instance</code> function has the wrong
+signature. The class loader (<code>axutil_class_loader_create_dll</code>) calls it as:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// Expected signature (CREATE_FUNCT from axutil_dll_desc.h):</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">axis2_get_instance</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">**</span><span class="n">inst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">axutil_env_t</span><span class="w"> </span><span class="o">*</span><span class="n">env</span><span class="p">);</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1">// Called as:</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">create_funct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">);</span>
+</code></pre></div>
+<p>If the service instead exports:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// WRONG — causes segfault:</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">axis2_svc_t</span><span class="o">*</span><span class="w"> </span><span class="nf">axis2_get_instance</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">axutil_env_t</span><span class="w"> </span><span class="o">*</span><span class="n">env</span><span class="p">);</span>
+</code></pre></div></p>
+<p>Then <code>&amp;obj</code> (a <code>void**</code>) is misinterpreted as <code>env</code>, and the real <code>env</code>
+goes to an unused parameter slot. Any dereference of <code>env</code> inside the
+service (e.g., <code>env-&gt;allocator</code> in <code>axis2_svc_create</code>) segfaults.</p>
+<p><strong>Fix:</strong> Match the <code>CREATE_FUNCT</code> / <code>DELETE_FUNCT</code> typedefs exactly:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">AXIS2_EXTERN</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">AXIS2_CALL</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">axis2_get_instance</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">**</span><span class="n">inst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">axutil_env_t</span><span class="w"> </span><span class="o">*</span><span class="n">env</span><span class="p">)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">{</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="o">*</span><span class="n">inst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_my_service_create</span><span class="p">(</span><span class="n">env</span><span class="p">);</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="n">inst</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">AXIS2_FAILURE</span><span class="p">;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">AXIS2_SUCCESS</span><span class="p">;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="p">}</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="n">AXIS2_EXTERN</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">AXIS2_CALL</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="n">axis2_remove_instance</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">inst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">axutil_env_t</span><span class="w"> </span><span class="o">*</span><span class="n">env</span><span class="p">)</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="p">{</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">    </span><span class="n">axis2_svc_t</span><span class="w"> </span><span class="o">*</span><span class="n">svc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">axis2_svc_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">inst</span><span class="p">;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">svc</span><span class="p">)</span><span class="w"> </span><span class="n">axis2_svc_free</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">);</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">AXIS2_SUCCESS</span><span class="p">;</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Alternative approach:</strong> Some services (e.g., <code>bigdata-h2-service</code>,
+<code>login-service</code>, <code>testws-service</code>) avoid this trap entirely by <strong>not
+exporting <code>axis2_get_instance</code></strong>. They rely solely on the <code>ServiceClass</code>
+parameter in <code>services.xml</code> and the <code>_invoke_json</code> dlsym lookup path in
+the <code>JsonRpcMessageReceiver</code>. This sidesteps the <code>CREATE_FUNCT</code> signature
+requirement altogether. Only export <code>axis2_get_instance</code> / <code>axis2_remove_instance</code>
+if your service needs custom initialization during worker startup.</p>
+<hr />
+<h2 id="problem-6-apache-module-not-found-at-install-time">Problem 6: Apache Module Not Found at Install Time<a class="headerlink" href="#problem-6-apache-module-not-found-at-install-time" title="Permanent link">&para;</a></h2>
+<p><strong>Symptom during <code>make install</code>:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Neither mod_axis2.so nor libmod_axis2.so found at /usr/local/apache2/modules/
+</code></pre></div></p>
+<p><strong>What it means:</strong> The Makefile.am <code>apachemoddir</code> is set to a path that
+doesn't exist. Source-built Apache uses <code>/usr/local/apache2/modules/</code>;
+packaged Apache uses system paths.</p>
+<p><strong>Fix:</strong> Set <code>apachemoddir = @prefix@/lib</code> in
+<code>src/core/transport/http/server/apache2/Makefile.am</code>, then <code>autoreconf -fiv</code>
+and rebuild. The <code>axis2-services.conf</code> loads the module from
+<code>/usr/local/axis2c/lib/libmod_axis2.so</code> which matches <code>--prefix=/usr/local/axis2c</code>.</p>
+<hr />
+<h2 id="problem-7-json-c-version-incompatibility">Problem 7: json-c Version Incompatibility<a class="headerlink" href="#problem-7-json-c-version-incompatibility" title="Permanent link">&para;</a></h2>
+<p><strong>Symptom during <code>make</code>:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>error: &#39;json_tokener_error_memory&#39; undeclared
+</code></pre></div></p>
+<p><strong>What it means:</strong> The code uses <code>json_tokener_error_memory</code> which was
+added in json-c <strong>0.17</strong>, but the version guard checks for <code>&gt;= 0.14</code>.
+Ubuntu 22.04 ships json-c 0.15 which passes the guard but lacks the enum.</p>
+<p><strong>Fix:</strong> In <code>src/core/transport/http/util/axis2_json_reader.c</code>, change the
+version guard for <code>json_tokener_error_memory</code> and <code>json_tokener_error_size</code>
+from <code>(14 &lt;&lt; 8)</code> to <code>(17 &lt;&lt; 8)</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="cp">#if defined(JSON_C_VERSION_NUM) &amp;&amp; JSON_C_VERSION_NUM &gt;= ((0 &lt;&lt; 16) | (17 &lt;&lt; 8))</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">json_tokener_error_memory</span><span class="p">:</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;error_memory&quot;</span><span class="p">;</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">json_tokener_error_size</span><span class="p">:</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;error_size&quot;</span><span class="p">;</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="cp">#endif</span>
+</code></pre></div>
+<hr />
+<h2 id="problem-8-post-restart-health-check-passes-but-service-crashes">Problem 8: Post-Restart Health Check Passes but Service Crashes<a class="headerlink" href="#problem-8-post-restart-health-check-passes-but-service-crashes" title="Permanent link">&para;</a></h2>
+<p><strong>Symptom:</strong> The deploy script reports "Apache is running" but verification
+curls all return 000.</p>
+<p><strong>What it means:</strong> Apache's parent process starts successfully (passes
+<code>systemctl is-active</code> check), but child processes crash during worker
+initialization. With <code>mpm_event</code>, the parent keeps trying to spawn children,
+creating a crash loop visible in <code>error.log</code>.</p>
+<p><strong>Diagnosis:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># The parent is alive but children are dying</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>tail<span class="w"> </span>-20<span class="w"> </span>/var/log/apache2/error.log<span class="w">   </span><span class="c1"># look for &quot;Child returned a Fatal error&quot;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>tail<span class="w"> </span>-20<span class="w"> </span>/var/log/axis2c/axis2.log<span class="w">    </span><span class="c1"># look for loading errors before the crash</span>
+</code></pre></div></p>
+<p><strong>Common causes (in order of likelihood):</strong>
+1. Missing transport libs in <code>axis2.xml</code> (Problem 4)
+2. Service DLL signature mismatch (Problem 5)
+3. Missing service shared libraries
+4. Corrupt <code>axis2.xml</code> (syntax errors)</p>
+<hr />
+<h2 id="problem-9-request-path-segfault-null-transport-descriptor">Problem 9: Request-Path Segfault — NULL Transport Descriptor<a class="headerlink" href="#problem-9-request-path-segfault-null-transport-descriptor" title="Permanent link">&para;</a></h2>
+<p><strong>Symptom:</strong> Worker init succeeds (axis2.log shows "Axis2 worker created")
+but Apache child crashes on the first incoming request.</p>
+<p><strong>Stack trace pattern (from <code>coredumpctl info</code>):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>#0  axis2_transport_in_desc_get_recv (libaxis2_engine.so)
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>#1  axis2_apache2_worker_process_request (libmod_axis2.so)
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>#2  axis2_handler (libmod_axis2.so)
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>#3  ap_run_handler (apache2)
+</code></pre></div></p>
+<p><strong>Root cause:</strong> In <code>apache2_worker.c</code>, the request processing path calls:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">in_desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_conf_get_transport_in</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="n">AXIS2_TRANSPORT_ENUM_HTTP</span><span class="p">);</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="c1">// in_desc is NULL because transportReceiver is commented out in axis2.xml</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">receiver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_transport_in_desc_get_recv</span><span class="p">(</span><span class="n">in_desc</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">);</span><span class="w">  </span><span class="c1">// SEGFAULT</span>
+</code></pre></div></p>
+<p>When <code>transportReceiver</code> is absent from <code>axis2.xml</code> (correct for HTTP/2
+mode), <code>axis2_conf_get_transport_in()</code> returns NULL. The code then passes
+NULL to <code>axis2_transport_in_desc_get_recv()</code> which dereferences it.</p>
+<p><strong>Fix:</strong> NULL-guard the transport descriptor before use:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">if</span><span class="p">(</span><span class="n">in_desc</span><span class="p">)</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="p">{</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="n">receiver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axis2_transport_in_desc_get_recv</span><span class="p">(</span><span class="n">in_desc</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">);</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">receiver</span><span class="p">)</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">        </span><span class="n">axis2_transport_receiver_set_server_ip</span><span class="p">(</span><span class="n">receiver</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Key insight:</strong> There are <strong>two separate crash points</strong> when removing
+transport config from axis2.xml — one during init (Problem 4: "Transport
+sender is NULL") and one during request handling (this problem). Fixing
+Problem 4 alone is not sufficient; the request path must also tolerate
+NULL transport descriptors.</p>
+<hr />
+<h2 id="problem-10-operation-not-found-for-valid-service">Problem 10: "Operation Not Found" for Valid Service<a class="headerlink" href="#problem-10-operation-not-found-for-valid-service" title="Permanent link">&para;</a></h2>
+<p><strong>Symptom in axis2.log:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Operation Not found. Endpoint reference is : /services/MyService/someOperation
+</code></pre></div></p>
+<p><strong>Symptom in response:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">{</span><span class="nt">&quot;error&quot;</span><span class="p">:{</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;Service processing failed&quot;</span><span class="p">,</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">500</span><span class="p">}}</span>
+</code></pre></div></p>
+<p><strong>What it means:</strong> The service is loaded and running, but the operation
+name in the URL path doesn't match any <code>&lt;operation name="..."&gt;</code> in
+<code>services.xml</code>.</p>
+<p><strong>Diagnosis:</strong> Check what operations are actually registered:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>grep<span class="w"> </span><span class="s1">&#39;&lt;operation name=&#39;</span><span class="w"> </span>/usr/local/axis2c/services/MyService/services.xml
+</code></pre></div></p>
+<p><strong>Common causes:</strong>
+- URL uses a different operation name than what's in <code>services.xml</code>
+- The test/deploy script uses a placeholder operation name (e.g., <code>benchmark</code>)
+  that was never defined
+- Case sensitivity mismatch</p>
+<hr />
+<h2 id="packaged-apache-vs-source-built-apache">Packaged Apache vs Source-Built Apache<a class="headerlink" href="#packaged-apache-vs-source-built-apache" title="Permanent link">&para;</a></h2>
+<p>Many issues stem from path differences between these two environments:</p>
 <table>
 <thead>
 <tr>
-<th>Fuzzer</th>
-<th>Tests</th>
-<th>Entry Point</th>
+<th>Component</th>
+<th>Packaged (Debian/Ubuntu)</th>
+<th>Source-built</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>fuzz_json_reader</code></td>
-<td>HTTP/1.1 JSON→AXIOM</td>
-<td><code>axis2_json_reader_create_for_memory()</code></td>
+<td>Binary</td>
+<td><code>/usr/sbin/apache2</code></td>
+<td><code>/usr/local/apache2/bin/httpd</code></td>
 </tr>
 <tr>
-<td><code>fuzz_json_parser</code></td>
-<td>HTTP/2 direct json-c</td>
-<td><code>json_tokener_parse()</code></td>
+<td>Modules dir</td>
+<td><code>/usr/lib/apache2/modules/</code></td>
+<td><code>/usr/local/apache2/modules/</code></td>
+</tr>
+<tr>
+<td>Config dir</td>
+<td><code>/etc/apache2/</code></td>
+<td><code>/usr/local/apache2/conf/</code></td>
+</tr>
+<tr>
+<td>Site management</td>
+<td><code>a2ensite</code> / <code>a2dissite</code></td>
+<td>Manual <code>Include</code> directives</td>
+</tr>
+<tr>
+<td>Module management</td>
+<td><code>a2enmod</code> / <code>a2dismod</code></td>
+<td><code>LoadModule</code> in httpd.conf</td>
+</tr>
+<tr>
+<td>mod_http2 name</td>
+<td><code>mod_http2.so</code> (<code>a2enmod http2</code>)</td>
+<td><code>mod_h2.so</code></td>
+</tr>
+<tr>
+<td>Service management</td>
+<td><code>systemctl restart apache2</code></td>
+<td><code>httpd -k restart</code></td>
 </tr>
 </tbody>
 </table>
-<p>See <code>fuzz/fuzz_json_reader.c</code> and <code>fuzz/fuzz_json_parser.c</code> for implementation details.</p>
+<p>The <code>deploy-localhost.sh</code> script and <code>axis2-services.conf</code> are designed for
+the <strong>packaged</strong> Apache. The individual service build scripts
+(<code>build_json_service.sh</code>, etc.) detect source-built Apache at
+<code>/usr/local/apache2</code> and configure it automatically; otherwise they skip
+module installation and defer to <code>deploy-localhost.sh</code>.</p>
+<hr />
 <h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../userguide/json-httpd-h2-userguide/">HTTP/2 JSON User Guide</a> - Deployment and testing</li>
-<li><a href="../AXIS2C_HTTP2_MIGRATION_STATE/">HTTP/2 Migration State</a> - Technical architecture details</li>
-<li><a href="../SECURITY/">Security Guide</a> - JSON security considerations</li>
+<li><code>docs/HTTP2_AXIS2_DOT_XML.md</code> — Why axis2.xml doesn't need HTTP/2 transport config</li>
+<li><code>docs/HTTP2_CONDITIONAL_COMPILATION.md</code> — What's built/excluded in HTTP/2 mode</li>
+<li><code>docs/HTTP2_LIBRARY_LOADING.md</code> — How Axis2/C loads service shared libraries</li>
+<li><code>docs/HTTP2_APACHE2_WORKER.md</code> — Apache worker initialization details</li>
+<li><code>docs/userguide/json-httpd-h2-userguide.md</code> — Full deployment guide</li>
 </ul>
 
 

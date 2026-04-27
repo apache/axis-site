@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -1485,6 +1485,89 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#streaming-and-field-filtering-java-vs-c-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming and Field Filtering: Java vs C Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Streaming and Field Filtering: Java vs C Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-serialization-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Serialization Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http2-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/2 Streaming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-filtering-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Filtering (?fields=)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-the-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why the Difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reusability-path-for-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reusability Path for C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parity-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parity Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2893,6 +2976,89 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#streaming-and-field-filtering-java-vs-c-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming and Field Filtering: Java vs C Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Streaming and Field Filtering: Java vs C Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-serialization-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Serialization Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http2-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP/2 Streaming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-filtering-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Filtering (?fields=)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-the-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why the Difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reusability-path-for-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reusability Path for C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parity-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parity Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2921,7 +3087,7 @@
 <p>Unlike Axis2/Java, <strong>Axis2/C automatically detects and handles HTTP/2 with JSON content without requiring any axis2.xml configuration changes</strong>. The request processing is determined at runtime through intelligent header analysis rather than static configuration.</p>
 <h2 id="axis2c-runtime-detection-approach">Axis2/C: Runtime Detection Approach<a class="headerlink" href="#axis2c-runtime-detection-approach" title="Permanent link">&para;</a></h2>
 <h3 id="automatic-protocol-and-content-type-detection">Automatic Protocol and Content-Type Detection<a class="headerlink" href="#automatic-protocol-and-content-type-detection" title="Permanent link">&para;</a></h3>
-<p>Axis2/C uses the <code>axis2_apache2_request_processor_is_json_http2_request()</code> function in <code>/home/robert/repos/axis-axis2-c-core/src/core/transport/http/server/apache2/axis2_apache2_request_processor_factory.c:253-283</code> to automatically detect:</p>
+<p>Axis2/C uses the <code>axis2_apache2_request_processor_is_json_http2_request()</code> function in <code>src/core/transport/http/server/apache2/axis2_apache2_request_processor_factory.c</code> to automatically detect:</p>
 <ol>
 <li><strong>HTTP/2 Protocol Detection</strong>: Checks <code>request-&gt;protocol</code> for "HTTP/2" or "HTTP/2.0" strings</li>
 <li><strong>JSON Content-Type Detection</strong>: Analyzes Content-Type header for:</li>
@@ -2980,7 +3146,7 @@
 <p>No axis2.xml configuration is needed - the system automatically routes to the appropriate processor.</p>
 <h2 id="axis2java-static-configuration-approach">Axis2/Java: Static Configuration Approach<a class="headerlink" href="#axis2java-static-configuration-approach" title="Permanent link">&para;</a></h2>
 <h3 id="why-axis2java-requires-axis2xml-changes">Why Axis2/Java Requires axis2.xml Changes<a class="headerlink" href="#why-axis2java-requires-axis2xml-changes" title="Permanent link">&para;</a></h3>
-<p>Based on the Spring Boot user guide (<code>/home/robert/repos/axis-axis2-java-core/src/site/xdoc/docs/json-springboot-userguide.xml</code>), Axis2/Java requires explicit axis2.xml configuration because it uses a <strong>static configuration model</strong> where message processors are pre-configured rather than dynamically selected.</p>
+<p>Based on the Spring Boot user guide (<code>src/site/xdoc/docs/json-springboot-userguide.xml</code> in axis-axis2-java-core), Axis2/Java requires explicit axis2.xml configuration because it uses a <strong>static configuration model</strong> where message processors are pre-configured rather than dynamically selected.</p>
 <h3 id="required-axis2java-configuration-components">Required Axis2/Java Configuration Components<a class="headerlink" href="#required-axis2java-configuration-components" title="Permanent link">&para;</a></h3>
 <h4 id="1-message-formatters">1. Message Formatters<a class="headerlink" href="#1-message-formatters" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;message</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;requestMessage&quot;</span><span class="nt">&gt;</span>
@@ -3086,6 +3252,168 @@
 </ul>
 <p>This makes Axis2/C significantly easier to deploy for HTTP/2 and JSON scenarios while maintaining full backward compatibility with existing SOAP services. The intelligent request processor factory ensures that each request type gets appropriate handling without any manual configuration.</p>
 <p>For HTTP/2 and JSON support, developers can focus on service implementation rather than configuration management, as the framework handles protocol and content-type detection transparently.</p>
+<h2 id="streaming-and-field-filtering-java-vs-c-architecture">Streaming and Field Filtering: Java vs C Architecture<a class="headerlink" href="#streaming-and-field-filtering-java-vs-c-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="json-serialization-model">JSON Serialization Model<a class="headerlink" href="#json-serialization-model" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Axis2/Java</th>
+<th>Axis2/C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Serialization</strong></td>
+<td>Streaming — Moshi/GSON writes fields directly to a <code>JsonWriter</code> backed by an <code>OutputStream</code>. No intermediate tree.</td>
+<td>Tree — json-c builds a <code>json_object*</code> in memory, then <code>json_object_to_json_string()</code> serializes the whole tree at once.</td>
+</tr>
+<tr>
+<td><strong>Memory profile</strong></td>
+<td>Only the current field's value is in memory during serialization. A 50 MB response never exists as a 50 MB buffer.</td>
+<td>The full json-c tree is in memory before serialization. For typical responses (1-10 KB) this is negligible; for large responses Java is more memory-efficient.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="http2-streaming">HTTP/2 Streaming<a class="headerlink" href="#http2-streaming" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Axis2/Java</th>
+<th>Axis2/C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mechanism</strong></td>
+<td><code>FlushingOutputStream</code> wraps the transport <code>OutputStream</code> and flushes every 64 KB. The flush happens DURING Moshi/GSON serialization — each field written eventually triggers a flush, converting one buffered response into a stream of HTTP/2 DATA frames.</td>
+<td><code>ap_rflush(r)</code> called periodically during response generation via Apache httpd <code>mod_h2</code>. Achieves similar chunked delivery but is manual — each service must call <code>ap_rflush()</code> at the right points in its serialization code.</td>
+</tr>
+<tr>
+<td><strong>Scope</strong></td>
+<td>Framework-level — configure <code>MoshiStreamingMessageFormatter</code> in <code>axis2.xml</code> and ALL services get 64 KB streaming automatically.</td>
+<td>Service-level — each service decides when to flush. The financial benchmark service uses the same 64 KB interval as Java.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="field-filtering-fields">Field Filtering (<code>?fields=</code>)<a class="headerlink" href="#field-filtering-fields" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Axis2/Java</th>
+<th>Axis2/C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Approach</strong></td>
+<td>True streaming (Option C): reflection-based selective serialization inside <code>MoshiStreamingMessageFormatter.writeFilteredObject()</code>. Non-selected fields are NEVER serialized, never buffered, never written to the wire.</td>
+<td>Post-build tree filtering: json-c builds the full <code>json_object*</code> tree, then <code>finbench_filter_json_response()</code> deletes unwanted keys via <code>json_object_object_del()</code>, then re-serializes. The full tree is briefly in memory.</td>
+</tr>
+<tr>
+<td><strong>Scope</strong></td>
+<td>Framework-level — <code>FieldFilteringMessageFormatter</code> wraps any <code>MessageFormatter</code>. Configure once in <code>axis2.xml</code>, all services get <code>?fields=</code> for free.</td>
+<td>Service-level — implemented in the financial benchmark service handler. Other C services would need their own filter call.</td>
+</tr>
+<tr>
+<td><strong>Code</strong></td>
+<td>~320 lines (<code>FieldFilteringMessageFormatter.java</code>) + ~100 lines added to <code>MoshiStreamingMessageFormatter.java</code>)</td>
+<td>~60 lines in <code>financial_benchmark_service_handler.c</code> (<code>finbench_extract_fields_param</code> + <code>finbench_filter_json_response</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-the-difference">Why the Difference<a class="headerlink" href="#why-the-difference" title="Permanent link">&para;</a></h3>
+<p>Axis2/Java has a <strong>pluggable message formatter pipeline</strong> in the kernel.
+<code>MessageFormatter</code> is an interface that the engine calls to serialize
+every outbound message. <code>FlushingOutputStream</code>, <code>FieldFilteringMessageFormatter</code>,
+and <code>MoshiStreamingMessageFormatter</code> all live in this pipeline. Any
+service deployed to any Axis2/Java instance gets these features by
+changing one line in <code>axis2.xml</code>.</p>
+<p>Axis2/C has <strong>no equivalent pluggable JSON formatter pipeline</strong>. The C
+architecture was designed for SOAP (Axiom / libxml2). JSON services
+bypass the SOAP pipeline entirely by handling serialization themselves
+— each service builds its own json-c tree and calls
+<code>json_object_to_json_string()</code>. This is simpler per-service but means
+streaming and field filtering must be implemented in each service's
+handler rather than once in the framework.</p>
+<h3 id="reusability-path-for-c">Reusability Path for C<a class="headerlink" href="#reusability-path-for-c" title="Permanent link">&para;</a></h3>
+<p>The <code>finbench_filter_json_response()</code> function is already generic —
+it operates on any JSON string using json-c and <code>axutil_strdup</code>. To
+make field filtering available to all Axis2/C JSON services:</p>
+<ol>
+<li>Move <code>finbench_extract_fields_param()</code> and
+   <code>finbench_filter_json_response()</code> into an <code>axutil</code> shared utility
+   (e.g., <code>axutil_json_field_filter.c</code>).</li>
+<li>In the JSON message receiver (<code>axis2_json_rpc_msg_recv</code>), check for
+   <code>?fields=</code> on the request URI and apply the filter to the outbound
+   JSON string before sending.</li>
+<li>This would give all Axis2/C JSON services field filtering without
+   per-service code — matching the Axis2/Java architecture.</li>
+</ol>
+<p>For now, the per-service approach in the financial benchmark handler is
+correct and KISS — it is ~60 lines of self-contained C that achieves
+feature parity with the Axis2/Java deployment.</p>
+<h3 id="parity-reference">Parity Reference<a class="headerlink" href="#parity-reference" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Axis2/Java</th>
+<th>Axis2/C</th>
+<th>Parity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTP/2 transport</td>
+<td><code>modules/transport-h2</code></td>
+<td><code>mod_h2</code> via Apache httpd</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>64 KB streaming flush</td>
+<td><code>FlushingOutputStream</code></td>
+<td><code>ap_rflush(r)</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>?fields=</code> response filtering</td>
+<td><code>FieldFilteringMessageFormatter</code></td>
+<td><code>finbench_filter_json_response()</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Pluggable for all services</td>
+<td>Yes (axis2.xml config)</td>
+<td>No (per-service)</td>
+<td>⚠️ Java ahead</td>
+</tr>
+<tr>
+<td>Streaming during serialization</td>
+<td>Yes (Moshi → Okio → flush)</td>
+<td>No (json-c tree → serialize)</td>
+<td>⚠️ Java ahead</td>
+</tr>
+<tr>
+<td>MCP tool catalog</td>
+<td><code>openapi-mcp.json</code> auto-generated</td>
+<td><code>mcp_catalog_handler.c</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Financial benchmark parity</td>
+<td>portfolioVariance, monteCarlo, scenarioAnalysis</td>
+<td>Same three services</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>See also:
+- <a href="https://github.com/apache/axis-axis2-java-core/blob/master/src/site/xdoc/docs/http2-integration-guide.xml">Axis2/Java HTTP/2 Integration Guide</a>
+- <a href="https://github.com/apache/axis-axis2-java-core/blob/master/modules/json/src/org/apache/axis2/json/streaming/FieldFilteringMessageFormatter.java">Axis2/Java FieldFilteringMessageFormatter</a>
+- <a href="https://github.com/apache/axis-axis2-java-core/blob/master/src/site/xdoc/docs/json-streaming-formatter.xml">Axis2/Java Streaming JSON Formatter</a></p>
 
 
 

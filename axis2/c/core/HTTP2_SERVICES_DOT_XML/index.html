@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -3120,46 +3120,52 @@
 </code></pre></div>
 <h3 id="6-json-processing-execution">6. JSON Processing Execution<a class="headerlink" href="#6-json-processing-execution" title="Permanent link">&para;</a></h3>
 <p>The <code>axis2_json_rpc_msg_recv</code> receiver (<code>src/core/receivers/axis2_json_rpc_msg_recv.c</code>):
-1. <strong>Bypasses AXIOM/SOAP</strong>: Revolutionary AXIOM-free processing
-2. <strong>Direct JSON Parsing</strong>: Uses json-c library for pure JSON processing
-3. <strong>Service Function Invocation</strong>: Directly calls the C service function
-4. <strong>JSON Response Generation</strong>: Returns JSON response without XML conversion</p>
+1. <strong>Bypasses AXIOM/SOAP</strong>: AXIOM-free processing
+2. <strong>Loads service .so</strong>: Uses <code>axutil_class_loader_create_dll()</code> via the <code>ServiceClass</code> parameter
+3. <strong>Resolves invoke function</strong>: Uses <code>dlsym(RTLD_DEFAULT, "&lt;serviceclass&gt;_invoke_json")</code> to find the service's JSON handler in the already-loaded .so
+4. <strong>Calls service function</strong>: Invokes the 4-param server-side signature:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">axis2_char_t</span><span class="o">*</span><span class="w"> </span><span class="o">&lt;</span><span class="n">serviceclass</span><span class="o">&gt;</span><span class="n">_invoke_json</span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">axis2_svc_t</span><span class="w"> </span><span class="o">*</span><span class="n">svc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">axutil_env_t</span><span class="w"> </span><span class="o">*</span><span class="n">env</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">axis2_char_t</span><span class="w"> </span><span class="o">*</span><span class="n">json_request</span><span class="p">,</span><span class="w"> </span><span class="n">axis2_msg_ctx_t</span><span class="w"> </span><span class="o">*</span><span class="n">msg_ctx</span><span class="p">);</span>
+</code></pre></div>
+5. <strong>JSON Response Generation</strong>: Returns the service's JSON response string directly</p>
+<p><strong>Android path</strong>: On Android (<code>__ANDROID__</code>), services are statically linked and use a 2-param signature via the static service registry instead of dlsym. See <code>docs/HTTP2_ANDROID.md</code>.</p>
 <h2 id="configuration-parameters-in-servicesxml">Configuration Parameters in services.xml<a class="headerlink" href="#configuration-parameters-in-servicesxml" title="Permanent link">&para;</a></h2>
 <h3 id="operation-level-messagereceiver">Operation-Level messageReceiver<a class="headerlink" href="#operation-level-messagereceiver" title="Permanent link">&para;</a></h3>
 <p>Each operation explicitly defines its message receiver:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;startRecording&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_json_rpc_msg_recv&quot;</span><span class="nt">/&gt;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">&lt;/operation&gt;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;stopRecording&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_json_rpc_msg_recv&quot;</span><span class="nt">/&gt;</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nt">&lt;/operation&gt;</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;getStatus&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_json_rpc_msg_recv&quot;</span><span class="nt">/&gt;</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="nt">&lt;/operation&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;startRecording&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_json_rpc_msg_recv&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">&lt;/operation&gt;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;stopRecording&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_json_rpc_msg_recv&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nt">&lt;/operation&gt;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;getStatus&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_json_rpc_msg_recv&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nt">&lt;/operation&gt;</span>
 </code></pre></div>
 <h3 id="http2-transport-configuration">HTTP/2 Transport Configuration<a class="headerlink" href="#http2-transport-configuration" title="Permanent link">&para;</a></h3>
 <p>Service-level HTTP/2 optimization parameters:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;transport.h2&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;enableHTTP2&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;enableStreaming&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;enableMemoryOptimization&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;maxFrameSize&quot;</span><span class="nt">&gt;</span>16384<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;maxConcurrentStreams&quot;</span><span class="nt">&gt;</span>50<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nt">&lt;/parameter&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;transport.h2&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;enableHTTP2&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;enableStreaming&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;enableMemoryOptimization&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;maxFrameSize&quot;</span><span class="nt">&gt;</span>16384<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;maxConcurrentStreams&quot;</span><span class="nt">&gt;</span>50<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nt">&lt;/parameter&gt;</span>
 </code></pre></div>
 <h3 id="json-processing-configuration">JSON Processing Configuration<a class="headerlink" href="#json-processing-configuration" title="Permanent link">&para;</a></h3>
 <p>Pure JSON processing without SOAP/XML dependencies:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;maxJSONPayloadSize&quot;</span><span class="nt">&gt;</span>1048576<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;jsonProcessingMode&quot;</span><span class="nt">&gt;</span>pure-jsonc<span class="nt">&lt;/parameter&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;maxJSONPayloadSize&quot;</span><span class="nt">&gt;</span>1048576<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;jsonProcessingMode&quot;</span><span class="nt">&gt;</span>pure-jsonc<span class="nt">&lt;/parameter&gt;</span>
 </code></pre></div>
 <h3 id="rest-style-http-mapping">REST-Style HTTP Mapping<a class="headerlink" href="#rest-style-http-mapping" title="Permanent link">&para;</a></h3>
 <p>Each operation can define HTTP-specific parameters:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpMethod&quot;</span><span class="nt">&gt;</span>POST<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpPath&quot;</span><span class="nt">&gt;</span>/startRecording<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;contentType&quot;</span><span class="nt">&gt;</span>application/json<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;responseType&quot;</span><span class="nt">&gt;</span>application/json<span class="nt">&lt;/parameter&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpMethod&quot;</span><span class="nt">&gt;</span>POST<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpPath&quot;</span><span class="nt">&gt;</span>/startRecording<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;contentType&quot;</span><span class="nt">&gt;</span>application/json<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;responseType&quot;</span><span class="nt">&gt;</span>application/json<span class="nt">&lt;/parameter&gt;</span>
 </code></pre></div>
 <h2 id="message-receiver-types-and-selection">Message Receiver Types and Selection<a class="headerlink" href="#message-receiver-types-and-selection" title="Permanent link">&para;</a></h2>
 <h3 id="axis2_json_rpc_msg_recv">axis2_json_rpc_msg_recv<a class="headerlink" href="#axis2_json_rpc_msg_recv" title="Permanent link">&para;</a></h3>
@@ -3220,36 +3226,36 @@
 ** Falls back to traditional processing for safety</p>
 <h2 id="advanced-configuration-multiple-message-receivers">Advanced Configuration: Multiple Message Receivers<a class="headerlink" href="#advanced-configuration-multiple-message-receivers" title="Permanent link">&para;</a></h2>
 <p>Services can define different message receivers for different operations:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;HybridService&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="cm">&lt;!-- JSON operation for modern HTTP/2 clients --&gt;</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;processJson&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">        </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_json_rpc_msg_recv&quot;</span><span class="nt">/&gt;</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;contentType&quot;</span><span class="nt">&gt;</span>application/json<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nt">&lt;/operation&gt;</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="cm">&lt;!-- SOAP operation for legacy HTTP/1.1 clients --&gt;</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;processSoap&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_raw_xml_in_out_msg_recv&quot;</span><span class="nt">/&gt;</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;contentType&quot;</span><span class="nt">&gt;</span>text/xml<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="nt">&lt;/operation&gt;</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="nt">&lt;/service&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&lt;service</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;HybridService&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="cm">&lt;!-- JSON operation for modern HTTP/2 clients --&gt;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;processJson&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_json_rpc_msg_recv&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;contentType&quot;</span><span class="nt">&gt;</span>application/json<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="nt">&lt;/operation&gt;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="cm">&lt;!-- SOAP operation for legacy HTTP/1.1 clients --&gt;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;processSoap&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_raw_xml_in_out_msg_recv&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;contentType&quot;</span><span class="nt">&gt;</span>text/xml<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="nt">&lt;/operation&gt;</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="nt">&lt;/service&gt;</span>
 </code></pre></div>
 <h2 id="implementation-details-axis2_json_rpc_msg_recv">Implementation Details: axis2_json_rpc_msg_recv<a class="headerlink" href="#implementation-details-axis2_json_rpc_msg_recv" title="Permanent link">&para;</a></h2>
 <h3 id="revolutionary-architecture">Revolutionary Architecture<a class="headerlink" href="#revolutionary-architecture" title="Permanent link">&para;</a></h3>
 <p>From <code>src/core/receivers/axis2_json_rpc_msg_recv.c:19-30</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/**</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="cm"> * @file axis2_json_rpc_msg_recv.c</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="cm"> * @brief Revolutionary JsonRpcMessageReceiver - AXIOM-FREE Core Framework Component</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="cm"> *</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="cm"> * This is the Axis2/C equivalent of Axis2/Java&#39;s JsonRpcMessageReceiver.</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="cm"> * Revolutionary: Completely bypasses AXIOM/SOAP - pure JSON processing only.</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="cm"> *</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="cm"> * Key Revolutionary Features:</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="cm"> * - Zero AXIOM dependencies (no XML processing at all)</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="cm"> * - Direct JSON-to-service-function invocation</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="cm"> * - Framework-level component (not service-specific)</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="cm"> * - HTTP/2 streaming optimized</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="cm"> */</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/**</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="cm"> * @file axis2_json_rpc_msg_recv.c</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="cm"> * @brief Revolutionary JsonRpcMessageReceiver - AXIOM-FREE Core Framework Component</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="cm"> *</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="cm"> * This is the Axis2/C equivalent of Axis2/Java&#39;s JsonRpcMessageReceiver.</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="cm"> * Revolutionary: Completely bypasses AXIOM/SOAP - pure JSON processing only.</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="cm"> *</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="cm"> * Key Revolutionary Features:</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="cm"> * - Zero AXIOM dependencies (no XML processing at all)</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="cm"> * - Direct JSON-to-service-function invocation</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="cm"> * - Framework-level component (not service-specific)</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="cm"> * - HTTP/2 streaming optimized</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="cm"> */</span>
 </code></pre></div>
 <h3 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
 <ol>
@@ -3268,24 +3274,24 @@
 <li><strong>Content Type Specification</strong>: Explicitly specify <code>application/json</code> content types</li>
 </ol>
 <h3 id="operation-definition">Operation Definition<a class="headerlink" href="#operation-definition" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;operationName&quot;</span><span class="nt">&gt;</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="nt">&lt;description&gt;</span>Clear<span class="w"> </span>description<span class="w"> </span>of<span class="w"> </span>operation<span class="w"> </span>functionality<span class="nt">&lt;/description&gt;</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_json_rpc_msg_recv&quot;</span><span class="nt">/&gt;</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpMethod&quot;</span><span class="nt">&gt;</span>POST<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpPath&quot;</span><span class="nt">&gt;</span>/operationName<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;contentType&quot;</span><span class="nt">&gt;</span>application/json<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;responseType&quot;</span><span class="nt">&gt;</span>application/json<span class="nt">&lt;/parameter&gt;</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="nt">&lt;/operation&gt;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">&lt;operation</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;operationName&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nt">&lt;description&gt;</span>Clear<span class="w"> </span>description<span class="w"> </span>of<span class="w"> </span>operation<span class="w"> </span>functionality<span class="nt">&lt;/description&gt;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">&lt;messageReceiver</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;axis2_json_rpc_msg_recv&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpMethod&quot;</span><span class="nt">&gt;</span>POST<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpPath&quot;</span><span class="nt">&gt;</span>/operationName<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;contentType&quot;</span><span class="nt">&gt;</span>application/json<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;responseType&quot;</span><span class="nt">&gt;</span>application/json<span class="nt">&lt;/parameter&gt;</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="nt">&lt;/operation&gt;</span>
 </code></pre></div>
 <h3 id="json-payload-design">JSON Payload Design<a class="headerlink" href="#json-payload-design" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nt">&quot;operationName&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">        </span><span class="nt">&quot;arg0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">            </span><span class="nt">&quot;parameter1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">            </span><span class="nt">&quot;parameter2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">}]</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="nt">&quot;operationName&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">        </span><span class="nt">&quot;arg0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">            </span><span class="nt">&quot;parameter1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">            </span><span class="nt">&quot;parameter2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="p">}]</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
@@ -3297,8 +3303,8 @@
 </ol>
 <h3 id="debug-verification">Debug Verification<a class="headerlink" href="#debug-verification" title="Permanent link">&para;</a></h3>
 <p>Check engine logs for message receiver selection:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>🏭 REQUEST PROCESSOR FACTORY: Creating JSON HTTP/2 processor for thread-safe processing
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>🚀 JSON Message Receiver: Processing HTTP/2 JSON request for operation &#39;startRecording&#39;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>🏭 REQUEST PROCESSOR FACTORY: Creating JSON HTTP/2 processor for thread-safe processing
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>🚀 JSON Message Receiver: Processing HTTP/2 JSON request for operation &#39;startRecording&#39;
 </code></pre></div></p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <p>The services.xml messageReceiver configuration provides fine-grained control over how individual operations process requests. By configuring <code>axis2_json_rpc_msg_recv</code> for operations, services get:</p>
